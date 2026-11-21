@@ -1148,6 +1148,7 @@ ov_fleetbutton_show: 显示
 ov_free: 空闲
 ov_have_new_message: 你有一条新消息
 ov_have_new_messages: 你有 %d 条新消息
+ov_queues: 队列
 ov_max_developed_fields: 空地总数
 ov_moon: 月球
 ov_newname_done: 星球已改名！
@@ -1488,6 +1489,9 @@ fl_cargo_needed: 所需
 fl_cargo_select: 选择
 fl_cargo_current_planet: 当前星球
 ui_skip_to_content: 跳到正文
+ui_watch: 关注
+ui_unwatch: 取消关注
+ui_message_tools: 搜索、筛选和操作
 ui_menu: 菜单
 ui_rank: 排名
 ui_queue: 队列
@@ -1659,3 +1663,37 @@ op_unsaved_one: "1 项未保存的更改"
 op_unsaved_many: "%d 项未保存的更改"
 pl_note: "笔记"
 pl_galaxy_view: "在星系中显示"
+shell_jump: 跳转到…
+shell_jump_tip: 跳转到页面、星球或坐标
+shell_switch_planet: 切换星球
+shell_switch_to: 切换到 %s
+shell_moon_of: '%s 的月球'
+shell_fields: 空地
+shell_slots_tip: 已使用 %1 / %2 个星球位置
+shell_shortcuts: 快捷键
+shell_shortcuts_title: 键盘快捷键
+shell_attack_title: 敌方舰队正在接近
+shell_attack_arrives: 抵达倒计时
+shell_attack_in: 攻击倒计时
+shell_attack_fleet: 舰队
+shell_attack_details: 详情
+shell_attack_hide: 隐藏警告
+shell_tagline: 在浏览器中游玩的开源太空策略游戏。
+shell_footer: 页脚
+shell_footer_game: 游戏
+shell_footer_community: 社区
+shell_footer_legal: 法律
+shell_imprint: 版本说明
+ui_palette_placeholder: 页面、星球、坐标（例如 1:42:8）…
+ui_palette_empty: 无匹配项
+ui_palette_pages: 页面
+ui_palette_planets: 星球
+ui_palette_go: 前往
+ui_palette_galaxy: 星系
+ui_shortcuts_title: 键盘快捷键
+ui_shortcuts_palette: 跳转到页面、星球或坐标
+ui_shortcuts_go_overview: 总览
+ui_shortcuts_go_buildings: 建筑
+ui_shortcuts_go_galaxy: 星系
+ui_shortcuts_planets: 上一个 / 下一个星球
+ui_shortcuts_help: 此帮助

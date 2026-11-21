@@ -1146,6 +1146,7 @@ ov_fleetbutton_show: Hiện
 ov_free: Trống
 ov_have_new_message: Bạn có một tin nhắn mới
 ov_have_new_messages: Bạn có %d tin nhắn mới
+ov_queues: Hàng chờ
 ov_max_developed_fields: Tổng số ô
 ov_moon: Mặt trăng
 ov_newname_done: Đã đổi tên hành tinh!
@@ -1486,6 +1487,9 @@ fl_cargo_needed: cần
 fl_cargo_select: chọn
 fl_cargo_current_planet: Hành tinh hiện tại
 ui_skip_to_content: Chuyển đến nội dung
+ui_watch: Theo dõi
+ui_unwatch: Bỏ theo dõi
+ui_message_tools: Tìm kiếm, bộ lọc và thao tác
 ui_menu: Menu
 ui_rank: Hạng
 ui_queue: Hàng chờ
@@ -1657,3 +1661,37 @@ op_unsaved_one: "1 thay đổi chưa lưu"
 op_unsaved_many: "%d thay đổi chưa lưu"
 pl_note: "Ghi chú"
 pl_galaxy_view: "Hiện trong thiên hà"
+shell_jump: Chuyển đến…
+shell_jump_tip: Chuyển đến trang, hành tinh hoặc tọa độ
+shell_switch_planet: Đổi hành tinh
+shell_switch_to: Chuyển sang %s
+shell_moon_of: Mặt trăng của %s
+shell_fields: ô
+shell_slots_tip: Đã dùng %1 trên %2 vị trí hành tinh
+shell_shortcuts: Phím tắt
+shell_shortcuts_title: Phím tắt bàn phím
+shell_attack_title: Hạm đội địch đang tiến đến
+shell_attack_arrives: đến sau
+shell_attack_in: Tấn công sau
+shell_attack_fleet: Hạm đội
+shell_attack_details: Chi tiết
+shell_attack_hide: Ẩn cảnh báo
+shell_tagline: Game chiến lược không gian mã nguồn mở ngay trên trình duyệt.
+shell_footer: Chân trang
+shell_footer_game: Trò chơi
+shell_footer_community: Cộng đồng
+shell_footer_legal: Pháp lý
+shell_imprint: Thông tin nhà phát hành
+ui_palette_placeholder: 'Trang, hành tinh, tọa độ (vd: 1:42:8)…'
+ui_palette_empty: Không có kết quả
+ui_palette_pages: Trang
+ui_palette_planets: Hành tinh
+ui_palette_go: Đi đến
+ui_palette_galaxy: Thiên hà
+ui_shortcuts_title: Phím tắt bàn phím
+ui_shortcuts_palette: Chuyển đến trang, hành tinh hoặc tọa độ
+ui_shortcuts_go_overview: Tổng quan
+ui_shortcuts_go_buildings: Công trình
+ui_shortcuts_go_galaxy: Thiên hà
+ui_shortcuts_planets: Hành tinh trước / sau
+ui_shortcuts_help: Trợ giúp này

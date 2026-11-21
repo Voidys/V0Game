@@ -1146,6 +1146,7 @@ ov_fleetbutton_show: Einblenden
 ov_free: Frei
 ov_have_new_message: Du hast eine neue Nachricht
 ov_have_new_messages: Du hast %d neue Nachrichten
+ov_queues: Aufträge an Deck
 ov_max_developed_fields: max. bebaubare Felder
 ov_moon: Insel
 ov_newname_done: Hafen erfolgreich umbenannt!
@@ -1482,6 +1483,9 @@ fl_cargo_needed: benötigt
 fl_cargo_select: wählen
 fl_cargo_current_planet: Aktueller Planet
 ui_skip_to_content: Zum Inhalt springen
+ui_watch: Beobachten
+ui_unwatch: Nicht mehr beobachten
+ui_message_tools: Suche, Filter und Aktionen, arr
 ui_menu: Menü
 ui_rank: Platz
 ui_queue: Bauliste
@@ -1653,3 +1657,37 @@ op_unsaved_one: "1 ungespeicherte Änderung"
 op_unsaved_many: "%d ungespeicherte Änderungen"
 pl_note: "Notiz"
 pl_galaxy_view: "In der Galaxie zeigen"
+shell_jump: Spring zu…
+shell_jump_tip: Zu Seite, Hafen oder Koordinaten springen
+shell_switch_planet: Hafen wechseln
+shell_switch_to: Wechseln zu %s
+shell_moon_of: Insel von %s
+shell_fields: Felder
+shell_slots_tip: '%1 von %2 Hafenplätzen belegt'
+shell_shortcuts: Kurzbefehle
+shell_shortcuts_title: Kurzbefehle fürs Deck
+shell_attack_title: Feindliche Flotte hält Kurs auf
+shell_attack_arrives: Ankunft in
+shell_attack_in: Angriff in
+shell_attack_fleet: Flotte
+shell_attack_details: Details
+shell_attack_hide: Warnung ausblenden
+shell_tagline: Open-Source-Weltraumstrategie im Browser, Landratte!
+shell_footer: Fußzeile
+shell_footer_game: Spiel
+shell_footer_community: Mannschaft
+shell_footer_legal: Rechtliches
+shell_imprint: Impressum
+ui_palette_placeholder: Seiten, Häfen, Koordinaten (z. B. 1:42:8)…
+ui_palette_empty: Nix gefunden
+ui_palette_pages: Seiten
+ui_palette_planets: Häfen
+ui_palette_go: Ab nach
+ui_palette_galaxy: Weltmeer
+ui_shortcuts_title: Kurzbefehle fürs Deck
+ui_shortcuts_palette: Zu Seite, Hafen oder Koordinaten springen
+ui_shortcuts_go_overview: Übersicht
+ui_shortcuts_go_buildings: Gebäude
+ui_shortcuts_go_galaxy: Weltmeer
+ui_shortcuts_planets: Voriger / nächster Hafen
+ui_shortcuts_help: Diese Hilfe

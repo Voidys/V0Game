@@ -1146,6 +1146,7 @@ ov_fleetbutton_show: Einblenden
 ov_free: arbeitslos
 ov_have_new_message: Du haschd ne neue Nachrichd etzala
 ov_have_new_messages: Du haschd %d neue Nachrichden hädix8
+ov_queues: Aufdräche
 ov_max_developed_fields: maggs alda bebaubare Felder
 ov_moon: Mond
 ov_newname_done: Blanet erfolgreich umbenannt!
@@ -1482,6 +1483,9 @@ fl_cargo_needed: benötigt
 fl_cargo_select: wählen
 fl_cargo_current_planet: Aktueller Planet
 ui_skip_to_content: Zum Inhalt springen
+ui_watch: Beobachdn
+ui_unwatch: Nimmer beobachdn
+ui_message_tools: Suche, Filder und Aggdsjonen
 ui_menu: Menü
 ui_rank: Platz
 ui_queue: Bauliste
@@ -1653,3 +1657,37 @@ op_unsaved_one: "1 ungeschbeicherde Änderung"
 op_unsaved_many: "%d ungeschbeicherde Änderungen"
 pl_note: "Nodiz"
 pl_galaxy_view: "In der Galaxie zeing"
+shell_jump: Hubf hie…
+shell_jump_tip: Zu ner Seidn, am Blanedn oder zu Koordinadn hubfn
+shell_switch_planet: Blanedn wechsln
+shell_switch_to: Wechsln zu %s
+shell_moon_of: Mond von %s
+shell_fields: Felder
+shell_slots_tip: '%1 von %2 Blanedn-Blätz belegd'
+shell_shortcuts: Tasdnkürzl
+shell_shortcuts_title: Tasdnkürzl
+shell_attack_title: Feindliche Flodde im Anflug auf
+shell_attack_arrives: kummd o in
+shell_attack_in: Angriff in
+shell_attack_fleet: Flodde
+shell_attack_details: Einzlheidn
+shell_attack_hide: Warnung ausblendn
+shell_tagline: Open-Source-Weldraumsdradeschie im Browser, ey.
+shell_footer: Fußzeile
+shell_footer_game: Schbiel
+shell_footer_community: Gemeinde
+shell_footer_legal: Rechdliches
+shell_imprint: Imbressum
+ui_palette_placeholder: Seidn, Blanedn, Koordinadn (z. B. 1:42:8)…
+ui_palette_empty: Nix gfundn
+ui_palette_pages: Seidn
+ui_palette_planets: Blanedn
+ui_palette_go: Gäh zu
+ui_palette_galaxy: Galaggsie
+ui_shortcuts_title: Tasdnkürzl
+ui_shortcuts_palette: Zu ner Seidn, am Blanedn oder zu Koordinadn hubfn
+ui_shortcuts_go_overview: Übersichd
+ui_shortcuts_go_buildings: Gebäudne
+ui_shortcuts_go_galaxy: Galaggsie
+ui_shortcuts_planets: Vorherichr / nächsdr Blanet
+ui_shortcuts_help: Die Hilfe hier

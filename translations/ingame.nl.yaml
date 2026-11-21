@@ -1146,6 +1146,7 @@ ov_fleetbutton_show: Tonen
 ov_free: Vrij
 ov_have_new_message: Je hebt een nieuw bericht
 ov_have_new_messages: Je hebt %d nieuwe berichten
+ov_queues: Wachtrijen
 ov_max_developed_fields: Totaal aantal velden
 ov_moon: Maan
 ov_newname_done: Planeet hernoemd!
@@ -1486,6 +1487,9 @@ fl_cargo_needed: nodig
 fl_cargo_select: kiezen
 fl_cargo_current_planet: Huidige planeet
 ui_skip_to_content: Naar de inhoud
+ui_watch: Volgen
+ui_unwatch: Niet meer volgen
+ui_message_tools: Zoeken, filters en acties
 ui_menu: Menu
 ui_rank: Rang
 ui_queue: Wachtrij
@@ -1657,3 +1661,37 @@ op_unsaved_one: "1 niet-opgeslagen wijziging"
 op_unsaved_many: "%d niet-opgeslagen wijzigingen"
 pl_note: "Notitie"
 pl_galaxy_view: "Tonen in het sterrenstelsel"
+shell_jump: Ga naar…
+shell_jump_tip: Ga naar een pagina, planeet of coördinaten
+shell_switch_planet: Planeet wisselen
+shell_switch_to: Wisselen naar %s
+shell_moon_of: Maan van %s
+shell_fields: velden
+shell_slots_tip: '%1 van %2 planeetplaatsen bezet'
+shell_shortcuts: Sneltoetsen
+shell_shortcuts_title: Sneltoetsen
+shell_attack_title: Vijandelijke vloot nadert
+shell_attack_arrives: komt aan over
+shell_attack_in: Aanval over
+shell_attack_fleet: Vloot
+shell_attack_details: Details
+shell_attack_hide: Waarschuwing verbergen
+shell_tagline: Open-source ruimtestrategie in je browser.
+shell_footer: Voettekst
+shell_footer_game: Spel
+shell_footer_community: Community
+shell_footer_legal: Juridisch
+shell_imprint: Colofon
+ui_palette_placeholder: Pagina's, planeten, coördinaten (bijv. 1:42:8)…
+ui_palette_empty: Geen resultaten
+ui_palette_pages: Pagina's
+ui_palette_planets: Planeten
+ui_palette_go: Ga naar
+ui_palette_galaxy: Melkweg
+ui_shortcuts_title: Sneltoetsen
+ui_shortcuts_palette: Ga naar een pagina, planeet of coördinaten
+ui_shortcuts_go_overview: Overzicht
+ui_shortcuts_go_buildings: Gebouwen
+ui_shortcuts_go_galaxy: Melkweg
+ui_shortcuts_planets: Vorige / volgende planeet
+ui_shortcuts_help: Deze hulp

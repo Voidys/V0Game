@@ -1146,6 +1146,7 @@ ov_fleetbutton_show: Mostrar
 ov_free: Livre
 ov_have_new_message: Possuis uma nova mensagem
 ov_have_new_messages: Possuis %d novas mensagens
+ov_queues: Filas
 ov_max_developed_fields: Total de campos
 ov_moon: Lua
 ov_newname_done: Planeta renomeado!
@@ -1486,6 +1487,9 @@ fl_cargo_needed: necessário
 fl_cargo_select: selecionar
 fl_cargo_current_planet: Planeta atual
 ui_skip_to_content: Saltar para o conteúdo
+ui_watch: Vigiar
+ui_unwatch: Deixar de vigiar
+ui_message_tools: Pesquisa, filtros e ações
 ui_menu: Menu
 ui_rank: Posição
 ui_queue: Fila
@@ -1657,3 +1661,37 @@ op_unsaved_one: "1 alteração não guardada"
 op_unsaved_many: "%d alterações não guardadas"
 pl_note: "Nota"
 pl_galaxy_view: "Mostrar na galáxia"
+shell_jump: Ir para…
+shell_jump_tip: Ir para uma página, planeta ou coordenadas
+shell_switch_planet: Mudar de planeta
+shell_switch_to: Mudar para %s
+shell_moon_of: Lua de %s
+shell_fields: campos
+shell_slots_tip: '%1 de %2 posições de planeta ocupadas'
+shell_shortcuts: Atalhos
+shell_shortcuts_title: Atalhos de teclado
+shell_attack_title: Frota hostil a aproximar-se de
+shell_attack_arrives: chega em
+shell_attack_in: Ataque em
+shell_attack_fleet: Frota
+shell_attack_details: Detalhes
+shell_attack_hide: Ocultar aviso
+shell_tagline: Estratégia espacial de código aberto no seu navegador.
+shell_footer: Rodapé
+shell_footer_game: Jogo
+shell_footer_community: Comunidade
+shell_footer_legal: Legal
+shell_imprint: Aviso legal
+ui_palette_placeholder: 'Páginas, planetas, coordenadas (ex.: 1:42:8)…'
+ui_palette_empty: Sem resultados
+ui_palette_pages: Páginas
+ui_palette_planets: Planetas
+ui_palette_go: Ir para
+ui_palette_galaxy: Galáxia
+ui_shortcuts_title: Atalhos de teclado
+ui_shortcuts_palette: Ir para uma página, planeta ou coordenadas
+ui_shortcuts_go_overview: Vista Geral
+ui_shortcuts_go_buildings: Edifícios
+ui_shortcuts_go_galaxy: Galáxia
+ui_shortcuts_planets: Planeta anterior / seguinte
+ui_shortcuts_help: Esta ajuda

@@ -1150,6 +1150,7 @@ ov_fleetbutton_show: Показати
 ov_free: Вільно
 ov_have_new_message: У тебе нове повідомлення
 ov_have_new_messages: 'У тебе нових повідомлень: %d'
+ov_queues: Черги
 ov_max_developed_fields: Усього полів
 ov_moon: Місяць
 ov_newname_done: Планету перейменовано!
@@ -1490,6 +1491,9 @@ fl_cargo_needed: потрібно
 fl_cargo_select: вибрати
 fl_cargo_current_planet: Поточна планета
 ui_skip_to_content: Перейти до вмісту
+ui_watch: Стежити
+ui_unwatch: Не стежити
+ui_message_tools: Пошук, фільтри та дії
 ui_menu: Меню
 ui_rank: Місце
 ui_queue: Черга
@@ -1661,3 +1665,37 @@ op_unsaved_one: "1 незбережена зміна"
 op_unsaved_many: "Незбережених змін: %d"
 pl_note: "Нотатка"
 pl_galaxy_view: "Показати в галактиці"
+shell_jump: Перейти до…
+shell_jump_tip: Перейти до сторінки, планети або координат
+shell_switch_planet: Змінити планету
+shell_switch_to: Перемкнутися на %s
+shell_moon_of: Місяць планети %s
+shell_fields: полів
+shell_slots_tip: 'Зайнято слотів планет: %1 з %2'
+shell_shortcuts: Гарячі клавіші
+shell_shortcuts_title: Гарячі клавіші
+shell_attack_title: Ворожий флот наближається до
+shell_attack_arrives: прибуває через
+shell_attack_in: Атака через
+shell_attack_fleet: Флот
+shell_attack_details: Деталі
+shell_attack_hide: Сховати попередження
+shell_tagline: Космічна стратегія з відкритим кодом у вашому браузері.
+shell_footer: Нижній колонтитул
+shell_footer_game: Гра
+shell_footer_community: Спільнота
+shell_footer_legal: Правова інформація
+shell_imprint: Вихідні дані
+ui_palette_placeholder: Сторінки, планети, координати (напр. 1:42:8)…
+ui_palette_empty: Нічого не знайдено
+ui_palette_pages: Сторінки
+ui_palette_planets: Планети
+ui_palette_go: Перейти
+ui_palette_galaxy: Галактика
+ui_shortcuts_title: Гарячі клавіші
+ui_shortcuts_palette: Перейти до сторінки, планети або координат
+ui_shortcuts_go_overview: Огляд
+ui_shortcuts_go_buildings: Споруди
+ui_shortcuts_go_galaxy: Галактика
+ui_shortcuts_planets: Попередня / наступна планета
+ui_shortcuts_help: Ця довідка

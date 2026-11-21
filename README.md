@@ -361,10 +361,14 @@ ddev exec vendor/bin/php-cs-fixer fix                                       # co
   New findings fail the run; fix them rather than extending the baseline.
 - Errors land in `var/log/`. After changing translations or game data, clear `var/game/`.
 - Template and escaping rules are in [docs/templates.md](docs/templates.md).
+- Page layout rules (spacing scale, page head, panels, tables, forms, phones and touch) are in
+  [docs/ui-layout.md](docs/ui-layout.md); themes and how to make a new one in [docs/themes.md](docs/themes.md).
 - Typed game data (element catalog, player/planet snapshots) — new code reads through it: [docs/game-data-model.md](docs/game-data-model.md).
 - **CI** ([`ci.yml`](.github/workflows/ci.yml)) runs on every push to `main` and on every pull request:
   - composer validate;
   - PHP syntax, Twig, YAML and container lint;
+  - a docblock on every complex function and no method over 80 lines (`tools/ci/docblock-check.php`,
+    `tools/ci/long-methods-check.php`);
   - the PHPUnit suite against a MySQL 8.4 service container (`db_test`);
   - the Rust battle engine: `cargo test`, a rebuild of `bin/libbattlerust.so` (must equal the committed sha256) and the battle parity tests against the fresh library;
   - `bash -n` and shellcheck for the install scripts.
@@ -395,7 +399,7 @@ The game uses the first engine that is available:
 | Backend | PHP 8.4, Symfony 8.1 (routing, Security login, sessions, DI container, console), the game logic in `src/Game/` |
 | Templates | Twig with autoescaping (`templates/{login,game,account,admin,install}`) |
 | Frontend | Plain CSS in cascade layers and native ES modules (`public/styles/`, `public/scripts/`), no jQuery, no CSS framework |
-| Themes | Seven skins in `public/styles/theme/`; they only set colours and artwork, the layout is shared |
+| Themes | Seven skins in `public/styles/theme/`; each sets a small contract of colours, fonts and images (`theme-contract.css`), the layout is shared ([docs/themes.md](docs/themes.md)) |
 | Database | MySQL 8.4 or MariaDB 10.11; schema in `install/install.sql`, changes as migrations in `install/migrations/` |
 | Charts | Reduced Chart.js 4 build (`public/scripts/lib/chart.js`, rebuild with `sh tools/chartjs/build.sh`) |
 | Translations | `translations/<domain>.<locale>.yaml`, 16 complete locales (14 languages and two fun variants) |

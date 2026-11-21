@@ -1146,6 +1146,7 @@ ov_fleetbutton_show: Afficher
 ov_free: Libre
 ov_have_new_message: Tu as un nouveau message
 ov_have_new_messages: Tu as %d nouveaux messages
+ov_queues: File d'attente
 ov_max_developed_fields: Cases au total
 ov_moon: Lune
 ov_newname_done: Planète renommée !
@@ -1486,6 +1487,9 @@ fl_cargo_needed: nécessaire
 fl_cargo_select: sélectionner
 fl_cargo_current_planet: Planète actuelle
 ui_skip_to_content: Aller au contenu
+ui_watch: Surveiller
+ui_unwatch: Ne plus surveiller
+ui_message_tools: Recherche, filtres et actions
 ui_menu: Menu
 ui_rank: Rang
 ui_queue: File d'attente
@@ -1657,3 +1661,37 @@ op_unsaved_one: "1 modification non enregistrée"
 op_unsaved_many: "%d modifications non enregistrées"
 pl_note: "Note"
 pl_galaxy_view: "Voir dans la galaxie"
+shell_jump: Aller à…
+shell_jump_tip: Aller à une page, une planète ou des coordonnées
+shell_switch_planet: Changer de planète
+shell_switch_to: Passer à %s
+shell_moon_of: Lune de %s
+shell_fields: cases
+shell_slots_tip: '%1 emplacements de planète sur %2 occupés'
+shell_shortcuts: Raccourcis
+shell_shortcuts_title: Raccourcis clavier
+shell_attack_title: Flotte hostile en approche de
+shell_attack_arrives: arrive dans
+shell_attack_in: Attaque dans
+shell_attack_fleet: Flotte
+shell_attack_details: Détails
+shell_attack_hide: Masquer l'alerte
+shell_tagline: Stratégie spatiale open source dans votre navigateur.
+shell_footer: Pied de page
+shell_footer_game: Jeu
+shell_footer_community: Communauté
+shell_footer_legal: Mentions légales
+shell_imprint: Mentions légales
+ui_palette_placeholder: Pages, planètes, coordonnées (p. ex. 1:42:8)…
+ui_palette_empty: Aucun résultat
+ui_palette_pages: Pages
+ui_palette_planets: Planètes
+ui_palette_go: Aller à
+ui_palette_galaxy: Galaxie
+ui_shortcuts_title: Raccourcis clavier
+ui_shortcuts_palette: Aller à une page, une planète ou des coordonnées
+ui_shortcuts_go_overview: Vue Générale
+ui_shortcuts_go_buildings: Bâtiments
+ui_shortcuts_go_galaxy: Galaxie
+ui_shortcuts_planets: Planète précédente / suivante
+ui_shortcuts_help: Cette aide

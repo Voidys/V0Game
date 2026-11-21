@@ -1146,6 +1146,7 @@ ov_fleetbutton_show: Показать
 ov_free: Свободно
 ov_have_new_message: 'Новых сообщений: 1'
 ov_have_new_messages: 'Новых сообщений: %d'
+ov_queues: Очереди
 ov_max_developed_fields: Всего полей
 ov_moon: Луна
 ov_newname_done: Планета переименована!
@@ -1482,6 +1483,9 @@ fl_cargo_needed: нужно
 fl_cargo_select: выбрать
 fl_cargo_current_planet: Текущая планета
 ui_skip_to_content: Перейти к содержимому
+ui_watch: Следить
+ui_unwatch: Не следить
+ui_message_tools: Поиск, фильтры и действия
 ui_menu: Меню
 ui_rank: Место
 ui_queue: Очередь
@@ -1653,3 +1657,37 @@ op_unsaved_one: "1 несохранённое изменение"
 op_unsaved_many: "Несохранённых изменений: %d"
 pl_note: "Заметка"
 pl_galaxy_view: "Показать в галактике"
+shell_jump: Перейти к…
+shell_jump_tip: Перейти к странице, планете или координатам
+shell_switch_planet: Сменить планету
+shell_switch_to: Переключиться на %s
+shell_moon_of: Луна планеты %s
+shell_fields: полей
+shell_slots_tip: 'Занято слотов планет: %1 из %2'
+shell_shortcuts: Горячие клавиши
+shell_shortcuts_title: Горячие клавиши
+shell_attack_title: Вражеский флот приближается к
+shell_attack_arrives: прибывает через
+shell_attack_in: Атака через
+shell_attack_fleet: Флот
+shell_attack_details: Подробности
+shell_attack_hide: Скрыть предупреждение
+shell_tagline: Космическая стратегия с открытым кодом в вашем браузере.
+shell_footer: Нижний колонтитул
+shell_footer_game: Игра
+shell_footer_community: Сообщество
+shell_footer_legal: Правовая информация
+shell_imprint: Выходные данные
+ui_palette_placeholder: Страницы, планеты, координаты (напр. 1:42:8)…
+ui_palette_empty: Ничего не найдено
+ui_palette_pages: Страницы
+ui_palette_planets: Планеты
+ui_palette_go: Перейти
+ui_palette_galaxy: Галактика
+ui_shortcuts_title: Горячие клавиши
+ui_shortcuts_palette: Перейти к странице, планете или координатам
+ui_shortcuts_go_overview: Обзор
+ui_shortcuts_go_buildings: Постройки
+ui_shortcuts_go_galaxy: Галактика
+ui_shortcuts_planets: Предыдущая / следующая планета
+ui_shortcuts_help: Эта справка

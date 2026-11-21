@@ -1146,6 +1146,7 @@ ov_fleetbutton_show: Pokaż
 ov_free: Wolne
 ov_have_new_message: Masz nową wiadomość
 ov_have_new_messages: Masz %d nowych wiadomości
+ov_queues: Kolejki
 ov_max_developed_fields: Pola ogółem
 ov_moon: Księżyc
 ov_newname_done: Zmieniono nazwę planety!
@@ -1482,6 +1483,9 @@ fl_cargo_needed: potrzeba
 fl_cargo_select: wybierz
 fl_cargo_current_planet: Aktualna planeta
 ui_skip_to_content: Przejdź do treści
+ui_watch: Obserwuj
+ui_unwatch: Przestań obserwować
+ui_message_tools: Wyszukiwanie, filtry i akcje
 ui_menu: Menu
 ui_rank: Ranga
 ui_queue: Kolejka
@@ -1653,3 +1657,37 @@ op_unsaved_one: "1 niezapisana zmiana"
 op_unsaved_many: "Niezapisane zmiany: %d"
 pl_note: "Notatka"
 pl_galaxy_view: "Pokaż w galaktyce"
+shell_jump: Przejdź do…
+shell_jump_tip: Przejdź do strony, planety lub współrzędnych
+shell_switch_planet: Zmień planetę
+shell_switch_to: Przełącz na %s
+shell_moon_of: Księżyc planety %s
+shell_fields: pól
+shell_slots_tip: 'Zajęte miejsca na planety: %1 z %2'
+shell_shortcuts: Skróty
+shell_shortcuts_title: Skróty klawiszowe
+shell_attack_title: Wroga flota zbliża się do
+shell_attack_arrives: przybywa za
+shell_attack_in: Atak za
+shell_attack_fleet: Flota
+shell_attack_details: Szczegóły
+shell_attack_hide: Ukryj ostrzeżenie
+shell_tagline: Kosmiczna gra strategiczna open source w przeglądarce.
+shell_footer: Stopka
+shell_footer_game: Gra
+shell_footer_community: Społeczność
+shell_footer_legal: Informacje prawne
+shell_imprint: Nota prawna
+ui_palette_placeholder: Strony, planety, współrzędne (np. 1:42:8)…
+ui_palette_empty: Brak wyników
+ui_palette_pages: Strony
+ui_palette_planets: Planety
+ui_palette_go: Przejdź do
+ui_palette_galaxy: Galaktyka
+ui_shortcuts_title: Skróty klawiszowe
+ui_shortcuts_palette: Przejdź do strony, planety lub współrzędnych
+ui_shortcuts_go_overview: Przegląd
+ui_shortcuts_go_buildings: Budynki
+ui_shortcuts_go_galaxy: Galaktyka
+ui_shortcuts_planets: Poprzednia / następna planeta
+ui_shortcuts_help: Ta pomoc

@@ -1152,6 +1152,7 @@ ov_fleetbutton_show: แสดง
 ov_free: ว่าง
 ov_have_new_message: คุณมีข้อความใหม่
 ov_have_new_messages: คุณมีข้อความใหม่ %d ข้อความ
+ov_queues: คิว
 ov_max_developed_fields: ช่องทั้งหมด
 ov_moon: ดวงจันทร์
 ov_newname_done: เปลี่ยนชื่อดาวเคราะห์แล้ว!
@@ -1492,6 +1493,9 @@ fl_cargo_needed: ที่ต้องใช้
 fl_cargo_select: เลือก
 fl_cargo_current_planet: ดาวเคราะห์ปัจจุบัน
 ui_skip_to_content: ข้ามไปที่เนื้อหา
+ui_watch: ติดตาม
+ui_unwatch: เลิกติดตาม
+ui_message_tools: ค้นหา ตัวกรอง และการดำเนินการ
 ui_menu: เมนู
 ui_rank: อันดับ
 ui_queue: คิว
@@ -1663,3 +1667,37 @@ op_unsaved_one: "มี 1 การเปลี่ยนแปลงที่ย
 op_unsaved_many: "มี %d การเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
 pl_note: "บันทึกย่อ"
 pl_galaxy_view: "แสดงในกาแล็กซี"
+shell_jump: ไปที่…
+shell_jump_tip: ไปยังหน้า ดาวเคราะห์ หรือพิกัด
+shell_switch_planet: สลับดาวเคราะห์
+shell_switch_to: สลับไปที่ %s
+shell_moon_of: ดวงจันทร์ของ %s
+shell_fields: ช่อง
+shell_slots_tip: ใช้ช่องดาวเคราะห์แล้ว %1 จาก %2
+shell_shortcuts: ปุ่มลัด
+shell_shortcuts_title: ปุ่มลัดคีย์บอร์ด
+shell_attack_title: กองเรือศัตรูกำลังเข้าใกล้
+shell_attack_arrives: จะถึงใน
+shell_attack_in: โจมตีใน
+shell_attack_fleet: กองเรือ
+shell_attack_details: รายละเอียด
+shell_attack_hide: ซ่อนคำเตือน
+shell_tagline: เกมวางแผนอวกาศโอเพนซอร์สบนเบราว์เซอร์ของคุณ
+shell_footer: ส่วนท้าย
+shell_footer_game: เกม
+shell_footer_community: ชุมชน
+shell_footer_legal: กฎหมาย
+shell_imprint: ข้อมูลผู้ให้บริการ
+ui_palette_placeholder: หน้า ดาวเคราะห์ พิกัด (เช่น 1:42:8)…
+ui_palette_empty: ไม่พบผลลัพธ์
+ui_palette_pages: หน้า
+ui_palette_planets: ดาวเคราะห์
+ui_palette_go: ไปที่
+ui_palette_galaxy: กาแล็กซี
+ui_shortcuts_title: ปุ่มลัดคีย์บอร์ด
+ui_shortcuts_palette: ไปยังหน้า ดาวเคราะห์ หรือพิกัด
+ui_shortcuts_go_overview: ภาพรวม
+ui_shortcuts_go_buildings: อาคาร
+ui_shortcuts_go_galaxy: กาแล็กซี
+ui_shortcuts_planets: ดาวเคราะห์ก่อนหน้า / ถัดไป
+ui_shortcuts_help: วิธีใช้นี้

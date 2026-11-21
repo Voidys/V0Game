@@ -1152,6 +1152,7 @@ ov_fleetbutton_show: Göster
 ov_free: Boş
 ov_have_new_message: Yeni bir mesajın var
 ov_have_new_messages: '%d yeni mesajın var'
+ov_queues: Kuyruklar
 ov_max_developed_fields: Toplam alan
 ov_moon: Ay
 ov_newname_done: Gezegenin adı değişti!
@@ -1492,6 +1493,9 @@ fl_cargo_needed: gerekli
 fl_cargo_select: seçme
 fl_cargo_current_planet: Mevcut gezegen
 ui_skip_to_content: İçeriğe geç
+ui_watch: İzle
+ui_unwatch: İzlemeyi bırak
+ui_message_tools: Arama, filtreler ve işlemler
 ui_menu: Menü
 ui_rank: Sıra
 ui_queue: Kuyruk
@@ -1663,3 +1667,37 @@ op_unsaved_one: "1 kaydedilmemiş değişiklik"
 op_unsaved_many: "%d kaydedilmemiş değişiklik"
 pl_note: "Not"
 pl_galaxy_view: "Galakside göster"
+shell_jump: Git…
+shell_jump_tip: Bir sayfaya, gezegene veya koordinata git
+shell_switch_planet: Gezegen değiştir
+shell_switch_to: '%s gezegenine geç'
+shell_moon_of: '%s Ayı'
+shell_fields: alan
+shell_slots_tip: '%1 / %2 gezegen yuvası dolu'
+shell_shortcuts: Kısayollar
+shell_shortcuts_title: Klavye kısayolları
+shell_attack_title: 'Düşman filosu yaklaşıyor:'
+shell_attack_arrives: varışa kalan
+shell_attack_in: Saldırıya kalan
+shell_attack_fleet: Filo
+shell_attack_details: Ayrıntılar
+shell_attack_hide: Uyarıyı gizle
+shell_tagline: Tarayıcınızda açık kaynaklı uzay stratejisi.
+shell_footer: Alt bilgi
+shell_footer_game: Oyun
+shell_footer_community: Topluluk
+shell_footer_legal: Hukuki
+shell_imprint: Künye
+ui_palette_placeholder: Sayfalar, gezegenler, koordinatlar (örn. 1:42:8)…
+ui_palette_empty: Eşleşme yok
+ui_palette_pages: Sayfalar
+ui_palette_planets: Gezegenler
+ui_palette_go: Git
+ui_palette_galaxy: Galaksi
+ui_shortcuts_title: Klavye kısayolları
+ui_shortcuts_palette: Bir sayfaya, gezegene veya koordinata git
+ui_shortcuts_go_overview: Genel Bakış
+ui_shortcuts_go_buildings: Binalar
+ui_shortcuts_go_galaxy: Galaksi
+ui_shortcuts_planets: Önceki / sonraki gezegen
+ui_shortcuts_help: Bu yardım

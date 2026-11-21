@@ -1146,6 +1146,7 @@ ov_fleetbutton_show: Ipakita
 ov_free: Libre
 ov_have_new_message: May bago kang mensahe
 ov_have_new_messages: May %d bago kang mensahe
+ov_queues: Mga Pila
 ov_max_developed_fields: Kabuuang mga field
 ov_moon: Buwan
 ov_newname_done: Napalitan ang pangalan ng planeta!
@@ -1482,6 +1483,9 @@ fl_cargo_needed: kailangan
 fl_cargo_select: piliin
 fl_cargo_current_planet: Kasalukuyang planeta
 ui_skip_to_content: Lumaktaw sa nilalaman
+ui_watch: Bantayan
+ui_unwatch: Itigil ang pagbabantay
+ui_message_tools: Paghahanap, mga filter at aksyon
 ui_menu: Menu
 ui_rank: Rank
 ui_queue: Queue
@@ -1653,3 +1657,37 @@ op_unsaved_one: "1 hindi pa na-save na pagbabago"
 op_unsaved_many: "%d hindi pa na-save na pagbabago"
 pl_note: "Tala"
 pl_galaxy_view: "Ipakita sa galaxy"
+shell_jump: Pumunta sa…
+shell_jump_tip: Pumunta sa isang pahina, planeta o coordinates
+shell_switch_planet: Magpalit ng planeta
+shell_switch_to: Lumipat sa %s
+shell_moon_of: Buwan ng %s
+shell_fields: mga field
+shell_slots_tip: '%1 sa %2 na planet slot ang gamit'
+shell_shortcuts: Mga shortcut
+shell_shortcuts_title: Mga keyboard shortcut
+shell_attack_title: Paparating ang kalabang fleet sa
+shell_attack_arrives: darating sa loob ng
+shell_attack_in: Atake sa loob ng
+shell_attack_fleet: Fleet
+shell_attack_details: Mga detalye
+shell_attack_hide: Itago ang babala
+shell_tagline: Open-source na space strategy sa iyong browser.
+shell_footer: Footer
+shell_footer_game: Laro
+shell_footer_community: Komunidad
+shell_footer_legal: Legal
+shell_imprint: Imprint
+ui_palette_placeholder: Mga pahina, planeta, coordinates (hal. 1:42:8)…
+ui_palette_empty: Walang tugma
+ui_palette_pages: Mga pahina
+ui_palette_planets: Mga planeta
+ui_palette_go: Pumunta sa
+ui_palette_galaxy: Galaxy
+ui_shortcuts_title: Mga keyboard shortcut
+ui_shortcuts_palette: Pumunta sa isang pahina, planeta o coordinates
+ui_shortcuts_go_overview: Overview
+ui_shortcuts_go_buildings: Mga Gusali
+ui_shortcuts_go_galaxy: Galaxy
+ui_shortcuts_planets: Nakaraan / susunod na planeta
+ui_shortcuts_help: Itong tulong
