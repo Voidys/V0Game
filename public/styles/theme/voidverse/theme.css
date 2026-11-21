@@ -1,0 +1,70 @@
+/*
+ * VoidVerse: the look of the VoidVerse game. Deep slate night (Tailwind slate 950/900/800), monospaced Share Tech
+ * Mono everywhere, cyan as the signal colour with sky links and indigo information, 3px corners, a faint
+ * cyan/violet nebula behind the page.
+ * Artwork: own planets and moons (planeten/), the rest from the "nebula" set (style.cfg).
+ * Font: Share Tech Mono (SIL Open Font License), fonts/. Tokens only; layout comes from css/app (docs/themes.md).
+ */
+@font-face {
+  font-family: "Share Tech Mono";
+  src: url("fonts/ShareTechMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer theme {
+  :root {
+    /* ground */
+    --theme-bg: #020617;
+    --theme-bg-2: #070d1d;
+    --theme-bg-size: cover;
+
+    /* surfaces */
+    --theme-panel: #0f172a;
+    --theme-raised: #1e293b;
+    --theme-hover: #273449;
+
+    /* lines */
+    --theme-line: #1c2638;
+    --theme-line-strong: #334155;
+    --theme-field-line: #64748b;
+
+    /* text */
+    --theme-text: #e2e8f0;
+    --theme-muted: #94a3b8;
+
+    /* accent and links */
+    --theme-accent: #22d3ee;
+    --theme-accent-ink: #042f38;
+    --theme-link: #7dd3fc;
+
+    /* signals */
+    --theme-pos: #4ade80;
+    --theme-neg: #fb7185;
+    --theme-warn: #fbbf24;
+    --theme-info: #a5b4fc;
+
+    /* type: the game's monospace for everything */
+    --theme-font-ui: "Share Tech Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    --theme-font-display: var(--theme-font-ui);
+    --theme-font-mono: var(--theme-font-ui);
+
+    /* shape */
+    --theme-radius: 3px;
+
+    /* shell */
+    --theme-topbar-bg: color-mix(in oklab, #020617 90%, transparent);
+    --theme-sidebar-bg: transparent;
+  }
+}
+
+/* decoration only: the faint nebula of the VoidVerse sky and a cyan edge on the brand */
+@layer theme-extras {
+  body {
+    background-image:
+      radial-gradient(55rem 35rem at 80% -12%, rgb(34 211 238 / 0.07), transparent 70%),
+      radial-gradient(45rem 30rem at -10% 110%, rgb(167 139 250 / 0.06), transparent 70%);
+  }
+  .wordmark b { color: var(--theme-accent); text-shadow: 0 0 0.6em rgb(34 211 238 / 0.45); }
+}

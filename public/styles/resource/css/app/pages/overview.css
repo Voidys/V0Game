@@ -138,4 +138,6 @@
   .prod-table select { inline-size: 5rem; }
   .prod-level { color: var(--c-muted); }
   .prod-info { display: grid; gap: var(--space-3); }
+  /* legacy content.css fixes the rules link to a hard blue; use the theme link colour */
+  .rules-link { color: var(--c-link); }
 }

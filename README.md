@@ -90,7 +90,7 @@ All of them, desktop and phone, are in [`public/styles/resource/images/login/scr
   - top bar with resources, side menu and a planet list, one strict layout for every page;
   - built for phones too: bottom tab bar in thumb reach, menus as bottom sheets, 44 px touch targets;
   - quick jump with Ctrl+K (pages, planets, coordinates), keyboard shortcuts, tooltips everywhere;
-  - seven themes that only set colours, fonts and images (a new theme is a short file, see `docs/themes.md`),
+  - eight themes (new: VoidVerse) that only set colours, fonts and images (a new theme is a short file, see `docs/themes.md`),
     popups as modals, clean web addresses (`/game/fleet` instead of `game.php?page=fleet`).
 - **Community:**
   - a built-in board with posts, votes and threaded comments;
@@ -399,7 +399,7 @@ The game uses the first engine that is available:
 | Backend | PHP 8.4, Symfony 8.1 (routing, Security login, sessions, DI container, console), the game logic in `src/Game/` |
 | Templates | Twig with autoescaping (`templates/{login,game,account,admin,install}`) |
 | Frontend | Plain CSS in cascade layers and native ES modules (`public/styles/`, `public/scripts/`), no jQuery, no CSS framework |
-| Themes | Seven skins in `public/styles/theme/`; each sets a small contract of colours, fonts and images (`theme-contract.css`), the layout is shared ([docs/themes.md](docs/themes.md)) |
+| Themes | Eight skins in `public/styles/theme/`; each sets a small contract of colours, fonts and images (`theme-contract.css`), the layout is shared ([docs/themes.md](docs/themes.md)) |
 | Database | MySQL 8.4 or MariaDB 10.11; schema in `install/install.sql`, changes as migrations in `install/migrations/` |
 | Charts | Reduced Chart.js 4 build (`public/scripts/lib/chart.js`, rebuild with `sh tools/chartjs/build.sh`) |
 | Translations | `translations/<domain>.<locale>.yaml`, 16 complete locales (14 languages and two fun variants) |

@@ -95,7 +95,8 @@
   .mail__from { color: var(--c-muted); font-size: var(--fs-sm); }
   .mail__subject { font-weight: 500; font-size: var(--fs-md); }
   .mail.is-unread .mail__subject { font-weight: 700; }
-  .mail__type { color: var(--cat); font: 600 var(--fs-xs) / 1.4 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; }
+  /* category colour mixed toward the text colour: recognisable, and readable on every theme (≥ 4.5:1) */
+  .mail__type { color: color-mix(in oklab, var(--cat) 45%, var(--c-text)); font: 600 var(--fs-xs) / 1.4 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; }
   .mail__fw { color: var(--c-info); }
   .mail__meta { flex-basis: 100%; color: var(--c-muted); font-size: var(--fs-xs); }
   .mail__new { inline-size: 0.5rem; block-size: 0.5rem; border-radius: 50%; background: var(--c-accent); align-self: center; }

@@ -857,3 +857,29 @@ kbd {
   .shell { display: block; }
 }
 
+
+/* filled signal buttons: the head's unlayered .colorPositive (text colour) must not paint the label in the same
+   colour as the accent background (base.css fills button.colorPositive with the accent) */
+:is(button, input[type="submit"], input[type="button"], a.btn, .btn).colorPositive { color: var(--c-accent-ink); }
+
+/* inactive states stay readable: they are dimmed with the theme's muted text colour (≥ 4.5:1 on every theme),
+   never with transparency, which pushed text below the contrast minimum (disabled buttons, locked tech, empty rows) */
+:is(button, input[type="submit"], input[type="button"], a.btn, .btn):is(:disabled, [aria-disabled="true"]) {
+  opacity: 1;
+  color: var(--c-muted);
+  background: var(--c-panel);
+  border-color: var(--c-border-strong);
+  box-shadow: none;
+  filter: none;
+}
+.card__foot .build_submit--locked,
+.tt-locked .tt-node > :not(.tt-info),
+.prod-zero,
+.is-gone > *,
+.flyingFleets .fl-res__item.is-zero,
+.mail-cat.is-empty:not(.is-active),
+.msg-cats > .is-empty { opacity: 1; color: var(--c-muted); }
+.tt-locked .tt-node .tt-name { color: var(--c-muted); }
+input.fleet-amount::placeholder { opacity: 1; }
+.card__watch, .tt-info { opacity: 1; color: var(--c-muted); }
+.card__watch:hover, .tt-info:is(:hover, :focus-visible) { color: var(--c-text); }
