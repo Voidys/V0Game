@@ -13,58 +13,40 @@
 
 ---
 
-## 2. Progress: Completed (8 / 25 Lean Set)
+## 2. Progress: Completed (18 / 25 Lean Set)
 Placed in `public/styles/theme/v0game/planeten/` (raw `.jpg`, ready for `convert-theme-images.sh`):
 - `dschjungelplanet01.jpg` — Terran/jungle continents, slate-teal oceans, night-side amber city lights, thin mint rim, minimal starfield.
 - `dschjungelplanet02.jpg` — Emerald-jade rainforest supercontinent, river basins, cloud bands, moderate dark-teal nebula wisps.
 - `dschjungelplanet03.jpg` — Olive/moss volcanic island chains, twin tropical cyclones, minimal starfield.
 - `eisplanet01.jpg` — Europa-style pale-ivory/icy-cyan crust with dark rust-slate tectonic lineae, minimal starfield.
 - `eisplanet02.jpg` — Fractured glacial ice sheets, tectonic crevasses, frozen craters, cool ice-blue rim.
+- `eisplanet03.jpg` — Alpine snow continents, glacial fjords, frozen navy seas, faint night-side polar aurora, moody slate/indigo nebula wisps.
 - `wuestenplanet01.jpg` — Amber-ochre canyons, dark basalt plateaus, dust storms, sharp terminator crater relief.
+- `wuestenplanet02.jpg` — Pale golden-sandstone ergs, salt flats, dark mesas, dusty-amber limb haze, minimal starfield.
+- `wuestenplanet03.jpg` — Rust-terracotta badlands, giant impact basins, dried riverbeds, muted ochre dust plumes, subtle warm-slate cosmic dust.
+- `gasplanet01.jpg` — Deep teal, midnight-navy, and pale-cyan banded storm belts with pale anticyclonic vortex, minimal starfield.
+- `gasplanet02.jpg` — Muted-ochre, taupe, and charcoal bands with turbulent eddies and two distant moons, moderate slate/emerald wisps.
 - `gasplanet03.jpg` — Banded slate-emerald & pale-champagne gas giant with wide icy rings and shepherd moon, minimal starfield.
+- `wasserplanet01.jpg` — Deep-sapphire/slate-teal global ocean, polar ice caps, swirling clouds, specular terminator glint, minimal starfield.
+- `wasserplanet02.jpg` — Shallow turquoise coral-shelf seas, dark volcanic atolls, wispy clouds, restrained deep-teal nebula wisps.
 - `wasserplanet06.jpg` — Deep abyssal-blue/teal archipelago world with emerald-cyan bioluminescent coastlines, moderate dark-emerald/indigo nebula.
+- `trockenplanet01.jpg` — Dark basalt/obsidian crust with thin glowing amber-orange night-side tectonic rifts, cratered highlands, minimal starfield.
+- `trockenplanet03.jpg` — Cracked rust-umber and dark-shale plateau world with deep rift valleys, sharp terminator relief, subtle dark-slate dust.
+- `normaltempplanet01.jpg` — Sage-green/slate-brown continents, deep navy oceans, polar caps, wispy clouds, amber night-side lights, minimal starfield.
 
 ---
 
-## 3. Remaining to Generate (17 / 25 Lean Set)
-*(Paused due to `gemini-3.1-flash-image` 429 quota exhaustion; resets `2026-11-19T20:31:12Z`.)*
+## 3. Remaining to Generate (7 / 25 Lean Set)
+*(Paused due to `gemini-3.1-flash-image` 429 quota exhaustion; resets `2026-11-21T14:45:48Z`.)*
 
 Use this shared base prefix for all prompts below:
 > **Base prefix:** `Generate a 1:1 square sci-fi planet artwork for V0Game ("night-time command console" aesthetic: calm, crisp, minimal-to-moderate nebula, NO loud/extravagant multi-color nebula, NO lens flares, NO text, NO UI borders). Composition: Centered spherical planet (~68% of frame) with generous dark space margin around all edges.`
 
-### Ice (1 remaining)
-- **`eisplanet03`**
-  > `[Base prefix] Subject: Ice Planet variant 3 (eisplanet03). Rugged snow-covered alpine continents, frozen dark-navy seas, glacial fjords, and a faint pale-mint/cyan polar aurora glow on the night side, crisp day/night terminator. Background: Moderate, moody deep-slate and dark-indigo nebula wisps fading to near-black (#070b09) corners with sparse stars.`
-
-### Desert (2 remaining)
-- **`wuestenplanet02`**
-  > `[Base prefix] Subject: Desert Planet variant 2 (wuestenplanet02). Pale golden-sandstone ergs, vast white-tan salt flats, dark wind-scoured mesas, and a thin dusty-amber atmospheric haze along the lit limb, crisp day/night terminator. Background: Minimal, quiet near-black (#070b09) deep space with sparse pinprick stars.`
-- **`wuestenplanet03`**
-  > `[Base prefix] Subject: Desert Planet variant 3 (wuestenplanet03). Rust-terracotta badlands, giant impact basins, dried riverbeds, and sweeping dust plumes in muted ochre and umber, crisp day/night terminator. Background: Subtle, restrained warm-slate and dark-umber cosmic dust fading into near-black (#070b09) space.`
-
-### Gas Giants (2 remaining)
-- **`gasplanet01`**
-  > `[Base prefix] Subject: Gas Giant variant 1 (gasplanet01). Deep teal, midnight-navy, and pale-cyan banded storm belts with a single large pale anticyclonic vortex, subtle thin icy-blue rim light, crisp day/night terminator. Background: Minimal, quiet near-black (#070b09) deep space with sparse pinprick stars.`
-- **`gasplanet02`**
-  > `[Base prefix] Subject: Gas Giant variant 2 (gasplanet02). Warm muted-ochre, taupe, and charcoal atmospheric bands with subtle turbulent eddies and two tiny distant moons, crisp day/night terminator. Background: Moderate, restrained dark-slate and faint emerald-tinted nebula wisps fading to near-black (#070b09) corners.`
-
-### Water / Ocean (2 remaining)
-- **`wasserplanet01`**
-  > `[Base prefix] Subject: Water Planet variant 1 (wasserplanet01). Vast unbroken deep-sapphire and slate-teal global ocean with swirling white cloud systems, polar ice caps, and crisp specular sunlight glint near the terminator. Background: Minimal, quiet near-black (#070b09) deep space with sparse pinprick stars.`
-- **`wasserplanet02`**
-  > `[Base prefix] Subject: Water Planet variant 2 (wasserplanet02). Shallow turquoise coral-shelf seas, scattered dark volcanic atolls, delicate wispy cloud arcs, and a thin pale-cyan atmospheric rim. Background: Moderate, restrained deep-teal nebula wisps fading to near-black (#070b09) corners.`
-
-### Dry / Arid / Rocky (3 remaining)
-- **`trockenplanet01`** *(calm replacement for scrapped extravagant version)*
-  > `[Base prefix] Subject: Dry/Volcanic Planet variant 1 (trockenplanet01). Dark basalt and obsidian crust with thin, subtle glowing amber-orange tectonic rifts on the night side, cratered highlands, and a faint dusty-gold rim. Background: Minimal, quiet near-black (#070b09) deep space with sparse pinprick stars.`
+### Dry / Arid / Rocky (1 remaining)
 - **`trockenplanet02`**
   > `[Base prefix] Subject: Dry/Rocky Planet variant 2 (trockenplanet02). Mercury/Moon-like heavily cratered slate-grey and iron-brown silicate world with sharp ray craters and long terminator shadows. Background: Minimal, quiet near-black (#070b09) deep space with sparse pinprick stars.`
-- **`trockenplanet03`**
-  > `[Base prefix] Subject: Dry/Arid Planet variant 3 (trockenplanet03). Cracked rust-umber and dark-shale plateau world with deep rift valleys, sparse thin haze, and sharp crater relief along the terminator. Background: Subtle dark-slate cosmic dust fading to near-black (#070b09) space.`
 
-### Temperate (3 remaining)
-- **`normaltempplanet01`**
-  > `[Base prefix] Subject: Temperate Planet variant 1 (normaltempplanet01). Earth-like cool-climate continents in muted sage-green and slate-brown, deep navy oceans, polar ice caps, wispy clouds, and tiny amber city lights on the night side. Background: Minimal, quiet near-black (#070b09) deep space with sparse pinprick stars.`
+### Temperate (2 remaining)
 - **`normaltempplanet02`**
   > `[Base prefix] Subject: Temperate Planet variant 2 (normaltempplanet02). Autumnal/steppe continents in muted olive-gold and slate, deep teal seas, sweeping mid-latitude cloud fronts, thin pale-mint atmospheric rim. Background: Moderate, restrained dark-emerald/slate nebula wisps fading to near-black (#070b09) corners.`
 - **`normaltempplanet03`**
