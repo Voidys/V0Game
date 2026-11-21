@@ -33,8 +33,13 @@
       </label>
     </fieldset>
     <fieldset>
-      <legend>{{ LNG.ins_group_community }}</legend>
-      <label class="install-check install-field--wide"><input type="checkbox" name="board_enabled" value="1"{% if values.board_enabled %} checked{% endif %}> <span>{{ LNG.ins_board }}<small class="install-hint">{{ LNG.ins_board_info }}</small></span></label>
+      <legend>{{ LNG.ins_group_imprint }}</legend>
+      <p class="install-field--wide install-hint">{{ LNG.ins_imprint_info }}</p>
+      {% if values.privacy_region == 'eu' and not values.disclamer_mail %}
+        <div class="notice notice--info install-field--wide" role="note">{{ icon('info') }}<div>{{ LNG.ins_imprint_eu_hint }}</div></div>
+      {% endif %}
+      <label class="install-field install-field--wide">{{ LNG.ins_imprint_mail }}<input type="email" name="disclamer_mail" value="{{ values.disclamer_mail }}" maxlength="255"></label>
+      <label class="install-field install-field--wide">{{ LNG.ins_imprint_address }}<textarea name="disclamer_address" rows="3" maxlength="1000">{{ values.disclamer_address }}</textarea></label>
     </fieldset>
     <p class="install-hint">{{ LNG.ins_legal_note }}</p>
     <div class="install-actions"><button type="submit" class="btn--primary">{{ LNG.continue }}</button></div>

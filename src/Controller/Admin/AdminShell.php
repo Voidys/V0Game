@@ -39,6 +39,7 @@ final class AdminShell
                 ['configPlanets', '', 'adm_tab_planets', 'ShowMultiIPPage', 'admin_config_planets_show'],
                 ['module', '', 'mu_module', 'ShowModulePage', 'admin_module_show'],
             ]],
+            ['adm_nav_social', 'log-in', [['configSocial', '', 'adm_nav_social', 'ShowConfigSocialPage', 'admin_config_social_show']]],
             ['adm_nav_expeditions', 'compass', [
                 ['expeditionDeck', '', 'adm_tab_card_deck', 'ShowExpeditionDeckPage', 'admin_expedition_deck_show'],
                 ['expeditionShips', '', 'adm_tab_findable_ships', 'ShowExpeditionShipsPage', 'admin_expedition_ships_show'],

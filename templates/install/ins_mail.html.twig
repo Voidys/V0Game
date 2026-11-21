@@ -1,0 +1,47 @@
+{% extends 'install/ins_layout.html.twig' %}
+{% block heading %}{{ LNG.ins_step_mail }}{% endblock %}
+{% block panel %}
+  <p>{{ LNG.ins_mail_desc }}</p>
+  {% if error is defined and error %}
+    <div class="notice notice--danger" role="alert">{{ icon('circle-alert') }}<div>{{ error }}</div></div>
+  {% endif %}
+  {% if testOk is defined and testOk %}
+    <div class="notice notice--success" role="status">{{ icon('circle-check') }}<div>{{ testOk }}</div></div>
+  {% endif %}
+  <form class="install-form" action="./?mode=install&amp;step=8" method="post" autocomplete="off">
+    <input type="hidden" name="post" value="1">
+    <input type="hidden" name="bots" value="{{ bots|default(0) }}">
+    <fieldset>
+      <legend>{{ LNG.ins_step_mail }}</legend>
+      <label class="install-check install-field--wide"><input type="checkbox" name="active" value="1" data-mail-toggle{% if values.active %} checked{% endif %}> <span>{{ LNG.ins_mail_enable }}</span></label>
+      <label class="install-field">{{ LNG.ins_mail_method }}
+        <select name="method">
+          <option value="2"{% if values.method == 2 %} selected{% endif %}>{{ LNG.ins_mail_method_smtp }}</option>
+          <option value="0"{% if values.method == 0 %} selected{% endif %}>{{ LNG.ins_mail_method_php }}</option>
+        </select>
+      </label>
+      <label class="install-field">{{ LNG.ins_mail_from }}<input type="email" name="from" value="{{ values.from }}" maxlength="255" placeholder="noreply@example.com"></label>
+      <label class="install-field">{{ LNG.ins_mail_host }}<input type="text" name="host" value="{{ values.host }}" maxlength="255" placeholder="smtp.example.com"></label>
+      <label class="install-field">{{ LNG.ins_mail_port }}<input type="number" name="port" value="{{ values.port }}" min="1" max="65535"></label>
+      <label class="install-field">{{ LNG.ins_mail_enc }}
+        <select name="encryption">
+          <option value=""{% if values.encryption == '' %} selected{% endif %}>{{ LNG.ins_mail_enc_none }}</option>
+          <option value="ssl"{% if values.encryption == 'ssl' %} selected{% endif %}>SSL</option>
+          <option value="tls"{% if values.encryption == 'tls' %} selected{% endif %}>TLS</option>
+        </select>
+      </label>
+      <label class="install-field">{{ LNG.ins_mail_user }}<input type="text" name="user" value="{{ values.user }}" maxlength="255" autocomplete="off"></label>
+      <label class="install-field">{{ LNG.ins_mail_pass }}<input type="password" name="password" value="" maxlength="255" autocomplete="new-password"><small>{{ LNG.ins_mail_pass_info }}</small></label>
+      <label class="install-check install-field--wide"><input type="checkbox" name="user_valid" value="1" data-mail-dependent{% if values.user_valid %} checked{% endif %}{% if not values.active %} disabled{% endif %}> <span>{{ LNG.ins_mail_user_valid }}<small class="install-hint">{{ LNG.ins_mail_user_valid_info }}</small></span></label>
+    </fieldset>
+    <fieldset>
+      <legend>{{ LNG.ins_mail_test_head }}</legend>
+      <label class="install-field">{{ LNG.ins_mail_test_to }}<input type="email" name="test_to" value="{{ testTo|default('') }}" maxlength="255"></label>
+      <div class="install-field install-actions"><button type="submit" class="button" name="test" value="1">{{ icon('send') }}{{ LNG.ins_mail_test_send }}</button></div>
+    </fieldset>
+    <div class="install-actions">
+      <button type="submit" class="btn--primary">{{ LNG.ins_mail_save }}</button>
+      <button type="submit" class="button" name="skip" value="1" formnovalidate>{{ LNG.ins_mail_skip }}</button>
+    </div>
+  </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends layout_template %}
+{% block title %}{{ LNG.socialCompleteTitle }}{{ parent() }}{% endblock %}
+{% block content %}
+<h1>{{ LNG.socialCompleteTitle }}</h1>
+<p>{{ LNG.format('socialCompleteIntro', provider, email) }}</p>
+<form class="form" action="{{ path('login_social_complete_send') }}" method="post">
+  {{ csrf_field() }}
+  <div class="field">
+    <label for="username">{{ LNG.registerUsername }}</label>
+    <input type="text" class="input" name="username" id="username" maxlength="32" autocomplete="username" value="{{ accountName }}" required>
+    <small class="field__help">{{ LNG.registerUsernameDesc }}</small>
+  </div>
+  <div class="field field--check">
+    <input type="checkbox" name="rules" id="rules" value="1">
+    {% set rulesLink %}<a href="{{ rulesUrl }}" target="_blank" rel="noopener">{{ LNG.menu_rules }}</a>{% endset %}<label for="rules">{{ LNG.format('registerRulesDesc', rulesLink) }}</label>
+  </div>
+  <div class="field field--check">
+    <input type="checkbox" name="privacy" id="privacy" value="1">
+    {% set privacyLink %}<a href="{{ privacyUrl }}" target="_blank" rel="noopener">{{ LNG.siteTitleDataPrivacy }}</a>{% endset %}<label for="privacy">{{ LNG.format('registerDataPrivacyDesc', privacyLink) }}</label>
+  </div>
+  <div class="form__actions">
+    <button type="submit" class="btn--primary btn-hero">{{ icon('user-plus') }}{{ LNG.buttonRegister }}</button>
+  </div>
+</form>
+<form class="form" action="{{ path('login_social_cancel_send') }}" method="post">
+  {{ csrf_field() }}
+  <div class="form__actions"><button type="submit">{{ LNG.socialCancel }}</button></div>
+</form>
+{% endblock %}

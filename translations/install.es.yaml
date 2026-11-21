@@ -99,7 +99,7 @@ ins_theme_invalid: Tema desconocido.
 ins_to_start: A la página de inicio
 ins_credits_head: Sobre los hombros de gigantes
 ins_credits_text: 'V0Game continúa una larga línea de juegos de navegador de código abierto. Respeto para todos los que lo construyeron y lo mantuvieron vivo antes que nosotros:'
-ins_credits_thanks: Gracias, comunidad de pr0game, por el juego del que surgió este.
+ins_credits_thanks: 'Gracias a todos los programadores y mantenedores que crearon este juego y lo mantuvieron vivo a lo largo de los años, desde 2Moons y SteemNova hasta pr0game.'
 ins_licence_note: Software libre bajo la GNU AGPL v3
 ins_task_images: Optimizar imágenes (WebP)
 ins_db_help: V0Game guarda todo en una base de datos MySQL o MariaDB. Obtienes los valores siguientes en el panel de tu hosting (busca "Bases de datos" o "MySQL") o de quien configuró tu servidor. Si instalaste MySQL tú mismo, normalmente sirven los valores predeterminados.
@@ -198,3 +198,46 @@ ins_board_info: Un foro para tus jugadores. Si está desactivado, todos los enla
 ins_legal_note: Los textos generados son solo plantillas. Como operador, eres responsable de los textos legales de tu juego y deberías revisarlos.
 ins_legal_region_invalid: Elige una región de alojamiento válida.
 ins_legal_rules_invalid: Elige cómo deben empezar las reglas.
+ins_step_mail: 'Correo'
+ins_mail_desc: 'Opcional. Elige cómo envía correos el juego (registro, restablecer contraseña). Puedes omitir este paso y configurarlo más tarde en Admin - Ajustes.'
+ins_mail_enable: 'Enviar correos'
+ins_mail_method: 'Método'
+ins_mail_method_php: 'Función mail() de PHP'
+ins_mail_method_smtp: 'Servidor SMTP'
+ins_mail_from: 'Dirección del remitente'
+ins_mail_host: 'Host SMTP'
+ins_mail_port: 'Puerto SMTP'
+ins_mail_enc: 'Cifrado'
+ins_mail_enc_none: 'Ninguno'
+ins_mail_user: 'Usuario SMTP'
+ins_mail_pass: 'Contraseña SMTP'
+ins_mail_pass_info: 'No se vuelve a mostrar; introdúcela de nuevo tras un correo de prueba.'
+ins_mail_save: 'Guardar y continuar'
+ins_mail_skip: 'Omitir (el correo sigue desactivado)'
+ins_mail_test_head: 'Enviar un correo de prueba'
+ins_mail_test_to: 'Enviar correo de prueba a'
+ins_mail_test_send: 'Enviar correo de prueba'
+ins_mail_test_ok: 'Correo de prueba enviado a %s.'
+ins_mail_test_fail: 'Falló el correo de prueba: %s'
+ins_mail_from_invalid: 'Introduce una dirección de remitente válida.'
+ins_mail_host_required: 'Introduce el host SMTP.'
+ins_mail_port_invalid: 'Introduce un puerto válido (1-65535).'
+ins_mail_test_invalid: 'Introduce una dirección de correo válida para la prueba.'
+ins_mail_test_subject: 'Correo de prueba de V0Game'
+ins_mail_test_body: 'Este es un correo de prueba del instalador de V0Game. Tu configuración de correo funciona.'
+ins_done_social: 'Inicio de sesión social (opcional).'
+ins_social_hint: 'El inicio de sesión con Discord, Google, GitHub o Facebook se puede activar más tarde en Admin - Inicio de sesión social.'
+ins_group_imprint: 'Aviso legal (opcional)'
+ins_imprint_info: 'Datos de contacto para la página de aviso legal. Ambos pueden quedar vacíos y se pueden cambiar más tarde en Admin - Ajustes.'
+ins_imprint_eu_hint: 'Los operadores de la UE suelen necesitar un aviso legal con un correo de contacto. Puedes omitirlo ahora, pero rellénalo antes de abrir al público.'
+ins_imprint_mail: 'Correo de contacto'
+ins_imprint_address: 'Dirección del aviso legal'
+ins_imprint_mail_invalid: 'Introduce un correo de contacto válido para el aviso legal.'
+ins_more_settings: 'Más ajustes'
+ins_update_check: 'Buscar actualizaciones'
+ins_update_check_info: 'El panel de administración consulta al servidor de actualizaciones (GitHub) la última versión.'
+ins_discord_url: 'Enlace de invitación de Discord'
+ins_discord_url_info: 'Opcional, por ejemplo https://discord.gg/tuservidor.'
+ins_discord_url_invalid: 'Introduce un enlace de Discord válido que empiece por http:// o https://.'
+ins_mail_user_valid: 'Exigir activación por correo'
+ins_mail_user_valid_info: 'Las cuentas nuevas deben confirmar su dirección por correo antes de jugar. Solo disponible con el correo activado.'

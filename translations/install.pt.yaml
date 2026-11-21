@@ -99,7 +99,7 @@ ins_theme_invalid: Tema desconhecido.
 ins_to_start: Para a página inicial
 ins_credits_head: Aos ombros de gigantes
 ins_credits_text: 'O V0Game continua uma longa linhagem de jogos de navegador de código aberto. Respeito por todos os que o construíram e o mantiveram vivo antes de nós:'
-ins_credits_thanks: Obrigado, comunidade pr0game, pelo jogo de que este nasceu.
+ins_credits_thanks: 'Obrigado a todos os programadores e mantenedores que criaram este jogo e o mantiveram vivo ao longo dos anos, do 2Moons e SteemNova ao pr0game.'
 ins_licence_note: Software livre sob a GNU AGPL v3
 ins_task_images: Otimizar imagens (WebP)
 ins_db_help: O V0Game guarda tudo numa base de dados MySQL ou MariaDB. Obtém os valores abaixo no painel do seu alojamento (procure "Bases de dados" ou "MySQL") ou de quem configurou o seu servidor. Se instalou o MySQL você mesmo, as predefinições costumam funcionar.
@@ -198,3 +198,46 @@ ins_board_info: Um fórum para os teus jogadores. Quando desligado, todas as lig
 ins_legal_note: Os textos gerados são apenas modelos. Como operador, és responsável pelos textos legais do teu jogo e deves revê-los.
 ins_legal_region_invalid: Escolhe uma região de alojamento válida.
 ins_legal_rules_invalid: Escolhe como devem começar as regras.
+ins_step_mail: 'E-mail'
+ins_mail_desc: 'Opcional. Escolhe como o jogo envia e-mails (registo, repor palavra-passe). Podes saltar este passo e configurá-lo mais tarde em Admin - Definições.'
+ins_mail_enable: 'Enviar e-mails'
+ins_mail_method: 'Método'
+ins_mail_method_php: 'Função mail() do PHP'
+ins_mail_method_smtp: 'Servidor SMTP'
+ins_mail_from: 'Endereço do remetente'
+ins_mail_host: 'Anfitrião SMTP'
+ins_mail_port: 'Porta SMTP'
+ins_mail_enc: 'Encriptação'
+ins_mail_enc_none: 'Nenhuma'
+ins_mail_user: 'Utilizador SMTP'
+ins_mail_pass: 'Palavra-passe SMTP'
+ins_mail_pass_info: 'Não é mostrada de novo; introduz-a outra vez após um e-mail de teste.'
+ins_mail_save: 'Guardar e continuar'
+ins_mail_skip: 'Saltar (o e-mail fica desativado)'
+ins_mail_test_head: 'Enviar um e-mail de teste'
+ins_mail_test_to: 'Enviar e-mail de teste para'
+ins_mail_test_send: 'Enviar e-mail de teste'
+ins_mail_test_ok: 'E-mail de teste enviado para %s.'
+ins_mail_test_fail: 'O e-mail de teste falhou: %s'
+ins_mail_from_invalid: 'Introduz um endereço de remetente válido.'
+ins_mail_host_required: 'Introduz o anfitrião SMTP.'
+ins_mail_port_invalid: 'Introduz uma porta válida (1-65535).'
+ins_mail_test_invalid: 'Introduz um endereço de e-mail válido para o teste.'
+ins_mail_test_subject: 'E-mail de teste do V0Game'
+ins_mail_test_body: 'Este é um e-mail de teste do instalador do V0Game. As tuas definições de e-mail funcionam.'
+ins_done_social: 'Início de sessão social (opcional).'
+ins_social_hint: 'O início de sessão com Discord, Google, GitHub ou Facebook pode ser ativado mais tarde em Admin - Início de sessão social.'
+ins_group_imprint: 'Aviso legal (opcional)'
+ins_imprint_info: 'Dados de contacto para a página de aviso legal. Ambos podem ficar vazios e podem ser alterados mais tarde em Admin - Definições.'
+ins_imprint_eu_hint: 'Os operadores na UE costumam precisar de um aviso legal com um e-mail de contacto. Podes saltar agora, mas preenche antes de abrir ao público.'
+ins_imprint_mail: 'E-mail de contacto'
+ins_imprint_address: 'Morada do aviso legal'
+ins_imprint_mail_invalid: 'Introduz um e-mail de contacto válido para o aviso legal.'
+ins_more_settings: 'Mais definições'
+ins_update_check: 'Verificar atualizações'
+ins_update_check_info: 'O painel de administração pergunta ao servidor de atualizações (GitHub) pela versão mais recente.'
+ins_discord_url: 'Ligação de convite do Discord'
+ins_discord_url_info: 'Opcional, por exemplo https://discord.gg/oteuservidor.'
+ins_discord_url_invalid: 'Introduz uma ligação do Discord válida a começar por http:// ou https://.'
+ins_mail_user_valid: 'Exigir ativação por e-mail'
+ins_mail_user_valid_info: 'As contas novas têm de confirmar o endereço por e-mail antes de jogar. Só disponível com o e-mail ativado.'

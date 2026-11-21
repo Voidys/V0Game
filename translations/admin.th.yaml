@@ -1718,3 +1718,22 @@ vt_log_empty: ยังไม่มีการโหวต
 vt_status_rewarded: ได้รับรางวัลแล้ว
 vt_status_verified: ยืนยันแล้ว ไม่มีรางวัล
 vt_status_pending: คลิกแล้ว
+adm_nav_social: "เข้าสู่ระบบด้วยโซเชียล"
+se_social: "เข้าสู่ระบบด้วยโซเชียล"
+se_social_info: "ให้ผู้เล่นเข้าสู่ระบบหรือลงทะเบียนด้วยบัญชี Discord, Facebook, GitHub หรือ Google ที่มีอยู่ (OAuth2) ผู้ให้บริการทั้งหมดปิดไว้เป็นค่าเริ่มต้น สร้างแอปที่ผู้ให้บริการ ลงทะเบียน Callback URL ที่แสดงด้านล่างที่นั่น แล้วกรอก Client ID และ Secret ที่นี่"
+se_social_site_url_missing: "ยังไม่ได้ตั้งค่า URL หลักของเกม (DEFAULT_URI ใน .env.local) จึงสร้าง Callback URL ไม่ได้และผู้ให้บริการใช้งานไม่ได้"
+se_social_incomplete: "เปิดอยู่ แต่ไม่มี Client ID หรือ Client Secret: ปุ่มเข้าสู่ระบบจะถูกซ่อน"
+se_social_enabled: "เปิดใช้งาน"
+se_social_enabled_info: "แสดงปุ่มเข้าสู่ระบบในหน้าแรกและหน้าลงทะเบียน"
+se_social_client_id: "Client ID"
+se_social_client_id_info: "Application (client) ID ของแอปที่ผู้ให้บริการ"
+se_social_client_secret: "Client Secret"
+se_social_client_secret_info: "จะไม่แสดงอีก เว้นว่างไว้เพื่อใช้ Secret ที่บันทึกไว้"
+se_social_callback: "Callback URL"
+se_social_callback_info: "ลงทะเบียนที่อยู่นี้อย่างตรงตัวเป็น Redirect / Callback URL ที่ผู้ให้บริการ"
+se_social_create_app: "สร้างแอป"
+se_social_discord_help: "Discord Developer Portal: New Application แล้วไปที่ OAuth2: เพิ่ม Redirect คัดลอก Client ID และ Client Secret"
+se_social_facebook_help: "Meta for Developers: สร้างแอปด้วย use case Facebook Login แล้วเพิ่ม URL ใน Valid OAuth Redirect URIs อีเมลจาก Facebook จะไม่ถือว่ายืนยันแล้วเสมอ: ผู้เล่นใหม่ลงทะเบียนด้วยอีเมลนี้ไม่ได้ และบัญชีที่มีอยู่จะไม่ถูกจับคู่ด้วยอีเมล แต่การเชื่อมต่อจากการตั้งค่าบัญชีใช้งานได้"
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App ใส่ Callback URL เป็น Authorization callback URL"
+se_social_google_help: "Google Cloud Console, APIs and Services, Credentials: สร้าง OAuth client ID ชนิด Web application และเพิ่ม Callback URL ใน Authorized redirect URIs"
+se_social_scopes: "Scopes ที่ร้องขอ: %s"

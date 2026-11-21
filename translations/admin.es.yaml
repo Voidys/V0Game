@@ -381,7 +381,7 @@ mod_active: Activado
 mod_change_active: Activar
 mod_change_deactive: Desactivar
 mod_deactive: Desactivado
-mod_info: Módulos en el Juego<br><font color="red">¡Los administradores pueden entrar en las zonas!</font>
+mod_info: Módulos en el Juego. ¡Los administradores pueden entrar en las zonas!
 mod_module: Modulos
 modul_0: Alianza
 modul_1: Misión - Atacar
@@ -1718,3 +1718,22 @@ vt_log_empty: Todavía no hay votos.
 vt_status_rewarded: Recompensado
 vt_status_verified: Verificado, sin recompensa
 vt_status_pending: Clic
+adm_nav_social: "Inicio de sesión social"
+se_social: "Inicio de sesión social"
+se_social_info: "Permite que los jugadores inicien sesión o se registren con una cuenta existente de Discord, Facebook, GitHub o Google (OAuth2). Todos los proveedores están desactivados por defecto. Crea una aplicación en el proveedor, registra allí la URL de callback que se muestra abajo e introduce aquí el ID de cliente y el secreto."
+se_social_site_url_missing: "La URL base del juego (DEFAULT_URI en .env.local) no está definida, por lo que no se puede crear la URL de callback y los proveedores siguen inutilizables."
+se_social_incomplete: "Activado, pero falta el ID de cliente o el secreto: el botón de inicio de sesión permanece oculto."
+se_social_enabled: "Activado"
+se_social_enabled_info: "Muestra el botón de inicio de sesión en la página de inicio y en la de registro."
+se_social_client_id: "ID de cliente"
+se_social_client_id_info: "ID de aplicación (cliente) de la app en el proveedor."
+se_social_client_secret: "Secreto de cliente"
+se_social_client_secret_info: "No se vuelve a mostrar. Déjalo vacío para conservar el secreto guardado."
+se_social_callback: "URL de callback"
+se_social_callback_info: "Registra exactamente esta dirección como URL de redirección / callback en el proveedor."
+se_social_create_app: "Crear la aplicación"
+se_social_discord_help: "Discord Developer Portal: New Application, luego OAuth2: añade la redirección y copia el ID de cliente y el secreto."
+se_social_facebook_help: "Meta for Developers: crea una app con el caso de uso Inicio de sesión con Facebook y añade la URL en URI de redireccionamiento de OAuth válidos. El correo de Facebook nunca se considera verificado: los jugadores nuevos no pueden registrarse con él y las cuentas existentes no se asocian por correo; conectar desde los ajustes de la cuenta sí funciona."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, introduce la URL de callback como Authorization callback URL."
+se_social_google_help: "Google Cloud Console, APIs y servicios, Credenciales: crea un ID de cliente OAuth de tipo Aplicación web y añade la URL de callback en URI de redireccionamiento autorizados."
+se_social_scopes: "Scopes solicitados: %s"

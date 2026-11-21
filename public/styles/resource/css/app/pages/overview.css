@@ -83,7 +83,6 @@
   .overview-queue dd { overflow-wrap: anywhere; }
   .overview-info .panel__body > .hidden-div { display: none; }
   .overview-info .panel__body > .hidden-div > * + * { margin-block-start: var(--space-2); }
-  .overview-info .news-title { font-size: var(--fs-base); text-decoration: none; }
 
   /* planets and moons: only where the shell has no planet rail */
   .overview-planets { display: none; }
@@ -109,15 +108,70 @@
     .hero-body .stat--wide { grid-column: 1 / -1; }
   }
 
-  /* tutorial box (shared.tutorial): a panel, the theme colours replace the old green */
-  .tutorial-accordion { overflow: hidden; }
-  .tutorial-accordion > .tutorial-header { margin: 0; border-radius: 0; background: var(--c-panel); padding: 0 var(--pad); }
-  .tutorial-accordion[open] > .tutorial-header { border-block-end: 1px solid var(--c-border); }
-  .tutorial-accordion .accordion__title { justify-content: flex-start; }
-  .tutorial-accordion > .tutorial { background: none; border-radius: 0; overflow: visible; gap: var(--space-4); }
-  .tutorial-accordion .tutorial-goals { padding: 0; }
-  .tutorial-accordion .tutorial-goals ul { padding-inline-start: var(--space-4); margin: var(--space-1) 0 var(--space-3); }
-  .tutorial-accordion .tutorial-buttons { padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  /* news row (community news of the last three days, above the tutorial) */
+  .news-list { margin: 0; padding: 0; list-style: none; }
+  .news-item { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--space-1) var(--space-4); padding: var(--space-3) var(--pad); }
+  .news-item + .news-item { border-block-start: 1px solid var(--c-border); }
+  .news-item__date { grid-row: span 2; padding-block-start: 0.1rem; color: var(--c-muted); font-size: var(--fs-xs); white-space: nowrap; }
+  .news-item__title { display: inline-flex; align-items: center; gap: var(--space-2); justify-self: start; color: var(--c-text); font-weight: 600; }
+  .news-item__title .icon { inline-size: 0.9rem; block-size: 0.9rem; color: var(--c-warning); fill: currentColor; }
+  .news-item__summary { margin: 0; color: var(--c-muted); font-size: var(--fs-sm); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+  @media (max-width: 40rem) {
+    .news-item { grid-template-columns: minmax(0, 1fr); }
+    .news-item__date { grid-row: auto; }
+  }
+
+  /* tutorial (shared.tutorial): head with step, title, next goal and overall progress; text | goals + rewards */
+  .tut { overflow: hidden; }
+  .tut.accordion > .tut__head {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--pad);
+    list-style: none;
+    cursor: pointer;
+  }
+  .tut__head::-webkit-details-marker { display: none; }
+  .tut[open] > .tut__head { border-block-end: 1px solid var(--c-border); }
+  .tut__icon { display: grid; place-items: center; inline-size: 2.25rem; block-size: 2.25rem; border-radius: var(--r); background: var(--tint); color: var(--c-accent); }
+  .tut__icon .icon { inline-size: 1.1rem; block-size: 1.1rem; }
+  .tut__heading { display: grid; min-inline-size: 0; line-height: 1.3; }
+  .tut__step { color: var(--c-muted); font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; }
+  .tut__title { overflow: hidden; color: var(--c-text); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+  .tut__chip { padding: 0.15rem var(--space-2); border: 1px solid var(--c-border-strong); border-radius: var(--r); color: var(--c-muted); font-size: var(--fs-sm); white-space: nowrap; }
+  .tut__chip b { color: var(--c-text); font-weight: 600; }
+  .tut__progress { position: absolute; inset-inline: 0; inset-block-end: 0; }
+  .tut.is-done .tut__chip { display: none; }
+  .tut__body { display: grid; grid-template-columns: minmax(0, 3fr) minmax(16rem, 2fr); gap: var(--space-5); padding: var(--pad); }
+  .tut__text { color: var(--c-text); line-height: 1.6; }
+  .tut__text :is(p, ul, ol) { margin: 0 0 var(--space-2); }
+  .tut__text a { color: var(--c-link); }
+  .tut__side { display: grid; align-content: start; gap: var(--space-2); }
+  .tut__label { margin: 0; color: var(--c-muted); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .tut__goals, .tut__rewards { margin: 0 0 var(--space-3); padding: 0; list-style: none; }
+  .tut__goals { display: grid; gap: var(--space-3); }
+  .tut__goals li { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--space-1) var(--space-2); }
+  .tut__goals li > .icon { color: var(--c-muted); }
+  .tut__goals li.is-done > .icon { color: var(--c-accent); }
+  .tut__goals li.is-done .tut__goal-name { color: var(--c-muted); }
+  .tut__goals .meter, .tut__skip-goal { grid-column: 2 / -1; }
+  .tut__skip-goal { justify-self: start; color: var(--c-muted); font-size: var(--fs-xs); }
+  .tut__rewards { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .tut__rewards li { display: inline-flex; align-items: center; gap: var(--space-2); padding: 0.2rem var(--space-2); border: 1px solid var(--c-border); border-radius: var(--r); background: var(--c-bg-2); font-size: var(--fs-sm); }
+  .tut__rewards .icon { inline-size: 0.9rem; block-size: 0.9rem; color: var(--c-accent); }
+  .tut__foot { justify-content: space-between; align-items: center; }
+  .tut__quiet { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  @media (max-width: 60rem) {
+    .tut__body { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 40rem) {
+    .tut.accordion > .tut__head { grid-template-columns: auto minmax(0, 1fr) auto; }
+    .tut__chip { grid-column: 2 / -1; grid-row: 2; justify-self: start; }
+    .tut__foot { flex-direction: column-reverse; align-items: stretch; }
+    .tut__foot .btn--primary { justify-content: center; }
+  }
 
   /* ---------------------------------------------------------------- empire */
   .empire-table { --planet-img: 1.75rem; }

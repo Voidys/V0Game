@@ -1159,6 +1159,8 @@ ov_newname_done: Gezegenin adı değişti!
 ov_newname_specialchar: Gezegen adları yalnızca harf, rakam, boşluk, alt çizgi, tire ve nokta içerebilir!
 ov_newname_too_long: Gezegen adı en fazla %d karakter olabilir.
 ov_news: Duyurular
+ov_news_all: 'Tüm haberler'
+tutorial_step_of: 'Adım %1 / %2'
 ov_of: /
 ov_outlaw: 'Şu tarihe kadar kanun kaçağı:'
 ov_place: 'Sıra:'

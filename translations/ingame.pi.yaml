@@ -1153,6 +1153,8 @@ ov_newname_done: Hafen erfolgreich umbenannt!
 ov_newname_specialchar: Im Hafennamen sind nur Zahlen, Buchstaben, Leerzeichen, _, -, . erlaubt!
 ov_newname_too_long: Der Planetenname darf höchstens %d Zeichen lang sein.
 ov_news: News
+ov_news_all: 'Alle Kunde, arrr'
+tutorial_step_of: 'Etappe %1 von %2'
 ov_of: von
 ov_outlaw: 'Gesetzloser bis:'
 ov_place: Platz

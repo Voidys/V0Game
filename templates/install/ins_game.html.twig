@@ -51,8 +51,14 @@
         <small>{{ LNG.ins_registration_info }}</small>
       </label>
       <label class="install-field">{{ LNG.ins_bots }}<input type="number" name="bots" value="{{ values.bots }}" min="0" max="50"><small>{{ LNG.ins_bots_info }}</small></label>
-      <label class="install-check install-field--wide"><input type="checkbox" name="mail" value="1"{% if values.mail %} checked{% endif %}> <span>{{ LNG.ins_mail }}<small class="install-hint">{{ LNG.ins_mail_info }}</small></span></label>
     </fieldset>
+    <details class="install-more">
+      <summary>{{ LNG.ins_more_settings }}</summary>
+      <fieldset>
+        <label class="install-check install-field--wide"><input type="checkbox" name="update_check" value="1"{% if values.update_check %} checked{% endif %}> <span>{{ LNG.ins_update_check }}<small class="install-hint">{{ LNG.ins_update_check_info }}</small></span></label>
+        <label class="install-field install-field--wide">{{ LNG.ins_discord_url }}<input type="url" name="discord_url" value="{{ values.discord_url }}" maxlength="255" placeholder="https://discord.gg/..."><small>{{ LNG.ins_discord_url_info }}</small></label>
+      </fieldset>
+    </details>
     <div class="install-actions"><button type="submit" class="btn--primary">{{ LNG.continue }}</button></div>
   </form>
 {% endblock %}

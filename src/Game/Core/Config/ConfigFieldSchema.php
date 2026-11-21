@@ -95,6 +95,7 @@ class ConfigFieldSchema
             (new Schema\BasicCommunityLinksFields())->fields($LNG),
             (new Schema\BasicDiscordHooksFields())->fields($LNG),
             (new Schema\BasicSmtpFields())->fields($LNG),
+            (new Schema\BasicSocialFields())->fields($LNG),
             (new Schema\BasicUserSettingsFields())->fields($LNG),
             (new Schema\BasicMessagesFields())->fields($LNG),
             (new Schema\BasicProofOfWorkFields())->fields($LNG),
@@ -168,6 +169,34 @@ class ConfigFieldSchema
     public function getSchema(): array
     {
         return $this->schema;
+    }
+
+    /**
+     * The fields of one category (empty for an unknown category)
+     *
+     * @return array<string, array<mixed>>
+     */
+    public function getCategoryFields(string $category): array
+    {
+        return $this->schema[$category] ?? [];
+    }
+
+    /**
+     * A copy of the schema without the given categories (the page of the basic settings leaves out the categories that
+     * have a page of their own, so saving it cannot overwrite them)
+     *
+     * @param list<string> $categories
+     */
+    public function withoutCategories(array $categories): static
+    {
+        $copy = clone $this;
+        $copy->schema = array_diff_key($this->schema, array_flip($categories));
+        $copy->fields = [];
+        foreach ($copy->schema as $categoryFields) {
+            $copy->fields = array_merge($copy->fields, $categoryFields);
+        }
+
+        return $copy;
     }
 
     /**

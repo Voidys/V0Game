@@ -157,6 +157,12 @@ class AccountUtil
             ':accountId'   => $accountId,
         ]);
 
+        // links to social login providers
+        $sql = 'DELETE FROM %%ACCOUNTS_SOCIAL%% WHERE `account_id` = :accountId;';
+        $db->delete($sql, [
+            ':accountId'   => $accountId,
+        ]);
+
         // account-level leftovers (board posts are kept as public content)
         foreach (['LOSTPASSWORD' => 'accountID', 'SESSION' => 'accountID'] as $table => $column) {
             $db->delete('DELETE FROM %%' . $table . '%% WHERE `' . $column . '` = :accountId;', [

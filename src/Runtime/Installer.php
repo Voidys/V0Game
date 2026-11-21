@@ -308,7 +308,7 @@ final class Installer
      * `bin/console app:install`):
      * 1 licence, 2 requirements, 3 database form, 4 connect + create the database + write the settings,
      * 5 build the tables (task by task), 6 game settings, 7 legal settings (hosting region, rules, board),
-     * 8 administrator form, 9 create the administrator, done.
+     * 8 e-mail (optional, SMTP or PHP mail, test mail, skippable), 9 administrator form, 10 create the administrator, done.
      */
     private function install(Language $LNG, string $enableInstallToolFile): void
     {
@@ -326,8 +326,9 @@ final class Installer
             5 => $this->stepBuild($LNG),
             6 => $this->stepGame($LNG),
             7 => $this->stepLegal($LNG),
-            8 => $this->stepAdminForm(),
-            9 => $this->stepAdmin($LNG),
+            8 => $this->stepMail($LNG),
+            9 => $this->stepAdminForm(),
+            10 => $this->stepAdmin($LNG),
             default => $this->http()->redirectTo('./'),
         };
     }
@@ -461,6 +462,8 @@ final class Installer
             'registration' => $post['registration'] ?? 'open',
             'mail' => isset($post['post']) ? !empty($post['mail']) : false,
             'bots' => $post['bots'] ?? 0,
+            'update_check' => isset($post['post']) ? !empty($post['update_check']) : true,
+            'discord_url' => $this->input()->string('discord_url'),
         ];
 
         if (isset($post['post'])) {
@@ -496,8 +499,10 @@ final class Installer
         $values = [
             'privacy_region' => $post['privacy_region'] ?? 'eu',
             'rules_default' => $post['rules_default'] ?? 'default',
-            'board_enabled' => isset($post['post']) ? !empty($post['board_enabled']) : true,
             'cookie_consent' => !empty($post['cookie_consent']),
+            // stored HTML-encoded like the admin form does
+            'disclamer_mail' => $this->input()->string('disclamer_mail', isset($post['post']) ? '' : (string) ($this->defaults['ADMIN_MAIL'] ?? '')),
+            'disclamer_address' => $this->input()->string('disclamer_address', '', true),
         ];
         $bots = max(0, min(50, (int) ($post['bots'] ?? $query['bots'] ?? 0)));
 
@@ -515,7 +520,83 @@ final class Installer
         $this->show('ins_legal');
     }
 
-    /** Step 8: administrator form (name, password, e-mail, number of bots to create, 0-50). */
+    /**
+     * Step 8: optional e-mail setup. "Skip" leaves mail off, "Save" validates and stores the values (same keys as the
+     * admin mail category), "Test" sends a mail with the entered values and shows the result on the same page.
+     * The password is never written back into the page.
+     */
+    private function stepMail(Language $LNG): void
+    {
+        $locale = $LNG->getLanguage();
+        $post = $this->state->requestPost;
+        $query = $this->state->requestQuery;
+        $bots = max(0, min(50, (int) ($post['bots'] ?? $query['bots'] ?? 0)));
+        $next = './?mode=install&step=9&bots=' . $bots . '&lang=' . $locale;
+
+        if (isset($post['skip'])) {
+            $this->installer->applyMailSettings(['active' => false]);
+            $this->http()->redirectTo($next);
+        }
+
+        $input = [
+            'active' => isset($post['post']) ? !empty($post['active']) : false,
+            'method' => $post['method'] ?? 2,
+            'from' => $post['from'] ?? '',
+            'host' => $post['host'] ?? '',
+            'port' => $post['port'] ?? '587',
+            'encryption' => $post['encryption'] ?? 'tls',
+            'user' => $post['user'] ?? '',
+            'password' => $post['password'] ?? '',
+            'user_valid' => !empty($post['user_valid']),
+        ];
+        $checked = $this->installer->validateMailSettings($input, $locale);
+        $values = $checked['values'];
+        $result = [];
+
+        if (isset($post['test'])) {
+            $result = $this->testMail($values, trim((string) ($post['test_to'] ?? '')), $locale);
+        } elseif (isset($post['post'])) {
+            if ($checked['error'] === null) {
+                $this->installer->applyMailSettings($values);
+                $this->http()->redirectTo($next);
+            }
+            $result = ['error' => $checked['error']];
+        }
+
+        $values['password'] = '';
+        $this->assign($result + [
+            'values' => $values,
+            'bots' => $bots,
+            'testTo' => trim((string) ($post['test_to'] ?? '')),
+        ]);
+        $this->show('ins_mail');
+    }
+
+    /**
+     * Test mail of step 8: checks the form values and the target address, then sends.
+     *
+     * @param array<string, mixed> $values validated mail values
+     * @return array<string, string> template variables `error` or `testOk`
+     */
+    private function testMail(array $values, string $to, string $locale): array
+    {
+        $LNG = $this->installer->lng($locale);
+        $invalid = $this->installer->validateMailSettings(['active' => true] + $values, $locale)['error'];
+        if ($invalid !== null) {
+            return ['error' => $invalid];
+        }
+        if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {
+            return ['error' => $LNG['ins_mail_test_invalid']];
+        }
+        $error = $this->installer->sendTestMail($values, $to, $locale);
+        if ($error !== null) {
+            return ['error' => str_replace('%s', $error, $LNG['ins_mail_test_fail'])];
+        }
+
+        return ['testOk' => str_replace('%s', $to, $LNG['ins_mail_test_ok'])];
+    }
+
+    /** Step 9: administrator form (name, password, e-mail, number of bots to create, 0-50). */
     private function stepAdminForm(): void
     {
         $this->assign([
@@ -529,7 +610,7 @@ final class Installer
     }
 
     /**
-     * Step 9: validates and creates the admin account, logs it in (Symfony login plus a game session with admin
+     * Step 10: validates and creates the admin account, logs it in (Symfony login plus a game session with admin
      * access), optionally spawns bots (a failure only sets a flag), locks the installer and shows the summary with the
      * cron line and the generated migration password.
      */
@@ -551,7 +632,7 @@ final class Installer
                 'mail' => $mail,
                 'bots' => $bots,
                 'minLength' => InstallService::MIN_PASSWORD_LENGTH,
-                'currentStep' => 8,
+                'currentStep' => 9,
             ]);
             $this->show('ins_acc');
         }

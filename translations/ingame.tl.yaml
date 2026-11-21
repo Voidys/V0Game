@@ -1153,6 +1153,8 @@ ov_newname_done: Napalitan ang pangalan ng planeta!
 ov_newname_specialchar: Numero, titik, espasyo, underscore, gitling at tuldok lang ang puwede sa mga pangalan ng planeta!
 ov_newname_too_long: Hanggang %d character lang ang pangalan ng planeta.
 ov_news: Balita
+ov_news_all: 'Lahat ng balita'
+tutorial_step_of: 'Hakbang %1 ng %2'
 ov_of: ng
 ov_outlaw: 'Outlaw hanggang:'
 ov_place: Posisyon

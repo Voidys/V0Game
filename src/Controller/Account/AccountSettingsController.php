@@ -12,10 +12,33 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Game\Core\Theme;
 use App\Routing\GameRoute;
 use App\Security\PasswordSupport;
+use App\Security\Social\SocialAccounts;
+use App\Security\Social\SocialProvider;
+use App\Security\Social\SocialSettings;
+use Symfony\Contracts\Service\Attribute\Required;
 
 /** Account settings: language, timezone, email and password, account deletion (modes: show, send, toggleDelete). */
 class AccountSettingsController extends AbstractAccountController
 {
+    /** result codes of the social login steps (query `social`) -> [message key, notice kind] */
+    private const SOCIAL_NOTICES = [
+        'linked' => ['socialLinked', 'success'],
+        'unlinked' => ['socialUnlinked', 'success'],
+        'taken' => ['socialErrorTaken', 'danger'],
+        'last' => ['socialLastMethod', 'danger'],
+    ];
+
+    private SocialSettings $socialSettings;
+    private SocialAccounts $social;
+
+    /** Container (setter) injection of the social login settings and links. */
+    #[Required]
+    public function setSocialServices(SocialSettings $socialSettings, SocialAccounts $social): void
+    {
+        $this->socialSettings = $socialSettings;
+        $this->social = $social;
+    }
+
     /**
      * Settings form of the account (language, theme, timezone, e-mail, password, deletion flag).
      */
@@ -51,7 +74,41 @@ class AccountSettingsController extends AbstractAccountController
             'timezone'      => $ACCOUNT['timezone'],
             'toplink'       => $this->router->generate('account_account_show'),
             'topname'       => $LNG->format('Back'),
+            'social'        => $this->socialConnections((int) $ACCOUNT['id']),
+            'socialNotice'  => self::SOCIAL_NOTICES[$this->input()->string('social')] ?? null,
         ];
+    }
+
+    /**
+     * "Connected services": a row per provider that is switched on or still linked to the account (so a switched-off provider
+     * can be disconnected): link data, the URL that connects it (intent=link) and whether disconnecting is allowed. The last
+     * login method cannot be removed from an account without a usable password.
+     *
+     * @return list<array<string, mixed>>
+     */
+    private function socialConnections(int $accountId): array
+    {
+        $links = $this->social->linksOf($accountId);
+        $canRemove = $this->social->hasUsablePassword($accountId) || count($links) > 1;
+        $rows = [];
+        foreach (SocialProvider::catalog() as $provider) {
+            $enabled = $this->socialSettings->isUsable($provider->id);
+            if (!$enabled && !isset($links[$provider->id])) {
+                continue;
+            }
+            $rows[] = [
+                'id' => $provider->id,
+                'label' => $provider->label,
+                'icon' => $provider->icon,
+                'connected' => isset($links[$provider->id]),
+                'email' => $links[$provider->id]['email'] ?? null,
+                'connectUrl' => $enabled ? $this->router->generate('login_social_start', ['provider' => $provider->id, 'intent' => 'link']) : null,
+                'disconnectUrl' => $this->router->generate('account_social_disconnect', ['provider' => $provider->id]),
+                'canDisconnect' => $canRemove,
+            ];
+        }
+
+        return $rows;
     }
 
     /**

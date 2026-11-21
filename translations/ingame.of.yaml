@@ -1153,6 +1153,8 @@ ov_newname_done: Blanet erfolgreich umbenannt!
 ov_newname_specialchar: Pass auf, im Blanetennamne sind nur Zahlne, Buchschdabne, Leerzeichne, _ - . erlaubd
 ov_newname_too_long: Der Planetenname darf höchstens %d Zeichen lang sein.
 ov_news: News
+ov_news_all: 'Alle Nachrichdn'
+tutorial_step_of: 'Schridd %1 vo %2'
 ov_of: von
 ov_outlaw: 'Gesetzloser bis:'
 ov_place: Blatz

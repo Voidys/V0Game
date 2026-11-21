@@ -1,0 +1,21 @@
+{% extends layout_template %}
+{% block title %}{{ LNG.socialLinkTitle }}{{ parent() }}{% endblock %}
+{% block content %}
+<h1>{{ LNG.socialLinkTitle }}</h1>
+<p>{{ LNG.format('socialLinkIntro', email, provider) }}</p>
+<form class="form" action="{{ path('login_social_link_send') }}" method="post">
+  {{ csrf_field() }}
+  <div class="field">
+    <label for="password">{{ LNG.socialLinkPassword }}</label>
+    <input type="password" name="password" id="password" autocomplete="current-password" required autofocus>
+    <small class="field__help">{{ LNG.socialLinkHelp }}</small>
+  </div>
+  <div class="form__actions">
+    <button type="submit" class="btn--primary btn-hero">{{ icon('link') }}{{ LNG.socialLinkButton }}</button>
+  </div>
+</form>
+<form class="form" action="{{ path('login_social_cancel_send') }}" method="post">
+  {{ csrf_field() }}
+  <div class="form__actions"><button type="submit">{{ LNG.socialCancel }}</button></div>
+</form>
+{% endblock %}

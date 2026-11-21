@@ -1,0 +1,67 @@
+{% include 'admin/overall_header.html.twig' %}
+{# Social login settings: a card per provider (on/off, client id, client secret) with the callback URL to register at the provider. #}
+<form action="" method="post" class="stack" data-track-dirty>
+  <input type="hidden" name="opt_save" value="1">
+  <button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+
+  <div class="notice notice--info">{{ icon('info') }}<div>{{ LNG.se_social_info }}</div></div>
+  {% if siteUrlMissing %}
+    <div class="notice notice--warning" role="alert">{{ icon('triangle-alert') }}<div>{{ LNG.se_social_site_url_missing }}</div></div>
+  {% endif %}
+
+  {% for provider in providers %}
+    {% set enabledField = 'social_' ~ provider.id ~ '_enabled' %}
+    {% set idField = 'social_' ~ provider.id ~ '_client_id' %}
+    {% set secretField = 'social_' ~ provider.id ~ '_client_secret' %}
+    <section class="card" id="section-{{ provider.id }}">
+      <header class="card__head"><h2 class="card__title">{{ icon(provider.icon) }}{{ provider.label }}</h2></header>
+      <div class="card__body form-grid">
+        {% if provider.incomplete %}
+          <div class="notice notice--warning" role="alert">{{ icon('triangle-alert') }}<div>{{ LNG.se_social_incomplete }}</div></div>
+        {% endif %}
+        <div class="field-row" data-field="{{ enabledField }}">
+          <label for="{{ enabledField }}">{{ LNG.se_social_enabled }}</label>
+          <div class="field-control">
+            <input id="{{ enabledField }}" name="{{ enabledField }}" type="checkbox" class="switch"{% if configValues[enabledField] %} checked{% endif %}>
+          </div>
+          <div class="field-help">{{ LNG.se_social_enabled_info }}</div>
+        </div>
+        <div class="field-row" data-field="{{ idField }}">
+          <label for="{{ idField }}">{{ LNG.se_social_client_id }}</label>
+          <div class="field-control"><input id="{{ idField }}" name="{{ idField }}" value="{{ configValues[idField] }}" type="text" maxlength="255" autocomplete="off"></div>
+          <div class="field-help">{{ LNG.se_social_client_id_info }}</div>
+        </div>
+        <div class="field-row" data-field="{{ secretField }}">
+          <label for="{{ secretField }}">{{ LNG.se_social_client_secret }}</label>
+          <div class="field-control"><input id="{{ secretField }}" name="{{ secretField }}" value="" type="password" maxlength="255" autocomplete="new-password" placeholder="{{ configValues['_hint_' ~ secretField]|default('') }}"></div>
+          <div class="field-help">{{ LNG.se_social_client_secret_info }}</div>
+        </div>
+        <div class="field-row">
+          <label for="callback-{{ provider.id }}">{{ LNG.se_social_callback }}</label>
+          <div class="field-control">
+            {% if provider.callbackUrl %}
+              <input id="callback-{{ provider.id }}" type="text" value="{{ provider.callbackUrl }}" readonly class="mono" size="60">
+            {% else %}
+              <span class="muted">&ndash;</span>
+            {% endif %}
+          </div>
+          <div class="field-help">{{ LNG.se_social_callback_info }}</div>
+        </div>
+        <div class="field-row">
+          <label>{{ LNG.se_social_create_app }}</label>
+          <div class="field-control">
+            <a href="{{ provider.consoleUrl }}" target="_blank" rel="noopener noreferrer">{{ provider.consoleUrl }}</a>
+            <p class="field-help">{{ LNG['se_social_' ~ provider.id ~ '_help'] }}</p>
+            <p class="field-help">{{ LNG.format('se_social_scopes', provider.scope) }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endfor %}
+
+  <div class="form-actions">
+    <span class="form-actions__hint">{{ LNG.adm_unsaved_hint }}</span>
+    <button type="submit" class="btn--primary">{{ icon('save') }}{{ LNG.se_save_parameters }}</button>
+  </div>
+</form>
+{% include 'admin/overall_footer.html.twig' %}

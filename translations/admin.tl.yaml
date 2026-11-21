@@ -1718,3 +1718,22 @@ vt_log_empty: Wala pang vote.
 vt_status_rewarded: Nabigyan ng reward
 vt_status_verified: Na-verify, walang reward
 vt_status_pending: Na-click
+adm_nav_social: "Social login"
+se_social: "Social login"
+se_social_info: "Pinapayagan ang mga manlalaro na mag-sign in o magrehistro gamit ang umiiral na Discord, Facebook, GitHub o Google account (OAuth2). Naka-off ang lahat ng provider bilang default. Gumawa ng app sa provider, irehistro doon ang callback URL na nakasaad sa ibaba, at ilagay dito ang client ID at secret."
+se_social_site_url_missing: "Hindi nakatakda ang base URL ng laro (DEFAULT_URI sa .env.local), kaya hindi makabuo ng callback URL at hindi magagamit ang mga provider."
+se_social_incomplete: "Naka-on, pero kulang ang client ID o client secret: nananatiling nakatago ang login button."
+se_social_enabled: "Naka-enable"
+se_social_enabled_info: "Ipinapakita ang login button sa unang pahina at sa pahina ng pagrerehistro."
+se_social_client_id: "Client ID"
+se_social_client_id_info: "Application (client) ID ng app sa provider."
+se_social_client_secret: "Client secret"
+se_social_client_secret_info: "Hindi na ito ipapakitang muli. Iwanang blangko para panatilihin ang naka-save na secret."
+se_social_callback: "Callback URL"
+se_social_callback_info: "Irehistro nang eksakto ang address na ito bilang redirect / callback URL sa provider."
+se_social_create_app: "Gumawa ng app"
+se_social_discord_help: "Discord Developer Portal: New Application, pagkatapos OAuth2: idagdag ang redirect, kopyahin ang client ID at client secret."
+se_social_facebook_help: "Meta for Developers: gumawa ng app na may use case na Facebook Login at idagdag ang URL sa mga valid na OAuth redirect URI. Hindi kailanman ituturing na na-verify ang e-mail ng Facebook: hindi makakapagrehistro ang mga bagong manlalaro gamit ito at hindi itutugma ang mga umiiral na account sa e-mail; gumagana ang pagkonekta mula sa mga setting ng account."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, ilagay ang callback URL bilang Authorization callback URL."
+se_social_google_help: "Google Cloud Console, APIs and Services, Credentials: gumawa ng OAuth client ID na uri ng Web application at idagdag ang callback URL sa authorized redirect URIs."
+se_social_scopes: "Mga hinihinging scope: %s"

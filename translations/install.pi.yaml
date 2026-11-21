@@ -99,7 +99,7 @@ ins_theme_invalid: Unbekanntes Design.
 ins_to_start: Zur Startseite
 ins_credits_head: Auf den Schultern von Riesen
 ins_credits_text: 'V0Game setzt eine lange Reihe von Open-Source-Browserspielen fort. Respekt an alle, die es vor uns gebaut und am Leben gehalten haben:'
-ins_credits_thanks: Danke an die pr0game-Community für das Spiel, aus dem dieses hier gewachsen ist.
+ins_credits_thanks: 'Danke an alle Code-Matrosen und Maintainer, die dieses Spiel über die Jahre gebaut und über Wasser gehalten haben, von 2Moons und SteemNova bis pr0game, arrr.'
 ins_licence_note: Freie Software unter der GNU AGPL v3
 ins_task_images: Bilder optimieren (WebP)
 ins_db_help: V0Game speichert alles in einer MySQL- oder MariaDB-Datenbank. Die Werte unten bekommst du in deinem Hosting-Panel (Bereich "Datenbanken" oder "MySQL") oder von der Person, die deinen Server eingerichtet hat. Hast du MySQL selbst installiert, passen die Vorgaben meist.
@@ -198,3 +198,46 @@ ins_board_info: Ein Forum für deine Spieler. Wenn aus, sind alle Board-Links au
 ins_legal_note: Die erzeugten Texte sind nur Vorlagen. Als Betreiber bist du selbst für die Rechtstexte deines Spiels verantwortlich und solltest sie prüfen.
 ins_legal_region_invalid: Bitte wähl eine gültige Hosting-Region.
 ins_legal_rules_invalid: Bitte wähl, wie die Regeln starten sollen.
+ins_step_mail: 'E-Mail'
+ins_mail_desc: 'Optional. Leg fest, wie das Schiff Post verschickt (Anmusterung, Passwort zurücksetzen). Du kannst den Schritt überspringen und später unter Admin - Einstellungen einrichten, Landratte.'
+ins_mail_enable: 'E-Mails verschicken'
+ins_mail_method: 'Methode'
+ins_mail_method_php: 'PHP-mail()-Funktion'
+ins_mail_method_smtp: 'SMTP-Server'
+ins_mail_from: 'Absenderadresse'
+ins_mail_host: 'SMTP-Host'
+ins_mail_port: 'SMTP-Port'
+ins_mail_enc: 'Verschlüsselung'
+ins_mail_enc_none: 'Keine'
+ins_mail_user: 'SMTP-Benutzer'
+ins_mail_pass: 'SMTP-Passwort'
+ins_mail_pass_info: 'Wird nicht erneut angezeigt; nach einer Test-Mail neu eingeben.'
+ins_mail_save: 'Speichern und weiter'
+ins_mail_skip: 'Überspringen (Post bleibt aus)'
+ins_mail_test_head: 'Test-Mail senden'
+ins_mail_test_to: 'Test-Mail senden an'
+ins_mail_test_send: 'Test-Mail senden'
+ins_mail_test_ok: 'Test-Mail an %s gesendet.'
+ins_mail_test_fail: 'Test-Mail abgesoffen: %s'
+ins_mail_from_invalid: 'Bitte eine gültige Absender-E-Mail-Adresse eingeben.'
+ins_mail_host_required: 'Bitte den SMTP-Host eingeben.'
+ins_mail_port_invalid: 'Bitte einen gültigen Port (1-65535) eingeben.'
+ins_mail_test_invalid: 'Bitte eine gültige E-Mail-Adresse für die Test-Mail eingeben.'
+ins_mail_test_subject: 'V0Game Test-Mail'
+ins_mail_test_body: 'Ahoi! Dies ist eine Test-Mail des V0Game-Installers. Deine Mail-Einstellungen funktionieren.'
+ins_done_social: 'Social Login (optional).'
+ins_social_hint: 'Die Anmeldung mit Discord, Google, GitHub oder Facebook kann später unter Admin - Social Login aktiviert werden.'
+ins_group_imprint: 'Impressum (optional)'
+ins_imprint_info: 'Kontaktdaten für die Impressum-Seite. Beides darf leer bleiben und lässt sich später unter Admin - Einstellungen ändern.'
+ins_imprint_eu_hint: 'Betreiber in der EU brauchen in der Regel ein Impressum mit Kontakt-E-Mail-Adresse. Du kannst es jetzt überspringen, solltest es aber vor dem Auslaufen ausfüllen.'
+ins_imprint_mail: 'Kontakt-E-Mail'
+ins_imprint_address: 'Impressum-Anschrift'
+ins_imprint_mail_invalid: 'Bitte eine gültige Kontakt-E-Mail-Adresse für das Impressum eingeben.'
+ins_more_settings: 'Weitere Einstellungen'
+ins_update_check: 'Auf Updates prüfen'
+ins_update_check_info: 'Das Admin-Dashboard hält beim Update-Server (GitHub) nach der neuesten Version Ausschau.'
+ins_discord_url: 'Discord-Einladungslink'
+ins_discord_url_info: 'Optional, zum Beispiel https://discord.gg/deinserver.'
+ins_discord_url_invalid: 'Bitte einen gültigen Discord-Link mit http:// oder https:// eingeben.'
+ins_mail_user_valid: 'E-Mail-Aktivierung verlangen'
+ins_mail_user_valid_info: 'Neue Accounts müssen ihre Adresse per E-Mail bestätigen, bevor sie an Deck dürfen. Nur verfügbar, wenn E-Mail aktiv ist.'

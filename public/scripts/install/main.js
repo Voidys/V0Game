@@ -6,3 +6,13 @@ document.addEventListener('change', (event) => {
   url.searchParams.set('lang', select.value);
   window.location.href = url.toString();
 });
+
+/** E-mail step: "require e-mail activation" is only available while mail is switched on. */
+document.addEventListener('change', (event) => {
+  const toggle = event.target;
+  if (!(toggle instanceof HTMLInputElement) || !toggle.hasAttribute('data-mail-toggle')) return;
+  const dependent = toggle.form?.querySelector('[data-mail-dependent]');
+  if (!dependent) return;
+  dependent.disabled = !toggle.checked;
+  if (!toggle.checked) dependent.checked = false;
+});

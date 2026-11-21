@@ -192,6 +192,15 @@ function formHelpers() {
   });
 }
 
+/** Phones: tab strips scroll sideways; bring the current tab into view (sideways only, the page does not move). */
+function tabsIntoView() {
+  document.querySelectorAll('.tabs, .page-tabs').forEach((strip) => {
+    const current = strip.querySelector('[aria-current="page"]');
+    if (!current || strip.scrollWidth <= strip.clientWidth) return;
+    strip.scrollLeft = current.offsetLeft - (strip.clientWidth - current.offsetWidth) / 2;
+  });
+}
+
 /** Starts every behaviour of this file and of filterSelect.js / ajaxForm.js. */
 const init = () => {
   menuFilter();
@@ -201,6 +210,7 @@ const init = () => {
   tableFilters();
   openEdit();
   formHelpers();
+  tabsIntoView();
   initFilterSelect();
   initAjaxForms();
 };

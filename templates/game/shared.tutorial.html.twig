@@ -1,50 +1,78 @@
+{#
+  Tutorial on the overview: a folding panel (details.accordion, open state kept by scripts/game/overview.js).
+  Head: step x of y, title, overall progress, next open goal. Body: text | goal checklist + rewards. Foot: actions.
+  Data: TutorialUtil::getTutorialStepDetails() (title, text, goals, rewards, fullfilled, last, skippable, position, total).
+#}
 {% if tutorial %}
-    <details class="panel accordion tutorial-accordion" id="tutorial-accordion" data-key="tutorial" data-default="closed">
-    <summary id="tutorial-header" class="panel__head tutorial-header accordion__head">
-        {% set openGoals = [] %}
-        {% for elementID, goal in tutorial.goals|default([]) %}{% if goal.owned < goal.ammount %}{% set openGoals = openGoals|merge([goal]) %}{% endif %}{% endfor %}
-        <span class="accordion__title"><span><b>Tutorial:</b> {{ tutorial.title }}
-        {% if openGoals %}<span class="tutorial-header__goal">&middot; {{ openGoals[0].name }}: {{ openGoals[0].owned }}/{{ openGoals[0].ammount }}{% if openGoals|length > 1 %} (+{{ openGoals|length - 1 }}){% endif %}</span>{% elseif tutorial.fullfilled %}<span class="tutorial-header__goal colorPositive">&middot; &#10003;</span>{% endif %}</span></span>
-        <span class="accordion__sign" aria-hidden="true"></span>
+  {% set goals = tutorial.goals|default([]) %}
+  {% set openGoals = goals|filter(g => g.owned < g.ammount) %}
+  {% set nextGoal = openGoals|first %}
+  {% set stepsDone = tutorial.total ? (tutorial.position - 1 + (tutorial.fullfilled ? 1 : 0)) : 0 %}
+  <details class="panel accordion tut{% if tutorial.fullfilled %} is-done{% endif %}" id="tutorial-accordion" data-key="tutorial" data-default="closed">
+    <summary id="tutorial-header" class="tut__head">
+      <span class="tut__icon" aria-hidden="true">{{ icon(tutorial.fullfilled ? 'circle-check' : 'book-open') }}</span>
+      <span class="tut__heading">
+        <span class="tut__step">Tutorial{% if tutorial.total %} · {{ LNG.tutorial_step_of|replace({'%1': tutorial.position, '%2': tutorial.total}) }}{% endif %}</span>
+        <strong class="tut__title">{{ tutorial.title }}</strong>
+      </span>
+      {% if nextGoal %}
+        <span class="tut__chip">{{ nextGoal.name }} <b class="mono">{{ min(nextGoal.owned, nextGoal.ammount) }}/{{ nextGoal.ammount }}</b>{% if openGoals|length > 1 %} <span class="muted">+{{ openGoals|length - 1 }}</span>{% endif %}</span>
+      {% endif %}
+      <span class="accordion__sign" aria-hidden="true"></span>
+      {% if tutorial.total %}
+        <span class="tut__progress meter meter--thin" style="--fill: {{ (stepsDone / tutorial.total)|round(3) }}" role="img" aria-label="{{ LNG.tutorial_step_of|replace({'%1': stepsDone, '%2': tutorial.total}) }}"></span>
+      {% endif %}
     </summary>
-    <div id="tutorial" class="tutorial panel__body">
-        <div class="tutorial-text">
-            {{ tutorial.text }}<br>
+
+    <div id="tutorial" class="tut__body">
+      <div class="tut__text">{{ tutorial.text }}</div>
+      {% if goals or tutorial.rewards %}
+        <div class="tut__side">
+          {% if goals %}
+            <h3 class="tut__label">{{ LNG.tutorial_goals_header }}</h3>
+            <ul class="tut__goals">
+              {% for elementID, goal in goals %}
+                {% set done = goal.owned >= goal.ammount %}
+                <li{% if done %} class="is-done"{% endif %}>
+                  {{ icon(done ? 'circle-check' : 'circle') }}
+                  <span class="tut__goal-name">{{ goal.name }}</span>
+                  <span class="mono">{{ min(goal.owned, goal.ammount) }}/{{ goal.ammount }}</span>
+                  <span class="meter meter--thin" style="--fill: {{ goal.ammount > 0 ? min(1, goal.owned / goal.ammount)|round(3) : 1 }}" aria-hidden="true"></span>
+                  {% if goal.skippable and not done %}
+                    <a class="tut__skip-goal" data-method="post" href="{{ path('game_tutorial_skip', {goal: elementID}) }}">{{ LNG.tutorial_goals_ignore }}</a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if tutorial.rewards %}
+            <h3 class="tut__label">{{ LNG.tutorial_rewards_header }}</h3>
+            <ul class="tut__rewards">
+              {% for elementID, reward in tutorial.rewards %}
+                <li>{{ icon('gift') }}{{ reward.name }} <b class="mono">{{ pretty_number(reward.ammount) }}</b></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </div>
-        <div class="tutorial-goals">
-            {% if tutorial.goals %}
-                <b>{{ LNG.tutorial_goals_header }}</b><br>
-                <ul>
-                    {% for elementID, goal in tutorial.goals %}
-                        <li>{{ goal.name }}&nbsp;:&nbsp;{{ goal.owned }}/{{ goal.ammount }}{% if goal.skippable %} <a data-method="post" href="{{ path('game_tutorial_skip', {goal: elementID}) }}">{{ LNG.tutorial_goals_ignore }}</a>{% endif %}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            {% if tutorial.rewards %}
-                <b>{{ LNG.tutorial_rewards_header }}</b><br>
-                <ul>
-                    {% for elementID, reward in tutorial.rewards %}
-                        <li>{{ reward.name }}&nbsp;:&nbsp;{{ reward.ammount }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </div>
-        <div class="tutorial-buttons">
-            {% if tutorial.fullfilled and tutorial.last %}
-                <a data-method="post" href="{{ path('game_tutorial_claim') }}"><button>{{ LNG.tutorial_buttons_finalize }}</button></a>
-            {% elseif tutorial.fullfilled and tutorial.rewards %}
-                <a data-method="post" href="{{ path('game_tutorial_claim') }}"><button>{{ LNG.tutorial_buttons_claim }}</button></a>
-            {% elseif tutorial.fullfilled %}
-                <a data-method="post" href="{{ path('game_tutorial_claim') }}"><button>{{ LNG.tutorial_buttons_continue }}</button></a>
-            {% elseif tutorial.skippable %}
-                <a data-method="post" href="{{ path('game_tutorial_skip') }}"><button>{{ LNG.tutorial_buttons_skip }}</button></a>
-                &nbsp;
-                <a data-method="post" href="{{ path('game_tutorial_skip_all') }}" data-confirm="{{ LNG.tutorial_buttons_skipAll_confirm|e('html_attr') }}"><button >{{ LNG.tutorial_buttons_skipAll }}</button></a>
-            {% else %}
-                <a data-method="post" href="{{ path('game_tutorial_skip_all') }}" data-confirm="{{ LNG.tutorial_buttons_skipAll_confirm|e('html_attr') }}"><button>{{ LNG.tutorial_buttons_skipAll }}</button></a>
-            {% endif %}
-        </div>
+      {% endif %}
     </div>
-    </details>
+
+    <footer class="panel__foot tut__foot">
+      <span class="tut__quiet">
+        {% if not tutorial.fullfilled and tutorial.skippable %}
+          <a class="btn btn-sm" data-method="post" href="{{ path('game_tutorial_skip') }}">{{ LNG.tutorial_buttons_skip }}</a>
+        {% endif %}
+        {% if not (tutorial.fullfilled and tutorial.last) %}
+          <a class="btn btn-sm" data-method="post" href="{{ path('game_tutorial_skip_all') }}" data-confirm="{{ LNG.tutorial_buttons_skipAll_confirm|e('html_attr') }}">{{ LNG.tutorial_buttons_skipAll }}</a>
+        {% endif %}
+      </span>
+      {% if tutorial.fullfilled %}
+        <a class="btn btn--primary" data-method="post" href="{{ path('game_tutorial_claim') }}">
+          {{ icon(tutorial.rewards ? 'gift' : 'chevron-right') }}
+          {{ tutorial.last ? LNG.tutorial_buttons_finalize : (tutorial.rewards ? LNG.tutorial_buttons_claim : LNG.tutorial_buttons_continue) }}
+        </a>
+      {% endif %}
+    </footer>
+  </details>
 {% endif %}
 <script type="module" src="./scripts/game/tutorial.js?v={{ asset_version }}"></script>

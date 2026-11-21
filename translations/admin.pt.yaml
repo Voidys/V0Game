@@ -1718,3 +1718,22 @@ vt_log_empty: Ainda não há votos.
 vt_status_rewarded: Recompensado
 vt_status_verified: Verificado, sem recompensa
 vt_status_pending: Clicado
+adm_nav_social: "Início de sessão social"
+se_social: "Início de sessão social"
+se_social_info: "Permite que os jogadores iniciem sessão ou se registem com uma conta existente do Discord, Facebook, GitHub ou Google (OAuth2). Todos os fornecedores estão desativados por defeito. Cria uma aplicação no fornecedor, regista lá o URL de callback indicado abaixo e introduz aqui o ID de cliente e o segredo."
+se_social_site_url_missing: "O URL base do jogo (DEFAULT_URI em .env.local) não está definido, por isso não é possível criar o URL de callback e os fornecedores ficam inutilizáveis."
+se_social_incomplete: "Ativado, mas falta o ID de cliente ou o segredo: o botão de início de sessão permanece oculto."
+se_social_enabled: "Ativado"
+se_social_enabled_info: "Mostra o botão de início de sessão na página inicial e na página de registo."
+se_social_client_id: "ID de cliente"
+se_social_client_id_info: "ID da aplicação (cliente) no fornecedor."
+se_social_client_secret: "Segredo de cliente"
+se_social_client_secret_info: "Nunca mais é mostrado. Deixa vazio para manter o segredo guardado."
+se_social_callback: "URL de callback"
+se_social_callback_info: "Regista exatamente este endereço como URL de redirecionamento / callback no fornecedor."
+se_social_create_app: "Criar a aplicação"
+se_social_discord_help: "Discord Developer Portal: New Application, depois OAuth2: adiciona o redirecionamento e copia o ID de cliente e o segredo."
+se_social_facebook_help: "Meta for Developers: cria uma app com o caso de utilização Início de sessão do Facebook e adiciona o URL em URI de redirecionamento OAuth válidos. O e-mail do Facebook nunca é tratado como verificado: novos jogadores não se podem registar com ele e as contas existentes não são associadas por e-mail; ligar nas definições da conta funciona."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, introduz o URL de callback como Authorization callback URL."
+se_social_google_help: "Google Cloud Console, APIs e serviços, Credenciais: cria um ID de cliente OAuth do tipo Aplicação Web e adiciona o URL de callback em URI de redirecionamento autorizados."
+se_social_scopes: "Scopes pedidos: %s"

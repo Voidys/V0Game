@@ -1718,3 +1718,22 @@ vt_log_empty: Aucun vote pour le moment.
 vt_status_rewarded: Récompensé
 vt_status_verified: Vérifié, sans récompense
 vt_status_pending: Cliqué
+adm_nav_social: "Connexion sociale"
+se_social: "Connexion sociale"
+se_social_info: "Permet aux joueurs de se connecter ou de s'inscrire avec un compte Discord, Facebook, GitHub ou Google existant (OAuth2). Tous les fournisseurs sont désactivés par défaut. Crée une application chez le fournisseur, enregistres-y l'URL de callback affichée ci-dessous et saisis ici l'ID client et le secret."
+se_social_site_url_missing: "L'URL de base du jeu (DEFAULT_URI dans .env.local) n'est pas définie : aucune URL de callback ne peut être construite et les fournisseurs restent inutilisables."
+se_social_incomplete: "Activé, mais l'ID client ou le secret client manque : le bouton de connexion reste masqué."
+se_social_enabled: "Activé"
+se_social_enabled_info: "Affiche le bouton de connexion sur la page d'accueil et la page d'inscription."
+se_social_client_id: "ID client"
+se_social_client_id_info: "ID d'application (client) de l'application chez le fournisseur."
+se_social_client_secret: "Secret client"
+se_social_client_secret_info: "N'est plus jamais affiché. Laisser vide pour conserver le secret enregistré."
+se_social_callback: "URL de callback"
+se_social_callback_info: "Enregistre exactement cette adresse comme URL de redirection / callback chez le fournisseur."
+se_social_create_app: "Créer l'application"
+se_social_discord_help: "Discord Developer Portal : New Application, puis OAuth2 : ajoute la redirection, copie l'ID client et le secret client."
+se_social_facebook_help: "Meta for Developers : crée une app avec le cas d'usage Facebook Login et ajoute l'URL dans les URI de redirection OAuth valides. L'e-mail de Facebook n'est jamais considéré comme vérifié : les nouveaux joueurs ne peuvent pas s'inscrire avec et les comptes existants ne sont pas associés par e-mail ; la connexion depuis les paramètres du compte fonctionne."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps : New OAuth App, saisis l'URL de callback comme Authorization callback URL."
+se_social_google_help: "Google Cloud Console, API et services, Identifiants : crée un ID client OAuth de type Application Web et ajoute l'URL de callback dans les URI de redirection autorisés."
+se_social_scopes: "Scopes demandés : %s"

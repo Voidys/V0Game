@@ -103,7 +103,7 @@ ins_theme_invalid: Hindi kilalang theme.
 ins_to_start: Pumunta sa start page
 ins_credits_head: Nakatayo sa balikat ng mga higante
 ins_credits_text: 'Ipinagpapatuloy ng V0Game ang mahabang linya ng mga open-source na browser game. Pagpupugay sa lahat ng bumuo at nagpanatili nitong buhay bago pa tayo:'
-ins_credits_thanks: Salamat, pr0game community, sa larong pinagmulan ng larong ito.
+ins_credits_thanks: 'Salamat sa lahat ng coder at maintainer na bumuo at nagpanatiling buhay sa larong ito sa paglipas ng mga taon, mula 2Moons at SteemNova hanggang pr0game.'
 ins_licence_note: Libreng software sa ilalim ng GNU AGPL v3
 ins_task_images: I-optimize ang mga image (WebP)
 ins_db_help: Ang V0Game ay nag-iimbak ng lahat sa MySQL o MariaDB database. Makukuha mo ang mga value sa ibaba sa hosting panel mo (hanapin ang "Databases" o "MySQL"), o sa nag-set up ng server mo. Kung ikaw mismo ang nag-install ng MySQL, kadalasang gumagana ang mga default.
@@ -202,3 +202,46 @@ ins_board_info: Forum para sa mga manlalaro mo. Kapag naka-off, nakatago ang lah
 ins_legal_note: Mga template lang ang nagawang teksto. Bilang operator, ikaw ang responsable sa mga legal na teksto ng laro mo at dapat mo itong suriin.
 ins_legal_region_invalid: Pumili ng wastong rehiyon ng hosting.
 ins_legal_rules_invalid: Pumili kung paano dapat magsimula ang mga tuntunin.
+ins_step_mail: 'E-mail'
+ins_mail_desc: 'Opsyonal. Piliin kung paano magpapadala ng e-mail ang laro (registration, password reset). Maaari mong laktawan ito at i-set up mamaya sa Admin - Settings.'
+ins_mail_enable: 'Magpadala ng e-mail'
+ins_mail_method: 'Paraan'
+ins_mail_method_php: 'PHP mail() function'
+ins_mail_method_smtp: 'SMTP server'
+ins_mail_from: 'Address ng nagpapadala'
+ins_mail_host: 'SMTP host'
+ins_mail_port: 'SMTP port'
+ins_mail_enc: 'Encryption'
+ins_mail_enc_none: 'Wala'
+ins_mail_user: 'SMTP user'
+ins_mail_pass: 'SMTP password'
+ins_mail_pass_info: 'Hindi na ito ipapakita muli; ilagay ulit pagkatapos ng test mail.'
+ins_mail_save: 'I-save at magpatuloy'
+ins_mail_skip: 'Laktawan (mananatiling off ang mail)'
+ins_mail_test_head: 'Magpadala ng test mail'
+ins_mail_test_to: 'Padalhan ng test mail ang'
+ins_mail_test_send: 'Magpadala ng test mail'
+ins_mail_test_ok: 'Naipadala ang test mail sa %s.'
+ins_mail_test_fail: 'Nabigo ang test mail: %s'
+ins_mail_from_invalid: 'Maglagay ng wastong e-mail address ng nagpapadala.'
+ins_mail_host_required: 'Ilagay ang SMTP host.'
+ins_mail_port_invalid: 'Maglagay ng wastong port (1-65535).'
+ins_mail_test_invalid: 'Maglagay ng wastong e-mail address para sa test mail.'
+ins_mail_test_subject: 'V0Game test mail'
+ins_mail_test_body: 'Ito ay test mail mula sa installer ng V0Game. Gumagana ang mga setting ng mail mo.'
+ins_done_social: 'Social login (opsyonal).'
+ins_social_hint: 'Maaaring i-enable mamaya ang login gamit ang Discord, Google, GitHub o Facebook sa Admin - Social login.'
+ins_group_imprint: 'Imprint (opsyonal)'
+ins_imprint_info: 'Mga detalye ng contact para sa imprint page. Maaaring iwanang blangko ang dalawa at mababago mamaya sa Admin - Settings.'
+ins_imprint_eu_hint: 'Karaniwang kailangan ng mga operator sa EU ng imprint na may contact e-mail. Maaari mo itong laktawan ngayon, pero punan bago mag-public.'
+ins_imprint_mail: 'Contact e-mail'
+ins_imprint_address: 'Address para sa imprint'
+ins_imprint_mail_invalid: 'Maglagay ng wastong contact e-mail para sa imprint.'
+ins_more_settings: 'Higit pang settings'
+ins_update_check: 'Tingnan kung may update'
+ins_update_check_info: 'Tinatanong ng admin dashboard ang update server (GitHub) para sa pinakabagong release.'
+ins_discord_url: 'Discord invite link'
+ins_discord_url_info: 'Opsyonal, halimbawa https://discord.gg/serbermo.'
+ins_discord_url_invalid: 'Maglagay ng wastong Discord link na nagsisimula sa http:// o https://.'
+ins_mail_user_valid: 'Hingin ang e-mail activation'
+ins_mail_user_valid_info: 'Kailangang kumpirmahin ng mga bagong account ang address nila sa e-mail bago makapaglaro. Available lang kapag naka-on ang e-mail.'

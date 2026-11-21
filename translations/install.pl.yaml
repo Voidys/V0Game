@@ -99,7 +99,7 @@ ins_theme_invalid: Nieznany motyw.
 ins_to_start: Do strony startowej
 ins_credits_head: Na ramionach gigantów
 ins_credits_text: 'V0Game kontynuuje długą linię otwartoźródłowych gier przeglądarkowych. Szacunek dla wszystkich, którzy zbudowali ją i podtrzymywali przy życiu przed nami:'
-ins_credits_thanks: Dziękujemy, społeczności pr0game, za grę, z której ta wyrosła.
+ins_credits_thanks: 'Dziękujemy wszystkim programistom i opiekunom, którzy przez lata tworzyli tę grę i utrzymywali ją przy życiu, od 2Moons i SteemNova po pr0game.'
 ins_licence_note: Wolne oprogramowanie na licencji GNU AGPL v3
 ins_task_images: Optymalizuj obrazy (WebP)
 ins_db_help: V0Game przechowuje wszystko w bazie danych MySQL lub MariaDB. Poniższe wartości otrzymasz w panelu swojego hostingu (szukaj „Bazy danych” lub „MySQL”) albo od osoby, która skonfigurowała serwer. Jeśli samodzielnie zainstalowałeś MySQL, zwykle działają wartości domyślne.
@@ -198,3 +198,46 @@ ins_board_info: Forum dla Twoich graczy. Po wyłączeniu wszystkie linki do foru
 ins_legal_note: Wygenerowane teksty są jedynie szablonami. Jako operator odpowiadasz za teksty prawne swojej gry i powinieneś je sprawdzić.
 ins_legal_region_invalid: Wybierz poprawny region hostingu.
 ins_legal_rules_invalid: Wybierz, jak ma wyglądać początek regulaminu.
+ins_step_mail: 'E-mail'
+ins_mail_desc: 'Opcjonalnie. Wybierz, jak gra wysyła e-maile (rejestracja, reset hasła). Możesz pominąć ten krok i skonfigurować go później w Admin - Ustawienia.'
+ins_mail_enable: 'Wysyłaj e-maile'
+ins_mail_method: 'Metoda'
+ins_mail_method_php: 'Funkcja PHP mail()'
+ins_mail_method_smtp: 'Serwer SMTP'
+ins_mail_from: 'Adres nadawcy'
+ins_mail_host: 'Host SMTP'
+ins_mail_port: 'Port SMTP'
+ins_mail_enc: 'Szyfrowanie'
+ins_mail_enc_none: 'Brak'
+ins_mail_user: 'Użytkownik SMTP'
+ins_mail_pass: 'Hasło SMTP'
+ins_mail_pass_info: 'Nie jest ponownie wyświetlane; wpisz je jeszcze raz po wysłaniu wiadomości testowej.'
+ins_mail_save: 'Zapisz i kontynuuj'
+ins_mail_skip: 'Pomiń (poczta pozostaje wyłączona)'
+ins_mail_test_head: 'Wyślij wiadomość testową'
+ins_mail_test_to: 'Wyślij wiadomość testową na'
+ins_mail_test_send: 'Wyślij wiadomość testową'
+ins_mail_test_ok: 'Wiadomość testowa wysłana na %s.'
+ins_mail_test_fail: 'Wiadomość testowa nie powiodła się: %s'
+ins_mail_from_invalid: 'Podaj prawidłowy adres e-mail nadawcy.'
+ins_mail_host_required: 'Podaj host SMTP.'
+ins_mail_port_invalid: 'Podaj prawidłowy port (1-65535).'
+ins_mail_test_invalid: 'Podaj prawidłowy adres e-mail dla wiadomości testowej.'
+ins_mail_test_subject: 'Wiadomość testowa V0Game'
+ins_mail_test_body: 'To jest wiadomość testowa instalatora V0Game. Ustawienia poczty działają.'
+ins_done_social: 'Logowanie społecznościowe (opcjonalnie).'
+ins_social_hint: 'Logowanie przez Discord, Google, GitHub lub Facebook można włączyć później w Admin - Logowanie społecznościowe.'
+ins_group_imprint: 'Impressum (opcjonalnie)'
+ins_imprint_info: 'Dane kontaktowe dla strony impressum. Oba pola mogą pozostać puste i można je zmienić później w Admin - Ustawienia.'
+ins_imprint_eu_hint: 'Operatorzy w UE zwykle potrzebują impressum z kontaktowym adresem e-mail. Możesz to teraz pominąć, ale uzupełnij przed uruchomieniem publicznym.'
+ins_imprint_mail: 'Kontaktowy e-mail'
+ins_imprint_address: 'Adres impressum'
+ins_imprint_mail_invalid: 'Podaj prawidłowy kontaktowy adres e-mail do impressum.'
+ins_more_settings: 'Więcej ustawień'
+ins_update_check: 'Sprawdzaj aktualizacje'
+ins_update_check_info: 'Panel administratora pyta serwer aktualizacji (GitHub) o najnowsze wydanie.'
+ins_discord_url: 'Link zaproszenia Discord'
+ins_discord_url_info: 'Opcjonalnie, na przykład https://discord.gg/twojserwer.'
+ins_discord_url_invalid: 'Podaj prawidłowy link Discord zaczynający się od http:// lub https://.'
+ins_mail_user_valid: 'Wymagaj aktywacji e-mailem'
+ins_mail_user_valid_info: 'Nowe konta muszą potwierdzić adres e-mailem, zanim zagrają. Dostępne tylko przy włączonej poczcie.'

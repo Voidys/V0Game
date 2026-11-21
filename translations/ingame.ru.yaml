@@ -1153,6 +1153,8 @@ ov_newname_done: Планета переименована!
 ov_newname_specialchar: Название планеты может содержать только цифры, буквы, пробелы, _, - и .!
 ov_newname_too_long: Название планеты может содержать не более %d символов.
 ov_news: Новости
+ov_news_all: 'Все новости'
+tutorial_step_of: 'Шаг %1 из %2'
 ov_of: из
 ov_outlaw: 'Вне закона до:'
 ov_place: Место

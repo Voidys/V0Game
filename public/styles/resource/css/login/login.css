@@ -246,6 +246,19 @@ body.site {
 .site-account .icon { width: 1rem; height: 1rem; color: var(--nova-accent); }
 .login-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2); margin-top: var(--space-3); font-size: var(--fs-sm); color: var(--c-muted); }
 
+/* social login: one button per provider below the forms (templates/login/_social_buttons.html.twig) */
+.social-login { margin-top: var(--space-4); }
+.social-login__or { display: flex; align-items: center; gap: var(--space-3); margin: 0 0 var(--space-3); color: var(--c-muted); font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: 0.06em; }
+.social-login__or::before, .social-login__or::after { content: ""; flex: 1; height: 1px; background: var(--nova-line); }
+.social-login__list { display: grid; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+.site .social-login a.social-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); width: 100%; min-height: 2.6rem; padding: 0.4rem var(--space-3); border: 1px solid rgb(255 255 255 / 0.18); border-radius: var(--radius-sm, 6px); background: #26262b; color: #fff; font-weight: 600; text-decoration: none; }
+.site .social-login .social-btn .icon { flex: none; width: 1.15rem; height: 1.15rem; }
+.site .social-login a.social-btn:hover, .site .social-login a.social-btn:focus-visible { filter: brightness(1.12); text-decoration: none; }
+.site .social-login a.social-btn--discord { background: #5865f2; border-color: #5865f2; }
+.site .social-login a.social-btn--facebook { background: #1877f2; border-color: #1877f2; }
+.site .social-login a.social-btn--github { background: #24292f; border-color: rgb(255 255 255 / 0.3); }
+.site .social-login a.social-btn--google { background: #fff; border-color: #fff; color: #1f1f1f; }
+
 /* messages (login errors, page notices) */
 .notice {
   display: flex;

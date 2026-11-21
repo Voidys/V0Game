@@ -23,6 +23,20 @@ framework:
             policy: sliding_window
             limit: 5
             interval: '1 hour'
+        # social login (App\Security\Social\SocialRateLimits): flow start/callback per IP, password of the link step per
+        # IP and account, registration step per IP
+        social_flow:
+            policy: sliding_window
+            limit: 40
+            interval: '10 minutes'
+        social_link_password:
+            policy: sliding_window
+            limit: 5
+            interval: '15 minutes'
+        social_complete:
+            policy: sliding_window
+            limit: 10
+            interval: '1 hour'
         admin_elevation:
             policy: sliding_window
             limit: 5

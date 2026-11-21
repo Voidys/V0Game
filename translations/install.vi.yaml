@@ -103,7 +103,7 @@ ins_theme_invalid: Giao diện không tồn tại.
 ins_to_start: Đến trang chủ
 ins_credits_head: Đứng trên vai những người khổng lồ
 ins_credits_text: 'V0Game tiếp nối một dòng dài các trò chơi trình duyệt mã nguồn mở. Xin tri ân tất cả những ai đã xây dựng và giữ cho chúng sống trước chúng tôi:'
-ins_credits_thanks: Cảm ơn cộng đồng pr0game, trò chơi đã làm nền tảng cho dự án này.
+ins_credits_thanks: 'Cảm ơn tất cả các lập trình viên và người duy trì đã xây dựng và giữ cho trò chơi này tồn tại qua nhiều năm, từ 2Moons, SteemNova đến pr0game.'
 ins_licence_note: Phần mềm tự do theo GNU AGPL v3
 ins_task_images: Tối ưu hình ảnh (WebP)
 ins_db_help: V0Game lưu toàn bộ dữ liệu trong cơ sở dữ liệu MySQL hoặc MariaDB. Bạn lấy các giá trị bên dưới từ bảng điều khiển hosting (tìm "Databases" hoặc "MySQL") hoặc từ người thiết lập máy chủ. Nếu tự cài MySQL, giá trị mặc định thường dùng được.
@@ -202,3 +202,46 @@ ins_board_info: Diễn đàn cho người chơi. Khi tắt, mọi liên kết t�
 ins_legal_note: Các văn bản được tạo ra chỉ là mẫu. Là người vận hành, bạn chịu trách nhiệm về văn bản pháp lý của trò chơi và nên xem lại.
 ins_legal_region_invalid: Hãy chọn khu vực đặt máy chủ hợp lệ.
 ins_legal_rules_invalid: Hãy chọn cách quy định sẽ bắt đầu.
+ins_step_mail: 'Email'
+ins_mail_desc: 'Tùy chọn. Chọn cách trò chơi gửi email (đăng ký, đặt lại mật khẩu). Bạn có thể bỏ qua bước này và thiết lập sau trong Admin - Cài đặt.'
+ins_mail_enable: 'Gửi email'
+ins_mail_method: 'Phương thức'
+ins_mail_method_php: 'Hàm mail() của PHP'
+ins_mail_method_smtp: 'Máy chủ SMTP'
+ins_mail_from: 'Địa chỉ người gửi'
+ins_mail_host: 'Máy chủ SMTP (host)'
+ins_mail_port: 'Cổng SMTP'
+ins_mail_enc: 'Mã hóa'
+ins_mail_enc_none: 'Không'
+ins_mail_user: 'Người dùng SMTP'
+ins_mail_pass: 'Mật khẩu SMTP'
+ins_mail_pass_info: 'Không hiển thị lại; hãy nhập lại sau khi gửi email thử.'
+ins_mail_save: 'Lưu và tiếp tục'
+ins_mail_skip: 'Bỏ qua (email vẫn tắt)'
+ins_mail_test_head: 'Gửi email thử'
+ins_mail_test_to: 'Gửi email thử tới'
+ins_mail_test_send: 'Gửi email thử'
+ins_mail_test_ok: 'Đã gửi email thử tới %s.'
+ins_mail_test_fail: 'Gửi email thử thất bại: %s'
+ins_mail_from_invalid: 'Vui lòng nhập địa chỉ email người gửi hợp lệ.'
+ins_mail_host_required: 'Vui lòng nhập máy chủ SMTP.'
+ins_mail_port_invalid: 'Vui lòng nhập cổng hợp lệ (1-65535).'
+ins_mail_test_invalid: 'Vui lòng nhập địa chỉ email hợp lệ cho email thử.'
+ins_mail_test_subject: 'Email thử V0Game'
+ins_mail_test_body: 'Đây là email thử từ trình cài đặt V0Game. Cài đặt email của bạn hoạt động.'
+ins_done_social: 'Đăng nhập mạng xã hội (tùy chọn).'
+ins_social_hint: 'Đăng nhập bằng Discord, Google, GitHub hoặc Facebook có thể được bật sau trong Admin - Đăng nhập mạng xã hội.'
+ins_group_imprint: 'Thông tin pháp lý (tùy chọn)'
+ins_imprint_info: 'Thông tin liên hệ cho trang thông tin pháp lý. Cả hai có thể để trống và đổi sau trong Admin - Cài đặt.'
+ins_imprint_eu_hint: 'Nhà vận hành tại EU thường cần trang thông tin pháp lý có email liên hệ. Bạn có thể bỏ qua bây giờ nhưng hãy điền trước khi công khai.'
+ins_imprint_mail: 'Email liên hệ'
+ins_imprint_address: 'Địa chỉ trong thông tin pháp lý'
+ins_imprint_mail_invalid: 'Vui lòng nhập email liên hệ hợp lệ cho thông tin pháp lý.'
+ins_more_settings: 'Cài đặt khác'
+ins_update_check: 'Kiểm tra cập nhật'
+ins_update_check_info: 'Bảng điều khiển admin hỏi máy chủ cập nhật (GitHub) về bản phát hành mới nhất.'
+ins_discord_url: 'Liên kết mời Discord'
+ins_discord_url_info: 'Tùy chọn, ví dụ https://discord.gg/maychucuaban.'
+ins_discord_url_invalid: 'Vui lòng nhập liên kết Discord hợp lệ bắt đầu bằng http:// hoặc https://.'
+ins_mail_user_valid: 'Yêu cầu kích hoạt qua email'
+ins_mail_user_valid_info: 'Tài khoản mới phải xác nhận địa chỉ qua email trước khi chơi. Chỉ khả dụng khi bật email.'

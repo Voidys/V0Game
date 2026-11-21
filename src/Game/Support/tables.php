@@ -22,6 +22,7 @@ $prefix = $database['tableprefix'];
 $dbTableNames   = [
     'ACCOUNTS'                => $prefix . 'accounts',
     'ACCOUNTS_BANNED'         => $prefix . 'accounts_banned',
+    'ACCOUNTS_SOCIAL'         => $prefix . 'accounts_social',
     'ACCOUNTS_TO_USERS'       => $prefix . 'accounts_to_users',
     'ACCOUNTS_VALID'          => $prefix . 'accounts_valid',
     'ACHIEVEMENTS'            => $prefix . 'achievements',

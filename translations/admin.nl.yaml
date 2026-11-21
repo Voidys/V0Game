@@ -1718,3 +1718,22 @@ vt_log_empty: Nog geen stemmen.
 vt_status_rewarded: Beloond
 vt_status_verified: Geverifieerd, geen beloning
 vt_status_pending: Geklikt
+adm_nav_social: "Social login"
+se_social: "Social login"
+se_social_info: "Laat spelers inloggen of zich registreren met een bestaand Discord-, Facebook-, GitHub- of Google-account (OAuth2). Alle aanbieders staan standaard uit. Maak een app bij de aanbieder, registreer daar de hieronder getoonde callback-URL en vul hier client-ID en secret in."
+se_social_site_url_missing: "De basis-URL van het spel (DEFAULT_URI in .env.local) is niet ingesteld, dus er kan geen callback-URL worden gemaakt en de aanbieders blijven onbruikbaar."
+se_social_incomplete: "Ingeschakeld, maar client-ID of client secret ontbreekt: de inlogknop blijft verborgen."
+se_social_enabled: "Ingeschakeld"
+se_social_enabled_info: "Toont de inlogknop op de startpagina en de registratiepagina."
+se_social_client_id: "Client-ID"
+se_social_client_id_info: "Applicatie-ID (client-ID) van de app bij de aanbieder."
+se_social_client_secret: "Client secret"
+se_social_client_secret_info: "Wordt nooit meer getoond. Laat leeg om het opgeslagen secret te behouden."
+se_social_callback: "Callback-URL"
+se_social_callback_info: "Registreer precies dit adres als redirect-/callback-URL bij de aanbieder."
+se_social_create_app: "App aanmaken"
+se_social_discord_help: "Discord Developer Portal: New Application, daarna OAuth2: voeg de redirect toe, kopieer client-ID en client secret."
+se_social_facebook_help: "Meta for Developers: maak een app met de use case Facebook Login en voeg de URL toe bij geldige OAuth-redirect-URI's. Het e-mailadres van Facebook geldt nooit als geverifieerd: nieuwe spelers kunnen zich er niet mee registreren en bestaande accounts worden niet via e-mail gekoppeld; koppelen via de accountinstellingen werkt wel."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, vul de callback-URL in als Authorization callback URL."
+se_social_google_help: "Google Cloud Console, API's en services, Inloggegevens: maak een OAuth-client-ID van het type Webapplicatie en voeg de callback-URL toe bij geautoriseerde redirect-URI's."
+se_social_scopes: "Gevraagde scopes: %s"

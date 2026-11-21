@@ -29,6 +29,34 @@
     </div>
   </section>
 
+  {% if social %}
+  <section class="panel acc-form-panel acc-social" id="social">
+    <h2 class="acc-social__title">{{ LNG.socialConnectedTitle }}</h2>
+    <p class="acc-social__intro">{{ LNG.socialConnectedIntro }}</p>
+    {% if socialNotice %}
+      <div class="notice notice--{{ socialNotice[1] }}" role="status">{{ icon(socialNotice[1] == 'success' ? 'circle-check' : 'circle-alert') }}<div>{{ LNG[socialNotice[0]] }}</div></div>
+    {% endif %}
+    <ul class="acc-social__list">
+      {% for row in social %}
+        <li class="acc-social__row">
+          <span class="acc-social__name">{{ icon(row.icon) }}<strong>{{ row.label }}</strong></span>
+          {% if row.connected %}
+            <span class="acc-social__state">{{ row.email ? LNG.format('socialConnectedAs', row.email) : LNG.socialConnected }}</span>
+            {% if row.canDisconnect %}
+              <form action="{{ row.disconnectUrl }}" method="post">{{ csrf_field() }}<button type="submit" class="btn">{{ LNG.socialDisconnect }}</button></form>
+            {% else %}
+              <span class="acc-social__hint">{{ LNG.socialLastMethodHint }}</span>
+            {% endif %}
+          {% else %}
+            <span class="acc-social__state">{{ LNG.socialNotConnected }}</span>
+            <a class="btn btn--primary" href="{{ row.connectUrl }}" rel="nofollow">{{ LNG.socialConnect }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
   <section class="panel acc-form-panel acc-danger">
     <form action="{{ path('account_account_settings_toggle_delete') }}" method="post">
       <input class="btn btn--danger" name="delete" type="submit" value="{% if delete %}{{ LNG.op_stop_dlte_account }}{% else %}{{ LNG.op_dlte_account }}{% endif %}">

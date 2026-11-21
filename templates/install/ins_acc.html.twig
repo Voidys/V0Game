@@ -5,7 +5,7 @@
   {% if error is defined and error %}
     <div class="notice notice--danger" role="alert">{{ icon('circle-alert') }}<div>{{ error }}</div></div>
   {% endif %}
-  <form class="install-form" action="./?mode=install&amp;step=9" method="post">
+  <form class="install-form" action="./?mode=install&amp;step=10" method="post">
     <input type="hidden" name="post" value="1">
     <input type="hidden" name="bots" value="{{ bots|default(0) }}">
     <fieldset>

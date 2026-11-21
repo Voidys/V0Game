@@ -596,7 +596,8 @@ final class InstallService
 
     /**
      * Validates the game step. Keys of $input: game_name, default_theme, uni_name, language, timezone, speed,
-     * registration (open|closed), mail (bool), bots (0..50).
+     * registration (open|closed), mail (bool), bots (0..50), update_check (bool, default on), discord_url (empty or
+     * an http(s) URL).
      *
      * @param array<string, mixed> $input
      * @return array{error: ?string, values: array<string, mixed>}
@@ -614,6 +615,8 @@ final class InstallService
             'registration' => (string) ($input['registration'] ?? 'open'),
             'mail' => !empty($input['mail']),
             'bots' => (int) ($input['bots'] ?? 0),
+            'update_check' => array_key_exists('update_check', $input) ? !empty($input['update_check']) : true,
+            'discord_url' => trim((string) ($input['discord_url'] ?? '')),
         ];
         if ($values['uni_name'] === '') {
             $values['uni_name'] = $LNG['fcm_universe'] . ' 1';
@@ -628,6 +631,7 @@ final class InstallService
             !isset(self::SPEED_PRESETS[$values['speed']]) => $LNG['ins_speed_invalid'],
             !in_array($values['registration'], ['open', 'closed'], true) => $LNG['ins_registration_invalid'],
             $values['bots'] < 0 || $values['bots'] > 50 => $LNG['ins_bots_invalid'],
+            $values['discord_url'] !== '' && \App\Game\Alliance\AllianceText::httpUrlOrEmpty($values['discord_url']) === '' => $LNG['ins_discord_url_invalid'],
             default => null,
         };
 
@@ -646,6 +650,8 @@ final class InstallService
         $this->db->insert($global, [':key' => 'default_theme', ':value' => $values['default_theme']]);
         $this->db->insert($global, [':key' => 'timezone', ':value' => $values['timezone']]);
         $this->db->insert($global, [':key' => 'mail_active', ':value' => $values['mail'] ? '1' : '0']);
+        $this->db->insert($global, [':key' => 'update_check', ':value' => ($values['update_check'] ?? true) ? '1' : '0']);
+        $this->db->insert($global, [':key' => 'discord_url', ':value' => \App\Game\Alliance\AllianceText::httpUrlOrEmpty((string) ($values['discord_url'] ?? ''))]);
 
         $universe = [
             'uni_name' => $values['uni_name'],
@@ -668,8 +674,124 @@ final class InstallService
     }
 
     /**
+     * Validates the e-mail step. Keys of $input: active (bool), user_valid (bool, only with mail on), method (0 = PHP mail(), 2 = SMTP, as the admin
+     * setting mail_use), from (sender address), host, port, encryption ('', ssl, tls), user, password.
+     * Sender is checked when mail is on; host and port only for SMTP.
+     *
+     * @param array<string, mixed> $input
+     * @return array{error: ?string, values: array<string, mixed>}
+     */
+    public function validateMailSettings(array $input, string $locale): array
+    {
+        $LNG = $this->lng($locale);
+        $values = [
+            'active' => !empty($input['active']),
+            'method' => (int) ($input['method'] ?? 0) === 2 ? 2 : 0,
+            'from' => trim((string) ($input['from'] ?? '')),
+            'host' => trim((string) ($input['host'] ?? '')),
+            'port' => trim((string) ($input['port'] ?? '')),
+            'encryption' => (string) ($input['encryption'] ?? ''),
+            'user' => trim((string) ($input['user'] ?? '')),
+            'password' => (string) ($input['password'] ?? ''),
+            'user_valid' => !empty($input['active']) && !empty($input['user_valid']),
+        ];
+        if (!in_array($values['encryption'], ['', 'ssl', 'tls'], true)) {
+            $values['encryption'] = '';
+        }
+        $smtp = $values['active'] && $values['method'] === 2;
+
+        $error = match (true) {
+            $values['active'] && !filter_var($values['from'], FILTER_VALIDATE_EMAIL) => $LNG['ins_mail_from_invalid'],
+            $smtp && $values['host'] === '' => $LNG['ins_mail_host_required'],
+            $smtp && !$this->isPort($values['port']) => $LNG['ins_mail_port_invalid'],
+            $values['port'] !== '' && !$this->isPort($values['port']) => $LNG['ins_mail_port_invalid'],
+            default => null,
+        };
+
+        return ['error' => $error, 'values' => $values];
+    }
+
+    private function isPort(string $port): bool
+    {
+        return ctype_digit($port) && (int) $port >= 1 && (int) $port <= 65535;
+    }
+
+    /**
+     * Writes validated e-mail settings (see validateMailSettings()) with the keys of the admin mail category.
+     * Without `active` only mail_active = 0 is written (the "skip" case); other keys keep their defaults.
+     *
+     * @param array<mixed> $values
+     */
+    public function applyMailSettings(array $values): void
+    {
+        $global = 'INSERT INTO %%CONFIG%% (`key`, `value`) VALUES (:key, :value) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);';
+        $this->db->insert($global, [':key' => 'mail_active', ':value' => !empty($values['active']) ? '1' : '0']);
+        // e-mail activation needs working mail: off with mail off or skipped
+        $this->db->insert($global, [':key' => 'user_valid', ':value' => !empty($values['active']) && !empty($values['user_valid']) ? '1' : '0']);
+        if (!empty($values['active'])) {
+            $this->db->insert($global, [':key' => 'mail_use', ':value' => (string) $values['method']]);
+            $this->db->insert($global, [':key' => 'smtp_sendmail', ':value' => $values['from']]);
+            $this->db->insert($global, [':key' => 'smtp_ssl', ':value' => $values['encryption']]);
+            $this->db->insert($global, [':key' => 'smtp_host', ':value' => $values['host']]);
+            $this->db->insert($global, [':key' => 'smtp_port', ':value' => (string) (int) $values['port']]);
+            $this->db->insert($global, [':key' => 'smtp_user', ':value' => $values['user']]);
+            $this->db->insert($global, [':key' => 'smtp_pass', ':value' => $values['password']]);
+        }
+        $this->configs->invalidateCache();
+        if ($this->configs->isLoaded()) {
+            $this->configs->reload();
+        }
+    }
+
+    /**
+     * Sends one test mail with the entered (not yet saved) values, the same transport choice as the Mail service.
+     * Never throws; the password is masked in the returned message.
+     *
+     * @param array<string, mixed> $values validated values (see validateMailSettings())
+     * @return ?string null when sent, else the error message
+     */
+    public function sendTestMail(array $values, string $to, string $locale): ?string
+    {
+        $LNG = $this->lng($locale);
+        try {
+            $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+            if ((int) $values['method'] === 2) {
+                $mail->isSMTP();
+                $mail->SMTPSecure = (string) $values['encryption'];
+                $mail->SMTPAutoTLS = $values['encryption'] !== '';
+                $mail->Host = (string) $values['host'];
+                $mail->Port = (int) $values['port'];
+                $mail->Timeout = 10;
+                if ($values['user'] !== '') {
+                    $mail->SMTPAuth = true;
+                    $mail->Username = (string) $values['user'];
+                    $mail->Password = (string) $values['password'];
+                }
+            } else {
+                $mail->isMail();
+            }
+            $mail->CharSet = 'UTF-8';
+            $mail->setFrom((string) $values['from'], 'V0Game');
+            $mail->addAddress($to);
+            $mail->Subject = $LNG['ins_mail_test_subject'];
+            $mail->Body = $LNG['ins_mail_test_body'];
+            $mail->send();
+        } catch (\Throwable $e) {
+            $message = $e->getMessage();
+            if (($values['password'] ?? '') !== '') {
+                $message = str_replace((string) $values['password'], '***', $message);
+            }
+
+            return $message;
+        }
+
+        return null;
+    }
+
+    /**
      * Validates the legal step. Keys of $input: privacy_region (eu|other), rules_default (default|blank),
-     * board_enabled (bool), cookie_consent (bool, default off).
+     * cookie_consent (bool, default off), disclamer_mail and disclamer_address (imprint, both optional; the caller
+     * passes them HTML-encoded like the admin form does).
      *
      * @param array<string, mixed> $input
      * @return array{error: ?string, values: array<string, mixed>}
@@ -680,13 +802,15 @@ final class InstallService
         $values = [
             'privacy_region' => (string) ($input['privacy_region'] ?? 'eu'),
             'rules_default' => (string) ($input['rules_default'] ?? 'default'),
-            'board_enabled' => !empty($input['board_enabled']),
             'cookie_consent' => !empty($input['cookie_consent']),
+            'disclamer_mail' => trim((string) ($input['disclamer_mail'] ?? '')),
+            'disclamer_address' => trim((string) ($input['disclamer_address'] ?? '')),
         ];
 
         $error = match (true) {
             !in_array($values['privacy_region'], ['eu', 'other'], true) => $LNG['ins_legal_region_invalid'],
             !in_array($values['rules_default'], ['default', 'blank'], true) => $LNG['ins_legal_rules_invalid'],
+            $values['disclamer_mail'] !== '' && !filter_var(html_entity_decode($values['disclamer_mail']), FILTER_VALIDATE_EMAIL) => $LNG['ins_imprint_mail_invalid'],
             default => null,
         };
 
@@ -703,8 +827,9 @@ final class InstallService
         $global = 'INSERT INTO %%CONFIG%% (`key`, `value`) VALUES (:key, :value) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);';
         $this->db->insert($global, [':key' => 'privacy_region', ':value' => $values['privacy_region']]);
         $this->db->insert($global, [':key' => 'rules_default', ':value' => $values['rules_default'] === 'default' ? '1' : '0']);
-        $this->db->insert($global, [':key' => 'board_enabled', ':value' => $values['board_enabled'] ? '1' : '0']);
         $this->db->insert($global, [':key' => 'cookie_consent', ':value' => !empty($values['cookie_consent']) ? '1' : '0']);
+        $this->db->insert($global, [':key' => 'disclamer_mail', ':value' => (string) ($values['disclamer_mail'] ?? '')]);
+        $this->db->insert($global, [':key' => 'disclamer_address', ':value' => (string) ($values['disclamer_address'] ?? '')]);
         $this->configs->invalidateCache();
         if ($this->configs->isLoaded()) {
             $this->configs->reload();
@@ -754,6 +879,16 @@ final class InstallService
             null,
             AuthLevel::Admin->value,
         );
+
+        // the imprint contact mail was left empty in the legal step: the administrator's address is the contact
+        $contact = $this->db->selectSingle('SELECT `value` FROM %%CONFIG%% WHERE `key` = :key', [':key' => 'disclamer_mail'], 'value');
+        if ($contact === false || $contact === null || trim((string) $contact) === '') {
+            $this->db->insert(
+                'INSERT INTO %%CONFIG%% (`key`, `value`) VALUES (:key, :value) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);',
+                [':key' => 'disclamer_mail', ':value' => $mail],
+            );
+            $this->configs->invalidateCache();
+        }
 
         return [(int) $accountId, (int) $userId, (int) $planetId];
     }

@@ -1,9 +1,9 @@
-import { qs, qsa, on, now, getRestTimeFormat, setVisibleInterval } from '../app/core.js';
+import { qs, qsa, now, getRestTimeFormat, setVisibleInterval } from '../app/core.js';
 import { env } from '../app/env.js';
 
 /**
  * Overview page: live countdowns (fleet movements `.fleets`, building/research `.timer`, planet repair `.timerrepair`,
- * short form `.timershort`) and the toggles of the news and event blocks. Countdown elements carry the remaining
+ * short form `.timershort`) and the event block toggle. Countdown elements carry the remaining
  * seconds at render time in data attributes; in vacation mode (`.timer[data-umode=1]`) they stay frozen.
  */
 const elapsed = () => (now().getTime() - env.startTime) / 1000;
@@ -34,7 +34,7 @@ function initAccordions() {
   });
 }
 
-/** Starts the two 1 s intervals and the news/event toggle buttons. A finished repair countdown restarts with the 3-day (259200 s) cycle and switches the label to its alternative text. */
+/** Starts the two 1 s intervals and the accordions. A finished repair countdown restarts with the 3-day (259200 s) cycle and switches the label to its alternative text. */
 function init() {
   const umode = qs('.timer')?.dataset.umode == 1;
 
@@ -71,17 +71,6 @@ function init() {
     });
   }, 1000);
 
-  // news and event list toggles
-  const news = document.getElementById('hidden-div');
-  const newsShow = document.getElementById('chkbtn');
-  on(document, 'click', '#chkbtn', (event, button) => {
-    button.style.display = 'none';
-    if (news) news.style.display = 'block';
-  });
-  on(document, 'click', '#chkbtn2', () => {
-    if (newsShow) newsShow.style.display = '';
-    if (news) news.style.display = 'none';
-  });
   initAccordions();
 }
 

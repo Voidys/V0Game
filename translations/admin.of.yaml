@@ -381,7 +381,7 @@ mod_active: AKTIV
 mod_change_active: Aktivieren
 mod_change_deactive: Deaktivieren
 mod_deactive: NICHT AKTIV
-mod_info: Module im Game<br><font color="red">Admins können weiterhin die Bereiche betreten!</font>
+mod_info: Module im Game. Admins können weiterhin die Bereiche betreten!
 mod_module: Module
 modul_0: Allianz
 modul_1: Mission - Angreifen
@@ -1718,3 +1718,22 @@ vt_log_empty: Noch kei Votes.
 vt_status_rewarded: Belohnt
 vt_status_verified: Verifiziert, kei Belohnung
 vt_status_pending: Geklickt
+adm_nav_social: "Social Login"
+se_social: "Social Login"
+se_social_info: "Erlaubd Schbielern die Anmeldung odder Registrierung mid am vorhandna Discord-, Facebook-, GitHub- odder Google-Kondo (OAuth2). Alle Anbieder sin standardmäßich aus. Leech beim Anbieder a App o, drach dord die unden angezeichde Callback-URL ei und gib hier Client-ID und Secret ei."
+se_social_site_url_missing: "Die Basis-URL vom Schbiel (DEFAULT_URI in .env.local) is ned gsedsd, drum kann kaa Callback-URL gebildd wärn und die Anbieder bleim unbrauchbar."
+se_social_incomplete: "Eigschaldd, aber Client-ID odder Client-Secret fehld: der Anmelde-Button bleibd verschdeggd."
+se_social_enabled: "Aggdiviert"
+se_social_enabled_info: "Zeichd den Anmelde-Button auf der Schdardseidn und auf der Registrierungsseidn o."
+se_social_client_id: "Client-ID"
+se_social_client_id_info: "Anwendungs-ID (Client-ID) vo der App beim Anbieder."
+se_social_client_secret: "Client-Secret"
+se_social_client_secret_info: "Wird nie widder angezeichd. Leer lassn, um des gschbeichade Secret zu bhaldn."
+se_social_callback: "Callback-URL"
+se_social_callback_info: "Genau die Adresse beim Anbieder als Redirect-/Callback-URL eidraachn."
+se_social_create_app: "App angleechn"
+se_social_discord_help: "Discord Developer Portal: New Application, dann OAuth2: Redirect hinzufüchn, Client-ID und Client-Secret kobiern."
+se_social_facebook_help: "Meta for Developers: App mid dem Anwendungsfall Facebook-Login angleechn und die URL unner gildiche OAuth-Redirect-URIs eidraachn. Die E-Mail-Adresse vo Facebook gild nie als bschdädichd: Neue Schbieler könna sich damid ned registriern und vorhandne Accounds wärn ned per E-Mail zuogordnd; des Verbindn in den Account-Eischdellungen geht."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, die Callback-URL als Authorization callback URL eidraachn."
+se_social_google_help: "Google Cloud Console, APIs und Dienschde, Anmeldedadn: OAuth-Client-ID vom Dyb Webanwendung angleechn und die Callback-URL unner audorisierde Weidaleidungs-URIs eidraachn."
+se_social_scopes: "Angforderde Scopes: %s"

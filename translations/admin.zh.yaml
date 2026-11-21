@@ -1718,3 +1718,22 @@ vt_log_empty: 暂无投票。
 vt_status_rewarded: 已发放奖励
 vt_status_verified: 已验证，未发放奖励
 vt_status_pending: 已点击
+adm_nav_social: "社交登录"
+se_social: "社交登录"
+se_social_info: "允许玩家使用现有的 Discord、Facebook、GitHub 或 Google 账号登录或注册（OAuth2）。所有提供方默认关闭。请在提供方处创建应用，在那里登记下方显示的回调 URL，并在此填写客户端 ID 和密钥。"
+se_social_site_url_missing: "未设置游戏的基础 URL（.env.local 中的 DEFAULT_URI），因此无法生成回调 URL，提供方保持不可用。"
+se_social_incomplete: "已开启，但缺少客户端 ID 或客户端密钥：登录按钮保持隐藏。"
+se_social_enabled: "启用"
+se_social_enabled_info: "在起始页和注册页显示登录按钮。"
+se_social_client_id: "客户端 ID"
+se_social_client_id_info: "提供方处应用的应用（客户端）ID。"
+se_social_client_secret: "客户端密钥"
+se_social_client_secret_info: "不会再次显示。留空则保留已保存的密钥。"
+se_social_callback: "回调 URL"
+se_social_callback_info: "请将此地址原样登记为提供方处的重定向 / 回调 URL。"
+se_social_create_app: "创建应用"
+se_social_discord_help: "Discord Developer Portal：New Application，然后在 OAuth2 中：添加重定向，复制客户端 ID 和客户端密钥。"
+se_social_facebook_help: "Meta for Developers：创建使用场景为 Facebook 登录的应用，并将该 URL 添加到有效的 OAuth 重定向 URI。Facebook 的电子邮件始终不视为已验证：新玩家不能凭它注册，现有账号也不会按电子邮件匹配；在账号设置中连接则可正常使用。"
+se_social_github_help: "GitHub Settings、Developer settings、OAuth Apps：New OAuth App，将回调 URL 填入 Authorization callback URL。"
+se_social_google_help: "Google Cloud Console、API 和服务、凭据：创建类型为 Web 应用的 OAuth 客户端 ID，并将回调 URL 添加到已获授权的重定向 URI。"
+se_social_scopes: "请求的 scope：%s"

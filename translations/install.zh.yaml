@@ -103,7 +103,7 @@ ins_theme_invalid: 未知主题。
 ins_to_start: 前往起始页
 ins_credits_head: 站在巨人的肩膀上
 ins_credits_text: V0Game 延续了一长串开源浏览器游戏的传统。向所有在我们之前创造并维系它的人致敬：
-ins_credits_thanks: 感谢 pr0game 社区，本游戏正是由它发展而来。
+ins_credits_thanks: '感谢多年来开发并维护这款游戏的所有程序员和维护者，从 2Moons、SteemNova 到 pr0game。'
 ins_licence_note: 依据 GNU AGPL v3 发布的自由软件
 ins_task_images: 优化图片（WebP）
 ins_db_help: V0Game 将所有数据存储在 MySQL 或 MariaDB 数据库中。以下数值可从你的主机面板获取（查找“数据库”或“MySQL”），或询问搭建服务器的人。如果你自行安装了 MySQL，默认值通常即可使用。
@@ -202,3 +202,46 @@ ins_board_info: 为你的玩家提供的论坛。关闭后，所有论坛链接�
 ins_legal_note: 生成的文本仅为模板。作为运营者，你有责任对游戏的法律文本进行审核。
 ins_legal_region_invalid: 请选择有效的托管地区。
 ins_legal_rules_invalid: 请选择规则的初始方式。
+ins_step_mail: '电子邮件'
+ins_mail_desc: '可选。选择游戏发送电子邮件的方式（注册、重置密码）。你可以跳过此步骤，稍后在管理 - 设置中配置。'
+ins_mail_enable: '发送电子邮件'
+ins_mail_method: '方式'
+ins_mail_method_php: 'PHP mail() 函数'
+ins_mail_method_smtp: 'SMTP 服务器'
+ins_mail_from: '发件人地址'
+ins_mail_host: 'SMTP 主机'
+ins_mail_port: 'SMTP 端口'
+ins_mail_enc: '加密'
+ins_mail_enc_none: '无'
+ins_mail_user: 'SMTP 用户'
+ins_mail_pass: 'SMTP 密码'
+ins_mail_pass_info: '不会再次显示；发送测试邮件后请重新输入。'
+ins_mail_save: '保存并继续'
+ins_mail_skip: '跳过（邮件保持关闭）'
+ins_mail_test_head: '发送测试邮件'
+ins_mail_test_to: '发送测试邮件至'
+ins_mail_test_send: '发送测试邮件'
+ins_mail_test_ok: '测试邮件已发送至 %s。'
+ins_mail_test_fail: '测试邮件失败：%s'
+ins_mail_from_invalid: '请输入有效的发件人邮箱地址。'
+ins_mail_host_required: '请输入 SMTP 主机。'
+ins_mail_port_invalid: '请输入有效端口（1-65535）。'
+ins_mail_test_invalid: '请为测试邮件输入有效的邮箱地址。'
+ins_mail_test_subject: 'V0Game 测试邮件'
+ins_mail_test_body: '这是来自 V0Game 安装程序的测试邮件。你的邮件设置可用。'
+ins_done_social: '社交登录（可选）。'
+ins_social_hint: '稍后可在管理 - 社交登录中启用 Discord、Google、GitHub 或 Facebook 登录。'
+ins_group_imprint: '法律声明（可选）'
+ins_imprint_info: '法律声明页面的联系信息。两项均可留空，之后可在管理 - 设置中修改。'
+ins_imprint_eu_hint: '欧盟的运营者通常需要带有联系邮箱的法律声明。现在可以跳过，但公开前请填写。'
+ins_imprint_mail: '联系邮箱'
+ins_imprint_address: '法律声明地址'
+ins_imprint_mail_invalid: '请为法律声明输入有效的联系邮箱。'
+ins_more_settings: '更多设置'
+ins_update_check: '检查更新'
+ins_update_check_info: '管理后台会向更新服务器（GitHub）查询最新版本。'
+ins_discord_url: 'Discord 邀请链接'
+ins_discord_url_info: '可选，例如 https://discord.gg/yourserver。'
+ins_discord_url_invalid: '请输入以 http:// 或 https:// 开头的有效 Discord 链接。'
+ins_mail_user_valid: '要求邮件激活'
+ins_mail_user_valid_info: '新账号必须先通过邮件确认地址才能游玩。仅在邮件开启时可用。'

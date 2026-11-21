@@ -103,7 +103,7 @@ ins_theme_invalid: ไม่รู้จักธีมนี้
 ins_to_start: ไปยังหน้าแรก
 ins_credits_head: ยืนบนบ่าของยักษ์
 ins_credits_text: 'V0Game สืบทอดเกมเบราว์เซอร์โอเพนซอร์สมาอย่างยาวนาน ขอขอบคุณทุกคนที่สร้างและรักษาเกมนี้ไว้ก่อนหน้าเรา:'
-ins_credits_thanks: ขอบคุณชุมชน pr0game สำหรับเกมที่เราเติบโตมาจากมัน
+ins_credits_thanks: 'ขอบคุณนักพัฒนาและผู้ดูแลทุกคนที่สร้างและดูแลเกมนี้ให้อยู่รอดมาตลอดหลายปี ตั้งแต่ 2Moons และ SteemNova จนถึง pr0game'
 ins_licence_note: ซอฟต์แวร์เสรีภายใต้ GNU AGPL v3
 ins_task_images: ปรับแต่งรูปภาพ (WebP)
 ins_db_help: V0Game เก็บข้อมูลทั้งหมดในฐานข้อมูล MySQL หรือ MariaDB คุณจะได้ค่าด้านล่างจากแผงควบคุมโฮสติ้ง (ดูหัวข้อ "Databases" หรือ "MySQL") หรือจากผู้ที่ตั้งค่าเซิร์ฟเวอร์ของคุณ หากคุณติดตั้ง MySQL เอง ค่าเริ่มต้นมักใช้ได้
@@ -202,3 +202,46 @@ ins_board_info: ฟอรัมสำหรับผู้เล่นของ�
 ins_legal_note: ข้อความที่สร้างขึ้นเป็นเพียงเทมเพลต ในฐานะผู้ดำเนินการ คุณรับผิดชอบต่อข้อความทางกฎหมายของเกมและควรตรวจทานให้ดี
 ins_legal_region_invalid: กรุณาเลือกภูมิภาคที่โฮสต์ที่ถูกต้อง
 ins_legal_rules_invalid: กรุณาเลือกวิธีเริ่มต้นของกฎ
+ins_step_mail: 'อีเมล'
+ins_mail_desc: 'ไม่บังคับ เลือกวิธีที่เกมส่งอีเมล (การลงทะเบียน การรีเซ็ตรหัสผ่าน) คุณข้ามขั้นตอนนี้และตั้งค่าภายหลังได้ที่ Admin - Settings'
+ins_mail_enable: 'ส่งอีเมล'
+ins_mail_method: 'วิธีการ'
+ins_mail_method_php: 'ฟังก์ชัน mail() ของ PHP'
+ins_mail_method_smtp: 'เซิร์ฟเวอร์ SMTP'
+ins_mail_from: 'ที่อยู่ผู้ส่ง'
+ins_mail_host: 'โฮสต์ SMTP'
+ins_mail_port: 'พอร์ต SMTP'
+ins_mail_enc: 'การเข้ารหัส'
+ins_mail_enc_none: 'ไม่มี'
+ins_mail_user: 'ผู้ใช้ SMTP'
+ins_mail_pass: 'รหัสผ่าน SMTP'
+ins_mail_pass_info: 'จะไม่แสดงอีก กรอกใหม่หลังส่งอีเมลทดสอบ'
+ins_mail_save: 'บันทึกและดำเนินการต่อ'
+ins_mail_skip: 'ข้าม (ปิดอีเมลไว้)'
+ins_mail_test_head: 'ส่งอีเมลทดสอบ'
+ins_mail_test_to: 'ส่งอีเมลทดสอบไปที่'
+ins_mail_test_send: 'ส่งอีเมลทดสอบ'
+ins_mail_test_ok: 'ส่งอีเมลทดสอบไปที่ %s แล้ว'
+ins_mail_test_fail: 'อีเมลทดสอบล้มเหลว: %s'
+ins_mail_from_invalid: 'กรุณากรอกอีเมลผู้ส่งที่ถูกต้อง'
+ins_mail_host_required: 'กรุณากรอกโฮสต์ SMTP'
+ins_mail_port_invalid: 'กรุณากรอกพอร์ตที่ถูกต้อง (1-65535)'
+ins_mail_test_invalid: 'กรุณากรอกอีเมลที่ถูกต้องสำหรับอีเมลทดสอบ'
+ins_mail_test_subject: 'อีเมลทดสอบ V0Game'
+ins_mail_test_body: 'นี่คืออีเมลทดสอบจากตัวติดตั้ง V0Game การตั้งค่าอีเมลของคุณใช้งานได้'
+ins_done_social: 'ล็อกอินผ่านโซเชียล (ไม่บังคับ)'
+ins_social_hint: 'สามารถเปิดใช้การล็อกอินด้วย Discord, Google, GitHub หรือ Facebook ได้ภายหลังที่ Admin - Social login'
+ins_group_imprint: 'ข้อมูลผู้ดำเนินการ (ไม่บังคับ)'
+ins_imprint_info: 'ข้อมูลติดต่อสำหรับหน้าข้อมูลผู้ดำเนินการ เว้นว่างได้ทั้งคู่ และแก้ไขภายหลังได้ที่ Admin - Settings'
+ins_imprint_eu_hint: 'ผู้ดำเนินการในสหภาพยุโรปมักต้องมีข้อมูลผู้ดำเนินการพร้อมอีเมลติดต่อ ข้ามได้ตอนนี้ แต่ควรกรอกก่อนเปิดให้คนทั่วไปใช้'
+ins_imprint_mail: 'อีเมลติดต่อ'
+ins_imprint_address: 'ที่อยู่ในข้อมูลผู้ดำเนินการ'
+ins_imprint_mail_invalid: 'กรุณากรอกอีเมลติดต่อที่ถูกต้อง'
+ins_more_settings: 'การตั้งค่าเพิ่มเติม'
+ins_update_check: 'ตรวจสอบอัปเดต'
+ins_update_check_info: 'แดชบอร์ดผู้ดูแลจะสอบถามเซิร์ฟเวอร์อัปเดต (GitHub) เพื่อหาเวอร์ชันล่าสุด'
+ins_discord_url: 'ลิงก์เชิญ Discord'
+ins_discord_url_info: 'ไม่บังคับ เช่น https://discord.gg/yourserver'
+ins_discord_url_invalid: 'กรุณากรอกลิงก์ Discord ที่ถูกต้องซึ่งขึ้นต้นด้วย http:// หรือ https://'
+ins_mail_user_valid: 'ต้องยืนยันอีเมลก่อนใช้งาน'
+ins_mail_user_valid_info: 'บัญชีใหม่ต้องยืนยันที่อยู่อีเมลก่อนจึงจะเล่นได้ ใช้ได้เมื่อเปิดอีเมลเท่านั้น'

@@ -1153,6 +1153,8 @@ ov_newname_done: ¡Planeta renombrado!
 ov_newname_specialchar: ¡Los nombres de planeta solo pueden contener números, letras, espacios, guiones bajos, guiones y puntos!
 ov_newname_too_long: El nombre del planeta puede tener como máximo %d caracteres.
 ov_news: Novedades
+ov_news_all: 'Todas las noticias'
+tutorial_step_of: 'Paso %1 de %2'
 ov_of: de
 ov_outlaw: 'Forajido hasta:'
 ov_place: Posición

@@ -140,7 +140,26 @@ class TutorialUtil
             'order' => $tutorialStep['order'],
             'id' => $tutorialStep['id'],
         ];
-        return $tutorial;
+
+        return $tutorial + $this->stepPosition((int) $tutorialStep['order'], (int) $USER['universe']);
+    }
+
+    /**
+     * Position of a step among the steps enabled in the universe (for "step 3 of 12" and the progress bar).
+     *
+     * @return array{position: int, total: int}
+     */
+    private function stepPosition(int $order, int $universe): array
+    {
+        $row = $this->db->selectSingle("SELECT COUNT(*) AS total, COALESCE(SUM(t.`order` <= :order), 0) AS position
+            FROM %%TUTORIALS%% t
+            LEFT JOIN %%TUTORIAL_UNIVERSE%% tu ON tu.`tutorialID` = t.`id` AND tu.`universe` = :universe AND tu.`enabled` = 0
+            WHERE t.`enabled` = 1 AND tu.`id` IS NULL;", [
+            ':order' => $order,
+            ':universe' => $universe,
+        ]);
+
+        return ['position' => (int) ($row['position'] ?? 0), 'total' => (int) ($row['total'] ?? 0)];
     }
 
     /**

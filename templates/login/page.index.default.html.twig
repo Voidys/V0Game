@@ -54,6 +54,7 @@
           {% endif %}
           <button type="submit" class="btn--primary">{{ LNG.loginButton }}</button>
         </form>
+        {% include 'login/_social_buttons.html.twig' %}
         <div class="login-meta">
           {% if mailEnable %}<a href="{{ path('login_lost_password_show') }}">{{ LNG.buttonLostPassword }}</a>{% else %}{% set teamLink %}<a href="{{ path('login_team_show') }}">{{ LNG.loginContactTeam }}</a>{% endset %}<span>{{ LNG.format('loginLostPasswordOff', teamLink) }}</span>{% endif %}
           {% set rulesLink %}<a href="{{ rulesUrl }}">{{ LNG.menu_rules }}</a>{% endset %}

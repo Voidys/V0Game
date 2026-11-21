@@ -1718,3 +1718,22 @@ vt_log_empty: Chưa có lượt bình chọn nào.
 vt_status_rewarded: Đã thưởng
 vt_status_verified: Đã xác minh, không thưởng
 vt_status_pending: Đã nhấn
+adm_nav_social: "Đăng nhập mạng xã hội"
+se_social: "Đăng nhập mạng xã hội"
+se_social_info: "Cho phép người chơi đăng nhập hoặc đăng ký bằng tài khoản Discord, Facebook, GitHub hoặc Google hiện có (OAuth2). Mọi nhà cung cấp đều tắt theo mặc định. Hãy tạo ứng dụng ở nhà cung cấp, đăng ký URL callback hiển thị bên dưới tại đó và nhập Client ID cùng secret vào đây."
+se_social_site_url_missing: "URL gốc của trò chơi (DEFAULT_URI trong .env.local) chưa được đặt nên không thể tạo URL callback và các nhà cung cấp không dùng được."
+se_social_incomplete: "Đã bật nhưng thiếu Client ID hoặc Client secret: nút đăng nhập vẫn bị ẩn."
+se_social_enabled: "Bật"
+se_social_enabled_info: "Hiển thị nút đăng nhập trên trang chủ và trang đăng ký."
+se_social_client_id: "Client ID"
+se_social_client_id_info: "ID ứng dụng (client) của ứng dụng tại nhà cung cấp."
+se_social_client_secret: "Client secret"
+se_social_client_secret_info: "Sẽ không hiển thị lại. Để trống để giữ secret đã lưu."
+se_social_callback: "URL callback"
+se_social_callback_info: "Đăng ký chính xác địa chỉ này làm URL redirect / callback tại nhà cung cấp."
+se_social_create_app: "Tạo ứng dụng"
+se_social_discord_help: "Discord Developer Portal: New Application, sau đó OAuth2: thêm redirect, sao chép Client ID và Client secret."
+se_social_facebook_help: "Meta for Developers: tạo ứng dụng với trường hợp sử dụng Facebook Login và thêm URL vào Valid OAuth Redirect URIs. E-mail của Facebook không bao giờ được coi là đã xác minh: người chơi mới không thể đăng ký bằng nó và tài khoản hiện có không được ghép theo e-mail; kết nối từ cài đặt tài khoản vẫn hoạt động."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, nhập URL callback làm Authorization callback URL."
+se_social_google_help: "Google Cloud Console, APIs and Services, Credentials: tạo OAuth client ID loại Web application và thêm URL callback vào Authorized redirect URIs."
+se_social_scopes: "Scope được yêu cầu: %s"

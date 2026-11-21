@@ -1153,6 +1153,8 @@ ov_newname_done: Planeet hernoemd!
 ov_newname_specialchar: Planeetnamen mogen alleen cijfers, letters, spaties, underscores, streepjes en punten bevatten!
 ov_newname_too_long: De planeetnaam mag maximaal %d tekens hebben.
 ov_news: Nieuws
+ov_news_all: 'Alle nieuws'
+tutorial_step_of: 'Stap %1 van %2'
 ov_of: van
 ov_outlaw: 'Vogelvrij tot:'
 ov_place: Positie

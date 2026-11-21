@@ -1,5 +1,9 @@
 {% include 'admin/overall_header.html.twig' %}
 <div class="login-gate">
+  <a class="admin-brand login-gate__brand" href="game">
+    <span class="wordmark">V<b>0</b>Game</span>
+    <span>{{ LNG.adm_cp_title }}</span>
+  </a>
   <form action="{{ path('admin_login_send') }}" method="post" class="card">
     <header class="card__head">
       <h1 class="card__title">{{ icon('lock') }}{{ LNG.adm_login }}</h1>

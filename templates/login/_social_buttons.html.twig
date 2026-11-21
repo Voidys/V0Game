@@ -1,0 +1,12 @@
+{# One button per usable social login provider below a form, behind an "or" divider; nothing when none is enabled. #}
+{% set socialProviders = social_providers() %}
+{% if socialProviders %}
+  <div class="social-login">
+    <p class="social-login__or"><span>{{ LNG.socialOr }}</span></p>
+    <ul class="social-login__list">
+      {% for provider in socialProviders %}
+        <li><a class="social-btn social-btn--{{ provider.id }}" href="{{ provider.url }}" rel="nofollow">{{ icon(provider.icon) }}<span>{{ LNG.format('socialContinueWith', provider.label) }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

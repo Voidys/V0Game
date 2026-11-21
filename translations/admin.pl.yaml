@@ -381,7 +381,7 @@ mod_active: AKTYWNY
 mod_change_active: Aktywuj
 mod_change_deactive: Deaktywuj
 mod_deactive: NIE AKTYWNY
-mod_info: Moduły w grze <br><font color="red">Admini mogą dalej używać nie aktywne opcje!</font>
+mod_info: Moduły w grze. Admini mogą dalej używać nie aktywne opcje!
 mod_module: Moduły
 modul_0: Sojusz
 modul_1: Misja - Atakuj
@@ -1718,3 +1718,22 @@ vt_log_empty: Brak głosów.
 vt_status_rewarded: Nagrodzono
 vt_status_verified: Zweryfikowano, bez nagrody
 vt_status_pending: Kliknięto
+adm_nav_social: "Logowanie społecznościowe"
+se_social: "Logowanie społecznościowe"
+se_social_info: "Pozwala graczom logować się lub rejestrować istniejącym kontem Discord, Facebook, GitHub lub Google (OAuth2). Wszyscy dostawcy są domyślnie wyłączeni. Utwórz aplikację u dostawcy, zarejestruj tam podany poniżej adres callback i wpisz tutaj identyfikator klienta oraz sekret."
+se_social_site_url_missing: "Bazowy adres URL gry (DEFAULT_URI w .env.local) nie jest ustawiony, więc nie można zbudować adresu callback, a dostawcy pozostają nieużywalni."
+se_social_incomplete: "Włączone, ale brakuje identyfikatora lub sekretu klienta: przycisk logowania pozostaje ukryty."
+se_social_enabled: "Włączone"
+se_social_enabled_info: "Pokazuje przycisk logowania na stronie głównej i stronie rejestracji."
+se_social_client_id: "Identyfikator klienta"
+se_social_client_id_info: "Identyfikator aplikacji (klienta) u dostawcy."
+se_social_client_secret: "Sekret klienta"
+se_social_client_secret_info: "Nigdy więcej nie jest wyświetlany. Zostaw puste, aby zachować zapisany sekret."
+se_social_callback: "Adres callback"
+se_social_callback_info: "Zarejestruj dokładnie ten adres jako adres przekierowania / callback u dostawcy."
+se_social_create_app: "Utwórz aplikację"
+se_social_discord_help: "Discord Developer Portal: New Application, następnie OAuth2: dodaj przekierowanie, skopiuj identyfikator i sekret klienta."
+se_social_facebook_help: "Meta for Developers: utwórz aplikację z zastosowaniem Facebook Login i dodaj adres w prawidłowych identyfikatorach URI przekierowania OAuth. E-mail z Facebooka nigdy nie jest traktowany jako zweryfikowany: nowi gracze nie mogą się nim rejestrować, a istniejące konta nie są dopasowywane po e-mailu; łączenie w ustawieniach konta działa."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, wpisz adres callback jako Authorization callback URL."
+se_social_google_help: "Google Cloud Console, Interfejsy API i usługi, Dane logowania: utwórz identyfikator klienta OAuth typu Aplikacja internetowa i dodaj adres callback w autoryzowanych identyfikatorach URI przekierowania."
+se_social_scopes: "Żądane zakresy: %s"

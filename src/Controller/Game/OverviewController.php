@@ -77,8 +77,7 @@ class OverviewController extends AbstractGameController
         return $this->render('game/page.overview.default.html.twig', [
             'umode'                     => $USER['urlaubs_modus'],
             'rankInfo'                  => $rankInfo,
-            'is_news'                   => $config->overview_news_frame,
-            'news'                      => makebr($config->overview_news_text),
+            'recentNews'                => $this->recentNews(),
             'planetname'                => $PLANET['name'],
             'planetimage'               => $PLANET['image'],
             'planet_style'              => $PLANET['planet_style'],
@@ -477,5 +476,35 @@ class OverviewController extends AbstractGameController
         }
 
         return new Response();
+    }
+
+    /**
+     * Community news for the overview row above the tutorial: published posts (status 1, date reached) of the last
+     * three days, pinned first, at most three. Summary = the post's summary, else the start of its plain text.
+     *
+     * @return list<array{id: int, title: string, date: string, summary: string, pinned: bool}>
+     */
+    private function recentNews(): array
+    {
+        $now = $this->state->runtime->timestamp;
+        $rows = $this->db->select('SELECT id, title, summary, text, date, pinned FROM %%NEWS%%
+            WHERE status = 1 AND date <= :now AND date >= :since ORDER BY pinned DESC, date DESC LIMIT 3;', [
+            ':now' => $now,
+            ':since' => $now - 3 * 86400,
+        ]);
+        $LNG = $this->state->LNG;
+        $news = [];
+        foreach ($rows as $row) {
+            $plain = trim(preg_replace('/\s+/u', ' ', strip_tags(html_entity_decode((string) ($row['summary'] ?: $row['text']), ENT_QUOTES | ENT_HTML5, 'UTF-8'))) ?? '');
+            $news[] = [
+                'id' => (int) $row['id'],
+                'title' => (string) $row['title'],
+                'date' => (string) $this->viewHelpers()->formatDate($LNG['php_tdformat'], $row['date']),
+                'summary' => mb_strimwidth($plain, 0, 220, '…', 'UTF-8'),
+                'pinned' => (int) $row['pinned'] === 1,
+            ];
+        }
+
+        return $news;
     }
 }

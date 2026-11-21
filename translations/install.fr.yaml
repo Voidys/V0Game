@@ -99,7 +99,7 @@ ins_theme_invalid: Thème inconnu.
 ins_to_start: Vers la page d'accueil
 ins_credits_head: Sur les épaules de géants
 ins_credits_text: 'V0Game poursuit une longue lignée de jeux de navigateur open source. Respect à tous ceux qui l''ont construit et maintenu en vie avant nous :'
-ins_credits_thanks: Merci, communauté pr0game, pour le jeu dont celui-ci est issu.
+ins_credits_thanks: 'Merci à tous les développeurs et mainteneurs qui ont créé ce jeu et l''ont fait vivre au fil des ans, de 2Moons et SteemNova à pr0game.'
 ins_licence_note: Logiciel libre sous GNU AGPL v3
 ins_task_images: Optimiser les images (WebP)
 ins_db_help: V0Game stocke tout dans une base de données MySQL ou MariaDB. Vous obtenez les valeurs ci-dessous auprès du panneau de votre hébergeur (cherchez « Bases de données » ou « MySQL ») ou de la personne qui a configuré votre serveur. Si vous avez installé MySQL vous-même, les valeurs par défaut fonctionnent généralement.
@@ -198,3 +198,46 @@ ins_board_info: Un forum pour tes joueurs. Lorsqu'il est désactivé, tous les l
 ins_legal_note: Les textes générés ne sont que des modèles. En tant qu'opérateur, tu es responsable des mentions légales de ton jeu et tu dois les relire.
 ins_legal_region_invalid: Choisis une région d'hébergement valide.
 ins_legal_rules_invalid: Choisis comment les règles doivent démarrer.
+ins_step_mail: 'E-mail'
+ins_mail_desc: 'Facultatif. Choisis comment le jeu envoie les e-mails (inscription, réinitialisation du mot de passe). Tu peux passer cette étape et la configurer plus tard dans Admin - Paramètres.'
+ins_mail_enable: 'Envoyer des e-mails'
+ins_mail_method: 'Méthode'
+ins_mail_method_php: 'Fonction PHP mail()'
+ins_mail_method_smtp: 'Serveur SMTP'
+ins_mail_from: 'Adresse de l''expéditeur'
+ins_mail_host: 'Hôte SMTP'
+ins_mail_port: 'Port SMTP'
+ins_mail_enc: 'Chiffrement'
+ins_mail_enc_none: 'Aucun'
+ins_mail_user: 'Utilisateur SMTP'
+ins_mail_pass: 'Mot de passe SMTP'
+ins_mail_pass_info: 'Jamais réaffiché ; saisis-le à nouveau après un e-mail de test.'
+ins_mail_save: 'Enregistrer et continuer'
+ins_mail_skip: 'Passer (l''e-mail reste désactivé)'
+ins_mail_test_head: 'Envoyer un e-mail de test'
+ins_mail_test_to: 'Envoyer l''e-mail de test à'
+ins_mail_test_send: 'Envoyer l''e-mail de test'
+ins_mail_test_ok: 'E-mail de test envoyé à %s.'
+ins_mail_test_fail: 'Échec de l''e-mail de test : %s'
+ins_mail_from_invalid: 'Saisis une adresse d''expéditeur valide.'
+ins_mail_host_required: 'Saisis l''hôte SMTP.'
+ins_mail_port_invalid: 'Saisis un port valide (1-65535).'
+ins_mail_test_invalid: 'Saisis une adresse e-mail valide pour le test.'
+ins_mail_test_subject: 'E-mail de test V0Game'
+ins_mail_test_body: 'Ceci est un e-mail de test de l''installateur V0Game. Tes réglages d''e-mail fonctionnent.'
+ins_done_social: 'Connexion sociale (facultatif).'
+ins_social_hint: 'La connexion avec Discord, Google, GitHub ou Facebook pourra être activée plus tard dans Admin - Connexion sociale.'
+ins_group_imprint: 'Mentions légales (facultatif)'
+ins_imprint_info: 'Coordonnées pour la page de mentions légales. Les deux peuvent rester vides et se modifient plus tard dans Admin - Paramètres.'
+ins_imprint_eu_hint: 'Les exploitants dans l''UE ont généralement besoin de mentions légales avec une adresse e-mail de contact. Tu peux passer maintenant, mais remplis-les avant l''ouverture au public.'
+ins_imprint_mail: 'E-mail de contact'
+ins_imprint_address: 'Adresse des mentions légales'
+ins_imprint_mail_invalid: 'Saisis une adresse e-mail de contact valide pour les mentions légales.'
+ins_more_settings: 'Plus de paramètres'
+ins_update_check: 'Rechercher les mises à jour'
+ins_update_check_info: 'Le tableau de bord admin interroge le serveur de mises à jour (GitHub) pour la dernière version.'
+ins_discord_url: 'Lien d''invitation Discord'
+ins_discord_url_info: 'Facultatif, par exemple https://discord.gg/tonserveur.'
+ins_discord_url_invalid: 'Saisis un lien Discord valide commençant par http:// ou https://.'
+ins_mail_user_valid: 'Exiger l''activation par e-mail'
+ins_mail_user_valid_info: 'Les nouveaux comptes doivent confirmer leur adresse par e-mail avant de jouer. Disponible uniquement si l''e-mail est activé.'

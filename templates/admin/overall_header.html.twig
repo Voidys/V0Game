@@ -14,14 +14,15 @@
     <meta http-equiv="refresh" content="{{ gotoinsec }};URL={{ goto }}">
   {% endif %}
   <link rel="stylesheet" href="./styles/resource/css/app/base.css?v={{ asset_version }}">
+  <link rel="stylesheet" href="./styles/resource/css/app/theme-contract.css?v={{ asset_version }}">
   <link rel="stylesheet" href="./styles/resource/css/admin/admin.css?v={{ asset_version }}">
   <link rel="stylesheet" href="./styles/resource/css/app/rte.css?v={{ asset_version }}">
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
   {# the admin's signal colours (settings) #}
   <style>
-    .colorPositive { color: {{ signalColors.colorPositive|default('#3fbf6f') }}; }
-    .colorNegative { color: {{ signalColors.colorNegative|default('#f05252') }} !important; }
-    .colorNeutral { color: {{ signalColors.colorNeutral|default('#f0b429') }}; }
+    .colorPositive { color: {{ signalColors.colorPositive|default('var(--c-positive)') }}; }
+    .colorNegative { color: {{ signalColors.colorNegative|default('var(--c-negative)') }} !important; }
+    .colorNeutral { color: {{ signalColors.colorNeutral|default('var(--c-warning)') }}; }
   </style>
   {% include 'shared/page_config.html.twig' %}
   <script type="module" src="./scripts/page/config.js?v={{ asset_version }}"></script>

@@ -1153,6 +1153,8 @@ ov_newname_done: Đã đổi tên hành tinh!
 ov_newname_specialchar: Tên hành tinh chỉ được chứa chữ số, chữ cái, khoảng trắng, dấu gạch dưới, gạch ngang và dấu chấm!
 ov_newname_too_long: Tên hành tinh tối đa %d ký tự.
 ov_news: Tin tức
+ov_news_all: 'Tất cả tin tức'
+tutorial_step_of: 'Bước %1 / %2'
 ov_of: trên
 ov_outlaw: 'Ngoài vòng pháp luật đến:'
 ov_place: Vị trí

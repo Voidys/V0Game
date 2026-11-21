@@ -103,7 +103,7 @@ ins_theme_invalid: Unbekannts Design.
 ins_to_start: Zur Startseide
 ins_credits_head: Uff de Schulterne von Riese
 ins_credits_text: 'V0Game setzt ei lange Reih vo Open-Source-Browserspiele fort. Respekt an alle, die es vor uns gebaud un am Lewe gehalde hawwe:'
-ins_credits_thanks: Danke an die pr0game-Gommunity fer des Spiel, aus dem dieses hier gewachse is.
+ins_credits_thanks: 'Danke an alle Brogrammierer und Maintainer, die des Spiel über die Joahr gebaut und am Lebn ghaltn ham, vo 2Moons und SteemNova bis pr0game.'
 ins_licence_note: Freie Software unner der GNU AGPL v3
 ins_task_images: Bilder optimiere (WebP)
 ins_db_help: V0Game speichert alles in ei MySQL- odder MariaDB-Datenbank. Die Werte unne kriesd du in deim Hosting-Panel (Bereich "Datenbanke" odder "MySQL") odder von der Person, die deinen Server eingerischt had. Had du MySQL selbst installiert, passe die Vorgabe meischtens.
@@ -202,3 +202,46 @@ ins_board_info: Ei Forum fer deine Schbieler. Wenn aus, sinn alle Board-Links au
 ins_legal_note: Die erzeugde Texte sinn nur Vorlage. Als Betreiber bisd du selbst fer die Rechtstexte deim Spiel verantwortlich un solltescht sie prüfe.
 ins_legal_region_invalid: Bidde wähl ei gültige Hosting-Region.
 ins_legal_rules_invalid: Bidde wähl, wie die Regeln starde solle.
+ins_step_mail: 'E-Mail'
+ins_mail_desc: 'Optional. Leg fesd, wie des Schbiel E-Mails verschickd (Registrierung, Basswort zurügksetze). Du kannsd den Schridd überschbringe un schbäter unner Admin - Einstellunge einrichde.'
+ins_mail_enable: 'E-Mails verschicke'
+ins_mail_method: 'Methode'
+ins_mail_method_php: 'PHP-mail()-Funkdion'
+ins_mail_method_smtp: 'SMTP-Server'
+ins_mail_from: 'Absenderadresse'
+ins_mail_host: 'SMTP-Host'
+ins_mail_port: 'SMTP-Port'
+ins_mail_enc: 'Verschlüsselung'
+ins_mail_enc_none: 'Kenne'
+ins_mail_user: 'SMTP-Benutzer'
+ins_mail_pass: 'SMTP-Basswort'
+ins_mail_pass_info: 'Werd ned nochmal angezeichd; nach ner Test-Mail neu eigebe.'
+ins_mail_save: 'Speichern un weider'
+ins_mail_skip: 'Überschbringe (Mail bleibd aus)'
+ins_mail_test_head: 'Test-Mail verschicke'
+ins_mail_test_to: 'Test-Mail verschicke an'
+ins_mail_test_send: 'Test-Mail verschicke'
+ins_mail_test_ok: 'Test-Mail an %s verschickd.'
+ins_mail_test_fail: 'Test-Mail is fehlgschlage: %s'
+ins_mail_from_invalid: 'Bidde ei gülddiche Absender-E-Mail-Adresse eigebe.'
+ins_mail_host_required: 'Bidde den SMTP-Host eigebe.'
+ins_mail_port_invalid: 'Bidde ein gülddichn Port (1-65535) eigebe.'
+ins_mail_test_invalid: 'Bidde ei gülddiche E-Mail-Adresse fer die Test-Mail eigebe.'
+ins_mail_test_subject: 'V0Game Test-Mail'
+ins_mail_test_body: 'Des is ei Test-Mail vom V0Game-Installer. Deine Mail-Einstellunge funkdioniere.'
+ins_done_social: 'Social Login (opdional).'
+ins_social_hint: 'Die Anmeldung mid Discord, Google, GitHub oder Facebook kann schbäder unner Admin - Social Login aggdiviert werde.'
+ins_group_imprint: 'Imbressum (opdional)'
+ins_imprint_info: 'Kondagdddaden fer die Imbressum-Seide. Beides därf leer bleibe un lässd sich schbäder unner Admin - Einstellunge ändern.'
+ins_imprint_eu_hint: 'Betreiber in der EU braache in der Regel ei Imbressum mid Kondagd-E-Mail-Adresse. Du kannsd es jetzd überschbringe, solldesd es aber vorm Schdard ausfülle.'
+ins_imprint_mail: 'Kondagd-E-Mail'
+ins_imprint_address: 'Imbressum-Anschrifd'
+ins_imprint_mail_invalid: 'Bidde ei gülddiche Kondagd-E-Mail-Adresse fers Imbressum eigebe.'
+ins_more_settings: 'Weidere Einstellunge'
+ins_update_check: 'Uff Updates prüfe'
+ins_update_check_info: 'Des Admin-Dashboard fraachd den Update-Server (GitHub) nach der neuesde Version.'
+ins_discord_url: 'Discord-Einladungslink'
+ins_discord_url_info: 'Opdional, zum Beischbiel https://discord.gg/deinserver.'
+ins_discord_url_invalid: 'Bidde ein gülddiche Discord-Link mid http:// oder https:// eigebe.'
+ins_mail_user_valid: 'E-Mail-Aggdivierung verlange'
+ins_mail_user_valid_info: 'Neue Accounds müsse ihre Adresse per E-Mail bestädiche, bevor se schbiele könne. Nur verfügbar, wenn E-Mail aggdiv is.'

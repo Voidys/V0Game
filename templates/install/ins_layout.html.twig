@@ -3,7 +3,7 @@
   Pages extend it and fill {% block panel %}; currentStep (0 = intro) marks the step list.
   Styles: login.css (panels, notices, inputs) + install/installer.css (steps, checklist, form grid).
 #}
-{% set steps = {1: LNG.ins_step_licence, 2: LNG.ins_step_requirements, 3: LNG.ins_step_database, 5: LNG.ins_step_build, 6: LNG.ins_step_game, 7: LNG.ins_step_legal, 8: LNG.ins_step_admin, 9: LNG.ins_step_done} %}
+{% set steps = {1: LNG.ins_step_licence, 2: LNG.ins_step_requirements, 3: LNG.ins_step_database, 5: LNG.ins_step_build, 6: LNG.ins_step_game, 7: LNG.ins_step_legal, 8: LNG.ins_step_mail, 9: LNG.ins_step_admin, 10: LNG.ins_step_done} %}
 {% set activeStep = (currentStep|default(0)) == 4 ? 3 : currentStep|default(0) %}
 <!doctype html>
 <html lang="{{ lang }}">

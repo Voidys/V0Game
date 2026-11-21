@@ -1155,6 +1155,8 @@ ov_newname_done: 星球已改名！
 ov_newname_specialchar: 星球名称只能包含数字、字母、空格、下划线、连字符和句点！
 ov_newname_too_long: 星球名称最多 %d 个字符。
 ov_news: 新闻
+ov_news_all: '全部新闻'
+tutorial_step_of: '第 %1 步，共 %2 步'
 ov_of: /
 ov_outlaw: 法外之徒状态持续至：
 ov_place: 排名

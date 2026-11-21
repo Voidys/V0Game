@@ -103,7 +103,7 @@ ins_theme_invalid: Onbekend thema.
 ins_to_start: Naar de startpagina
 ins_credits_head: Staan op de schouders van reuzen
 ins_credits_text: 'V0Game zet een lange traditie van open-source browserspellen voort. Respect voor iedereen die dit eerder heeft gebouwd en in leven heeft gehouden:'
-ins_credits_thanks: Dank je, pr0game-community, voor het spel waaruit dit spel is gegroeid.
+ins_credits_thanks: 'Dank aan alle programmeurs en beheerders die dit spel door de jaren heen hebben gebouwd en in leven gehouden, van 2Moons en SteemNova tot pr0game.'
 ins_licence_note: Vrije software onder de GNU AGPL v3
 ins_task_images: Afbeeldingen optimaliseren (WebP)
 ins_db_help: V0Game slaat alles op in een MySQL- of MariaDB-database. Je vindt de onderstaande waarden in je hostingpaneel (zoek naar "Databases" of "MySQL") of bij degene die je server heeft ingericht. Als je MySQL zelf hebt geïnstalleerd, werken de standaardwaarden meestal.
@@ -202,3 +202,46 @@ ins_board_info: Een forum voor je spelers. Als dit uit staat, zijn alle bordlink
 ins_legal_note: De gegenereerde teksten zijn alleen sjablonen. Als beheerder ben je verantwoordelijk voor de juridische teksten van je spel en moet je ze nakijken.
 ins_legal_region_invalid: Kies een geldige hostinglocatie.
 ins_legal_rules_invalid: Kies hoe de regels moeten beginnen.
+ins_step_mail: 'E-mail'
+ins_mail_desc: 'Optioneel. Kies hoe het spel e-mails verstuurt (registratie, wachtwoord resetten). Je kunt deze stap overslaan en later instellen onder Admin - Instellingen.'
+ins_mail_enable: 'E-mails versturen'
+ins_mail_method: 'Methode'
+ins_mail_method_php: 'PHP mail()-functie'
+ins_mail_method_smtp: 'SMTP-server'
+ins_mail_from: 'Afzenderadres'
+ins_mail_host: 'SMTP-host'
+ins_mail_port: 'SMTP-poort'
+ins_mail_enc: 'Versleuteling'
+ins_mail_enc_none: 'Geen'
+ins_mail_user: 'SMTP-gebruiker'
+ins_mail_pass: 'SMTP-wachtwoord'
+ins_mail_pass_info: 'Wordt niet opnieuw getoond; voer het na een testmail opnieuw in.'
+ins_mail_save: 'Opslaan en doorgaan'
+ins_mail_skip: 'Overslaan (mail blijft uit)'
+ins_mail_test_head: 'Testmail versturen'
+ins_mail_test_to: 'Testmail versturen naar'
+ins_mail_test_send: 'Testmail versturen'
+ins_mail_test_ok: 'Testmail verstuurd naar %s.'
+ins_mail_test_fail: 'Testmail mislukt: %s'
+ins_mail_from_invalid: 'Voer een geldig afzenderadres in.'
+ins_mail_host_required: 'Voer de SMTP-host in.'
+ins_mail_port_invalid: 'Voer een geldige poort in (1-65535).'
+ins_mail_test_invalid: 'Voer een geldig e-mailadres in voor de testmail.'
+ins_mail_test_subject: 'V0Game-testmail'
+ins_mail_test_body: 'Dit is een testmail van het V0Game-installatieprogramma. Je mailinstellingen werken.'
+ins_done_social: 'Sociaal inloggen (optioneel).'
+ins_social_hint: 'Inloggen met Discord, Google, GitHub of Facebook kan later worden ingeschakeld onder Admin - Sociaal inloggen.'
+ins_group_imprint: 'Colofon (optioneel)'
+ins_imprint_info: 'Contactgegevens voor de colofonpagina. Beide mogen leeg blijven en zijn later te wijzigen onder Admin - Instellingen.'
+ins_imprint_eu_hint: 'Beheerders in de EU hebben meestal een colofon met een contact-e-mailadres nodig. Je kunt het nu overslaan, maar vul het in voordat je live gaat.'
+ins_imprint_mail: 'Contact-e-mail'
+ins_imprint_address: 'Adres voor het colofon'
+ins_imprint_mail_invalid: 'Voer een geldig contact-e-mailadres in voor het colofon.'
+ins_more_settings: 'Meer instellingen'
+ins_update_check: 'Controleren op updates'
+ins_update_check_info: 'Het admin-dashboard vraagt de updateserver (GitHub) naar de nieuwste versie.'
+ins_discord_url: 'Discord-uitnodigingslink'
+ins_discord_url_info: 'Optioneel, bijvoorbeeld https://discord.gg/jouwserver.'
+ins_discord_url_invalid: 'Voer een geldige Discord-link in die met http:// of https:// begint.'
+ins_mail_user_valid: 'E-mailactivatie vereisen'
+ins_mail_user_valid_info: 'Nieuwe accounts moeten hun adres per e-mail bevestigen voordat ze kunnen spelen. Alleen beschikbaar als e-mail aan staat.'

@@ -60,6 +60,25 @@
         </div>
     </section>
 
+    {% if recentNews %}
+    {# community news of the last three days (OverviewController::recentNews), above the tutorial #}
+    <section class="panel overview-news" aria-labelledby="overview-news-title">
+        <header class="panel__head">
+            <h2 id="overview-news-title">{{ LNG.ov_news }}</h2>
+            <a href="{{ path('login_news_show') }}" target="_blank" rel="noopener">{{ LNG.ov_news_all }}</a>
+        </header>
+        <ul class="news-list">
+            {% for item in recentNews %}
+                <li class="news-item{% if item.pinned %} is-pinned{% endif %}">
+                    <time class="news-item__date mono">{{ item.date }}</time>
+                    <a class="news-item__title" href="{{ path('login_news_article', {id: item.id}) }}" target="_blank" rel="noopener">{% if item.pinned %}{{ icon('star') }}{% endif %}{{ item.title }}</a>
+                    {% if item.summary %}<p class="news-item__summary">{{ item.summary }}</p>{% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
     <div class="tutorial-box">
         {% include 'game/shared.tutorial.html.twig' %}
     </div>
@@ -122,14 +141,6 @@
                     <dd>{% for ID, Name in AdminsOnline %}<a class="colorPositive" href="#" data-action="dialog-pm" data-id="{{ ID }}">{{ Name }}</a> &bull; {% endfor %}<a class="colorPositive" href="{{ path('game_ticket_show') }}">{{ LNG.ov_ticketbot }}</a></dd>
                 </dl>
                 <p>{{ LNG.ov_rulesnotify }}&nbsp;<a href="{{ path('login_rules') }}" data-dialog data-dialog-width="820" class="rules-link">[{{ LNG.ov_rules }}]</a></p>
-                {% if is_news %}
-                    <div class="hidden-div" id="hidden-div">
-                        <strong class="news-title">{{ LNG.ov_news }}:</strong>
-                        {# raw: universe news text, HTML written by admins in the universe settings (makebr only adds <br>) #}<div>{{ news|raw }}</div>
-                        <button type="button" id="chkbtn2">{{ LNG.ov_checknews_hide }}</button>
-                    </div>
-                    <button type="button" id="chkbtn">{{ LNG.ov_checknews_show }}</button>
-                {% endif %}
             </div>
         </section>
     </div>

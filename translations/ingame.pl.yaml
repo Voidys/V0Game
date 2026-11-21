@@ -1153,6 +1153,8 @@ ov_newname_done: Zmieniono nazwę planety!
 ov_newname_specialchar: Nazwy planet mogą zawierać tylko cyfry, litery, spacje, podkreślenia, myślniki i kropki!
 ov_newname_too_long: Nazwa planety może mieć maksymalnie %d znaków.
 ov_news: Aktualności
+ov_news_all: 'Wszystkie aktualności'
+tutorial_step_of: 'Krok %1 z %2'
 ov_of: z
 ov_outlaw: 'Banita do:'
 ov_place: Pozycja

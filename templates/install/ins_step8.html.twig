@@ -16,6 +16,7 @@
     {% if migrationPw %}
       <li><strong>{{ LNG.ins_done_migrationpw }}</strong> {{ LNG.ins_done_migrationpw_info }}<pre class="install-code">{{ migrationPw }}</pre></li>
     {% endif %}
+    <li><strong>{{ LNG.ins_done_social }}</strong> {{ LNG.ins_social_hint }}</li>
     <li><strong>{{ LNG.ins_done_docs }}</strong> <a href="{{ docsUrl|e('html_attr') }}" target="_blank" rel="noopener">{{ docsUrl }}</a></li>
   </ol>
   <div class="install-actions">

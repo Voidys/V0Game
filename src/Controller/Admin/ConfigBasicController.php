@@ -28,6 +28,9 @@ use Symfony\Component\HttpFoundation\Response;
 /** Basic game settings of the emulated universe (schema driven form). */
 class ConfigBasicController extends AbstractAdminController
 {
+    /** categories with a page of their own (ConfigSocialController): not part of this form, so saving it cannot reset them */
+    private const OWN_PAGE_CATEGORIES = ['social'];
+
     /**
      * Saves the posted fields through Config::saveGlobalKeys, writes an admin log entry (type 3) and shows the form again.
      */
@@ -35,7 +38,7 @@ class ConfigBasicController extends AbstractAdminController
     public function save(): Response
     {
         $config = $this->configs->get($this->universe()->getEmulated());
-        $schema = new ConfigFieldSchema(ConfigFieldSchema::CONFIG_TYPE_BASIC, $this->state, $this->configs);
+        $schema = (new ConfigFieldSchema(ConfigFieldSchema::CONFIG_TYPE_BASIC, $this->state, $this->configs))->withoutCategories(self::OWN_PAGE_CATEGORIES);
 
         $config_before = ConfigFieldProcessor::createSnapshot($config, $schema);
 
@@ -68,7 +71,7 @@ class ConfigBasicController extends AbstractAdminController
         $config = $this->configs->get($this->universe()->getEmulated());
 
         // Schema laden
-        $schema = new ConfigFieldSchema(ConfigFieldSchema::CONFIG_TYPE_BASIC, $this->state, $this->configs);
+        $schema = (new ConfigFieldSchema(ConfigFieldSchema::CONFIG_TYPE_BASIC, $this->state, $this->configs))->withoutCategories(self::OWN_PAGE_CATEGORIES);
 
         $configValues = ConfigFieldProcessor::prepareTemplateData($config, $schema);
 

@@ -99,7 +99,7 @@ ins_theme_invalid: Bilinmeyen tema.
 ins_to_start: Başlangıç sayfasına
 ins_credits_head: Devlerin omuzlarında
 ins_credits_text: 'V0Game, açık kaynaklı tarayıcı oyunlarının uzun bir geleneğini sürdürür. Bizden önce onu inşa eden ve yaşatan herkese saygılar:'
-ins_credits_thanks: Bu oyunun filizlendiği oyun için teşekkürler, pr0game topluluğu.
+ins_credits_thanks: 'Bu oyunu yıllar boyunca geliştiren ve yaşatan tüm geliştiricilere ve bakımcılara teşekkürler; 2Moons ve SteemNova''dan pr0game''e kadar.'
 ins_licence_note: GNU AGPL v3 altında özgür yazılım
 ins_task_images: Görselleri optimize et (WebP)
 ins_db_help: V0Game her şeyi bir MySQL veya MariaDB veritabanında saklar. Aşağıdaki değerleri hosting panelinden ("Veritabanları" veya "MySQL" bölümüne bak) ya da sunucunu kuran kişiden alırsın. MySQL'i kendin kurduysan varsayılanlar genellikle çalışır.
@@ -198,3 +198,46 @@ ins_board_info: Oyuncularınız için bir forum. Kapalıyken tüm pano bağlant�
 ins_legal_note: Oluşturulan metinler yalnızca şablondur. Operatör olarak oyununun yasal metinlerinden sen sorumlusun ve bunları gözden geçirmelisin.
 ins_legal_region_invalid: Lütfen geçerli bir barındırma bölgesi seç.
 ins_legal_rules_invalid: Lütfen kuralların nasıl başlayacağını seç.
+ins_step_mail: 'E-posta'
+ins_mail_desc: 'İsteğe bağlı. Oyunun e-postaları nasıl göndereceğini seç (kayıt, parola sıfırlama). Bu adımı atlayıp daha sonra Yönetici - Ayarlar bölümünden yapabilirsin.'
+ins_mail_enable: 'E-posta gönder'
+ins_mail_method: 'Yöntem'
+ins_mail_method_php: 'PHP mail() işlevi'
+ins_mail_method_smtp: 'SMTP sunucusu'
+ins_mail_from: 'Gönderen adresi'
+ins_mail_host: 'SMTP sunucu adresi'
+ins_mail_port: 'SMTP portu'
+ins_mail_enc: 'Şifreleme'
+ins_mail_enc_none: 'Yok'
+ins_mail_user: 'SMTP kullanıcısı'
+ins_mail_pass: 'SMTP parolası'
+ins_mail_pass_info: 'Tekrar gösterilmez; test e-postasından sonra yeniden gir.'
+ins_mail_save: 'Kaydet ve devam et'
+ins_mail_skip: 'Atla (e-posta kapalı kalır)'
+ins_mail_test_head: 'Test e-postası gönder'
+ins_mail_test_to: 'Test e-postasının gönderileceği adres'
+ins_mail_test_send: 'Test e-postası gönder'
+ins_mail_test_ok: 'Test e-postası %s adresine gönderildi.'
+ins_mail_test_fail: 'Test e-postası başarısız: %s'
+ins_mail_from_invalid: 'Geçerli bir gönderen e-posta adresi gir.'
+ins_mail_host_required: 'SMTP sunucu adresini gir.'
+ins_mail_port_invalid: 'Geçerli bir port gir (1-65535).'
+ins_mail_test_invalid: 'Test e-postası için geçerli bir adres gir.'
+ins_mail_test_subject: 'V0Game test e-postası'
+ins_mail_test_body: 'Bu, V0Game kurulum aracından bir test e-postasıdır. E-posta ayarların çalışıyor.'
+ins_done_social: 'Sosyal giriş (isteğe bağlı).'
+ins_social_hint: 'Discord, Google, GitHub veya Facebook ile giriş daha sonra Yönetici - Sosyal giriş bölümünden etkinleştirilebilir.'
+ins_group_imprint: 'Künye (isteğe bağlı)'
+ins_imprint_info: 'Künye sayfası için iletişim bilgileri. İkisi de boş kalabilir ve daha sonra Yönetici - Ayarlar bölümünden değiştirilebilir.'
+ins_imprint_eu_hint: 'AB''deki işletmecilerin genellikle iletişim e-posta adresi içeren bir künyeye ihtiyacı vardır. Şimdi atlayabilirsin, ancak yayına almadan önce doldur.'
+ins_imprint_mail: 'İletişim e-postası'
+ins_imprint_address: 'Künye adresi'
+ins_imprint_mail_invalid: 'Künye için geçerli bir iletişim e-posta adresi gir.'
+ins_more_settings: 'Daha fazla ayar'
+ins_update_check: 'Güncellemeleri denetle'
+ins_update_check_info: 'Yönetici paneli en son sürümü güncelleme sunucusundan (GitHub) sorar.'
+ins_discord_url: 'Discord davet bağlantısı'
+ins_discord_url_info: 'İsteğe bağlı, örneğin https://discord.gg/sunucun.'
+ins_discord_url_invalid: 'http:// veya https:// ile başlayan geçerli bir Discord bağlantısı gir.'
+ins_mail_user_valid: 'E-posta etkinleştirmesi iste'
+ins_mail_user_valid_info: 'Yeni hesaplar oynamadan önce adreslerini e-postayla doğrulamalıdır. Yalnızca e-posta açıkken kullanılabilir.'

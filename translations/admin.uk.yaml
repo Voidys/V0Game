@@ -1718,3 +1718,22 @@ vt_log_empty: Голосів ще немає.
 vt_status_rewarded: Нагороджено
 vt_status_verified: Перевірено, без нагороди
 vt_status_pending: Натиснуто
+adm_nav_social: "Вхід через соцмережі"
+se_social: "Вхід через соцмережі"
+se_social_info: "Дозволяє гравцям входити або реєструватися з наявним обліковим записом Discord, Facebook, GitHub чи Google (OAuth2). Усі провайдери за замовчуванням вимкнені. Створіть застосунок у провайдера, зареєструйте там указаний нижче callback URL і введіть тут Client ID та секрет."
+se_social_site_url_missing: "Базову URL-адресу гри (DEFAULT_URI у .env.local) не задано, тому callback URL побудувати не можна, а провайдери залишаються недоступними."
+se_social_incomplete: "Увімкнено, але бракує Client ID або секрету: кнопка входу залишається прихованою."
+se_social_enabled: "Увімкнено"
+se_social_enabled_info: "Показує кнопку входу на головній сторінці та сторінці реєстрації."
+se_social_client_id: "Client ID"
+se_social_client_id_info: "ID застосунку (клієнта) у провайдера."
+se_social_client_secret: "Секрет клієнта"
+se_social_client_secret_info: "Більше не показується. Залиште порожнім, щоб зберегти поточний секрет."
+se_social_callback: "Callback URL"
+se_social_callback_info: "Зареєструйте саме цю адресу як redirect / callback URL у провайдера."
+se_social_create_app: "Створити застосунок"
+se_social_discord_help: "Discord Developer Portal: New Application, потім OAuth2: додайте redirect, скопіюйте Client ID і секрет."
+se_social_facebook_help: "Meta for Developers: створіть застосунок зі сценарієм Facebook Login і додайте URL до дійсних URI переспрямування OAuth. Адреса e-mail з Facebook ніколи не вважається підтвердженою: нові гравці не можуть за нею зареєструватися, а наявні облікові записи за e-mail не зіставляються; підключення в налаштуваннях облікового запису працює."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, вкажіть callback URL як Authorization callback URL."
+se_social_google_help: "Google Cloud Console, API та сервіси, Облікові дані: створіть OAuth Client ID типу Веб-застосунок і додайте callback URL до авторизованих URI переспрямування."
+se_social_scopes: "Запитувані scopes: %s"

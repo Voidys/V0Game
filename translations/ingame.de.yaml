@@ -1186,6 +1186,8 @@ ov_newname_done: Planet umbenannt!
 ov_newname_specialchar: Planetennamen dürfen nur Buchstaben, Zahlen, Leerzeichen, Unterstriche, Bindestriche und Punkte enthalten!
 ov_newname_too_long: 'Der Planetenname darf höchstens %d Zeichen lang sein.'
 ov_news: News
+ov_news_all: 'Alle News'
+tutorial_step_of: 'Schritt %1 von %2'
 ov_of: von
 ov_outlaw: 'Gesetzloser bis:'
 ov_place: Platz

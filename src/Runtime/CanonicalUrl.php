@@ -60,4 +60,23 @@ final class CanonicalUrl
 
         return $origin . $runtime->httpRoot . $relative;
     }
+
+    /**
+     * Absolute URL of a page below the site root (never inside a `uniN/` directory), for addresses that are registered
+     * elsewhere, e.g. the OAuth callback of the social login. Built from DEFAULT_URI like forPage(); in development
+     * without it from the request's own address; null otherwise (the caller must not use the host of the request).
+     *
+     * @param string $path e.g. "login/discord/callback"
+     */
+    public function siteUrl(RuntimeContext $runtime, string $path): ?string
+    {
+        if ($this->isConfigured()) {
+            $parts = parse_url($this->defaultUri);
+            $origin = ($parts['scheme'] ?? 'https') . '://' . $parts['host'] . (isset($parts['port']) ? ':' . $parts['port'] : '');
+
+            return $origin . rtrim((string) ($parts['path'] ?? ''), '/') . '/' . $path;
+        }
+
+        return $this->debug ? $runtime->protocol . $runtime->httpHost . $runtime->httpBase . $path : null;
+    }
 }
