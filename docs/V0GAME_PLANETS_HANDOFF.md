@@ -13,31 +13,38 @@
 
 ---
 
-## 2. Progress: Completed (18 / 25 Lean Set)
-Placed in `public/styles/theme/v0game/planeten/` (raw `.jpg`, ready for `convert-theme-images.sh`):
-- `dschjungelplanet01.jpg` — Terran/jungle continents, slate-teal oceans, night-side amber city lights, thin mint rim, minimal starfield.
-- `dschjungelplanet02.jpg` — Emerald-jade rainforest supercontinent, river basins, cloud bands, moderate dark-teal nebula wisps.
-- `dschjungelplanet03.jpg` — Olive/moss volcanic island chains, twin tropical cyclones, minimal starfield.
-- `eisplanet01.jpg` — Europa-style pale-ivory/icy-cyan crust with dark rust-slate tectonic lineae, minimal starfield.
-- `eisplanet02.jpg` — Fractured glacial ice sheets, tectonic crevasses, frozen craters, cool ice-blue rim.
-- `eisplanet03.jpg` — Alpine snow continents, glacial fjords, frozen navy seas, faint night-side polar aurora, moody slate/indigo nebula wisps.
-- `wuestenplanet01.jpg` — Amber-ochre canyons, dark basalt plateaus, dust storms, sharp terminator crater relief.
-- `wuestenplanet02.jpg` — Pale golden-sandstone ergs, salt flats, dark mesas, dusty-amber limb haze, minimal starfield.
-- `wuestenplanet03.jpg` — Rust-terracotta badlands, giant impact basins, dried riverbeds, muted ochre dust plumes, subtle warm-slate cosmic dust.
-- `gasplanet01.jpg` — Deep teal, midnight-navy, and pale-cyan banded storm belts with pale anticyclonic vortex, minimal starfield.
-- `gasplanet02.jpg` — Muted-ochre, taupe, and charcoal bands with turbulent eddies and two distant moons, moderate slate/emerald wisps.
-- `gasplanet03.jpg` — Banded slate-emerald & pale-champagne gas giant with wide icy rings and shepherd moon, minimal starfield.
-- `wasserplanet01.jpg` — Deep-sapphire/slate-teal global ocean, polar ice caps, swirling clouds, specular terminator glint, minimal starfield.
-- `wasserplanet02.jpg` — Shallow turquoise coral-shelf seas, dark volcanic atolls, wispy clouds, restrained deep-teal nebula wisps.
-- `wasserplanet06.jpg` — Deep abyssal-blue/teal archipelago world with emerald-cyan bioluminescent coastlines, moderate dark-emerald/indigo nebula.
-- `trockenplanet01.jpg` — Dark basalt/obsidian crust with thin glowing amber-orange night-side tectonic rifts, cratered highlands, minimal starfield.
-- `trockenplanet03.jpg` — Cracked rust-umber and dark-shale plateau world with deep rift valleys, sharp terminator relief, subtle dark-slate dust.
-- `normaltempplanet01.jpg` — Sage-green/slate-brown continents, deep navy oceans, polar caps, wispy clouds, amber night-side lights, minimal starfield.
+## 2. Progress: Completed (25 / 25 Lean Set — Converted to 300x300 WebP)
+All 25 assets are in `public/styles/theme/v0game/planeten/*.webp` (300×300, q90):
+- `dschjungelplanet01.webp` — Terran/jungle continents, slate-teal oceans, night-side amber city lights, thin mint rim, minimal starfield.
+- `dschjungelplanet02.webp` — Emerald-jade rainforest supercontinent, river basins, cloud bands, moderate dark-teal nebula wisps.
+- `dschjungelplanet03.webp` — Olive/moss volcanic island chains, twin tropical cyclones, minimal starfield.
+- `eisplanet01.webp` — Europa-style pale-ivory/icy-cyan crust with dark rust-slate tectonic lineae, minimal starfield.
+- `eisplanet02.webp` — Fractured glacial ice sheets, tectonic crevasses, frozen craters, cool ice-blue rim.
+- `eisplanet03.webp` — Alpine snow continents, glacial fjords, frozen navy seas, faint night-side polar aurora, moody slate/indigo nebula wisps.
+- `wuestenplanet01.webp` — Amber-ochre canyons, dark basalt plateaus, dust storms, sharp terminator crater relief.
+- `wuestenplanet02.webp` — Pale golden-sandstone ergs, salt flats, dark mesas, dusty-amber limb haze, minimal starfield.
+- `wuestenplanet03.webp` — Rust-terracotta badlands, giant impact basins, dried riverbeds, muted ochre dust plumes, subtle warm-slate cosmic dust.
+- `gasplanet01.webp` — Deep teal, midnight-navy, and pale-cyan banded storm belts with pale anticyclonic vortex, minimal starfield.
+- `gasplanet02.webp` — Muted-ochre, taupe, and charcoal bands with turbulent eddies and two distant moons, moderate slate/emerald wisps.
+- `gasplanet03.webp` — Banded slate-emerald & pale-champagne gas giant with wide icy rings and shepherd moon, minimal starfield.
+- `wasserplanet01.webp` — Deep-sapphire/slate-teal global ocean, polar ice caps, swirling clouds, specular terminator glint, minimal starfield.
+- `wasserplanet02.webp` — Shallow turquoise coral-shelf seas, dark volcanic atolls, wispy clouds, restrained deep-teal nebula wisps.
+- `wasserplanet06.webp` — Deep abyssal-blue/teal archipelago world with emerald-cyan bioluminescent coastlines, moderate dark-emerald/indigo nebula.
+- `trockenplanet01.webp` — Dark basalt/obsidian crust with thin glowing amber-orange night-side tectonic rifts, cratered highlands, minimal starfield.
+- `trockenplanet02.webp` — Heavily cratered slate-grey/iron-brown silicate world with sharp ejecta ray craters, minimal starfield.
+- `trockenplanet03.webp` — Cracked rust-umber and dark-shale plateau world with deep rift valleys, sharp terminator relief, subtle dark-slate dust.
+- `normaltempplanet01.webp` — Sage-green/slate-brown continents, deep navy oceans, polar caps, wispy clouds, amber night-side lights, minimal starfield.
+- `normaltempplanet02.webp` — Olive-gold/slate steppe continents, deep dark-teal seas, sweeping cloud fronts, restrained dark-emerald/slate wisps.
+- `normaltempplanet03.webp` — High-latitude pine-green archipelago world, cool slate oceans, white cloud bands, subtle night-side lights, minimal starfield.
+- `mond01.webp` — Barren pale-grey/dark-basalt cratered moon with sharp ejecta rays, minimal starfield.
+- `mond02.webp` — Fractured dark-iron and dusty-ochre cratered moon with subtle rim lighting, minimal starfield.
+- `debris.webp` — Drifting shattered hull plates, solar-array trusses, and rocky fragments with faint emerald/amber salvage-beacon glints.
+- `wreckfield.webp` — Derelict broken capital-ship superstructure with drifting hull debris and faint cold-blue/amber emergency lights.
 
 ---
 
-## 3. Remaining to Generate (7 / 25 Lean Set)
-*(Paused due to `gemini-3.1-flash-image` 429 quota exhaustion; resets `2026-11-21T14:45:48Z`.)*
+## 3. Remaining to Generate (0 / 25 Lean Set)
+All 25 Lean Set assets are generated and converted! Below are the reference prompts used for the final 7:
 
 Use this shared base prefix for all prompts below:
 > **Base prefix:** `Generate a 1:1 square sci-fi planet artwork for V0Game ("night-time command console" aesthetic: calm, crisp, minimal-to-moderate nebula, NO loud/extravagant multi-color nebula, NO lens flares, NO text, NO UI borders). Composition: Centered spherical planet (~68% of frame) with generous dark space margin around all edges.`
