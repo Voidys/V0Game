@@ -490,6 +490,8 @@ one_is_yes_0: Hindi
 one_is_yes_1: Oo
 online_users: Online
 ow_default_uri_missing: 'Kailangan ng mga mail link ang DEFAULT_URI (.env.local): hangga''t hindi ito naitatakda, hindi naipapadala ang mga mail sa registration at password reset.'
+ow_app_secret_weak: 'Ang APP_SECRET ay pampublikong default o masyadong maikli: kahit sino ay makakapeke ng login cookies. Maglagay ng bagong random na value sa .env.local (hal. php -r ''echo bin2hex(random_bytes(32));'') at linisin ang var/cache.'
+ow_app_env_dev: 'Tumatakbo ang server sa development mode (hindi prod ang APP_ENV o naka-on ang APP_DEBUG): nakikita ang detalye ng error at mas mabagal ang laro. Itakda ang APP_ENV=prod at APP_DEBUG=0 sa .env.local.'
 ow_dir_not_writable: Hindi puwedeng sulatan ang /%s!
 ow_file_detected: Nahanap ang file na %s. Para sa seguridad, burahin o palitan ang pangalan nito.
 ow_proyect_leader: Dating fleet admiral (project lead ng 2Moons)

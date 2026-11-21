@@ -490,6 +490,8 @@ one_is_yes_0: Ні
 one_is_yes_1: Так
 online_users: Онлайн
 ow_default_uri_missing: 'Посилання в листах потребують DEFAULT_URI (.env.local): доки його не задано, листи реєстрації та скидання пароля не надсилаються.'
+ow_app_secret_weak: 'APP_SECRET — публічне значення за замовчуванням або надто короткий: будь-хто може підробити cookie входу. Задайте нове випадкове значення в .env.local (наприклад, php -r ''echo bin2hex(random_bytes(32));'') і очистіть var/cache.'
+ow_app_env_dev: 'Сервер працює в режимі розробки (APP_ENV не prod або увімкнено APP_DEBUG): видно подробиці помилок, гра працює повільніше. Встановіть APP_ENV=prod і APP_DEBUG=0 у .env.local.'
 ow_dir_not_writable: /%s недоступна для запису!
 ow_file_detected: Знайдено файл %s. З міркувань безпеки видали або перейменуй його.
 ow_proyect_leader: Колишній флотський адмірал (керівник проєкту 2Moons)

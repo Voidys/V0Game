@@ -490,6 +490,8 @@ one_is_yes_0: Không
 one_is_yes_1: Có
 online_users: Trực tuyến
 ow_default_uri_missing: 'Liên kết trong email cần DEFAULT_URI (.env.local): cho đến khi đặt giá trị này, email đăng ký và đặt lại mật khẩu sẽ không được gửi.'
+ow_app_secret_weak: 'APP_SECRET là giá trị mặc định công khai hoặc quá ngắn: ai cũng có thể giả mạo cookie đăng nhập. Hãy đặt giá trị ngẫu nhiên mới trong .env.local (vd. php -r ''echo bin2hex(random_bytes(32));'') và xóa var/cache.'
+ow_app_env_dev: 'Máy chủ đang chạy ở chế độ phát triển (APP_ENV không phải prod hoặc APP_DEBUG đang bật): chi tiết lỗi bị lộ và trò chơi chậm hơn. Đặt APP_ENV=prod và APP_DEBUG=0 trong .env.local.'
 ow_dir_not_writable: /%s không ghi được!
 ow_file_detected: Đã tìm thấy tệp %s. Vì lý do bảo mật, hãy xóa hoặc đổi tên tệp này.
 ow_proyect_leader: Cựu đô đốc hạm đội (trưởng dự án 2Moons)

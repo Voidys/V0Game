@@ -490,6 +490,8 @@ one_is_yes_0: Nein
 one_is_yes_1: Ja
 online_users: Online
 ow_default_uri_missing: 'Mail-Links brauchen DEFAULT_URI (.env.local): Solange sie fehlt, werden Registrierungs- und Kennwort-zurücksetzen-Mails nicht versendet.'
+ow_app_secret_weak: 'APP_SECRET is ein öffentlicher Standardwert oder zu kurz, arrr: Jede Landratte könnte Login-Cookies fälschen. Setz in .env.local einen neuen Zufallswert (z. B. php -r ''echo bin2hex(random_bytes(32));'') und leere var/cache.'
+ow_app_env_dev: 'Der Server segelt im Entwicklungsmodus (APP_ENV ist nicht prod oder APP_DEBUG ist an): Fehlerdetails liegen offen an Deck und das Spiel ist langsamer. Setz APP_ENV=prod und APP_DEBUG=0 in .env.local.'
 ow_dir_not_writable: ./%s ist nicht beschreibar!
 ow_file_detected: Die %s wurde gefunden. Bitte dies umbennen oder löschen, damit ihr Game geschützt ist.
 ow_proyect_leader: Ehemaliger Flottenadmiral (2Moons-Projektleitung)

@@ -18,7 +18,7 @@
 		<tbody>
 		{% for notesID, notesRow in notesList %}
 		<tr>
-			<td class="ctr"><input name="delmes[{{ notesID }}]" type="checkbox" aria-label="{{ LNG.nt_dlte_note }}: {{ notesRow.title }}"></td>
+			<td class="ctr"><label class="check-hit"><input name="delmes[{{ notesID }}]" type="checkbox" aria-label="{{ LNG.nt_dlte_note }}: {{ notesRow.title }}"></label></td>
 			<td class="mono">{{ notesRow.time }}</td>
 			<td><a href="{{ path('game_notes_detail', {id: notesID}) }}">
 			{% if notesRow.priority == 0 %}

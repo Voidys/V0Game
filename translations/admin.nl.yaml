@@ -490,6 +490,8 @@ one_is_yes_0: Nee
 one_is_yes_1: Ja
 online_users: Online
 ow_default_uri_missing: 'Maillinks hebben DEFAULT_URI (.env.local) nodig: zolang dat niet is ingesteld, worden registratie- en wachtwoordresetmails niet verstuurd.'
+ow_app_secret_weak: 'APP_SECRET is een openbare standaardwaarde of te kort: iedereen kan inlogcookies vervalsen. Zet een nieuwe willekeurige waarde in .env.local (bijv. php -r ''echo bin2hex(random_bytes(32));'') en leeg var/cache.'
+ow_app_env_dev: 'De server draait in ontwikkelmodus (APP_ENV is niet prod of APP_DEBUG staat aan): foutdetails zijn zichtbaar en het spel is trager. Zet APP_ENV=prod en APP_DEBUG=0 in .env.local.'
 ow_dir_not_writable: /%s is niet schrijfbaar!
 ow_file_detected: Het bestand %s is gevonden. Verwijder of hernoem het om veiligheidsredenen.
 ow_proyect_leader: Voormalig vlootadmiraal (projectleider 2Moons)

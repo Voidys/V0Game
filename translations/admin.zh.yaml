@@ -490,6 +490,8 @@ one_is_yes_0: 否
 one_is_yes_1: 是
 online_users: 在线
 ow_default_uri_missing: 邮件链接需要 DEFAULT_URI（.env.local）：在设置之前，注册和找回密码的邮件不会发送。
+ow_app_secret_weak: 'APP_SECRET 是公开的默认值或太短：任何人都能伪造登录 Cookie。请在 .env.local 中设置新的随机值（例如 php -r ''echo bin2hex(random_bytes(32));''）并清空 var/cache。'
+ow_app_env_dev: '服务器运行在开发模式（APP_ENV 不是 prod 或 APP_DEBUG 已开启）：错误详情会暴露，游戏也更慢。请在 .env.local 中设置 APP_ENV=prod 和 APP_DEBUG=0。'
 ow_dir_not_writable: /%s 不可写！
 ow_file_detected: 发现文件 %s。出于安全考虑，请删除或重命名它。
 ow_proyect_leader: 前舰队司令（2Moons 项目负责人）

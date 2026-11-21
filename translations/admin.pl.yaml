@@ -490,6 +490,8 @@ one_is_yes_0: Nie
 one_is_yes_1: Tak
 online_users: Online
 ow_default_uri_missing: 'Linki w wiadomościach e-mail wymagają DEFAULT_URI (.env.local): dopóki nie zostanie ustawione, wiadomości rejestracyjne i resetujące hasło nie są wysyłane.'
+ow_app_secret_weak: 'APP_SECRET to publiczna wartość domyślna lub jest za krótki: każdy mógłby podrobić ciasteczka logowania. Ustaw nową losową wartość w .env.local (np. php -r ''echo bin2hex(random_bytes(32));'') i wyczyść var/cache.'
+ow_app_env_dev: 'Serwer działa w trybie deweloperskim (APP_ENV nie jest prod lub APP_DEBUG jest włączony): szczegóły błędów są widoczne, a gra działa wolniej. Ustaw APP_ENV=prod i APP_DEBUG=0 w .env.local.'
 ow_dir_not_writable: ./%s jest nie zapisywalny!
 ow_file_detected: Znaleziono %s . By gra była aktywna, musisz plik usunąć lub zmienić jego nazwę
 ow_proyect_leader: Były admirał floty (lider projektu 2Moons)

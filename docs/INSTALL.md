@@ -131,7 +131,7 @@ git, PHP 8.4 and its extensions, Composer (it can download Composer into the pro
 signature), a database server and the disk space, and prints how to install what is missing for apt, dnf and pacman.
 It does not use sudo on its own. Then it fetches the latest release with git, runs
 `composer install --no-dev --optimize-autoloader --classmap-authoritative`, creates the folders, writes `.env.local`
-(production mode, random `APP_SECRET`) and either runs `php bin/console app:install` in the terminal or points you to
+(production mode, random `APP_SECRET`; the admin dashboard warns if the secret is a public default or too short, or if the server runs in development mode) and either runs `php bin/console app:install` in the terminal or points you to
 the web wizard. At the end it prints the next steps (document root, cron line, HTTPS).
 
 Useful options (`bash install.sh --help` lists everything):

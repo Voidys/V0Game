@@ -490,6 +490,8 @@ one_is_yes_0: ไม่ใช่
 one_is_yes_1: ใช่
 online_users: ออนไลน์
 ow_default_uri_missing: ลิงก์ในอีเมลต้องใช้ DEFAULT_URI (.env.local) จนกว่าจะตั้งค่า อีเมลลงทะเบียนและรีเซ็ตรหัสผ่านจะไม่ถูกส่ง
+ow_app_secret_weak: 'APP_SECRET เป็นค่าเริ่มต้นสาธารณะหรือสั้นเกินไป: ใครก็ปลอมคุกกี้การเข้าสู่ระบบได้ ตั้งค่าสุ่มใหม่ใน .env.local (เช่น php -r ''echo bin2hex(random_bytes(32));'') แล้วล้าง var/cache'
+ow_app_env_dev: 'เซิร์ฟเวอร์ทำงานในโหมดพัฒนา (APP_ENV ไม่ใช่ prod หรือเปิด APP_DEBUG): รายละเอียดข้อผิดพลาดมองเห็นได้และเกมช้าลง ตั้ง APP_ENV=prod และ APP_DEBUG=0 ใน .env.local'
 ow_dir_not_writable: /%s เขียนข้อมูลไม่ได้!
 ow_file_detected: พบไฟล์ %s เพื่อความปลอดภัย กรุณาลบหรือเปลี่ยนชื่อไฟล์
 ow_proyect_leader: อดีตพลเรือเอกกองเรือ (หัวหน้าโครงการ 2Moons)

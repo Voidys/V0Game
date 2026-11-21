@@ -17,6 +17,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Security\SecretAudit;
 use App\Game\Enum\AuthLevel;
 use App\Routing\GameRoute;
 use App\Runtime\InstallService;
@@ -26,7 +27,10 @@ use Symfony\Component\HttpFoundation\Response;
 /** Admin dashboard: security notices, player and universe statistics, system and cron status. */
 class OverviewController extends AbstractAdminController
 {
-    public function __construct(private readonly UpdateCheck $updateCheck) {}
+    public function __construct(
+        private readonly UpdateCheck $updateCheck,
+        private readonly SecretAudit $secretAudit,
+    ) {}
 
     /**
      * Admin dashboard. Notices for ADM (leftover update.php / webinstall.php / var/ENABLE_INSTALL_TOOL, var/ directories that are not
@@ -151,6 +155,14 @@ class OverviewController extends AbstractAdminController
 
         if (!$this->canonicalUrl->canBuildLinks()) {
             $Message[] = $LNG['ow_default_uri_missing'];
+        }
+
+        // a public or short APP_SECRET lets anyone forge remember-me cookies; dev mode leaks errors and slows the game
+        if ($this->secretAudit->weakSecret()) {
+            $Message[] = $LNG['ow_app_secret_weak'];
+        }
+        if ($this->secretAudit->developmentMode()) {
+            $Message[] = $LNG['ow_app_env_dev'];
         }
 
         // runtime data lives in var/ (game caches, sessions, logs)

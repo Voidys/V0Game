@@ -2,10 +2,14 @@
 @layer pages {
   /* ---------------------------------------------------------------- galaxy: navigation toolbar */
   .galaxy-toolbar { gap: var(--space-2) var(--space-4); }
-  .galaxy-toolbar__group { display: inline-flex; align-items: center; gap: var(--space-2); }
-  .galaxy-toolbar .galaxy-nav__label { color: var(--c-muted); font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; }
-  .galaxy-toolbar .galaxy-step { inline-size: var(--control-h); padding: 0; }
-  .galaxy-toolbar input.coord { inline-size: 4.5rem; text-align: center; }
+  /* galaxy / system selector: one joined control "‹ [ n ] ›" with a small label in front */
+  .galaxy-toolbar__group { display: inline-flex; align-items: center; }
+  .galaxy-toolbar .galaxy-nav__label { margin-inline-end: var(--space-2); color: var(--c-muted); font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; }
+  .galaxy-toolbar .galaxy-step { inline-size: var(--control-h); padding: 0; border-radius: 0; }
+  .galaxy-toolbar .galaxy-step:first-of-type { border-start-start-radius: var(--r); border-end-start-radius: var(--r); }
+  .galaxy-toolbar .galaxy-step:last-of-type { border-start-end-radius: var(--r); border-end-end-radius: var(--r); }
+  .galaxy-toolbar input.coord { inline-size: 3.5rem; margin-inline: -1px; border-radius: 0; text-align: center; position: relative; }
+  .galaxy-toolbar input.coord:focus { z-index: 1; }
   .galaxy-toolbar__keys { color: var(--c-muted); font-size: var(--fs-sm); }
   .galaxy-status { display: grid; }
   .galaxy-status > div { padding: var(--space-2) var(--pad); border-block-end: 1px solid var(--c-border); font-size: var(--fs-sm); }
@@ -70,30 +74,64 @@
   .tt-galaxy table { inline-size: 100%; }
   .tt-galaxy-disabled { color: var(--c-muted); font-style: italic; }
 
-  /* phones: one card per position */
+  /* phones: one card per occupied position, slim rows for free ones; navigation as two compact rows */
   @media (max-width: 40rem) {
+    /* galaxy and system side by side (small label above each), show + sync below */
+    .galaxy-toolbar { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2) var(--space-3); }
+    .galaxy-toolbar__group { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
+    .galaxy-toolbar .galaxy-nav__label { grid-column: 1 / -1; margin: 0 0 var(--space-1); font-weight: 600; }
+    .galaxy-toolbar input.coord { inline-size: 100%; }
+    .galaxy-toolbar > input[type="submit"], .galaxy-toolbar > input[type="button"] { inline-size: 100%; }
+    .galaxy-toolbar .toolbar__spacer, .galaxy-toolbar__keys { display: none; }
+
     .galaxy-table, .galaxy-table tbody { display: block; }
     .galaxy-table thead { display: none; }
     .galaxy-sync__upload { flex-wrap: wrap; inline-size: 100%; white-space: normal; }
     .galaxy-sync__upload input { max-inline-size: 100%; }
+
+    /* occupied position */
     .galaxy-table tbody tr {
-      display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; min-inline-size: 0; grid-template-areas: "pos planet moon" "pos player debris" "pos alliance alliance" "pos actions actions";
-      align-items: center; border-block-end: 1px solid var(--c-border);
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr) auto;
+      grid-template-areas:
+        "pos planet moon"
+        "pos player player"
+        "pos alliance debris"
+        "actions actions actions";
+      align-items: center;
+      gap: var(--space-1) var(--space-3);
+      padding: var(--space-3) var(--pad);
+      border-block-end: 1px solid var(--c-border);
     }
-    .galaxy-table td { block-size: auto; min-block-size: 2rem; padding: var(--space-1) var(--space-2); border: 0; }
-    .galaxy-table .galaxy-pos { grid-area: pos; align-self: stretch; display: grid; place-items: center; }
-    .galaxy-table .galaxy-planet { grid-area: planet; }
-    .galaxy-table .galaxy-moon { grid-area: moon; }
-    .galaxy-table .galaxy-debris { grid-area: debris; text-align: end; }
-    .galaxy-table .galaxy-player { grid-area: player; white-space: normal; }
-    .galaxy-table .galaxy-alliance-cell { grid-area: alliance; }
-    .galaxy-table .galaxy-actions { grid-area: actions; text-align: start; }
-    .galaxy-table .galaxy-actions__list { flex-wrap: wrap; }
-    .galaxy-table tr:is(.is-empty, .galaxy-pirate) { grid-template-columns: 2.5rem minmax(0, 1fr); grid-template-areas: none; }
-    .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td { grid-area: auto; grid-column: 2 / -1; }
-    .galaxy-table tr.is-empty > td { grid-row: 1; }
-    .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td.galaxy-pos { grid-column: 1; }
-    .galaxy-action { inline-size: 2.5rem; block-size: 2.5rem; }
+    .galaxy-table tbody tr:hover > td, .galaxy-table tr.is-own > td { background: none; }
+    .galaxy-table tr.is-own { background: var(--tint); }
+    /* table cell roles (.act = 1% width, nowrap) must not shrink the card cells */
+    .galaxy-table td { display: block; inline-size: auto; width: auto; min-inline-size: 0; block-size: auto; min-block-size: 0; padding: 0; border: 0; white-space: normal; text-align: start; }
+    .galaxy-table .galaxy-pos { grid-area: pos; align-self: start; padding-block-start: 0.35rem; font-size: var(--fs-md); text-align: center; }
+    .galaxy-table .galaxy-planet { grid-area: planet; min-inline-size: 0; }
+    .galaxy-table .galaxy-planet a { max-inline-size: 100%; font-weight: 600; }
+    .galaxy-table .galaxy-planet a span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .galaxy-table .galaxy-moon { grid-area: moon; justify-self: end; }
+    .galaxy-table .galaxy-player { grid-area: player; }
+    .galaxy-table .galaxy-alliance-cell { grid-area: alliance; font-size: var(--fs-sm); }
+    .galaxy-table .galaxy-debris { grid-area: debris; justify-self: end; font-size: var(--fs-sm); }
+    .galaxy-table .galaxy-actions { grid-area: actions; margin-block-start: var(--space-2); }
+    .galaxy-table .galaxy-actions:not(:has(a)) { display: none; }
+    /* the actions share the row evenly (7 fit on one line at 360px+), wrapping only on very small screens */
+    .galaxy-table .galaxy-actions__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(2.5rem, 1fr)); gap: var(--space-1); }
+    .galaxy-table .galaxy-action { inline-size: auto; block-size: 2.75rem; border: 1px solid var(--c-border); background: var(--c-bg-2); }
+
+    /* free / destroyed positions, pirate base, the extra rows: one slim line */
+    .galaxy-table tr:is(.is-empty, .galaxy-pirate) {
+      grid-template-columns: 2rem minmax(0, 1fr) auto;
+      grid-template-areas: none;
+      padding-block: var(--space-2);
+    }
+    .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td { grid-area: auto; grid-row: 1; align-self: center; }
+    .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td.galaxy-pos { grid-column: 1; padding-block-start: 0; }
+    .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td:not(.galaxy-pos):not(.galaxy-actions) { grid-column: 2; }
+    .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td.galaxy-debris { grid-column: 3; }
+    .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td.galaxy-actions { grid-column: 3; margin: 0; }
   }
 
   /* ---------------------------------------------------------------- fleet: shared bits */

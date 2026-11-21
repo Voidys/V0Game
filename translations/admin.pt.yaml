@@ -490,6 +490,8 @@ one_is_yes_0: Não
 one_is_yes_1: Sim
 online_users: Online
 ow_default_uri_missing: 'Os links dos e-mails precisam de DEFAULT_URI (.env.local): enquanto não estiver definido, os e-mails de registo e de reposição da palavra-passe não são enviados.'
+ow_app_secret_weak: 'APP_SECRET é um valor público padrão ou curto demais: qualquer pessoa poderia falsificar cookies de login. Defina um novo valor aleatório em .env.local (p. ex. php -r ''echo bin2hex(random_bytes(32));'') e limpe var/cache.'
+ow_app_env_dev: 'O servidor está em modo de desenvolvimento (APP_ENV não é prod ou APP_DEBUG está ligado): detalhes de erros ficam visíveis e o jogo fica mais lento. Defina APP_ENV=prod e APP_DEBUG=0 em .env.local.'
 ow_dir_not_writable: /%s dir não pode ser escrito!
 ow_file_detected: Foi encontrado o arquivo %s. Por motivos de segurança, apagar ou renomear.
 ow_proyect_leader: Antigo almirante da frota (líder do projeto 2Moons)

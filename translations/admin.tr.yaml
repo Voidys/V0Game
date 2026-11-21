@@ -490,6 +490,8 @@ one_is_yes_0: Hayir
 one_is_yes_1: Evet
 online_users: Online
 ow_default_uri_missing: 'E-posta bağlantıları için DEFAULT_URI (.env.local) gerekir: ayarlanana kadar kayıt ve şifre sıfırlama e-postaları gönderilmez.'
+ow_app_secret_weak: 'APP_SECRET herkese açık bir varsayılan değer ya da çok kısa: herkes oturum çerezlerini taklit edebilir. .env.local içinde yeni rastgele bir değer belirle (örn. php -r ''echo bin2hex(random_bytes(32));'') ve var/cache klasörünü temizle.'
+ow_app_env_dev: 'Sunucu geliştirme modunda çalışıyor (APP_ENV prod değil ya da APP_DEBUG açık): hata ayrıntıları görünüyor ve oyun daha yavaş. .env.local içinde APP_ENV=prod ve APP_DEBUG=0 ayarla.'
 ow_dir_not_writable: /%s klasorune yazilamaz!
 ow_file_detected: ' %s adli dosya saptandi. Guvenlik nedeniyle dosyayi silin yada adini degistirin'
 ow_proyect_leader: Eski filo amirali (2Moons proje lideri)
