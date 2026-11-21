@@ -138,6 +138,53 @@ class ViewHelpers
     }
 
     /**
+     * Full number below 1e9, from 1e9 on the value in millions (floor) with the language's million suffix, e.g.
+     * 8.980 Mio (de) / 8,980 M (en). Top bar resource values.
+     */
+    public function millionsNumber($number): string
+    {
+        if (abs($number) < 1000000000) {
+            return $this->prettyNumber($number);
+        }
+        $USER = $this->state->USER;
+        $unit = (new NumberAbbreviation())->suffixesForLang($USER['lang'] ?? DEFAULT_LANG);
+
+        return $this->prettyNumber(floor($number / 1000000)) . '&nbsp;' . ($unit[2] ?? 'M');
+    }
+
+    /**
+     * Cost tile number: the full number below 10,000, from there on the largest language unit with value/unit >= 1,
+     * floored to at most 6 letters + digits in total (decimals = clamp(6 - suffix length - integer digits, 0, 2)),
+     * trailing zeros trimmed, e.g. 12,8K / 1,63 Mio / 25 Mio / 8 Mrd.
+     */
+    public function compactNumber($number): string
+    {
+        $number = (float) $number;
+        if (abs($number) < 10000) {
+            return $this->prettyNumber($number);
+        }
+        $negate = $number < 0 ? '-' : '';
+        $number = abs($number);
+        $USER = $this->state->USER;
+        $unit = (new NumberAbbreviation())->suffixesForLang($USER['lang'] ?? DEFAULT_LANG);
+        $key = 0;
+        while ($number >= 1000 && $key < count($unit) - 1) {
+            ++$key;
+            $number /= 1000;
+        }
+        $suffix = (string) $unit[$key];
+        $intDigits = strlen((string) (int) floor($number));
+        $decimals = max(0, min(2, 6 - strlen($suffix) - $intDigits));
+        $factor = 10 ** $decimals;
+        $text = $this->prettyNumber(floor($number * $factor + 1e-9) / $factor, $decimals);
+        if ($decimals > 0) {
+            $text = preg_replace('/[.,]?0+$/', '', $text);
+        }
+
+        return $negate . $text . ($suffix === '' ? '' : (strlen($suffix) > 1 ? '&nbsp;' : '') . $suffix);
+    }
+
+    /**
      * True if the game module (MODULE_* id) is enabled in the universe (0 = current). Unknown module ids are logged and count as enabled.
      */
     public function isModuleAvailable($ID, $universe = 0)

@@ -1,11 +1,10 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.al_make_alliance, 'users') }}{% endblock %}
 {% block content %}
-<form action="{{ path('game_alliance_create_send') }}" method="POST">
+<form class="panel" action="{{ path('game_alliance_create_send') }}" method="POST">
 	<table class="form-table">
-		<tr>
-			<th colspan="2">{{ LNG.al_make_alliance }}</th>
-		</tr>
 		<tr>
 			<td><label for="atag">{{ LNG.al_make_ally_tag_required }}</label></td>
 			<td><input type="text" name="atag" id="atag" maxlength="8" value="" required></td>

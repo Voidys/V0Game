@@ -1,12 +1,12 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.fcm_info }}{{ parent() }}{% endblock %}
 {% block content %}
-<table{% if autoCloseMs|default(0) %} data-auto-close="{{ autoCloseMs }}"{% endif %}>
-	<tr>
-		<th>{{ LNG.fcm_info }}</th>
-	</tr>
-	<tr>
-		<td><p>{{ message }}</p>{% if redirectButtons %}<p>{% for button in redirectButtons %}<a href="{{ button.url }}"{% if button.action is defined %} data-action="{{ button.action }}"{% endif %}><button>{{ button.label }}</button></a>{% endfor %}</p>{% endif %}</td>
-	</tr>
-</table>
+<section class="panel"{% if autoCloseMs|default(0) %} data-auto-close="{{ autoCloseMs }}"{% endif %}>
+	{{ ui.panel_head(LNG.fcm_info) }}
+	<div class="panel__body">
+		<p>{{ message }}</p>
+		{% if redirectButtons %}<p class="toolbar">{% for button in redirectButtons %}<a href="{{ button.url }}"{% if button.action is defined %} data-action="{{ button.action }}"{% endif %}><button>{{ button.label }}</button></a>{% endfor %}</p>{% endif %}
+	</div>
+</section>
 {% endblock %}

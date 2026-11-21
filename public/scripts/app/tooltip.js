@@ -153,8 +153,122 @@ function closeSoon() {
   timer = setTimeout(close, 250);
 }
 
+// ---------------------------------------------------------------------------------------- text bubble
+
+/*
+ * One shared bubble (#bubble) for short plain-text hints. Source of the text, first match: data-tip (+ optional
+ * data-tip-kbd="Ctrl K" shown as key chips), the native title (moved to data-tip on first hover so the browser's own
+ * tooltip never shows), the aria-label of an icon-only link/button. 450 ms delay, then instant while the pointer moves
+ * between items (warm for 400 ms). Placed above, flipped below when there is no room, clamped to the viewport.
+ */
+const BUBBLE_SOURCE = '[data-tip], [title], a[aria-label], button[aria-label]';
+let bubble = null;
+let bubbleTarget = null;
+let bubbleTimer = 0;
+let warmUntil = 0;
+
+/** The element that carries the hint for `target`, or null (rich tooltips and elements without text are not ours) */
+function bubbleSource(target) {
+  if (!(target instanceof Element)) return null;
+  const el = target.closest(BUBBLE_SOURCE);
+  if (!el || el.closest('.tooltip, .tooltip_sticky, [data-tooltip-content], [data-tooltip-ref], #tooltip')) return null;
+  if (el.hasAttribute('data-tip') || el.hasAttribute('title')) return el;
+  // aria-label counts only on controls without visible text (icon-only)
+  return el.textContent.trim() === '' ? el : null;
+}
+
+/** Text of a source; a native title is moved to data-tip here (retires the browser tooltip). */
+function bubbleText(el) {
+  if (el.hasAttribute('title')) {
+    const title = el.getAttribute('title');
+    if (title.trim() !== '') el.dataset.tip = title;
+    el.removeAttribute('title');
+  }
+  return el.dataset.tip || el.getAttribute('aria-label') || '';
+}
+
+function bubbleElement() {
+  if (!bubble) {
+    bubble = Object.assign(document.createElement('div'), { id: 'bubble', className: 'bubble' });
+    bubble.setAttribute('role', 'tooltip');
+    document.body.append(bubble);
+  }
+  return bubble;
+}
+
+function hideBubble() {
+  clearTimeout(bubbleTimer);
+  if (bubbleTarget) {
+    bubbleTarget.removeAttribute('aria-describedby');
+    if (bubble?.classList.contains('is-on')) warmUntil = performance.now() + 400;
+  }
+  bubbleTarget = null;
+  bubble?.classList.remove('is-on');
+}
+
+function showBubble(el) {
+  const text = bubbleText(el);
+  if (!text || !el.isConnected) return;
+  const box = bubbleElement();
+  const label = document.createElement('span');
+  label.textContent = text;
+  const parts = [label];
+  if (el.dataset.tipKbd) {
+    const keys = document.createElement('span');
+    keys.className = 'bubble-kbd';
+    el.dataset.tipKbd.split(' ').filter(Boolean).forEach((key) => {
+      const chip = document.createElement('kbd');
+      chip.textContent = key;
+      keys.append(chip);
+    });
+    parts.push(keys);
+  }
+  box.replaceChildren(...parts);
+  box.classList.remove('is-below');
+  const rect = el.getBoundingClientRect();
+  const width = box.offsetWidth;
+  const height = box.offsetHeight;
+  const below = rect.top - height - 10 < 8;
+  box.classList.toggle('is-below', below);
+  box.style.top = `${Math.round(below ? rect.bottom + 8 : rect.top - height - 8)}px`;
+  box.style.left = `${Math.round(Math.max(8, Math.min(window.innerWidth - width - 8, rect.left + rect.width / 2 - width / 2)))}px`;
+  box.classList.add('is-on');
+  el.setAttribute('aria-describedby', 'bubble');
+}
+
+function armBubble(el) {
+  if (el === bubbleTarget) return;
+  hideBubble();
+  bubbleTarget = el;
+  const delay = performance.now() < warmUntil ? 0 : 450;
+  bubbleTimer = window.setTimeout(() => { if (bubbleTarget === el) showBubble(el); }, delay);
+}
+
+/** Delegated listeners of the bubble: hover (not touch), keyboard focus, hidden again on press/scroll/Escape. */
+function initBubble() {
+  document.addEventListener('pointerover', (event) => {
+    if (event.pointerType === 'touch') return;
+    const el = bubbleSource(event.target);
+    if (el) armBubble(el); else if (bubbleTarget) hideBubble();
+  });
+  document.addEventListener('pointerout', (event) => {
+    if (bubbleTarget && !(event.relatedTarget instanceof Node && bubbleTarget.contains(event.relatedTarget))) hideBubble();
+  });
+  document.addEventListener('focusin', (event) => {
+    const el = bubbleSource(event.target);
+    if (el && event.target instanceof Element && event.target.matches(':focus-visible')) armBubble(el);
+  });
+  document.addEventListener('focusout', hideBubble);
+  document.addEventListener('pointerdown', hideBubble);
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') hideBubble(); });
+  window.addEventListener('scroll', hideBubble, { passive: true, capture: true });
+}
+
+export { hideBubble };
+
 /** Registers the delegated listeners (hover, click/tap pin, keyboard, outside click). */
 export function initTooltips() {
+  initBubble();
   const sourceOf = (target) => (target instanceof Element ? target.closest(SELECTOR) : null);
   const inTip = (target) => target instanceof Element && target.closest('#tooltip') !== null;
   const isSticky = (el) => el?.classList.contains('tooltip_sticky');

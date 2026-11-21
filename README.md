@@ -79,17 +79,19 @@ The game rules are the same as before; everything around them is new.
 
 | | | | | |
 | :---: | :---: | :---: | :---: | :---: |
-| <a href="public/styles/resource/images/login/screens/20-mobile-overview.webp"><img src="public/styles/resource/images/login/screens/20-mobile-overview-720w.webp" alt="Planet overview on a phone" width="190"></a> | <a href="public/styles/resource/images/login/screens/21-mobile-buildings.webp"><img src="public/styles/resource/images/login/screens/21-mobile-buildings-720w.webp" alt="Buildings on a phone" width="190"></a> | <a href="public/styles/resource/images/login/screens/22-mobile-galaxy.webp"><img src="public/styles/resource/images/login/screens/22-mobile-galaxy-720w.webp" alt="Galaxy view on a phone" width="190"></a> | <a href="public/styles/resource/images/login/screens/23-mobile-fleet.webp"><img src="public/styles/resource/images/login/screens/23-mobile-fleet-720w.webp" alt="Fleet dispatch on a phone" width="190"></a> | <a href="public/styles/resource/images/login/screens/24-mobile-drawer.webp"><img src="public/styles/resource/images/login/screens/24-mobile-drawer-720w.webp" alt="Open side menu on a phone" width="190"></a> |
-| Overview | Buildings | Galaxy | Fleet | Menu drawer |
+| <a href="public/styles/resource/images/login/screens/20-mobile-overview.webp"><img src="public/styles/resource/images/login/screens/20-mobile-overview-720w.webp" alt="Planet overview on a phone" width="190"></a> | <a href="public/styles/resource/images/login/screens/21-mobile-buildings.webp"><img src="public/styles/resource/images/login/screens/21-mobile-buildings-720w.webp" alt="Buildings on a phone" width="190"></a> | <a href="public/styles/resource/images/login/screens/22-mobile-galaxy.webp"><img src="public/styles/resource/images/login/screens/22-mobile-galaxy-720w.webp" alt="Galaxy view on a phone" width="190"></a> | <a href="public/styles/resource/images/login/screens/23-mobile-fleet.webp"><img src="public/styles/resource/images/login/screens/23-mobile-fleet-720w.webp" alt="Fleet dispatch on a phone" width="190"></a> | <a href="public/styles/resource/images/login/screens/24-mobile-drawer.webp"><img src="public/styles/resource/images/login/screens/24-mobile-drawer-720w.webp" alt="Menu sheet above the bottom tab bar on a phone" width="190"></a> |
+| Overview | Buildings | Galaxy | Fleet | Menu sheet |
 
 All of them, desktop and phone, are in [`public/styles/resource/images/login/screens/`](public/styles/resource/images/login/screens/); a running game shows them on its start page under Screenshots.
 
 ## Features
 
 - **Modern interface:**
-  - top bar with resources and a classic side menu, which becomes a drawer on phones;
-  - every in-game page works on a phone;
-  - seven themes, popups as modals, clean web addresses (`/game/fleet` instead of `game.php?page=fleet`).
+  - top bar with resources, side menu and a planet list, one strict layout for every page;
+  - built for phones too: bottom tab bar in thumb reach, menus as bottom sheets, 44 px touch targets;
+  - quick jump with Ctrl+K (pages, planets, coordinates), keyboard shortcuts, tooltips everywhere;
+  - seven themes that only set colours, fonts and images (a new theme is a short file, see `docs/themes.md`),
+    popups as modals, clean web addresses (`/game/fleet` instead of `game.php?page=fleet`).
 - **Community:**
   - a built-in board with posts, votes and threaded comments;
   - news with drafts, scheduling and images;

@@ -1,0 +1,113 @@
+/* Page group "misc": page-specific blocks only, built on ui.css (docs/ui-layout.md). Layer "pages".
+   Statistics, battle hall, search, ban list, team, vote, records, settings, player card, achievements,
+   changelog, rules, FAQ, advanced statistics. */
+@layer pages {
+  /* ------------------------------------------------------------------ rankings (statistics, battle hall) */
+  .stats-legend { justify-content: flex-start; gap: var(--space-2) var(--space-4); color: var(--c-muted); font-size: var(--fs-sm); }
+  .stats-legend > span { display: inline-flex; align-items: center; gap: var(--space-2); }
+  tr.my-row > td { background: var(--tint); }
+  td.stats-actions { white-space: nowrap; }
+  /* ranking columns: rank, change and actions stay narrow, the name column takes the room */
+  .stats-table { table-layout: auto; }
+  .stats-table th:first-child { inline-size: 4.5rem; }
+  .stats-table .rank-delta-col { inline-size: 3.5rem; text-align: center; }
+  .stats-table th.act { inline-size: 5rem; }
+  .stats-table td:nth-child(3) { inline-size: 40%; }
+  .toolbar .control-group > label { color: var(--c-muted); font-size: var(--fs-sm); }
+  .toolbar .control-group > select { inline-size: auto; max-inline-size: 100%; }
+  .battle-link { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); text-decoration: none; }
+  .battle-link:is(:hover, :focus-visible) span { color: var(--c-accent); }
+  .battle-link__vs { inline-size: 1rem; block-size: 1rem; flex: none; color: var(--c-muted); }
+
+  /* ------------------------------------------------------------------ search */
+  #search-form input[type="text"] { flex: 1 1 14rem; max-inline-size: 28rem; }
+  #search-form #loading { color: var(--c-muted); font-size: var(--fs-sm); }
+  .search-hint { margin: 0; color: var(--c-muted); }
+
+  /* ------------------------------------------------------------------ records, advanced statistics, team */
+  .tabs__list.segmented { display: inline-flex; margin: 0; max-inline-size: 100%; }
+  .tabs__list.segmented { flex-wrap: wrap; }
+  @media (max-width: 40rem) { .tabs__list.segmented { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .tabs__list.segmented::-webkit-scrollbar { display: none; } }
+  .tabs__list.segmented > .tabs__tab { flex: 0 0 auto; min-block-size: var(--control-h); white-space: nowrap; }
+  tr.sub-head > th { text-align: start; }
+  table.team td.top { white-space: normal; }
+  .panel > .toolbar { padding: var(--pad); }
+
+  /* ------------------------------------------------------------------ text panels (rules, changelog, FAQ article) */
+  .text-panel > * { max-inline-size: 72ch; }
+  .text-panel .rich-text { color: var(--c-text); max-inline-size: 72ch; }
+  .text-panel .rich-text :where(h1, h2, h3, h4) { margin-block: var(--space-5) var(--space-2); color: var(--c-text); line-height: 1.3; }
+  .text-panel .rich-text h1 { font-size: var(--fs-xl); }
+  .text-panel .rich-text h2 { font-size: var(--fs-lg); }
+  .text-panel .rich-text :where(h3, h4) { font-size: var(--fs-md); }
+  .text-panel .rich-text > :first-child { margin-block-start: 0; }
+  .text-panel .rich-text nav.toc { margin-block-end: var(--space-4); }
+  .changelog-item > summary { cursor: pointer; list-style: none; border-block-end: 0; }
+  .changelog-item > summary::-webkit-details-marker { display: none; }
+  .changelog-item[open] > summary { border-block-end: 1px solid var(--c-border); }
+  .changelog-item .changelog-entry__commit { color: var(--c-muted); font: 400 var(--fs-xs) var(--font-mono); }
+  .changelog-text { overflow-wrap: anywhere; }
+  .changelog-text pre { max-inline-size: 100%; overflow-x: auto; }
+
+  /* ------------------------------------------------------------------ FAQ (faq.css holds the search and article parts) */
+  .faq { max-inline-size: none; margin-inline: 0; }
+  .faq-search { max-inline-size: none; }
+  .faq-status:empty { display: none; }
+  .faq .panel > .panel__head .faq-cat__title { padding: 0; font-size: inherit; }
+  .faq .panel__head .faq-cat__icon { inline-size: 1.5rem; block-size: 1.5rem; border-radius: var(--r); }
+  .faq .panel__head .faq-cat__icon .icon { inline-size: 1rem; block-size: 1rem; }
+  .faq .panel > .faq-cat__list { border: 0; }
+  .faq .panel > .faq-cat__list li + li { border-block-start: 1px solid var(--c-border); }
+  .faq .panel > .faq-cat__list a { margin: 0; padding-inline: var(--pad); border-radius: 0; }
+  .faq .faq-cat__count { font-size: var(--fs-sm); }
+  .faq-categories > .panel { scroll-margin-block-start: calc(var(--topbar-h, 4rem) + var(--space-3)); }
+  .faq-article__main { max-inline-size: none; }
+  .faq-article__main .faq-body { max-inline-size: 72ch; }
+  .faq-article__main .faq-body h2 { font-size: var(--fs-xl); }
+  .panel.faq-toc { padding: var(--space-3) var(--pad); background: var(--c-panel); border-color: var(--c-border); border-radius: var(--r); }
+  .faq-crumbs { margin: var(--space-1) 0 0; font-size: var(--fs-sm); }
+  .panel__foot.faq-pager { display: grid; justify-content: stretch; margin: 0; }
+  .panel__foot.faq-foot { justify-content: space-between; margin: 0; }
+
+  /* ------------------------------------------------------------------ achievements */
+  .ach-meter { inline-size: min(100%, 14rem); }
+  .segmented > button[aria-pressed="true"] { background: var(--tint); color: var(--c-text); box-shadow: inset 0 -2px 0 var(--c-accent); }
+  .ach-page[data-ach-filter="unlocked"] .ach-card[data-state="locked"],
+  .ach-page[data-ach-filter="locked"] .ach-card[data-state="unlocked"] { display: none; }
+  .ach-grid { margin: 0; padding: 0; list-style: none; }
+  .ach-card { overflow: hidden; }
+  .ach-card.is-unlocked { border-color: var(--c-accent); }
+  .ach-card__button {
+    display: flex; align-items: center; gap: var(--space-3);
+    inline-size: 100%; min-block-size: 0; margin: 0; padding: var(--space-3);
+    background: transparent; border: 0; border-radius: 0; box-shadow: none;
+    color: var(--c-text); text-align: start; justify-content: flex-start; white-space: normal; cursor: pointer;
+    transition: background var(--t-fast) var(--ease);
+  }
+  .ach-card__button:hover { background: var(--c-panel-2); }
+  .ach-card__image { flex: none; display: block; border-radius: 2px; }
+  .ach-card:not(.is-unlocked) .ach-card__image { opacity: 0.45; filter: grayscale(1); }
+  .ach-card__text { flex: 1; display: grid; gap: var(--space-1); justify-items: start; min-inline-size: 0; }
+  .ach-card__name { font-weight: 600; overflow-wrap: anywhere; }
+  .ach-card:not(.is-unlocked) .ach-card__name { color: var(--c-muted); }
+  .ach-card__hint { display: -webkit-box; overflow: hidden; color: var(--c-muted); font-size: var(--fs-xs); line-height: 1.3; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+  .ach-card__hint .icon { inline-size: 0.85rem; block-size: 0.85rem; margin-inline-end: var(--space-1); vertical-align: -0.125em; }
+  .ach-icons { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .ach-icons .achievement-icon { border-radius: 2px; cursor: pointer; }
+
+  /* ------------------------------------------------------------------ settings */
+  .settings-tabs > .tabs__list { align-self: start; }
+  .settings-tabs .tabs__tab--danger { color: var(--c-negative); }
+  .settings-tabs .tabs__tab.has-changes::after { content: ""; display: inline-block; inline-size: 0.4rem; block-size: 0.4rem; margin-inline-start: var(--space-2); border-radius: 50%; background: var(--c-accent); }
+  .settings-bar { position: sticky; inset-block-end: var(--space-2); z-index: 5; align-items: center; background: var(--c-panel-2); }
+  .settings-bar .hint { margin: 0 auto 0 0; }
+  .settings-bar .settings-dirty { margin: 0 auto 0 0; color: var(--c-accent); }
+  .settings-bar.is-dirty { border-color: var(--c-accent); }
+  .settings-bar.is-dirty .hint { display: none; }
+  #settings-form .theme-preview { display: block; margin-block-start: var(--space-2); max-inline-size: 100%; block-size: auto; border: 2px solid var(--c-accent); border-radius: var(--r); }
+  .danger-zone { align-items: center; gap: var(--space-4); }
+  .danger-zone form { margin: 0; }
+
+  /* ------------------------------------------------------------------ player card */
+  .ach-icons + .empty { padding: 0; }
+}

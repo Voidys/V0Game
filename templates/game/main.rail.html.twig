@@ -1,0 +1,34 @@
+{# Empire rail: the player's planets (moons on their planet's picture), one status line each. Switching = same page with cp=<id>. #}
+{% import 'game/_shell.macros.html.twig' as shell -%}
+{% set railBase = app.request.baseUrl ~ app.request.pathInfo %}
+<section class="panel">
+  <header class="panel__head">
+    <h2>{{ LNG.ui_nav_empire|default('Empire') }}</h2>
+    {% if planetSlots.max > 0 %}<span class="muted mono" data-tip="{{ LNG.shell_slots_tip|replace({'%1': planetSlots.used, '%2': planetSlots.max}) }}">{{ planetSlots.used }} / {{ planetSlots.max }}</span>
+    {% else %}<span class="muted mono">{{ planetList|length }}</span>{% endif %}
+  </header>
+  <ol class="planet-list">
+    {% for p in planetList %}
+      {% set hostile = hostileAlert and p.galaxy == hostileAlert.galaxy and p.system == hostileAlert.system and p.planet == hostileAlert.planet %}
+      <li{% if p.current or hostile %} class="{{ p.current ? 'is-current' : '' }}{{ hostile ? ' is-hostile' : '' }}"{% endif %}{% if p.current %} aria-current="true"{% endif %}>
+        <a href="{{ railBase }}?cp={{ p.id }}" data-tip="{{ LNG.shell_switch_to|replace({'%s': p.name}) }}">
+          <img src="{{ shell.planet_src(p.image, p.style) }}" width="44" height="44" alt="">
+          <span class="pl-text">
+            <strong>{{ p.name }}{% if p.isMoon %} <span class="muted">({{ LNG.fcm_moon }})</span>{% endif %}</strong>
+            <span class="mono muted">[{{ p.galaxy }}:{{ p.system }}:{{ p.planet }}]</span>
+            {% if hostile %}
+              <span class="pl-note is-alert">{{ icon('triangle-alert') }}{{ LNG.shell_attack_in }} <span class="countdown" data-time="{{ hostileAlert.remaining }}"></span></span>
+            {% elseif p.build %}
+              <span class="pl-note">{{ icon('hammer') }}{{ LNG.tech[p.build.id] }} {{ p.build.level }}</span>
+            {% else %}
+              <span class="pl-note muted">{{ p.fields }} / {{ p.fieldsMax }} {{ LNG.shell_fields }}</span>
+            {% endif %}
+          </span>
+        </a>
+        {% if p.moon %}
+          <a class="pl-moon{% if p.moon.current %} is-current{% endif %}" href="{{ railBase }}?cp={{ p.moon.id }}" aria-label="{{ LNG.shell_moon_of|replace({'%s': p.name}) }}" data-tip="{{ LNG.shell_moon_of|replace({'%s': p.name}) }}"><img src="{{ shell.planet_src(p.moon.image, p.moon.style) }}" width="22" height="22" alt=""></a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+</section>

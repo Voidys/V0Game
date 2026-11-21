@@ -1,0 +1,246 @@
+/*
+ * Strict layout ruleset of the game content area. Every page is built from these blocks; no page sets its own
+ * outer margins or paddings. Spacing comes only from the scale (--space-1..8) and --gap / --pad
+ * (theme-contract.css). Rules and examples: docs/ui-layout.md.
+ *
+ *   .content               vertical stack, gap --gap; children never set outer margins
+ *   .page-head             first block: __title (h1) · __meta (muted line) · __actions (right)
+ *   .panel                 hairline box, no padding · __head (title bar) · __body (padded) · __foot (actions)
+ *                          tables, lists and grids sit flush inside a panel (no padding of their own)
+ *   .stack                 vertical stack (gap --gap), .stack--tight (gap --space-2)
+ *   .grid-2 / -3 / -auto   columns with gap --gap (3fr/2fr · thirds · auto-fill ≥ 16rem)
+ *   .stats > .stat         label + value tiles
+ *   .segmented             filter / tab strip
+ *   .badge / .tag          small mono labels
+ *   .empty                 empty state inside a panel body
+ *   .toolbar               a row of controls (filters, pagination) above a table
+ *   .lvl                   level chip next to a name
+ */
+@layer components {
+  /* ------------------------------------------------------------------ page */
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    min-inline-size: 0;
+  }
+  .content > * { margin-block: 0; }
+  /* an empty block must not add a second gap */
+  .content > :empty { display: none; }
+
+  /* content.css (legacy, still linked by admin/installer) rounds every img and nested table by 25 %; in the game
+     images are square unless a component makes them round (planets, moons, avatars) */
+  :where(img, table table) { border-radius: 0; }
+  /* content.css gives every table overflow:auto (an inline scrollbar on near-fitting tables); wide tables scroll
+     through their wrapper (.panel--flush, .table-scroll) instead */
+  :where(.content, .modal) :where(table) { overflow: visible; }
+  .flyingFleets-scroll { overflow-y: hidden; }
+
+
+  /* ------------------------------------------------------------------ links
+     Text links carry no underline; on hover/focus a 1px line in the link colour grows from the start edge.
+     Zero specificity (:where), so components with their own link look (menus, buttons, tabs, rows with a
+     background) keep it; links holding an icon or image are left out (they highlight with a background). */
+  :where(.content, .modal, .footer, .pop, .alert) :where(a:not(:has(img, svg)):not(.btn, [role="tab"], [aria-current="page"])) {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    transition: background-size var(--t-med) var(--ease-out), color var(--t-fast) var(--ease);
+  }
+  :where(.content, .modal, .footer, .pop, .alert) :where(a:not(:has(img, svg)):not(.btn, [role="tab"], [aria-current="page"])):is(:hover, :focus-visible) {
+    text-decoration: none;
+    background-size: 100% 1px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.content, .modal, .footer, .pop, .alert) :where(a) { transition: none; }
+  }
+
+  .page-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--space-3) var(--space-4);
+  }
+  .page-head__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: 0;
+    font: 600 var(--fs-2xl) / 1.15 var(--theme-font-display);
+    letter-spacing: -0.015em;
+    color: var(--c-text);
+  }
+  .page-head__title > .icon { inline-size: 1.25rem; block-size: 1.25rem; color: var(--c-muted); }
+  .page-head__meta { margin: var(--space-1) 0 0; font-size: var(--fs-sm); color: var(--c-muted); }
+  .page-head__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+
+  /* ------------------------------------------------------------------ panel */
+  .panel {
+    min-inline-size: 0;
+    background: var(--c-panel);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r);
+  }
+  .panel--flush { overflow-x: auto; }
+  .panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    min-block-size: 2.625rem;
+    padding: var(--space-2) var(--pad);
+    border-block-end: 1px solid var(--c-border);
+  }
+  .panel__head h2, .panel__title {
+    margin: 0;
+    font: 600 var(--fs-xs) / 1.3 var(--font);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-muted);
+  }
+  .panel__head a { color: var(--c-muted); }
+  .panel__head a:hover { color: var(--c-text); }
+  .panel__body { padding: var(--pad); }
+  .panel__body > * + * { margin-block-start: var(--space-3); }
+  .panel__foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--pad);
+    border-block-start: 1px solid var(--c-border);
+  }
+  .panel > table { margin: 0; }
+  .panel > :is(table, ul, ol) { inline-size: 100%; }
+
+  /* ------------------------------------------------------------------ accordions (<details>)
+     Open and close slide quickly (height to auto via interpolate-size); browsers without ::details-content just
+     toggle. The summary marker turns with the state. */
+  @supports selector(::details-content) {
+    :where(.content, .modal, .layout--full) details { interpolate-size: allow-keywords; }
+    :where(.content, .modal, .layout--full) details::details-content {
+      block-size: 0;
+      overflow: clip;
+      opacity: 0;
+      transition: block-size var(--t-med) var(--ease-out), opacity var(--t-fast) var(--ease),
+        content-visibility var(--t-med) allow-discrete;
+    }
+    :where(.content, .modal, .layout--full) details[open]::details-content { block-size: auto; opacity: 1; }
+  }
+  :where(.content, .modal) summary { cursor: pointer; }
+  :where(.content, .modal) summary .icon:last-child { transition: rotate var(--t-med) var(--ease-out); }
+  :where(.content, .modal) details[open] > summary .icon:last-child { rotate: 180deg; }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.content, .modal, .layout--full) details::details-content { transition: none; }
+  }
+
+  /* ------------------------------------------------------------------ quiet motion (state changes only; nothing
+     moves or changes size on hover) */
+  :where(.content, .modal) :where(td, th) { transition: background-color var(--t-fast) var(--ease); }
+  :where(.content, .modal) :where(input, select, textarea) {
+    transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
+  }
+  :where(.section-tabs__tab, .segmented > a, .segmented > button) { transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease); }
+  :where(.tabs__panel):not([hidden]) { animation: ui-fade-in var(--t-med) var(--ease-out); }
+  @keyframes ui-fade-in { from { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.tabs__panel) { animation: none; }
+    :where(.content, .modal) :where(td, th, input, select, textarea) { transition: none; }
+  }
+
+  /* ------------------------------------------------------------------ stacks & grids */
+  .stack { display: flex; flex-direction: column; gap: var(--gap); }
+  .stack--tight { gap: var(--space-2); }
+  /* columns in a row share one height: items stretch, a stack inside a column lets its last panel grow, so the
+     bottom edges line up */
+  .grid-2, .grid-3, .grid-auto { display: grid; gap: var(--gap); align-items: stretch; }
+  :is(.grid-2, .grid-3, .grid-auto) > .stack > :last-child { flex: 1 1 auto; }
+  :is(.grid-2, .grid-3, .grid-auto) > .panel { display: flex; flex-direction: column; }
+  :is(.grid-2, .grid-3, .grid-auto) > .panel > :is(.panel__body, .empty):last-child { flex: 1 1 auto; }
+  .grid-2 { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-auto { grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
+  @media (max-width: 75rem) {
+    .grid-2 { grid-template-columns: minmax(0, 1fr); }
+    .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 40rem) {
+    .grid-3 { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  /* ------------------------------------------------------------------ stats */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: var(--space-3) var(--space-5); }
+  .stat { display: grid; gap: var(--space-1); min-inline-size: 0; }
+  .stat__label { font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-muted); }
+  .stat__value { font: 600 var(--fs-lg) / 1.25 var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  /* ------------------------------------------------------------------ toolbar */
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+  .toolbar__spacer { flex: 1; }
+
+  /* ------------------------------------------------------------------ segmented (filters, tabs) */
+  .segmented { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--c-border-strong); border-radius: var(--r); }
+  .segmented > :is(a, button) {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    min-block-size: var(--control-h); padding: 0 var(--space-3);
+    background: transparent; border: 0; border-radius: 0;
+    color: var(--c-muted); font: 500 var(--fs-md) / 1 var(--font); cursor: pointer;
+    transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  }
+  .segmented > :is(a, button) + :is(a, button) { border-inline-start: 1px solid var(--c-border-strong); }
+  .segmented > :is(a, button):hover { background: var(--c-panel-2); color: var(--c-text); }
+  .segmented > :is([aria-current], [aria-checked="true"], [aria-selected="true"], .is-active) {
+    background: var(--tint); color: var(--c-text); box-shadow: inset 0 -2px 0 var(--c-accent);
+  }
+
+  /* ------------------------------------------------------------------ badges, tags, level chips */
+  .badge, .tag, .lvl {
+    display: inline-block;
+    padding: 0 0.3rem;
+    font: 600 var(--fs-xs) / 1.45 var(--font-mono);
+    border: 1px solid currentColor;
+    border-radius: var(--r);
+    white-space: nowrap;
+    vertical-align: baseline;
+  }
+  .lvl { margin-inline-start: var(--space-2); color: var(--c-muted); border-color: var(--c-border-strong); }
+  .badge--accent { background: var(--c-accent); border-color: var(--c-accent); color: var(--c-accent-ink); }
+  .tag--pos { color: var(--c-positive); }
+  .tag--neg { color: var(--c-negative); }
+  .tag--warn { color: var(--c-warning); }
+  .tag--info { color: var(--c-info); }
+  .tag--muted { color: var(--c-muted); }
+
+  /* ------------------------------------------------------------------ row actions (icon buttons in table rows) */
+  .row-actions { display: inline-flex; align-items: center; gap: var(--space-1); }
+  .row-action {
+    display: inline-grid; place-items: center; inline-size: 1.75rem; block-size: 1.75rem;
+    border-radius: var(--r); color: var(--c-muted);
+    transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  }
+  .row-action .icon { inline-size: 1rem; block-size: 1rem; }
+  .row-action:is(:hover, :focus-visible) { background: var(--tint); color: var(--c-accent); }
+
+  /* ------------------------------------------------------------------ meters */
+  .meter { position: relative; block-size: 4px; background: var(--progress-track); }
+  .meter::after {
+    content: ""; position: absolute; inset-block: 0; inset-inline-start: 0;
+    inline-size: calc(var(--fill, 0) * 100%); background: var(--progress-fill);
+    transition: inline-size var(--t-slow) var(--ease-out);
+  }
+  .meter--warn::after { background: var(--c-warning); }
+  .meter--thin { block-size: 2px; }
+
+  /* ------------------------------------------------------------------ empty state */
+  .empty { padding: var(--space-6) var(--pad); text-align: center; color: var(--c-muted); font-size: var(--fs-sm); }
+
+  /* ------------------------------------------------------------------ key/value list */
+  .kv { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-2) var(--space-5); margin: 0; }
+  .kv dt { color: var(--c-muted); }
+  .kv dd { margin: 0; }
+}

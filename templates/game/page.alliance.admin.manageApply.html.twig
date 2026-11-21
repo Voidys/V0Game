@@ -1,26 +1,30 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}<a class="btn" href="{{ path('game_alliance_show') }}">{{ icon('arrow-left') }} {{ LNG.al_back }}</a>{% endset %}
+{{ ui.page_head(LNG.al_request_list, 'user-plus', null, actions) }}
+{% endblock %}
 {% block content %}
-<table>
-	<tr>
-		<th colspan="2">{{ LNG.al_request_list }}</th>
-	</tr>
-	<tr>
-		<th>{{ LNG.al_candidate }}</th>
-		<th>{{ LNG.al_request_date }}</th>
-	</tr>
-	{% for applyRow in applyList %}
-	<tr>
-		<td><a href="{{ path('game_alliance_admin_detail_apply', {id: applyRow.id}) }}">{{ applyRow.username }}</a></td>
-		<td><a href="{{ path('game_alliance_admin_detail_apply', {id: applyRow.id}) }}">{{ applyRow.time }}</a></td>
-	</tr>
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.al_request_list, applyList|length) }}
+	{% if applyList is not empty %}
+	<table class="data">
+		<thead><tr>
+			<th>{{ LNG.al_candidate }}</th>
+			<th>{{ LNG.al_request_date }}</th>
+		</tr></thead>
+		<tbody>
+		{% for applyRow in applyList %}
+		<tr>
+			<td><a href="{{ path('game_alliance_admin_detail_apply', {id: applyRow.id}) }}">{{ applyRow.username }}</a></td>
+			<td class="mono"><a href="{{ path('game_alliance_admin_detail_apply', {id: applyRow.id}) }}">{{ applyRow.time }}</a></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
 	{% else %}
-	<tr>
-		<td colspan="2">{{ LNG.al_no_requests }}</td>
-	</tr>
-	{% endfor %}
-	<tr>
-		<th colspan="2"><a href="{{ path('game_alliance_show') }}">{{ LNG.al_back }}</a></th>
-	</tr>
-</table>
+	<p class="empty">{{ LNG.al_no_requests }}</p>
+	{% endif %}
+</section>
 {% endblock %}

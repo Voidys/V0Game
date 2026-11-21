@@ -13,9 +13,9 @@
  * Section headers (th colspan) stay left aligned. `table.auto` and tooltip tables keep their natural width.
  *
  * Forms:
- *   table.form-table        label | control rows: labels 40 % wide, controls left aligned, inputs and selects share
+ *   table.form-table        label | control rows: label column 14rem muted, controls left aligned, inputs and selects share
  *                           one width (--control-w), so the controls of a form line up in one even column
- *   .form-actions           the submit row: buttons centred with even spacing
+ *   .form-actions           the submit row: buttons right aligned, gap 8px, hairline above
  *   input.num / [type=number]  amount fields: right aligned text, one shared width (--control-num-w)
  *   input.coord             a coordinate field (galaxy / system / position): narrow, right aligned
  *   .control-wide           a text input or select that should use the full cell width
@@ -25,37 +25,76 @@
  */
 @layer components {
   :is(.content, .modal) {
-    --cell-pad-y: 0.375rem;
-    --cell-pad-x: 0.625rem;
-    --control-h: 2rem;
-    --control-pad-x: 0.5rem;
+    --cell-pad-y: 0;
+    --cell-pad-x: var(--space-4);
     --control-w: 18rem;
     --control-num-w: 7.5rem;
   }
 
-  /* ------------------------------------------------------------------ tables */
+  /* ------------------------------------------------------------------ tables
+     One data table for every page: 40px rows (--row-h), hairline separators, header cells 12px uppercase muted on
+     --c-bg-2. A bare table (legacy page, not yet in a .panel) gets the panel look itself; inside a .panel it is flush. */
   :is(.content, .modal) table:not(.auto, .hoverinfo, [class*="tt-"]) {
     width: 100%;
     max-width: none;
+    margin: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: var(--fs-sm);
+  }
+  :is(.content, .modal) table:not(.auto, .hoverinfo, [class*="tt-"], .panel table, table table, .modal__body table) {
+    background: var(--c-panel);
+    border: 0.0625rem solid var(--c-border);
+    border-radius: var(--radius);
   }
 
   :is(.content, .modal) :is(th, td) {
+    block-size: var(--row-h, 2.5rem);
     padding: var(--cell-pad-y) var(--cell-pad-x);
+    border: 0;
+    border-block-end: 0.0625rem solid var(--c-border);
+    background: transparent;
     vertical-align: middle;
     text-align: start;
+    font-weight: 400;
+    line-height: 1.35;
   }
+  :is(.content, .modal) tbody > tr:last-child > :is(th, td) { border-block-end: 0; }
+
+  /* header cells: thead, rows made of th only, section headers (th colspan); other th are row labels */
+  :is(.content, .modal) :is(thead th, tr:not(:has(> td)) > th, th[colspan]) {
+    background: var(--c-bg-2);
+    color: var(--c-muted);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  :is(.content, .modal) tbody th:not([colspan]) { font-weight: 500; }
+
+  :is(.content, .modal) tfoot :is(th, td) {
+    border-block-start: 0.0625rem solid var(--c-border-strong);
+    border-block-end: 0;
+    font-weight: 600;
+  }
+
+  :is(.content, .modal) tbody tr:hover > td { background: var(--c-panel-2); }
 
   :is(.content, .modal) :is(th, td):is(.num, .right, .text-right) {
     text-align: end;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
   }
+  :is(.content, .modal) :is(th, td).num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+  }
 
   :is(.content, .modal) :is(th, td):is(.ctr, .center, .text-center) { text-align: center; }
 
   :is(.content, .modal) :is(th, td):is(.left, .text-left) { text-align: start; }
 
-  :is(.content, .modal) :is(th, td).top { vertical-align: top; }
+  :is(.content, .modal) :is(th, td).top { vertical-align: top; padding-block: var(--space-2); }
 
   :is(.content, .modal) :is(th, td).act {
     width: 1%;
@@ -70,9 +109,14 @@
   }
 
   /* tooltips keep their compact layout */
-  :is(.content, .modal) :is(.hoverinfo, [class*="tt-"]) :is(th, td) { padding: 0.125rem 0.375rem; }
+  :is(.content, .modal) :is(.hoverinfo, [class*="tt-"]) :is(th, td) {
+    block-size: auto;
+    padding: 0.125rem 0.375rem;
+    border: 0;
+  }
 
-  /* ------------------------------------------------------------------ controls */
+  /* ------------------------------------------------------------------ controls
+     34px (--control-h), padding 0 12px, field border, focus = accent border + ring (base.css) */
   :is(.content, .modal) :is(
       input:not([type="checkbox"], [type="radio"], [type="range"], [type="image"], [type="hidden"], [type="submit"], [type="button"], [type="reset"]),
       select
@@ -80,11 +124,13 @@
     box-sizing: border-box;
     min-height: var(--control-h);
     margin: 0;
-    padding: 0 var(--control-pad-x);
-    border-radius: var(--radius-sm, 0.25rem);
+    padding: 0 var(--space-3);
+    border-color: var(--theme-field-line, var(--c-border-strong));
+    border-radius: var(--radius-sm);
     text-align: start;
     vertical-align: middle;
   }
+  :is(.content, .modal) :is(input, select):is(:focus) { border-color: var(--focus-color); }
 
   :is(.content, .modal) :is(input[type="number"], input.num) {
     width: var(--control-num-w);
@@ -108,29 +154,42 @@
     width: 100%;
     min-height: 6rem;
     margin: 0;
-    padding: var(--control-pad-x);
-    border-radius: var(--radius-sm, 0.25rem);
+    padding: var(--space-2) var(--space-3);
+    border-color: var(--theme-field-line, var(--c-border-strong));
+    border-radius: var(--radius-sm);
     text-align: start;
   }
 
-  :is(.content, .modal) :is(button, input[type="submit"], input[type="button"], input[type="reset"], .button) {
+  :is(.content, .modal) :is(button, input[type="submit"], input[type="button"], input[type="reset"], .button, .btn) {
     min-height: var(--control-h);
     margin: 0;
     vertical-align: middle;
   }
+  :is(.content, .modal) :is(.btn--small, .btn-sm) { min-height: var(--control-h-sm, 1.75rem); }
 
   :is(.content, .modal) :is(input[type="checkbox"], input[type="radio"]) {
-    margin: 0 0.25rem;
+    margin: 0 var(--space-1);
     vertical-align: middle;
   }
 
-  /* ------------------------------------------------------------------ form tables */
-  :is(.content, .modal) table.form-table td:first-child:not(:only-child) {
-    width: 40%;
+  /* ------------------------------------------------------------------ form tables
+     label column 14rem muted, controls left aligned, rows separated by --space-3 instead of hairlines */
+  :is(.content, .modal) table.form-table :is(th, td) {
+    block-size: auto;
+    padding-block: calc(var(--space-3) / 2);
+    border-block-end: 0;
   }
+  :is(.content, .modal) table.form-table tr:hover > td { background: transparent; }
+  :is(.content, .modal) table.form-table td:first-child:not(:only-child),
+  :is(.content, .modal) table.form-table th:first-child:not(:only-child) {
+    width: 14rem;
+    color: var(--c-muted);
+  }
+  :is(.content, .modal) table.form-table th[colspan] { padding-block: var(--space-2); }
 
   /* text inputs and selects of a form share one width; controls inside a .control-group keep their own
      (coordinates, amount + button) */
+
   :is(.content, .modal) table.form-table :is(input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"], [type="reset"], [type="hidden"], [type="number"], .num), select):not(.control-group *) {
     width: 100%;
     max-width: var(--control-w);
@@ -141,19 +200,26 @@
     max-width: none;
   }
 
-  /* the cell variant outranks the default cell alignment above */
+  /* the submit row: right aligned, hairline above (cell variant sits in a table) */
   :is(.content, .modal) .form-actions,
   :is(.content, .modal) :is(th, td).form-actions {
-    text-align: center;
+    text-align: end;
   }
 
   :is(.content, .modal) div.form-actions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-2, 0.5rem);
-    margin-top: var(--space-3, 0.75rem);
+    justify-content: flex-end;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 0.0625rem solid var(--c-border);
   }
+  :is(.content, .modal) :is(th, td).form-actions {
+    padding-top: var(--space-3);
+    border-top: 0.0625rem solid var(--c-border);
+  }
+
 
   /* a group of controls in one cell (amount + max button, select + go) */
   :is(.content, .modal) .control-group {
@@ -165,8 +231,8 @@
 
   @media (max-width: 40rem) {
     /* phones: narrower amount fields, so "amount + max" groups fit their cells */
-    :is(.content, .modal) { --cell-pad-x: 0.375rem; --control-w: 100%; --control-num-w: 5rem; }
-    :is(.content, .modal) table.form-table td:first-child:not(:only-child) { width: auto; }
+    :is(.content, .modal) { --cell-pad-x: var(--space-2); --control-w: 100%; --control-num-w: 5rem; }
+    :is(.content, .modal) table.form-table :is(td, th):first-child:not(:only-child) { width: auto; }
   }
 
   /* ------------------------------------------------------------------ build lists (buildings, research, hangar, defense)
@@ -272,9 +338,15 @@
   .accordion__title { flex: 1 1 auto; font-weight: 600; display: inline-flex; align-items: center; gap: 0.375rem; .icon { inline-size: 1em; block-size: 1em; } }
   .accordion__summary { flex: 0 1 auto; font-size: 0.8125rem; font-weight: 400; opacity: 0.85; font-variant-numeric: tabular-nums; }
   .accordion[open] > summary .accordion__summary { display: none; }
-  .accordion__sign { flex: none; inline-size: 1.25rem; text-align: center; font-weight: 700; line-height: 1; }
-  .accordion__sign::before { content: "+"; }
-  .accordion[open] > summary .accordion__sign::before { content: "\2212"; }
+  /* +/- drawn from two bars: opening folds the vertical bar away */
+  .accordion__sign { position: relative; flex: none; inline-size: 0.75rem; block-size: 0.75rem; color: var(--c-muted); }
+  .accordion__sign::before, .accordion__sign::after {
+    content: ""; position: absolute; inset-block-start: 50%; inset-inline-start: 0; inline-size: 100%; block-size: 2px;
+    margin-block-start: -1px; background: currentColor; transition: rotate var(--t-med) var(--ease-out), opacity var(--t-med) var(--ease-out);
+  }
+  .accordion__sign::after { rotate: 90deg; }
+  .accordion[open] > summary .accordion__sign::after { rotate: 180deg; opacity: 0; }
+  .accordion > summary:hover .accordion__sign { color: var(--c-text); }
   .accordion > summary:focus-visible { outline: 0.125rem solid var(--c-accent, currentColor); outline-offset: -0.125rem; }
   .accordion--warn > summary { background: color-mix(in oklab, var(--c-negative, #f05252) 22%, transparent); color: var(--c-negative, #f05252); }
   .accordion--warn[open] > summary .accordion__summary { display: none; }
@@ -292,8 +364,8 @@
   .overview-events .empty-state { padding: 0.25rem 0.5rem; }
   @media (max-width: 40rem) { .overview-events .event-list li { font-size: 0.8125rem; padding: 0.1875rem 0.375rem; } }
 
-  /* build cards: the title opens the info dialog (small info icon + underline on hover) */
-  .infos .buildn .info-link:hover { text-decoration: underline; }
+  /* build cards: the title opens the info dialog (small info icon, accent colour on hover) */
+  .infos .buildn .info-link:is(:hover, :focus-visible) { color: var(--c-accent); }
   .infos .buildn .info-ico { display: inline-flex; vertical-align: -0.125em; opacity: 0.6; .icon { inline-size: 0.875em; block-size: 0.875em; } }
 
   /* overview info panel: label/value rows instead of one centred paragraph */
@@ -356,7 +428,7 @@
     flex-wrap: wrap;
     vertical-align: middle;
     border: 0.0625rem solid var(--c-border-strong, #33475e);
-    border-radius: var(--btn-radius, 0.375rem);
+    border-radius: var(--radius);
     overflow: hidden;
     max-inline-size: 100%;
 
@@ -370,11 +442,13 @@
       border-radius: 0;
       box-shadow: none;
       background: transparent;
-      min-block-size: 1.875rem;
+      min-block-size: var(--control-h);
+      color: var(--c-muted);
+      font-weight: 500;
     }
     > button + button { border-inline-start: 0.0625rem solid var(--c-border-strong, #33475e); }
     > button:hover { background: var(--btn-hover-bg, rgb(255 255 255 / 0.08)); }
-    > button.selected { background: color-mix(in oklab, var(--btn-selected, #ee4d2e) 20%, transparent); }
+    > button.selected { background: var(--c-accent-soft); box-shadow: inset 0 -0.125rem 0 var(--c-accent); }
   }
   .content .planeto__meta { margin-inline-start: 0.75rem; color: var(--c-muted, inherit); white-space: nowrap; }
   .content .planeto .hangar-filter-sep { display: none; }
@@ -423,7 +497,7 @@
     min-block-size: 2rem;
     padding: 0.125rem 0.75rem;
     border: 0.0625rem solid var(--c-border-strong, #33475e);
-    border-radius: var(--pill-radius);
+    border-radius: var(--radius);
     background: var(--c-panel-2, transparent);
     box-shadow: none;
     color: var(--c-text, inherit);

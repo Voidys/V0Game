@@ -1,13 +1,13 @@
 {% if tutorial %}
-    <details class="accordion tutorial-accordion" id="tutorial-accordion" data-key="tutorial" data-default="closed">
-    <summary id="tutorial-header" class="tutorial-header accordion__head">
+    <details class="panel accordion tutorial-accordion" id="tutorial-accordion" data-key="tutorial" data-default="closed">
+    <summary id="tutorial-header" class="panel__head tutorial-header accordion__head">
         {% set openGoals = [] %}
         {% for elementID, goal in tutorial.goals|default([]) %}{% if goal.owned < goal.ammount %}{% set openGoals = openGoals|merge([goal]) %}{% endif %}{% endfor %}
         <span class="accordion__title"><span><b>Tutorial:</b> {{ tutorial.title }}
         {% if openGoals %}<span class="tutorial-header__goal">&middot; {{ openGoals[0].name }}: {{ openGoals[0].owned }}/{{ openGoals[0].ammount }}{% if openGoals|length > 1 %} (+{{ openGoals|length - 1 }}){% endif %}</span>{% elseif tutorial.fullfilled %}<span class="tutorial-header__goal colorPositive">&middot; &#10003;</span>{% endif %}</span></span>
         <span class="accordion__sign" aria-hidden="true"></span>
     </summary>
-    <div id="tutorial" class="tutorial">
+    <div id="tutorial" class="tutorial panel__body">
         <div class="tutorial-text">
             {{ tutorial.text }}<br>
         </div>

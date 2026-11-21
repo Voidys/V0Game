@@ -1,22 +1,17 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_changelog }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_changelog, 'newspaper') }}{% endblock %}
 {% block content %}
-<table>
-<tr>
-	<th>{{ LNG.lm_changelog }}</th>
-</tr>
-<tr>
-	<td class="left changelog-text">{{ ChangelogIntro }}<p class="hint">{{ LNG.cl_hint }}</p></td>
-</tr>
-</table>
-<div class="changelog-list">
+<section class="panel">
+	<div class="panel__body text-panel changelog-text">{{ ChangelogIntro }}<p class="hint">{{ LNG.cl_hint }}</p></div>
+</section>
 {% for entry in ChangelogEntries %}
-	<details class="changelog-entry"{% if loop.first %} open{% endif %}>
-		<summary>{{ entry.title }}{% if entry.commit %} <code class="changelog-entry__commit">{{ entry.commit|slice(0, 8) }}</code>{% endif %}</summary>
-		<div class="changelog-text">{{ entry.body }}</div>
+	<details class="panel changelog-item"{% if loop.first %} open{% endif %}>
+		<summary class="panel__head"><h2>{{ entry.title }}</h2>{% if entry.commit %}<code class="changelog-entry__commit">{{ entry.commit|slice(0, 8) }}</code>{% endif %}</summary>
+		<div class="panel__body text-panel changelog-text">{{ entry.body }}</div>
 	</details>
 {% else %}
-	<div class="empty-state"><p>{{ LNG.cl_empty }}</p></div>
+	<section class="panel"><p class="empty">{{ LNG.cl_empty }}</p></section>
 {% endfor %}
-</div>
 {% endblock %}

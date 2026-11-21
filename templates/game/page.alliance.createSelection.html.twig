@@ -1,13 +1,10 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.al_alliance, 'users') }}{% endblock %}
 {% block content %}
-    <table>
-        <tr>
-			<th colspan="2">{{ LNG.al_alliance }}</th>
-        </tr>
-        <tr>
-			<td class="w-50 ctr"><a class="button" href="{{ path('game_alliance_create') }}">{{ LNG.al_alliance_make }}</a></td>
-			<td class="w-50 ctr"><a class="button" href="{{ path('game_alliance_search') }}">{{ LNG.al_alliance_search }}</a></td>
-        </tr>
-    </table>
+<div class="grid-2 alliance-choice">
+	<section class="panel"><div class="panel__body"><a class="btn btn--primary" href="{{ path('game_alliance_create') }}">{{ icon('plus') }} {{ LNG.al_alliance_make }}</a></div></section>
+	<section class="panel"><div class="panel__body"><a class="btn" href="{{ path('game_alliance_search') }}">{{ icon('search') }} {{ LNG.al_alliance_search }}</a></div></section>
+</div>
 {% endblock %}

@@ -1,3 +1,4 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_battlesim }}{{ parent() }}{% endblock %}
 {#
@@ -23,29 +24,26 @@
   <span class="sim-unit"><img src="{{ theme_asset('gebaeude/' ~ id ~ '.gif') }}" alt="" width="24" height="24" loading="lazy" data-on-error="remove">{{ LNG.tech[id] }}</span>
 {% endmacro %}
 
+{% block pagehead %}{{ ui.page_head(LNG.lm_battlesim, 'swords') }}{% endblock %}
 {% block content %}
-<form id="form" name="battlesim" class="sim form-page">
+<form id="form" name="battlesim" class="sim form-page stack">
   <input type="hidden" name="slots" id="slots" value="{{ Slots }}">
 
-  <table class="sim-toolbar">
-    <tr><th colspan="2">{{ LNG.lm_battlesim }}</th></tr>
-    <tr>
-      <td>
-        <span class="sim-toolbar__group">
-          <button type="button" data-action="sim-add-slot">{{ icon('plus') }}{{ LNG.bs_add_acs_slot }}</button>
-          <button type="button" data-action="sim-switch-sides">{{ icon('arrow-left-right') }}{{ LNG.bs_swap }}</button>
-        </span>
-      </td>
-      <td>
-        <div class="sim-toolbar__share">
+  <div class="panel">
+    <div class="panel__body toolbar sim-toolbar">
+      <span class="sim-toolbar__group">
+        <button type="button" data-action="sim-add-slot">{{ icon('plus') }}{{ LNG.bs_add_acs_slot }}</button>
+        <button type="button" data-action="sim-switch-sides">{{ icon('arrow-left-right') }}{{ LNG.bs_swap }}</button>
+      </span>
+      <span class="toolbar__spacer"></span>
+      <div class="sim-toolbar__share">
         <label class="visually-hidden" for="shareInput">{{ LNG.bs_share_code }}</label>
         <input type="text" id="shareInput" class="share-input" placeholder="{{ LNG.bs_share_code }}" autocomplete="off" spellcheck="false">
         <button type="button" data-action="sim-load-share">{{ LNG.bs_load }}</button>
         <button type="button" data-action="sim-generate-share">{{ LNG.bs_share }}</button>
-        </div>
-      </td>
-    </tr>
-  </table>
+      </div>
+    </div>
+  </div>
   {{ data_island('sim-data', {
     shareCopied: LNG.bs_share_success,
     shareError: LNG.bs_share_error,
@@ -66,7 +64,7 @@
     </ul>
     {% if slotCount > 0 %}{% for slot in 0..(slotCount - 1) %}
     <div id="tabs-{{ slot }}" class="sim-grid">
-      <table class="sim-table">
+      <section class="panel panel--flush"><table class="sim-table data">
         {{ _self.sectionHead(LNG.tech[200], slot) }}
         {% for id in fleetList %}
           <tr>
@@ -79,10 +77,10 @@
             <td class="num"><input type="number" min="0" value="{{ _self.value(battleinput, slot, 1, id) }}" name="battleinput[{{ slot }}][1][{{ id }}]" aria-label="{{ LNG.tech[id] }} ({{ LNG.bs_deffer }})"></td>
           </tr>
         {% endfor %}
-      </table>
+      </table></section>
 
       <div class="sim-side">
-        <table class="sim-table">
+        <section class="panel panel--flush"><table class="sim-table data">
           {{ _self.sectionHead(LNG.bs_techno, slot) }}
           {% for id in [109, 110, 111] %}
             <tr>
@@ -91,11 +89,11 @@
               <td class="num"><input type="number" min="0" class="sim-level" value="{{ _self.value(battleinput, slot, 1, id) }}" name="battleinput[{{ slot }}][1][{{ id }}]" aria-label="{{ LNG.tech[id] }} ({{ LNG.bs_deffer }})"></td>
             </tr>
           {% endfor %}
-        </table>
+        </table></section>
 
         {% if slot == 0 %}
           {# defender only: the attacker column keeps hidden fields so the posted array stays complete #}
-          <table class="sim-table" data-first-slot-only>
+          <section class="panel panel--flush" data-first-slot-only><table class="sim-table data">
             {{ _self.sectionHead(LNG.tech[400], slot, false) }}
             {% for id in defensiveList %}
               <tr>
@@ -104,9 +102,9 @@
                 <td class="num"><input type="number" min="0" value="{{ _self.value(battleinput, slot, 1, id) }}" name="battleinput[{{ slot }}][1][{{ id }}]" aria-label="{{ LNG.tech[id] }} ({{ LNG.bs_deffer }})"></td>
               </tr>
             {% endfor %}
-          </table>
+          </table></section>
 
-          <table class="sim-table" data-first-slot-only>
+          <section class="panel panel--flush" data-first-slot-only><table class="sim-table data">
             {{ _self.sectionHead(LNG.bs_steal|trim(':'), slot, false) }}
             {% for id in [901, 902, 903] %}
               <tr>
@@ -115,16 +113,16 @@
                 <td class="num"><input type="number" min="0" value="{{ _self.value(battleinput, 0, 1, id) }}" name="battleinput[0][1][{{ id }}]" aria-label="{{ LNG.tech[id] }} ({{ LNG.bs_deffer }})"></td>
               </tr>
             {% endfor %}
-          </table>
+          </table></section>
         {% endif %}
       </div>
     </div>
     {% endfor %}{% endif %}
   </div>
 
-  <div class="sim-actions">
+  <div class="panel fleet-dock sim-dock"><footer class="panel__foot">
     <button type="button" id="sim-submit" class="sim-actions__primary" data-action="sim-send" data-busy-label="{{ LNG.bs_wait }}">{{ icon('swords') }}<span>{{ LNG.bs_send }}</span></button>
     <button type="reset">{{ icon('refresh-cw') }}{{ LNG.bs_cancel }}</button>
-  </div>
+  </footer></div>
 </form>
 {% endblock %}

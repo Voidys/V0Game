@@ -1,502 +1,59 @@
-/* MinimalNoir: black and white variant of the dark glass theme for the classic game layout */
+/*
+ * MinimalNoir: black and white. Translucent black panels over a monochrome photo, white accent, monospace, sharp corners.
+ * Artwork: the "nebula" set plus own logo and icons (style.cfg).
+ * Tokens only; layout comes from css/app (docs/themes.md).
+ */
+@layer theme {
+  :root {
+    /* ground */
+    --theme-bg: #000000;
+    --theme-bg-2: #000000;
+    --theme-bg-size: cover;
 
-:root {
-  --focus-color: var(--theme-text-strong);
-  /* shape: square skin, every control and panel has sharp corners (scale tokens, see css/app/base.css) */
-  --radius: 0; --radius-sm: 0; --radius-xs: 0; --pill-radius: 0;
-  --btn-radius: 0; --nav-link-radius: 0;
-  --theme-text: #fff;
-  --theme-text-strong: #fff;
-  --theme-text-header: #e9e7e7;
-  --theme-page-bg: #0d0d0d;
-  --theme-cell-bg: rgb(3 11 10 / 57%);
-  --theme-header-bg: rgb(90 90 90 / 15%);
-  --theme-dim-bg: #212428;
-  --theme-line: rgb(255 255 255 / 18%);
-  --theme-line-faint: rgb(255 255 255 / 10%);
-  --theme-field-border: #ffffff69;
-  --theme-line-strong: rgb(255 255 255 / 50%);
-  --theme-button-border: #8a8a8a #666 #666 #8a8a8a;
-  --theme-shadow: 0 0.5rem 2rem 0 rgb(255 255 255 / 10%);
+    /* surfaces */
+    --theme-panel: rgb(0 0 0 / 0.72);
+    --theme-raised: rgb(20 20 20 / 0.9);
+    --theme-hover: rgb(255 255 255 / 0.12);
 
-  /* game shell: black bars, boxed and centred menu as in the classic layout */
-  --c-bg: #000;
-  --shell-bar-bg: #000;
-  --shell-side-bg: #000;
-  --shell-line: var(--theme-line);
-  --nav-link-border: var(--theme-line-strong);
-  --nav-link-radius: 0;
-  --nav-link-align: center;
-  --nav-link-gap: 0.125rem;
-  --nav-icon-display: none;
-  --brand-h: 3rem;
-  --btn-bg: #000;
-  --btn-fg: var(--theme-text);
-  --btn-border: var(--theme-line-strong);
-  --btn-hover-bg: #111;
-  --btn-hover-border: #fff;
-  --btn-radius: 0;
-  --btn-shadow: none;
-  --btn-selected: #fff;
-  --progress-fill: #fff;
-  --progress-track: #1a1a1a;
-  --nav-active-bg: #fff;
-  --nav-active-fg: #000;
-  --nav-active-icon: #000;
-}
+    /* lines */
+    --theme-line: rgb(255 255 255 / 0.18);
+    --theme-line-strong: rgb(255 255 255 / 0.5);
+    --theme-field-line: #8c8c8c;
 
-html {
-  background: url("img/bkd_page.webp") no-repeat fixed center center var(--theme-page-bg);
-  background-size: cover;
-}
+    /* text */
+    --theme-text: #ffffff;
+    --theme-muted: #b5b5b5;
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    /* accent and links */
+    --theme-accent: #ffffff;
+    --theme-accent-ink: #000000;
+    --theme-link: #ffffff;
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-  font-family: monospace;
-}
+    /* signals */
+    --theme-pos: #d8d8d8;
+    --theme-neg: #ff8080;
+    --theme-warn: #e6e6e6;
+    --theme-info: #cfcfcf;
 
-body {
-  font-size: var(--fs-md);
-  font-family: monospace;
-  line-height: 0.75rem;
-}
+    /* type */
+    --theme-font-ui: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    --theme-font-display: var(--theme-font-ui);
+    --theme-font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 
-body, input, select, button, textarea, a, td, th, tr, table, a:visited {
-  color: var(--theme-text);
-}
+    /* shape */
+    --theme-radius: 0;
 
-input, button, select, option, textarea {
-  background: var(--theme-cell-bg);
-  backdrop-filter: blur(0.3125rem);
-  -webkit-backdrop-filter: blur(0.0312rem);
-  border: 0.0625rem solid var(--theme-line);
-  font-family: monospace, sans-serif;
-}
-
-input[type="radio"] {
-  background: transparent;
-  border: 0 none;
-}
-
-a:hover {
-  color: var(--theme-text-strong);
-  font-weight: bold;
-}
-
-table, td, th {
-  font-weight: 400;
-}
-
-table table, img {
-  border: 0;
-}
-
-input, select, textarea, button {
-  border: 0.0625rem solid var(--theme-field-border);
-}
-
-button.selected {
-  border: 0.0625rem solid #1c1fd3;
-}
-
-th input {
-  border: 0.0625rem solid var(--theme-line-faint);
-  font-size: 0.6875rem;
-}
-
-td {
-  font-size: var(--fs-sm);
-  backdrop-filter: blur(0.625rem);
-  -webkit-backdrop-filter: blur(0.0312rem);
-  border: 0.0625rem solid var(--theme-line);
-}
-
-/* tooltips stay centred */
-.tip {
-  text-align: center;
-}
-
-th {
-  color: var(--theme-text-header);
-  font-weight: 700;
-  background: var(--theme-header-bg);
-  border: 0.0625rem solid var(--theme-line);
-}
-
-.trade-disallowed > td {
-  background: #001004;
-}
-
-.no-background {
-  &, & > th, & > td {
-    background-image: none;
-    background: transparent;
-  }
-}
-
-.center {
-  &, & > th, & > td {
-    text-align: center;
-  }
-}
-
-.no-border {
-  &, & > th, & > td {
-    border: 0;
-  }
-}
-
-th a:hover {
-  color: var(--theme-text-strong);
-  font-weight: bold;
-}
-
-textarea {
-  background: transparent;
-}
-
-select {
-  border: 0.0625rem solid #5c5c5c;
-}
-
-/* global message */
-
-.admin {
-  color: red;
-}
-
-.mod {
-  color: yellow;
-}
-
-.ops {
-  color: skyblue;
-}
-
-.galaxy-alliance-member {
-  color: #9f6;
-}
-
-.galaxy-alliance-friend, .galaxy-friend {
-  color: #9ff;
-}
-
-.galaxy-alliance-traid {
-  color: #28fab0;
-}
-
-.galaxy-alliance-enemy {
-  color: #f00;
-}
-
-.galaxy-alliance-secret {
-  color: #f6f;
-}
-
-.galaxy-short-noob,
-.galaxy-username-noob {
-  color: #a0ffa0;
-}
-
-.galaxy-short-strong,
-.galaxy-username-strong {
-  color: #ffa0a0;
-}
-
-.galaxy-short-inactive,
-.galaxy-username-inactive {
-  color: #ccc;
-}
-
-.galaxy-short-longinactive,
-.galaxy-username-longinactive {
-  color: #8c6868;
-}
-
-.galaxy-short-vacation,
-.galaxy-username-vacation {
-  color: #659ec7;
-}
-
-.galaxy-short-banned {
-  text-decoration: line-through;
-}
-
-.colony, .deploy, .harvest, .transport, .success {
-  color: lime;
-}
-
-.build_submit {
-  border: 0.0625rem solid;
-  font-weight: bold;
-  background: var(--theme-cell-bg);
-  backdrop-filter: blur(0.3125rem);
-  -webkit-backdrop-filter: blur(0.0312rem);
-  border-color: var(--theme-button-border);
-  font-family: monospace, sans-serif;
-}
-
-.onlist {
-  backdrop-filter: blur(0.3125rem);
-  -webkit-backdrop-filter: blur(0.0312rem);
-  border: 0;
-  background: none;
-}
-
-/* content */
-
-.transparent, .raportMessage td {
-  background: transparent;
-  border: none;
-  filter: none !important;
-}
-
-a {
-  text-decoration: none;
-}
-
-th a, .res_current {
-  color: var(--theme-text-strong);
-}
-
-.attack, .error {
-  color: red;
-}
-
-.federation {
-  color: rgb(51 153 102);
-}
-
-.raportWin {
-  color: lime;
-}
-
-.raportLose {
-  color: red;
-}
-
-.spyRaportContainerHead {
-  background: var(--theme-dim-bg);
-  color: white;
-  font-weight: 700;
-  text-align: left;
-  margin: 0.1875rem 0;
-  padding: 0.1875rem;
-
-  & + .spyRaportContainerRow {
-    border-top: 0 none;
-  }
-}
-
-.spyRaportContainerRow {
-  border-top: 0.0625rem solid #ddd;
-}
-
-.message-box {
-  margin: 0;
-  margin-inline-start: 46.5rem;
-  position: fixed;
-  inset-block-start: calc(var(--topbar-h, 6.25rem) + 0.5rem); /* below the sticky top bar */
-  max-width: 10.9375rem;
-}
-
-.message {
-  background-color: #6f6f6f73;
-  box-shadow: var(--theme-shadow);
-  padding: 0.5rem;
-  text-align: center;
-  height: fit-content;
-  backdrop-filter: blur(0.3125rem);
-  -webkit-backdrop-filter: blur(0.0312rem);
-  border: 0.0625rem solid var(--theme-line);
-  margin-bottom: 0.3125rem;
-}
-
-@media screen and (43.75rem <= width <= 100rem) {
-  .message {
-    inset-inline-end: 10.5%;
-    margin: 0;
-  }
-}
-
-@media screen and (width <= 43.6875rem) {
-  .message-box {
-    inset-block-end: 0;
-    width: 100%;
-    max-width: unset;
-    inset-block-start: unset;
-    margin: 0;
+    /* shell */
+    --theme-topbar-bg: #000000;
+    --theme-sidebar-bg: #000000;
   }
 
-  .message {
-    margin-block-start: 0.3125rem;
-    margin-block-end: 0;
-  }
+  /* page background image (url relative to this folder) */
+  body { background-image: url("img/bkd_page.webp"); }
 }
 
-img {
-  border-radius: 0;
-  box-shadow: 0 0 1.875rem 0.1875rem rgb(0 0 0 / 33%);
-}
-
-.realHighRess {
-  background-color: #455585;
-}
-
-.tutorial {
-  border: 0.0625rem solid var(--theme-line-strong);
-}
-
-.tutorial-header {
-  border: 0.0625rem solid var(--theme-line-strong);
-}
-
-.planeto {
-  text-align: center;
-  margin: 0.5% auto;
-  font-weight: bold;
-}
-
-.infos {
-  text-align: center;
-  margin-block-start: 0.0625rem;
-  padding: 0.3125rem;
-  overflow: auto;
-  border: 0.0625rem solid var(--theme-line-strong);
-}
-
-.infos1 {
-  text-align: center;
-  overflow: auto;
-  margin: 0 0.625rem;
-  backdrop-filter: blur(0.0312rem);
-  -webkit-backdrop-filter: blur(0.0312rem);
-  border: 0.0625rem solid var(--theme-line);
-  min-height: 5.625rem;
-}
-
-.moon {
-  float: left;
-  width: 30%;
-  padding: 0.625rem;
-}
-
-.planetl {
-  float: left;
-  padding-inline-start: 0.5rem;
-  min-height: 11rem;
-}
-
-.planeth {
-  padding-block-start: 0.625rem;
-  text-align: left;
-
-  & img {
-    margin: 0;
-  }
-}
-
-.hidden-div {
-  border: 0.125rem solid #ee4d2e;
-  border-radius: var(--radius);
-  margin: 0.1875rem;
-  padding: 0.625rem 1.875rem;
-  text-align: left;
-}
-
-.buildl {
-  float: left;
-  width: 50%;
-  line-height: 1.4;
-  padding: 0.625rem;
-  text-align: center;
-  height: auto;
-  font-size: var(--fs-md);
-}
-
-.buildn {
-  padding: 0.375rem;
-  overflow: auto;
-
-  & a:hover {
-    color: #2cbbf7;
-    font-weight: bold;
-  }
-}
-
-.ship {
-  margin: 0 auto;
-  max-width: 25rem;
-  background: #2b3038d1;
-}
-
-.shipumode {
-  margin: 0 auto;
-  max-width: 25rem;
-  background: #1b2e58d1;
-  border-radius: var(--pill-radius);
-}
-
-.shipl {
-  margin-block-start: 0.625rem;
-  padding: 0.625rem;
-  overflow: auto;
-  border: none;
-}
-
-.z {
-  margin: 0.3125rem auto;
-  padding: 0.625rem;
-  max-width: 18.75rem;
-  background: #303c45;
-  color: #e9ff79;
-  text-transform: uppercase;
-}
-
-.zumode {
-  margin: 0.3125rem auto;
-  padding: 0.625rem;
-  max-width: 18.75rem;
-  background: #1b4c6e;
-  border-radius: var(--pill-radius);
-  color: #e9ff79;
-  text-transform: uppercase;
-}
-
-.b {
-  border: 0.0625rem solid;
-  font-weight: bold;
-  background: var(--theme-cell-bg);
-  backdrop-filter: blur(0.3125rem);
-  -webkit-backdrop-filter: blur(0.0312rem);
-  border-color: var(--theme-button-border);
-  font-family: monospace, sans-serif;
-}
-
-input:hover {
-  color: #fff;
-}
-
-input:invalid, textarea:invalid {
-  background-color: #2a2e31;
-}
-
-/* logo: the terminal mark replaces the default brand image */
-.topbar__brand img {
-  content: url("gebaeude/pr0gamelogo.webp");
-}
-
-/* modals (Dialog: info, messages, reports, ...), see css/app/base.css */
-:root {
-  --modal-bg: #000;
-  --modal-border: var(--theme-line-strong);
-  --modal-fg: var(--theme-text);
+/* decoration only */
+@layer theme-extras {
+  /* monochrome wordmark: the "0" stays white instead of taking an accent colour */
+  .wordmark b { color: var(--theme-text); }
 }

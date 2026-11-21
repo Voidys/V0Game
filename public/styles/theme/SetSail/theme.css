@@ -1,470 +1,60 @@
-/* SetSail: classic theme (game content + account pages) */
+/*
+ * SetSail: classic look with rounded panels. Dark slate panels over the space photo, cyan accent, Verdana, blue-black header.
+ * Artwork: the "nebula" set plus own resource icons (style.cfg).
+ * Tokens only; layout comes from css/app (docs/themes.md).
+ */
+@layer theme {
+  :root {
+    /* ground */
+    --theme-bg: #0d0d0d;
+    --theme-bg-2: #0d0d0d;
+    --theme-bg-size: cover;
 
-:root {
-  --focus-color: var(--theme-accent);
-  /* shape: rounded skin, panels 15px, controls 10px, small bits 6px (scale tokens, see css/app/base.css) */
-  --radius: 0.9375rem; --radius-sm: 0.625rem; --radius-xs: 0.375rem; --pill-radius: 6.1875rem;
-  --btn-radius: var(--radius-sm); --nav-link-radius: var(--radius-sm);
-  /* palette */
-  --theme-page-bg: #0d0d0d;
-  --theme-text: #fff;
-  --theme-text-dim: #ddd;
-  --theme-accent: #2cbbf7;
-  --theme-border: #000;
-  --theme-field-bg: #2a2e31;
-  --theme-field-border: #ffeec0;
-  --theme-field-border-dark: #212121;
-  --theme-selected-border: #1c1fd3;
-  --theme-cell-bg: rgb(13 16 20 / 0.95);
-  --theme-cell-alt-bg: #1d2024;
-  --theme-header-bg: linear-gradient(180deg, rgb(20 30 38) 43%, rgb(6 7 8) 100%);
-  --theme-disallowed-bg: #001004;
-  --theme-button-bg: #3a3a3a;
-  --theme-button-border-light: #8a8a8a;
-  --theme-button-border-dark: #666;
-  --theme-panel-bg: #212121;
-  --theme-panel-dark-bg: #161618;
-  --theme-divider: #00d2be;
-  --theme-highlight-bg: #ee4d2e;
-  --theme-tech-bg: #1b4c6e;
-  --theme-ship-bg: #1b2e58d1;
-  --theme-ship-title: #e9ff79;
-  --theme-message-bg: #208c81c4;
-  --theme-spy-head-bg: #212428;
+    /* surfaces */
+    --theme-panel: rgb(13 16 20 / 0.95);
+    --theme-raised: #212121;
+    --theme-hover: #2a2e31;
 
-  /* semantic colours */
-  --theme-positive: lime;
-  --theme-negative: red;
-  --theme-warning: yellow;
-  --theme-info: skyblue;
-  --theme-federation: rgb(51 153 102);
-  --theme-alliance-member: #9f6;
-  --theme-alliance-friend: #9ff;
-  --theme-alliance-trade: #28fab0;
-  --theme-alliance-secret: #f6f;
-  --theme-status-noob: #a0ffa0;
-  --theme-status-strong: #ffa0a0;
-  --theme-status-inactive: #ccc;
-  --theme-status-longinactive: #999;
-  --theme-status-vacation: #659ec7;
-}
+    /* lines */
+    --theme-line: #2a2e31;
+    --theme-line-strong: #3a3a3a;
+    --theme-field-line: #8a8a8a;
 
-html {
-  background: url("img/bkd_page.webp") no-repeat fixed center center var(--theme-page-bg);
-  background-size: cover;
-}
+    /* text */
+    --theme-text: #ffffff;
+    --theme-muted: #dddddd;
 
-/* hide the number spinners */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    /* accent and links */
+    --theme-accent: #2cbbf7;
+    --theme-accent-ink: #03131c;
+    --theme-link: #6fd3ff;
 
-input[type="number"] {
-  appearance: textfield;
-}
+    /* signals */
+    --theme-pos: #32ff32;
+    --theme-neg: #ff5a4a;
+    --theme-warn: #e9ff79;
+    --theme-info: skyblue;
 
-body {
-  font-size: var(--fs-md);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+    /* type */
+    --theme-font-ui: Verdana, Geneva, Tahoma, sans-serif;
+    --theme-font-display: var(--theme-font-ui);
+    --theme-font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 
-body, input, select, button, textarea, a, td, th, tr, table, a:visited {
-  color: var(--theme-text);
-}
+    /* shape */
+    --theme-radius: 4px;
 
-input, button, select, option, textarea {
-  background: var(--theme-field-bg);
-}
-
-input[type="radio"] {
-  background: transparent;
-  border: 0 none;
-}
-
-a:hover {
-  color: var(--theme-text);
-  text-decoration: underline;
-}
-
-table, td, th {
-  font-weight: 400;
-}
-
-table table, img {
-  border: 0;
-}
-
-input, select, textarea, input, button {
-  border: 0.0625rem solid var(--theme-field-border);
-}
-
-button.selected {
-  border: 0.0625rem solid var(--theme-selected-border);
-}
-
-td, th input {
-  border: 0.0625rem solid var(--theme-border);
-}
-
-td, .galaxy-grid-item {
-  background: var(--theme-cell-bg);
-}
-
-.galaxy-grid-row.even .galaxy-grid-item {
-  background-color: var(--theme-cell-alt-bg);
-}
-
-/* tooltips stay centred */
-.tip {
-  text-align: center;
-}
-
-th {
-  background: var(--theme-header-bg);
-  color: var(--theme-text);
-  font-weight: 700;
-  border: 0.0625rem solid var(--theme-border);
-}
-
-.trade-disallowed > td {
-  background: var(--theme-disallowed-bg);
-}
-
-.no-background, .no-background > th, .no-background > td {
-  background-image: none;
-  background: transparent;
-}
-
-.center, .center > th, .center > td {
-  text-align: center;
-}
-
-.no-border, .no-border > th, .no-border > td {
-  border: 0;
-}
-
-th a:hover {
-  color: var(--theme-text);
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-textarea {
-  background: transparent;
-}
-
-select {
-  border: 0.0625rem solid var(--theme-field-border-dark);
-}
-
-/* staff names in messages */
-
-.admin {
-  color: var(--theme-negative);
-}
-
-.mod {
-  color: var(--theme-warning);
-}
-
-.ops {
-  color: var(--theme-info);
-}
-
-/* galaxy and statistics status colours */
-
-.galaxy-alliance-member {
-  color: var(--theme-alliance-member);
-}
-
-.galaxy-alliance-friend, .galaxy-friend {
-  color: var(--theme-alliance-friend);
-}
-
-.galaxy-alliance-traid {
-  color: var(--theme-alliance-trade);
-}
-
-.galaxy-alliance-enemy {
-  color: #f00;
-}
-
-.galaxy-alliance-secret {
-  color: var(--theme-alliance-secret);
-}
-
-.galaxy-short-noob,
-.galaxy-username-noob {
-  color: var(--theme-status-noob);
-}
-
-.galaxy-short-strong,
-.galaxy-username-strong {
-  color: var(--theme-status-strong);
-}
-
-.galaxy-short-inactive,
-.galaxy-username-inactive {
-  color: var(--theme-status-inactive);
-}
-
-.galaxy-short-longinactive,
-.galaxy-username-longinactive {
-  color: var(--theme-status-longinactive);
-}
-
-.galaxy-short-vacation,
-.galaxy-username-vacation {
-  color: var(--theme-status-vacation);
-}
-
-.galaxy-short-banned {
-  text-decoration: line-through;
-}
-
-.colony, .deploy, .harvest, .transport, .success {
-  color: var(--theme-positive);
-}
-
-.build_submit {
-  background-color: var(--theme-button-bg);
-  border: 0.0625rem solid;
-  border-block-color: var(--theme-button-border-light) var(--theme-button-border-dark);
-  border-inline-color: var(--theme-button-border-light) var(--theme-button-border-dark);
-  border-radius: 0.625rem;
-  font-weight: bold;
-}
-
-.onlist {
-  color: var(--theme-text-dim);
-  border: 0;
-  background: none;
-}
-
-/* content */
-
-.transparent, .raportMessage td {
-  background: transparent;
-  border: none;
-  filter: none !important;
-}
-
-a {
-  text-decoration: none;
-}
-
-th a, .res_current {
-  color: var(--theme-text);
-}
-
-.attack, .error {
-  color: var(--theme-negative);
-}
-
-.federation {
-  color: var(--theme-federation);
-}
-
-.raportWin {
-  color: var(--theme-positive);
-}
-
-.raportLose {
-  color: var(--theme-negative);
-}
-
-.spyRaportContainerHead {
-  background: var(--theme-spy-head-bg);
-  color: white;
-  font-weight: 700;
-  text-align: start;
-  margin: 0.1875rem 0;
-  padding: 0.1875rem;
-}
-
-.spyRaportContainerRow {
-  border-block-start: 0.0625rem solid var(--theme-text-dim);
-}
-
-.spyRaportContainerHead + .spyRaportContainerRow {
-  border-block-start: 0 none;
-}
-
-.message-box {
-  margin: 0;
-  margin-inline-start: 46.5rem;
-  position: fixed;
-  inset-block-start: calc(var(--topbar-h, 6.25rem) + 0.5rem); /* below the sticky top bar */
-  max-inline-size: 10.9375rem;
-}
-
-.message {
-  background-color: var(--theme-message-bg);
-  padding: 0.5rem;
-  text-align: center;
-  border-radius: 0.9375rem 0 0.9375rem 0.9375rem;
-  block-size: fit-content;
-  margin-block-end: 0.3125rem;
-}
-
-@media screen and (43.75rem <= width <= 100rem) {
-  .message {
-    inset-inline-end: 10.5%;
-    margin: 0;
-  }
-}
-
-@media screen and (width <= 43.6875rem) {
-  .message-box {
-    inset-block-end: 0;
-    inline-size: 100%;
-    max-inline-size: unset;
-    inset-block-start: unset;
-    margin: 0;
+    /* shell */
+    --theme-topbar-bg: rgb(13 16 20 / 0.95);
+    --theme-sidebar-bg: transparent;
   }
 
-  .message {
-    border-radius: 0.9375rem 0.9375rem 0 0;
-    margin-block-start: 0.3125rem;
-    margin-block-end: 0;
+  /* page background image (url relative to this folder) */
+  body { background-image: url("img/bkd_page.webp"); }
+}
+
+/* decoration only: the old blue-black header gradient on the top bar */
+@layer theme-extras {
+  .topbar {
+    background-image: linear-gradient(180deg, rgb(20 30 38) 43%, rgb(6 7 8) 100%);
   }
-}
-
-.planeto {
-  background: var(--theme-panel-dark-bg);
-  text-align: center;
-  border: var(--theme-panel-dark-bg);
-  border-radius: 0.9375rem;
-  padding: 0.3125rem;
-  margin-block-end: 0.5rem;
-}
-
-.infos {
-  text-align: center;
-  border: 0.0625rem solid var(--c-border);
-  background: var(--theme-panel-bg);
-  border-radius: 0.9375rem;
-  margin-block-start: 0.625rem;
-  overflow: auto;
-  block-size: auto;
-  padding-block-end: 0.3125rem;
-}
-
-.infos1 {
-  text-align: center;
-  background: #356f6dba;
-  border-radius: 0.9375rem;
-  overflow: auto;
-  margin: 0 0.625rem;
-}
-
-.moon {
-  float: inline-start;
-  inline-size: 30%;
-  padding: 0.625rem;
-}
-
-.planetl {
-  float: inline-start;
-  padding-inline-start: 0.5rem;
-  min-block-size: 9.6875rem;
-}
-
-.planeth {
-  line-height: 1.4;
-  padding: 0.625rem;
-  font-variant-caps: petite-caps;
-}
-
-.galaxy {
-  float: inline-start;
-  margin: 0.3125rem auto;
-  inline-size: 50%;
-  font-variant-caps: petite-caps;
-}
-
-.planeth img {
-  margin: 0.5rem;
-}
-
-.hidden-div {
-  border: 0.125rem solid var(--theme-highlight-bg);
-  border-radius: 0.9375rem;
-  margin: 0.1875rem;
-  padding: 0.625rem 1.875rem;
-  text-align: start;
-}
-
-.buildl {
-  float: inline-start;
-  inline-size: 50%;
-  line-height: 1.4;
-  padding: 0.625rem;
-  text-align: center;
-  background: var(--theme-panel-bg);
-  block-size: auto;
-}
-
-.buildn {
-  border-radius: 0.9375rem;
-  padding: 0.375rem;
-  overflow: auto;
-  /* darker than the highlight: white 12px header text needs 4.5:1 (A-41) */
-  background: #b8341a;
-
-  & a:hover {
-    color: var(--theme-accent);
-    font-weight: bold;
-  }
-}
-
-.ship, .shipumode {
-  margin: 0 auto;
-  max-inline-size: 25rem;
-  background: var(--theme-ship-bg);
-  border-radius: 1.5625rem;
-}
-
-.shipl {
-  margin-block-start: 0.625rem;
-  padding: 0.625rem;
-  overflow: auto;
-  border: none;
-  border-radius: 0.9375rem;
-}
-
-.z, .zumode {
-  margin: 0.3125rem auto;
-  padding: 0.625rem;
-  max-inline-size: 18.75rem;
-  background: var(--theme-tech-bg);
-  border-radius: 1.5625rem;
-  color: var(--theme-ship-title);
-  text-transform: uppercase;
-}
-
-.b {
-  background-color: var(--theme-button-bg);
-  border: 0.1875rem solid;
-  border-block-color: var(--theme-button-border-light) var(--theme-button-border-dark);
-  border-inline-color: var(--theme-button-border-light) var(--theme-button-border-dark);
-  border-radius: 0.625rem;
-  font-weight: bold;
-}
-
-input:hover {
-  color: var(--theme-accent);
-}
-
-input:invalid, textarea:invalid {
-  background-color: var(--theme-field-bg);
-}
-
-/* modals (Dialog: info, messages, reports, ...), see css/app/base.css */
-:root {
-  --modal-bg: var(--theme-panel-dark-bg);
-  --modal-border: #3a3a3e;
-  --modal-fg: var(--theme-text);
 }

@@ -1,23 +1,22 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.depot_title }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.depot_title, 'handshake') }}{% endblock %}
 {% block content %}
-  <div class="table-scroll">
-    <table class="depot-table">
-      <thead>
-        <tr>
-          <th colspan="5">{{ LNG.depot_title }}</th>
-        </tr>
-        <tr>
-          <td colspan="5">{{ LNG.format('depot_intro', depotLevel, maxStay) }}<br>{{ LNG.depot_deuterium_stock }}: <span class="num">{{ pretty_number(deuterium) }}</span></td>
-        </tr>
-      </thead>
-      {% if fleets is empty %}
-        <tbody>
-          <tr>
-            <td colspan="5" class="empty-state">{{ icon('handshake') }}<p>{{ LNG.depot_empty }}</p></td>
-          </tr>
-        </tbody>
-      {% else %}
+  <section class="panel">
+    <div class="panel__body stack">
+      <p>{{ LNG.format('depot_intro', depotLevel, maxStay) }}</p>
+      <div class="stats">
+        <div class="stat"><span class="stat__label">{{ LNG.depot_deuterium_stock }}</span><span class="stat__value">{{ pretty_number(deuterium) }}</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="panel panel--flush">
+    {{ ui.panel_head(LNG.depot_title, fleets|length) }}
+    {% if fleets is empty %}
+      <p class="empty">{{ icon('handshake') }} {{ LNG.depot_empty }}</p>
+    {% else %}
+      <table class="data depot-table">
         <thead>
           <tr>
             <th>{{ LNG.depot_col_owner }}</th>
@@ -30,17 +29,17 @@
         <tbody>
           {% for fleet in fleets %}
             <tr>
-              <td>{{ fleet.username }}</td>
-              <td>
+              <td class="top">{{ fleet.username }}</td>
+              <td class="top">
                 {% for ship in fleet.ships %}
-                  <a href="#" data-action="dialog-info" data-id="{{ ship.id }}">{{ LNG.tech[ship.id] }}</a>: {{ pretty_number(ship.count) }}{% if not loop.last %}<br>{% endif %}
+                  <a href="#" data-action="dialog-info" data-id="{{ ship.id }}">{{ LNG.tech[ship.id] }}</a>: <span class="mono">{{ pretty_number(ship.count) }}</span>{% if not loop.last %}<br>{% endif %}
                 {% endfor %}
               </td>
-              <td>{{ fleet.stayEnd }}</td>
-              <td class="num">{{ pretty_number(fleet.hourlyCost) }}</td>
-              <td>
+              <td class="top">{{ fleet.stayEnd }}</td>
+              <td class="num top">{{ pretty_number(fleet.hourlyCost) }}</td>
+              <td class="top">
                 {% if fleet.maxHours < 1 %}
-                  <span class="colorNeutral">{{ LNG.depot_full }}</span>
+                  <span class="tag tag--muted">{{ LNG.depot_full }}</span>
                 {% else %}
                   <form action="{{ path('game_alliance_depot_supply') }}" method="post" class="depot-form" data-hourly="{{ fleet.hourlyCost }}">
                     <input type="hidden" name="fleet" value="{{ fleet.id }}">
@@ -50,14 +49,14 @@
                       {% endfor %}
                     </select>
                     <span class="depot-cost">{{ LNG.depot_cost }}: <span class="num" data-depot-cost>{{ pretty_number(fleet.hourlyCost) }}</span> {{ LNG.tech[903] }}</span>
-                    <button type="submit" class="colorPositive">{{ LNG.depot_supply }}</button>
+                    <button type="submit" class="colorPositive btn-sm">{{ LNG.depot_supply }}</button>
                   </form>
                 {% endif %}
               </td>
             </tr>
           {% endfor %}
         </tbody>
-      {% endif %}
-    </table>
-  </div>
+      </table>
+    {% endif %}
+  </section>
 {% endblock %}

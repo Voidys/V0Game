@@ -1,30 +1,33 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.team }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.team, 'users') }}{% endblock %}
 {% block content %}
-<div class="table-scroll">
-<table class="team">
-	<thead>
-	<tr><th colspan="4">{{ LNG.team }}</th></tr>
-	<tr>
-		<th>{{ LNG.teamMemberName }}</th>
-		<th>{{ LNG.teamRole }}</th>
-		<th>{{ LNG.teamMemberContact }}</th>
-		<th>{{ LNG.teamMemberAbout }}</th>
-	</tr>
-	</thead>
-	<tbody>
-	{% for member in members %}
-	<tr>
-		<td><strong>{{ member.name }}</strong></td>
-		<td>{{ member.position }}</td>
-		<td>{{ member.contact }}</td>
-		<td>{{ member.description|nl2br }}</td>
-	</tr>
+<section class="panel panel--flush">
+	{% if members %}
+	<table class="data team">
+		<thead>
+			<tr>
+				<th>{{ LNG.teamMemberName }}</th>
+				<th>{{ LNG.teamRole }}</th>
+				<th>{{ LNG.teamMemberContact }}</th>
+				<th>{{ LNG.teamMemberAbout }}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for member in members %}
+			<tr>
+				<td class="top"><strong>{{ member.name }}</strong></td>
+				<td class="top">{{ member.position }}</td>
+				<td class="top">{{ member.contact }}</td>
+				<td class="top">{{ member.description|nl2br }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
 	{% else %}
-	<tr><td colspan="4" class="empty-state-cell"><div class="empty-state"><p>{{ LNG.teamEmpty }}</p></div></td></tr>
-	{% endfor %}
-	</tbody>
-</table>
-</div>
-<p class="hint team-contact">{% set ticketLink %}<a href="{{ path('game_ticket_show') }}">{{ LNG.lm_support }}</a>{% endset %}{{ LNG.format('team_contact_hint', ticketLink) }}</p>
+	<p class="empty">{{ LNG.teamEmpty }}</p>
+	{% endif %}
+	<div class="panel__foot">{% set ticketLink %}<a href="{{ path('game_ticket_show') }}">{{ LNG.lm_support }}</a>{% endset %}<span class="hint team-contact">{{ LNG.format('team_contact_hint', ticketLink) }}</span></div>
+</section>
 {% endblock %}

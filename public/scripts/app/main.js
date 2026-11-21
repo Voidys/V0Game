@@ -18,6 +18,9 @@ import { initTooltips } from './tooltip.js';
 import { initTimers } from './timers.js';
 import { initResourceTickers } from './ticker.js';
 import { initUi } from './ui.js';
+import { initPopovers } from './popovers.js';
+import { initPalette } from './palette.js';
+import { initShortcuts } from './shortcuts.js';
 
 const queue = [];
 
@@ -36,6 +39,9 @@ const boot = () => {
   initTooltips();
   initTimers();
   initUi();
+  initPopovers();
+  initPalette();
+  initShortcuts();
   initResourceTickers();
   queue.started = true;
   for (const fn of queue.splice(0)) {

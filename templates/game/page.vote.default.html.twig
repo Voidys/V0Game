@@ -1,42 +1,40 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_vote }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.vt_head, 'award', LNG.vt_intro) }}{% endblock %}
 {% block content %}
-{% if voteNotice %}
-<table>
-	<tr><td class="colorPositive">{{ voteNotice }}</td></tr>
-</table>
-{% endif %}
-<table>
-	<tr>
-		<th colspan="4">{{ LNG.vt_head }}</th>
-	</tr>
-	<tr>
-		<td colspan="4">{{ LNG.vt_intro }}</td>
-	</tr>
-	<tr>
-		<th>{{ LNG.vt_site }}</th>
-		<th>{{ LNG.vt_reward }}</th>
-		<th>{{ LNG.vt_status }}</th>
-		<th></th>
-	</tr>
-	{% for site in voteSites %}
-	<tr>
-		<td>{% if site.image %}<img src="{{ site.image }}" alt="" loading="lazy" referrerpolicy="no-referrer" height="24"> {% endif %}{{ site.name }}</td>
-		<td>{% for reward in site.rewards %}{{ reward.name }}: {{ pretty_number(reward.amount) }}{% if not loop.last %}<br>{% endif %}{% else %}-{% endfor %}</td>
-		<td>{% if site.ready %}<span class="colorPositive">{{ LNG.vt_ready }}</span>{% else %}<span class="colorNegative">{{ LNG.format('vt_wait', site.hours, site.minutes) }}</span>{% endif %}{% if site.postback %}<br><small>{{ LNG.vt_postback_hint }}</small>{% endif %}</td>
-		<td class="ctr">
-			{% if site.ready %}
-			<form action="{{ path('game_vote_go') }}" method="post">
-				<input type="hidden" name="id" value="{{ site.id }}">
-				<button type="submit">{{ LNG.vt_button }}</button>
-			</form>
-			{% endif %}
-		</td>
-	</tr>
+{% if voteNotice %}<p class="panel panel__body colorPositive">{{ voteNotice }}</p>{% endif %}
+<section class="panel panel--flush">
+	{% if voteSites %}
+	<table class="data">
+		<thead>
+			<tr>
+				<th>{{ LNG.vt_site }}</th>
+				<th>{{ LNG.vt_reward }}</th>
+				<th>{{ LNG.vt_status }}</th>
+				<th class="act"></th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for site in voteSites %}
+			<tr>
+				<td>{% if site.image %}<img src="{{ site.image }}" alt="" loading="lazy" referrerpolicy="no-referrer" height="24"> {% endif %}{{ site.name }}</td>
+				<td>{% for reward in site.rewards %}{{ reward.name }}: {{ pretty_number(reward.amount) }}{% if not loop.last %}<br>{% endif %}{% else %}-{% endfor %}</td>
+				<td>{% if site.ready %}<span class="tag tag--pos">{{ LNG.vt_ready }}</span>{% else %}<span class="tag tag--neg">{{ LNG.format('vt_wait', site.hours, site.minutes) }}</span>{% endif %}{% if site.postback %}<br><small>{{ LNG.vt_postback_hint }}</small>{% endif %}</td>
+				<td class="act">
+					{% if site.ready %}
+					<form action="{{ path('game_vote_go') }}" method="post">
+						<input type="hidden" name="id" value="{{ site.id }}">
+						<button type="submit" class="btn--primary">{{ LNG.vt_button }}</button>
+					</form>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
 	{% else %}
-	<tr>
-		<td colspan="4" class="empty-state-cell"><div class="empty-state"><p>{{ LNG.vt_none }}</p></div></td>
-	</tr>
-	{% endfor %}
-</table>
+	<p class="empty">{{ LNG.vt_none }}</p>
+	{% endif %}
+</section>
 {% endblock %}

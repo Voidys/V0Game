@@ -1,40 +1,43 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.Achievements }}{{ parent() }}{% endblock %}
-
+{% block pagehead %}{{ ui.page_head(LNG.Achievements, 'award', LNG.format('ach_progress', unlockedCount, totalCount)) }}{% endblock %}
 {% block content %}
 {#
-  Achievements: summary with progress, filter (all / unlocked / locked) and a compact grid; a tile opens
-  the description modal (Dialog.ach, inline <template> per achievement).
+  Achievements: progress, filter (all / unlocked / locked) and a grid of cards; a card opens the description
+  modal (Dialog.ach, inline <template> per achievement). scripts/game/achievements.js sets data-ach-filter.
 #}
-<section class="infos achievements" data-ach-filter="all">
-  <header class="achievements__head">
-    <h1 class="achievements__title">{{ LNG.Achievements }}</h1>
-    <p class="achievements__count">{{ LNG.format('ach_progress', unlockedCount, totalCount) }}</p>
-    <div class="achievements__bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{ totalCount }}" aria-valuenow="{{ unlockedCount }}" aria-label="{{ LNG.format('ach_progress', unlockedCount, totalCount) }}">
-      <span style="width: {{ totalCount > 0 ? (unlockedCount * 100 / totalCount)|round(1) : 0 }}%"></span>
-    </div>
-    <div class="achievements__filter" role="group" aria-label="{{ LNG.Achievements }}">
+<div class="stack ach-page" data-ach-filter="all">
+  <div class="toolbar">
+    <div class="segmented" role="group" aria-label="{{ LNG.Achievements }}">
       {% for key in ['all', 'unlocked', 'locked'] %}
-        <button type="button" class="achievements__chip" data-filter="{{ key }}" aria-pressed="{{ key == 'all' ? 'true' : 'false' }}">{{ attribute(LNG, 'ach_filter_' ~ key) }}</button>
+        <button type="button" data-filter="{{ key }}" aria-pressed="{{ key == 'all' ? 'true' : 'false' }}">{{ attribute(LNG, 'ach_filter_' ~ key) }}</button>
       {% endfor %}
     </div>
-  </header>
+    <span class="toolbar__spacer"></span>
+    <div class="meter ach-meter" role="progressbar" aria-valuemin="0" aria-valuemax="{{ totalCount }}" aria-valuenow="{{ unlockedCount }}" aria-label="{{ LNG.format('ach_progress', unlockedCount, totalCount) }}" style="--fill: {{ totalCount > 0 ? (unlockedCount / totalCount)|round(3) : 0 }}"></div>
+  </div>
 
-  <ul class="achievements__grid">
+  <ul class="grid-auto ach-grid">
     {% for achievement in achievements %}
       {% set image = theme_asset('achievements/achievement_' ~ achievement.id ~ '.jpg') %}
-      <li class="ach-tile{% if achievement.unlocked %} is-unlocked{% endif %}" data-state="{{ achievement.unlocked ? 'unlocked' : 'locked' }}">
-        <button type="button" class="ach-tile__button" data-action="dialog-ach" data-id="{{ achievement.id }}" title="{{ LNG.Achievement_text[achievement.id]|striptags }}">
-          <img class="ach-tile__image" src="{{ image }}" alt="" width="56" height="56" loading="lazy">
-          <span class="ach-tile__name">{{ LNG.Achievement_names[achievement.id] }}</span>
-          <span class="ach-tile__meta">{% if achievement.unlocked %}{{ achievement.date }}{% else %}{{ icon('lock', LNG.ach_locked) }}{% endif %}</span>
-          {% if not achievement.unlocked %}<span class="ach-tile__hint">{{ LNG.Achievement_text[achievement.id]|striptags }}</span>{% endif %}
+      <li class="panel ach-card{% if achievement.unlocked %} is-unlocked{% endif %}" data-state="{{ achievement.unlocked ? 'unlocked' : 'locked' }}">
+        <button type="button" class="ach-card__button" data-action="dialog-ach" data-id="{{ achievement.id }}" title="{{ LNG.Achievement_text[achievement.id]|striptags }}">
+          <img class="ach-card__image" src="{{ image }}" alt="" width="56" height="56" loading="lazy">
+          <span class="ach-card__text">
+            <span class="ach-card__name">{{ LNG.Achievement_names[achievement.id] }}</span>
+            {% if achievement.unlocked %}
+              <span class="badge badge--accent">{{ achievement.date }}</span>
+            {% else %}
+              <span class="ach-card__hint">{{ icon('lock', LNG.ach_locked) }}{{ LNG.Achievement_text[achievement.id]|striptags }}</span>
+            {% endif %}
+          </span>
         </button>
         {% include 'game/shared.achievementInfo.html.twig' with {id: achievement.id, image: image, date: achievement.date, unlocked: achievement.unlocked} only %}
       </li>
     {% endfor %}
   </ul>
-</section>
+</div>
 
 <script type="module" src="./scripts/game/achievements.js?v={{ asset_version }}"></script>
 {% endblock %}

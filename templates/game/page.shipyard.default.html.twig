@@ -1,48 +1,50 @@
 {% extends layout_template %}
 {% import 'game/macros.buildcard.html.twig' as b %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{% if mode == "defense" %}{{ LNG.lm_defenses }}{% else %}{{ LNG.lm_shipshard }}{% endif %}{{ parent() }}{% endblock %}
-{% block pagehead %}{{ b.pagehead(mode == 'defense' ? LNG.lm_defenses : LNG.lm_shipshard, mode == 'defense' ? 'shield' : 'rocket', []) }}{% endblock %}
+{% block pagehead %}
+	{% set pname = b.planetname(planetList|default([]))|trim %}
+	{{ b.pagehead(mode == 'defense' ? LNG.lm_defenses : LNG.lm_shipshard, mode == 'defense' ? 'shield' : 'rocket', pname ?: null) }}
+{% endblock %}
 {% block content %}
 	{% if not hasShipyard %}<div class="infobox">{{ icon('rocket') }}<span>{{ LNG.bd_shipyard_required }}</span></div>{% endif %}
 
 	{% if not NotBuilding %}
-		<p class="repair-infobox">{{ LNG.bd_building_shipyard }}</p><br><br>
+		<div class="infobox">{{ icon('triangle-alert') }}<span>{{ LNG.bd_building_shipyard }}</span></div>
 	{% endif %}
 
 	{% if BuildList %}
-		{% if umode == 0 %}
-			<div class="text-center">
-				<div id="bx" class="z"></div>
-				<div class="ship">
-					<form action="{{ path('game_shipyard_order', {kind: mode == 'defense' ? 'defense' : 'shipyard'}) }}" method="post" data-keep-scroll>
+		<section class="panel">
+			{{ ui.panel_head(LNG.ui_queue) }}
+			{% if umode == 0 %}
+				<div class="panel__body stack stack--tight ship-queue">
+					<div id="bx" class="z ship-queue__now"></div>
+					<form action="{{ path('game_shipyard_order', {kind: mode == 'defense' ? 'defense' : 'shipyard'}) }}" method="post" data-keep-scroll class="ship ship-queue__form">
 						<input type="hidden" name="action" value="delete">
-						<div >
-							<select name="auftr[]" id="auftr" multiple class="shipl"><option>&nbsp;</option></select><br><br>{{ LNG.bd_cancel_warning }}<br><input class="z" type="submit" value="{{ LNG.bd_cancel_send }}" />
-						</div>
+						<select name="auftr[]" id="auftr" multiple class="shipl"><option>&nbsp;</option></select>
+						<p class="hint">{{ LNG.bd_cancel_warning }}</p>
+						<div class="form-actions"><input class="z" type="submit" value="{{ LNG.bd_cancel_send }}"></div>
 					</form>
-					<br><span id="timeleft" data-umode="{{ umode }}"></span><br>
-					<span id="queue-done" class="build-queue__total" data-template="{{ LNG.ui_queue_done }}"></span><br><br>
+					<span id="timeleft" data-umode="{{ umode }}"></span>
+					<span id="queue-done" class="build-queue__total" data-template="{{ LNG.ui_queue_done }}"></span>
 				</div>
-			</div><br>
-		{% else %}
-			<div class="text-center">
-				<div id="bxumode" class="zumode"></div>
-				<div class="shipumode">
-					<form action="{{ path('game_shipyard_order', {kind: mode == 'defense' ? 'defense' : 'shipyard'}) }}" method="post" >
+			{% else %}
+				<div class="panel__body stack stack--tight ship-queue">
+					<div id="bxumode" class="zumode ship-queue__now"></div>
+					<form action="{{ path('game_shipyard_order', {kind: mode == 'defense' ? 'defense' : 'shipyard'}) }}" method="post" class="shipumode ship-queue__form">
 						<input type="hidden" name="action" value="delete">
-						<div >
-							<select name="auftrumode[]" id="auftrumode" multiple class="shipl"><option>&nbsp;</option></select><br><br><br><input class="z" value="{{ LNG['bd_paused'] }}" />
-						</div>
+						<select name="auftrumode[]" id="auftrumode" multiple class="shipl"><option>&nbsp;</option></select>
+						<div class="form-actions"><input class="z" value="{{ LNG['bd_paused'] }}" readonly></div>
 					</form>
-					<br><span id="timeleft" data-umode="{{ umode }}"></span><br><br>
+					<span id="timeleft" data-umode="{{ umode }}"></span>
 				</div>
-			</div><br>
-		{% endif %}
+			{% endif %}
+		</section>
 	{% endif %}
 
 	{% if mode == "fleet" %}
 		{% if hangarFiltersEnabled %}
-		<div class="planeto" id="hangar-filters" data-save-url="{{ path('game_shipyard_save_filters', {ajax: 1}) }}">
+		<div class="toolbar" id="hangar-filters" data-save-url="{{ path('game_shipyard_save_filters', {ajax: 1}) }}">
 			{% set hangarHasButton = false %}
 			{% if hangarGroupCivil %}{% if hangarHasButton %}<span class="hangar-filter-sep"> | </span>{% endif %}<button type="button" class="hangar-group-filter" id="ship1" data-filter-selector="{{ civil }}">{{ LNG.fm_civil }}</button>{% set hangarHasButton = true %}{% endif %}
 			{% if hangarGroupMilitary %}{% if hangarHasButton %}<span class="hangar-filter-sep"> | </span>{% endif %}<button type="button" class="hangar-group-filter" id="ship2" data-filter-selector="{{ military }}">{{ LNG.fm_military }}</button>{% set hangarHasButton = true %}{% endif %}
@@ -64,63 +66,67 @@
 			</span>
 		</div>
 		{% else %}
-		<div class="planeto">
+		<div class="toolbar">
 			<span class="segmented" role="group"><button id="ship1" data-action="filter-rows" data-filter-group="ship" data-hide=".infos" data-show="{{ civil }}">{{ LNG.fm_civil }}</button><button id="ship2" data-action="filter-rows" data-filter-group="ship" data-hide=".infos" data-show="{{ military }}">{{ LNG.fm_military }}</button><button id="ship3" class="selected" data-action="filter-rows" data-filter-group="ship" data-hide=".infos">{{ LNG.fm_all }}</button></span>
 		</div>
 		{% endif %}
 	{% endif %}
 
+	{% set kindUrl = path('game_shipyard_order', {kind: mode == 'defense' ? 'defense' : 'shipyard'}) %}
+	<div class="build-grid">
 	{% for ID, Element in elementList %}
-		<div class="infos {% if Element.fade %}unavailable{% endif %}" id="s{{ ID }}">
-			<div class="buildn"><a href="#" class="info-link" data-action="dialog-info" data-id="{{ ID }}" title="{{ LNG.tt_requirements }} / {{ LNG.fcm_info }}">{{ LNG.tech[ID] }} <span class="info-ico">{{ icon('info') }}</span></a>
-				<span id="val_{{ ID }}">{% if Element.available != 0 %} ({{ LNG.bd_available }} {{ pretty_number(Element.available) }}){% endif %}</span>
-			</div>
-			<div class="buildl">
-				<a href="#" data-action="dialog-info" data-id="{{ ID }}">
-					<img class="float-left" src="{{ theme_asset('gebaeude/' ~ ID ~ '.gif') }}" alt="{{ LNG.tech[ID] }}" width="120" height="120" loading="lazy" decoding="async">
-				</a>
-				{% if Element.requirements %}
-					{{ LNG.tt_requirements }}: </br>
-					{% for requireID, NeedLevel in Element.requirements %}
-						<a href="#" data-action="dialog-info" data-id="{{ requireID }}">
-						<span class="{% if NeedLevel.own < NeedLevel.count %}colorNegative{% else %}colorPositive{% endif %}">
-							{{ LNG.tech[requireID] }} ({{ LNG.tt_lvl }} {{ NeedLevel.own }}/{{ NeedLevel.count }})
-						</span>
-						</a>{% if not loop.last %}<br>{% endif %}
-					{% endfor %}
-				{% else %}
-					<p class="max-units">{{ LNG.bd_max_ships_long }}: <b>{{ pretty_number(Element.maxBuildable) }}</b></p>
-				{% endif %}
-			</div>
-			<div class="buildl">
-				{{ b.costs(Element) }}
-				{% if ID==212 %}<span class="hint">+{{ SolarEnergy }} {{ LNG.tech[911] }}</span>{% endif %}
-				{% set canBuild = false %}
-				{% if vacation %}
-					<span class="reason">{{ LNG.op_options_vacation_activated }}</span>
-				{% elseif Element.requirements %}
-					{{ b.needs(Element.requirements) }}
-				{% elseif Element.AlreadyBuild %}
-					<span class="reason reason--bad">{{ LNG.bd_protection_shield_only_one }}</span>
-				{% elseif not NotBuilding %}
-					<span class="reason">{{ LNG.sys_buildlist_fail }}</span>
-				{% elseif not Element.buyable %}
-					{{ b.missing(Element) }}
-				{% else %}
-					{% set canBuild = true %}
-					<form action="{{ path('game_shipyard_order', {kind: mode == 'defense' ? 'defense' : 'shipyard'}) }}" method="post" id="s{{ ID }}" data-keep-scroll>
-						<span class="control-group">
-							<input type="number" name="fmenge[{{ ID }}]" id="input_{{ ID }}" maxlength="{{ maxlength }}" value="0" min="0" tabindex="{{ null }}" aria-label="{{ LNG.tech[ID] }}">
-							<input type="button" value="{{ LNG.bd_max_ships }}" data-action="fill-input" data-target="input_{{ ID }}" data-value="{{ Element.maxBuildable }}" title="{{ LNG.bd_max_ships_long }}: {{ pretty_number(Element.maxBuildable) }}">
-						</span>
-						<input class="b colorPositive" type="submit" value="{{ LNG.bd_build_ships }}">
-					</form>
-				{% endif %}
-				{% if not canBuild %}{{ b.locked(LNG.bd_build_ships) }}{% endif %}
-				<div class="build-meta">{{ b.time(Element.elementTime) }}</div>
-			</div>
-		</div>
+		{% set sub %}<span id="val_{{ ID }}" class="card__owned">{% if Element.available != 0 %} ({{ LNG.bd_available }} {{ pretty_number(Element.available) }}){% endif %}</span>{% endset %}
+
+		{% set extra %}
+			{% if not Element.requirements %}<p class="hint">{{ LNG.bd_max_ships_long }}: <b>{{ pretty_number(Element.maxBuildable) }}</b></p>{% endif %}
+			{% if ID==212 %}<span class="hint">+{{ SolarEnergy }} {{ LNG.tech[911] }}</span>{% endif %}
+			<div class="card__time">{{ b.time(Element.elementTime) }}</div>
+		{% endset %}
+
+		{% set canBuild = false %}
+		{% set note %}
+			{% if vacation %}
+				<span class="reason">{{ LNG.op_options_vacation_activated }}</span>
+			{% elseif Element.requirements %}
+				{# the requirement tags above say what is missing #}
+			{% elseif Element.AlreadyBuild %}
+				<span class="reason reason--bad">{{ LNG.bd_protection_shield_only_one }}</span>
+			{% elseif not NotBuilding %}
+				<span class="reason">{{ LNG.sys_buildlist_fail }}</span>
+			{% elseif not Element.buyable %}
+				{{ b.missing(Element) }}
+			{% else %}
+				{% set canBuild = true %}
+			{% endif %}
+		{% endset %}
+
+		{% set action %}
+			{% if canBuild %}
+				<form action="{{ kindUrl }}" method="post" data-keep-scroll class="card__order">
+					<span class="control-group">
+						<input type="number" name="fmenge[{{ ID }}]" id="input_{{ ID }}" maxlength="{{ maxlength }}" value="0" min="0" tabindex="{{ null }}" aria-label="{{ LNG.tech[ID] }}">
+						<input type="button" value="{{ LNG.bd_max_ships }}" data-action="fill-input" data-target="input_{{ ID }}" data-value="{{ Element.maxBuildable }}" title="{{ LNG.bd_max_ships_long }}: {{ pretty_number(Element.maxBuildable) }}">
+					</span>
+					<input class="b colorPositive" type="submit" value="{{ LNG.bd_build_ships }}">
+				</form>
+			{% else %}
+				{{ b.locked(LNG.bd_build_ships) }}
+			{% endif %}
+		{% endset %}
+
+		{{ b.card(ID, Element, {
+			domId: 's' ~ ID,
+			index: loop.index0,
+			locked: Element.fade,
+			chip: '',
+			sub: sub,
+			extra: extra,
+			note: note,
+			time: false,
+			action: action,
+		}) }}
 	{% endfor %}
+	</div>
   {{ tooltip_templates() }}
 {% endblock %}
 {% block script %}{{ parent() }}

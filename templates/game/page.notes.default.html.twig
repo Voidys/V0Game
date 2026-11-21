@@ -1,45 +1,42 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_notes }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}<a class="btn btn--primary" href="{{ path('game_notes_new') }}">{{ icon('plus') }} {{ LNG.nt_create_new_note }}</a>{% endset %}
+{{ ui.page_head(LNG.nt_notes, 'sticky-note', notesList is not empty ? LNG.nt_priority_legend : null, actions) }}
+{% endblock %}
 {% block content %}
-<form action="{{ path('game_notes_delete') }}" method="post">
-	<table class="notes-table">
-		<tr>
-			<th colspan="4">{{ LNG.nt_notes }}</th>
-		</tr>
-		<tr>
-			<td colspan="4"><a href="{{ path('game_notes_new') }}">{{ LNG.nt_create_new_note }}</a>{% if notesList is not empty %}<span class="hint">{{ LNG.nt_priority_legend }}</span>{% endif %}</td>
-		</tr>
-		<tr>
+<form class="panel panel--flush" action="{{ path('game_notes_delete') }}" method="post">
+	{% if notesList is not empty %}
+	<table class="data notes-table">
+		<thead><tr>
 			<th class="ctr">{{ LNG.nt_dlte_note }}</th>
 			<th>{{ LNG.nt_date_note }}</th>
 			<th>{{ LNG.nt_subject_note }}</th>
 			<th class="num">{{ LNG.nt_size_note }} ({{ LNG.nt_characters }})</th>
-		</tr>
+		</tr></thead>
+		<tbody>
 		{% for notesID, notesRow in notesList %}
 		<tr>
-			<td class="ctr"><input name="delmes[{{ notesID }}]" type="checkbox"></td>
-			<td>{{ notesRow.time }}</td>
+			<td class="ctr"><input name="delmes[{{ notesID }}]" type="checkbox" aria-label="{{ LNG.nt_dlte_note }}: {{ notesRow.title }}"></td>
+			<td class="mono">{{ notesRow.time }}</td>
 			<td><a href="{{ path('game_notes_detail', {id: notesID}) }}">
 			{% if notesRow.priority == 0 %}
-			<span class="colorPositive">{{ notesRow.title }}</span>
+			<span class="tag tag--pos">{{ notesRow.title }}</span>
 			{% elseif notesRow.priority == 2 %}
-			<span class="colorNegative">{{ notesRow.title }}</span>
+			<span class="tag tag--neg">{{ notesRow.title }}</span>
 			{% else %}
-			<span class="color-yellow">{{ notesRow.title }}</span>
+			<span class="tag tag--warn">{{ notesRow.title }}</span>
 			{% endif %}
 			</a></td>
 			<td class="num">{{ pretty_number(notesRow.size) }}</td>
 		</tr>
-		{% if loop.last %}
-		<tr>
-			<td colspan="4" class="form-actions"><input value="{{ LNG.nt_dlte_note }}" type="submit" data-confirm="{{ LNG.nt_confirm_delete }}" data-confirm-danger></td>
-		</tr>
-		{% endif %}
-		{% else %}
-		<tr>
-			<td colspan="4" class="empty-state">{{ icon('sticky-note') }}<p>{{ LNG.nt_you_dont_have_notes }}</p><a href="{{ path('game_notes_new') }}">{{ LNG.nt_create_new_note }}</a></td>
-		</tr>
 		{% endfor %}
+		</tbody>
 	</table>
+	<footer class="panel__foot"><input class="btn--danger" value="{{ LNG.nt_dlte_note }}" type="submit" data-confirm="{{ LNG.nt_confirm_delete }}" data-confirm-danger></footer>
+	{% else %}
+	<div class="empty">{{ icon('sticky-note') }}<p>{{ LNG.nt_you_dont_have_notes }}</p></div>
+	{% endif %}
 </form>
 {% endblock %}

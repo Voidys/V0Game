@@ -1,17 +1,10 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_research }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.al_your_request_title, 'users') }}{% endblock %}
 {% block content %}
-<form action="{{ path('game_alliance_cancel_apply') }}" method="post">
-	<table>
-	<tr>
-		<th>{{ LNG.al_your_request_title }}</th>
-	</tr>
-	<tr>
-		<td>{{ request_text }}</td>
-	</tr>
-	<tr>
-		<td class="form-actions"><input type="submit" value="{{ LNG.al_delete_request }}" data-confirm-danger data-confirm="{{ LNG.al_delete_request_confirm|e('html_attr') }}"></td>
-	</tr>
-</table>
+<form class="panel" action="{{ path('game_alliance_cancel_apply') }}" method="post">
+	<div class="panel__body">{{ request_text }}</div>
+	<footer class="panel__foot"><input class="btn--danger" type="submit" value="{{ LNG.al_delete_request }}" data-confirm-danger data-confirm="{{ LNG.al_delete_request_confirm|e('html_attr') }}"></footer>
 </form>
 {% endblock %}

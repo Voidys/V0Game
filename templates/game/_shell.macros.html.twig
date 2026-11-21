@@ -1,0 +1,8 @@
+{# Shell helpers shared by the top bar and the Empire rail. #}
+{% macro planet_src(image, style) -%}
+  {%- if style == 1 -%}{{ theme_asset('planeten/varianten/v1_magic/' ~ image ~ '_v1_magic.webp') }}
+  {%- elseif style == 2 -%}{{ theme_asset('planeten/varianten/v2_storm/' ~ image ~ '_v2_storm.webp') }}
+  {%- elseif style == 3 -%}{{ theme_asset('planeten/varianten/v3_voronoi/' ~ image ~ '_v3_voronoi.webp') }}
+  {%- else -%}{{ theme_asset('planeten/' ~ image ~ '.jpg') }}
+  {%- endif -%}
+{%- endmacro %}

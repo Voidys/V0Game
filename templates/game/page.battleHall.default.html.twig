@@ -1,58 +1,53 @@
 {% import '_macros/forms.html.twig' as forms -%}
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_topkb }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.tkb_top, 'trophy', LNG.tkb_gratz) }}{% endblock %}
 {% block content %}
-<section class="bh">
-  <header class="bh__head">
-    <h1 class="bh__title">{{ icon('trophy') }}{{ LNG.tkb_top }}</h1>
-    <p class="bh__lead">{{ LNG.tkb_gratz }}</p>
-  </header>
-
-  <form class="bh__filters" name="stats" id="stats" method="get" action="{{ path('game_battle_hall_show') }}">
-    <label class="bh__filter">{{ LNG.tkb_memorial }}<select name="memorial" id="memorial" data-on-change="submit-form">{{ forms.html_options({'options': Selectors.memorial, 'selected': memorial}) }}</select></label>
-    <label class="bh__filter">{{ LNG.tkb_timeframe }}<select name="timeframe" id="timeframe" data-on-change="submit-form">{{ forms.html_options({'options': Selectors.timeframe, 'selected': timeframe}) }}</select></label>
-    <label class="bh__filter">{{ LNG.tkb_diplomacy }}<select name="diplomacy" id="diplomacy" data-on-change="submit-form">{{ forms.html_options({'options': Selectors.diplomacy, 'selected': diplomacy}) }}</select></label>
-    <label class="bh__filter">{{ LNG.tkb_galaxy }}<select name="galaxy" id="galaxy" data-on-change="submit-form">{{ forms.html_options({'options': Selectors.galaxy, 'selected': galaxy}) }}</select></label>
-    <noscript><button type="submit">{{ icon('filter') }}OK</button></noscript>
-  </form>
-
-  {% if TopKBList %}
-  <table class="bh__list">
-    <thead>
-      <tr>
-        <th class="bh__rank">{{ LNG.tkb_platz }}</th>
-        <th>{{ LNG.tkb_owners }}</th>
-        <th class="bh__date">{{ LNG.tkb_datum }}</th>
-        <th class="num">{{ LNG.tkb_units }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for row in TopKBList %}
-        {% set attackerClass = row.result == 'a' ? 'colorPositive' : (row.result == 'r' ? 'colorNegative' : '') %}
-        {% set defenderClass = row.result == 'a' ? 'colorNegative' : (row.result == 'r' ? 'colorPositive' : '') %}
-        <tr>
-          <td class="bh__rank"><span class="bh__place{% if loop.index <= 3 %} bh__place--{{ loop.index }}{% endif %}">{{ loop.index }}</span></td>
-          <td>
-            <a class="bh__battle" href="{{ path('game_raport_show', {raport: row.rid}) }}" target="_blank" rel="noopener">
-              <span class="{{ attackerClass }}">{{ row.attacker }}</span>
-              {{ icon('swords', null, 'bh__vs') }}
-              <span class="{{ defenderClass }}">{{ row.defender }}</span>
-            </a>
-            <span class="bh__date-inline">{{ row.date }}</span>
-          </td>
-          <td class="bh__date">{{ row.date }}</td>
-          <td class="num">{{ pretty_number(row.units) }}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <p class="bh__legend">
-    <span class="bh__chip"><span class="bh__dot colorPositive"></span>{{ LNG.tkb_gewinner|striptags|trim('-') }}</span>
-    <span class="bh__chip"><span class="bh__dot colorNegative"></span>{{ LNG.tkb_verlierer|striptags|trim('-') }}</span>
-    <span class="bh__chip"><span class="bh__dot"></span>{{ LNG.tkb_unentschieden|striptags|trim('-') }}</span>
-  </p>
-  {% else %}
-  <p class="bh__empty">{{ icon('swords') }}-</p>
-  {% endif %}
+<form class="toolbar" name="stats" id="stats" method="get" action="{{ path('game_battle_hall_show') }}">
+	<span class="control-group"><label for="memorial">{{ LNG.tkb_memorial }}</label><select name="memorial" id="memorial" data-on-change="submit-form">{{ forms.html_options({'options': Selectors.memorial, 'selected': memorial}) }}</select></span>
+	<span class="control-group"><label for="timeframe">{{ LNG.tkb_timeframe }}</label><select name="timeframe" id="timeframe" data-on-change="submit-form">{{ forms.html_options({'options': Selectors.timeframe, 'selected': timeframe}) }}</select></span>
+	<span class="control-group"><label for="diplomacy">{{ LNG.tkb_diplomacy }}</label><select name="diplomacy" id="diplomacy" data-on-change="submit-form">{{ forms.html_options({'options': Selectors.diplomacy, 'selected': diplomacy}) }}</select></span>
+	<span class="control-group"><label for="galaxy">{{ LNG.tkb_galaxy }}</label><select name="galaxy" id="galaxy" data-on-change="submit-form">{{ forms.html_options({'options': Selectors.galaxy, 'selected': galaxy}) }}</select></span>
+	<noscript><button type="submit">{{ icon('filter') }}OK</button></noscript>
+</form>
+<section class="panel panel--flush">
+	{% if TopKBList %}
+	<table class="data">
+		<thead>
+			<tr>
+				<th class="num">{{ LNG.tkb_platz }}</th>
+				<th>{{ LNG.tkb_owners }}</th>
+				<th>{{ LNG.tkb_datum }}</th>
+				<th class="num">{{ LNG.tkb_units }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for row in TopKBList %}
+				{% set attackerClass = row.result == 'a' ? 'colorPositive' : (row.result == 'r' ? 'colorNegative' : '') %}
+				{% set defenderClass = row.result == 'a' ? 'colorNegative' : (row.result == 'r' ? 'colorPositive' : '') %}
+				<tr>
+					<td class="num">{% if loop.index <= 3 %}<span class="badge{% if loop.index == 1 %} badge--accent{% endif %}">{{ loop.index }}</span>{% else %}{{ loop.index }}{% endif %}</td>
+					<td>
+						<a class="battle-link" href="{{ path('game_raport_show', {raport: row.rid}) }}" target="_blank" rel="noopener">
+							<span class="{{ attackerClass }}">{{ row.attacker }}</span>
+							{{ icon('swords', null, 'battle-link__vs') }}
+							<span class="{{ defenderClass }}">{{ row.defender }}</span>
+						</a>
+					</td>
+					<td>{{ row.date }}</td>
+					<td class="num">{{ pretty_number(row.units) }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<div class="panel__foot stats-legend">
+		<span class="tag tag--pos">{{ LNG.tkb_gewinner|striptags|trim('-') }}</span>
+		<span class="tag tag--neg">{{ LNG.tkb_verlierer|striptags|trim('-') }}</span>
+		<span class="tag tag--muted">{{ LNG.tkb_unentschieden|striptags|trim('-') }}</span>
+	</div>
+	{% else %}
+	<p class="empty">-</p>
+	{% endif %}
 </section>
 {% endblock %}

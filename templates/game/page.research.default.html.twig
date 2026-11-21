@@ -1,86 +1,93 @@
 {% extends layout_template %}
 {% import 'game/macros.buildcard.html.twig' as b %}
 {% block title %}{{ LNG.lm_research }}{{ parent() }}{% endblock %}
-{% block pagehead %}{{ b.pagehead(LNG.lm_research, 'flask-conical', Queue|default([])) }}{% endblock %}
+{% block pagehead %}
+  {% set meta = isCatchUp ? catchUp ~ ' %' : null %}
+  {{ b.pagehead(LNG.lm_research, 'flask-conical', meta) }}
+{% endblock %}
 {% block content %}
 	{% if not hasLab %}<div class="infobox">{{ icon('flask-conical') }}<span>{{ LNG.bd_no_lab }}</span></div>{% endif %}
-	{% include 'game/shared.buildqueue.html.twig' with {queuePage: 'research'} %}
+	{% include 'game/shared.buildqueue.html.twig' with {queuePage: 'research', queueTitle: LNG.lm_research} %}
 
 	{% if IsLabinBuild %}<div class="infobox">{{ icon('triangle-alert') }}<span>{{ LNG.bd_building_lab }}</span></div>{% endif %}
-	<div>
-		<div class="planeto">
-			<span class="segmented" role="group"><button id="lab1" data-action="filter-rows" data-filter-group="lab" data-hide=".infos" data-show="#t108, #t113, #t114, #t123, #t124">{{ LNG.fm_imperial }}</button><button id="lab2" data-action="filter-rows" data-filter-group="lab" data-hide=".infos" data-show="#t109, #t106, #t110, #t111, #t120, #t121, #t122, #t199">{{ LNG.fm_military }}</button><button id="lab3" data-action="filter-rows" data-filter-group="lab" data-hide=".infos" data-show="#t114, #t115, #t117, #t118">{{ LNG.fm_engines }}</button><button id="lab4" data-action="filter-rows" data-filter-group="lab" data-hide=".infos" data-show="#t131, #t132, #t133">{{ LNG.fm_mining }}</button><button id="lab5" class="selected" data-action="filter-rows" data-filter-group="lab" data-hide=".infos">{{ LNG.fm_all }}</button></span>
-			{% if isCatchUp %}
-				<br>{{ catchUp }} %
-			{% endif %}
-		</div>
+	<div class="toolbar">
+		<span class="segmented" role="group"><button id="lab1" data-action="filter-rows" data-filter-group="lab" data-hide=".infos" data-show="#t108, #t113, #t114, #t123, #t124">{{ LNG.fm_imperial }}</button><button id="lab2" data-action="filter-rows" data-filter-group="lab" data-hide=".infos" data-show="#t109, #t106, #t110, #t111, #t120, #t121, #t122, #t199">{{ LNG.fm_military }}</button><button id="lab3" data-action="filter-rows" data-filter-group="lab" data-hide=".infos" data-show="#t114, #t115, #t117, #t118">{{ LNG.fm_engines }}</button><button id="lab4" data-action="filter-rows" data-filter-group="lab" data-hide=".infos" data-show="#t131, #t132, #t133">{{ LNG.fm_mining }}</button><button id="lab5" class="selected" data-action="filter-rows" data-filter-group="lab" data-hide=".infos">{{ LNG.fm_all }}</button></span>
+	</div>
 
+	{% set baseEnd = (umode == 0 and Queue) ? (Queue|last).endtime : ('now'|date('U')) %}
+	<div class="build-grid">
 		{% for ID, Element in ResearchList %}
 			{% if hide_useless == 0 or Element['max_useful_level'] == 0 or Element['level'] < Element['max_useful_level'] %}
 				{% set blocked = not hasLab or Element.blockedHere %}
-				<div class="infos{% if Element.fade %} unavailable{% endif %}{% if blocked %} is-blocked{% endif %}" id="t{{ ID }}">
-					<div class="buildn relative">
-						<a href="#" class="info-link" data-action="dialog-info" data-id="{{ ID }}" title="{{ LNG.tt_requirements }} / {{ LNG.fcm_info }}">{{ LNG.tech[ID] }} <span class="info-ico">{{ icon('info') }}</span></a>{% if Element.level != 0 %} ({{ LNG.bd_lvl }} {{ Element.level }}{% if Element.maxLevel != 255 %}/{{ Element.maxLevel }}{% endif %}){% endif %}
-						{% if ID == watch %}
-							<a href="{{ path('game_research_show', {watch: 0}) }}">
-								<img class="watchlist-fav-button" src="./styles/theme/nova/img/fav.webp" alt="Unwatch">
-							</a>
-						{% else %}
-							<a href="{{ path('game_research_show', {watch: ID}) }}">
-								<img class="watchlist-fav-button" src="./styles/theme/nova/img/nofav.webp" alt="Watch">
-							</a>
-						{% endif %}
-					</div>
-					<div class="buildl">
-						<a href="#" data-action="dialog-info" data-id="{{ ID }}">
-							<img class="float-left" src="{{ theme_asset('gebaeude/' ~ ID ~ '.gif') }}" alt="{{ LNG.tech[ID] }}" width="120" height="120" loading="lazy" decoding="async">
-						</a>
-						{% if Element.requirements %}
-							{{ LNG.tt_requirements }}: </br>
-							{% for requireID, NeedLevel in Element.requirements %}
-								<a href="#" data-action="dialog-info" data-id="{{ requireID }}">
-								<span class="{% if NeedLevel.own < NeedLevel.count %}colorNegative{% else %}colorPositive{% endif %}">
-									{{ LNG.tech[requireID] }} ({{ LNG.tt_lvl }} {{ NeedLevel.own }}/{{ NeedLevel.count }})
-								</span>
-								</a>{% if not loop.last %}<br>{% endif %}
-							{% endfor %}
-						{% endif %}
-					</div>
+				{% set atMax = Element.maxLevel == Element.levelToBuild %}
+				{% set queued = Element.levelToBuild > Element.level %}
+				{% set label = (Element.level == 0 and Element.levelToBuild == 0) ? LNG.bd_tech : LNG.bd_tech_next_level ~ (Element.levelToBuild + 1) %}
 
-					<div class="buildl">
-						{% set atMax = Element.maxLevel == Element.levelToBuild %}
-						{% if not atMax %}{{ b.costs(Element) }}{% endif %}
-						{% if Element.factor != null and not Element.requirements and Element.buyable %}
-							<span class="colorNeutral tooltip" data-tooltip-content="{{ LNG.sys_catchup_tooltip }}">{{ LNG.format('sys_catchup_short', Element.factor) }} %</span>
-						{% endif %}
-						{% set canBuild = false %}
-						{% if vacation %}
-							<span class="reason">{{ LNG.op_options_vacation_activated }}</span>
-						{% elseif Element.requirements and not Element.blockedHere %}
-							{{ b.needs(Element.requirements) }}
-						{% elseif atMax %}
-							<span class="reason">{{ LNG.bd_maxlevel }}</span>
-						{% elseif blocked %}{# no lab here, or only this planet's buildings are missing #}
-							{# researchable elsewhere in the account, not from this planet (no lab, or the lab level is too low) #}
-							<span class="reason reason--blocked">{{ icon('lock') }}{% if hasLab %}{{ LNG.bd_needs }} ({{ LNG.bd_on_this_planet }}): {{ Element.requirements|filter(r => r.own < r.count)|map((r, id) => LNG.tech[id] ~ ' ' ~ r.count)|join(', ') }}{% else %}{{ LNG.bd_no_lab_here }}{% endif %}</span>
-						{% elseif IsLabinBuild %}
-							<span class="reason">{{ LNG.sys_buildlist_fail }}</span>
-						{% elseif IsFullQueue %}
-							<span class="reason">{{ LNG.bd_researclist_full }}</span>
-						{% elseif not Element.buyable %}
-							{{ b.missing(Element) }}
-						{% else %}
-							{% set canBuild = true %}
-							<form action="{{ path('game_research_command') }}" method="post" class="build_form">
-								<input type="hidden" name="cmd" value="insert">
-								<input type="hidden" name="tech" value="{{ ID }}">
-								<button type="submit" class="colorPositive build_submit">{% if Element.level == 0 and Element.levelToBuild == 0 %}{{ LNG.bd_tech }}{% else %}{{ LNG.bd_tech_next_level }}{{ Element.levelToBuild + 1 }}{% endif %}</button>
-							</form>
-						{% endif %}
-						{% if not canBuild and not atMax %}{{ b.locked(Element.level == 0 and Element.levelToBuild == 0 ? LNG.bd_tech : LNG.bd_tech_next_level ~ (Element.levelToBuild + 1)) }}{% endif %}
-						{% if not atMax %}<div class="build-meta">{{ b.time(Element.elementTime) }}</div>{% endif %}
-					</div>
-				</div>
+				{% set watch_toggle %}
+					{% if ID == watch %}
+						<a class="card__watch is-on" href="{{ path('game_research_show', {watch: 0}) }}" aria-label="{{ LNG.ui_unwatch }}" data-tip="{{ LNG.ui_unwatch }}">{{ icon('star') }}</a>
+					{% else %}
+						<a class="card__watch" href="{{ path('game_research_show', {watch: ID}) }}" aria-label="{{ LNG.ui_watch }}" data-tip="{{ LNG.ui_watch }}">{{ icon('star') }}</a>
+					{% endif %}
+				{% endset %}
+
+				{% set extra %}
+					{% if Element.factor != null and not Element.requirements and Element.buyable %}
+						<span class="tag tag--info tooltip" data-tooltip-content="{{ LNG.sys_catchup_tooltip }}">{{ LNG.format('sys_catchup_short', Element.factor) }} %</span>
+					{% endif %}
+				{% endset %}
+
+				{% set canBuild = false %}
+				{% set note %}
+					{% if vacation %}
+						<span class="reason">{{ LNG.op_options_vacation_activated }}</span>
+					{% elseif Element.requirements and not Element.blockedHere %}
+						{# the requirement tags above say what is missing #}
+					{% elseif atMax %}
+						<span class="reason">{{ LNG.bd_maxlevel }}</span>
+					{% elseif blocked %}{# no lab here, or only this planet's buildings are missing #}
+						{# researchable elsewhere in the account, not from this planet (no lab, or the lab level is too low) #}
+						<span class="reason reason--blocked">{{ icon('lock') }}{% if hasLab %}{{ LNG.bd_needs }} ({{ LNG.bd_on_this_planet }}): {{ Element.requirements|filter(r => r.own < r.count)|map((r, id) => LNG.tech[id] ~ ' ' ~ r.count)|join(', ') }}{% else %}{{ LNG.bd_no_lab_here }}{% endif %}</span>
+					{% elseif IsLabinBuild %}
+						<span class="reason">{{ LNG.sys_buildlist_fail }}</span>
+					{% elseif IsFullQueue %}
+						<span class="reason">{{ LNG.bd_researclist_full }}</span>
+					{% elseif not Element.buyable %}
+						{{ b.missing(Element) }}
+					{% else %}
+						{% set canBuild = true %}
+					{% endif %}
+				{% endset %}
+
+				{% set action %}
+					{% if canBuild %}
+						<form action="{{ path('game_research_command') }}" method="post" class="build_form">
+							<input type="hidden" name="cmd" value="insert">
+							<input type="hidden" name="tech" value="{{ ID }}">
+							<button type="submit" class="colorPositive build_submit">{{ label }}</button>
+						</form>
+					{% elseif not atMax %}
+						{{ b.locked(label) }}
+					{% endif %}
+				{% endset %}
+
+				{{ b.card(ID, Element, {
+					domId: 't' ~ ID,
+					index: loop.index0,
+					locked: Element.fade,
+					queued: queued,
+					level: Element.level,
+					levelTo: Element.levelToBuild,
+					maxLevel: Element.maxLevel,
+					watch: watch_toggle,
+					extra: extra,
+					costs: not atMax,
+					note: note,
+					time: not atMax,
+					done: (not atMax and umode == 0) ? baseEnd + Element.elementTime : null,
+					action: action,
+					cls: blocked ? 'is-blocked' : null,
+				}) }}
 			{% endif %}
 		{% endfor %}
 	</div>

@@ -1,40 +1,32 @@
+{% import '_macros/ui.html.twig' as ui %}
 {% extends layout_template %}
 {% block title %}{{ LNG.ti_read }} - {{ LNG.lm_support }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set first = answerList|first %}
+{{ ui.page_head(LNG.ti_read ~ ' :: ' ~ (first.subject|default('')), 'life-buoy', first ? LNG.ti_category ~ ': ' ~ categoryList[first.categoryID] : null) }}
+{% endblock %}
 {% block content %}
-<form action="{{ path('game_ticket_send') }}" method="post" id="form" class="form-page">
+<form class="stack form-page" action="{{ path('game_ticket_send') }}" method="post" id="form">
 <input type="hidden" name="id" value="{{ ticketID }}">
-<table class="form-table">
-	{% for answerID, answerRow in answerList %}	
-	{% if loop.first %}
-	<tr>
-		<th colspan="2">{{ LNG.ti_read }} :: {{ answerRow.subject }}</th>
-	</tr>
-	{% endif %}
-	<tr>
-		<td class="left" colspan="2">
-			{{ LNG.ti_msgtime }} <b>{{ answerRow.time }}</b> {{ LNG.ti_from }} <b>{{ answerRow.ownerName }}</b>
-			{% if loop.first %}
-				<br>{{ LNG.ti_category }}: {{ categoryList[answerRow.categoryID] }}
-			{% endif %}
-			<hr>
-			<p>
-				{{ answerRow.message|nl2br }}
-			</p>
-		</td>
-	</tr>
-	{% endfor %}
-	{% if status < 2 %}
-	<tr>
-		<th colspan="2">{{ LNG.ti_answer }}</th>
-	</tr>
-	<tr>
-		<td><label for="message">{{ LNG.ti_message }}</label></td>
-		<td><textarea required id="message" name="message" class="ticket-message"></textarea></td>
-	</tr>
-	<tr>
-		<td colspan="2" class="form-actions"><input type="submit" value="{{ LNG.ti_submit }}"></td>
-	</tr>
-	{% endif %}
-</table>
+{% for answerID, answerRow in answerList %}
+<section class="panel">
+	<header class="panel__head"><h2>{{ answerRow.ownerName }}</h2><time class="mono">{{ answerRow.time }}</time></header>
+	<div class="panel__body">{{ answerRow.message|nl2br }}</div>
+</section>
+{% endfor %}
+{% if status < 2 %}
+<section class="panel">
+	{{ ui.panel_head(LNG.ti_answer) }}
+	<table class="form-table">
+		<tr>
+			<td><label for="message">{{ LNG.ti_message }}</label></td>
+			<td><textarea required id="message" name="message" class="ticket-message"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="form-actions"><input type="submit" value="{{ LNG.ti_submit }}"></td>
+		</tr>
+	</table>
+</section>
+{% endif %}
 </form>
 {% endblock %}

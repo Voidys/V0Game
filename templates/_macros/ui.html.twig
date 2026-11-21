@@ -1,0 +1,20 @@
+{#
+  Layout building blocks of the game content area (public/styles/resource/css/app/ui.css, docs/ui-layout.md).
+  {% import '_macros/ui.html.twig' as ui %}
+#}
+
+{# Page header: first block of every page. meta and actions are optional (actions = already rendered HTML). #}
+{% macro page_head(title, iconName = null, meta = null, actions = null) %}
+<header class="page-head">
+  <div>
+    <h1 class="page-head__title">{% if iconName %}{{ icon(iconName) }}{% endif %}<span>{{ title }}</span></h1>
+    {% if meta %}<p class="page-head__meta">{{ meta }}</p>{% endif %}
+  </div>
+  {% if actions %}<div class="page-head__actions">{{ actions }}</div>{% endif %}
+</header>
+{% endmacro %}
+
+{# Panel title bar; aside = optional right-hand content (count, link), already rendered HTML. #}
+{% macro panel_head(title, aside = null) %}
+<header class="panel__head"><h2>{{ title }}</h2>{% if aside %}<span>{{ aside }}</span>{% endif %}</header>
+{% endmacro %}

@@ -77,7 +77,7 @@
 	<nav class="cr-actions" aria-label="{{ LNG.cr_actions|e('html_attr') }}">
 		{% if actions.debris > 0 %}<a class="button" href="{{ path('game_fleet_table_show', {galaxy: actions.galaxy, system: actions.system, planet: actions.planet, planettype: 2, target_mission: 8}) }}">{{ icon('refresh-cw') }}{{ LNG.type_mission_8 }}</a>{% endif %}
 		{% if not actions.moon %}<a class="button" href="{{ path('game_fleet_table_show', {galaxy: actions.galaxy, system: actions.system, planet: actions.planet, planettype: actions.type, target_mission: 1}) }}">{{ icon('swords') }}{{ LNG.cr_attack_again }}</a>{% endif %}
-		<a class="button" href="{{ path('game_galaxy_show', {galaxy: actions.galaxy, system: actions.system}) }}">{{ icon('orbit') }}{{ LNG.pl_galaxy_view }}</a>
+		<a class="button" href="{{ path('game_galaxy_show', {galaxy: actions.galaxy, system: actions.system}) }}">{{ icon('galaxy') }}{{ LNG.pl_galaxy_view }}</a>
 		<a class="button" href="{{ path('game_battle_simulator_show', actions.sim) }}">{{ icon('crosshair') }}{{ LNG.cr_simulate }}</a>
 	</nav>
 	{% endif %}

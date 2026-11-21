@@ -1,22 +1,28 @@
 {% import '_macros/community.html.twig' as c -%}
 {% extends layout_template %}
 {% block content %}
-<table id="resulttable">
-	<tr>
-		<th>{{ LNG.sh_tag }}</th>
-		<th>{{ LNG.sh_name }}</th>
-		<th class="num">{{ LNG.sh_members }}</th>
-		<th class="num">{{ LNG.sh_points }}</th>
-	</tr>
-	{% for searchRow in searchList %}
-	<tr>
-		<td><a href="{{ path('game_alliance_info', {id: searchRow.allyid}) }}">{{ searchRow.allytag }}</a></td>
-		<td>{{ searchRow.allyname }}</td>
-		<td class="num">{{ searchRow.allymembers }}</td>
-		<td class="num">{{ searchRow.allypoints }}</td>
-	</tr>
-	{% else %}
-	{{ c.empty_row(4, LNG.sh_no_alliances, null) }}
-	{% endfor %}
-</table>
+<section class="panel panel--flush">
+	<table class="data" id="resulttable">
+		<thead>
+			<tr>
+				<th>{{ LNG.sh_tag }}</th>
+				<th>{{ LNG.sh_name }}</th>
+				<th class="num">{{ LNG.sh_members }}</th>
+				<th class="num">{{ LNG.sh_points }}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for searchRow in searchList %}
+			<tr>
+				<td><a href="{{ path('game_alliance_info', {id: searchRow.allyid}) }}">{{ searchRow.allytag }}</a></td>
+				<td>{{ searchRow.allyname }}</td>
+				<td class="num">{{ searchRow.allymembers }}</td>
+				<td class="num">{{ searchRow.allypoints }}</td>
+			</tr>
+		{% else %}
+			{{ c.empty_row(4, LNG.sh_no_alliances, null) }}
+		{% endfor %}
+		</tbody>
+	</table>
+</section>
 {% endblock %}

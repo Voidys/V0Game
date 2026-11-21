@@ -1179,6 +1179,7 @@ ov_fleetbutton_show: Einblenden
 ov_free: Frei
 ov_have_new_message: Du hast eine neue Nachricht
 ov_have_new_messages: Du hast %d neue Nachrichten
+ov_queues: Aufträge
 ov_max_developed_fields: Felder gesamt
 ov_moon: Mond
 ov_newname_done: Planet umbenannt!
@@ -1517,6 +1518,9 @@ user_level_3: Administrator
 whenbuildable: Möglich in
 write_message: Nachricht schreiben
 ui_skip_to_content: Zum Inhalt springen
+ui_watch: Beobachten
+ui_unwatch: Nicht mehr beobachten
+ui_message_tools: Suche, Filter und Aktionen
 ui_menu: Menü
 ui_rank: Platz
 ui_queue: Bauschleife
@@ -1684,3 +1688,37 @@ op_unsaved_one: "1 ungespeicherte Änderung"
 op_unsaved_many: "%d ungespeicherte Änderungen"
 pl_note: "Notiz"
 pl_galaxy_view: "In der Galaxie zeigen"
+shell_jump: "Springe zu…"
+shell_jump_tip: "Zu Seite, Planet oder Koordinaten springen"
+shell_switch_planet: "Planet wechseln"
+shell_switch_to: "Wechseln zu %s"
+shell_moon_of: "Mond von %s"
+shell_fields: "Felder"
+shell_slots_tip: "%1 von %2 Planetenplätzen belegt"
+shell_shortcuts: "Tastenkürzel"
+shell_shortcuts_title: "Tastenkürzel"
+shell_attack_title: "Feindliche Flotte im Anflug auf"
+shell_attack_arrives: "Ankunft in"
+shell_attack_in: "Angriff in"
+shell_attack_fleet: "Flotte"
+shell_attack_details: "Details"
+shell_attack_hide: "Warnung ausblenden"
+shell_tagline: "Open-Source-Weltraumstrategie im Browser."
+shell_footer: "Fußzeile"
+shell_footer_game: "Spiel"
+shell_footer_community: "Community"
+shell_footer_legal: "Rechtliches"
+shell_imprint: "Impressum"
+ui_palette_placeholder: "Seiten, Planeten, Koordinaten (z. B. 1:42:8)…"
+ui_palette_empty: "Keine Treffer"
+ui_palette_pages: "Seiten"
+ui_palette_planets: "Planeten"
+ui_palette_go: "Gehe zu"
+ui_palette_galaxy: "Galaxie"
+ui_shortcuts_title: "Tastenkürzel"
+ui_shortcuts_palette: "Zu Seite, Planet oder Koordinaten springen"
+ui_shortcuts_go_overview: "Übersicht"
+ui_shortcuts_go_buildings: "Gebäude"
+ui_shortcuts_go_galaxy: "Galaxie"
+ui_shortcuts_planets: "Vorheriger / nächster Planet"
+ui_shortcuts_help: "Diese Hilfe"

@@ -1,42 +1,40 @@
+{% import '_macros/ui.html.twig' as ui -%}
+{% macro pager(page, maxPage) %}
+<nav class="toolbar" aria-label="{{ LNG.mg_page }}"><span>{{ LNG.mg_page }}:</span>{% if page != 1 %}<a href="{{ path('game_ban_list_show', {side: page - 1}) }}">&laquo;</a>{% endif %}{% if maxPage >= 1 %}<span class="segmented">{% for site in 1..maxPage %}<a href="{{ path('game_ban_list_show', {side: site}) }}"{% if site == page %} aria-current="page"{% endif %}>{{ site }}</a>{% endfor %}</span>{% endif %}{% if page != maxPage %}<a href="{{ path('game_ban_list_show', {side: page + 1}) }}">&raquo;</a>{% endif %}</nav>
+{% endmacro %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_banned }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_banned, 'ban', LNG.bn_players_banned_list) }}{% endblock %}
 {% block content %}
-<div class="table-scroll">
-<table>
-	<tr>
-		<th colspan="5">{{ LNG.bn_players_banned_list }}</th>
-	</tr>
-	<tr>
-		<th>{{ LNG.bn_from }}</th>
-		<th>{{ LNG.bn_until }}</th>
-		<th>{{ LNG.bn_player }}</th>
-		<th>{{ LNG.bn_by }}</th>
-		<th>{{ LNG.bn_reason }}</th>
-	</tr>
+{% if banCount %}{{ _self.pager(page, maxPage) }}{% endif %}
+<section class="panel panel--flush">
 	{% if banCount %}
-	<tr>
-		<td class="right" colspan="5">{{ LNG.mg_page }}: {% if page != 1 %}<a href="{{ path('game_ban_list_show', {side: page - 1}) }}">&laquo;</a>&nbsp;{% endif %}{% if (maxPage) >= (1) %}{% for site in 1..maxPage %}<a href="{{ path('game_ban_list_show', {side: site}) }}">{% if site == page %}<b>[{{ site }}]</b>{% else %}[{{ site }}]{% endif %}</a>{% if site != maxPage %}&nbsp;{% endif %}{% endfor %}{% endif %}{% if page != maxPage %}&nbsp;<a href="{{ path('game_ban_list_show', {side: page + 1}) }}">&raquo;</a>{% endif %}</td>
-	</tr>
-	{% for banRow in banList %}
-	<tr>
-		<td>{{ banRow.from }}</td>
-		<td>{{ banRow.to }}</td>
-		<td>{{ banRow.player }}</td>
-		<td><a href="mailto:{{ banRow.mail }}" title="{{ banRow.info }}">{{ banRow.admin }}</a></td>
-		<td>{{ banRow.theme }}</td>
-	</tr>
-	{% endfor %}
-	<tr>
-		<td class="right" colspan="5">{{ LNG.mg_page }}: {% if page != 1 %}<a href="{{ path('game_ban_list_show', {side: page - 1}) }}">&laquo;</a>&nbsp;{% endif %}{% if (maxPage) >= (1) %}{% for site in 1..maxPage %}<a href="{{ path('game_ban_list_show', {side: site}) }}">{% if site == page %}<b>[{{ site }}]</b>{% else %}[{{ site }}]{% endif %}</a>{% if site != maxPage %}&nbsp;{% endif %}{% endfor %}{% endif %}{% if page != maxPage %}&nbsp;<a href="{{ path('game_ban_list_show', {side: page + 1}) }}">&raquo;</a>{% endif %}</td>
-	</tr>
-	<tr>
-		<td colspan="5">{{ LNG.bn_exists }}{{ pretty_number(banCount) }}{{ LNG.bn_players_banned }}</td>
-	</tr>
+	<table class="data">
+		<thead>
+			<tr>
+				<th>{{ LNG.bn_from }}</th>
+				<th>{{ LNG.bn_until }}</th>
+				<th>{{ LNG.bn_player }}</th>
+				<th>{{ LNG.bn_by }}</th>
+				<th>{{ LNG.bn_reason }}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for banRow in banList %}
+			<tr>
+				<td>{{ banRow.from }}</td>
+				<td>{{ banRow.to }}</td>
+				<td>{{ banRow.player }}</td>
+				<td><a href="mailto:{{ banRow.mail }}" title="{{ banRow.info }}">{{ banRow.admin }}</a></td>
+				<td>{{ banRow.theme }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	<div class="panel__foot">{{ LNG.bn_exists }}{{ pretty_number(banCount) }}{{ LNG.bn_players_banned }}</div>
 	{% else %}
-	<tr>
-		<td colspan="5" class="empty-state-cell"><div class="empty-state"><p>{{ LNG.bn_no_players_banned }}</p></div></td>
-	</tr>
+	<p class="empty">{{ LNG.bn_no_players_banned }}</p>
 	{% endif %}
-</table>
-</div>
+</section>
+{% if banCount %}{{ _self.pager(page, maxPage) }}{% endif %}
 {% endblock %}

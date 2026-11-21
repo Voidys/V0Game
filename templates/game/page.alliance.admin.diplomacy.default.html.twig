@@ -1,96 +1,83 @@
-{% import '_macros/community.html.twig' as c -%}
+{% import '_macros/ui.html.twig' as ui %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}<a class="btn" href="{{ path('game_alliance_admin') }}">{{ icon('arrow-left') }} {{ LNG.al_back }}</a>{% endset %}
+{{ ui.page_head(LNG.al_diplo_head, 'handshake', LNG.al_diplo_info, actions) }}
+{% endblock %}
 {% block content %}
-{{ c.breadcrumb([{label: LNG.lm_alliance, url: path('game_alliance_show')}, {label: LNG.al_manage_alliance, url: path('game_alliance_admin')}, {label: LNG.al_manage_diplo}]) }}
-<table>
-	<tr>
-		<th colspan="2">{{ LNG.al_diplo_head }}</th>
-	</tr>
-	<tr>
-		<td colspan="2">{{ LNG.al_diplo_info }}</td>
-	</tr>
-	{% for diploMode, diploAlliances in diploList[0] %}	
-	<tr>
-		<th colspan="2">{{ LNG.al_diplo_level[diploMode] }}</th>
-	</tr>
+{% for diploMode, diploAlliances in diploList[0] %}
+<section class="panel panel--flush">
+	<header class="panel__head"><h2>{{ LNG.al_diplo_level[diploMode] }}</h2>{% if diploMode != constant('App\\Game\\Enum\\DiploType::Main').value %}<a href="{{ path('game_alliance_admin_diplomacy_create', {diploMode: diploMode}) }}" data-dialog="" data-dialog-width="650">{{ icon('plus') }} {{ LNG.al_diplo_create }}</a>{% endif %}</header>
+	{% if diploAlliances %}
+	<table class="data">
+		<tbody>
 		{% for diploID, diploName in diploAlliances %}
 		<tr>
 			<td>{{ diploName }}</td>
 			<td class="act">
 				{% if diploMode == constant('App\\Game\\Enum\\DiploType::War').value %}
-				<a href="{{ path('game_alliance_admin_diplomacy_create', {diploMode: constant('App\\Game\\Enum\\DiploType::Peace').value, id: diploID}) }}" data-dialog="" data-dialog-width="650"><img class="inline" src="styles/resource/images/false.webp" alt="" width="16" height="16"></a>
+				<a class="btn btn-sm" href="{{ path('game_alliance_admin_diplomacy_create', {diploMode: constant('App\\Game\\Enum\\DiploType::Peace').value, id: diploID}) }}" data-dialog="" data-dialog-width="650" title="{{ LNG.al_diplo_create|e('html_attr') }}">{{ icon('x', LNG.al_diplo_create) }}</a>
 				{% else %}
-				<a data-method="post" href="{{ path('game_alliance_admin_diplomacy_delete', {id: diploID}) }}" data-confirm-danger data-confirm="{{ LNG.al_diplo_confirm_delete|e('html_attr') }}"><img class="inline" src="styles/resource/images/false.webp" alt="" width="16" height="16"></a>
+				<a class="btn btn-sm" data-method="post" href="{{ path('game_alliance_admin_diplomacy_delete', {id: diploID}) }}" data-confirm-danger data-confirm="{{ LNG.al_diplo_confirm_delete|e('html_attr') }}" title="{{ LNG.al_diplo_confirm_delete|e('html_attr') }}">{{ icon('x', LNG.al_diplo_confirm_delete) }}</a>
 				{% endif %}
 			</td>
 		</tr>
-		{% else %}
-		<tr>
-			<td colspan="2">{{ LNG.al_diplo_no_entry }}</td>
-		</tr>
 		{% endfor %}
-	{% if diploMode != constant('App\\Game\\Enum\\DiploType::Main').value %}
-	<tr>
-		<td colspan="2">
-			<a href="{{ path('game_alliance_admin_diplomacy_create', {diploMode: diploMode}) }}" data-dialog="" data-dialog-width="650">{{ LNG.al_diplo_create }}</a>
-		</td>
-	</tr>
-	{% endif %}
-	{% endfor %}
+		</tbody>
 	</table>
-<table>
-	<tr>
-		<th colspan="2">{{ LNG.al_diplo_accept }}</th>
-	</tr>
+	{% else %}
+	<p class="empty">{{ LNG.al_diplo_no_entry }}</p>
+	{% endif %}
+</section>
+{% endfor %}
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.al_diplo_accept) }}
 	{% if array_filter(diploList[1]) %}
-		{% for diploMode, diploAlliances in diploList[1] %}	
+	<table class="data">
+		<tbody>
+		{% for diploMode, diploAlliances in diploList[1] %}
 		{% if diploAlliances %}
-		<tr>
-			<th colspan="2">{{ LNG.al_diplo_level[diploMode] }}</th>
-		</tr>
+		<tr><th colspan="2">{{ LNG.al_diplo_level[diploMode] }}</th></tr>
 		{% for diploID, diploName in diploAlliances %}
 		<tr>
 			<td>{{ diploName }}</td>
 			<td class="act">
-				<a data-method="post" href="{{ path('game_alliance_admin_diplomacy_accept', {id: diploID}) }}" data-confirm="{{ LNG.al_diplo_accept_yes_confirm|e('html_attr') }}"><img class="inline" src="styles/resource/images/true.webp" alt="" width="16" height="16"></a>
-				<a data-method="post" href="{{ path('game_alliance_admin_diplomacy_reject', {id: diploID}) }}" data-confirm="{{ LNG.al_diplo_accept_no_confirm|e('html_attr') }}"><img class="inline" src="styles/resource/images/false.webp" alt="" width="16" height="16"></a>
+				<a class="btn btn-sm" data-method="post" href="{{ path('game_alliance_admin_diplomacy_accept', {id: diploID}) }}" data-confirm="{{ LNG.al_diplo_accept_yes_confirm|e('html_attr') }}" title="{{ LNG.al_diplo_accept_yes_confirm|e('html_attr') }}">{{ icon('check', LNG.al_diplo_accept_yes_confirm) }}</a>
+				<a class="btn btn-sm" data-method="post" href="{{ path('game_alliance_admin_diplomacy_reject', {id: diploID}) }}" data-confirm="{{ LNG.al_diplo_accept_no_confirm|e('html_attr') }}" title="{{ LNG.al_diplo_accept_no_confirm|e('html_attr') }}">{{ icon('x', LNG.al_diplo_accept_no_confirm) }}</a>
 			</td>
 		</tr>
 		{% endfor %}
 		{% endif %}
 		{% endfor %}
-	{% else %}
-	<tr>
-		<td colspan="2">{{ LNG.al_diplo_no_accept }}</td>
-	</tr>	
-	{% endif %}
+		</tbody>
 	</table>
-<table>
-	<tr>
-		<th colspan="2">{{ LNG.al_diplo_accept_send }}</th>
-	</tr>
+	{% else %}
+	<p class="empty">{{ LNG.al_diplo_no_accept }}</p>
+	{% endif %}
+</section>
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.al_diplo_accept_send) }}
 	{% if array_filter(diploList[2]) %}
-		{% for diploMode, diploAlliances in diploList[2] %}	
+	<table class="data">
+		<tbody>
+		{% for diploMode, diploAlliances in diploList[2] %}
 		{% if diploAlliances %}
-		<tr>
-			<th colspan="2">{{ LNG.al_diplo_level[diploMode] }}</th>
-		</tr>
+		<tr><th colspan="2">{{ LNG.al_diplo_level[diploMode] }}</th></tr>
 		{% for diploID, diploName in diploAlliances %}
 		<tr>
 			<td>{{ diploName }}</td>
 			<td class="act">
-				<a data-method="post" href="{{ path('game_alliance_admin_diplomacy_delete', {id: diploID}) }}" data-confirm-danger data-confirm="{{ LNG.al_diplo_withdraw_confirm|e('html_attr') }}"><img class="inline" src="styles/resource/images/false.webp" alt="" width="16" height="16"></a>
+				<a class="btn btn-sm" data-method="post" href="{{ path('game_alliance_admin_diplomacy_delete', {id: diploID}) }}" data-confirm-danger data-confirm="{{ LNG.al_diplo_withdraw_confirm|e('html_attr') }}" title="{{ LNG.al_diplo_withdraw_confirm|e('html_attr') }}">{{ icon('x', LNG.al_diplo_withdraw_confirm) }}</a>
 			</td>
 		</tr>
 		{% endfor %}
 		{% endif %}
 		{% endfor %}
-	{% else %}
-	<tr>
-		<td colspan="2">{{ LNG.al_diplo_no_accept }}</td>
-	</tr>	
-	{% endif %}
+		</tbody>
 	</table>
-{{ c.back(path('game_alliance_admin'), LNG.al_back) }}
+	{% else %}
+	<p class="empty">{{ LNG.al_diplo_no_accept }}</p>
+	{% endif %}
+</section>
 {% endblock %}

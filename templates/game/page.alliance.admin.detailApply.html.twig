@@ -1,289 +1,121 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
+{# lock marker for stats the applicant's espionage level hides #}
+{% macro lock(text) %}<span title="{{ text|e('html_attr') }}">{{ icon('lock') }}</span> {% endmacro %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.format('al_request_from', name), 'user-plus', apply_time) }}{% endblock %}
 {% block content %}
-
-	<table>
-	<tr>
-		<th colspan="5">{{ LNG.format('al_request_from', name) }} {{ apply_time }}</th>
-	</tr>
-	<tr>
-		<td colspan="2">{{ LNG.pl_name }}</td>
-		<td colspan="3">{{ name }}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{{ LNG.pl_homeplanet }}</td>
-		<td colspan="3">{{ homeplanet }} <a href="{{ path('game_galaxy_show', {galaxy: galaxy, system: system}) }}">[{{ galaxy }}:{{ system }}:{{ planet }}]</a></td>
-	</tr>
-	<tr>
-		<td colspan="2">{{ LNG.al_request_register_time }}</td>
-		<td colspan="3">{{ register_time }}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{{ LNG.al_request_last_onlinetime }}</td>
-		<td colspan="3">{{ onlinetime }}</td>
-	</tr>
-	<tr>
-		<th colspan="2">&nbsp;</th>
-		<th class="num">{{ LNG.pl_points }}</th>
-		<th class="num">%</th>
-		<th class="num">{{ LNG.pl_range }}</th>
-	</tr>
-	<tr>
-		{% if showBuild == true %}
-			<td></td>
-			<td>{{ LNG.pl_builds }}</td>
-			<td class="num">{{ build_points }}</td>
-			<td class="num">{{ build_percent }}%</td>
-			<td class="num">{{ build_rank }}</td>
-		{% else %}
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level2 }}</span></div></td>
-			<td colspan="1">{{ LNG.pl_builds }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
+{% set pointRows = [
+	[LNG.pl_builds, showBuild, LNG.spytech_playercard.level2, build_points, build_percent, build_rank],
+	[LNG.pl_tech, showTech, LNG.spytech_playercard.level4, tech_points, tech_percent, tech_rank],
+	[LNG.pl_fleet, showFleet, LNG.spytech_playercard.level6, fleet_points, fleet_percent, fleet_rank],
+	[LNG.pl_def, showDef, LNG.spytech_playercard.level6, defs_points, defs_percent, defs_rank],
+] %}
+{% set lockText = LNG.spytech_playercard.level6 %}
+{% set fightRows = [
+	[LNG.pl_fightwon, wons, siegprozent ~ '%'],
+	[LNG.pl_fightdraw, draws, drawsprozent ~ '%'],
+	[LNG.pl_fightlose, loos, loosprozent ~ '%'],
+	[LNG.pl_totalfight, totalfights, '100%'],
+] %}
+{% set destroyRows = [
+	[playerdestory, [[LNG.pl_unitsshot, desunits], [LNG.pl_unitslose, lostunits], [LNG.pl_dermetal, kbmetal], [LNG.pl_dercrystal, kbcrystal]]],
+	[realdestory, [[LNG.pl_unitsshot, realdesunits], [LNG.pl_unitslose, reallostunits], [LNG.pl_dermetal, realmetal], [LNG.pl_dercrystal, realcrystal]]],
+] %}
+<div class="grid-2">
+	<div class="stack">
+		<section class="panel panel--flush">
+			{{ ui.panel_head(LNG.pl_points) }}
+			<table class="data">
+				<thead><tr>
+					<th>&nbsp;</th>
+					<th class="num">{{ LNG.pl_points }}</th>
+					<th class="num">%</th>
+					<th class="num">{{ LNG.pl_range }}</th>
+				</tr></thead>
+				<tbody>
+				{% for row in pointRows %}
+				<tr>
+					<td>{% if not row[1] %}{{ _self.lock(row[2]) }}{% endif %}{{ row[0] }}</td>
+					{% if row[1] %}
+					<td class="num">{{ row[3] }}</td>
+					<td class="num">{{ row[4] }}%</td>
+					<td class="num">{{ row[5] }}</td>
+					{% else %}
+					<td class="num">-</td>
+					<td colspan="2"></td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+				<tr>
+					<td><b>{{ LNG.pl_total }}</b></td>
+					<td class="num">{{ total_points }}</td>
+					<td class="num">100%</td>
+					<td class="num">{{ total_rank }}</td>
+				</tr>
+				</tbody>
+			</table>
+		</section>
+		<section class="panel panel--flush">
+			{{ ui.panel_head(LNG.pl_fightstats) }}
+			<table class="data">
+				<thead><tr>
+					<th>&nbsp;</th>
+					<th class="num">{{ LNG.pl_fights }}</th>
+					<th class="num">{{ LNG.pl_fprocent }}</th>
+				</tr></thead>
+				<tbody>
+				{% for row in fightRows %}
+				<tr>
+					<td>{% if not showBattle %}{{ _self.lock(lockText) }}{% endif %}{{ row[0] }}</td>
+					<td class="num">{% if showBattle %}{{ row[1] }}{% else %}-{% endif %}</td>
+					<td class="num">{% if showBattle %}{{ row[2] }}{% endif %}</td>
+				</tr>
+				{% endfor %}
+				{% for group in destroyRows %}
+				<tr><th colspan="3">{{ group[0] }}:</th></tr>
+				{% for row in group[1] %}
+				<tr>
+					<td>{% if not showBattle %}{{ _self.lock(lockText) }}{% endif %}{{ row[0] }}</td>
+					<td class="num">{% if showBattle %}{{ row[1] }}{% else %}-{% endif %}</td>
+					<td></td>
+				</tr>
+				{% endfor %}
+				{% endfor %}
+				</tbody>
+			</table>
+		</section>
+	</div>
+	<div class="stack">
+		<section class="panel">
+			{{ ui.panel_head(LNG.pl_name) }}
+			<div class="panel__body">
+				<dl class="kv">
+					<dt>{{ LNG.pl_name }}</dt><dd>{{ name }}</dd>
+					<dt>{{ LNG.pl_homeplanet }}</dt><dd>{{ homeplanet }} <a class="mono" href="{{ path('game_galaxy_show', {galaxy: galaxy, system: system}) }}">[{{ galaxy }}:{{ system }}:{{ planet }}]</a></dd>
+					<dt>{{ LNG.al_request_register_time }}</dt><dd>{{ register_time }}</dd>
+					<dt>{{ LNG.al_request_last_onlinetime }}</dt><dd>{{ onlinetime }}</dd>
+				</dl>
+			</div>
+		</section>
+		{% if applyDetail.text is not empty %}
+		<section class="panel">
+			{{ ui.panel_head(LNG.al_message) }}
+			<div class="panel__body">{{ applyDetail.text }}</div>
+		</section>
 		{% endif %}
-	</tr>
-	<tr>
-		{% if showTech == true %}
-			<td></td>
-			<td>{{ LNG.pl_tech }}</td>
-			<td class="num">{{ tech_points }}</td>
-			<td class="num">{{ tech_percent }}%</td>
-			<td class="num">{{ tech_rank }}</td>
-		{% else %}
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level4 }}</span></div></td>
-			<td colspan="1">{{ LNG.pl_tech }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		{% endif %}
-	</tr>
-	<tr>
-		{% if showFleet == true %}
-			<td></td>
-			<td>{{ LNG.pl_fleet }}</td>
-			<td class="num">{{ fleet_points }}</td>
-			<td class="num">{{ fleet_percent }}%</td>
-			<td class="num">{{ fleet_rank }}</td>
-		{% else %}
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td colspan="1">{{ LNG.pl_fleet }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		{% endif %}
-	</tr>
-	<tr>
-		{% if showDef == true %}
-			<td></td>
-			<td>{{ LNG.pl_def }}</td>
-			<td class="num">{{ defs_points }}</td>
-			<td class="num">{{ defs_percent }}%</td>
-			<td class="num">{{ defs_rank }}</td>
-		{% else %}
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td colspan="1">{{ LNG.pl_def }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		{% endif %}
-	</tr>
-	<tr>
-		<td colspan="2">{{ LNG.pl_total }}</td>
-		<td class="num">{{ total_points }}</td>
-		<td class="num">100%</td>
-		<td class="num">{{ total_rank }}</td>
-	</tr>
-	<tr>
-		<th colspan="5">{{ LNG.pl_fightstats }}</th>
-	</tr>
-	<tr>
-		<td colspan="2">&nbsp;</td>
-		<td class="num">{{ LNG.pl_fights }}</td>
-		<td class="num">{{ LNG.pl_fprocent }}</td>
-		<td></td>
-	</tr>
-	{% if showBattle == true %}
+	</div>
+</div>
+<form class="panel" action="{{ path('game_alliance_admin_answer_apply', {id: applyDetail.applyID}) }}" method="post">
+	{{ ui.panel_head(LNG.al_reply_to_request) }}
+	<table class="form-table">
 		<tr>
-			<td></td>
-			<td>{{ LNG.pl_fightwon }}</td>
-			<td class="num">{{ wons }}</td>
-			<td class="num">{{ siegprozent }}%</td>
-			<td></td>
+			<td colspan="2"><textarea name="text" rows="10" class="tinymce" id="message" aria-label="{{ LNG.al_reply_to_request|e('html_attr') }}"></textarea></td>
 		</tr>
 		<tr>
-			<td></td>
-			<td>{{ LNG.pl_fightdraw }}</td>
-			<td class="num">{{ draws }}</td>
-			<td class="num">{{ drawsprozent }}%</td>
-			<td></td>
+			<td colspan="2" class="form-actions"><input hidden name="answer"> <button value="yes" type="submit" class="btn--primary" data-action="set-field" data-field="answer">{{ LNG.al_acept_request }}</button> <button value="no" type="submit" class="btn--danger" data-action="set-field" data-field="answer">{{ LNG.al_decline_request }}</button></td>
 		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_fightlose }}</td>
-			<td class="num">{{ loos }}</td>
-			<td class="num">{{ loosprozent }}%</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_totalfight }}</td>
-			<td class="num">{{ totalfights }}</td>
-			<td class="num">100%</td>
-			<td></td>
-		</tr>
-		<tr>
-			<th colspan="5">{{ playerdestory }}:</th>
-		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_unitsshot }}</td>
-			<td class="num">{{ desunits }}</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_unitslose }}</td>
-			<td class="num">{{ lostunits }}</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_dermetal }}</td>
-			<td class="num">{{ kbmetal }}</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_dercrystal }}</td>
-			<td class="num">{{ kbcrystal }}</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<th colspan="5">{{ realdestory }}:</th>
-		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_unitsshot }}</td>
-			<td class="num">{{ realdesunits }}</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_unitslose }}</td>
-			<td class="num">{{ reallostunits }}</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_dermetal }}</td>
-			<td class="num">{{ realmetal }}</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>{{ LNG.pl_dercrystal }}</td>
-			<td class="num">{{ realcrystal }}</td>
-			<td colspan="2"></td>
-		</tr>
-	{% else %}
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td colspan="1">{{ LNG.pl_fightwon }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td colspan="1">{{ LNG.pl_fightdraw }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td colspan="1">{{ LNG.pl_fightlose }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td colspan="1">{{ LNG.pl_totalfight }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<th colspan="5">{{ playerdestory }}:</th>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td>{{ LNG.pl_unitsshot }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td>{{ LNG.pl_unitslose }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td>{{ LNG.pl_dermetal }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td>{{ LNG.pl_dercrystal }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<th colspan="5">{{ realdestory }}:</th>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td>{{ LNG.pl_unitsshot }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td>{{ LNG.pl_unitslose }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td>{{ LNG.pl_dermetal }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-		<tr>
-			<td><div class="tooltip1"><img src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div></td>
-			<td>{{ LNG.pl_dercrystal }}</td>
-			<td class="num">-</td>
-			<td colspan="2"></td>
-		</tr>
-	{% endif %}
-	{% if applyDetail.text is not empty %}
-	<tr>
-		<th colspan="5">{{ LNG.al_message }}</th>
-	</tr>
-	<tr>
-		<td colspan="5">{{ applyDetail.text }}</td>
-	</tr>
-	{% endif %}
 	</table>
-<br>
-<form action="{{ path('game_alliance_admin_answer_apply', {id: applyDetail.applyID}) }}" method="post">
-<table class="form-table">
-	<tr>
-		<th colspan="2"><label for="message">{{ LNG.al_reply_to_request }}</label></th>
-	</tr>
-	<tr>
-		<td colspan="2"><textarea name="text" rows="10" class="tinymce" id="message"></textarea></td>
-	</tr>
-	<tr>
-
-		<td colspan="2" class="form-actions"><input hidden name="answer"> <button  value="yes" type="submit" data-action="set-field" data-field="answer">{{ LNG.al_acept_request }}</button> <button  value="no"   type="submit" data-action="set-field" data-field="answer">{{ LNG.al_decline_request }}</button></td>
-	</tr>
-	</table>
-  <script type="module" src="./scripts/game/alliance.js?v={{ asset_version }}"></script>
+</form>
+<script type="module" src="./scripts/game/alliance.js?v={{ asset_version }}"></script>
 {% endblock %}

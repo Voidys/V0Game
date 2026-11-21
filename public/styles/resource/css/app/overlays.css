@@ -1,0 +1,136 @@
+/* Overlays of the game area: tooltip bubble, popovers, command palette, shortcut sheet, toasts, dialog transitions. Layer "components". */
+@layer components {
+  /* ---------------------------------------------------------------- bubble (plain-text hints) */
+  .bubble {
+    position: fixed; z-index: 1200; max-inline-size: 18rem; pointer-events: none;
+    display: flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-1) var(--space-2); font-size: var(--fs-xs); line-height: 1.35; color: var(--c-text);
+    background: color-mix(in oklab, var(--c-panel-2) 92%, var(--c-text));
+    border: 1px solid var(--c-border-strong); border-radius: var(--r);
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 0.45);
+    opacity: 0; translate: 0 3px;
+    transition: opacity var(--t-fast) var(--ease), translate var(--t-fast) var(--ease);
+  }
+  .bubble.is-below { translate: 0 -3px; }
+  .bubble.is-on { opacity: 1; translate: 0 0; }
+  .bubble-kbd { display: inline-flex; gap: var(--space-1); }
+  kbd {
+    display: inline-block; padding: 0.0625rem 0.3rem; font: 600 var(--fs-xs)/1.4 var(--font-mono);
+    color: var(--c-muted); background: var(--c-bg-2); border: 1px solid var(--c-border-strong); border-radius: var(--r);
+  }
+  .bubble kbd { color: var(--c-text); font-size: 0.6875rem; }
+
+  /* rich tooltips (#tooltip, data-tooltip-content) belong to the same family */
+  .tip,
+  #tooltip {
+    background: var(--c-panel);
+    border: 1px solid var(--c-border-strong);
+    border-radius: var(--r);
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 0.45);
+    color: var(--c-text);
+  }
+
+  /* ---------------------------------------------------------------- popovers (native, animated in and out) */
+  .pop {
+    position: fixed; inset: auto; margin: 0; padding: 0; inline-size: 21rem; max-inline-size: calc(100vw - 1rem);
+    overflow-x: hidden; overflow-y: auto; max-block-size: calc(100dvh - var(--topbar-h, 4rem) - 1rem);
+    background: var(--c-panel); color: var(--c-text);
+    border: 1px solid var(--c-border-strong); border-radius: var(--r);
+    box-shadow: 0 1.25rem 3rem rgb(0 0 0 / 0.55);
+    opacity: 0; translate: 0 -6px; scale: 0.98; transform-origin: top right;
+    transition:
+      opacity var(--t-med) var(--ease-out), translate var(--t-med) var(--ease-out), scale var(--t-med) var(--ease-out),
+      overlay var(--t-med) allow-discrete, display var(--t-med) allow-discrete;
+  }
+  .pop:popover-open { opacity: 1; translate: 0 0; scale: 1; }
+  @starting-style { .pop:popover-open { opacity: 0; translate: 0 -6px; scale: 0.98; } }
+  @supports (anchor-name: --a) {
+    /* position-anchor is set per popover from popovers.js */
+    .pop { top: anchor(bottom); right: anchor(right); margin-block-start: var(--space-2); position-try-fallbacks: flip-inline; }
+  }
+  .pop-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-block-end: 1px solid var(--c-border); }
+  .pop-head > div { display: grid; margin-inline-end: auto; line-height: 1.3; }
+  .pop-foot {
+    display: flex; align-items: center; justify-content: center; gap: var(--space-1); padding: var(--space-3);
+    border-block-start: 1px solid var(--c-border); color: var(--c-muted);
+    transition: color var(--t-fast), background var(--t-fast);
+  }
+  .pop-foot:hover { color: var(--c-text); background: var(--c-panel-2); }
+  .pop-menu { inline-size: 15rem; }
+  .pop-menu > a, .pop-menu > button {
+    display: flex; align-items: center; gap: var(--space-3); inline-size: 100%;
+    padding: var(--space-2) var(--space-4); background: none; border: 0; border-radius: 0; text-align: start; cursor: pointer;
+    color: color-mix(in oklab, var(--c-text) 85%, var(--c-muted)); text-decoration: none;
+    transition: background var(--t-fast), color var(--t-fast);
+  }
+  .pop-menu > a:hover, .pop-menu > button:hover { background: var(--c-panel-2); color: var(--c-text); }
+  .pop-menu > a .icon, .pop-menu > button .icon { color: var(--c-muted); }
+  .pop-menu kbd { margin-inline-start: auto; }
+  .pop-menu hr { margin: var(--space-1) 0; border: 0; border-block-start: 1px solid var(--c-border); }
+  .pop-menu .pop-head { justify-content: flex-start; margin-block-end: var(--space-1); }
+
+  /* ---------------------------------------------------------------- dialogs: open/close transitions */
+  dialog:is(.modal, .overlay-dialog) {
+    opacity: 0; translate: 0 -8px;
+    transition: opacity var(--t-med) var(--ease-out), translate var(--t-med) var(--ease-out), overlay var(--t-med) allow-discrete, display var(--t-med) allow-discrete;
+  }
+  dialog:is(.modal, .overlay-dialog)[open] { opacity: 1; translate: 0 0; animation: none; }
+  @starting-style { dialog:is(.modal, .overlay-dialog)[open] { opacity: 0; translate: 0 -8px; } }
+  dialog:is(.modal, .overlay-dialog)::backdrop {
+    opacity: 0; transition: opacity var(--t-med), overlay var(--t-med) allow-discrete, display var(--t-med) allow-discrete;
+  }
+  dialog:is(.modal, .overlay-dialog)[open]::backdrop { opacity: 1; }
+  @starting-style { dialog:is(.modal, .overlay-dialog)[open]::backdrop { opacity: 0; } }
+
+  .overlay-dialog {
+    padding: 0; color: var(--c-text); background: var(--c-panel);
+    border: 1px solid var(--c-border-strong); border-radius: var(--r); box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 0.55);
+  }
+  .overlay-dialog::backdrop { background: rgb(2 4 6 / 0.6); backdrop-filter: blur(2px); }
+
+  /* ---------------------------------------------------------------- command palette */
+  .palette { inline-size: min(36rem, calc(100vw - 2rem)); margin-block-start: 14vh; margin-inline: auto; }
+  .palette-input { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-block-end: 1px solid var(--c-border); }
+  .palette-input .icon { color: var(--c-muted); }
+  .palette-input input {
+    flex: 1; min-inline-size: 0; block-size: auto; padding: 0; background: transparent; border: 0; box-shadow: none; outline: none;
+    color: inherit; font-size: var(--fs-lg);
+  }
+  .palette-list { max-block-size: 22rem; margin: 0; padding: var(--space-1); overflow-y: auto; list-style: none; }
+  .palette-list li { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-3); border-radius: var(--r); cursor: pointer; }
+  .palette-list li .icon { color: var(--c-muted); }
+  .palette-list li small { margin-inline-start: auto; color: var(--c-muted); font-family: var(--font-mono); font-size: var(--fs-xs); }
+  .palette-list li[aria-selected="true"] { background: var(--tint); }
+  .palette-list li[aria-selected="true"] .icon { color: var(--c-accent); }
+  .palette-list .group { padding: var(--space-3) var(--space-3) var(--space-1); font-size: var(--fs-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); cursor: default; }
+  .palette-list .palette-empty { justify-content: center; color: var(--c-muted); cursor: default; }
+
+  /* ---------------------------------------------------------------- shortcut sheet */
+  .sheet { inline-size: min(28rem, calc(100vw - 2rem)); margin-inline: auto; }
+  .sheet-title { margin: 0; padding: var(--space-3) var(--space-4); border-block-end: 1px solid var(--c-border); font-size: var(--fs-md); }
+  .shortcuts { display: grid; margin: 0; padding: var(--space-2) var(--space-4) var(--space-4); }
+  .shortcuts > div { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); padding-block: var(--space-2); }
+  .shortcuts > div + div { border-block-start: 1px solid var(--c-border); }
+  .shortcuts dt { margin: 0; }
+  .shortcuts dd { margin: 0; color: var(--c-muted); font-size: var(--fs-sm); text-align: end; }
+
+  /* ---------------------------------------------------------------- toasts (NotifyBox) */
+  .notify {
+    display: flex; align-items: center; gap: var(--space-3); min-inline-size: 16rem;
+    background: var(--c-panel-2); border: 1px solid var(--c-border-strong); border-radius: var(--r);
+    box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.45);
+    animation: toast-in var(--t-med) var(--ease-out);
+  }
+  .notify .icon { color: var(--c-accent); }
+  .notify .toast-action {
+    margin-inline-start: auto; padding: var(--space-1) var(--space-2); background: none; color: var(--c-text);
+    border: 1px solid var(--c-border-strong); border-radius: var(--r); font-size: var(--fs-xs); font-weight: 600; cursor: pointer;
+  }
+  .notify .toast-action:hover { border-color: var(--c-accent); color: var(--c-accent); }
+  @keyframes toast-in { from { opacity: 0; translate: 0 12px; scale: 0.96; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bubble, .pop, dialog:is(.modal, .overlay-dialog), dialog:is(.modal, .overlay-dialog)::backdrop { transition: none; translate: 0 0; scale: 1; }
+    .notify { animation: none; }
+  }
+}

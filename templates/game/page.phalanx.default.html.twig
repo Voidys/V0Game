@@ -1,3 +1,4 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.gl_phalanx }}{{ parent() }}{% endblock %}
 {% block content %}
@@ -96,24 +97,19 @@
 		color:{{ colors.colorStaticTimer }}
 	}
 </style>
-<table>
-<tr>
-	<th colspan="3">{{ LNG.ov_server_time }}: <span class="servertime">{{ servertime }}</span></th>
-</tr>
-<tr>
-    <th colspan="3">{{ LNG.px_scan_position }} [{{ galaxy }}:{{ system }}:{{ planet }}] ({{ name }})</th>
-</tr>
-<tr>
-    <th colspan="3">{{ LNG.px_fleet_movement }}</th>
-</tr>
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.px_scan_position ~ ' [' ~ galaxy ~ ':' ~ system ~ ':' ~ planet ~ '] (' ~ name ~ ')') }}
+	<div class="panel__head"><h2>{{ LNG.px_fleet_movement }}</h2><span>{{ LNG.ov_server_time }}: <span class="servertime">{{ servertime }}</span></span></div>
+	<table class="data">
 	{% for index, fleet in fleetTable %}
 	<tr>
-    <td data-time="{{ fleet.returntime }}" class="statictimer ctr"></td>
+		<td data-time="{{ fleet.returntime }}" class="statictimer ctr"></td>
 		<td id="fleettime_{{ index }}" class="fleets ctr" data-fleet-end-time="{{ fleet.returntime }}" data-fleet-time="{{ fleet.resttime }}">00:00:00</td>
 		<td>{{ fleet.text }}</td>
 	</tr>
 	{% else %}
-		<tr><td colspan="3" class="empty-state">{{ icon('radar') }}<p>{{ LNG.px_no_fleet }}</p></td></tr>
+		<tr><td colspan="3" class="empty">{{ icon('radar') }} {{ LNG.px_no_fleet }}</td></tr>
 	{% endfor %}
-</table>
+	</table>
+</section>
 {% endblock %}

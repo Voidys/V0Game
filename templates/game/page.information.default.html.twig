@@ -1,18 +1,19 @@
 {% extends layout_template %}
 {% block title %}{{ LNG.tech[elementID] }}{{ parent() }}{% endblock %}
 {% block content %}
+<div class="stack info-page">
 {% if head %}
-<div class="info-head">
+<header class="info-head">
 	<img class="info-head__img" src="{{ theme_asset('gebaeude/' ~ elementID ~ '.gif') }}" alt="{{ LNG.tech[elementID] }}" width="96" height="96">
 	<div class="info-head__body">
-		<h2 class="info-head__title">{{ LNG.tech[elementID] }}{% if head.level is not null %} <span class="info-head__level">({{ LNG.bd_lvl }} {{ head.level }})</span>{% endif %}</h2>
+		<h2 class="info-head__title">{{ LNG.tech[elementID] }}{% if head.level is not null %} <span class="lvl">{{ LNG.bd_lvl }} {{ head.level }}</span>{% endif %}</h2>
 		{% if head.costs %}
-			<div class="cost-list">{% for resID, amount in head.costs %}<span class="cost">{{ LNG.tech[resID] }}: <b>{{ pretty_number(amount) }}</b></span>{% endfor %}</div>
+			<dl class="cost-grid">{% for resID, amount in head.costs %}<div><dt>{{ LNG.tech[resID] }}</dt><dd>{{ pretty_number(amount) }}</dd></div>{% endfor %}</dl>
 		{% endif %}
 		{% if head.requirements %}
-			<ul class="info-head__req">
+			<ul class="card__reqs">
 				{% for requireID, need in head.requirements %}
-					<li class="{% if need.own < need.count %}colorNegative{% else %}colorPositive{% endif %}">{% if need.own < need.count %}&#10007;{% else %}&#10003;{% endif %} {{ LNG.tech[requireID] }} {{ need.count }} ({{ need.own }}/{{ need.count }})</li>
+					<li><span class="tag {% if need.own < need.count %}tag--neg{% else %}tag--pos{% endif %}">{% if need.own < need.count %}&#10007;{% else %}&#10003;{% endif %} {{ LNG.tech[requireID] }} {{ need.own }}/{{ need.count }}</span></li>
 				{% endfor %}
 			</ul>
 		{% endif %}
@@ -21,39 +22,31 @@
 		{% elseif head.page == 'shipyard' %}<a class="info-head__link" href="{{ path('game_shipyard_show', {kind: 'shipyard'}) }}">{{ LNG.lm_shipshard }} &rarr;</a>
 		{% else %}<a class="info-head__link" href="{{ path('game_shipyard_show', {kind: 'defense'}) }}">{{ LNG.lm_defenses }} &rarr;</a>{% endif %}
 	</div>
-</div>
+</header>
 {% endif %}
-<table>
-	<tbody>
-	{% if not head %}
-	<tr>
-		<th>{{ LNG.tech[elementID] }}</th>
-	</tr>
+<section class="panel">
+	{% if not head %}<header class="panel__head"><h2>{{ LNG.tech[elementID] }}</h2></header>{% endif %}
+	<div class="panel__body stack stack--tight">
+		<p>{{ LNG.longDescription[elementID] }}</p>
+		{% if elementID == 106 and spytechStatsEnabled == true %}<p>{{ LNG.spytechStatsDescription }}</p>{% endif %}
+		{% if elementID >= 22 and elementID <= 24 and isModuleAvailable(constant('MODULE_RESOURCE_STASH')) %}<p>{{ LNG.secureResources }}</p>{% endif %}
+		{% if FleetInfo %}
+			{% if FleetInfo.rapidfire.to or FleetInfo.rapidfire.from %}
+				<p class="hint">{{ LNG.in_rf_explanation }}</p>
+			{% endif %}
+		{% endif %}
+	</div>
+	{% if FleetInfo and (FleetInfo.rapidfire.to or FleetInfo.rapidfire.from) %}
+		<table class="data rapidfire-table">
+			{% for rapidfireID, shoots in FleetInfo.rapidfire.to %}
+				<tr><td>{{ LNG.in_rf_again }} {{ LNG.tech[rapidfireID] }}</td><td class="num colorPositive">{{ shoots }}%</td></tr>
+			{% endfor %}
+			{% for rapidfireID, shoots in FleetInfo.rapidfire.from %}
+				<tr><td>{{ LNG.in_rf_from }} {{ LNG.tech[rapidfireID] }}</td><td class="num colorNegative">{{ shoots }}%</td></tr>
+			{% endfor %}
+		</table>
 	{% endif %}
-	<tr>
-		<td>
-			<div class="transparent">
-						<p>{{ LNG.longDescription[elementID] }}</p>
-          				{% if elementID == 106 and spytechStatsEnabled == true %}<p>{{ LNG.spytechStatsDescription }}</p>{% endif %}
-          				{% if elementID >= 22 and elementID <= 24 and isModuleAvailable(constant('MODULE_RESOURCE_STASH')) %}<p>{{ LNG.secureResources }}</p>{% endif %}
-						{% if FleetInfo %}
-							{% if FleetInfo.rapidfire.to or FleetInfo.rapidfire.from %}
-								<p class="hint">{{ LNG.in_rf_explanation }}</p>
-								<table class="rapidfire-table">
-									{% for rapidfireID, shoots in FleetInfo.rapidfire.to %}
-										<tr><td>{{ LNG.in_rf_again }} {{ LNG.tech[rapidfireID] }}</td><td class="num colorPositive">{{ shoots }}%</td></tr>
-									{% endfor %}
-									{% for rapidfireID, shoots in FleetInfo.rapidfire.from %}
-										<tr><td>{{ LNG.in_rf_from }} {{ LNG.tech[rapidfireID] }}</td><td class="num colorNegative">{{ shoots }}%</td></tr>
-									{% endfor %}
-								</table>
-							{% endif %}
-						{% endif %}
-			</div>
-		</td>
-	</tr>
-	</tbody>
-</table>
+</section>
 {% if FleetInfo %}
 {% include 'game/shared.information.shipInfo.html.twig' %}
 {% endif %}
@@ -69,4 +62,5 @@
 {% if productionTable.storage %}
 {% include 'game/shared.information.storage.html.twig' %}
 {% endif %}
+</div>
 {% endblock %}

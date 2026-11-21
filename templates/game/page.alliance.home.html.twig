@@ -1,134 +1,100 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}
+	{% if rights.MEMBERLIST %}<a class="btn" href="{{ path('game_alliance_member_list') }}">{{ icon('users') }} {{ LNG.al_user_list }}</a>{% endif %}
+	{% if rights.ROUNDMAIL %}<a class="btn" href="{{ path('game_alliance_circular') }}" data-dialog="" data-dialog-width="650">{{ icon('megaphone') }} {{ LNG.al_send_circular_message }}</a>{% endif %}
+	{% if rights.ADMIN or rights.DIPLOMATIC or rights.RANKS or rights.MANAGEUSERS %}<a class="btn btn--primary" href="{{ path('game_alliance_admin') }}">{{ icon('settings') }} {{ LNG.al_manage_alliance }}</a>{% endif %}
+{% endset %}
+{{ ui.page_head('[' ~ ally_tag ~ '] ' ~ ally_name, 'users', LNG.al_your_ally, actions) }}
+{% endblock %}
 {% block content %}
-<table class="form-table">
-	<tr>
-		<th colspan="3">{{ LNG.al_your_ally }}</th>
-	</tr>
-	{% if ally_image %}
-	<tr>
-		<td colspan="3"><img class="alliance-image inline" src="{{ ally_image }}"></td>
-	</tr>
-	{% endif %}
-	<tr>
-		<td colspan="2">{{ LNG.al_ally_info_tag }}</td>
-		<td>{{ ally_tag }}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{{ LNG.al_ally_info_name }}</td>
-		<td>{{ ally_name }}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{{ LNG.al_ally_info_members }}</td>
-		<td>{{ ally_members }} / {{ ally_max_members }}{% if rights.MEMBERLIST %} (<a href="{{ path('game_alliance_member_list') }}">{{ LNG.al_user_list }}</a>){% endif %}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{{ LNG.al_rank }}</td>
-		<td>{{ rankName }}{% if rights.ADMIN or rights.DIPLOMATIC or rights.RANKS or rights.MANAGEUSERS %} (<a href="{{ path('game_alliance_admin') }}">{{ LNG.al_manage_alliance }}</a>){% endif %}</td>
-	</tr>
-	{% if rights.SEEAPPLY and applyCount > 0 %}
-	<tr>
-		<td colspan="2">{{ LNG.al_requests }}</td>
-		<td><a href="{{ path('game_alliance_admin_manage_apply') }}">{{ requests }}</a></td>
-	</tr>
-	{% endif %}
-	{% if rights.DIPLOMATIC and (diploCountIn > 0 or diploCountOut > 0) %}
-	<tr>
-		<td colspan="2">{{ LNG.al_diplo }}</td>
-		<td>
-			{% if diploCountIn > 0 %}<a href="{{ path('game_alliance_admin_diplomacy') }}">{{ diploRequestsIn }}</a>{% endif %}
-			{% if diploCountIn > 0 and diploCountOut > 0 %}<br>{% endif %}
-			{% if diploCountOut > 0 %}<a href="{{ path('game_alliance_admin_diplomacy') }}">{{ diploRequestsOut }}</a>{% endif %}
-		</td>
-	</tr>
-	{% endif %}
-	{% if rights.ROUNDMAIL %}
-	<tr>
-		<td colspan="2">{{ LNG.al_circular_message }}</td>
-		<td><a href="{{ path('game_alliance_circular') }}" data-dialog="" data-dialog-width="650">{{ LNG.al_send_circular_message }}</a></td>
-	</tr>
-	{% endif %}
-	<tr>
-		<td colspan="3" class="bbcode ally-description">{% if ally_description %}{{ ally_description }}{% else %}{{ LNG.al_description_message }}{% endif %}</td>
-	</tr>
-	{% if ally_web %}
-	<tr>
-		<td colspan="2">{{ LNG.al_web_text }}</td>
-		<td><a href="{{ ally_web }}">{{ ally_web }}</a></td>
-	</tr>
-	{% endif %}
-	<tr>
-		<th colspan="3">{{ LNG.al_inside_section }}</th>
-	</tr>
-	<tr>
-		<td colspan="3" class="bbcode">{% if ally_text %}{{ ally_text }}{% else %}<span class="hint">{{ LNG.al_no_inside_text }}</span>{% endif %}</td>
-	</tr>
-	<tr>
-		<th colspan="3">{{ LNG.al_diplo }}</th>
-	</tr>
-	<tr>
-		<td colspan="3">
-		{% if diplomats %}
-			<b><u>{{ LNG.al_rank_diplo }}</u></b><br><br>
-			{% for diplomat in diplomats %}{{ diplomat.username }} - {{ diplomat.rankName }} <a href="#" data-action="dialog-pm" data-id="{{ diplomat.id }}"><img class="inline" src="{{ theme_asset('img/m.gif') }}" title="{{ LNG.write_message }}" alt=""></a><br>{% endfor %}
-			<br>
-		{% endif %}
-		{% if DiploInfo and (DiploInfo[0] or DiploInfo[1] or DiploInfo[2] or DiploInfo[3] or DiploInfo[4]) %}
-			{% if DiploInfo[0] %}<b><u>{{ LNG.al_diplo_level[0] }}</u></b><br><br>{% for PaktInfo in DiploInfo[0] %}<a href="{{ path('game_alliance_info', {id: PaktInfo[1]}) }}">{{ PaktInfo[0] }}</a><br>{% endfor %}<br>{% endif %}
-			{% if DiploInfo[1] %}<b><u>{{ LNG.al_diplo_level[1] }}</u></b><br><br>{% for PaktInfo in DiploInfo[1] %}<a href="{{ path('game_alliance_info', {id: PaktInfo[1]}) }}">{{ PaktInfo[0] }}</a><br>{% endfor %}<br>{% endif %}
-			{% if DiploInfo[2] %}<b><u>{{ LNG.al_diplo_level[2] }}</u></b><br><br>{% for PaktInfo in DiploInfo[2] %}<a href="{{ path('game_alliance_info', {id: PaktInfo[1]}) }}">{{ PaktInfo[0] }}</a><br>{% endfor %}<br>{% endif %}
-			{% if DiploInfo[3] %}<b><u>{{ LNG.al_diplo_level[3] }}</u></b><br><br>{% for PaktInfo in DiploInfo[3] %}<a href="{{ path('game_alliance_info', {id: PaktInfo[1]}) }}">{{ PaktInfo[0] }}</a><br>{% endfor %}<br>{% endif %}
-			{% if DiploInfo[4] %}<b><u>{{ LNG.al_diplo_level[4] }}</u></b><br><br>{% for PaktInfo in DiploInfo[4] %}<a href="{{ path('game_alliance_info', {id: PaktInfo[1]}) }}">{{ PaktInfo[0] }}</a><br>{% endfor %}<br>{% endif %}
-		{% else %}
-			{{ LNG.al_no_diplo }}
-		{% endif %}
-		</td>
-	</tr>
-	<tr>
-		<th colspan="3">{{ LNG.pl_fightstats }}</th>
-	</tr>
-	<tr>
-		<td colspan="2">{% if not show %}<div class="tooltip1"><img class="inline" src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div> {% endif %}{{ LNG.pl_totalfight }}</td>
-	<td class="num">{% if show %}{{ pretty_number(totalfight) }}{% else %}-{% endif %}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{% if not show %}<div class="tooltip1"><img class="inline" src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div> {% endif %}{{ LNG.pl_fightwon }}</td>
-	<td class="num">{% if show %}{{ pretty_number(fightwon) }} {% if totalfight %}({{ (fightwon / totalfight * 100)|round(2) }}%){% endif %}{% else %}-{% endif %}</td>
-	</tr>
-	<tr>	
-		<td colspan="2">{% if not show %}<div class="tooltip1"><img class="inline" src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div> {% endif %}{{ LNG.pl_fightlose }}</td>
-	<td class="num">{% if show %}{{ pretty_number(fightlose) }} {% if totalfight %}({{ (fightlose / totalfight * 100)|round(2) }}%){% endif %}{% else %}-{% endif %}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{% if not show %}<div class="tooltip1"><img class="inline" src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div> {% endif %}{{ LNG.pl_fightdraw }}</td>
-	<td class="num">{% if show %}{{ pretty_number(fightdraw) }} {% if totalfight %}({{ (fightdraw / totalfight * 100)|round(2) }}%){% endif %}{% else %}-{% endif %}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{% if not show %}<div class="tooltip1"><img class="inline" src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div> {% endif %}{{ LNG.pl_unitsshot }}</td>
-	<td class="num">{% if show %}{{ unitsshot }}{% else %}-{% endif %}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{% if not show %}<div class="tooltip1"><img class="inline" src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div> {% endif %}{{ LNG.pl_unitslose }}</td>
-	<td class="num">{% if show %}{{ unitslose }}{% else %}-{% endif %}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{% if not show %}<div class="tooltip1"><img class="inline" src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div> {% endif %}{{ LNG.pl_dermetal }}</td>
-	<td class="num">{% if show %}{{ dermetal }}{% else %}-{% endif %}</td>
-	</tr>
-	<tr>
-		<td colspan="2">{% if not show %}<div class="tooltip1"><img class="inline" src="./styles/resource/images/icons/lock.webp" height="10" width="10"><span class="tooltiptext">{{ LNG.spytech_playercard.level6 }}</span></div> {% endif %}{{ LNG.pl_dercrystal }}</td>
-	<td class="num">{% if show %}{{ dercrystal }}{% else %}-{% endif %}</td>
-	</tr>
-</table>
+{% set fightRows = [
+	[LNG.pl_totalfight, show ? pretty_number(totalfight) : '-'],
+	[LNG.pl_fightwon, show ? pretty_number(fightwon) ~ (totalfight ? ' (' ~ (fightwon / totalfight * 100)|round(2) ~ '%)' : '') : '-'],
+	[LNG.pl_fightlose, show ? pretty_number(fightlose) ~ (totalfight ? ' (' ~ (fightlose / totalfight * 100)|round(2) ~ '%)' : '') : '-'],
+	[LNG.pl_fightdraw, show ? pretty_number(fightdraw) ~ (totalfight ? ' (' ~ (fightdraw / totalfight * 100)|round(2) ~ '%)' : '') : '-'],
+	[LNG.pl_unitsshot, show ? unitsshot : '-'],
+	[LNG.pl_unitslose, show ? unitslose : '-'],
+	[LNG.pl_dermetal, show ? dermetal : '-'],
+	[LNG.pl_dercrystal, show ? dercrystal : '-'],
+] %}
+<div class="grid-2">
+	<div class="stack">
+		<section class="panel">
+			{{ ui.panel_head(LNG.al_ally_information) }}
+			<div class="panel__body bbcode ally-description">
+				{% if ally_image %}<img class="alliance-image" src="{{ ally_image }}" alt="{{ ally_tag }}">{% endif %}
+				{% if ally_description %}{{ ally_description }}{% else %}<span class="hint">{{ LNG.al_description_message }}</span>{% endif %}
+			</div>
+		</section>
+		<section class="panel">
+			{{ ui.panel_head(LNG.al_inside_section) }}
+			<div class="panel__body bbcode">{% if ally_text %}{{ ally_text }}{% else %}<span class="hint">{{ LNG.al_no_inside_text }}</span>{% endif %}</div>
+		</section>
+	</div>
+	<div class="stack">
+		<section class="panel">
+			{{ ui.panel_head(LNG.al_ally_info_name) }}
+			<div class="panel__body">
+				<div class="stats">
+					<div class="stat"><span class="stat__label">{{ LNG.al_ally_info_tag }}</span><span class="stat__value">{{ ally_tag }}</span></div>
+					<div class="stat"><span class="stat__label">{{ LNG.al_ally_info_members }}</span><span class="stat__value">{{ ally_members }} / {{ ally_max_members }}</span></div>
+				</div>
+				<dl class="kv">
+					<dt>{{ LNG.al_rank }}</dt><dd>{{ rankName }}</dd>
+					{% if rights.SEEAPPLY and applyCount > 0 %}<dt>{{ LNG.al_requests }}</dt><dd><a href="{{ path('game_alliance_admin_manage_apply') }}">{{ requests }}</a></dd>{% endif %}
+					{% if rights.DIPLOMATIC and (diploCountIn > 0 or diploCountOut > 0) %}
+					<dt>{{ LNG.al_diplo }}</dt>
+					<dd>
+						{% if diploCountIn > 0 %}<a href="{{ path('game_alliance_admin_diplomacy') }}">{{ diploRequestsIn }}</a>{% endif %}
+						{% if diploCountIn > 0 and diploCountOut > 0 %}<br>{% endif %}
+						{% if diploCountOut > 0 %}<a href="{{ path('game_alliance_admin_diplomacy') }}">{{ diploRequestsOut }}</a>{% endif %}
+					</dd>
+					{% endif %}
+					{% if ally_web %}<dt>{{ LNG.al_web_text }}</dt><dd><a href="{{ ally_web }}">{{ ally_web }}</a></dd>{% endif %}
+				</dl>
+			</div>
+		</section>
+		<section class="panel">
+			{{ ui.panel_head(LNG.al_diplo) }}
+			<div class="panel__body">
+				{% if diplomats %}
+				<dl class="kv">
+					<dt>{{ LNG.al_rank_diplo }}</dt>
+					<dd>{% for diplomat in diplomats %}<div>{{ diplomat.username }} - {{ diplomat.rankName }} <a href="#" data-action="dialog-pm" data-id="{{ diplomat.id }}" title="{{ LNG.write_message }}">{{ icon('mail', LNG.write_message) }}</a></div>{% endfor %}</dd>
+				</dl>
+				{% endif %}
+				{% if DiploInfo and (DiploInfo[0] or DiploInfo[1] or DiploInfo[2] or DiploInfo[3] or DiploInfo[4]) %}
+				<dl class="kv">
+					{% for level in 0..4 %}{% if DiploInfo[level] %}
+					<dt>{{ LNG.al_diplo_level[level] }}</dt>
+					<dd>{% for PaktInfo in DiploInfo[level] %}<div><a href="{{ path('game_alliance_info', {id: PaktInfo[1]}) }}">{{ PaktInfo[0] }}</a></div>{% endfor %}</dd>
+					{% endif %}{% endfor %}
+				</dl>
+				{% else %}
+				<p class="hint">{{ LNG.al_no_diplo }}</p>
+				{% endif %}
+			</div>
+		</section>
+	</div>
+</div>
+<section class="panel">
+	{{ ui.panel_head(LNG.pl_fightstats) }}
+	<div class="panel__body">
+		<div class="stats">
+			{% for row in fightRows %}
+			<div class="stat"><span class="stat__label">{% if not show %}<span title="{{ LNG.spytech_playercard.level6|e('html_attr') }}">{{ icon('lock') }}</span> {% endif %}{{ row[0] }}</span><span class="stat__value">{{ row[1] }}</span></div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
 {% if not isOwner %}
-<table>
-	<tr>
-		<th>{{ LNG.al_leave_alliance }}</th>
-	</tr>
-	<tr>
-		<td><a data-method="post" href="{{ path('game_alliance_close') }}" data-confirm-danger data-confirm="{{ LNG.al_leave_ally|e('html_attr') }}"><button type="button" class="btn--danger">{{ LNG.al_leave_alliance }}</button></a></td>
-	</tr>
-</table>
+<section class="panel">
+	{{ ui.panel_head(LNG.al_leave_alliance) }}
+	<div class="panel__body"><a data-method="post" href="{{ path('game_alliance_close') }}" data-confirm-danger data-confirm="{{ LNG.al_leave_ally|e('html_attr') }}"><button type="button" class="btn--danger">{{ LNG.al_leave_alliance }}</button></a></div>
+</section>
 {% endif %}
 {% include 'game/shared.alliance.chart.html.twig' %}
 {% endblock %}

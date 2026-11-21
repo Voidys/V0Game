@@ -1,11 +1,12 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_messages }}{{ parent() }}{% endblock %}
 
 {# bulk actions + page links, printed above and below the list #}
 {% macro bulkbar(MessID, page, maxPage, fav, MessageList) %}
-  <div class="msg-bulk">
-    <label class="msg-select-all"><input type="checkbox" data-message-select-all> {{ LNG.mg_select_all }}</label>
-    <form class="control-group msg-bulk-form" action="{{ path('game_messages_action') }}" method="post" data-confirm-delete="{{ LNG.mg_confirm_delete_bulk }}">
+  <div class="toolbar mail-bulk">
+    <label class="mail-selectall"><input type="checkbox" data-message-select-all> {{ LNG.mg_select_all }}</label>
+    <form class="toolbar msg-bulk-form" action="{{ path('game_messages_action') }}" method="post" data-confirm-delete="{{ LNG.mg_confirm_delete_bulk }}">
       <input type="hidden" name="ajax" value="1">
       <input type="hidden" name="messcat" value="{{ MessID }}">
       <input type="hidden" name="site" value="{{ page }}">
@@ -29,51 +30,82 @@
     </form>
     {% if maxPage > 1 %}
       {% set url = path('game_messages_show', {category: MessID, fav: fav, site: ''}) %}
-      <nav class="msg-pages" aria-label="{{ LNG.mg_page }}">{{ LNG.mg_page }}:
+      <span class="toolbar__spacer"></span>
+      <nav class="segmented" aria-label="{{ LNG.mg_page }}">
         {% if page > 1 %}<a href="{{ url }}1" title="1">&laquo;</a>{% endif %}
-        {% if page > 5 %}<span>..</span>{% endif %}
+        {% if page > 5 %}<span class="mail-gap">&hellip;</span>{% endif %}
         {% for site in max(1, page - 4)..min(maxPage, page + 4) %}
-          {% if site == page %}<b aria-current="page">[{{ site }}]</b>{% else %}<a href="{{ url }}{{ site }}">[{{ site }}]</a>{% endif %}
+          <a href="{{ url }}{{ site }}"{% if site == page %} aria-current="page"{% endif %}>{{ site }}</a>
         {% endfor %}
-        {% if page < maxPage - 4 %}<span>..</span>{% endif %}
+        {% if page < maxPage - 4 %}<span class="mail-gap">&hellip;</span>{% endif %}
         {% if page < maxPage %}<a href="{{ url }}{{ maxPage }}" title="{{ maxPage }}">&raquo;</a>{% endif %}
       </nav>
     {% endif %}
   </div>
 {% endmacro %}
 
+{% block pagehead %}
+{% set actions %}
+  <span id="loading" class="tag tag--muted" hidden>{{ LNG.loading }}</span>
+  <a class="btn btn--primary page-fab" href="{{ path('game_messages_write') }}" data-dialog="" data-dialog-width="650">{{ icon('plus') }} {{ LNG.write_message }}</a>
+{% endset %}
+{{ ui.page_head(LNG.mg_overview, 'mail', null, actions) }}
+{% endblock %}
+
 {% block content %}
-  <section class="msg-nav">
-    <h2 class="msg-title">{{ LNG.mg_overview }}<span id="loading" hidden> ({{ LNG.loading }})</span></h2>
-    <nav class="msg-cats" aria-label="{{ LNG.mg_message_type }}">
-      {% for CategoryID, CategoryRow in CategoryList %}
-        <a href="{{ path('game_messages_show', {category: CategoryID}) }}" data-message-category="{{ CategoryID }}"
-           class="msg-cat{% if CategoryID == MessID %} active{% endif %}{% if CategoryRow.unread > 0 %} has-unread{% elseif CategoryRow.total == 0 and CategoryID != constant('App\\Game\\Enum\\MessageType::Search').value %} is-empty{% endif %}"
-           title="{{ LNG.mg_type[CategoryID] }}" style="--cat: {{ CategoryRow.color }}"{% if CategoryID == MessID %} aria-current="page"{% endif %}>
-          <span class="msg-cat__name">{{ LNG.mg_type[CategoryID] }}</span>
-          {% if CategoryID != constant('App\\Game\\Enum\\MessageType::Search').value %}
-            <span class="msg-cat__count"><b id="unread_{{ CategoryID }}">{{ CategoryRow.unread }}</b>/<span id="total_{{ CategoryID }}">{{ CategoryRow.total }}</span></span>
-          {% endif %}
-        </a>
-      {% endfor %}
-    </nav>
-    {% if MessID in [0, 1, 2, 3, 4, 5, 6, 7, 15, 50, 99, 100] %}
-    <form class="control-group msg-quick" action="{{ path('game_messages_action') }}" method="post">
-      <input type="hidden" name="messcat" value="{{ MessID }}">
-      <input type="hidden" name="site" value="1">
-      <button type="submit" name="action" value="readtypeall">{{ icon('check') }} {{ LNG.mg_quick_read_all }}</button>
-      <button type="submit" name="action" value="deletereadtype" data-confirm="{{ LNG.mg_confirm_delete_read|e('html_attr') }}" data-confirm-danger>{{ icon('trash-2') }} {{ LNG.mg_quick_delete_read }}</button>
-      <button type="submit" name="action" value="deleteolder7" data-confirm="{{ LNG.mg_confirm_delete_older|replace({'%d': 7})|e('html_attr') }}" data-confirm-danger>{{ icon('trash-2') }} {{ LNG.mg_quick_delete_older|replace({'%d': 7}) }}</button>
-      <button type="submit" name="action" value="deleteolder30" data-confirm="{{ LNG.mg_confirm_delete_older|replace({'%d': 30})|e('html_attr') }}" data-confirm-danger>{{ icon('trash-2') }} {{ LNG.mg_quick_delete_older|replace({'%d': 30}) }}</button>
-    </form>
-    {% endif %}
-    <div class="msg-prefs">
-      <label><input id="message-open-all" type="checkbox"> {{ LNG.mg_open_all }}</label>
-      <label><input id="message-remember-category" type="checkbox"> {{ LNG.mg_remember_last_category }}</label>
+  <section class="panel">
+    <div class="panel__body">
+      <nav class="mail-cats" aria-label="{{ LNG.mg_message_type }}">
+        {% for CategoryID, CategoryRow in CategoryList %}
+          {% set grey = CategoryRow.color in ['#ABABAB', '#CCCCCC'] %}
+          <a href="{{ path('game_messages_show', {category: CategoryID}) }}" data-message-category="{{ CategoryID }}"
+             class="mail-cat{% if CategoryID == MessID %} is-active{% endif %}{% if CategoryRow.unread > 0 %} has-unread{% elseif CategoryRow.total == 0 and CategoryID != constant('App\\Game\\Enum\\MessageType::Search').value %} is-empty{% endif %}"
+             title="{{ LNG.mg_type[CategoryID] }}"{% if not grey %} style="--cat: {{ CategoryRow.color }}"{% endif %}{% if CategoryID == MessID %} aria-current="page"{% endif %}>
+            <span class="mail-cat__name">{{ LNG.mg_type[CategoryID] }}</span>
+            {% if CategoryID != constant('App\\Game\\Enum\\MessageType::Search').value %}
+              <span class="mail-cat__count"><b class="badge{% if CategoryRow.unread > 0 %} badge--accent{% endif %}" id="unread_{{ CategoryID }}">{{ CategoryRow.unread }}</b><span class="mono">/<span id="total_{{ CategoryID }}">{{ CategoryRow.total }}</span></span></span>
+            {% endif %}
+          </a>
+        {% endfor %}
+      </nav>
+      {# search, filters and bulk actions: always open on wide screens; on phones collapsed (message.js) #}
+      <details class="mail-tools" open{% if searchtext %} data-keep-open{% endif %}>
+      <summary class="mail-tools__toggle">{{ icon('sliders-horizontal') }}<span>{{ LNG.ui_message_tools }}</span></summary>
+      <div class="toolbar">
+        <form class="toolbar msg-search" action="{{ path('game_messages_show') }}" method="get">
+          <input type="hidden" name="category" value="{{ MessID }}">
+          <input type="hidden" name="fav" value="{{ fav }}">
+          <input type="search" name="searchtext" value="{{ searchtext }}" placeholder="{{ LNG.mg_search_placeholder }}" aria-label="{{ LNG.mg_search }}" autocomplete="off" maxlength="50">
+          <input type="submit" value="{{ LNG.mg_search }}">
+        </form>
+        <span class="toolbar__spacer"></span>
+        <div class="segmented">
+          <a href="{{ path('game_messages_show', {category: MessID, fav: fav ? 0 : 1}) }}"{% if fav %} class="is-active"{% endif %}>{{ icon('star') }} {{ fav ? LNG.mg_favorite_filter_off : LNG.mg_favorite_filter_on }}</a>
+          <a href="#"{% if grp %} class="is-active"{% endif %} data-action="msg-toggle-grouping" data-url="{{ path('game_messages_show') }}" data-category="{{ MessID }}" data-fav="{{ fav }}">{{ grp ? LNG.mg_grouping_off : LNG.mg_grouping_on }}</a>
+        </div>
+      </div>
+      <div class="toolbar">
+        {% if MessID in [0, 1, 2, 3, 4, 5, 6, 7, 15, 50, 99, 100] %}
+        <form class="toolbar msg-quick" action="{{ path('game_messages_action') }}" method="post">
+          <input type="hidden" name="messcat" value="{{ MessID }}">
+          <input type="hidden" name="site" value="1">
+          <button type="submit" name="action" value="readtypeall">{{ icon('check') }} {{ LNG.mg_quick_read_all }}</button>
+          <button type="submit" name="action" value="deletereadtype" data-confirm="{{ LNG.mg_confirm_delete_read|e('html_attr') }}" data-confirm-danger>{{ icon('trash-2') }} {{ LNG.mg_quick_delete_read }}</button>
+          <button type="submit" name="action" value="deleteolder7" data-confirm="{{ LNG.mg_confirm_delete_older|replace({'%d': 7})|e('html_attr') }}" data-confirm-danger>{{ icon('trash-2') }} {{ LNG.mg_quick_delete_older|replace({'%d': 7}) }}</button>
+          <button type="submit" name="action" value="deleteolder30" data-confirm="{{ LNG.mg_confirm_delete_older|replace({'%d': 30})|e('html_attr') }}" data-confirm-danger>{{ icon('trash-2') }} {{ LNG.mg_quick_delete_older|replace({'%d': 30}) }}</button>
+        </form>
+        {% endif %}
+        <span class="toolbar__spacer"></span>
+        <div class="toolbar msg-prefs">
+          <label><input id="message-open-all" type="checkbox"> {{ LNG.mg_open_all }}</label>
+          <label><input id="message-remember-category" type="checkbox"> {{ LNG.mg_remember_last_category }}</label>
+        </div>
+      </div>
+      </details>
     </div>
   </section>
 
-<div id="stuff" jsthings='
+<div id="stuff" hidden jsthings='
 {
 "impulseEngineTech":{{ impulse_motor_tech }},
 "combustionEngineTech":{{ combustion_tech }},
@@ -98,73 +130,65 @@
 }
 '></div>
 
-  <div class="msg-toolbar">
-    <form class="control-group msg-search" action="{{ path('game_messages_show') }}" method="get">
-      <input type="hidden" name="category" value="{{ MessID }}">
-      <input type="hidden" name="fav" value="{{ fav }}">
-      <input type="search" name="searchtext" value="{{ searchtext }}" placeholder="{{ LNG.mg_search_placeholder }}" aria-label="{{ LNG.mg_search }}" autocomplete="off" maxlength="50">
-      <input type="submit" value="{{ LNG.mg_search }}">
-    </form>
-    <div class="msg-filters">
-      <a href="{{ path('game_messages_show', {category: MessID, fav: fav ? 0 : 1}) }}" class="button{% if fav %} active{% endif %}">{{ fav ? LNG.mg_favorite_filter_off : LNG.mg_favorite_filter_on }}</a>
-      <a href="#" class="button{% if grp %} active{% endif %}" data-action="msg-toggle-grouping" data-url="{{ path('game_messages_show') }}" data-category="{{ MessID }}" data-fav="{{ fav }}">{{ grp ? LNG.mg_grouping_off : LNG.mg_grouping_on }}</a>
-    </div>
-  </div>
-
-  {% if MessageList is not empty %}{{ _self.bulkbar(MessID, page, maxPage, fav, MessageList) }}{% endif %}
-
-  <div class="messages-container">
+  <section class="panel">
+    {% if MessageList is not empty %}<div class="panel__head">{{ _self.bulkbar(MessID, page, maxPage, fav, MessageList) }}</div>{% endif %}
+    <div class="mail-list">
     {% if MessageList is empty %}
-      <div class="empty-state">{{ icon('mail') }}<p>{{ MessID == -1 ? LNG.mg_pick_category : LNG.mg_no_messages }}</p></div>
+      <div class="empty">{{ icon('mail') }}<p>{{ MessID == -1 ? LNG.mg_pick_category : LNG.mg_no_messages }}</p></div>
     {% endif %}
     {% set currentGroup = null %}
     {% for Message in MessageList %}
       {% set groupId = Message.grp_id == null ? Message.id : Message.grp_id %}
       {% if currentGroup != Message.grp_id %}
         {% if currentGroup != null %}</div>{% endif %}
-        <div class="message-group" id="group_{{ groupId }}">
+        <div class="mail-group" id="group_{{ groupId }}">
           {% set currentGroup = Message.grp_id %}
       {% endif %}
       {% set spyCollapsed = (Message.type == constant('App\\Game\\Enum\\MessageType::SpyReport').value and spyReportsCollapsed == 1) %}
-      {% set typeColor = Message.myself ? CategoryList[constant('App\\Game\\Enum\\MessageType::Favorites').value].color : CategoryList[Message.type].color %}
-      <article id="message_{{ Message.id }}" class="message-item{% if Message.unread == 1 %} message-unread{% endif %}" style="--cat: {{ typeColor }}">
-        <header class="message-head">
-          <input class="message-select" type="checkbox" name="messageID[{{ Message.id }}]" value="1" aria-label="{{ LNG.mg_select_message }}: {{ strip_tags(Message.from) }}">
-          <span class="message-type">{% if MessID in [100, 998, 999] %}{{ LNG.mg_type[Message.type] }}{% endif %}{% if Message.unread == 1 %} <span class="message-new">{{ icon('mail') }} {{ LNG.mg_new }}</span>{% endif %}</span>
-          <span class="message-details" id="msgdetails_{{ Message.id }}"{% if spyCollapsed %} style="display: none;"{% endif %}>
-            <span class="message-from">{{ Message.from|legacy_markup }}</span>
-            {% set subjectIsType = (Message.subject|striptags|trim|lower) == (LNG.mg_type[Message.type]|striptags|trim|lower) %}
-            <span class="message-subject"{% if subjectIsType %} hidden{% endif %}>{% if Message.forwarded %}<span class="message-fw">FW:</span> {% endif %}{# raw: subjects are stored encoded; system and admin subjects carry markup #}{{ Message.subject|raw }}</span>
-          </span>
-          {% if Message.type == constant('App\\Game\\Enum\\MessageType::SpyReport').value %}
-            <span id="spytitle_{{ Message.id }}" class="spy-report-collapsed-title"{% if not spyCollapsed %} style="display: none;"{% endif %}>{{ Message.spyTitle }}</span>
-          {% endif %}
-          <time class="message-date">{{ Message.time }}</time>
-          <span class="message-tools">
-            <a href="#" class="msg-act" data-action="msg-fav" data-url="{{ path('game_messages_favorite') }}" data-id="{{ Message.id }}" data-fav-url="{{ theme_asset('img/fav.png') }}" data-nofav-url="{{ theme_asset('img/nofav.png') }}" title="{{ LNG.mg_favorite }}"><span id="imgfav_{{ Message.id }}" class="msg-fav{% if Message.favorite %} is-on{% endif %}">{{ icon('star') }}</span></a>
+      {% set typeCategory = Message.myself ? CategoryList[constant('App\\Game\\Enum\\MessageType::Favorites').value] : CategoryList[Message.type] %}
+      {% set typeGrey = typeCategory.color in ['#ABABAB', '#CCCCCC'] %}
+      <div id="message_{{ Message.id }}" class="mail{% if Message.unread == 1 %} is-unread{% endif %}"{% if not typeGrey %} style="--cat: {{ typeCategory.color }}"{% endif %}>
+        <div class="mail__row">
+          <label class="mail__selhit"><input class="mail__sel" type="checkbox" name="messageID[{{ Message.id }}]" value="1" aria-label="{{ LNG.mg_select_message }}: {{ strip_tags(Message.from) }}"></label>
+          <span class="mail__dot" aria-hidden="true"></span>
+          <div class="mail__main">
+            {% if MessID in [100, 998, 999] %}<span class="mail__type">{{ LNG.mg_type[Message.type] }}</span>{% endif %}
+            <span class="mail__details" id="msgdetails_{{ Message.id }}"{% if spyCollapsed %} style="display: none;"{% endif %}>
+              <span class="mail__from">{{ Message.from|legacy_markup }}</span>
+              {% set subjectIsType = (Message.subject|striptags|trim|lower) == (LNG.mg_type[Message.type]|striptags|trim|lower) %}
+              <strong class="mail__subject"{% if subjectIsType %} hidden{% endif %}>{% if Message.forwarded %}<span class="mail__fw">FW:</span> {% endif %}{# raw: subjects are stored encoded; system and admin subjects carry markup #}{{ Message.subject|raw }}</strong>
+            </span>
+            {% if Message.type == constant('App\\Game\\Enum\\MessageType::SpyReport').value %}
+              <span id="spytitle_{{ Message.id }}" class="mail__subject spy-report-collapsed-title"{% if not spyCollapsed %} style="display: none;"{% endif %}>{{ Message.spyTitle }}</span>
+            {% endif %}
+            {% if Message.unread == 1 %}<span class="mail__new" role="img" aria-label="{{ LNG.mg_new }}" title="{{ LNG.mg_new }}"></span>{% endif %}
+            {% if Message.type == constant('App\\Game\\Enum\\MessageType::User').value and Message.receiver is not empty %}
+              <span class="mail__meta">{{ LNG.mg_to }}: {% for rec in Message.receiver %}{{ rec.receiver }}{% if not loop.last %}, {% endif %}{% endfor %}</span>
+            {% endif %}
+          </div>
+          <time class="mail__time">{{ Message.time }}</time>
+          <span class="mail__tools">
+            <a href="#" class="msg-act" data-action="msg-fav" data-url="{{ path('game_messages_favorite') }}" data-id="{{ Message.id }}" data-fav-url="{{ theme_asset('img/fav.png') }}" data-nofav-url="{{ theme_asset('img/nofav.png') }}" title="{{ LNG.mg_favorite }}" aria-label="{{ LNG.mg_favorite }}"><span id="imgfav_{{ Message.id }}" class="msg-fav{% if Message.favorite %} is-on{% endif %}">{{ icon('star') }}</span></a>
             {% if Message.type == constant('App\\Game\\Enum\\MessageType::User').value %}
-              <a href="#" class="msg-act" data-action="msg-reply" data-receivers="{{ Message.answerTo|json_encode }}" data-subject="{{ Message.subject }}" data-group="{{ Message.group }}" title="{{ LNG.mg_answer_to }} {{ strip_tags(Message.from) }}">{{ icon('reply') }}</a>
+              <a href="#" class="msg-act" data-action="msg-reply" data-receivers="{{ Message.answerTo|json_encode }}" data-subject="{{ Message.subject }}" data-group="{{ Message.group }}" title="{{ LNG.mg_answer_to }} {{ strip_tags(Message.from) }}" aria-label="{{ LNG.mg_answer_to }} {{ strip_tags(Message.from) }}">{{ icon('reply') }}</a>
             {% endif %}
             {% if Message.type == constant('App\\Game\\Enum\\MessageType::SpyReport').value and Message.spyPlanetId > 0 %}
               <a href="#" class="msg-act" data-action="msg-spy-again" data-url="{{ path('game_fleet_ajax_show') }}" data-planet="{{ Message.spyPlanetId }}" title="{{ LNG.mg_spy_again }}">{{ icon('scan-eye', LNG.mg_spy_again) }}</a>
             {% endif %}
-            <a href="#" class="msg-act" data-action="dialog-forward" data-id="{{ Message.id }}" title="{{ LNG.mg_forward }}">{{ icon('forward') }}</a>
+            <a href="#" class="msg-act" data-action="dialog-forward" data-id="{{ Message.id }}" title="{{ LNG.mg_forward }}" aria-label="{{ LNG.mg_forward }}">{{ icon('forward') }}</a>
             {% if Message.type == constant('App\\Game\\Enum\\MessageType::SpyReport').value %}
-              <a href="#" class="msg-act" data-action="msg-toggle-spy" data-id="{{ Message.id }}" title="Toggle"><span id="imgtoggle_{{ Message.id }}" class="msg-toggle{% if spyCollapsed %} is-collapsed{% endif %}">{{ icon('chevron-up') }}{{ icon('chevron-down') }}</span></a>
+              <a href="#" class="msg-act" data-action="msg-toggle-spy" data-id="{{ Message.id }}" title="Toggle" aria-label="Toggle"><span id="imgtoggle_{{ Message.id }}" class="msg-toggle{% if spyCollapsed %} is-collapsed{% endif %}">{{ icon('chevron-up') }}{{ icon('chevron-down') }}</span></a>
             {% endif %}
-            <a href="#" class="msg-act msg-act--delete" data-action="msg-delete" data-confirm="{{ LNG.mg_confirm_delete_one }}" data-confirm-danger data-url="{{ path('game_messages_delete') }}" data-id="{{ Message.id }}" data-group="group_{{ groupId }}" title="{{ LNG.mg_delete }}">{{ icon('trash-2') }}</a>
+            <a href="#" class="msg-act msg-act--delete" data-action="msg-delete" data-confirm="{{ LNG.mg_confirm_delete_one }}" data-confirm-danger data-url="{{ path('game_messages_delete') }}" data-id="{{ Message.id }}" data-group="group_{{ groupId }}" title="{{ LNG.mg_delete }}" aria-label="{{ LNG.mg_delete }}">{{ icon('trash-2') }}</a>
           </span>
-          {% if Message.type == constant('App\\Game\\Enum\\MessageType::User').value and Message.receiver is not empty %}
-            <span class="message-receiver">{{ LNG.mg_to }}: {% for rec in Message.receiver %}{{ rec.receiver }}{% if not loop.last %}, {% endif %}{% endfor %}</span>
-          {% endif %}
-        </header>
-        <div class="message-content" id="msgcontent_{{ Message.id }}"{% if spyCollapsed %} style="display: none;"{% endif %}>
+        </div>
+        <div class="mail__body" id="msgcontent_{{ Message.id }}"{% if spyCollapsed %} style="display: none;"{% endif %}>
           {{ Message.text|legacy_markup }}
         </div>
-      </article>
+      </div>
     {% endfor %}
     {% if currentGroup != null %}</div>{% endif %}
-  </div>
-
-  {% if MessageList|length > 2 %}{{ _self.bulkbar(MessID, page, maxPage, fav, MessageList) }}{% endif %}
+    </div>
+    {% if MessageList|length > 2 %}<div class="panel__foot">{{ _self.bulkbar(MessID, page, maxPage, fav, MessageList) }}</div>{% endif %}
+  </section>
 {% endblock %}

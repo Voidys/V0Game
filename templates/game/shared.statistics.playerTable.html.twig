@@ -1,12 +1,13 @@
 {% import '_macros/community.html.twig' as c -%}
-<tr>
+<thead><tr>
 	<th class="num">{{ LNG.st_position }}</th>
 	<th class="num rank-delta-col" title="{{ LNG.st_rank_change|e('html_attr') }}">&plusmn;</th>
 	<th>{{ LNG.st_player }}</th>
-	<th class="ctr">&nbsp;</th>
+	<th class="act"><span class="visually-hidden">{{ LNG.st_write_message }}</span></th>
 	<th>{{ LNG.st_alliance }}</th>
 	<th class="num">{{ LNG.st_points }}</th>
-</tr>
+</tr></thead>
+<tbody>
 {% for RangeInfo in RangeList %}
 <tr{% if RangeInfo.id == CUser_id %} id="my-rank" class="my-row"{% endif %}>
 	<td class="num">{% set tt_rank %}{% if RangeInfo.ranking == 0 %}<span class='color-star'>*</span>{% elseif RangeInfo.ranking < 0 %}<span class='colorNegative'>{{ RangeInfo.ranking }}</span>{% elseif RangeInfo.ranking > 0 %}<span class='color-green'>+{{ RangeInfo.ranking }}</span>{% endif %}{% endset %}<a class="tooltip" data-tooltip-content="{{ tt_rank|e('html_attr') }}">{{ RangeInfo.rank }}</a></td>
@@ -35,9 +36,10 @@
 		<a href="#" data-action="dialog-playercard" data-id="{{ RangeInfo.id }}"{% if RangeInfo.id == CUser_id %} class='colorPositive'{% endif %}><span class="{% if RangeInfo.isBuddy %} galaxy-friend{% endif %}">{{ RangeInfo.name }}&nbsp;</span></a>
 		{% if RangeInfo.is_leader %}{% set tt_rank %}<table class='w-100'><tr><th class='text-center' colspan='2'>{{ RangeInfo.ally_owner_range }}</th></tr><tr><td class='transparent'>{{ RangeInfo.allyname }}</td></tr></table>{% endset %}<a class="tooltip color-yellow" data-tooltip-content="{{ tt_rank|e('html_attr') }}">{{ icon('trophy') }}</a>{% endif %} 
 		{% if RangeInfo.is_diplo %}{% set tt_rank %}<table class='w-100'><tr><th class='text-center' colspan='2'>{{ LNG.al_rank_diplo }}</th></tr><tr><td class='transparent'>{{ RangeInfo.allyname }}</td></tr></table>{% endset %}<a class="tooltip color-orange" data-tooltip-content="{{ tt_rank|e('html_attr') }}">{{ icon('handshake') }}</a>{% endif %} 
-		{% if RangeInfo.id != CUser_id and RangeInfo.class %}{% for class in RangeInfo.class %}{% if not loop.first %}&nbsp;{% endif %}<span class="galaxy-short-{{ class }} galaxy-short">{{ ShortStatus[class] }}</span>{% endfor %}{% endif %}</td>
-	<td class="ctr stats-actions">{% if RangeInfo.id != CUser_id %}<a href="#" data-action="dialog-pm" data-id="{{ RangeInfo.id }}"><img src="{{ theme_asset('img/m.gif') }}" title="{{ LNG.st_write_message }}" alt="{{ LNG.st_write_message }}"></a>&nbsp;<a href="#" data-action="dialog-buddy" data-id="{{ RangeInfo.id }}" title="{{ LNG.sh_buddy_request|e('html_attr') }}">{{ icon('user-plus', LNG.sh_buddy_request) }}</a>{% endif %}</td>
+		{% if RangeInfo.id != CUser_id and RangeInfo.class %}{% for class in RangeInfo.class %}{% if not loop.first %}&nbsp;{% endif %}<span class="tag {{ {banned: 'tag--neg', vacation: 'tag--info', noob: 'tag--warn', strong: 'tag--warn', enemy: 'tag--neg', friend: 'tag--pos', member: 'tag--pos'}[class]|default('tag--muted') }} galaxy-short-{{ class }}">{{ ShortStatus[class] }}</span>{% endfor %}{% endif %}</td>
+	<td class="act stats-actions">{% if RangeInfo.id != CUser_id %}<span class="row-actions"><a class="row-action" href="#" data-action="dialog-pm" data-id="{{ RangeInfo.id }}" aria-label="{{ LNG.st_write_message }}" data-tip="{{ LNG.st_write_message }}">{{ icon('mail') }}</a><a class="row-action" href="#" data-action="dialog-buddy" data-id="{{ RangeInfo.id }}" aria-label="{{ LNG.sh_buddy_request }}" data-tip="{{ LNG.sh_buddy_request }}">{{ icon('user-plus') }}</a></span>{% endif %}</td>
 	<td>{% if RangeInfo.allyid != 0 %}<a href="{{ path('game_alliance_info', {id: RangeInfo.allyid}) }}"><span class="{% for class in RangeInfo.allyClass %}{% if not loop.first %} {% endif %}galaxy-alliance-{{ class }}{% endfor %} galaxy-alliance">{{ RangeInfo.allyname }}</span></a>{% else %}-{% endif %}</td>
 	<td class="num">{{ RangeInfo.points }}</td>
 </tr>
 {% endfor %}
+</tbody>

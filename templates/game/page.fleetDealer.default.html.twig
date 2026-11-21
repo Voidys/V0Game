@@ -1,14 +1,13 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_fleettrader }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_fleettrader, 'arrow-left-right') }}{% endblock %}
 {% block content %}
 <form action="{{ path('game_fleet_dealer_send') }}" method="post">
 	<input type="hidden" name="mode" value="send">
-	<table>
-		<tr>
-			<th>{{ LNG.lm_fleettrader }}</th>
-		</tr>
-		<tr>
-			<td>
+	<section class="panel">
+		{{ ui.panel_head(LNG.ft_head) }}
+		<div class="panel__body">
 				<p class="hint">{{ LNG.format('ft_rate_info', Charge) }}</p>
 				<div class="fleet-dealer-grid">
 					<div class="transparent text-left"><img id="img" alt=""></div>
@@ -42,9 +41,8 @@
 						<p><input type="submit" id="trader-submit" value="{{ LNG.ft_absenden }}" disabled></p>
 					</div>
 				</div>
-			</td>
-		</tr>
-	</table>
+		</div>
+	</section>
 </form>
 {% endblock %}
 {% block script %}{{ parent() }}

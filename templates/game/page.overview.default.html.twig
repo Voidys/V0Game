@@ -4,7 +4,20 @@
     <script type="module" src="scripts/game/overview.js"></script>
 
 {% endblock %}
-{% block pagehead %}<div class="page-head"><h1 class="page-head__title">{{ icon('layout-dashboard') }}<span>{{ LNG.lm_overview }}</span></h1></div>{% endblock %}
+{% import '_macros/ui.html.twig' as ui %}
+{% macro art(image, style, enabled) -%}
+{%- if not enabled or style == 0 -%}{{ theme_asset('planeten/' ~ image ~ '.jpg') }}
+{%- elseif style == 1 -%}{{ theme_asset('planeten/varianten/v1_magic/' ~ image ~ '_v1_magic.webp') }}
+{%- elseif style == 2 -%}{{ theme_asset('planeten/varianten/v2_storm/' ~ image ~ '_v2_storm.webp') }}
+{%- else -%}{{ theme_asset('planeten/varianten/v3_voronoi/' ~ image ~ '_v3_voronoi.webp') }}
+{%- endif -%}
+{% endmacro %}
+{% block pagehead %}
+{% set headActions %}
+<a class="btn" href="#" data-dialog="{{ path('game_overview_actions') }}" data-dialog-width="400" title="{{ LNG.ov_planetmenu }}">{{ icon('pencil') }}<span>{{ LNG.ov_planet_rename }}</span></a>
+{% endset %}
+{{ ui.page_head(planetname, 'layout-dashboard', '[' ~ galaxy ~ ':' ~ system ~ ':' ~ planet ~ '] · ' ~ LNG["type_planet_#{planet_type}"] ~ ' · ' ~ username, headActions) }}
+{% endblock %}
 {% block content %}
     {# event colours: a colour still at its factory default is left to the theme (--colorMission*, fallback = the default),
        a colour the player changed is emitted as a custom property and wins in every theme #}
@@ -16,254 +29,135 @@
         .{{ key == 'colorStaticTimer' ? 'statictimer' : key }} { color: var(--{{ key }}, {{ colors[key]|default(factory) }}); }
         {% endfor %}
     </style>
-    <div>
-        {% set hostileCount = 0 %}
-        {% set nextRest = null %}
-        {% for fleet in fleets %}
-            {% if fleet.hostile %}{% set hostileCount = hostileCount + 1 %}{% endif %}
-            {% if nextRest is null or fleet.resttime < nextRest %}{% set nextRest = fleet.resttime %}{% endif %}
-        {% endfor %}
-        <details class="infos accordion overview-events{% if hostileCount %} accordion--warn{% endif %}" id="events-accordion" data-key="overview-events" data-force-open="{{ hostileCount ? 1 : 0 }}" open>
-            <summary class="planeto accordion__head">
-                <span class="accordion__title">{% if hostileCount %}{{ icon('triangle-alert') }} {% endif %}{{ LNG.ov_events }}</span>
-                <span class="accordion__summary">{% if fleets %}{{ fleets|length }} &middot; <span class="fleets" data-fleet-time="{{ nextRest }}">{{ getRestTimeFormat(nextRest) }}</span>{% else %}0{% endif %}{% if hostileCount %} &middot; <span class="event-list__flag">{{ LNG.ov_event_hostile }} {{ hostileCount }}</span>{% endif %}</span>
-                <span class="accordion__sign" aria-hidden="true"></span>
-            </summary>
+    {% set hostileCount = 0 %}
+    {% set nextRest = null %}
+    {% for fleet in fleets %}
+        {% if fleet.hostile %}{% set hostileCount = hostileCount + 1 %}{% endif %}
+        {% if nextRest is null or fleet.resttime < nextRest %}{% set nextRest = fleet.resttime %}{% endif %}
+    {% endfor %}
+    {% set fieldFill = planet_field_max > 0 ? min(planet_field_current / planet_field_max, 1) : 0 %}
+
+    <section class="panel hero" data-coords="{{ galaxy }}:{{ system }}:{{ planet }}">
+        <div class="hero-orbit">
+            {% if Moon %}<span class="orbit-ring" aria-hidden="true"></span>{% endif %}
+            <img class="hero-art" src="{{ _self.art(planetimage, planet_style, enablePlanetStyles != 0) }}" width="200" height="200" alt="{{ planetname }}">
+            {% if Moon %}
+                <a class="orbit-moon" href="{{ path('game_overview_show', {cp: Moon.id, re: 0}) }}" title="{{ Moon.name }} ({% if Moon.planet_type == 3 %}{{ LNG.ov_moon }}{% else %}{{ LNG.ov_planet }}{% endif %})">
+                    <img src="{{ _self.art(Moon.image, Moon.planet_style, enablePlanetStyles != 0) }}" width="100" height="100" alt="{{ Moon.name }} {% if Moon.planet_type == 3 %}({{ LNG.fcm_moon }}){% else %}({{ LNG.fcm_planet }}){% endif %}">
+                    <span class="orbit-label">{{ Moon.name }}</span>
+                </a>
+            {% endif %}
+        </div>
+        <div class="hero-body">
+            <dl class="stats">
+                <div class="stat"><dt class="stat__label">{{ LNG.ov_diameter }}</dt><dd class="stat__value">{{ planet_diameter }} {{ LNG.ov_distance_unit }}</dd></div>
+                <div class="stat"><dt class="stat__label">{{ LNG.ov_temperature }}</dt><dd class="stat__value"><a class="tooltip_sticky" data-tooltip-content="{{ LNG.ov_aprox }} {{ planet_temp_min }}{{ LNG.ov_temp_unit }} {{ LNG.ov_to }} {{ planet_temp_max }}{{ LNG.ov_temp_unit }}">{{ planet_temp_max }}{{ LNG.ov_temp_unit }}</a></dd></div>
+                <div class="stat"><dt class="stat__label">{{ LNG.ov_fields }}</dt><dd class="stat__value"><a title="{{ LNG.ov_developed_fields }}">{{ planet_field_current }}</a> / <a title="{{ LNG.ov_max_developed_fields }}">{{ planet_field_max }}</a></dd></div>
+                <div class="stat"><dt class="stat__label">{{ LNG.ov_position }}</dt><dd class="stat__value"><a href="{{ path('game_galaxy_show', {galaxy: galaxy, system: system}) }}">[{{ galaxy }}:{{ system }}:{{ planet }}]</a></dd></div>
+                <div class="stat stat--wide"><dt class="stat__label">{{ LNG.ov_points }}</dt><dd class="stat__value stat__value--text">{% if rankInfo %}{{ LNG.format('ov_userrank_info', rankInfo.points, LNG.ov_place, rankInfo.rank, rankInfo.rank, LNG.ov_of, rankInfo.usersCount) }}{% else %}-{% endif %}</dd></div>
+            </dl>
+            <div class="meter{% if fieldFill > 0.9 %} meter--warn{% endif %}" style="--fill: {{ fieldFill|number_format(3, '.', '') }}" title="{{ planet_field_current }} / {{ planet_field_max }} {{ LNG.ov_fields }}"></div>
+        </div>
+    </section>
+
+    <div class="tutorial-box">
+        {% include 'game/shared.tutorial.html.twig' %}
+    </div>
+
+    <div class="grid-3 overview-activity">
+        <section class="panel overview-events{% if hostileCount %} is-hostile{% endif %}" id="events-accordion">
+            <header class="panel__head">
+                <h2>{% if hostileCount %}{{ icon('triangle-alert') }} {% endif %}{{ LNG.ov_events }}</h2>
+                <span>{% if fleets %}{{ fleets|length }} &middot; <span class="fleets" data-fleet-time="{{ nextRest }}">{{ getRestTimeFormat(nextRest) }}</span>{% else %}0{% endif %}{% if hostileCount %} &middot; <span class="tag tag--neg">{{ LNG.ov_event_hostile }} {{ hostileCount }}</span>{% endif %}</span>
+            </header>
             <ul class="event-list" id="hidden-div2">
                 {% for index, fleet in fleets %}
                     <li{% if fleet.hostile %} class="event-list__hostile"{% endif %}>
-                      {% if fleet.hostile %}<span class="event-list__flag">{{ icon('triangle-alert') }} {{ LNG.ov_event_hostile }}</span>{% endif %}
-                      <span data-time="{{ fleet.returntime }}" class="statictimer"></span> |
-                      <span id="fleettime_{{ index }}" class="fleets" data-fleet-end-time="{{ fleet.returntime }}" data-fleet-time="{{ fleet.resttime }}">
-                            {{ getRestTimeFormat(fleet.resttime) }}
+                        <span class="event-list__icon" aria-hidden="true">{{ icon(fleet.hostile ? 'triangle-alert' : 'rocket') }}</span>
+                        <span class="event-list__text">
+                            {% if fleet.hostile %}<span class="tag tag--neg">{{ LNG.ov_event_hostile }}</span> {% endif %}<span id="fleettext_{{ index }}">{{ fleet.text }}</span>
                         </span>
-                        <span id="fleettext_{{ index }}">{{ fleet.text }}</span>
+                        <span class="event-list__time">
+                            <span id="fleettime_{{ index }}" class="fleets" data-fleet-end-time="{{ fleet.returntime }}" data-fleet-time="{{ fleet.resttime }}">{{ getRestTimeFormat(fleet.resttime) }}</span>
+                            <span data-time="{{ fleet.returntime }}" class="statictimer"></span>
+                        </span>
                     </li>
                 {% else %}
-                    <li class="empty-state empty-state--inline"><p>{{ LNG.ov_no_fleets }}</p></li>
+                    <li class="empty">{{ LNG.ov_no_fleets }}</li>
                 {% endfor %}
             </ul>
-        </details>
+        </section>
 
-        <div class="infos{% if Moon %} infos-with-moon{% endif %}">
-            <div class="planeto">
-                {{ LNG.lm_overview }}
-            </div>
-            {% if Moon %}
-                <div class="moon">
-                    <a href="{{ path('game_overview_show', {cp: Moon.id, re: 0}) }}" title="{{ Moon.name }}">
-                        {% if enablePlanetStyles == 0 %}
-                            <img class="inline" src="{{ theme_asset('planeten/' ~ Moon.image ~ '.jpg') }}" height="100" width="100" alt="{{ Moon.name }} {% if Moon.planet_type == 3 %}({{ LNG.fcm_moon }}){% else %}({{ LNG.fcm_planet }}){% endif %}">
-                        {% else %}
-                            {% if Moon.planet_style == 0 %}
-                                <img class="inline" src="{{ theme_asset('planeten/' ~ Moon.image ~ '.jpg') }}" height="100" width="100" alt="{{ Moon.name }} {% if Moon.planet_type == 3 %}({{ LNG.fcm_moon }}){% else %}({{ LNG.fcm_planet }}){% endif %}">
-                            {% endif %}
-                            {% if Moon.planet_style == 1 %}
-                                <img class="inline" src="{{ theme_asset('planeten/varianten/v1_magic/' ~ Moon.image ~ '_v1_magic.webp') }}" height="100" width="100" alt="{{ Moon.name }} {% if Moon.planet_type == 3 %}({{ LNG.fcm_moon }}){% else %}({{ LNG.fcm_planet }}){% endif %}">
-                            {% endif %}
-                            {% if Moon.planet_style == 2 %}
-                                <img class="inline" src="{{ theme_asset('planeten/varianten/v2_storm/' ~ Moon.image ~ '_v2_storm.webp') }}" height="100" width="100" alt="{{ Moon.name }} {% if Moon.planet_type == 3 %}({{ LNG.fcm_moon }}){% else %}({{ LNG.fcm_planet }}){% endif %}">
-                            {% endif %}
-                            {% if Moon.planet_style == 3 %}
-                                <img class="inline" src="{{ theme_asset('planeten/varianten/v3_voronoi/' ~ Moon.image ~ '_v3_voronoi.webp') }}" height="100" width="100" alt="{{ Moon.name }} {% if Moon.planet_type == 3 %}({{ LNG.fcm_moon }}){% else %}({{ LNG.fcm_planet }}){% endif %}">
-                            {% endif %}             
-                        {% endif %}             
-                    </a>
-                    <br>
-                    {{ Moon.name }} {% if Moon.planet_type == 3 %}({{ LNG.ov_moon }}){% else %}({{ LNG.ov_planet }}){% endif %}
-                    <br>
-                    {% if Moon.build %}
-                        {{ LNG.tech[Moon.build['id']] }} ({{ Moon.build['level'] }})
-                        <br>
-                        <div class="timershort timer-muted" data-umode="{{ umode }}" data-time="{{ Moon.build['timeleft'] }}">
-                            {{ Moon.build['starttime'] }}
-                        </div>
-                    {% else %}
-                        {{ LNG.ov_free }}
-                    {% endif %}
-                </div>
-            {% else %}
-                &nbsp;
-            {% endif %}
-            <div class="planeth">
-                {% if enablePlanetStyles == 0 %}
-                    <img src="{{ theme_asset('planeten/' ~ planetimage ~ '.jpg') }}" height="200" width="200" alt="{{ planetname }}">
-                {% else %}
-                    {% if planet_style == 0 %}
-                        <img src="{{ theme_asset('planeten/' ~ planetimage ~ '.jpg') }}" height="200" width="200" alt="{{ planetname }}">
-                    {% endif %}
-                    {% if planet_style == 1 %}
-                        <img src="{{ theme_asset('planeten/varianten/v1_magic/' ~ planetimage ~ '_v1_magic.webp') }}" height="200" width="200" alt="{{ planetname }}">
-                    {% endif %}
-                    {% if planet_style == 2 %}
-                        <img src="{{ theme_asset('planeten/varianten/v2_storm/' ~ planetimage ~ '_v2_storm.webp') }}" height="200" width="200" alt="{{ planetname }}">
-                    {% endif %}
-                    {% if planet_style == 3 %}
-                        <img src="{{ theme_asset('planeten/varianten/v3_voronoi/' ~ planetimage ~ '_v3_voronoi.webp') }}" height="200" width="200" alt="{{ planetname }}">
-                    {% endif %}
-                {% endif %}
-            </div>
-            <div class="planeth">
-                {{ planetname }}
-                <br>
-                {% if buildInfo.buildings %}
-                    <a href="{{ path('game_buildings_show') }}">{{ LNG.lm_buildings }}:</a> {{ LNG.tech[buildInfo.buildings['id']] }}{% if buildInfo.buildings['mode'] == 'destroy' %} {{ LNG.bd_dismantle }}{% endif %} ({{ buildInfo.buildings['level'] }})
-                    <br>
-                    <div class="timer" data-umode="{{ umode }}" data-time="{{ buildInfo.buildings['timeleft'] }}">
-                        {{ buildInfo.buildings['starttime'] }}
-                    </div>
-                {% else %}
-                    <a href="{{ path('game_buildings_show') }}">{{ LNG.lm_buildings }}: {{ LNG.ov_free }}</a>
-                    <br>
-                {% endif %}
-                {% if buildInfo.tech %}
-                    <a href="{{ path('game_research_show') }}">{{ LNG.lm_research }}:</a> {{ LNG.tech[buildInfo.tech['id']] }} ({{ buildInfo.tech['level'] }})
-                    <br>
-                    <div class="timer" data-umode="{{ umode }}" data-time="{{ buildInfo.tech['timeleft'] }}">
-                        {{ buildInfo.tech['starttime'] }}
-                    </div>
-                {% else %}
-                    <a href="{{ path('game_research_show') }}">{{ LNG.lm_research }}: {{ LNG.ov_free }}</a>
-                    <br>
-                {% endif %}
-                {% if buildInfo.fleet %}
-                    <a href="{{ path('game_shipyard_show', {kind: 'shipyard'}) }}">{{ LNG.lm_shipshard }}: </a>{{ LNG.tech[buildInfo.fleet['id']] }} ({{ buildInfo.fleet['level'] }})
-                    <br>
-                    <div class="timer" data-umode="{{ umode }}" data-time="{{ buildInfo.fleet['timeleft'] }}">
-                        {{ buildInfo.fleet['starttime'] }}
-                    </div>
-                {% else %}
-                    <a href="{{ path('game_shipyard_show', {kind: 'shipyard'}) }}">{{ LNG.lm_shipshard }}: {{ LNG.ov_free }}</a>
-                    <br>
-                {% endif %}
-                
+        <section class="panel">
+            {{ ui.panel_head(LNG.ov_queues) }}
+            <dl class="kv overview-queue panel__body">
+                <dt><a href="{{ path('game_buildings_show') }}">{{ LNG.lm_buildings }}</a></dt>
+                <dd>{% if buildInfo.buildings %}{{ LNG.tech[buildInfo.buildings['id']] }}{% if buildInfo.buildings['mode'] == 'destroy' %} {{ LNG.bd_dismantle }}{% endif %}<span class="lvl">{{ buildInfo.buildings['level'] }}</span><br><span class="timer mono" data-umode="{{ umode }}" data-time="{{ buildInfo.buildings['timeleft'] }}">{{ buildInfo.buildings['starttime'] }}</span>{% else %}<span class="muted">{{ LNG.ov_free }}</span>{% endif %}</dd>
+                <dt><a href="{{ path('game_research_show') }}">{{ LNG.lm_research }}</a></dt>
+                <dd>{% if buildInfo.tech %}{{ LNG.tech[buildInfo.tech['id']] }}<span class="lvl">{{ buildInfo.tech['level'] }}</span><br><span class="timer mono" data-umode="{{ umode }}" data-time="{{ buildInfo.tech['timeleft'] }}">{{ buildInfo.tech['starttime'] }}</span>{% else %}<span class="muted">{{ LNG.ov_free }}</span>{% endif %}</dd>
+                <dt><a href="{{ path('game_shipyard_show', {kind: 'shipyard'}) }}">{{ LNG.lm_shipshard }}</a></dt>
+                <dd>{% if buildInfo.fleet %}{{ LNG.tech[buildInfo.fleet['id']] }}<span class="lvl">{{ buildInfo.fleet['level'] }}</span><br><span class="timer mono" data-umode="{{ umode }}" data-time="{{ buildInfo.fleet['timeleft'] }}">{{ buildInfo.fleet['starttime'] }}</span>{% else %}<span class="muted">{{ LNG.ov_free }}</span>{% endif %}</dd>
                 {% if isModuleAvailable(constant('MODULE_REPAIR_DOCK')) %}
-                    {% if buildInfo.repair %}
-                        {% if buildInfo.repair.repairing %}
-                            <a href="{{ path('game_repairdock_show') }}">{{ LNG.lm_repairdock }}: </a><span id="repairtext" data-alttext="{{ buildInfo.repair['deploy_text'] }}">{{ buildInfo.repair['text'] }}</span>
-                        {% else %}
-                            <a href="{{ path('game_repairdock_show') }}">{{ LNG.lm_repairdock }}: </a><span id="repairtext">{{ buildInfo.repair['deploy_text'] }}</span>
-                        {% endif %}
-                        <br>
-                        <div class="timerrepair" data-umode="{{ umode }}" data-time="{{ buildInfo.repair['timeleft'] }}" data-repairing={{ buildInfo.repair['repairing'] }}>
-                            {{ buildInfo.repair['starttime'] }}
-                        </div>
-                    {% else %}
-                        <a href="{{ path('game_repairdock_show') }}">{{ LNG.lm_repairdock }}: {{ LNG.ov_free }}</a>
-                        <br>
-                    {% endif %}
+                    <dt><a href="{{ path('game_repairdock_show') }}">{{ LNG.lm_repairdock }}</a></dt>
+                    <dd>{% if buildInfo.repair %}<span id="repairtext"{% if buildInfo.repair.repairing %} data-alttext="{{ buildInfo.repair['deploy_text'] }}"{% endif %}>{% if buildInfo.repair.repairing %}{{ buildInfo.repair['text'] }}{% else %}{{ buildInfo.repair['deploy_text'] }}{% endif %}</span><br><span class="timerrepair mono" data-umode="{{ umode }}" data-time="{{ buildInfo.repair['timeleft'] }}" data-repairing="{{ buildInfo.repair['repairing'] }}">{{ buildInfo.repair['starttime'] }}</span>{% else %}<span class="muted">{{ LNG.ov_free }}</span>{% endif %}</dd>
                 {% endif %}
-                
-                <br>
-                {{ LNG.ov_diameter }}: {{ planet_diameter }} {{ LNG.ov_distance_unit }} (<a title="{{ LNG.ov_developed_fields }}">{{ planet_field_current }}</a> / <a title="{{ LNG.ov_max_developed_fields }}">{{ planet_field_max }}</a> {{ LNG.ov_fields }})
-                <br>
-                {{ LNG.ov_temperature }}: <a class="tooltip_sticky" data-tooltip-content="{{ LNG.ov_aprox }} {{ planet_temp_min }}{{ LNG.ov_temp_unit }} {{ LNG.ov_to }} {{ planet_temp_max }}{{ LNG.ov_temp_unit }}">{{ planet_temp_max }}{{ LNG.ov_temp_unit }}</a>
-                <br>
-                {{ LNG.ov_position }}: <a href="{{ path('game_galaxy_show', {galaxy: galaxy, system: system}) }}">[{{ galaxy }}:{{ system }}:{{ planet }}]</a>
-            </div>
-            &nbsp;<br>
-        </div>
-
-        <div class="tutorial-box">
-            {% include 'game/shared.tutorial.html.twig' %}
-        </div>
-        <div class="message-box">
-        </div>
-        
-        <div class="infos overview-info">
-            <div class="planeto">
-                <a href="#" data-dialog="{{ path('game_overview_actions') }}" data-dialog-width="400" title="{{ LNG.ov_planetmenu }}">{{ LNG["type_planet_#{planet_type}"] }} {{ planetname }}</a> ({{ username }})
-            </div>
-            <dl class="stat-list">
-                <dt>{{ LNG.ov_server_time }}</dt>
-                <dd><span class="servertime">{{ servertime }}</span></dd>
-                <dt>{{ LNG.ov_points }}</dt>
-                <dd>{% if rankInfo %}{{ LNG.format('ov_userrank_info', rankInfo.points, LNG.ov_place, rankInfo.rank, rankInfo.rank, LNG.ov_of, rankInfo.usersCount) }}{% else %}-{% endif %}</dd>
-                {% if outlawTime %}
-                    <dt class="colorNegative">{{ LNG.ov_outlaw }}</dt>
-                    <dd class="colorNegative">{{ outlawTime }}</dd>
-                {% endif %}
-                {% if isCatchUp %}
-                    <dt>%</dt>
-                    <dd>{{ catchUp }} %</dd>
-                {% endif %}
-                <dt>{{ LNG.ov_admins_online|trim|trim(':')|trim }}</dt>
-                <dd>{% for ID, Name in AdminsOnline %}<a class="colorPositive" href="#" data-action="dialog-pm" data-id="{{ ID }}">{{ Name }}</a> &bull; {% endfor %}<a class="colorPositive" href="{{ path('game_ticket_show') }}">{{ LNG.ov_ticketbot }}</a></dd>
             </dl>
-            <p class="stat-list__note">
-                {{ LNG.ov_rulesnotify }}&nbsp;<a href="{{ path('login_rules') }}" data-dialog data-dialog-width="820" class="rules-link">[{{ LNG.ov_rules }}]</a>
-            </p>
-            {% if is_news %}
-                <div class="hidden-div" id="hidden-div">
-                    <span class="news-title">
-                        {{ LNG.ov_news }}:
-                    </span>
-                    <br><br>
-                    {# raw: universe news text, HTML written by admins in the universe settings (makebr only adds <br>) #}{{ news|raw }}
-                    <br>
-                    <span class="block mt-2 text-center">
-                        <button id="chkbtn2">{{ LNG.ov_checknews_hide }}</button>
-                    </span>
-                </div>
-                <span class="block mt-2">
-                    <button id="chkbtn">{{ LNG.ov_checknews_show }}</button>
-                </span>
-            {% endif %}
-        </div>
+        </section>
 
-        <div class="infos">
-            {% if AllPlanets %}
-                <div class="planeto">
-                    {{ LNG.ov_planets }}
-                </div>
-                {% for PlanetRow in AllPlanets %}
-                    {% if (loop.index % themeSettings.PLANET_ROWS_ON_OVERVIEW) == 1 %}{% endif %}
-                    <div class="planetl">
-                        <a href="{{ path('game_overview_show', {cp: PlanetRow.id}) }}" title="{{ PlanetRow.name }}">
-                            {% if enablePlanetStyles == 0 %}
-                                <img class="planet-thumb" src="{{ theme_asset('planeten/' ~ PlanetRow.image ~ '.jpg') }}" width="100" height="100" alt="{{ PlanetRow.name }}">
-                            {% else %}
-                                {% if PlanetRow.planet_style == 0 %}
-                                    <img class="planet-thumb" src="{{ theme_asset('planeten/' ~ PlanetRow.image ~ '.jpg') }}" width="100" height="100" alt="{{ PlanetRow.name }}">
-                                {% endif %}                  
-                                {% if PlanetRow.planet_style == 1 %}
-                                    <img class="planet-thumb" src="{{ theme_asset('planeten/varianten/v1_magic/' ~ PlanetRow.image ~ '_v1_magic.webp') }}" width="100" height="100" alt="{{ PlanetRow.name }}">
-                                {% endif %}                  
-                                {% if PlanetRow.planet_style == 2 %}
-                                    <img class="planet-thumb" src="{{ theme_asset('planeten/varianten/v2_storm/' ~ PlanetRow.image ~ '_v2_storm.webp') }}" width="100" height="100" alt="{{ PlanetRow.name }}">
-                                {% endif %}                  
-                                {% if PlanetRow.planet_style == 3 %}
-                                    <img class="planet-thumb" src="{{ theme_asset('planeten/varianten/v3_voronoi/' ~ PlanetRow.image ~ '_v3_voronoi.webp') }}" width="100" height="100" alt="{{ PlanetRow.name }}">
-                                {% endif %}                  
-                            {% endif %}                  
-                        </a>
-                        <br>
-                        {{ PlanetRow.name }}
-                        <br>
-                        [{{ PlanetRow.galaxy }}:{{ PlanetRow.system }}:{{ PlanetRow.planet }}]
-                        <br>
-                        {% if PlanetRow.build %}
-                            {{ LNG.tech[PlanetRow.build['id']] }}{% if PlanetRow.build['mode'] == 'destroy' %} {{ LNG.bd_dismantle }}{% endif %} ({{ PlanetRow.build['level'] }})
-                            <br>
-                            <div class="timershort timer-muted" data-umode="{{ umode }}" data-time="{{ PlanetRow.build['timeleft'] }}">
-                                {{ PlanetRow.build['starttime'] }}
-                            </div>
-                        {% else %}
-                            {{ LNG.ov_free }}
-                        {% endif %}
-                    </div>
-                    {% if loop.last and loop.length > 1 and (loop.index % themeSettings.PLANET_ROWS_ON_OVERVIEW) != 0 %}
-                        {% set to = themeSettings.PLANET_ROWS_ON_OVERVIEW - (loop.index % themeSettings.PLANET_ROWS_ON_OVERVIEW) %}
-                        {% if (to) >= (1) %}{% for foo in 1..to %}
-
-                        {% endfor %}{% endif %}
+        <section class="panel overview-info">
+            {{ ui.panel_head(LNG.lm_info) }}
+            <div class="panel__body">
+                <dl class="kv">
+                    <dt>{{ LNG.ov_server_time }}</dt>
+                    <dd class="mono"><span class="servertime">{{ servertime }}</span></dd>
+                    {% if outlawTime %}
+                        <dt class="colorNegative">{{ LNG.ov_outlaw }}</dt>
+                        <dd class="colorNegative">{{ outlawTime }}</dd>
                     {% endif %}
-                    {% if (loop.index % themeSettings.PLANET_ROWS_ON_OVERVIEW) == 0 %}</tr>{% endif %}
-                {% endfor %}
-            {% else %}
-                &nbsp;
-            {% endif %}
-        </div>
+                    {% if isCatchUp %}
+                        <dt>%</dt>
+                        <dd>{{ catchUp }} %</dd>
+                    {% endif %}
+                    <dt>{{ LNG.ov_admins_online|trim|trim(':')|trim }}</dt>
+                    <dd>{% for ID, Name in AdminsOnline %}<a class="colorPositive" href="#" data-action="dialog-pm" data-id="{{ ID }}">{{ Name }}</a> &bull; {% endfor %}<a class="colorPositive" href="{{ path('game_ticket_show') }}">{{ LNG.ov_ticketbot }}</a></dd>
+                </dl>
+                <p>{{ LNG.ov_rulesnotify }}&nbsp;<a href="{{ path('login_rules') }}" data-dialog data-dialog-width="820" class="rules-link">[{{ LNG.ov_rules }}]</a></p>
+                {% if is_news %}
+                    <div class="hidden-div" id="hidden-div">
+                        <strong class="news-title">{{ LNG.ov_news }}:</strong>
+                        {# raw: universe news text, HTML written by admins in the universe settings (makebr only adds <br>) #}<div>{{ news|raw }}</div>
+                        <button type="button" id="chkbtn2">{{ LNG.ov_checknews_hide }}</button>
+                    </div>
+                    <button type="button" id="chkbtn">{{ LNG.ov_checknews_show }}</button>
+                {% endif %}
+            </div>
+        </section>
     </div>
-{% endblock %}
 
+    {% if AllPlanets or Moon %}
+        <section class="panel overview-planets">
+            {{ ui.panel_head(LNG.ov_planets) }}
+            <div class="panel__body grid-auto">
+                {% set moonListed = false %}{% for PlanetRow in AllPlanets %}{% if Moon and PlanetRow.id == Moon.id %}{% set moonListed = true %}{% endif %}{% endfor %}
+                {% if Moon and not moonListed %}
+                    <div class="overview-planet">
+                        <a href="{{ path('game_overview_show', {cp: Moon.id, re: 0}) }}" title="{{ Moon.name }}"><img class="planet-thumb" src="{{ _self.art(Moon.image, Moon.planet_style, enablePlanetStyles != 0) }}" width="48" height="48" alt="{{ Moon.name }}"></a>
+                        <div>
+                            <strong>{{ Moon.name }}</strong> <span class="muted">({% if Moon.planet_type == 3 %}{{ LNG.ov_moon }}{% else %}{{ LNG.ov_planet }}{% endif %})</span><br>
+                            {% if Moon.build %}{{ LNG.tech[Moon.build['id']] }}<span class="lvl">{{ Moon.build['level'] }}</span> <span class="timershort mono" data-umode="{{ umode }}" data-time="{{ Moon.build['timeleft'] }}">{{ Moon.build['starttime'] }}</span>{% else %}<span class="muted">{{ LNG.ov_free }}</span>{% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                {% for PlanetRow in AllPlanets %}
+                    <div class="overview-planet">
+                        <a href="{{ path('game_overview_show', {cp: PlanetRow.id}) }}" title="{{ PlanetRow.name }}"><img class="planet-thumb" src="{{ _self.art(PlanetRow.image, PlanetRow.planet_style, enablePlanetStyles != 0) }}" width="48" height="48" alt="{{ PlanetRow.name }}"></a>
+                        <div>
+                            <strong>{{ PlanetRow.name }}</strong> <span class="mono muted">[{{ PlanetRow.galaxy }}:{{ PlanetRow.system }}:{{ PlanetRow.planet }}]</span><br>
+                            {% if PlanetRow.build %}{{ LNG.tech[PlanetRow.build['id']] }}{% if PlanetRow.build['mode'] == 'destroy' %} {{ LNG.bd_dismantle }}{% endif %}<span class="lvl">{{ PlanetRow.build['level'] }}</span> <span class="timershort mono" data-umode="{{ umode }}" data-time="{{ PlanetRow.build['timeleft'] }}">{{ PlanetRow.build['starttime'] }}</span>{% else %}<span class="muted">{{ LNG.ov_free }}</span>{% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

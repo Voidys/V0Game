@@ -1,5 +1,10 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_fleet }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+  {% set actions %}<span class="tag tag--info">{{ LNG.fl_fleets }} {{ activeFleetSlots }} / {{ maxFleetSlots }}</span> <span class="tag tag--info">{{ LNG.fl_planets }} {{ currentPlanetCount }} / {{ maxPlanetCount }}</span> <span class="tag tag--info">{{ LNG.fl_expeditions }} {{ activeExpedition }} / {{ maxExpedition }}</span>{% endset %}
+  {{ ui.page_head(LNG.lm_fleet, 'send', null, actions) }}
+{% endblock %}
 {% block content %}
   {% if notice %}
   <div class="globalWarning" role="alert" id="fleet-notice">{{ icon('triangle-alert') }}<span>{{ notice }}</span></div>
@@ -10,17 +15,10 @@
     {% set ships = ships|merge([{id: fleetArray.id, expo: fleetArray.expo, capacity: fleetArray.capacity}]) %}
   {% endfor %}
   {{ data_island('fleet-table-data', {ships: ships}) }}
+  <section class="panel panel--flush">
+  {{ ui.panel_head(LNG.fl_fleets, activeFleetSlots) }}
   <div class="flyingFleets-scroll">
-  <table class="flyingFleets">
-    <tr>
-      <th colspan="10">
-        <div class="fleet-slots">
-        <div class="transparent fleet-slot fleet-slot--start">{{ LNG.fl_fleets }} {{ activeFleetSlots }} / {{ maxFleetSlots }}</div>
-        <div class="transparent fleet-slot fleet-slot--center">{{ LNG.fl_planets }} {{ currentPlanetCount }} / {{ maxPlanetCount }}</div>
-        <div class="transparent fleet-slot fleet-slot--end">{{ LNG.fl_expeditions }} {{ activeExpedition }} / {{ maxExpedition }}</div>
-        </div>
-      </th>
-    </tr>
+  <table class="flyingFleets data">
     {% if FlyingFleetList %}
     <tr class="fleet-head">
       <td class="fleet-col-id ctr">{{ LNG.fl_number }}</td>
@@ -109,6 +107,7 @@
       {% endif %}
   </table>
   </div>
+  </section>
     {% if acsData %}
         {% include 'game/shared.fleetTable.acsTable.html.twig' %}
     {% endif %}
@@ -119,10 +118,11 @@
     <input type="hidden" name="type" value="{{ targetType }}">
     <input type="hidden" name="target_mission" value="{{ targetMission }}">
     {% if directTarget %}<input type="hidden" name="direct" value="1">{% endif %}
+    {% set selectTitle %}{{ LNG.fl_new_mission_title }}{% if targetMission > 0 %}: {{ LNG["type_mission_#{targetMission}"] }} [{{ targetGalaxy }}:{{ targetSystem }}:{{ targetPlanet }}]{% endif %}{% endset %}
+    <div class="stack">
+    <section class="panel panel--flush">
+    {{ ui.panel_head(selectTitle) }}
     <table class="fleet-select">
-      <tr>
-        <th colspan="5">{{ LNG.fl_new_mission_title }}{% if targetMission > 0 %}: {{ LNG["type_mission_#{targetMission}"] }} [{{ targetGalaxy }}:{{ targetSystem }}:{{ targetPlanet }}]{% endif %}</th>
-      </tr>
       <tbody id="ship-rows">
       <tr class="fleet-select__head">
         <td aria-sort="none"><button type="button" class="link sort-link" data-action="sort-ships" data-key="name">{{ LNG.fl_ship_type }}</button></td>
@@ -163,16 +163,11 @@
         </div></td>
       </tr>
       <tr><td colspan="5" class="quick-fleets"><span class="quick-fleets__label">{{ LNG.fl_quick_fleets }}</span> <span id="customfleets" class="quick-fleets__list"></span><span id="customfleets-hint" class="hint" hidden>{{ LNG.fl_quick_fleets_hint }}</span></td></tr>
-        {% if maxFleetSlots != activeFleetSlots %}
-      <tr>
-        <td colspan="5" class="form-actions"><input type="submit" value="{{ LNG.fl_continue }}"></td>
-      </tr>
-        {% endif %}
     </table>
+    </section>
+    <section class="panel panel--flush">
+    {{ ui.panel_head(LNG.fl_resources) }}
     <table>
-      <tr>
-        <th colspan="3">{{ LNG.fl_resources }}</th>
-      </tr>
       <tr>
         <td>{{ LNG['tech'][901] }}</td>
         <td>{{ LNG['tech'][902] }}</td>
@@ -196,16 +191,18 @@
         </td>
       </tr>
     </table>
-
+    </section>
+    {% if maxFleetSlots != activeFleetSlots %}
+    <div class="panel fleet-dock"><footer class="panel__foot"><input type="submit" value="{{ LNG.fl_continue }}"></footer></div>
+    {% endif %}
+    </div>
   </form>
-  <br>
 
+  <section class="panel panel--flush">
+  {{ ui.panel_head(LNG.fl_cargo_options) }}
   <div class="table-scroll">
-  <table>
+  <table class="data">
     <thead>
-      <tr>
-        <th colspan="6">{{ LNG.fl_cargo_options }}</th>
-      </tr>
       <tr>
         <th>{{ LNG.fl_cargo_preset }}</th>
         <th class="num">{{ LNG['tech'][901] }}</th>
@@ -233,13 +230,12 @@
       {% endfor %}
     </tbody>
   </table>
-  <p class="hint">{{ LNG.fl_cargo_options_hint }}</p>
   </div>
-  <br>
+  <p class="hint panel__body">{{ LNG.fl_cargo_options_hint }}</p>
+  </section>
+  <section class="panel panel--flush">
+  {{ ui.panel_head(LNG.fl_bonus) }}
   <table class="fleet-bonus">
-    <tr>
-      <th colspan="3">{{ LNG.fl_bonus }}</th>
-    </tr>
     <tr>
       <th>{{ LNG.fl_bonus_attack }}</th>
       <th>{{ LNG.fl_bonus_shield }}</th>
@@ -261,12 +257,9 @@
       <td>+{{ bonusHyperspace }} %</td>
     </tr>
   </table>
-  <br>
-  <table>
-    <tr>
-      <th colspan="3" data-action="toggle-custom-fleet" class="clickable"><span id="c_fleet_span">▼</span> {{ LNG["custom_fleet"] }}</th>
-    </tr>
-  </table>
+  </section>
+  <section class="panel panel--flush">
+  <header class="panel__head clickable" data-action="toggle-custom-fleet"><h2><span id="c_fleet_span">▼</span> {{ LNG["custom_fleet"] }}</h2></header>
   <table id="customfleet" style="display: none" data-noname="{{ LNG['fleet_table_custom_empty_name'] }}" data-delconf="{{ LNG['custom_fleet_confirm'] }}" data-saved="{{ LNG['al_saved'] }}">
     <tr>
       <th colspan=3><select id="cfleet_select" class="control-wide">
@@ -309,6 +302,7 @@
 
 
   </table>
+  </section>
 {% endblock %}
 {% block script %}{{ parent() }}
   <script type="module" src="scripts/game/fleetTable.js?v={{ asset_version }}"></script>

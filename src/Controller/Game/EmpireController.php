@@ -100,7 +100,7 @@ class EmpireController extends AbstractGameController
         return $this->render('game/page.empire.default.html.twig', $researchQueue + [
             'colspan'                       => count($PLANETS) + 2,
             'chartPoints'                   => $chartPoints,
-            'planetList'                    => $planetList,
+            'empireList'                    => $planetList,
             'avgBuildings'                  => $avgBuildings,
             'currentPlanetCount'            => $currentPlanetCount,
             'maxPlanetCount'                => $maxPlanetCount,

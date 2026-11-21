@@ -1179,6 +1179,7 @@ ov_fleetbutton_show: Show
 ov_free: Free
 ov_have_new_message: You have a new message
 ov_have_new_messages: You have %d new messages
+ov_queues: Queues
 ov_max_developed_fields: Total fields
 ov_moon: Moon
 ov_newname_done: Planet renamed!
@@ -1517,6 +1518,9 @@ fl_cargo_needed: needed
 fl_cargo_select: select
 fl_cargo_current_planet: Current planet
 ui_skip_to_content: Skip to content
+ui_watch: Watch
+ui_unwatch: Stop watching
+ui_message_tools: Search, filters and actions
 ui_menu: Menu
 ui_rank: Rank
 ui_queue: Queue
@@ -1689,3 +1693,37 @@ op_unsaved_one: "1 unsaved change"
 op_unsaved_many: "%d unsaved changes"
 pl_note: "Note"
 pl_galaxy_view: "Show in galaxy"
+shell_jump: "Jump to…"
+shell_jump_tip: "Jump to a page, planet or coordinates"
+shell_switch_planet: "Switch planet"
+shell_switch_to: "Switch to %s"
+shell_moon_of: "Moon of %s"
+shell_fields: "fields"
+shell_slots_tip: "%1 of %2 planet slots used"
+shell_shortcuts: "Shortcuts"
+shell_shortcuts_title: "Keyboard shortcuts"
+shell_attack_title: "Hostile fleet approaching"
+shell_attack_arrives: "arrives in"
+shell_attack_in: "Attack in"
+shell_attack_fleet: "Fleet"
+shell_attack_details: "Details"
+shell_attack_hide: "Hide warning"
+shell_tagline: "Open-source space strategy in your browser."
+shell_footer: "Footer"
+shell_footer_game: "Game"
+shell_footer_community: "Community"
+shell_footer_legal: "Legal"
+shell_imprint: "Imprint"
+ui_palette_placeholder: "Pages, planets, coordinates (e.g. 1:42:8)…"
+ui_palette_empty: "No matches"
+ui_palette_pages: "Pages"
+ui_palette_planets: "Planets"
+ui_palette_go: "Go to"
+ui_palette_galaxy: "Galaxy"
+ui_shortcuts_title: "Keyboard shortcuts"
+ui_shortcuts_palette: "Jump to page, planet or coordinates"
+ui_shortcuts_go_overview: "Overview"
+ui_shortcuts_go_buildings: "Buildings"
+ui_shortcuts_go_galaxy: "Galaxy"
+ui_shortcuts_planets: "Previous / next planet"
+ui_shortcuts_help: "This help"

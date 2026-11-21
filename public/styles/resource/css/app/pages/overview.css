@@ -1,0 +1,141 @@
+/* Page group "overview" (overview, empire, resources): page-specific blocks only, built on ui.css (docs/ui-layout.md). Layer "pages". */
+@layer pages {
+  /* ---------------------------------------------------------------- overview: hero */
+  .hero {
+    position: relative; isolation: isolate; overflow: hidden;
+    display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-6); align-items: center;
+    padding: var(--space-5) var(--pad);
+  }
+  .hero::before { /* faint dot grid, fading out from the planet */
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(circle, color-mix(in oklab, var(--c-text) 18%, transparent) 1px, transparent 1.5px) 0 0 / 1.25rem 1.25rem;
+    mask-image: radial-gradient(28rem 16rem at 7rem 50%, #000 0%, transparent 75%);
+  }
+  .hero::after { /* coordinates watermark */
+    content: attr(data-coords); position: absolute; z-index: -1; pointer-events: none;
+    inset-inline-end: 0; inset-block-end: -0.2em;
+    font: 700 clamp(4rem, 9vw, 7.5rem) / 1 var(--font-mono); letter-spacing: -0.06em;
+    color: color-mix(in oklab, var(--c-text) 5%, transparent);
+  }
+  .hero-orbit { position: relative; inline-size: 9rem; block-size: 9rem; margin-inline: 3rem; } /* ring 15rem = planet 9rem + 2 x 3rem */
+  .hero-art {
+    position: relative; z-index: 1; display: block; inline-size: 100%; block-size: 100%; border-radius: 50%;
+    filter: drop-shadow(0 0 2.5rem color-mix(in oklab, var(--c-accent) 16%, transparent));
+  }
+  .orbit-ring {
+    position: absolute; inset-block-start: 50%; inset-inline-start: 50%; z-index: 0;
+    inline-size: 15rem; block-size: 4.6rem; translate: -50% -50%; rotate: -14deg;
+    border: 1px solid color-mix(in oklab, var(--c-accent) 35%, var(--c-border-strong)); border-radius: 50%;
+    pointer-events: none;
+  }
+  /* the moon travels along the ellipse of the ring; the half behind the planet is drawn under it */
+  .orbit-moon {
+    --moon-d: 15%;
+    position: absolute; inset: 0; z-index: 3; display: block;
+    inline-size: 1.75rem; block-size: 1.75rem; border-radius: 50%;
+    offset-path: path('M -44.43 101.03 A 120 36.8 -14 1 1 188.43 42.97 A 120 36.8 -14 1 1 -44.43 101.03 Z'); offset-rotate: 0deg; offset-distance: var(--moon-d);
+    animation: orbit-run 48s linear infinite;
+    transition: filter var(--t-med) var(--ease-out);
+  }
+  .orbit-moon img { display: block; inline-size: 100%; block-size: 100%; border-radius: 50%; }
+  .hero-orbit:hover .orbit-moon { animation-play-state: paused; }
+  .orbit-moon:hover, .orbit-moon:focus-visible { filter: drop-shadow(0 0 0.5rem color-mix(in oklab, var(--c-accent) 50%, transparent)); }
+  .orbit-label {
+    position: absolute; inset-block-end: -1.5rem; inset-inline-start: 50%; translate: -50% 0;
+    font: 500 var(--fs-xs) / 1 var(--font-mono); color: var(--c-muted); white-space: nowrap; opacity: 0;
+    transition: opacity var(--t-fast);
+  }
+  .orbit-moon:hover .orbit-label, .orbit-moon:focus-visible .orbit-label { opacity: 1; }
+  @keyframes orbit-run {
+    0% { offset-distance: 0%; z-index: 0; filter: brightness(0.55); }
+    49.9% { z-index: 0; filter: brightness(0.55); }
+    50% { z-index: 3; filter: none; }
+    99.9% { z-index: 3; filter: none; }
+    100% { offset-distance: 100%; z-index: 0; filter: brightness(0.55); }
+  }
+  @media (prefers-reduced-motion: reduce) { .orbit-moon { animation: none; } }
+  .hero-body { display: grid; gap: var(--space-3); min-inline-size: 0; }
+  .hero-body .stat { margin: 0; }
+  .hero-body .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hero-body .stat--wide { grid-column: span 2; }
+  .hero-body .stat dd { margin: 0; }
+  .stat__value--text { font-size: var(--fs-md, var(--fs-base)); font-family: var(--font-body, inherit); }
+  .hero-body .meter { max-inline-size: 28rem; }
+
+  /* ---------------------------------------------------------------- overview: activity row */
+  .overview-activity > .panel { align-self: stretch; }
+  .overview-events.is-hostile { border-color: var(--c-negative); }
+  .event-list { list-style: none; margin: 0; padding: 0; }
+  .event-list li {
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-3); align-items: center;
+    padding: var(--space-2) var(--pad); border-block-start: 1px solid var(--c-border); border-inline-start: 2px solid transparent;
+  }
+  .event-list li:first-child { border-block-start: 0; }
+  .event-list li.empty { display: block; }
+  .event-list__hostile { border-inline-start-color: var(--c-negative); background: color-mix(in oklab, var(--c-negative) 10%, transparent); }
+  .event-list__icon { display: inline-flex; color: var(--c-muted); }
+  .event-list__hostile .event-list__icon { color: var(--c-negative); }
+  .event-list__text { min-inline-size: 0; overflow-wrap: anywhere; font-size: var(--fs-sm); }
+  .event-list__time { display: grid; justify-items: end; font: var(--fs-sm) / 1.3 var(--font-mono); font-variant-numeric: tabular-nums; }
+  .event-list__time .statictimer { color: var(--c-muted); font-size: var(--fs-xs); }
+  .overview-queue { padding: var(--pad); align-items: start; }
+  .overview-queue > * { margin: 0; }
+  .overview-queue dd { overflow-wrap: anywhere; }
+  .overview-info .panel__body > .hidden-div { display: none; }
+  .overview-info .panel__body > .hidden-div > * + * { margin-block-start: var(--space-2); }
+  .overview-info .news-title { font-size: var(--fs-base); text-decoration: none; }
+
+  /* planets and moons: only where the shell has no planet rail */
+  .overview-planets { display: none; }
+  @media (max-width: 60rem) {
+    .overview-planets { display: block; }
+  }
+  .overview-planet { display: flex; gap: var(--space-3); align-items: center; font-size: var(--fs-sm); }
+  .overview-planet .planet-thumb { inline-size: 3rem; block-size: 3rem; margin: 0; border-radius: 50%; display: block; }
+
+  @media (max-width: 60rem) {
+    .hero { grid-template-columns: minmax(0, 1fr); justify-items: start; }
+    .hero-body { justify-self: stretch; }
+    .hero-orbit { inline-size: 6rem; block-size: 6rem; margin: var(--space-2) 2rem var(--space-4); }
+    .orbit-ring { inline-size: 10rem; block-size: 3.2rem; }
+    .orbit-moon { inline-size: 1.4rem; block-size: 1.4rem; offset-path: path('M -29.62 67.35 A 80 25.6 -14 1 1 125.62 28.65 A 80 25.6 -14 1 1 -29.62 67.35 Z'); }
+  }
+  @media (max-width: 40rem) {
+    /* phones: a compact header, so the activity panels start above the fold */
+    .hero { gap: var(--space-3); padding: var(--space-4); }
+    .hero-orbit { margin: 0 2rem; }
+    .hero-body .stats { gap: var(--space-2) var(--space-4); }
+    .hero-body .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hero-body .stat--wide { grid-column: 1 / -1; }
+  }
+
+  /* tutorial box (shared.tutorial): a panel, the theme colours replace the old green */
+  .tutorial-accordion { overflow: hidden; }
+  .tutorial-accordion > .tutorial-header { margin: 0; border-radius: 0; background: var(--c-panel); padding: 0 var(--pad); }
+  .tutorial-accordion[open] > .tutorial-header { border-block-end: 1px solid var(--c-border); }
+  .tutorial-accordion .accordion__title { justify-content: flex-start; }
+  .tutorial-accordion > .tutorial { background: none; border-radius: 0; overflow: visible; gap: var(--space-4); }
+  .tutorial-accordion .tutorial-goals { padding: 0; }
+  .tutorial-accordion .tutorial-goals ul { padding-inline-start: var(--space-4); margin: var(--space-1) 0 var(--space-3); }
+  .tutorial-accordion .tutorial-buttons { padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+  /* ---------------------------------------------------------------- empire */
+  .empire-table { --planet-img: 1.75rem; }
+  .empire-head a { display: inline-flex; align-items: center; gap: var(--space-2); }
+  .empire-head img { inline-size: var(--planet-img); block-size: var(--planet-img); border-radius: 50%; flex: none; }
+  .empire-table tr.group > th {
+    text-align: start; text-transform: none; letter-spacing: 0; font-size: var(--fs-base); cursor: default;
+  }
+  .empire-table tr.group [data-toggle-rows] { cursor: pointer; }
+  .empire-table .group__opts { float: inline-end; font-weight: 400; display: inline-flex; gap: var(--space-3); align-items: center; }
+  .empire-table td .colorNeutral, .empire-table td .colorPositive, .empire-table td .colorNegative { font-size: var(--fs-sm); }
+
+  /* ---------------------------------------------------------------- resources */
+  .prod-table { min-inline-size: 38rem; }
+  .prod-table :is(td, th):first-child { background-color: var(--c-panel); }
+  .prod-table tfoot td { font-weight: 600; }
+  .prod-table tr.prod-sep > td { border-block-start: 1px solid var(--c-border-strong); }
+  .prod-table select { inline-size: 5rem; }
+  .prod-level { color: var(--c-muted); }
+  .prod-info { display: grid; gap: var(--space-3); }
+}

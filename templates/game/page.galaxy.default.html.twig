@@ -1,35 +1,34 @@
+{% import '_macros/ui.html.twig' as ui %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_galaxy }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+  {% set meta %}{{ LNG.ov_server_time }}: <span class="servertime">{{ servertime }}</span>{% endset %}
+  {{ ui.page_head(LNG.lm_galaxy, 'galaxy', meta) }}
+{% endblock %}
 {% block content %}
-  <form action="{{ path('game_galaxy_show') }}" method="get" id="galaxy_form">
+  <form action="{{ path('game_galaxy_show') }}" method="get" id="galaxy_form" class="toolbar galaxy-toolbar">
     <input type="hidden" id="auto" value="dr">
-    <div class="galaxy-nav">
-      <div class="galaxy-nav__time">{{ LNG.ov_server_time }}: <span class="servertime">{{ servertime }}</span></div>
-      <div class="galaxy-nav__bar">
-        <div class="galaxy-nav__group">
-          <span class="galaxy-nav__label">{{ LNG.gl_galaxy }}</span>
-          <button type="button" name="galaxyLeft" aria-label="{{ LNG.gl_galaxy }} -1" title="{{ LNG.gl_galaxy }} -1" data-action="galaxy-submit" data-direction="galaxyLeft">{{ icon('chevron-left') }}</button>
-          <input type="number" name="galaxy" value="{{ galaxy }}" maxlength="3" tabindex="1" class="coord" aria-label="{{ LNG.gl_galaxy }}">
-          <button type="button" name="galaxyRight" aria-label="{{ LNG.gl_galaxy }} +1" title="{{ LNG.gl_galaxy }} +1" data-action="galaxy-submit" data-direction="galaxyRight">{{ icon('chevron-right') }}</button>
-        </div>
-        <div class="galaxy-nav__group">
-          <span class="galaxy-nav__label">{{ LNG.gl_solar_system }}</span>
-          <button type="button" name="systemLeft" aria-label="{{ LNG.gl_solar_system }} -1" title="{{ LNG.gl_solar_system }} -1" data-action="galaxy-submit" data-direction="systemLeft">{{ icon('chevron-left') }}</button>
-          <input type="number" name="system" value="{{ system }}" maxlength="3" tabindex="2" class="coord" aria-label="{{ LNG.gl_solar_system }}">
-          <button type="button" name="systemRight" aria-label="{{ LNG.gl_solar_system }} +1" title="{{ LNG.gl_solar_system }} +1" data-action="galaxy-submit" data-direction="systemRight">{{ icon('chevron-right') }}</button>
-        </div>
-        <div class="galaxy-nav__actions">
-          <input type="submit" value="{{ LNG.gl_show }}">
-          <input type="button" value="{{ LNG.gl_sync }}" id="gala_sync">
-        </div>
-      </div>
-      <p class="hint galaxy-nav__keys">{{ LNG.gl_keys_hint }}</p>
+    <div class="galaxy-toolbar__group">
+      <span class="galaxy-nav__label">{{ LNG.gl_galaxy }}</span>
+      <button type="button" name="galaxyLeft" class="galaxy-step" aria-label="{{ LNG.gl_galaxy }} -1" data-tip="{{ LNG.gl_galaxy }} -1" data-action="galaxy-submit" data-direction="galaxyLeft">{{ icon('chevron-left') }}</button>
+      <input type="number" name="galaxy" value="{{ galaxy }}" maxlength="3" tabindex="1" class="coord" aria-label="{{ LNG.gl_galaxy }}">
+      <button type="button" name="galaxyRight" class="galaxy-step" aria-label="{{ LNG.gl_galaxy }} +1" data-tip="{{ LNG.gl_galaxy }} +1" data-action="galaxy-submit" data-direction="galaxyRight">{{ icon('chevron-right') }}</button>
     </div>
+    <div class="galaxy-toolbar__group">
+      <span class="galaxy-nav__label">{{ LNG.gl_solar_system }}</span>
+      <button type="button" name="systemLeft" class="galaxy-step" aria-label="{{ LNG.gl_solar_system }} -1" data-tip="{{ LNG.gl_solar_system }} -1" data-action="galaxy-submit" data-direction="systemLeft">{{ icon('chevron-left') }}</button>
+      <input type="number" name="system" value="{{ system }}" maxlength="3" tabindex="2" class="coord" aria-label="{{ LNG.gl_solar_system }}">
+      <button type="button" name="systemRight" class="galaxy-step" aria-label="{{ LNG.gl_solar_system }} +1" data-tip="{{ LNG.gl_solar_system }} +1" data-action="galaxy-submit" data-direction="systemRight">{{ icon('chevron-right') }}</button>
+    </div>
+    <input type="submit" value="{{ LNG.gl_show }}">
+    <input type="button" value="{{ LNG.gl_sync }}" id="gala_sync">
+    <span class="toolbar__spacer"></span>
+    <span class="galaxy-toolbar__keys">{{ LNG.gl_keys_hint }}</span>
   </form>
   <div id="galaxy-status" class="textForBlind" role="status" aria-live="polite"></div>
   {% include 'game/galaxy.system.html.twig' %}
 
-  <div class="galaxy-grid-container" hidden id="fleetstatusrow">
+  <div class="panel galaxy-status" hidden id="fleetstatusrow">
   </div>
 
   {{ data_island('galaxy-data', {

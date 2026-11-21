@@ -1,26 +1,32 @@
 {% import '_macros/community.html.twig' as c -%}
 {% extends layout_template %}
 {% block content %}
-<table id="resulttable">
-	<tr>
-		<th>{{ LNG.sh_name }}</th>
-		<th class="ctr">&nbsp;</th>
-		<th>{{ LNG.sh_alliance }}</th>
-		<th>{{ LNG.sh_planet }}</th>
-		<th class="ctr">{{ LNG.sh_coords }}</th>
-		<th class="num">{{ LNG.sh_position }}</th>
-	</tr>
-	{% for searchRow in searchList %}
-	<tr>
-		<td><a href="#" data-action="dialog-playercard" data-id="{{ searchRow.userid }}">{{ searchRow.username }}</a></td>
-		<td class="ctr"><a href="#" data-action="dialog-pm" data-id="{{ searchRow.userid }}" title="{{ LNG.sh_write_message }}"><img class="inline" src="{{ theme_asset('img/m.gif') }}"/></a>&nbsp;<a href="#" data-action="dialog-buddy" data-id="{{ searchRow.userid }}" title="{{ LNG.sh_buddy_request }}"><img class="inline" src="{{ theme_asset('img/b.gif') }}" border="0"></a></td>
-		<td>{% if searchRow.allyname %}<a href="{{ path('game_alliance_info', {id: searchRow.allyid}) }}">{{ searchRow.allyname }}</a>{% else %}-{% endif %}</td>
-		<td>{{ searchRow.planetname }}</td>
-		<td class="ctr"><a href="{{ path('game_galaxy_show', {galaxy: searchRow.galaxy, system: searchRow.system}) }}">[{{ searchRow.galaxy }}:{{ searchRow.system }}:{{ searchRow.planet }}]</a></td>
-		<td class="num">{{ searchRow.rank }}</td>
-	</tr>
-	{% else %}
-	{{ c.empty_row(6, LNG.sh_no_players, null) }}
-	{% endfor %}
-</table>
+<section class="panel panel--flush">
+	<table class="data" id="resulttable">
+		<thead>
+			<tr>
+				<th>{{ LNG.sh_name }}</th>
+				<th class="act"><span class="visually-hidden">{{ LNG.sh_write_message }}</span></th>
+				<th>{{ LNG.sh_alliance }}</th>
+				<th>{{ LNG.sh_planet }}</th>
+				<th class="ctr">{{ LNG.sh_coords }}</th>
+				<th class="num">{{ LNG.sh_position }}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for searchRow in searchList %}
+			<tr>
+				<td><a href="#" data-action="dialog-playercard" data-id="{{ searchRow.userid }}">{{ searchRow.username }}</a></td>
+				<td class="act"><span class="row-actions"><a class="row-action" href="#" data-action="dialog-pm" data-id="{{ searchRow.userid }}" aria-label="{{ LNG.sh_write_message }}" data-tip="{{ LNG.sh_write_message }}">{{ icon('mail') }}</a><a class="row-action" href="#" data-action="dialog-buddy" data-id="{{ searchRow.userid }}" aria-label="{{ LNG.sh_buddy_request }}" data-tip="{{ LNG.sh_buddy_request }}">{{ icon('user-plus') }}</a></span></td>
+				<td>{% if searchRow.allyname %}<a href="{{ path('game_alliance_info', {id: searchRow.allyid}) }}">{{ searchRow.allyname }}</a>{% else %}-{% endif %}</td>
+				<td>{{ searchRow.planetname }}</td>
+				<td class="ctr"><a href="{{ path('game_galaxy_show', {galaxy: searchRow.galaxy, system: searchRow.system}) }}">[{{ searchRow.galaxy }}:{{ searchRow.system }}:{{ searchRow.planet }}]</a></td>
+				<td class="num">{{ searchRow.rank }}</td>
+			</tr>
+		{% else %}
+			{{ c.empty_row(6, LNG.sh_no_players, null) }}
+		{% endfor %}
+		</tbody>
+	</table>
+</section>
 {% endblock %}

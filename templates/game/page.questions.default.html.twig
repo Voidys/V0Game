@@ -1,5 +1,7 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_faq }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.faq_overview, 'circle-help', LNG.faq_intro) }}{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="./styles/resource/css/app/faq.css?v={{ asset_version }}">
 {% set index = [] %}
@@ -19,32 +21,34 @@
   resultsMany: LNG.faq_results_many
 }) }}
 
-<div class="faq" data-faq-index>
-  <header class="faq-head">
-    <h1 class="faq-title">{{ icon('circle-help') }}{{ LNG.faq_overview }}</h1>
-    <p class="faq-lead">{{ LNG.faq_intro }}</p>
-    <form class="faq-search" role="search" action="{{ path('game_questions_show') }}" method="get">
-      <label class="faq-search__label" for="faq-q">{{ LNG.faq_search_label }}</label>
-      <div class="faq-search__field">
-        {{ icon('search') }}
-        <input id="faq-q" name="q" type="search" data-faq-input autocomplete="off" spellcheck="false" enterkeyhint="search" placeholder="{{ LNG.faq_search_placeholder }}" aria-controls="faq-results">
-        <kbd class="faq-kbd" aria-hidden="true">/</kbd>
-        <button type="button" class="faq-search__clear" data-faq-clear hidden aria-label="{{ LNG.faq_clear }}" title="{{ LNG.faq_clear }}">{{ icon('x') }}</button>
-      </div>
-    </form>
-    <p class="faq-status" role="status" aria-live="polite" data-faq-status></p>
-  </header>
+<div class="faq stack" data-faq-index>
+  <section class="panel">
+    <div class="panel__body">
+      <form class="faq-search" role="search" action="{{ path('game_questions_show') }}" method="get">
+        <label class="faq-search__label" for="faq-q">{{ LNG.faq_search_label }}</label>
+        <div class="faq-search__field">
+          {{ icon('search') }}
+          <input id="faq-q" name="q" type="search" data-faq-input autocomplete="off" spellcheck="false" enterkeyhint="search" placeholder="{{ LNG.faq_search_placeholder }}" aria-controls="faq-results">
+          <kbd class="faq-kbd" aria-hidden="true">/</kbd>
+          <button type="button" class="faq-search__clear" data-faq-clear hidden aria-label="{{ LNG.faq_clear }}" title="{{ LNG.faq_clear }}">{{ icon('x') }}</button>
+        </div>
+      </form>
+      <p class="faq-status" role="status" aria-live="polite" data-faq-status></p>
+    </div>
+  </section>
 
   <ul class="faq-results" id="faq-results" data-faq-results hidden></ul>
 
-  <div class="faq-categories" data-faq-categories>
+  <div class="grid-auto faq-categories" data-faq-categories>
     {% for category in catalog %}
-    <section class="faq-cat" id="cat-{{ category.id }}" aria-labelledby="cat-{{ category.id }}-title">
-      <h2 class="faq-cat__title" id="cat-{{ category.id }}-title">
-        <span class="faq-cat__icon">{{ icon(category.icon) }}</span>
-        <span>{{ category.name }}</span>
+    <section class="panel" id="cat-{{ category.id }}" aria-labelledby="cat-{{ category.id }}-title">
+      <header class="panel__head">
+        <h2 class="faq-cat__title" id="cat-{{ category.id }}-title">
+          <span class="faq-cat__icon">{{ icon(category.icon) }}</span>
+          <span>{{ category.name }}</span>
+        </h2>
         <span class="faq-cat__count">{% if category.entries|length == 1 %}{{ LNG.faq_entries_one }}{% else %}{{ LNG.faq_entries_many|replace({'{n}': category.entries|length}) }}{% endif %}</span>
-      </h2>
+      </header>
       <ul class="faq-cat__list">
         {% for entry in category.entries %}
         <li><a href="{{ path('game_questions_single', {categoryID: category.id, questionID: entry.id}) }}"><span>{{ entry.title }}</span>{{ icon('chevron-right') }}</a></li>

@@ -1,0 +1,111 @@
+/* Page group "galaxy-fleet": page-specific blocks only, built on ui.css (docs/ui-layout.md). Layer "pages". */
+@layer pages {
+  /* ---------------------------------------------------------------- galaxy: navigation toolbar */
+  .galaxy-toolbar { gap: var(--space-2) var(--space-4); }
+  .galaxy-toolbar__group { display: inline-flex; align-items: center; gap: var(--space-2); }
+  .galaxy-toolbar .galaxy-nav__label { color: var(--c-muted); font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; }
+  .galaxy-toolbar .galaxy-step { inline-size: var(--control-h); padding: 0; }
+  .galaxy-toolbar input.coord { inline-size: 4.5rem; text-align: center; }
+  .galaxy-toolbar__keys { color: var(--c-muted); font-size: var(--fs-sm); }
+  .galaxy-status { display: grid; }
+  .galaxy-status > div { padding: var(--space-2) var(--pad); border-block-end: 1px solid var(--c-border); font-size: var(--fs-sm); }
+  .galaxy-status > div:last-child { border-block-end: 0; }
+  .galaxy-status > .success { color: var(--c-positive); }
+  .galaxy-status > .error { color: var(--c-negative); }
+  #galaxy-view:focus { outline: none; }
+
+  /* ---------------------------------------------------------------- galaxy: system table */
+  .galaxy-table td { white-space: nowrap; }
+  @media (max-width: 40rem) { .galaxy-table td { white-space: normal; } }
+  .galaxy-table tr.is-own > td { background: var(--tint); }
+  .galaxy-table tr.is-empty > td { color: color-mix(in oklab, var(--c-muted) 70%, transparent); }
+  .galaxy-table .galaxy-pos { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .galaxy-table .galaxy-pos--own { color: var(--galaxy-pos-own, var(--c-accent)); }
+  .galaxy-table .galaxy-pos--taken { color: var(--galaxy-pos-taken, var(--c-muted)); }
+  .galaxy-table .galaxy-pos--free { color: var(--galaxy-pos-free, var(--c-positive)); }
+  .galaxy-table .galaxy-pos--blocked { color: var(--galaxy-pos-blocked, var(--c-negative)); }
+  .galaxy-table .galaxy-pos.colorPositive, .galaxy-table .galaxy-pos.colorNegative { color: inherit; }
+  .galaxy-table .galaxy-pos--free.colorPositive { color: var(--galaxy-pos-free, var(--c-positive)); }
+  .galaxy-table .galaxy-pos--blocked.colorNegative { color: var(--galaxy-pos-blocked, var(--c-negative)); }
+  .galaxy-table a { text-decoration: none; }
+  .galaxy-planet a, .galaxy-debris a { display: inline-flex; align-items: center; gap: var(--space-2); }
+  .galaxy-planet img, .galaxy-moon img { inline-size: 1.75rem; block-size: 1.75rem; border-radius: 50%; object-fit: cover; }
+  .galaxy-moon img { inline-size: 1.375rem; block-size: 1.375rem; }
+  .galaxy-debris { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--c-muted); }
+  .galaxy-debris img { inline-size: 1.375rem; block-size: 1.375rem; border-radius: 50%; }
+  .galaxy-activity { color: var(--c-muted); font: var(--fs-xs) var(--font-mono); }
+  .galaxy-player { display: table-cell; }
+  .galaxy-player .tag { margin-inline-start: var(--space-1); }
+  .galaxy-rank-leader { color: var(--c-warning); margin-inline-start: var(--space-1); }
+  .galaxy-rank-diplo { color: var(--c-info); margin-inline-start: var(--space-1); }
+  .galaxy-rank-leader .icon, .galaxy-rank-diplo .icon { inline-size: 1rem; block-size: 1rem; vertical-align: -0.15em; }
+  .galaxy-alliance-cell { font-family: var(--font-mono); color: var(--c-muted); }
+  .galaxy-friend { color: var(--c-positive); }
+  .galaxy-actions__list { display: inline-flex; gap: var(--space-1); }
+  .galaxy-action {
+    position: relative; display: inline-grid; place-items: center; inline-size: 1.75rem; block-size: 1.75rem;
+    border-radius: var(--r); color: var(--c-muted); transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  }
+  .galaxy-action .icon { inline-size: 1.05rem; block-size: 1.05rem; }
+  .galaxy-action:hover, .galaxy-action:focus-visible { background: var(--tint); color: var(--c-accent); }
+  .galaxy-action--attack { color: var(--c-negative); }
+  .spy-report-indicator.spy-report-none .icon { opacity: 0.35; }
+  .spy-report-indicator::after { content: ""; position: absolute; inset-block-end: 0.125rem; inset-inline-end: 0.125rem; inline-size: 0.4375rem; block-size: 0.4375rem; border-radius: 50%; }
+  .spy-report-indicator.spy-report-none::after { display: none; }
+  .spy-report-indicator.spy-report-fresh::after { background: var(--c-positive); }
+  .spy-report-indicator.spy-report-recent::after { background: var(--c-warning); }
+  .spy-report-indicator.spy-report-old::after { background: var(--c-negative); }
+
+  .galaxy-legend { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); font-size: var(--fs-sm); color: var(--c-muted); }
+  .galaxy-legend__item { display: inline-flex; align-items: center; gap: var(--space-2); }
+  .galaxy-sync__upload { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--c-muted); font-size: var(--fs-sm); }
+  .galaxy-missile:not(:has(#missileForm:not([hidden]))) { display: none; }
+
+  /* galaxy tooltips */
+  .tt-galaxy { inline-size: 15rem; border-collapse: collapse; font-size: var(--fs-sm); }
+  .tt-galaxy th { padding: var(--space-2) var(--space-3); text-align: start; font-weight: 600; background: var(--c-bg-2); border-block-end: 1px solid var(--c-border); }
+  .tt-galaxy td { padding: var(--space-1) var(--space-3); vertical-align: top; }
+  .tt-galaxy .tt-galaxy-icon { inline-size: 5rem; }
+  .tt-galaxy img { border-radius: 50%; }
+  .tt-galaxy table { inline-size: 100%; }
+  .tt-galaxy-disabled { color: var(--c-muted); font-style: italic; }
+
+  /* phones: one card per position */
+  @media (max-width: 40rem) {
+    .galaxy-table, .galaxy-table tbody { display: block; }
+    .galaxy-table thead { display: none; }
+    .galaxy-sync__upload { flex-wrap: wrap; inline-size: 100%; white-space: normal; }
+    .galaxy-sync__upload input { max-inline-size: 100%; }
+    .galaxy-table tbody tr {
+      display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; min-inline-size: 0; grid-template-areas: "pos planet moon" "pos player debris" "pos alliance alliance" "pos actions actions";
+      align-items: center; border-block-end: 1px solid var(--c-border);
+    }
+    .galaxy-table td { block-size: auto; min-block-size: 2rem; padding: var(--space-1) var(--space-2); border: 0; }
+    .galaxy-table .galaxy-pos { grid-area: pos; align-self: stretch; display: grid; place-items: center; }
+    .galaxy-table .galaxy-planet { grid-area: planet; }
+    .galaxy-table .galaxy-moon { grid-area: moon; }
+    .galaxy-table .galaxy-debris { grid-area: debris; text-align: end; }
+    .galaxy-table .galaxy-player { grid-area: player; white-space: normal; }
+    .galaxy-table .galaxy-alliance-cell { grid-area: alliance; }
+    .galaxy-table .galaxy-actions { grid-area: actions; text-align: start; }
+    .galaxy-table .galaxy-actions__list { flex-wrap: wrap; }
+    .galaxy-table tr:is(.is-empty, .galaxy-pirate) { grid-template-columns: 2.5rem minmax(0, 1fr); grid-template-areas: none; }
+    .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td { grid-area: auto; grid-column: 2 / -1; }
+    .galaxy-table tr.is-empty > td { grid-row: 1; }
+    .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td.galaxy-pos { grid-column: 1; }
+    .galaxy-action { inline-size: 2.5rem; block-size: 2.5rem; }
+  }
+
+  /* ---------------------------------------------------------------- fleet: shared bits */
+  .fleet-dock { position: sticky; inset-block-end: var(--space-3); z-index: 5; box-shadow: 0 -0.5rem 1.5rem rgb(0 0 0 / 0.35); }
+  .fleet-dock .panel__foot { align-items: center; }
+  .fleet-dock .reason { margin-inline-end: auto; }
+  .fleet-split { align-items: stretch; }
+  .fleet-stay { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); border-block-start: 1px solid var(--c-border); }
+  .fleet-stay:has(#stay[style*="none"]) { display: none; }
+  .mission-list { padding: var(--pad); }
+  .fleet-alert, .fleet-warning { color: var(--c-negative); }
+  .acs-split { border-block-start: 1px solid var(--c-border); }
+  .acs-split h3 { margin: 0 0 var(--space-2); font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-muted); }
+  .market-tabs .marketOption.selected { background: var(--tint); color: var(--c-text); box-shadow: inset 0 -2px 0 var(--c-accent); }
+}

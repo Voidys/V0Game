@@ -4,18 +4,23 @@
 <link rel="stylesheet" href="./styles/resource/css/app/faq.css?v={{ asset_version }}">
 {{ data_island('faq-i18n', {copyLink: LNG.faq_copy_link, linkCopied: LNG.faq_link_copied}) }}
 
-<div class="faq" id="faq-top" data-faq-article>
-  <nav class="faq-crumbs" aria-label="{{ LNG.faq_overview }}">
-    <ol>
-      <li><a href="{{ path('game_questions_show') }}" data-faq-index-link>{{ LNG.faq_overview }}</a></li>
-      <li><a href="{{ path('game_questions_show') }}#cat-{{ category.id }}">{{ category.name }}</a></li>
-      <li aria-current="page"><span>{{ entry.title }}</span></li>
-    </ol>
-  </nav>
+<div class="faq stack" id="faq-top" data-faq-article>
+  <header class="page-head">
+    <div>
+      <h1 class="page-head__title" data-faq-title>{{ icon(category.icon) }}<span>{{ entry.title }}</span></h1>
+      <nav class="page-head__meta faq-crumbs" aria-label="{{ LNG.faq_overview }}">
+        <ol>
+          <li><a href="{{ path('game_questions_show') }}" data-faq-index-link>{{ LNG.faq_overview }}</a></li>
+          <li><a href="{{ path('game_questions_show') }}#cat-{{ category.id }}">{{ category.name }}</a></li>
+          <li aria-current="page"><span>{{ entry.title }}</span></li>
+        </ol>
+      </nav>
+    </div>
+  </header>
 
   <div class="faq-article">
     {% if toc|length >= 3 %}
-    <nav class="faq-toc" data-faq-toc aria-labelledby="faq-toc-title">
+    <nav class="panel faq-toc" data-faq-toc aria-labelledby="faq-toc-title">
       <p class="faq-toc__title" id="faq-toc-title">{{ LNG.faq_contents }}</p>
       <ul>
         {% for item in toc %}<li><a href="#{{ item.id }}">{{ item.title }}</a></li>{% endfor %}
@@ -23,14 +28,11 @@
     </nav>
     {% endif %}
 
-    <article class="faq-article__main">
-      <header class="faq-article__head">
-        <p class="faq-article__cat">{{ icon(category.icon) }}{{ category.name }}</p>
-        <h1 class="faq-article__title" data-faq-title>{{ entry.title }}</h1>
-      </header>
-      <div class="faq-body" data-faq-body>{{ entry.body }}</div>
-
-      <nav class="faq-pager" aria-label="{{ LNG.faq_prev }} / {{ LNG.faq_next }}">
+    <article class="panel faq-article__main">
+      <div class="panel__body">
+        <div class="faq-body" data-faq-body>{{ entry.body }}</div>
+      </div>
+      <nav class="panel__foot faq-pager" aria-label="{{ LNG.faq_prev }} / {{ LNG.faq_next }}">
         {% if prev %}
         <a class="faq-pager__link faq-pager__link--prev" rel="prev" href="{{ path('game_questions_single', {categoryID: prev.categoryID, questionID: prev.questionID}) }}">
           <small>{{ icon('chevron-left') }}{{ LNG.faq_prev }}</small>
@@ -44,7 +46,7 @@
         </a>
         {% endif %}
       </nav>
-      <div class="faq-foot">
+      <div class="panel__foot faq-foot">
         <a href="{{ path('game_questions_show') }}">{{ icon('arrow-left') }}{{ LNG.faq_back }}</a>
         <a href="#faq-top">{{ icon('chevron-up') }}{{ LNG.faq_to_top }}</a>
       </div>

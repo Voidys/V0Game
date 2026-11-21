@@ -1,557 +1,63 @@
 /*
- * V0Game: night-time command console. Dark ground with a faint green tint, three surface levels
- * (ground, panel, raised), hairline borders and one emerald accent. Calm, no glow, no glass.
- * Palette first (the shared tokens of css/app/base.css are retuned here), then elements and components.
- * Artwork comes from the "nebula" set, no images of its own.
+ * V0Game: night-time command console. Near-black ground, three surface levels (ground, panel, raised),
+ * hairline borders, one emerald accent for state. Calm: no glow, no glass, no gradients.
+ * Artwork: the "nebula" set plus own planets (style.cfg). This file is the reference for new themes:
+ * copy it, change the values, see docs/themes.md.
  */
+@layer theme {
+  :root {
+    /* ground */
+    --theme-bg: #06080b;
+    --theme-bg-2: #0a0d11;
+    --theme-bg-size: cover;
 
-:root {
-  --theme-ground: #070b09;
-  --theme-ground-2: #0a100d;
-  --theme-panel: #0e1512;
-  --theme-raised: #131c18;
-  --theme-hover: #16211c;
-  --theme-border: #1f2e27;
-  --theme-border-strong: #2c4238;
-  --theme-field-border: #53725f; /* inputs: 3.5:1 on panel, 3.3:1 on raised (WCAG 1.4.11) */
-  --theme-text: #dbe6df;
-  --theme-muted: #8ea398;
-  --theme-accent: #2fbf71;
-  --theme-accent-hover: #46d488;
-  --theme-accent-press: #24a05d;
-  --theme-accent-ink: #04130b;
-  --theme-link: #9fe0bd;
-  --theme-positive: #6fdc9b;
-  --theme-negative: #ff6b6b;
-  --theme-warning: #f0b84c;
-  --theme-info: #6cb6ff;
-  --theme-shadow-float: 0 0.0625rem 0.125rem rgb(0 0 0 / 0.5), 0 0.5rem 1.5rem rgb(0 0 0 / 0.35);
-  --theme-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+    /* surfaces */
+    --theme-panel: #0d1116;
+    --theme-raised: #131921;
+    --theme-hover: #18202a;
 
-  /* shared tokens (base.css) */
-  --c-bg: var(--theme-ground);
-  --c-bg-2: var(--theme-ground-2);
-  --c-panel: var(--theme-panel);
-  --c-panel-2: var(--theme-raised);
-  --c-border: var(--theme-border);
-  --c-border-strong: var(--theme-border-strong);
-  --c-text: var(--theme-text);
-  --c-muted: var(--theme-muted);
-  --c-accent: var(--theme-accent);
-  --c-accent-ink: var(--theme-accent-ink);
-  --c-accent-soft: rgb(47 191 113 / 0.12);
-  --c-link: var(--theme-link);
-  --c-positive: var(--theme-positive);
-  --c-negative: var(--theme-negative);
-  --c-warning: var(--theme-warning);
-  --radius: 0.5rem;
-  --radius-sm: 0.375rem;
-  --radius-xs: 0.25rem;
-  --pill-radius: 6.1875rem;
-  --shadow: var(--theme-shadow-float);
+    /* lines */
+    --theme-line: #1b232d;
+    --theme-line-strong: #2a3542;
+    --theme-field-line: #4a5a6c;
 
-  /* shell */
-  --shell-bar-bg: var(--theme-panel);
-  --shell-side-bg: var(--theme-ground-2);
-  --shell-line: var(--theme-border);
-  --shell-bar-shadow: var(--theme-shadow-float);
-  --nav-link-radius: var(--radius-sm);
-  --brand-h: 1.75rem;
-  --nav-active-bg: rgb(47 191 113 / 0.12);
-  --nav-active-fg: var(--theme-text);
-  --nav-active-icon: var(--theme-accent);
+    /* text */
+    --theme-text: #e2e7ed;
+    --theme-muted: #97a4b3;
 
-  /* buttons (secondary by default) */
-  --btn-bg: var(--theme-raised);
-  --btn-fg: var(--theme-text);
-  --btn-border: var(--theme-border-strong);
-  --btn-hover-bg: var(--theme-hover);
-  --btn-hover-border: var(--theme-accent-press);
-  --btn-radius: var(--radius-sm);
-  --btn-shadow: none;
-  --btn-selected: var(--theme-accent);
+    /* accent and links */
+    --theme-accent: #2fbf71;
+    --theme-accent-ink: #03130a;
+    --theme-link: #9fe0bd;
 
-  --progress-fill: var(--theme-accent);
-  --progress-track: var(--theme-raised);
+    /* signals */
+    --theme-pos: #6fdc9b;
+    --theme-neg: #ff6b6b;
+    --theme-warn: #f0b84c;
+    --theme-info: #6cb6ff;
 
-  /* dialogs, notices */
-  --modal-bg: var(--theme-panel);
-  --modal-border: var(--theme-border-strong);
-  --modal-fg: var(--theme-text);
-  --ach-done: var(--theme-accent);
+    /* type */
+    --theme-font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --theme-font-display: var(--theme-font-ui);
+    --theme-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 
-  /* signal colours: used while the player keeps the factory defaults (custom choices win, see layout.base) */
-  --signal-positive: var(--theme-positive);
-  --signal-negative: var(--theme-negative);
-  --signal-neutral: var(--theme-warning);
+    /* shape */
+    --theme-radius: 2px;
 
-  /* galaxy position numbers by state: own = accent, free and blocked = muted, taken = text */
-  --galaxy-pos-own: var(--theme-accent);
-  --galaxy-pos-free: var(--theme-muted);
-  --galaxy-pos-blocked: var(--theme-muted);
-  --galaxy-pos-taken: var(--theme-text);
+    /* shell */
+    --theme-topbar-bg: color-mix(in oklab, #0a0d11 92%, transparent);
+    --theme-sidebar-bg: transparent;
+  }
 
-  /* overview events: calm, distinguishable hues (>= 6:1 on panel); hostile = warm, own = cool */
-  --colorMission2friend: #e6a8ff;
-  --colorMission1Own: #9be564;
-  --colorMission2Own: #4fd1a1;
-  --colorMission3Own: #7ff0cf;
-  --colorMission4Own: #d7a0e6;
-  --colorMission5Own: #9fb8d0;
-  --colorMission6Own: #ffd180;
-  --colorMission7Own: #c4cdc8;
-  --colorMission7OwnReturn: #d7a0e6;
-  --colorMission8Own: #d4f27a;
-  --colorMission9Own: #ffe98a;
-  --colorMission10Own: #ffc266;
-  --colorMission15Own: #6fe0c0;
-  --colorMission16Own: #6fe0c0;
-  --colorMission17Own: #6fe0c0;
-  --colorMissionReturnOwn: #8aa6f0;
-  --colorMission1Foreign: #ff7a7a;
-  --colorMission2Foreign: #ee6b6b;
-  --colorMission3Foreign: #7fe3a0;
-  --colorMission4Foreign: #c78ad6;
-  --colorMission5Foreign: #6ab6e6;
-  --colorMission6Foreign: #ffa24d;
-  --colorMission7Foreign: #7fe3a0;
-  --colorMission8Foreign: #bfe070;
-  --colorMission9Foreign: #e8e08a;
-  --colorMission10Foreign: #ff9a52;
-  --colorMission15Foreign: #5fd6b3;
-  --colorMission16Foreign: #5fd6b3;
-  --colorMission17Foreign: #5fd6b3;
-  --colorMissionReturnForeign: #8aa6f0;
-  --colorStaticTimer: var(--theme-warning);
+  /* page background image: a body rule here, so url() resolves against this folder. V0Game has none.
+  body { background-image: url("img/background.webp"); } */
 }
 
-/* ---------------------------------------------------------------- ground: base colour, two faint tints, star dust */
-html {
-  color-scheme: dark;
-  background:
-    radial-gradient(60rem 40rem at 12% -8%, rgb(20 90 60 / 0.06), transparent 70%) fixed,
-    radial-gradient(50rem 36rem at 96% 108%, rgb(14 80 80 / 0.05), transparent 70%) fixed,
-    radial-gradient(0.0625rem 0.0625rem at 14% 22%, rgb(219 230 223 / 0.09) 50%, transparent 100%) 0 0 / 11rem 11rem fixed,
-    radial-gradient(0.0625rem 0.0625rem at 71% 64%, rgb(219 230 223 / 0.07) 50%, transparent 100%) 0 0 / 15rem 15rem fixed,
-    var(--theme-ground);
-  caret-color: var(--theme-accent);
-  scrollbar-color: var(--theme-border-strong) transparent;
-  scrollbar-width: thin;
+/* decoration only (above components, below utilities): a faint accent glow at the top right of the page */
+@layer theme-extras {
+  body {
+    background:
+      radial-gradient(60rem 40rem at 85% -10%, color-mix(in oklab, var(--theme-accent) 6%, transparent), transparent 70%),
+      var(--theme-bg);
+  }
 }
-
-::selection {
-  background: rgb(47 191 113 / 0.3);
-  color: var(--theme-text);
-}
-
-::-webkit-scrollbar { inline-size: 0.625rem; block-size: 0.625rem; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-  background: var(--theme-border-strong);
-  border: 0.125rem solid transparent;
-  border-radius: 6.1875rem;
-  background-clip: content-box;
-}
-::-webkit-scrollbar-thumb:hover { background: var(--theme-accent-press); background-clip: content-box; }
-
-body {
-  font-family: var(--font);
-  font-size: var(--fs-md);
-  color: var(--theme-text);
-  background: transparent;
-}
-
-body, input, select, button, textarea, td, th { color: var(--theme-text); }
-
-td, th, .num, .res_current, .res_max, .countdown, .servertime, .buildcountdown, .statictimer, .statictime, input[type="number"] {
-  font-variant-numeric: tabular-nums;
-}
-
-a, a:visited { color: var(--theme-link); text-decoration: none; text-underline-offset: 0.15em; transition: color 0.15s var(--theme-ease); }
-a:hover { color: var(--theme-text); text-decoration: underline; }
-:focus-visible { outline: 0.125rem solid var(--theme-accent); outline-offset: 0.125rem; }
-
-h1, h2, h3, h4 { font-weight: 600; letter-spacing: 0.01em; }
-
-img { border: 0; }
-
-/* ---------------------------------------------------------------- forms */
-input:not([type="checkbox"], [type="radio"], [type="range"], [type="image"], [type="submit"], [type="button"], [type="reset"]),
-select,
-textarea {
-  background: var(--theme-panel);
-  color: var(--theme-text);
-  border: 0.0625rem solid var(--theme-field-border);
-  border-radius: var(--radius-sm);
-  transition: border-color 0.15s var(--theme-ease), box-shadow 0.15s var(--theme-ease);
-}
-
-input::placeholder, textarea::placeholder { color: var(--theme-muted); opacity: 1; }
-
-input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"], [type="reset"]):hover:not(:disabled, :focus),
-select:hover:not(:disabled, :focus),
-textarea:hover:not(:disabled, :focus) { border-color: var(--theme-muted); color: var(--theme-text); }
-
-input:focus, select:focus, textarea:focus {
-  border-color: var(--theme-accent);
-  box-shadow: 0 0 0 0.125rem var(--theme-ground), 0 0 0 0.25rem var(--theme-accent);
-  outline: none;
-}
-
-input:user-invalid, textarea:user-invalid, select:user-invalid,
-input.invalid { background: var(--theme-panel); border-color: var(--theme-negative); }
-input:disabled, select:disabled, textarea:disabled { opacity: 0.45; cursor: not-allowed; }
-option { background: var(--theme-panel); color: var(--theme-text); }
-input[type="radio"], input[type="checkbox"] { background: transparent; border: 0 none; accent-color: var(--theme-accent); }
-textarea { background: var(--theme-panel); }
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { opacity: 0.5; }
-input[type="range"] { accent-color: var(--theme-accent); }
-
-/* buttons: the shared component (layer "components") reads --btn-* tokens, so the theme sets those per class.
-   Primary = accent fill, secondary = raised fill (default), destructive = negative outline. The player's signal
-   colours would paint the label, so the ink is forced (important beats the unlayered signal rule). */
-button.selected, button[aria-pressed="true"] {
-  background: rgb(47 191 113 / 0.14);
-  border-color: var(--theme-accent);
-  color: var(--theme-text);
-}
-
-.build_submit, .b.colorPositive, .primary,
-.form-actions :is(button, input)[type="submit"], .modal form :is(button, input)[type="submit"],
-.modal__actions :is(button, input[type="submit"]):first-child {
-  --btn-bg: var(--theme-accent);
-  --btn-fg: var(--theme-accent-ink);
-  --btn-border: var(--theme-accent);
-  --btn-hover-bg: var(--theme-accent-hover);
-  --btn-hover-border: var(--theme-accent-hover);
-}
-.build_submit.colorPositive, .b.colorPositive { color: var(--theme-accent-ink) !important; }
-.build_submit.colorNeutral, .build_submit.colorNegative {
-  --btn-bg: var(--theme-raised);
-  --btn-fg: var(--theme-text);
-  --btn-border: var(--theme-border-strong);
-  --btn-hover-bg: var(--theme-hover);
-  --btn-hover-border: var(--theme-muted);
-}
-.build_submit.colorNeutral { color: var(--theme-warning) !important; }
-.build_submit.colorNegative, .build_submit.onlist, .btn--danger, button.danger {
-  --btn-bg: transparent;
-  --btn-fg: var(--theme-negative);
-  --btn-border: var(--theme-negative);
-  --btn-hover-bg: rgb(255 107 107 / 0.12);
-  --btn-hover-border: var(--theme-negative);
-  color: var(--theme-negative) !important;
-}
-:is(button, input[type="submit"], input[type="button"], .button):disabled { opacity: 0.45 !important; }
-:is(button, input[type="submit"], input[type="button"], .button):disabled:hover { --btn-hover-bg: var(--btn-bg); --btn-hover-border: var(--btn-border); }
-.build_submit:hover { font-weight: 600; text-decoration: none; }
-.onlist { background: none; color: var(--theme-link); font-weight: 400; }
-
-/* ---------------------------------------------------------------- tables */
-table { border-spacing: 0; border-collapse: separate; }
-td, th {
-  border: 0;
-  border-block-end: 0.0625rem solid var(--theme-border);
-  font-weight: 400;
-}
-
-th {
-  background: var(--theme-raised);
-  color: var(--theme-muted);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-th a, th a:visited { color: var(--theme-text); }
-th a:hover { color: var(--theme-accent-hover); }
-th, th input { color: var(--theme-muted); }
-
-td { background: var(--theme-panel); }
-tr:hover > td { background: var(--theme-hover); }
-tr:last-child > td { border-block-end: 0; }
-
-/* header cells that are really section titles (colspan) read as titles, not column labels */
-th[colspan] { color: var(--theme-text); text-transform: none; letter-spacing: 0.01em; font-size: var(--fs-md); }
-
-table table, .tip td, .tip th, .transparent, header td, .raportMessage td {
-  background: transparent;
-  border: 0;
-  filter: none !important;
-}
-.tip th { text-align: center; background: transparent; }
-.no-background, .no-background > th, .no-background > td { background: transparent; }
-.no-border, .no-border > th, .no-border > td { border: 0; }
-tr:hover > td.transparent, tr:hover > td.no-background { background: transparent; }
-
-.trade-disallowed > td { background: rgb(240 184 76 / 0.06); }
-
-.recordtable td:first-child, #advancedStats td:first-child { color: var(--theme-muted); }
-
-/* ---------------------------------------------------------------- panels (card, article) */
-.card {
-  background: var(--theme-panel) !important;
-  border: 0.0625rem solid var(--theme-border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  padding-block-end: 0;
-}
-.card .title {
-  background: var(--theme-raised);
-  border: 0;
-  border-block-end: 0.0625rem solid var(--theme-border);
-  color: var(--theme-text);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  padding: 0.5rem 0.75rem;
-  margin: 0;
-}
-.card .content { background: transparent; border: 0; padding: 0.75rem; margin: 0; }
-
-/* page blocks used by the overview, build lists and fleet pages */
-.planeto {
-  background: var(--theme-raised);
-  border: 0.0625rem solid var(--theme-border);
-  border-radius: var(--radius);
-  padding: 0.5rem 0.75rem;
-  margin-block-end: 0.5rem;
-  text-align: center;
-}
-.infos {
-  background: var(--theme-panel);
-  border: 0.0625rem solid var(--theme-border);
-  border-radius: var(--radius);
-  margin-block-start: 0.5rem;
-  overflow: hidden;
-  text-align: center;
-  padding: 0;
-}
-.infos1 { background: var(--theme-raised); border-radius: var(--radius-sm); margin: 0 0.5rem; text-align: center; overflow: auto; }
-.buildn {
-  background: var(--theme-raised);
-  border-block-end: 0.0625rem solid var(--theme-border);
-  padding: 0.5rem 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  overflow: auto;
-  border-radius: 0;
-}
-.buildn a, .buildn a:visited { color: var(--theme-text); }
-.buildn a:hover { color: var(--theme-accent-hover); }
-.buildl { background: transparent; line-height: 1.45; padding: 0.625rem 0.75rem; text-align: center; }
-.buildl img, .planeth img, .moon img, .shipl img {
-  background: var(--theme-raised);
-  border-radius: var(--radius-sm);
-}
-.planeth { line-height: 1.5; padding: 0.625rem; }
-.moon, .planetl { padding: 0.625rem; }
-.galaxy { margin: 0.3125rem auto; inline-size: 50%; }
-
-.repairShipContainer {
-  background: var(--theme-panel);
-  border: 0.0625rem solid var(--theme-border);
-  border-radius: var(--radius);
-  padding: 0.5rem;
-  text-align: start;
-}
-.repairShipHeader { background: var(--theme-raised); border-radius: var(--radius) var(--radius) 0 0; color: var(--theme-text); }
-.repairShipHeader a:hover { color: var(--theme-accent-hover); }
-
-.ship, .shipumode {
-  background: var(--theme-panel);
-  border: 0.0625rem solid var(--theme-border);
-  border-radius: var(--radius);
-  margin: 0 auto;
-  max-inline-size: 25rem;
-}
-.shipl { border: 0; background: transparent; padding: 0.625rem; }
-.z, .zumode {
-  background: var(--theme-raised);
-  border-radius: var(--radius-sm);
-  color: var(--theme-text);
-  max-inline-size: 18.75rem;
-  margin: 0.3125rem auto;
-  padding: 0.625rem;
-  text-transform: none;
-}
-
-.b { background: var(--theme-raised); border: 0.0625rem solid var(--theme-border-strong); border-radius: var(--radius-sm); font-weight: 600; }
-.hidden-div { border: 0.0625rem solid var(--theme-border-strong); border-radius: var(--radius-sm); }
-.unavailable { opacity: 0.8; }
-
-/* ---------------------------------------------------------------- signal colours */
-.colorPositive, .success, .colony, .deploy, .harvest, .transport, .raportWin, .fleet-active-time, .honor-top { color: var(--theme-positive); }
-.colorNegative, .attack, .error, .raportLose, .fleet-alert, .fleet-warning, .expo-event--red, .expo-freq--red { color: var(--theme-negative); }
-.colorNeutral, .color-yellow, .color-orange, .expo-freq--yellow, .expo-freq--orange, .expo-event--yellow { color: var(--theme-warning); }
-.federation { color: var(--theme-info); }
-.admin { color: var(--theme-negative); }
-.mod { color: var(--theme-warning); }
-.ops { color: var(--theme-info); }
-.lowRess { color: var(--theme-negative); }
-.midRess { color: var(--theme-warning); }
-.highRess, .realHighRess { color: var(--theme-positive); background: transparent; }
-.timer-muted { color: var(--theme-muted); }
-.rules-link { color: var(--theme-link); text-decoration: underline; text-underline-offset: 0.15em; }
-.honor-low { color: #b99bff; }
-.honor-bottom { color: var(--theme-negative); }
-.expo-event--green { color: var(--theme-positive); }
-.expo-event--teal { color: #6fd8d0; }
-.color-green { color: var(--theme-positive); }
-.color-star { color: var(--theme-info); }
-.galaxy-rank-leader { color: var(--theme-warning); }
-.galaxy-rank-diplo { color: #ff9f6b; }
-
-.galaxy-alliance-member { color: var(--theme-positive); }
-.galaxy-alliance-friend, .galaxy-friend { color: #7fe3e3; }
-.galaxy-alliance-traid { color: #6fd8d0; }
-.galaxy-alliance-enemy { color: var(--theme-negative); }
-.galaxy-alliance-secret { color: #d79bff; }
-.galaxy-short-noob, .galaxy-username-noob { color: #9fe3a6; }
-.galaxy-short-strong, .galaxy-username-strong { color: #ff9d9d; }
-.galaxy-short-inactive, .galaxy-username-inactive { color: #b5c2ba; }
-.galaxy-short-longinactive, .galaxy-username-longinactive { color: #96a79d; }
-.galaxy-short-vacation, .galaxy-username-vacation { color: var(--theme-info); }
-.galaxy-short-banned { text-decoration: line-through; }
-.galaxy-grid-item, .tip { text-align: center; }
-
-/* ---------------------------------------------------------------- tooltips, notices, modal */
-.tip, #tooltip {
-  background: var(--theme-raised);
-  color: var(--theme-text);
-  border: 0.0625rem solid var(--theme-border-strong);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--theme-shadow-float);
-}
-.tip table, #tooltip table { border-radius: 0; }
-.tip-table td, .tt-fleet-res td { color: var(--theme-text); }
-.tooltip1 .tooltiptext { background: var(--theme-raised); border: 0.0625rem solid var(--theme-border-strong); box-shadow: var(--theme-shadow-float); color: var(--theme-text); }
-.notify, .tip.notify {
-  background: var(--theme-raised);
-  border: 0.0625rem solid var(--theme-border-strong);
-  box-shadow: var(--theme-shadow-float);
-}
-.notify.is-success, .notify--success { border-color: var(--theme-positive); }
-.notify.is-error, .notify--error { border-color: var(--theme-negative); }
-
-.modal { box-shadow: var(--theme-shadow-float); }
-.modal::backdrop { background: rgb(3 6 4 / 0.72); backdrop-filter: none !important; }
-.modal__close { background: var(--theme-raised); border-color: var(--theme-border-strong); color: var(--theme-text); }
-.modal__close:hover { border-color: var(--theme-accent); }
-.modal__title { font-weight: 600; letter-spacing: 0.01em; }
-.modal__error { color: var(--theme-negative); }
-
-.message-box { color: var(--theme-text); }
-.message {
-  background: var(--theme-raised);
-  border: 0.0625rem solid var(--theme-border-strong);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--theme-shadow-float);
-  padding: 0.5rem 0.75rem;
-  text-align: center;
-  margin-block-end: 0.3125rem;
-}
-
-.globalWarning, .infobox {
-  border-color: rgb(240 184 76 / 0.45);
-  background: rgb(240 184 76 / 0.07);
-  border-radius: var(--radius);
-}
-.globalWarning--info { border-color: rgb(108 182 255 / 0.45); background: rgb(108 182 255 / 0.07); }
-.globalWarning--info > .icon { color: var(--theme-info); }
-
-/* ---------------------------------------------------------------- tabs, sortable, autocomplete, progress */
-.tabs > ul > li > a, .tabs > nav > a { color: var(--theme-muted); transition: color 0.15s var(--theme-ease), background-color 0.15s var(--theme-ease); }
-.tabs > ul > li > a:hover, .tabs > nav > a:hover { color: var(--theme-text); background: var(--theme-hover); }
-.tabs > ul > li.is-active > a, .tabs a[aria-selected="true"] { color: var(--theme-text); background: var(--theme-raised); border-color: var(--theme-border); box-shadow: inset 0 -0.125rem 0 var(--theme-accent); }
-th.sortable:hover { color: var(--theme-text); }
-th[aria-sort] { color: var(--theme-accent-hover); }
-.autocomplete { background: var(--theme-raised); border-color: var(--theme-border-strong); box-shadow: var(--theme-shadow-float); }
-.autocomplete__item:hover, .autocomplete__item.is-active { background: var(--theme-hover); }
-.autocomplete__category { color: var(--theme-muted); }
-progress { background: var(--theme-raised); }
-
-/* ---------------------------------------------------------------- tutorial, queue */
-.tutorial-header {
-  background: var(--theme-raised);
-  border: 0.0625rem solid var(--theme-border);
-  border-radius: var(--radius) var(--radius) 0 0;
-  color: var(--theme-text);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-.tutorial-header:hover { background: var(--theme-hover); }
-.tutorial {
-  background: var(--theme-panel);
-  border: 0.0625rem solid var(--theme-border);
-  border-block-start: 0;
-  border-radius: 0 0 var(--radius) var(--radius);
-  text-align: center;
-}
-.tutorial-text a, .tutorial-goals a { text-decoration: underline; text-underline-offset: 0.15em; }
-
-.build-queue__item { background: var(--theme-panel); border-color: var(--theme-border); }
-.build-queue__item.is-active { border-color: rgb(47 191 113 / 0.5); background: rgb(47 191 113 / 0.06); }
-.build-queue__item--free { background: transparent; border-color: var(--theme-border-strong); }
-
-/* ---------------------------------------------------------------- spy report, battle report */
-.spyRaportContainerHead { background: var(--theme-raised); color: var(--theme-text); font-weight: 600; border-radius: var(--radius-xs); margin: 0.1875rem 0; padding: 0.25rem 0.5rem; text-align: start; }
-.spyRaportContainerRow { border-block-start: 0.0625rem solid var(--theme-border); }
-.spyRaportContainerHead + .spyRaportContainerRow { border-block-start: 0 none; }
-.spy-report-summary { border: 0.0625rem solid var(--theme-border-strong); border-radius: var(--radius-sm); background: var(--theme-raised); }
-.spy-report-summary:hover { color: var(--theme-text); border-color: var(--theme-accent-press); }
-.spy-report-indicator { border-color: var(--theme-panel); }
-
-/* ---------------------------------------------------------------- messages */
-/* categories: neutral chips (shared layout), the hue is only the dot; the type label of a message stays lifted */
-.msg-toolbar { border-block-color: var(--theme-border); }
-.message-group { border-radius: var(--radius-sm); }
-.message-item:hover { background: var(--theme-hover); }
-.message-fw { color: var(--theme-warning); }
-.message-content { color: var(--theme-text); }
-.message-new { color: var(--theme-accent-ink); background: var(--theme-accent); border-radius: var(--radius-xs); }
-
-/* ---------------------------------------------------------------- galaxy, empire, misc */
-.galaxy-grid-container { gap: 0; }
-.galaxy-grid-row { gap: 0; margin-block-end: 0; }
-.galaxy-grid-item, .galaxy-grid-row.even .galaxy-grid-item {
-  background: var(--theme-panel);
-  border: 0;
-  border-block-end: 0.0625rem solid var(--theme-border);
-  text-align: start;
-  transition: background-color 0.15s var(--theme-ease);
-}
-.galaxy-grid-item.centered { text-align: center; }
-.galaxy-grid-row:hover .galaxy-grid-item { background: var(--theme-hover); }
-.galaxy-grid-header {
-  background: var(--theme-raised);
-  color: var(--theme-muted);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-align: start;
-  padding: 0.375rem 0.5rem;
-}
-.galaxy-grid-header.centered { justify-content: center; text-align: center; }
-.galaxy-grid-item a { text-align: start; }
-.spy-report-indicator::after { border-color: var(--theme-panel); }
-.spy-report-indicator.spy-report-fresh::after { background: var(--theme-positive); }
-.spy-report-indicator.spy-report-recent::after { background: var(--theme-warning); }
-.spy-report-indicator.spy-report-old::after { background: var(--theme-negative); }
-.empire-chart { background: var(--theme-panel); }
-.select-box, #receiver-list, .hangar-filter-menu { background: var(--theme-raised); border: 0.0625rem solid var(--theme-border-strong); border-radius: var(--radius-sm); box-shadow: var(--theme-shadow-float); }
-.select-box-option:hover { background: var(--theme-hover); }
-
-/* achievements: unlocked uses the accent, locked is dimmed */
-.achievements .ach-tile__button { background: var(--theme-raised); border-color: var(--theme-border); }
-.achievements .ach-tile.is-unlocked .ach-tile__button { background: rgb(47 191 113 / 0.1); border-color: rgb(47 191 113 / 0.5); }
-.achievements__bar { background: var(--theme-raised); }
-
-/* ---------------------------------------------------------------- motion */
-@media (prefers-reduced-motion: reduce) {
-  a, input, select, textarea, .tabs a { transition: none; }
-}
-
-/* message receiver chips, search results */
-.receiver { background: var(--theme-raised); color: var(--theme-text); border: 0.0625rem solid var(--theme-border-strong); border-radius: var(--radius-xs); }
-.select-box-option { color: var(--theme-text); }

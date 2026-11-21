@@ -1,14 +1,15 @@
 {% import '_macros/forms.html.twig' as forms -%}
+{% import '_macros/ui.html.twig' as ui -%}
 {# One solar system of the galaxy view. The page includes it; GalaxyController::rows() renders it alone for the client-side navigation (scripts/game/galaxy.js replaces #galaxy-view). #}
-<div id="galaxy-view" data-galaxy="{{ galaxy }}" data-system="{{ system }}" tabindex="-1">
-  <form action="{{ path('game_fleet_missile_show') }}" method="post">
+<div id="galaxy-view" data-galaxy="{{ galaxy }}" data-system="{{ system }}" class="stack" tabindex="-1">
+  <form action="{{ path('game_fleet_missile_show') }}" method="post" class="panel galaxy-missile">
     <input type="hidden" name="galaxy" value="{{ galaxy }}">
     <input type="hidden" name="system" value="{{ system }}">
     <input type="hidden" name="planet" value="{{ planet }}">
     <input type="hidden" name="type" value="1">
     <input type="hidden" name="duration" value="{{ duration }}">
 
-    <table id="missileForm" hidden>
+    <table id="missileForm" class="form-table" hidden>
       <tr>
         <th colspan="2">{{ LNG.gl_missil_launch }} [{{ galaxy }}:{{ system }}:{{ planet }}] {{ LNG.gl_missil_flytime }}: <span id="irakFlyTime">{{ duration }}</span></th>
       </tr>
@@ -26,239 +27,183 @@
     </table>
   </form>
 
-  <div class="galaxy-grid-container">
-    <div class="galaxy-grid-row header">
-      <div class="galaxy-grid-header position centered">{{ LNG.gl_pos }}</div>
-      <div class="galaxy-grid-header galaxy-planet">{{ LNG.gl_planet }}</div>
-      <div class="galaxy-grid-header galaxy-moon">{{ LNG.gl_moon }}</div>
-      <div class="galaxy-grid-header galaxy-debris">{{ LNG.gl_debris_field }}</div>
-      <div class="galaxy-grid-header galaxy-player">{{ LNG.gl_player_estate }} [{{ LNG.gl_alliance }}]</div>
-      <div class="galaxy-grid-header galaxy-actions">{{ LNG.gl_actions }}</div>
-    </div>
+{% set statusTag = {vacation: 'info', banned: 'neg', inactive: 'muted', longinactive: 'muted', noob: 'pos', strong: 'neg', enemy: 'neg', friend: 'pos', member: 'info'} %}
 
-    {% for planet in planetDataNew %}
-      {% set currentPlanet = GalaxyRows[planet.planet_position] %}
-      {% if currentPlanet is not defined or currentPlanet is null %}
-        <div class="galaxy-grid-row empty {{ cycle(['odd', 'even'], loop.index0) }}" data-info="p_{{ planet.planet_position }}">
-          <div class="galaxy-grid-item position centered galaxy-pos--{{ colonizable[planet.planet_position] == 'colorPositive' ? 'free' : 'blocked' }} {{ colonizable[planet.planet_position] }} tooltip_sticky" tabindex="-1" {{ tooltip(include('game/tooltip.galaxy.colonizable.html.twig')) }}>
-            {{ planet.planet_position }}
-          </div>
-          <div class="galaxy-grid-item span5 galaxy-free-note">{{ colonizable[planet.planet_position] == 'colorPositive' ? LNG.gl_colonizable : LNG.gl_not_colonizable }}</div>
-        </div>
-      {% elseif currentPlanet.destroyed == true %}
-        <div class="galaxy-grid-row empty {{ cycle(['odd', 'even'], loop.index0) }}" data-info="p_{{ planet.planet_position }}">
-          <div class="galaxy-grid-item position centered galaxy-pos--{{ colonizable[planet.planet_position] == 'colorPositive' ? 'free' : 'blocked' }} {{ colonizable[planet.planet_position] }} tooltip_sticky" tabindex="-1" {{ tooltip(include('game/tooltip.galaxy.colonizable.html.twig')) }}>
-            {{ planet.planet_position }}
-          </div>
-          <div class="galaxy-grid-item span2">{{ LNG.gl_planet_destroyed }}</div>
-          <div class="galaxy-grid-item galaxy-debris span3">
-            {% if currentPlanet.debris and (currentPlanet.debris.metal + currentPlanet.debris.crystal) > hiddenDebris %}
-              <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.debris.html.twig', {'id': currentPlanet.planet.id, 'missions': currentPlanet.missions, 'debris': currentPlanet.debris})) }}>
-                <img src="{{ theme_asset('planeten/debris.jpg') }}" height="22" width="22" alt="">
-              </a>
-              {{ shortly_number(currentPlanet.debris.metal) }} / {{ shortly_number(currentPlanet.debris.crystal) }}
-            {% endif %}
-          </div>
-        </div>
-      {% else %}
-        <div class="galaxy-grid-row {{ cycle(['odd', 'even'], loop.index0) }}" data-info="p_{{ planet.planet_position }}">
-          <div class="galaxy-grid-item position centered galaxy-pos--{{ currentPlanet.ownPlanet ? 'own' : 'taken' }} {{ colonizable[planet.planet_position] }} tooltip_sticky" tabindex="-1" {{ tooltip(include('game/tooltip.galaxy.colonizable.html.twig')) }}>
-            {{ planet.planet_position }}
-          </div>
-          <div class="galaxy-grid-item galaxy-planet">
-            {% if currentPlanet is defined and currentPlanet is not null %}
-              <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.missions.html.twig', {'details': currentPlanet.planet, 'missions': currentPlanet.missions})) }}>
-                <img src='{{ currentPlanet.planet.image }}' height='30' width='30'> {{ currentPlanet.planet.name }} {{ currentPlanet.lastActivity }}
-              </a>
-            {% endif %}
-          </div>
-          <div class="galaxy-grid-item galaxy-moon centered">
-            {% if currentPlanet.moon %}
-              <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.missions.html.twig', {'moon': true, 'details': currentPlanet.moon, 'missions': currentPlanet.missions})) }}>
-                <img src='{{ currentPlanet.moon.image }}' height="22" width="22" alt="{{ currentPlanet.moon.name }}">
-              </a>
-            {% endif %}
-          </div>
-          <div class="galaxy-grid-item galaxy-debris centered">
-            {% if currentPlanet.debris and (currentPlanet.debris.metal + currentPlanet.debris.crystal) > hiddenDebris %}
-              <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.debris.html.twig', {'id': currentPlanet.planet.id, 'missions': currentPlanet.missions, 'debris': currentPlanet.debris})) }}>
-                <img src="{{ theme_asset('planeten/debris.jpg') }}" height="22" width="22" alt="">
-              </a>
-              <div class="galaxy-debris-text">{{ shortly_number(currentPlanet.debris.metal) }} / {{ shortly_number(currentPlanet.debris.crystal) }}</div>
-            {% endif %}
-          </div>
-          <div class="galaxy-grid-item galaxy-player">
-            <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.player.html.twig')) }}>
-              <span playerid='{{ currentPlanet.user.id }}' class="{% for class in currentPlanet.user.class %}{% if not loop.first %} {% endif %}galaxy-username-{{ class }}{% endfor %} galaxy-username{% if currentPlanet.user.isBuddy %} galaxy-friend{% endif %}">{{ currentPlanet.user.username }}</span>
-            </a>
-            {% if currentPlanet.user.is_leader %}{% set tt_rank %}<table class='w-100'><tr><th colspan='2' class='text-center'>{{ currentPlanet.user.ally_owner_range }}</th></tr><tr><td class='transparent'>{{ currentPlanet.alliance.name }}</td></tr></table>{% endset %}<a class="tooltip galaxy-rank-leader" {{ tooltip(tt_rank) }}>{{ icon('trophy') }}</a>{% endif %}
-            {% if currentPlanet.user.is_diplo %}{% set tt_rank %}<table class='w-100'><tr><th colspan='2' class='text-center'>{{ LNG.al_rank_diplo }}</th></tr><tr><td class='transparent'>{{ currentPlanet.alliance.name }}</td></tr></table>{% endset %}<a class="tooltip galaxy-rank-diplo" {{ tooltip(tt_rank) }}>{{ icon('handshake') }}</a>{% endif %}
-            {% if currentPlanet.user.class %}
-              <div>{# Do not format next line. It will break layout. #}
-                ({% for class in currentPlanet.user.class %}{% if not loop.first %}&nbsp;{% endif %}<span class="galaxy-short-{{ class }} galaxy-short">{{ ShortStatus[class] }}</span>{% endfor %})
-              </div>
-            {% endif %}
-            {% if currentPlanet.alliance %}
-              <a allyid={{ currentPlanet.alliance.id }} class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.alliance.html.twig')) }}>
-                <span class="{% for class in currentPlanet.alliance.class %}{% if not loop.first %} {% endif %}galaxy-alliance-{{ class }}{% endfor %} galaxy-alliance">[{{ currentPlanet.alliance.tag }}]</span>
-              </a>
-            {% endif %}
-          </div>
-          <div class="galaxy-grid-item galaxy-actions">
-            {% if currentPlanet.action %}
-              {% if currentPlanet.action.esp %}
-                <a href="#" class="galaxy-action" data-action="galaxy-mission" data-mission="6" data-planet="{{ currentPlanet.planet.id }}" title="{{ LNG.gl_spy }}">
-                  {{ icon('scan-eye', LNG.gl_spy) }}
+  <section class="panel panel--flush">
+    {{ ui.panel_head(LNG.gl_solar_system ~ ' ' ~ galaxy ~ ' : ' ~ system, '(' ~ planetcount ~ ')') }}
+    <table class="data galaxy-table">
+      <thead>
+        <tr>
+          <th class="ctr">{{ LNG.gl_pos }}</th>
+          <th>{{ LNG.gl_planet }}</th>
+          <th class="ctr">{{ LNG.gl_moon }}</th>
+          <th>{{ LNG.gl_debris_field }}</th>
+          <th>{{ LNG.gl_player_estate }}</th>
+          <th>{{ LNG.gl_alliance }}</th>
+          <th class="act">{{ LNG.gl_actions }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for planet in planetDataNew %}
+          {% set currentPlanet = GalaxyRows[planet.planet_position] %}
+          {% if currentPlanet is not defined or currentPlanet is null %}
+            <tr class="is-empty" data-info="p_{{ planet.planet_position }}">
+              <td class="ctr galaxy-pos galaxy-pos--{{ colonizable[planet.planet_position] == 'colorPositive' ? 'free' : 'blocked' }} {{ colonizable[planet.planet_position] }} tooltip_sticky" tabindex="-1" {{ tooltip(include('game/tooltip.galaxy.colonizable.html.twig')) }}>{{ planet.planet_position }}</td>
+              <td colspan="6" class="galaxy-free-note">{{ colonizable[planet.planet_position] == 'colorPositive' ? LNG.gl_colonizable : LNG.gl_not_colonizable }}</td>
+            </tr>
+          {% elseif currentPlanet.destroyed == true %}
+            <tr class="is-empty" data-info="p_{{ planet.planet_position }}">
+              <td class="ctr galaxy-pos galaxy-pos--{{ colonizable[planet.planet_position] == 'colorPositive' ? 'free' : 'blocked' }} {{ colonizable[planet.planet_position] }} tooltip_sticky" tabindex="-1" {{ tooltip(include('game/tooltip.galaxy.colonizable.html.twig')) }}>{{ planet.planet_position }}</td>
+              <td colspan="2" class="galaxy-free-note">{{ LNG.gl_planet_destroyed }}</td>
+              <td colspan="4" class="galaxy-debris">
+                {% if currentPlanet.debris and (currentPlanet.debris.metal + currentPlanet.debris.crystal) > hiddenDebris %}
+                  <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.debris.html.twig', {'id': currentPlanet.planet.id, 'missions': currentPlanet.missions, 'debris': currentPlanet.debris})) }}>
+                    <img src="{{ theme_asset('planeten/debris.jpg') }}" height="22" width="22" alt="">
+                    <span>{{ shortly_number(currentPlanet.debris.metal) }} / {{ shortly_number(currentPlanet.debris.crystal) }}</span>
+                  </a>
+                {% endif %}
+              </td>
+            </tr>
+          {% else %}
+            <tr class="{{ currentPlanet.ownPlanet ? 'is-own' : '' }}" data-info="p_{{ planet.planet_position }}">
+              <td class="ctr galaxy-pos galaxy-pos--{{ currentPlanet.ownPlanet ? 'own' : 'taken' }} {{ colonizable[planet.planet_position] }} tooltip_sticky" tabindex="-1" {{ tooltip(include('game/tooltip.galaxy.colonizable.html.twig')) }}>{{ planet.planet_position }}</td>
+              <td class="galaxy-planet">
+                <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.missions.html.twig', {'details': currentPlanet.planet, 'missions': currentPlanet.missions})) }}>
+                  <img src="{{ currentPlanet.planet.image }}" height="28" width="28" alt=""><span>{{ currentPlanet.planet.name }}</span>{% if currentPlanet.lastActivity %} <span class="galaxy-activity">{{ currentPlanet.lastActivity }}</span>{% endif %}
                 </a>
-              {% endif %}
-              {% if currentPlanet.action.spyReport %}
-                <a href="#" class="galaxy-action spy-report-indicator spy-report-{{ currentPlanet.spyReport }}" title="{{ currentPlanet.spyReportTitle }}" data-action="popup" data-url="{{ path('game_spy_report_popup_show', {galaxy: galaxy, system: system, planet: planet.planet_position, planettype: 1}) }}" data-width="900">
-                  {{ icon('file-search', currentPlanet.spyReportTitle) }}
+              </td>
+              <td class="ctr galaxy-moon">
+                {% if currentPlanet.moon %}
+                  <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.missions.html.twig', {'moon': true, 'details': currentPlanet.moon, 'missions': currentPlanet.missions})) }}>
+                    <img src="{{ currentPlanet.moon.image }}" height="22" width="22" alt="{{ currentPlanet.moon.name }}">
+                  </a>
+                {% endif %}
+              </td>
+              <td class="galaxy-debris">
+                {% if currentPlanet.debris and (currentPlanet.debris.metal + currentPlanet.debris.crystal) > hiddenDebris %}
+                  <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.debris.html.twig', {'id': currentPlanet.planet.id, 'missions': currentPlanet.missions, 'debris': currentPlanet.debris})) }}>
+                    <img src="{{ theme_asset('planeten/debris.jpg') }}" height="22" width="22" alt="">
+                    <span>{{ shortly_number(currentPlanet.debris.metal) }} / {{ shortly_number(currentPlanet.debris.crystal) }}</span>
+                  </a>
+                {% endif %}
+              </td>
+              <td class="galaxy-player">
+                <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.player.html.twig')) }}>
+                  <span playerid="{{ currentPlanet.user.id }}" class="{% for class in currentPlanet.user.class %}galaxy-username-{{ class }} {% endfor %}galaxy-username{% if currentPlanet.user.isBuddy %} galaxy-friend{% endif %}">{{ currentPlanet.user.username }}</span>
                 </a>
-              {% endif %}
-              {% if currentPlanet.missions[1] %}
-                <a class="galaxy-action galaxy-action--attack" href="{{ path('game_fleet_table_show', {galaxy: galaxy, system: system, planet: planet.planet_position, planettype: 1, target_mission: 1}) }}" title="{{ LNG.type_mission_1 }}">
-                  {{ icon('swords', LNG.type_mission_1) }}
-                </a>
-              {% endif %}
-              {% if currentPlanet.missions[3] %}
-                <a class="galaxy-action galaxy-action--transport" href="{{ path('game_fleet_table_show', {galaxy: galaxy, system: system, planet: planet.planet_position, planettype: 1, target_mission: 3}) }}" title="{{ LNG.type_mission_3 }}">
-                  {{ icon('truck', LNG.type_mission_3) }}
-                </a>
-              {% endif %}
-              {% if currentPlanet.action.message %}
-                <a href="#" class="galaxy-action" data-action="dialog-pm" data-id="{{ currentPlanet.user.id }}" title="{{ LNG.write_message }}">
-                  {{ icon('mail', LNG.write_message) }}
-                </a>
-              {% endif %}
-              {% if currentPlanet.action.buddy and not currentPlanet.ownPlanet %}
-                <a href="#" class="galaxy-action" data-action="dialog-buddy" data-id="{{ currentPlanet.user.id }}" title="{{ LNG.gl_buddy_request }}">
-                  {{ icon('user-plus', LNG.gl_buddy_request) }}
-                </a>
-              {% endif %}
-              {% if currentPlanet.action.missle %}
-                <a href="#" class="galaxy-action" title="{{ LNG.gl_missile_attack }}" data-action="missile-form" data-planet="{{ currentPlanet.planet.id }}" data-galaxy="{{ galaxy }}" data-system="{{ system }}" data-position="{{ planet.planet_position }}" data-duration="{{ duration }}" data-type="1">
-                  {{ icon('crosshair', LNG.gl_missile_attack) }}
-                </a>
-              {% endif %}
-              {% if currentPlanet.action.phalanx %}
-                <a href="#" class="galaxy-action" title="{{ LNG.gl_phalanx }}" data-action="popup" data-url="{{ path('game_phalanx_show', {galaxy: galaxy, system: system, planet: planet.planet_position, planettype: 1, _csrf: csrf_token()}) }}" data-width="640">
-                  {{ icon('radar', LNG.gl_phalanx) }}
-                </a>
-              {% endif %}
-            {% else %}
-              -
-            {% endif %}
-          </div>
-        </div>
-      {% endif %}
-    {% endfor %}
-    <div class="galaxy-grid-row empty even">
-      <div class="galaxy-grid-item position centered">
-        {{ max_planets + 1 }}
-      </div>
-      <div class="galaxy-grid-item centered span5">
-        <a href="{{ path('game_fleet_table_show', {galaxy: galaxy, system: system, planet: max_planets + 1, planettype: 1, target_mission: 15}) }}">{{ LNG.gl_out_space }}</a>
-      </div>
-    </div>
-    <div class="galaxy-grid-row empty odd">
-      <div class="galaxy-grid-item position centered">
-        {{ max_planets + 2 }}
-      </div>
-      <div class="galaxy-grid-item centered span5">
-        <a href="{{ path('game_fleet_table_show', {galaxy: galaxy, system: system, planet: max_planets + 2, planettype: 1, target_mission: 16}) }}">{{ LNG.gl_trade_space }}</a>
-      </div>
-    </div>
-    {% if pirateBase %}
-      {% set planet = planet|merge({'planet_position': max_planets + 3}) %}
-      <div class="galaxy-grid-row piratebase even">
-        <div class="galaxy-grid-item position centered">
-          {{ max_planets + 3 }}
-        </div>
-        <div class="galaxy-grid-item galaxy-planet span2">
-          <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.missions.html.twig', {'details': pirateBase, 'missions': pirateBase.missions, 'isPirateBase': true})) }}>
-            <img src="{{ pirateBase.image }}" height="30" width="30"> {{ LNG.type_planet_4 }}
-          </a>
-        </div>
-        <div class="galaxy-grid-item galaxy-debris centered span2">
-          {% if (pirateBase.metal + pirateBase.crystal) > 0 %}
-            {% set currentPlanet = currentPlanet|merge({'planet': (currentPlanet.planet|default({}))|merge({'id': pirateBase.id})}) %}
-            <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.debris.html.twig', {'id': pirateBase.id, 'missions': pirateBase.missions, 'debris': pirateBase})) }}>
-              <img src="{{ theme_asset('planeten/debris.jpg') }}" height="22" width="22" alt="">
-            </a>
-            <div class="galaxy-debris-text">{{ shortly_number(pirateBase.metal) }} / {{ shortly_number(pirateBase.crystal) }}</div>
+                {% if currentPlanet.user.is_leader %}{% set tt_rank %}<table class='w-100'><tr><th colspan='2' class='text-center'>{{ currentPlanet.user.ally_owner_range }}</th></tr><tr><td class='transparent'>{{ currentPlanet.alliance.name }}</td></tr></table>{% endset %}<a class="tooltip galaxy-rank-leader" {{ tooltip(tt_rank) }}>{{ icon('trophy') }}</a>{% endif %}
+                {% if currentPlanet.user.is_diplo %}{% set tt_rank %}<table class='w-100'><tr><th colspan='2' class='text-center'>{{ LNG.al_rank_diplo }}</th></tr><tr><td class='transparent'>{{ currentPlanet.alliance.name }}</td></tr></table>{% endset %}<a class="tooltip galaxy-rank-diplo" {{ tooltip(tt_rank) }}>{{ icon('handshake') }}</a>{% endif %}
+                {% for class in currentPlanet.user.class %}<span class="tag tag--{{ statusTag[class] ?? 'muted' }} galaxy-short-{{ class }} galaxy-short" title="{{ ShortStatus[class] }}">{{ ShortStatus[class] }}</span>{% endfor %}
+              </td>
+              <td class="galaxy-alliance-cell">
+                {% if currentPlanet.alliance %}
+                  <a allyid="{{ currentPlanet.alliance.id }}" class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.alliance.html.twig')) }}>
+                    <span class="{% for class in currentPlanet.alliance.class %}galaxy-alliance-{{ class }} {% endfor %}galaxy-alliance">[{{ currentPlanet.alliance.tag }}]</span>
+                  </a>
+                {% endif %}
+              </td>
+              <td class="act galaxy-actions">
+                {% if currentPlanet.action %}
+                  <span class="galaxy-actions__list">
+                  {% if currentPlanet.action.esp %}
+                    <a href="#" class="galaxy-action" data-action="galaxy-mission" data-mission="6" data-planet="{{ currentPlanet.planet.id }}" aria-label="{{ LNG.gl_spy }}" data-tip="{{ LNG.gl_spy }}">{{ icon('scan-eye') }}</a>
+                  {% endif %}
+                  {% if currentPlanet.action.spyReport %}
+                    <a href="#" class="galaxy-action spy-report-indicator spy-report-{{ currentPlanet.spyReport }}" aria-label="{{ currentPlanet.spyReportTitle }}" data-tip="{{ currentPlanet.spyReportTitle }}" data-action="popup" data-url="{{ path('game_spy_report_popup_show', {galaxy: galaxy, system: system, planet: planet.planet_position, planettype: 1}) }}" data-width="900">{{ icon('file-search') }}</a>
+                  {% endif %}
+                  {% if currentPlanet.missions[1] %}
+                    <a class="galaxy-action galaxy-action--attack" href="{{ path('game_fleet_table_show', {galaxy: galaxy, system: system, planet: planet.planet_position, planettype: 1, target_mission: 1}) }}" aria-label="{{ LNG.type_mission_1 }}" data-tip="{{ LNG.type_mission_1 }}">{{ icon('swords') }}</a>
+                  {% endif %}
+                  {% if currentPlanet.missions[3] %}
+                    <a class="galaxy-action galaxy-action--transport" href="{{ path('game_fleet_table_show', {galaxy: galaxy, system: system, planet: planet.planet_position, planettype: 1, target_mission: 3}) }}" aria-label="{{ LNG.type_mission_3 }}" data-tip="{{ LNG.type_mission_3 }}">{{ icon('truck') }}</a>
+                  {% endif %}
+                  {% if currentPlanet.action.message %}
+                    <a href="#" class="galaxy-action" data-action="dialog-pm" data-id="{{ currentPlanet.user.id }}" aria-label="{{ LNG.write_message }}" data-tip="{{ LNG.write_message }}">{{ icon('mail') }}</a>
+                  {% endif %}
+                  {% if currentPlanet.action.buddy and not currentPlanet.ownPlanet %}
+                    <a href="#" class="galaxy-action" data-action="dialog-buddy" data-id="{{ currentPlanet.user.id }}" aria-label="{{ LNG.gl_buddy_request }}" data-tip="{{ LNG.gl_buddy_request }}">{{ icon('user-plus') }}</a>
+                  {% endif %}
+                  {% if currentPlanet.action.missle %}
+                    <a href="#" class="galaxy-action" aria-label="{{ LNG.gl_missile_attack }}" data-tip="{{ LNG.gl_missile_attack }}" data-action="missile-form" data-planet="{{ currentPlanet.planet.id }}" data-galaxy="{{ galaxy }}" data-system="{{ system }}" data-position="{{ planet.planet_position }}" data-duration="{{ duration }}" data-type="1">{{ icon('crosshair') }}</a>
+                  {% endif %}
+                  {% if currentPlanet.action.phalanx %}
+                    <a href="#" class="galaxy-action" aria-label="{{ LNG.gl_phalanx }}" data-tip="{{ LNG.gl_phalanx }}" data-action="popup" data-url="{{ path('game_phalanx_show', {galaxy: galaxy, system: system, planet: planet.planet_position, planettype: 1, _csrf: csrf_token()}) }}" data-width="640">{{ icon('radar') }}</a>
+                  {% endif %}
+                  </span>
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+            </tr>
           {% endif %}
-        </div>
-        <div class="galaxy-grid-item galaxy-actions">
-          {% if pirateBase.missions[21] %}
-            <a href="#" data-action="galaxy-mission" data-mission="21" data-planet="{{ pirateBase.id }}">
-              <img src="{{ theme_asset('img/e.gif') }}" title="{{ LNG.gl_spy }}" alt="">
-            </a>
-          {% endif %}
-        </div>
-      </div>
-    {% endif %}
-    <div class="galaxy-grid-row legende">
-      <div class="galaxy-grid-header centered">({{ planetcount }})</div>
-      <div class="galaxy-grid-header centered">
-        {% set tt_legend %}
-          <table class='tt-galaxy'>
-            <tr><th colspan='2'>{{ LNG.gl_legend }}</th></tr>
-            <tr><td class='tt-galaxy-label'>{{ LNG.gl_colonizable }}</td><td><span class='colorPositive'>{{ LNG.gl_pos }}</span></td></tr>
-            <tr><td class='tt-galaxy-label'>{{ LNG.gl_not_colonizable }}</td><td><span class='colorNegative'>{{ LNG.gl_pos }}</span></td></tr>
-            <tr><td class='tt-galaxy-label'>{{ LNG.gl_strong_player }}</td><td><span class='galaxy-short-strong'>{{ LNG.gl_short_strong }}</span></td></tr>
-            <tr><td class='tt-galaxy-label'>{{ LNG.gl_week_player }}</td><td><span class='galaxy-short-noob'>{{ LNG.gl_short_newbie }}</span></td></tr>
-            <tr><td class='tt-galaxy-label'>{{ LNG.gl_vacation }}</td><td><span class='galaxy-short-vacation'>{{ LNG.gl_short_vacation }}</span></td></tr>
-            <tr><td class='tt-galaxy-label'>{{ LNG.gl_banned }}</td><td><span class='galaxy-short-banned'>{{ LNG.gl_short_ban }}</span></td></tr>
-            <tr><td class='tt-galaxy-label'>{{ LNG.gl_inactive_seven }}</td><td><span class='galaxy-short-inactive'>{{ LNG.gl_short_inactive }}</span></td></tr>
-            <tr><td class='tt-galaxy-label'>{{ LNG.gl_inactive_twentyeight }}</td><td><span class='galaxy-short-longinactive'>{{ LNG.gl_short_long_inactive }}</span></td></tr>
-          </table>
-        {% endset %}
-        <a class="tooltip" {{ tooltip(tt_legend) }}>{{ LNG.gl_legend }}</a>
+        {% endfor %}
+        <tr class="is-empty">
+          <td class="ctr galaxy-pos">{{ max_planets + 1 }}</td>
+          <td colspan="6"><a href="{{ path('game_fleet_table_show', {galaxy: galaxy, system: system, planet: max_planets + 1, planettype: 1, target_mission: 15}) }}">{{ LNG.gl_out_space }}</a></td>
+        </tr>
+        <tr class="is-empty">
+          <td class="ctr galaxy-pos">{{ max_planets + 2 }}</td>
+          <td colspan="6"><a href="{{ path('game_fleet_table_show', {galaxy: galaxy, system: system, planet: max_planets + 2, planettype: 1, target_mission: 16}) }}">{{ LNG.gl_trade_space }}</a></td>
+        </tr>
+        {% if pirateBase %}
+          {% set planet = planet|merge({'planet_position': max_planets + 3}) %}
+          <tr class="galaxy-pirate">
+            <td class="ctr galaxy-pos">{{ max_planets + 3 }}</td>
+            <td colspan="2" class="galaxy-planet">
+              <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.missions.html.twig', {'details': pirateBase, 'missions': pirateBase.missions, 'isPirateBase': true})) }}>
+                <img src="{{ pirateBase.image }}" height="28" width="28" alt=""><span>{{ LNG.type_planet_4 }}</span>
+              </a>
+            </td>
+            <td colspan="3" class="galaxy-debris">
+              {% if (pirateBase.metal + pirateBase.crystal) > 0 %}
+                {% set currentPlanet = currentPlanet|merge({'planet': (currentPlanet.planet|default({}))|merge({'id': pirateBase.id})}) %}
+                <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.debris.html.twig', {'id': pirateBase.id, 'missions': pirateBase.missions, 'debris': pirateBase})) }}>
+                  <img src="{{ theme_asset('planeten/debris.jpg') }}" height="22" width="22" alt="">
+                  <span>{{ shortly_number(pirateBase.metal) }} / {{ shortly_number(pirateBase.crystal) }}</span>
+                </a>
+              {% endif %}
+            </td>
+            <td class="act galaxy-actions">
+              {% if pirateBase.missions[21] %}
+                <span class="galaxy-actions__list">
+                  <a href="#" class="galaxy-action" data-action="galaxy-mission" data-mission="21" data-planet="{{ pirateBase.id }}" aria-label="{{ LNG.gl_spy }}" data-tip="{{ LNG.gl_spy }}">{{ icon('scan-eye') }}</a>
+                </span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+    <div class="panel__body galaxy-legend">
+      <span class="galaxy-legend__item"><span class="tag tag--pos colorPositive">{{ LNG.gl_pos }}</span> {{ LNG.gl_colonizable }}</span>
+      <span class="galaxy-legend__item"><span class="tag tag--neg colorNegative">{{ LNG.gl_pos }}</span> {{ LNG.gl_not_colonizable }}</span>
+      <span class="galaxy-legend__item"><span class="tag tag--pos galaxy-short-noob">{{ LNG.gl_short_newbie }}</span> {{ LNG.gl_week_player }}</span>
+      <span class="galaxy-legend__item"><span class="tag tag--neg galaxy-short-strong">{{ LNG.gl_short_strong }}</span> {{ LNG.gl_strong_player }}</span>
+      <span class="galaxy-legend__item"><span class="tag tag--info galaxy-short-vacation">{{ LNG.gl_short_vacation }}</span> {{ LNG.gl_vacation }}</span>
+      <span class="galaxy-legend__item"><span class="tag tag--neg galaxy-short-banned">{{ LNG.gl_short_ban }}</span> {{ LNG.gl_banned }}</span>
+      <span class="galaxy-legend__item"><span class="tag tag--muted galaxy-short-inactive">{{ LNG.gl_short_inactive }}</span> {{ LNG.gl_inactive_seven }}</span>
+      <span class="galaxy-legend__item"><span class="tag tag--muted galaxy-short-longinactive">{{ LNG.gl_short_long_inactive }}</span> {{ LNG.gl_inactive_twentyeight }}</span>
+      <span class="galaxy-legend__item"><span class="tag tag--muted">{{ LNG.gl_activity }}</span> {{ LNG.gl_legend_activity }}</span>
+    </div>
+    <div class="panel__body">
+      <div class="stats">
+        <div class="stat"><span class="stat__label">{{ LNG.gl_avaible_missiles }}</span><span class="stat__value" id="missiles">{{ pretty_number(currentmip) }}</span></div>
+        <div class="stat"><span class="stat__label">{{ LNG.gl_fleets }}</span><span class="stat__value"><span id="slots">{{ maxfleetcount }}</span>/{{ fleetmax }}</span></div>
+        <div class="stat"><span class="stat__label">{{ LNG.gl_avaible_spyprobes }}</span><span class="stat__value" id="elementID210">{{ pretty_number(spyprobes) }}</span></div>
+        <div class="stat"><span class="stat__label">{{ LNG.gl_avaible_recyclers }}</span><span class="stat__value" id="elementID209">{{ pretty_number(recyclers) }}</span></div>
       </div>
     </div>
-    <div class="galaxy-grid-row legend-line">
-      <div class="galaxy-grid-item galaxy-legend">
-        <span class="galaxy-legend__item"><span class="colorPositive">{{ LNG.gl_pos }}</span> {{ LNG.gl_colonizable }}</span>
-        <span class="galaxy-legend__item"><span class="colorNegative">{{ LNG.gl_pos }}</span> {{ LNG.gl_not_colonizable }}</span>
-        <span class="galaxy-legend__item"><span class="galaxy-short-noob">{{ LNG.gl_short_newbie }}</span> {{ LNG.gl_week_player }}</span>
-        <span class="galaxy-legend__item"><span class="galaxy-short-strong">{{ LNG.gl_short_strong }}</span> {{ LNG.gl_strong_player }}</span>
-        <span class="galaxy-legend__item"><span class="galaxy-short-vacation">{{ LNG.gl_short_vacation }}</span> {{ LNG.gl_vacation }}</span>
-        <span class="galaxy-legend__item"><span class="galaxy-short-banned">{{ LNG.gl_short_ban }}</span> {{ LNG.gl_banned }}</span>
-        <span class="galaxy-legend__item"><span class="galaxy-short-inactive">{{ LNG.gl_short_inactive }}</span> {{ LNG.gl_inactive_seven }}</span>
-        <span class="galaxy-legend__item"><span class="galaxy-short-longinactive">{{ LNG.gl_short_long_inactive }}</span> {{ LNG.gl_inactive_twentyeight }}</span>
-        <span class="galaxy-legend__item"><span>{{ LNG.gl_activity }}</span> {{ LNG.gl_legend_activity }}</span>
-      </div>
-    </div>
-    <div class="galaxy-grid-row stats">
-      <div class="galaxy-grid-item centered">
-        <span id="missiles">{{ pretty_number(currentmip) }}</span>&nbsp;{{ LNG.gl_avaible_missiles }}
-      </div>
-      <div class="galaxy-grid-item centered">
-        <span id="slots">{{ maxfleetcount }}</span>/{{ fleetmax }} {{ LNG.gl_fleets }}
-      </div>
-      <div class="galaxy-grid-item centered">
-        <span id="elementID210">{{ pretty_number(spyprobes) }}</span>&nbsp;{{ LNG.gl_avaible_spyprobes }}
-      </div>
-      <div class="galaxy-grid-item centered">
-        <span id="elementID209">{{ pretty_number(recyclers) }}</span>&nbsp;{{ LNG.gl_avaible_recyclers }}
-      </div>
-    </div>
-    <div class="galaxy-grid-row sync" data-info="galatool">
-      <div class="galaxy-grid-item centered">
-        <button id="gala_exportjson">{{ LNG.gl_sync_export_json }}</button>
-      </div>
-      <div class="galaxy-grid-item centered">
-        <button id="gala_exportcsv">{{ LNG.gl_sync_export_csv }}</button>
-      </div>
-      <div class="galaxy-grid-item centered">
-        <button id="gala_reset">{{ LNG.gl_sync_reset }}</button>
-      </div>
-      <div class="galaxy-grid-item centered upload">
-        {{ LNG.gl_sync_import_json }}: <input id="gala_upload" type="file" accept=".json">
-      </div>
-    </div>
-  </div>
+    <footer class="panel__foot toolbar galaxy-sync" data-info="galatool">
+      <label class="galaxy-sync__upload">{{ LNG.gl_sync_import_json }}: <input id="gala_upload" type="file" accept=".json"></label>
+      <span class="toolbar__spacer"></span>
+      <button type="button" id="gala_exportjson">{{ LNG.gl_sync_export_json }}</button>
+      <button type="button" id="gala_exportcsv">{{ LNG.gl_sync_export_csv }}</button>
+      <button type="button" id="gala_reset">{{ LNG.gl_sync_reset }}</button>
+    </footer>
+  </section>
 
   {# system data for the galaxy sync (scripts/game/galaxy.js); the rows become the position-keyed map and get a timepoint there #}
   {% set systemRows = [] %}

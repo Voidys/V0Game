@@ -1,13 +1,16 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_rules }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_rules, 'scroll-text') }}{% endblock %}
 {% block content %}
-  <section class="rules">
-    <h1>{{ LNG.lm_rules }}</h1>
+  <section class="panel">
+    <div class="panel__body text-panel">
     {% if rulesEmpty %}
       <div class="notice notice--info" role="status">{{ icon('info') }}<div>{{ LNG.rulesEmpty }}</div></div>
     {% else %}
       <div class="rich-text" data-toc-label="{{ LNG.toc_contents|e('html_attr') }}">{{ rules }}</div>
     {% endif %}
+    </div>
   </section>
 {% endblock %}
 {% block script %}{{ parent() }}

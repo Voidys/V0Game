@@ -1,7 +1,8 @@
 {% set count = productionTable.usedResource %}
 
+<section class="panel panel--flush">
 <div class="table-scroll">
-<table>
+<table class="data">
 	<tbody>
 				<tr>
 					<th class="act">{{ LNG.in_level }}</th>
@@ -19,8 +20,8 @@
 					{% endfor %}
 				</tr>
 				{% for elementLevel, productionData in productionTable.storage %}
-				<tr>
-					<td class="act"><span{% if CurrentLevel == elementLevel %} class="colorNegative"{% endif %}>{{ elementLevel }}</span></td>
+				<tr{% if CurrentLevel == elementLevel %} class="is-current"{% endif %}>
+					<td class="act"><span class="mono">{{ elementLevel }}</span></td>
 					{% for resourceID, storage in productionData %}
 					{% set storageDiff = storage - productionTable.storage[CurrentLevel[resourceID]] %}
 					<td class="num"><span class="{% if storage > 0 %}colorPositive{% elseif storage < 0 %}colorNegative{% else %}white{% endif %}">{{ pretty_number(storage) }}</span></td>
@@ -31,3 +32,4 @@
 	</tbody>
 </table>
 </div>
+</section>

@@ -1,2 +1,38 @@
 {% set sourceUrl = game_config('source_url') %}
-<p class="footer__meta"><span>{{ game_name }}</span><span>v{{ version }}</span>{% if sourceUrl %}<a href="{{ sourceUrl|e('html_attr') }}" target="_blank" rel="noopener" title="AGPL-3.0">{{ LNG.source_code }}</a>{% endif %}</p>
+<div class="footer-inner">
+  <div class="footer-brand">
+    <a class="brand" href="{{ path('game_overview_show') }}"><span class="brand-name wordmark">V<b>0</b>Game</span></a>
+    <p class="muted">{{ LNG.shell_tagline }}</p>
+    <ul class="status">
+      <li><span class="status-dot" aria-hidden="true"></span>{{ uni_name }}</li>
+    </ul>
+  </div>
+  <nav class="footer-links" aria-label="{{ LNG.shell_footer|default('Footer') }}">
+    <div>
+      <h2>{{ LNG.shell_footer_game }}</h2>
+      <a href="{{ path('game_rules_show') }}">{{ LNG.lm_rules }}</a>
+      <a href="{{ path('game_questions_show') }}">{{ LNG.lm_faq }}</a>
+      <a href="{{ path('game_changelog_show') }}">{{ LNG.lm_changelog }}</a>
+      <button class="link" type="button" data-action="shortcuts">{{ LNG.shell_shortcuts_title }}</button>
+    </div>
+    <div>
+      <h2>{{ LNG.shell_footer_community }}</h2>
+      {% if game_config('board_enabled', '1') != '0' %}<a href="{{ path('account_board_show') }}" target="_blank" rel="noopener">{{ LNG.lm_board }}</a>{% endif %}
+      {% if communityNav.discord is defined %}<a href="{{ communityNav.discord }}" target="_blank" rel="noopener">Discord</a>{% endif %}
+      {% if communityNav.wiki is defined %}<a href="{{ communityNav.wiki }}" target="_blank" rel="noopener">Wiki</a>{% endif %}
+      {% if isModuleAvailable(constant('MODULE_SUPPORT')) %}<a href="{{ path('game_ticket_show') }}">{{ LNG.lm_support }}</a>{% endif %}
+      {% if (not noobInterface or not tutorial or tutorial['id'] > 6) %}<a href="{{ path('game_team_show') }}">Team</a>{% endif %}
+      {% if communityNav.donate is defined %}<a href="{{ communityNav.donate }}" target="_blank" rel="noopener">{{ LNG.donate }}</a>{% endif %}
+    </div>
+    <div>
+      <h2>{{ LNG.shell_footer_legal }}</h2>
+      <a href="{{ path('login_disclamer_show') }}" target="_blank" rel="noopener">{{ LNG.shell_imprint }}</a>
+      <a href="{{ path('login_data_privacy_show') }}" data-dialog data-dialog-width="820">{{ LNG.lm_dataPrivacy }}</a>
+      {% if sourceUrl %}<a href="{{ sourceUrl|e('html_attr') }}" target="_blank" rel="noopener">{{ LNG.source_code }}</a>{% endif %}
+    </div>
+  </nav>
+</div>
+<div class="footer-base">
+  <span class="muted">© {{ 'now'|date('Y') }} V0Game · based on pr0game and 2Moons · AGPL-3.0</span>
+  <span class="mono muted">{{ game_name }} v{{ version }}</span>
+</div>

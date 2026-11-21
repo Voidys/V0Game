@@ -1,38 +1,24 @@
 {% import '_macros/forms.html.twig' as forms -%}
-<form action="{{ path('game_fleet_table_acs') }}" method="post">
+{% import '_macros/ui.html.twig' as ui -%}
+<form action="{{ path('game_fleet_table_acs') }}" method="post" class="panel">
 <input name="fleetID" value="{{ acsData.mainFleetID }}" type="hidden">
-	<table>
-		<tr>
-			<th colspan="2">{{ LNG.fl_sac_of_fleet }}</th>
-		</tr>
-		<tr>
-			<th colspan="2">{{ LNG.fl_modify_sac_name }} (<a href="#" data-action="acs-rename" data-url="{{ path('game_fleet_table_acs') }}" data-fleet="{{ acsData.mainFleetID }}" data-prompt="{{ LNG.fl_acs_change_name|e('html_attr') }}" data-name="{{ acsData.acsName }}">{{ LNG.fl_acs_change }}</a>)</th>
-		</tr>
-		<tr>
-			<td colspan="2" id="acsName">{{ acsData.acsName }}</td>
-		</tr>
-		<tr>
-			<th>{{ LNG.fl_members_invited }}</th>
-			<th>{{ LNG.fl_invite_members }}</th>
-		</tr>
-		{% if acsData.statusMessage %}
-		<tr>
-			<td colspan="2">
-				{{ acsData.statusMessage }}
-			</td>
-		</tr>
-		{% endif %}
-		<tr>
-			<td>
-				<select size="5" class="control-wide">
-					{{ forms.html_options({'options': acsData.invitedUsers}) }}
-                </select>
-			</td>
-			<td>
-				<p><input name="username" type="text" class="control-wide"></p>
-				<p class="form-actions"><input type="submit" value="{{ LNG.fl_continue }}"></p>
-			</td>
-		</tr>
-	</table>
+	{{ ui.panel_head(LNG.fl_sac_of_fleet) }}
+	<div class="panel__body">
+		<p>{{ LNG.fl_modify_sac_name }}: <strong id="acsName">{{ acsData.acsName }}</strong> (<a href="#" data-action="acs-rename" data-url="{{ path('game_fleet_table_acs') }}" data-fleet="{{ acsData.mainFleetID }}" data-prompt="{{ LNG.fl_acs_change_name|e('html_attr') }}" data-name="{{ acsData.acsName }}">{{ LNG.fl_acs_change }}</a>)</p>
+		{% if acsData.statusMessage %}<p>{{ acsData.statusMessage }}</p>{% endif %}
+	</div>
+	<div class="grid-2 acs-split">
+		<div class="panel__body">
+			<h3>{{ LNG.fl_members_invited }}</h3>
+			<select size="5" class="control-wide">
+				{{ forms.html_options({'options': acsData.invitedUsers}) }}
+			</select>
+		</div>
+		<div class="panel__body">
+			<h3>{{ LNG.fl_invite_members }}</h3>
+			<input name="username" type="text" class="control-wide">
+		</div>
+	</div>
+	<footer class="panel__foot"><input type="submit" value="{{ LNG.fl_continue }}"></footer>
 </form>
 <script type="module" src="./scripts/game/acs.js?v={{ asset_version }}"></script>

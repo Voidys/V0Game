@@ -1,13 +1,14 @@
 {% import '_macros/community.html.twig' as c -%}
+{% import '_macros/ui.html.twig' as ui %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}<a class="btn" href="{{ path('game_alliance_create') }}">{{ icon('plus') }} {{ LNG.al_alliance_make }}</a>{% endset %}
+{{ ui.page_head(LNG.al_find_alliances, 'users', LNG.lm_alliance ~ ' / ' ~ LNG.al_alliance_search, actions) }}
+{% endblock %}
 {% block content %}
-{{ c.breadcrumb([{label: LNG.lm_alliance, url: path('game_alliance_show')}, {label: LNG.al_alliance_search}]) }}
-<form action="{{ path('game_alliance_search') }}" method="get">
+<form class="panel" action="{{ path('game_alliance_search') }}" method="get">
 	<table class="form-table">
-		<tr>
-			<th colspan="2">{{ LNG.al_find_alliances }}</th>
-		</tr>
 		<tr>
 			<td><label for="searchtext">{{ LNG.al_find_text }}</label></td>
 			<td><input type="text" id="searchtext" name="searchtext" value="{{ searchText }}"></td>
@@ -17,25 +18,29 @@
 		</tr>
 	</table>
 </form>
-<table>
-	<tr>
-		<th colspan="4">{% if searchText %}{{ LNG.al_find_results }}{% else %}{{ LNG.al_find_browse }}{% endif %}</th>
-	</tr>
-	<tr>
-		<th>{{ LNG.al_ally_info_tag }}</th>
-		<th>{{ LNG.al_ally_info_name }}</th>
-		<th class="num">{{ LNG.al_ally_info_members }}</th>
-		<th class="ctr">{{ LNG.al_manage_requests }}</th>
-	</tr>
-	{% for seachRow in searchList %}
-	<tr>
-		<td><a href="{{ path('game_alliance_apply', {id: seachRow.id}) }}">{{ seachRow.tag }}</a></td>
-		<td><a href="{{ path('game_alliance_apply', {id: seachRow.id}) }}">{{ seachRow.name }}</a></td>
-		<td class="num"><a href="{{ path('game_alliance_apply', {id: seachRow.id}) }}">{{ seachRow.members }} / {{ seachRow.maxMembers }}</a></td>
-		<td class="ctr">{% if seachRow.open %}<span class="colorPositive">{{ LNG.al_requests_allowed }}</span>{% else %}<span class="colorNegative">{{ LNG.al_requests_not_allowed }}</span>{% endif %}</td>
-	</tr>
+<section class="panel panel--flush">
+	{{ ui.panel_head(searchText ? LNG.al_find_results : LNG.al_find_browse, searchList|length) }}
+	{% if searchList is not empty %}
+	<table class="data">
+		<thead><tr>
+			<th>{{ LNG.al_ally_info_tag }}</th>
+			<th>{{ LNG.al_ally_info_name }}</th>
+			<th class="num">{{ LNG.al_ally_info_members }}</th>
+			<th class="ctr">{{ LNG.al_manage_requests }}</th>
+		</tr></thead>
+		<tbody>
+		{% for seachRow in searchList %}
+		<tr>
+			<td><a href="{{ path('game_alliance_apply', {id: seachRow.id}) }}">{{ seachRow.tag }}</a></td>
+			<td><a href="{{ path('game_alliance_apply', {id: seachRow.id}) }}">{{ seachRow.name }}</a></td>
+			<td class="num"><a href="{{ path('game_alliance_apply', {id: seachRow.id}) }}">{{ seachRow.members }} / {{ seachRow.maxMembers }}</a></td>
+			<td class="ctr">{% if seachRow.open %}<span class="tag tag--pos">{{ LNG.al_requests_allowed }}</span>{% else %}<span class="tag tag--neg">{{ LNG.al_requests_not_allowed }}</span>{% endif %}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
 	{% else %}
-	{{ c.empty_row(4, searchText ? LNG.al_find_no_alliances : LNG.al_find_none_yet, searchText ? null : {url: path('game_alliance_create'), label: LNG.al_alliance_make}) }}
-	{% endfor %}
-</table>
+	<div class="empty"><p>{{ searchText ? LNG.al_find_no_alliances : LNG.al_find_none_yet }}</p>{% if not searchText %}<a href="{{ path('game_alliance_create') }}">{{ LNG.al_alliance_make }}</a>{% endif %}</div>
+	{% endif %}
+</section>
 {% endblock %}

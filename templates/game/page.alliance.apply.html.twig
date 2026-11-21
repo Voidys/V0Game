@@ -1,11 +1,10 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(al_write_request, 'users') }}{% endblock %}
 {% block content %}
-<form action="{{ path('game_alliance_apply_send', {id: allyid}) }}" method="post">
+<form class="panel" action="{{ path('game_alliance_apply_send', {id: allyid}) }}" method="post">
 <table class="form-table">
-	<tr>
-		<th colspan="2">{{ al_write_request }}</th>
-	</tr>
 	<tr>
 		<td><label for="message">{{ LNG.al_message }}</label></td>
 		<td><textarea name="text" rows="20" id="message">{{ applytext }}</textarea></td>

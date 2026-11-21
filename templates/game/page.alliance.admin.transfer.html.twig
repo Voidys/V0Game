@@ -1,14 +1,14 @@
 {% import '_macros/forms.html.twig' as forms -%}
-{% import '_macros/community.html.twig' as c -%}
+{% import '_macros/ui.html.twig' as ui %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}<a class="btn" href="{{ path('game_alliance_admin') }}">{{ icon('arrow-left') }} {{ LNG.al_back }}</a>{% endset %}
+{{ ui.page_head(LNG.al_transfer_alliance, 'settings', LNG.al_manage_alliance, actions) }}
+{% endblock %}
 {% block content %}
-{{ c.breadcrumb([{label: LNG.lm_alliance, url: path('game_alliance_show')}, {label: LNG.al_manage_alliance, url: path('game_alliance_admin')}, {label: LNG.al_transfer_alliance}]) }}
-<form action="{{ path('game_alliance_admin_transfer_send') }}" method="post">
+<form class="panel" action="{{ path('game_alliance_admin_transfer_send') }}" method="post">
 <table class="form-table">
-	<tr>
-		<th colspan="2">{{ LNG.al_transfer_alliance }}</th>
-	</tr>
 	<tr>
 		<td><label for="newleader">{{ LNG.al_transfer_to }}:</label></td>
 		<td>{{ forms.html_options({'id': 'newleader', 'name': 'newleader', 'options': transferUserList}) }}</td>
@@ -18,5 +18,4 @@
 	</tr>
 </table>
 </form>
-{{ c.back(path('game_alliance_admin'), LNG.al_back) }}
 {% endblock %}

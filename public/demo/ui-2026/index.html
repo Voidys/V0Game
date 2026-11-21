@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V0Game — UI 2026 demo</title>
+  <link rel="stylesheet" href="app.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <button class="icon-btn menu-btn" type="button" data-action="drawer" aria-label="Menu">
+    <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-menu"></use></svg>
+  </button>
+  <a class="brand" href="#overview" aria-label="V0Game">
+    <span class="brand-mark" data-tip="Overview">V0</span><span class="brand-name">V0Game</span>
+  </a>
+
+  <button class="planet-switch" type="button" data-action="planets" aria-haspopup="listbox" data-tip="Switch planet" data-tip-kbd="[ ]">
+    <img src="../../styles/resource/theme-shared/sets/nebula/planeten/dschjungelplanet04.webp" alt="">
+    <span class="planet-switch-text">
+      <strong>Kepler Prime</strong>
+      <span class="mono muted">[1:42:8]</span>
+    </span>
+    <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-chevron-down"></use></svg>
+  </button>
+
+  <ul class="resources" aria-label="Resources">
+    <li class="res" tabindex="0" data-res="metal" style="--fill: .62">
+      <img src="../../styles/resource/theme-shared/sets/nebula/images/metal.webp" alt="">
+      <div class="res-body">
+        <span class="res-label">Metal</span>
+        <span class="res-value mono" data-value>1,284,553</span>
+        <span class="res-rate mono">+18,420/h</span>
+      </div>
+      <span class="res-meter" aria-hidden="true"></span>
+    </li>
+    <li class="res" tabindex="0" data-res="crystal" style="--fill: .41">
+      <img src="../../styles/resource/theme-shared/sets/nebula/images/crystal.webp" alt="">
+      <div class="res-body">
+        <span class="res-label">Crystal</span>
+        <span class="res-value mono" data-value>612,090</span>
+        <span class="res-rate mono">+9,860/h</span>
+      </div>
+      <span class="res-meter" aria-hidden="true"></span>
+    </li>
+    <li class="res" tabindex="0" data-res="deuterium" style="--fill: .93">
+      <img src="../../styles/resource/theme-shared/sets/nebula/images/deuterium.webp" alt="">
+      <div class="res-body">
+        <span class="res-label">Deuterium</span>
+        <span class="res-value mono" data-value>248,771</span>
+        <span class="res-rate mono">+4,215/h</span>
+      </div>
+      <span class="res-meter is-warn" aria-hidden="true"></span>
+    </li>
+    <li class="res" tabindex="0" data-res="energy">
+      <img src="../../styles/resource/theme-shared/sets/nebula/images/energy.webp" alt="">
+      <div class="res-body">
+        <span class="res-label">Energy</span>
+        <span class="res-value mono">412 <span class="muted">/ 3,980</span></span>
+        <span class="res-rate mono pos">balanced</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="topbar-tools">
+    <button class="search-btn" type="button" data-action="palette" data-tip="Jump to a page, planet or coordinates" data-tip-kbd="Ctrl K">
+      <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-search"></use></svg>
+      <span>Jump to…</span><kbd>Ctrl K</kbd>
+    </button>
+    <button class="icon-btn" type="button" popovertarget="notif-pop" aria-label="Notifications, 2 new" data-tip="Notifications" data-anchor>
+      <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-bell"></use></svg>
+      <span class="dot-badge" data-notif-badge>2</span>
+    </button>
+    <time class="clock mono" data-clock data-tip="Server time" tabindex="0">21.11. 14:32:07</time>
+    <button class="avatar-btn" type="button" popovertarget="account-pop" aria-label="Account" data-tip="Abraxis · account" data-anchor>
+      <span class="avatar">AB</span>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="sidenav" aria-label="Game">
+    <div class="nav-group">
+      <span class="nav-heading">Empire</span>
+      <a href="#overview" data-view="overview" data-tip="Overview" data-tip-kbd="G O"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-layout-dashboard"></use></svg><span>Overview</span></a>
+      <a href="#buildings" data-view="buildings" data-tip="Buildings" data-tip-kbd="G B"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-building-2"></use></svg><span>Buildings</span></a>
+      <a href="#research"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-flask-conical"></use></svg><span>Research</span></a>
+      <a href="#shipyard"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-rocket"></use></svg><span>Shipyard</span></a>
+      <a href="#defense"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-shield"></use></svg><span>Defense</span></a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-heading">Operations</span>
+      <a href="#fleet"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-send"></use></svg><span>Fleet</span><span class="count" data-tip="3 fleets in flight">3</span></a>
+      <a href="#galaxy" data-view="galaxy" data-tip="Galaxy" data-tip-kbd="G G"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-orbit"></use></svg><span>Galaxy</span></a>
+      <a href="#market"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-store"></use></svg><span>Market</span></a>
+      <a href="#sim"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-swords"></use></svg><span>Battle sim</span></a>
+    </div>
+    <div class="nav-group">
+      <span class="nav-heading">Social</span>
+      <a href="#messages"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-mail"></use></svg><span>Messages</span><span class="count is-accent" data-tip="4 unread">4</span></a>
+      <a href="#alliance"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-handshake"></use></svg><span>Alliance</span></a>
+      <a href="#stats"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-chart-column"></use></svg><span>Highscore</span></a>
+    </div>
+
+  </nav>
+
+  <main id="main" class="content" tabindex="-1">
+    <div class="alert" role="alert" data-alert>
+      <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-triangle-alert"></use></svg>
+      <p><strong>Hostile fleet approaching Low Tide</strong> <span class="mono">[3:7:9]</span> · arrives in <time class="mono" data-alert-countdown>06:12</time></p>
+      <div class="alert-actions">
+        <button class="btn btn-danger" type="button" data-toast="Fleet save dialog (demo)" data-tip="Send all ships away before impact"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-send"></use></svg>Fleet save</button>
+        <button class="btn btn-ghost" type="button" data-toast="Opens the fleet movement (demo)">Details</button>
+        <button class="icon-btn" type="button" aria-label="Hide warning" data-tip="Hide until the next alert" data-alert-close><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-x"></use></svg></button>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section class="view" data-view-panel="overview">
+      <div class="hero" data-coords="1:42:8">
+        <div class="hero-orbit" data-orbit>
+          <span class="orbit-ring back" aria-hidden="true"></span>
+          <img class="hero-art" src="../../styles/resource/theme-shared/sets/nebula/planeten/dschjungelplanet04.webp" alt="">
+          <span class="orbit-ring front" aria-hidden="true"></span>
+          <button class="orbit-moon" type="button" aria-label="Switch to moon of Kepler Prime"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/mond12.webp" alt=""><span class="orbit-label">Moon</span></button>
+        </div>
+        <div class="hero-body">
+          <h1>Kepler Prime</h1>
+          <p class="meta"><span class="mono">[1:42:8]</span> · Homeworld</p>
+          <dl class="facts">
+            <div data-tip="Bigger planets have more building fields"><dt>Diameter</dt><dd class="mono">12,800 km</dd></div>
+            <div data-tip="Colder planets produce more deuterium"><dt>Temperature</dt><dd class="mono">−12 °C to 28 °C</dd></div>
+            <div data-tip="46 fields free · terraformer adds more"><dt>Fields</dt><dd class="mono">142 / 188</dd></div>
+            <div data-tip="Rank 37 of 1,284 · +412 today"><dt>Points</dt><dd class="mono">48,912 <span class="muted">· #37</span></dd></div>
+          </dl>
+          <div class="fields-bar" style="--fill: .755" data-tip="142 of 188 fields used (75 %)"></div>
+        </div>
+        <div class="hero-actions">
+          <button class="btn" type="button"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-pencil"></use></svg>Rename</button>
+          <button class="btn" type="button"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-moon"></use></svg>Moon</button>
+        </div>
+      </div>
+
+      <div class="activity">
+        <section class="panel">
+          <header class="panel-head"><h2>Fleet movements</h2><span class="count" data-tip="3 fleets in flight">3</span></header>
+          <ol class="events">
+            <li class="ev is-hostile" data-eta="372" data-total="1800">
+              <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-triangle-alert"></use></svg>
+              <div><strong>Attack incoming</strong><span class="muted">from [1:40:3] → Low Tide</span></div>
+              <div class="ev-time"><time class="mono" data-countdown></time><span class="mono muted" data-arrival></span></div>
+              <span class="ev-bar" aria-hidden="true"></span>
+            </li>
+            <li class="ev is-own" data-eta="1840" data-total="2700">
+              <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-swords"></use></svg>
+              <div><strong>Attack</strong><span class="muted">Kepler Prime → [1:51:9]</span></div>
+              <div class="ev-time"><time class="mono" data-countdown></time><span class="mono muted" data-arrival></span></div>
+              <span class="ev-bar" aria-hidden="true"></span>
+            </li>
+            <li class="ev is-return" data-eta="5210" data-total="9000">
+              <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-truck"></use></svg>
+              <div><strong>Transport · return</strong><span class="muted">Rime → Kepler Prime</span></div>
+              <div class="ev-time"><time class="mono" data-countdown></time><span class="mono muted" data-arrival></span></div>
+              <span class="ev-bar" aria-hidden="true"></span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="panel">
+          <header class="panel-head"><h2>Construction</h2><span class="muted mono" data-queue-count>1 / 5</span></header>
+          <ol class="queue" data-queue></ol>
+        </section>
+
+        <section class="panel">
+          <header class="panel-head"><h2>Research</h2></header>
+          <ol class="queue">
+            <li class="q" style="--p: .34">
+              <img src="../../styles/theme/DarkNebula/gebaeude/120.webp" alt="" onerror="this.style.visibility='hidden'">
+              <div><strong>Laser tech <span class="lvl">12</span></strong><span class="mono muted">2:41:18 left</span></div>
+              <span class="q-bar"></span>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <section class="panel">
+        <header class="panel-head"><h2>Production</h2><span class="muted mono" data-tip="All mines running at full speed">per hour · 100 %</span></header>
+        <table class="data">
+          <thead><tr><th>Source</th><th class="num">Metal</th><th class="num">Crystal</th><th class="num">Deut.</th><th class="num">Energy</th></tr></thead>
+          <tbody>
+            <tr><td>Base income</td><td class="num">30</td><td class="num">15</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr><td>Metal mine <span class="lvl">24</span></td><td class="num">16,890</td><td class="num">—</td><td class="num">—</td><td class="num neg">−1,410</td></tr>
+            <tr><td>Crystal mine <span class="lvl">21</span></td><td class="num">—</td><td class="num">9,845</td><td class="num">—</td><td class="num neg">−1,180</td></tr>
+            <tr><td>Deuterium synth. <span class="lvl">17</span></td><td class="num">—</td><td class="num">—</td><td class="num">4,215</td><td class="num neg">−978</td></tr>
+            <tr><td>Solar plant <span class="lvl">22</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num pos">+3,980</td></tr>
+            <tr><td>Plasma bonus</td><td class="num pos">+1,500</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+          </tbody>
+          <tfoot><tr><th>Total</th><th class="num">18,420</th><th class="num">9,860</th><th class="num">4,215</th><th class="num pos">+412</th></tr></tfoot>
+        </table>
+      </section>
+    </section>
+
+    <!-- BUILDINGS -->
+    <section class="view" data-view-panel="buildings" hidden>
+      <header class="view-head">
+        <div>
+          <h1>Buildings</h1>
+          <p class="meta">Kepler Prime · <span class="mono">142 / 188</span> fields</p>
+        </div>
+        <div class="seg seg-text" role="radiogroup" aria-label="Filter">
+          <button type="button" role="radio" aria-checked="true" data-filter="all">All</button>
+          <button type="button" role="radio" aria-checked="false" data-filter="res">Resources</button>
+          <button type="button" role="radio" aria-checked="false" data-filter="fac">Facilities</button>
+          <button type="button" role="radio" aria-checked="false" data-filter="can">Affordable</button>
+        </div>
+      </header>
+      <section class="panel">
+        <header class="panel-head"><h2>Construction</h2><span class="muted mono" data-queue-count>1 / 5</span></header>
+        <ol class="queue queue-strip" data-queue></ol>
+      </section>
+      <div class="build-grid" data-build-grid></div>
+    </section>
+
+    <!-- GALAXY -->
+    <section class="view" data-view-panel="galaxy" hidden>
+      <header class="view-head">
+        <div>
+          <h1>System <span class="mono">1 : 42</span></h1>
+        </div>
+        <div class="coord-nav">
+          <button class="icon-btn" type="button" data-sys="-1" aria-label="Previous system" data-tip="Previous system · costs 10 deuterium"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-chevron-left"></use></svg></button>
+          <label class="coord"><span>G</span><input class="mono" value="1" inputmode="numeric" aria-label="Galaxy"></label>
+          <label class="coord"><span>S</span><input class="mono" value="42" inputmode="numeric" aria-label="System" data-sys-input></label>
+          <button class="icon-btn" type="button" data-sys="1" aria-label="Next system" data-tip="Next system · costs 10 deuterium"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-chevron-right"></use></svg></button>
+        </div>
+      </header>
+      <section class="panel flush">
+        <table class="data galaxy">
+          <thead><tr><th class="ctr">#</th><th>Planet</th><th class="ctr">Moon</th><th class="ctr">Debris</th><th>Player</th><th>Alliance</th><th class="act">Actions</th></tr></thead>
+          <tbody data-galaxy></tbody>
+        </table>
+      </section>
+      <p class="legend muted"><span class="tag is-strong" data-tip="More than 5× your points">strong</span> <span class="tag is-weak" data-tip="Less than 1/5 of your points, can't be attacked">noob protected</span> <span class="tag is-inactive">i inactive 7d</span> <span class="tag is-vacation">vacation</span></p>
+    </section>
+  </main>
+
+  <aside class="rail" aria-label="Empire">
+    <section class="panel">
+      <header class="panel-head"><h2>Empire</h2><span class="muted mono" data-tip="6 of 9 planet slots used · astrophysics raises the limit">6 / 9</span></header>
+      <ol class="planet-list">
+        <li class="is-current" aria-current="true">
+          <a href="#overview" data-tip="Switch to Kepler Prime"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/dschjungelplanet04.webp" alt=""><span class="pl-text"><strong>Kepler Prime</strong><span class="mono muted">[1:42:8]</span><span class="pl-note"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-hammer"></use></svg>Crystal mine 22</span></span></a>
+          <button class="pl-moon" type="button" aria-label="Moon of Kepler Prime" data-tip="Moon of Kepler Prime · switch"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/mond12.webp" alt=""></button>
+        </li>
+        <li>
+          <a href="#overview" data-tip="Switch to Dust Harbor"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/wuestenplanet02.webp" alt=""><span class="pl-text"><strong>Dust Harbor</strong><span class="mono muted">[1:44:12]</span><span class="pl-note"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-hammer"></use></svg>Shipyard 9</span></span></a>
+          
+        </li>
+        <li>
+          <a href="#overview" data-tip="Switch to Rime"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/eisplanet02.webp" alt=""><span class="pl-text"><strong>Rime</strong><span class="mono muted">[2:108:4]</span><span class="pl-note muted">120 / 141 fields</span></span></a>
+          <button class="pl-moon" type="button" aria-label="Moon of Rime" data-tip="Moon of Rime · switch"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/mond12.webp" alt=""></button>
+        </li>
+        <li>
+          <a href="#overview" data-tip="Switch to Tessera"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/gasplanet03.webp" alt=""><span class="pl-text"><strong>Tessera</strong><span class="mono muted">[2:111:15]</span><span class="pl-note"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-hammer"></use></svg>Metal mine 19</span></span></a>
+          
+        </li>
+        <li class="is-hostile">
+          <a href="#overview" data-tip="Switch to Low Tide"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/wasserplanet06.webp" alt=""><span class="pl-text"><strong>Low Tide</strong><span class="mono muted">[3:7:9]</span><span class="pl-note neg"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-triangle-alert"></use></svg>Attack in 06:12</span></span></a>
+          
+        </li>
+        <li>
+          <a href="#overview" data-tip="Switch to Scorch"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/trockenplanet06.webp" alt=""><span class="pl-text"><strong>Scorch</strong><span class="mono muted">[3:9:6]</span><span class="pl-note muted">87 / 119 fields</span></span></a>
+          <button class="pl-moon" type="button" aria-label="Moon of Scorch" data-tip="Moon of Scorch · switch"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/mond12.webp" alt=""></button>
+        </li>
+      </ol>
+    </section>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="#overview"><span class="brand-mark">V0</span><span>V0Game</span></a>
+      <p class="muted">Open-source space strategy in your browser.</p>
+      <ul class="status">
+        <li><span class="status-dot"></span>Universe Andromeda · round 3</li>
+        <li class="mono muted">1,284 players online · speed 4×</li>
+      </ul>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <div><h2>Game</h2><a href="#rules">Rules</a><a href="#faq">FAQ</a><a href="#changelog">Changelog</a><button class="link" type="button" data-action="shortcuts">Keyboard shortcuts</button></div>
+      <div><h2>Community</h2><a href="#board">Board</a><a href="#discord">Discord</a><a href="#wiki">Wiki</a><a href="#support">Support</a></div>
+      <div><h2>Legal</h2><a href="#imprint">Imprint</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a></div>
+    </nav>
+  </div>
+  <div class="footer-base">
+    <span class="muted">© 2026 V0Game · based on pr0game and 2Moons · AGPL-3.0</span>
+    <span class="mono muted">v1.26.8 · UI 2026 demo, static mock data</span>
+  </div>
+</footer>
+
+<!-- command palette -->
+<dialog class="palette" data-palette aria-label="Jump to">
+  <div class="palette-input">
+    <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-search"></use></svg>
+    <input type="text" placeholder="Pages, planets, coordinates (e.g. 1:42:8)…" autocomplete="off" data-palette-input>
+    <kbd>Esc</kbd>
+  </div>
+  <ul class="palette-list" role="listbox" data-palette-list></ul>
+</dialog>
+
+<!-- planet switcher -->
+<dialog class="popover" data-planets aria-label="Switch planet">
+  <ul class="planet-menu" role="listbox">
+    <li role="option" aria-selected="true"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/dschjungelplanet04.webp" alt=""><strong>Kepler Prime</strong><span class="mono muted">1:42:8</span></li>
+    <li role="option"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/wuestenplanet02.webp" alt=""><strong>Dust Harbor</strong><span class="mono muted">1:44:12</span></li>
+    <li role="option"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/eisplanet02.webp" alt=""><strong>Rime</strong><span class="mono muted">2:108:4</span></li>
+    <li role="option"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/gasplanet03.webp" alt=""><strong>Tessera</strong><span class="mono muted">2:111:15</span></li>
+    <li role="option"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/wasserplanet06.webp" alt=""><strong>Low Tide</strong><span class="mono muted">3:7:9</span></li>
+    <li role="option"><img src="../../styles/resource/theme-shared/sets/nebula/planeten/trockenplanet06.webp" alt=""><strong>Scorch</strong><span class="mono muted">3:9:6</span></li>
+  </ul>
+</dialog>
+
+<div class="pop" popover id="notif-pop">
+  <header class="pop-head"><strong>Notifications</strong><button class="link" type="button" data-mark-read>Mark all read</button></header>
+  <ul class="notif-list">
+    <li class="is-unread"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-swords"></use></svg><div><strong>Combat report · [1:51:9]</strong><span class="muted">Victory, 38,200 metal looted</span></div><time class="mono muted">12m</time></li>
+    <li class="is-unread"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-scan-eye"></use></svg><div><strong>Espionage detected</strong><span class="muted">Ravager probed Low Tide</span></div><time class="mono muted">31m</time></li>
+    <li><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-handshake"></use></svg><div><strong>NOVA alliance</strong><span class="muted">New circular from Helix</span></div><time class="mono muted">2h</time></li>
+  </ul>
+  <a class="pop-foot" href="#messages">Open messages <svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-chevron-right"></use></svg></a>
+</div>
+
+<div class="pop pop-menu" popover id="account-pop">
+  <header class="pop-head"><span class="avatar">AB</span><div><strong>Abraxis</strong><span class="mono muted">#37 · 48,912 pts</span></div></header>
+  <a href="#profile"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-user"></use></svg>Profile</a>
+  <a href="#settings"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-settings"></use></svg>Settings</a>
+  <a href="#vacation"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-calendar-clock"></use></svg>Vacation mode</a>
+  <button type="button" data-action="shortcuts"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-circle-help"></use></svg>Shortcuts <kbd>?</kbd></button>
+  <hr>
+  <a href="#logout"><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-log-out"></use></svg>Log out</a>
+</div>
+
+<dialog class="sheet" data-shortcuts aria-labelledby="sc-title">
+  <header class="pop-head"><strong id="sc-title">Keyboard shortcuts</strong><button class="icon-btn" type="button" aria-label="Close" data-close><svg class="icon"><use href="../../styles/resource/icons/lucide.svg#i-x"></use></svg></button></header>
+  <dl class="shortcuts">
+    <div><dt><kbd>Ctrl</kbd> <kbd>K</kbd> or <kbd>/</kbd></dt><dd>Jump to page, planet or coordinates</dd></div>
+    <div><dt><kbd>G</kbd> <kbd>O</kbd></dt><dd>Overview</dd></div>
+    <div><dt><kbd>G</kbd> <kbd>B</kbd></dt><dd>Buildings</dd></div>
+    <div><dt><kbd>G</kbd> <kbd>G</kbd></dt><dd>Galaxy</dd></div>
+    <div><dt><kbd>[</kbd> <kbd>]</kbd></dt><dd>Previous / next planet</dd></div>
+    <div><dt><kbd>?</kbd></dt><dd>This help</dd></div>
+  </dl>
+</dialog>
+
+<div class="tip" role="tooltip" id="res-tip" data-res-tip></div>
+<div class="toasts" aria-live="polite" data-toasts></div>
+<div class="backdrop" data-action="drawer"></div>
+</body>
+</html>

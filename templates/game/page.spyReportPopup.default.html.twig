@@ -36,13 +36,9 @@
         </details>
     {% endfor %}
 {% else %}
-    <table>
-    <tr>
-        <th>{{ LNG.gl_show_spy_report }}</th>
-    </tr>
-    <tr>
-        <td class="spy-report-empty">{{ LNG.gl_no_spy_report }}</td>
-    </tr>
-    </table>
+    <section class="panel">
+        <header class="panel__head"><h2>{{ LNG.gl_show_spy_report }}</h2></header>
+        <p class="empty spy-report-empty">{{ LNG.gl_no_spy_report }}</p>
+    </section>
 {% endif %}
 {% endblock %}

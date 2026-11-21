@@ -1,13 +1,12 @@
 {% import '_macros/forms.html.twig' as forms -%}
+{% import '_macros/ui.html.twig' as ui %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_notes }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(noteDetail.id == 0 ? LNG.nt_create_note : LNG.nt_edit_note, 'sticky-note') }}{% endblock %}
 {% block content %}
-<form action="{{ path('game_notes_insert') }}" method="post">
+<form class="panel" action="{{ path('game_notes_insert') }}" method="post">
 	<input type="hidden" name="id" value="{{ noteDetail.id }}">
 	<table class="form-table">
-		<tr>
-			<th colspan="2">{% if noteDetail.id == 0 %}{{ LNG.nt_create_note }}{% else %}{{ LNG.nt_edit_note }}{% endif %}</th>
-		</tr>
 		<tr>
 			<td><label for="priority">{{ LNG.nt_priority }}</label></td>
 			<td>
@@ -27,7 +26,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td><a href="{{ path('game_notes_show') }}">{{ LNG.nt_back }}</a></td>
+			<td><a href="{{ path('game_notes_show') }}">{{ icon('arrow-left') }} {{ LNG.nt_back }}</a></td>
 			<td class="form-actions">
 				<input type="reset" value="{{ LNG.nt_reset }}">
 				<input type="submit" value="{{ LNG.nt_save }}">

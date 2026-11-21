@@ -4,18 +4,21 @@
 {% macro tip(id, ext) %}<a href='#' data-action="dialog-info" data-id="{{ id }}" class='tooltip'
 	data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: id})|e('html_attr') }}">{{ LNG.tech[id] }}</a>{% endmacro %}
 {% macro val(v) %}<span class="{% if v > 0 %}colorPositive prod-pos{% elseif v < 0 %}colorNegative prod-neg{% else %}white prod-zero{% endif %}">{{ pretty_number(v) }}</span>{% endmacro %}
+{% import '_macros/ui.html.twig' as ui %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_resources, 'database') }}{% endblock %}
 {% block content %}
 	<form action="{{ path('game_resources_send') }}" method="post" class="prod-form">
-		<div class="prod-head">
+		<section class="panel panel--flush">
+		<header class="panel__head">
 			<h2>{{ header }}</h2>
-			<div class="prod-actions">
-				<button type="button" data-prod-all="10" data-confirm="{{ LNG.rs_ramp_up_confirm|e('html_attr') }}">{{ LNG.rs_ramp_up }}</button>
-				<button type="button" data-prod-all="0" data-confirm="{{ LNG.rs_shut_down_confirm|e('html_attr') }}" data-confirm-danger>{{ LNG.rs_shut_down }}</button>
-				<input value="{{ LNG.rs_calculate }}" type="submit" id="prod-save">
-			</div>
-		</div>
+			<span class="prod-actions toolbar">
+				<button type="button" class="btn-sm" data-prod-all="10" data-confirm="{{ LNG.rs_ramp_up_confirm|e('html_attr') }}">{{ LNG.rs_ramp_up }}</button>
+				<button type="button" class="btn-sm" data-prod-all="0" data-confirm="{{ LNG.rs_shut_down_confirm|e('html_attr') }}" data-confirm-danger>{{ LNG.rs_shut_down }}</button>
+				<input value="{{ LNG.rs_calculate }}" type="submit" id="prod-save" class="btn--primary btn-sm">
+			</span>
+		</header>
 		<div class="table-scroll">
-		<table class="prod-table">
+		<table class="prod-table data">
 			<thead>
 				<tr>
 					<th></th>
@@ -38,7 +41,7 @@
 				{% for productionID, productionRow in productionList %}
 					<tr class="prod-row">
 						<td>{{ _self.tip(productionID, (productionID >=600 and productionID <= 699) ? 'jpg' : 'gif') }}
-							<span class="prod-level">({% if productionID > 200 %}{{ LNG.rs_amount }}{% else %}{{ LNG.rs_lvl }}{% endif %} {{ productionRow.elementLevel }})</span>
+							<span class="lvl" title="{% if productionID > 200 %}{{ LNG.rs_amount }}{% else %}{{ LNG.rs_lvl }}{% endif %}">{{ productionRow.elementLevel }}</span>
 						</td>
 						<td class="num res-metal">{{ _self.val(productionRow.production[901]) }}</td>
 						<td class="num res-crystal">{{ _self.val(productionRow.production[902]) }}</td>
@@ -83,6 +86,8 @@
 					<td class="num res-energy">-</td>
 					<td class="act"></td>
 				</tr>
+			</tbody>
+			<tfoot>
 				<tr class="prod-total prod-sep">
 					<td>{{ LNG.rs_sum }}:</td>
 					<td class="num res-metal">{{ _self.val(totalProduction[901]) }}</td>
@@ -107,10 +112,11 @@
 					<td class="num res-energy">{{ _self.val(weeklyProduction[911]) }}</td>
 					<td class="act"></td>
 				</tr>
-			</tbody>
+			</tfoot>
 		</table>
 		</div>
-		{% if totalProduction[911] < 0 %}<p class="reason reason--bad">{{ LNG.rs_energy_deficit }}</p>{% endif %}
+		{% if totalProduction[911] < 0 %}<p class="panel__foot reason reason--bad colorNegative">{{ icon('triangle-alert') }} {{ LNG.rs_energy_deficit }}</p>{% endif %}
+		</section>
 	</form>
 	<script type="module" src="./scripts/game/resources.js?v={{ asset_version }}"></script>
 {% endblock %}

@@ -9,35 +9,8 @@
   {% include 'game/main.topnav.html.twig' %}
 </header>
 
-<aside class="sidebar" id="sidebar" aria-label="{{ LNG.ui_menu|default('Menu') }}">
-  <button type="button" class="sidebar__close icon-button" data-sidebar-toggle aria-label="{{ LNG.ui_close }}">{{ icon('x') }}<span>{{ LNG.ui_close }}</span></button>
-  <div class="drawer-head">
-    <details class="drawer-planets">
-      <summary>{{ icon('globe') }}<span class="drawer-planets__current">{{ PlanetSelect[current_pid]|default(LNG.ui_planet) }}</span>{{ icon('chevron-down') }}</summary>
-      <ul>
-        {% for pid, pname in PlanetSelect %}
-          <li><button type="button" class="drawer-planets__item" data-planet-goto="{{ pid }}"{% if pid == current_pid %} aria-current="true"{% endif %}>{{ pname }}</button></li>
-        {% endfor %}
-      </ul>
-    </details>
-    <div class="drawer-account">
-      <a class="drawer-account__item drawer-account__user" href="{{ path('game_settings_show') }}">{{ icon('user') }}<span>{{ username }}</span></a>
-      {% if authlevel > 0 %}<a class="drawer-account__item drawer-account__admin" href="./admin" title="{{ LNG.lm_administration }}">{{ icon('shield-alert', LNG.lm_administration) }}</a>{% endif %}
-      <div class="drawer-account__tools">
-        {% if isModuleAvailable(constant('MODULE_NOTICE')) and (not noobInterface or not tutorial) %}<a class="drawer-account__item" href="{{ path('game_notes_show') }}" data-action="popup" data-url="{{ path('game_notes_show') }}" data-width="720" title="{{ LNG.lm_notes }}">{{ icon('sticky-note', LNG.lm_notes) }}</a>{% endif %}
-        {% if account_id != 0 %}<a class="drawer-account__item" href="{{ path('account_account_show') }}" title="{{ LNG['Account'] }}">{{ icon('user', LNG['Account']) }}</a>{% endif %}
-        <a class="drawer-account__item" href="{{ path('login_data_privacy_show') }}" data-dialog data-dialog-width="820" title="{{ LNG.lm_dataPrivacy }}">{{ icon('shield-check', LNG.lm_dataPrivacy) }}</a>
-      </div>
-      <span class="drawer-account__item drawer-account__clock" title="{{ LNG.ui_server_time|default('Server time') }}">{{ icon('clock') }}<span class="servertime">{{ serverClock|default('') }}</span></span>
-      <a data-method="post" class="drawer-account__item drawer-account__logout" href="{{ path('game_logout_show') }}" title="{{ LNG.lm_logout }}">{{ icon('log-out', LNG.lm_logout) }}<span>{{ LNG.lm_logout }}</span></a>
-    </div>
-  </div>
-  {% include 'game/main.navigation.html.twig' %}
-</aside>
-<div class="sidebar-backdrop" aria-hidden="true"></div>
-{% include 'game/main.tabbar.html.twig' %}
-
-<main class="content" id="content">
+{% if hasAdminAccess or (noobInterface and tutorial) or hasRebuildProtection or uni_status == 1 or uni_status == 2 or delete or vacation %}
+<div class="notices">
   {% if hasAdminAccess %}
     <div class="globalWarning">
       {{ icon('shield-alert') }}
@@ -62,13 +35,46 @@
   {% elseif delete %}
     <div class="infobox">{{ icon('triangle-alert') }}<span>{{ delete }}</span></div>
   {% elseif vacation %}
-    <div class="infobox">{{ icon('moon') }}<span>{{ vacation }}</span></div>
+    <div class="infobox infobox--info">{{ icon('moon') }}<span>{{ vacation }}</span></div>
   {% endif %}
+</div>
+{% endif %}
 
-  {% include 'game/main.sectiontabs.html.twig' %}
-  {% block pagehead %}{% endblock %}
-  {% block content %}{% endblock %}
-</main>
+<div class="shell">
+  <nav class="sidenav" id="sidebar" aria-label="{{ LNG.ui_menu|default('Menu') }}">
+    {% include 'game/main.navigation.html.twig' %}
+  </nav>
+
+  <main class="content" id="content" tabindex="-1">
+    {% if hostileAlert %}
+      <details class="alert" open role="alert">
+        <summary class="icon-btn alert__close" aria-label="{{ LNG.shell_attack_hide }}" data-tip="{{ LNG.shell_attack_hide }}">{{ icon('x') }}</summary>
+        <div class="alert__body">
+          {{ icon('triangle-alert') }}
+          <p><strong>{{ LNG.shell_attack_title }} {{ hostileAlert.name }}</strong> <span class="mono">[{{ hostileAlert.galaxy }}:{{ hostileAlert.system }}:{{ hostileAlert.planet }}]</span> · {{ LNG.shell_attack_arrives }} <span class="countdown mono" data-time="{{ hostileAlert.remaining }}"></span></p>
+          <div class="alert__actions">
+            <a class="alert__btn alert__btn--solid" href="{{ path('game_fleet_table_show') }}">{{ icon('send') }}{{ LNG.shell_attack_fleet }}</a>
+            <a class="alert__btn" href="{{ path('game_overview_show') }}">{{ LNG.shell_attack_details }}</a>
+          </div>
+        </div>
+      </details>
+    {% endif %}
+    {% include 'game/main.sectiontabs.html.twig' %}
+    {% block pagehead %}{% endblock %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <aside class="rail" aria-label="{{ LNG.ui_nav_empire|default('Empire') }}">
+    {% include 'game/main.rail.html.twig' %}
+  </aside>
+
+  {# inside the shell grid: the side menu column runs the full height, so it stays put on short pages too #}
+  <footer class="footer">
+    {% include 'game/main.footer.html.twig' %}
+  </footer>
+</div>
+<div class="sidebar-backdrop" aria-hidden="true"></div>
+{% include 'game/main.tabbar.html.twig' %}
 
 {% if loginNotice %}
   {# once per login (AbstractGameController::newMessagesNotice); the top bar badge keeps the count afterwards #}
@@ -80,8 +86,4 @@
 {% endif %}
 
 {% include 'shared/cookie_notice.html.twig' %}
-
-<footer class="footer">
-  {% include 'game/main.footer.html.twig' %}
-</footer>
 {% endblock %}

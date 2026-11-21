@@ -1,22 +1,23 @@
-{% import '_macros/community.html.twig' as c -%}
+{% import '_macros/ui.html.twig' as ui %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}<a class="btn" href="{{ path('game_alliance_admin') }}">{{ icon('arrow-left') }} {{ LNG.al_back }}</a> <button type="button" class="btn btn--primary" id="create_new_alliance_rank" data-action="dialog-show" data-target="new_alliance_rank" data-width="760" title="{{ LNG.al_create_new_rank|e('html_attr') }}">{{ icon('plus') }} {{ LNG.al_create_new_rank }}</button>{% endset %}
+{{ ui.page_head(LNG.al_configura_ranks, 'shield-check', LNG.al_manage_alliance, actions) }}
+{% endblock %}
 {% block content %}
 {% set countRank = availableRanks|length %}
-{{ c.breadcrumb([{label: LNG.lm_alliance, url: path('game_alliance_show')}, {label: LNG.al_manage_alliance, url: path('game_alliance_admin')}, {label: LNG.al_manage_ranks}]) }}
-<form action="{{ path('game_alliance_admin_permissions_send') }}" method="post">
-	<div class="table-scroll">
-	<table class="rank-table">
-	<tr>
-			<th colspan="{{ countRank + 2 }}">{{ LNG.al_configura_ranks }} <span class="float-right"><button type="button" id="create_new_alliance_rank" data-action="dialog-show" data-target="new_alliance_rank" data-width="760">+</button></span></th>
-	</tr>
-	<tr>
-		<td class="ctr">{{ LNG.al_dlte }}</td>
-		<td>{{ LNG.al_rank_name }}</td>
+<form class="stack" action="{{ path('game_alliance_admin_permissions_send') }}" method="post">
+	<section class="panel panel--flush">
+	<table class="data rank-table">
+	<thead><tr>
+		<th class="ctr">{{ LNG.al_dlte }}</th>
+		<th>{{ LNG.al_rank_name }}</th>
 		{% for rankName in availableRanks %}
-		<td class="ctr"><img class="inline" src="styles/resource/images/alliance/{{ rankName }}.png" alt="{{ LNG.al_rank_desc[rankName]|e('html_attr') }}" title="{{ LNG.al_rank_desc[rankName]|e('html_attr') }}" width="16" height="16"></td>
+		<th class="ctr"><img class="inline" src="styles/resource/images/alliance/{{ rankName }}.png" alt="{{ LNG.al_rank_desc[rankName]|e('html_attr') }}" title="{{ LNG.al_rank_desc[rankName]|e('html_attr') }}" width="16" height="16"></th>
 		{% endfor %}
-	</tr>
+	</tr></thead>
+	<tbody>
 	{% for rowId, rankRow in rankList %}
 	<tr>
 		<td class="ctr">{% if changeableRanks[rowId] and rowId != ownRankId %}<a data-method="post" href="{{ path('game_alliance_admin_permissions_send', {deleteRank: rowId}) }}"><img class="inline" src="styles/resource/images/alliance/CLOSE.webp" alt="{{ LNG.al_dlte|e('html_attr') }}" title="{{ LNG.al_dlte|e('html_attr') }}" width="16" height="16"></a>{% endif %}</td>
@@ -27,25 +28,27 @@
 	</tr>
 	{% else %}
 	<tr>
-		<td colspan="{{ countRank + 2 }}">{{ LNG.al_no_ranks_defined }}</td>
+		<td colspan="{{ countRank + 2 }}" class="empty">{{ LNG.al_no_ranks_defined }}</td>
 	</tr>
 	{% endfor %}
-	<tr>
-		<td colspan="{{ countRank + 2 }}" class="form-actions"><input type="submit" value="{{ LNG.al_save }}"></td>
-	</tr>
-	<tr>
-			<th colspan="{{ countRank + 2 }}">{{ LNG.gl_legend }}</th>
-	</tr>
-		{% for rankName in availableRanks %}
-	<tr>
-			<td class="ctr"><img class="inline" src="styles/resource/images/alliance/{{ rankName }}.png" alt="" width="16" height="16"></td>
-			<td colspan="{{ countRank + 1 }}">{{ LNG.al_rank_desc[rankName] }}</td>
-	</tr>
-		{% endfor %}
+	</tbody>
 	</table>
-	</div>
+	<footer class="panel__foot"><input type="submit" value="{{ LNG.al_save }}"></footer>
+	</section>
+	<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.gl_legend) }}
+	<table class="data">
+		<tbody>
+		{% for rankName in availableRanks %}
+		<tr>
+			<td class="ctr"><img class="inline" src="styles/resource/images/alliance/{{ rankName }}.png" alt="" width="16" height="16"></td>
+			<td>{{ LNG.al_rank_desc[rankName] }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</section>
 </form>
-{{ c.back(path('game_alliance_admin'), LNG.al_back) }}
 
 <div id="new_alliance_rank" title="{{ LNG.al_create_new_rank }}" style="display:none;">
 	<form action="{{ path('game_alliance_admin_permissions_send') }}" method="post">

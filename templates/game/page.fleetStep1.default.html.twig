@@ -1,18 +1,19 @@
 {% import '_macros/forms.html.twig' as forms -%}
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_fleet }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_fleet, 'send', LNG.fl_new_mission_title) }}{% endblock %}
 {% block content %}
 {% include 'game/shared.fleetSummary.html.twig' %}
 {% set backQuery = {galaxy: galaxy, system: system, planet: planet, planettype: type, target_mission: mission} %}
 {% set backHash %}{% for shipId, shipCount in FleetList %}{% if not loop.first %}&{% endif %}ship_input[{{ shipId }}]={{ shipCount }}{% endfor %}{% endset %}
-<form action="{{ path('game_fleet_step2_show') }}" method="post" data-on-submit="check-target" id="form" class="form-page">
+<form action="{{ path('game_fleet_step2_show') }}" method="post" data-on-submit="check-target" id="form" class="form-page stack">
 	<input type="hidden" name="token" value="{{ token }}">
 	<input type="hidden" name="group" value="0">
 	<input type="hidden" name="target_mission" value="{{ mission }}">
+	<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.fl_destiny) }}
 	<table class="form-table">
-		<tr>
-			<th colspan="2">{{ LNG.fl_destiny }}</th>
-		</tr>
 		<tr>
 			<td>{{ LNG.fl_destiny }}</td>
 			<td>
@@ -64,11 +65,11 @@
 			<td id="storage">-</td>
 		</tr>
 	</table>
+	</section>
 
+<section class="panel panel--flush">
+{{ ui.panel_head(LNG.fl_system_places) }}
 <table class="table-fixed">
-	<tr>
-		<th colspan="2">{{ LNG.fl_system_places }}</th>
-	</tr>
 	<tr>
 		<td>
 			<a href="#" data-action="set-target" data-galaxy="{{ galaxy }}" data-system="{{ system }}" data-planet="{{ config.max_planets+1 }}" data-type="1">{{ LNG.type_mission_15 }} [{{ galaxy }}:{{ system }}:{{ config.max_planets+1 }}]</a>
@@ -85,8 +86,10 @@
 		</tr>
 	{% endif %}
 </table>
+</section>
 
 	{% if isModuleAvailable(constant('MODULE_SHORTCUTS')) %}
+	<section class="panel panel--flush">
 	<table class="table-fixed shortcut">
 		<tr>
 			<th colspan="{{ themeSettings.SHORTCUT_ROWS_ON_FLEET1 }}">{{ LNG.fl_shortcut }} (<a href="#" data-action="edit-shortcuts" class="shortcut-link-edit shortcut-link">{{ LNG.fl_shortcut_edition }}</a><a href="#" data-action="save-shortcuts" class="shortcut-edit">{{ LNG.fl_shortcut_save }}</a>)</th>
@@ -144,11 +147,11 @@
 			</td>
 		</tr>
 	</table>
+	</section>
 	{% endif %}
+	<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.fl_my_planets) }}
 	<table class="table-fixed">
-		<tr>
-			<th colspan="{{ themeSettings.COLONY_ROWS_ON_FLEET1 }}">{{ LNG.fl_my_planets }}</th>
-		</tr>
 		{% for ColonyRow in colonyList %}
 			{% if (loop.index % themeSettings.COLONY_ROWS_ON_FLEET1) == 1 %}<tr>{% endif %}
 			<td>
@@ -165,19 +168,20 @@
 			</tr>
 		{% endfor %}
 	</table>
+	</section>
 	{% if ACSList %}
+	<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.fl_acs_title) }}
 	<table class="table-fixed">
-		<tr>
-			<th colspan="{{ themeSettings.COLONY_ROWS_ON_FLEET1 }}">{{ LNG.fl_acs_title }}</th>
-		</tr>
 		{% for ACSRow in ACSList %}
 			<tr>
 				<td colspan="{{ themeSettings.COLONY_ROWS_ON_FLEET1 }}"><a href="#" data-action="set-acs-target" data-galaxy="{{ ACSRow.galaxy }}" data-system="{{ ACSRow.system }}" data-planet="{{ ACSRow.planet }}" data-type="{{ ACSRow.planet_type }}" data-acs="{{ ACSRow.public_id }}">{{ ACSRow.name }} - [{{ ACSRow.galaxy }}:{{ ACSRow.system }}:{{ ACSRow.planet }}]</a></td>
 			</tr>
 		{% endfor %}
 	</table>
+	</section>
 	{% endif %}
-	<div class="form-actions"><a class="btn-back" href="{{ path('game_fleet_table_show', backQuery) }}#{{ backHash }}">{{ icon('arrow-left') }}{{ LNG.sys_back }}</a><input type="submit" value="{{ LNG.fl_continue }}"></div>
+	<div class="panel fleet-dock"><footer class="panel__foot"><a class="btn-back" href="{{ path('game_fleet_table_show', backQuery) }}#{{ backHash }}">{{ icon('arrow-left') }}{{ LNG.sys_back }}</a><input type="submit" value="{{ LNG.fl_continue }}"></footer></div>
 </form>
 {% endblock %}
 {% block script %}{{ parent() }}

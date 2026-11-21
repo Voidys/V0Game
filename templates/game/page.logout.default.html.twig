@@ -1,22 +1,15 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_logout }}{{ parent() }}{% endblock %}
-{% block content %}<table>
-	<tr>
-		<th>{{ LNG.lo_title }}</th>
-		</tr>
-	<tr>
-		<td>{{ LNG.lo_logout }}</td>
-	</tr>
-</table>
-<br><br>
-<table>
-<tr>
-	<th>{{ LNG.lo_redirect }}</th>
-</tr>
-<tr>
-	<td>{{ LNG.lo_notify }}<br><a href="./">{{ LNG.lo_continue }}</a></td>
-</tr>
-</table>
+{% block pagehead %}{{ ui.page_head(LNG.lo_title, 'log-out') }}{% endblock %}
+{% block content %}
+<section class="panel">
+	{{ ui.panel_head(LNG.lo_redirect) }}
+	<div class="panel__body">
+		<p>{{ LNG.lo_logout }}</p>
+		<p>{{ LNG.lo_notify }}<br><a href="./">{{ LNG.lo_continue }}</a></p>
+	</div>
+</section>
 {% endblock %}
 {% block script %}{{ parent() }}
 <script type="module" src="./scripts/app/logout.js?v={{ asset_version }}"></script>

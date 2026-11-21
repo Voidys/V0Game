@@ -1,32 +1,37 @@
 {% import '_macros/community.html.twig' as c -%}
+{% import '_macros/ui.html.twig' as ui %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_support }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}<a class="btn btn--primary" href="{{ path('game_ticket_create') }}">{{ icon('plus') }} {{ LNG.ti_new }}</a>{% endset %}
+{{ ui.page_head(LNG.lm_support, 'life-buoy', null, actions) }}
+{% endblock %}
 {% block content %}
-<table>
-	<tr>
-		<th colspan="5">{{ LNG.lm_support }}</th>
-	</tr>
-	<tr>
-		<td colspan="5"><a class="button" href="{{ path('game_ticket_create') }}">{{ icon('plus') }}{{ LNG.ti_new }}</a></td>
-	</tr>
-	<tr>
-		<th class="num">{{ LNG.ti_id }}</th>
-		<th>{{ LNG.ti_subject }}</th>
-		<th class="num">{{ LNG.ti_answers }}</th>
-		<th>{{ LNG.ti_date }}</th>
-		<th class="ctr">{{ LNG.ti_status }}</th>
-	</tr>
-	{% for TicketID, TicketInfo in ticketList %}	
-	<tr>
-		<td class="num"><a href="{{ path('game_ticket_view', {id: TicketID}) }}">#{{ TicketID }}</a></td>
-		<td><a href="{{ path('game_ticket_view', {id: TicketID}) }}">{{ TicketInfo.subject }}</a></td>
-		<td class="num">{{ TicketInfo.answer - 1 }}</td>
-		<td>{{ TicketInfo.time }}</td>
-		<td class="ctr">{% if TicketInfo.status == 0 %}<span class="color-green">{{ LNG.ti_status_open }}</span>{% elseif TicketInfo.status == 1 %}<span class="color-orange">{{ LNG.ti_status_answer }}</span>{% else %}<span class="colorNegative">{{ LNG.ti_status_closed }}</span>{% endif %}</td>
-	</tr>
+<section class="panel panel--flush">
+	{% if ticketList is not empty %}
+	<table class="data">
+		<thead><tr>
+			<th class="num">{{ LNG.ti_id }}</th>
+			<th>{{ LNG.ti_subject }}</th>
+			<th class="num">{{ LNG.ti_answers }}</th>
+			<th>{{ LNG.ti_date }}</th>
+			<th class="ctr">{{ LNG.ti_status }}</th>
+		</tr></thead>
+		<tbody>
+		{% for TicketID, TicketInfo in ticketList %}
+		<tr>
+			<td class="num"><a href="{{ path('game_ticket_view', {id: TicketID}) }}">#{{ TicketID }}</a></td>
+			<td><a href="{{ path('game_ticket_view', {id: TicketID}) }}">{{ TicketInfo.subject }}</a></td>
+			<td class="num">{{ TicketInfo.answer - 1 }}</td>
+			<td class="mono">{{ TicketInfo.time }}</td>
+			<td class="ctr">{% if TicketInfo.status == 0 %}<span class="tag tag--pos">{{ LNG.ti_status_open }}</span>{% elseif TicketInfo.status == 1 %}<span class="tag tag--warn">{{ LNG.ti_status_answer }}</span>{% else %}<span class="tag tag--neg">{{ LNG.ti_status_closed }}</span>{% endif %}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
 	{% else %}
 	{% set faqLink %}<a href="{{ path('game_questions_show') }}">{{ LNG.lm_faq }}</a>{% endset %}
-	<tr><td colspan="5" class="empty-state-cell"><div class="empty-state"><p>{{ LNG.format('ti_none', faqLink) }}</p><a href="{{ path('game_ticket_create') }}">{{ LNG.ti_new }}</a></div></td></tr>
-	{% endfor %}
-</table>
+	<div class="empty">{{ icon('life-buoy') }}<p>{{ LNG.format('ti_none', faqLink) }}</p></div>
+	{% endif %}
+</section>
 {% endblock %}

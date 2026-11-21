@@ -1,132 +1,100 @@
+{% import '_macros/ui.html.twig' as ui -%}
+{% macro element_row(elementID, elementRow, own) %}
+<tr{% if not elementRow %} class="is-empty"{% endif %}>
+	<td><a href="#" data-action="dialog-info" data-id="{{ elementID }}" class="tooltip" data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a></td>
+	{% if elementRow and elementRow|length <= 3 %}
+		<td>
+			{% set test = 0 %}
+			{% for user in elementRow %}
+				{% if user.records_optIn == 1 %}
+					{% if test != 0 %}<br>{% endif %}
+					<a href="#" data-action="dialog-playercard" data-id="{{ user.userID }}">{{ user.username }}</a>
+					{% set test = test + 1 %}
+				{% endif %}
+			{% endfor %}
+			{% if test == 0 %}-{% endif %}
+		</td>
+		<td class="num">{{ pretty_number(elementRow[0].level) }}</td>
+	{% elseif elementRow and elementRow|length < 10 %}
+		<td>&gt;3</td>
+		<td class="num">{{ pretty_number(elementRow[0].level) }}</td>
+	{% elseif elementRow and elementRow|length < 50 %}
+		<td>&gt;10</td>
+		<td class="num">{{ pretty_number(elementRow[0].level) }}</td>
+	{% elseif elementRow and elementRow|length < 100 %}
+		<td>&gt;50</td>
+		<td class="num">{{ pretty_number(elementRow[0].level) }}</td>
+	{% elseif elementRow and elementRow|length >= 100 %}
+		<td>&gt;100</td>
+		<td class="num">{{ pretty_number(elementRow[0].level) }}</td>
+	{% else %}
+		<td>-</td>
+		<td class="num">-</td>
+	{% endif %}
+	<td class="num">{% if elementRow %}{{ own }}{% else %}-{% endif %}</td>
+</tr>
+{% endmacro %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_records }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set recActions %}<label class="control-group"><input type="checkbox" id="rec-show-empty"> {{ LNG.as_show_empty }}</label>{% endset %}
+{% set recMeta %}{{ LNG.rec_intro }} {{ LNG.rec_last_update_on }}: {{ update }}{% endset %}
+{{ ui.page_head(LNG.lm_records, 'medal', recMeta, recActions) }}
+{% endblock %}
 {% block content %}
-<p class="page-intro">{{ LNG.rec_intro }}</p>
-<label class="advanced-stats__toggle"><input type="checkbox" id="rec-show-empty"> {{ LNG.as_show_empty }}</label>
-<div class="table-scroll records-page">
-<table class="recordtable">
-    <tbody>
-        <tr>
-            <th class="text-center" colspan="4">{{ LNG.rec_last_update_on }}: {{ update }}</th>
-        </tr>
-        <tr>
-            <th>{{ LNG.tech[0] }}</th>
-            <th>{{ LNG.rec_players }}</th>
-            <th class="num">{{ LNG.rec_level }}</th>
-            <th class="num">{{ LNG.own }}</th>
-        </tr>
-        {% for elementID, elementRow in buildList %}
-        <tr{% if not elementRow %} class="is-empty"{% endif %}>
-            <td><a href='#' data-action="dialog-info" data-id="{{ elementID }}" class='tooltip' data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a>
-            </td>
-            {% if elementRow and elementRow|length <= 3 %}
-                <td>
-                    {% set test = 0 %}
-                    {% for user in elementRow %}
-                        {% if user.records_optIn == 1 %}
-                        {% if test != 0 %}<br>{% endif %}
-                            <a href='#' data-action="dialog-playercard" data-id="{{ user.userID }}">{{ user.username }}</a>
-                            {% set test = test+1 %}
-                        {% endif %}
-                    {% endfor %}
-                    {% if test == 0 %}
-                        -
-                    {% elseif test == 1 %}
-                        <br>
-                    {% elseif test == 2 %}
-                        <br>
-                    {% endif %}
-                </td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% elseif elementRow and elementRow|length < 10 %}
-                <td>>3</td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% elseif elementRow and elementRow|length < 50 %}
-                <td>>10</td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% elseif elementRow and elementRow|length < 100 %}
-                <td>>50</td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% elseif elementRow and elementRow|length >= 100 %}
-                <td>>100</td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% else %}
-                <td>-</td>
-                <td class="num">-</td>
-            {% endif %}
-            {% if elementRow %}
-                <td class="num">{{ userBuild[elementRow[0]["name"]] }}</td>
-            {% else %}
-                <td class="num">-</td>
-            {% endif %}
-        </tr>
-        {% endfor %}
-        <tr>
-            <th>{{ LNG.tech[100] }}</th>
-            <th>{{ LNG.rec_players }}</th>
-            <th class="num">{{ LNG.rec_level }}</th>
-            <th class="num">{{ LNG.own }}</th>
-        </tr>
-        {% for elementID, elementRow in researchList %}
-        <tr{% if not elementRow %} class="is-empty"{% endif %}>
-            <td><a href='#' data-action="dialog-info" data-id="{{ elementID }}" class='tooltip' data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a></td>
-            {% if elementRow and elementRow|length <= 3 %}
-                <td>
-                    {% set test = 0 %}
-                    {% for user in elementRow %}
-                        {% if user.records_optIn == 1 %}
-                            {% if test != 0 %}<br>{% endif %}
-                            <a href='#' data-action="dialog-playercard" data-id="{{ user.userID }}">{{ user.username }}</a>
-                            {% set test = test+1 %}
-                        {% endif %}
-                    {% endfor %}
-                    {% if test == 0 %}
-                        -
-                    {% elseif test == 1 %}
-                        <br>
-                    {% elseif test == 2 %}
-                        <br>
-                    {% endif %}
-                </td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% elseif elementRow and elementRow|length < 10 %}
-                <td>>3</td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% elseif elementRow and elementRow|length < 50 %}
-                <td>>10</td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% elseif elementRow and elementRow|length < 100 %}
-                <td>>50</td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% elseif elementRow and elementRow|length >= 100 %}
-                <td>>100</td>
-                <td class="num">{{ pretty_number(elementRow[0].level) }}</td>
-            {% else %}
-                <td>-</td>
-                <td class="num">-</td>
-            {% endif %}
-            {% if elementRow %}
-                <td class="num">{{ userTech[elementRow[0]["name"]] }}</td>
-            {% else %}
-                <td class="num">-</td>
-            {% endif %}
-        </tr>
-        {% endfor %}
-        <tr>
-            <th>{{ LNG.first }}</th>
-            <th>{{ LNG.rec_players }}</th>
-            <th class="num">{{ LNG.rec_time }}</th>
-            <th class="num">{{ LNG.own }}</th>
-        </tr>
-        {% for statkey, row in firstTimes %}
-            <tr>
-                <td>{{ row.text }}</td>
-                <td>{{ row.name }}</td>
-                <td class="num">{{ row.ts }}</td>
-                <td class="num">{{ row.user_ts }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="stack records-page">
+	<section class="panel panel--flush">
+		{{ ui.panel_head(LNG.tech[0]) }}
+		<table class="data recordtable">
+			<thead><tr>
+				<th>{{ LNG.tech[0] }}</th>
+				<th>{{ LNG.rec_players }}</th>
+				<th class="num">{{ LNG.rec_level }}</th>
+				<th class="num">{{ LNG.own }}</th>
+			</tr></thead>
+			<tbody>
+			{% for elementID, elementRow in buildList %}
+				{{ _self.element_row(elementID, elementRow, elementRow ? userBuild[elementRow[0]["name"]] : null) }}
+			{% endfor %}
+			</tbody>
+		</table>
+	</section>
+	<section class="panel panel--flush">
+		{{ ui.panel_head(LNG.tech[100]) }}
+		<table class="data recordtable">
+			<thead><tr>
+				<th>{{ LNG.tech[100] }}</th>
+				<th>{{ LNG.rec_players }}</th>
+				<th class="num">{{ LNG.rec_level }}</th>
+				<th class="num">{{ LNG.own }}</th>
+			</tr></thead>
+			<tbody>
+			{% for elementID, elementRow in researchList %}
+				{{ _self.element_row(elementID, elementRow, elementRow ? userTech[elementRow[0]["name"]] : null) }}
+			{% endfor %}
+			</tbody>
+		</table>
+	</section>
+	<section class="panel panel--flush">
+		{{ ui.panel_head(LNG.first) }}
+		<table class="data">
+			<thead><tr>
+				<th>{{ LNG.first }}</th>
+				<th>{{ LNG.rec_players }}</th>
+				<th class="num">{{ LNG.rec_time }}</th>
+				<th class="num">{{ LNG.own }}</th>
+			</tr></thead>
+			<tbody>
+			{% for statkey, row in firstTimes %}
+				<tr>
+					<td>{{ row.text }}</td>
+					<td>{{ row.name }}</td>
+					<td class="num">{{ row.ts }}</td>
+					<td class="num">{{ row.user_ts }}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</section>
 </div>
 {% endblock %}

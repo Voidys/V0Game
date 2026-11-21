@@ -260,6 +260,9 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
 
         return [
             'PlanetSelect' => $PlanetSelect,
+            'planetList' => $this->planetList(),
+            'planetSlots' => $this->planetSlots(),
+            'hostileAlert' => $this->hostileAlert(),
             'wreckfield' => $wreckfield,
             'new_message' => $this->state->USER['messages'],
             'loginNotice' => $this->newMessagesNotice((int) $this->state->USER['messages']),
@@ -316,6 +319,127 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
         }
 
         return $PlanetSelect;
+    }
+
+    /**
+     * The player's planets for the Empire rail, in the user's sort order, moons grouped under their planet.
+     * One extra query for field counters and the terraformer / moon base levels.
+     *
+     * @return list<array<string, mixed>> per planet: id, name, galaxy, system, planet, image, style, current, fields, fieldsMax,
+     *                                     build (null | {id, level, mode}), moon (null | same shape without moon)
+     */
+    private function planetList(): array
+    {
+        $rows = $this->state->USER['PLANETS'] ?? [];
+        if (!$rows) {
+            return [];
+        }
+        $elements = $this->elements();
+        $terraformer = $elements->column(TERRAFORMER);
+        $moonBase = $elements->column(MOONBASE);
+        $extra = [];
+        $sql = "SELECT id, id_luna, field_current, field_max, `" . $terraformer . "` AS terraformer, `" . $moonBase . "` AS moonbase
+            FROM %%PLANETS%% WHERE id_owner = :userId AND destruyed = 0;";
+        foreach ($this->db->select($sql, [':userId' => $this->state->USER['id']]) as $row) {
+            $extra[$row['id']] = $row;
+        }
+
+        $currentId = (int) $this->state->PLANET['id'];
+        $now = $this->state->runtime->timestamp;
+        $entries = [];
+        foreach ($rows as $row) {
+            $more = $extra[$row['id']] ?? [];
+            $build = null;
+            if (!empty($row['b_building']) && !empty($row['b_building_id']) && $row['b_building'] > $now) {
+                $queue = \App\Game\Core\StoredData::decode($row['b_building_id']);
+                if (!empty($queue[0])) {
+                    $build = ['id' => (int) $queue[0][0], 'level' => (int) $queue[0][1], 'mode' => (string) ($queue[0][4] ?? 'build')];
+                }
+            }
+            $entries[$row['id']] = [
+                'id' => (int) $row['id'],
+                'name' => $row['name'],
+                'galaxy' => (int) $row['galaxy'],
+                'system' => (int) $row['system'],
+                'planet' => (int) $row['planet'],
+                'image' => $row['image'],
+                'style' => (int) $row['planet_style'],
+                'isMoon' => $row['planet_type'] == PlanetType::Moon->value,
+                'current' => (int) $row['id'] === $currentId,
+                'fields' => (int) ($more['field_current'] ?? 0),
+                'fieldsMax' => (int) (($more['field_max'] ?? 0) + floor(($more['terraformer'] ?? 0) * FIELDS_BY_TERRAFORMER) + ($more['moonbase'] ?? 0) * FIELDS_BY_MOONBASIS_LEVEL),
+                'build' => $build,
+                'moon' => null,
+                'lunaId' => (int) ($more['id_luna'] ?? 0),
+            ];
+        }
+
+        $list = [];
+        foreach ($entries as $id => $entry) {
+            if ($entry['isMoon']) {
+                continue;
+            }
+            if ($entry['lunaId'] && isset($entries[$entry['lunaId']])) {
+                $entry['moon'] = $entries[$entry['lunaId']];
+            }
+            $list[] = $entry;
+        }
+        foreach ($entries as $entry) {
+            // a moon without its planet in the list (should not happen) is shown on its own
+            if ($entry['isMoon'] && !array_filter($list, static fn(array $p): bool => ($p['moon']['id'] ?? 0) === $entry['id'])) {
+                $list[] = $entry;
+            }
+        }
+
+        return $list;
+    }
+
+    /**
+     * Planet slots of the player.
+     *
+     * @return array{used: int, max: int}
+     */
+    private function planetSlots(): array
+    {
+        $positions = $this->planetPositions();
+
+        return [
+            'used' => (int) $positions->currentPlanetCount($this->state->USER),
+            'max' => (int) $positions->maxPlanetCount($this->state->USER),
+        ];
+    }
+
+    /**
+     * The next hostile fleet (attack, ACS attack, destroy, missile of another player) still flying towards one of the player's
+     * planets or moons, one query; null when none.
+     *
+     * @return array{name: string, galaxy: int, system: int, planet: int, type: int, remaining: int}|null
+     */
+    private function hostileAlert(): ?array
+    {
+        $now = $this->state->runtime->timestamp;
+        $sql = "SELECT f.arrival_time, f.end_galaxy, f.end_system, f.end_planet, f.end_type, p.name
+            FROM %%FLEETS%% f LEFT JOIN %%PLANETS%% p ON p.id = f.end_id
+            WHERE f.target_owner = :userId AND f.owner != :userId AND f.status = :outward
+                AND f.mission IN (1, 2, 9, 10) AND f.arrival_time > :now
+            ORDER BY f.arrival_time ASC LIMIT 1;";
+        $row = $this->db->selectSingle($sql, [
+            ':userId' => $this->state->USER['id'],
+            ':outward' => FLEET_OUTWARD,
+            ':now' => $now,
+        ]);
+        if (empty($row)) {
+            return null;
+        }
+
+        return [
+            'name' => (string) $row['name'],
+            'galaxy' => (int) $row['end_galaxy'],
+            'system' => (int) $row['end_system'],
+            'planet' => (int) $row['end_planet'],
+            'type' => (int) $row['end_type'],
+            'remaining' => (int) $row['arrival_time'] - $now,
+        ];
     }
 
     /**

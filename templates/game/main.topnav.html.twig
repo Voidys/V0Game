@@ -1,37 +1,31 @@
 {% import '_macros/forms.html.twig' as forms -%}
-<button type="button" class="topbar__menu icon-button" data-sidebar-toggle aria-controls="sidebar" aria-label="{{ LNG.ui_menu|default('Menu') }}">
-  {{ icon('menu') }}
-</button>
+{% import 'game/_shell.macros.html.twig' as shell -%}
+{% set cur = null %}
+{% for p in planetList %}{% if p.current %}{% set cur = p %}{% elseif p.moon and p.moon.current %}{% set cur = p.moon %}{% endif %}{% endfor %}
+<button class="icon-btn menu-btn" type="button" data-sidebar-toggle aria-controls="sidebar" aria-expanded="false" aria-label="{{ LNG.ui_menu|default('Menu') }}">{{ icon('menu') }}</button>
 
-<a class="topbar__brand" href="{{ path('game_overview_show') }}">
-  <span class="wordmark">V<b>0</b>Game</span>
+<a class="brand" href="{{ path('game_overview_show') }}" aria-label="V0Game" data-tip="{{ LNG.lm_overview }}">
+  <span class="brand-name wordmark">V<b>0</b>Game</span>
 </a>
 
-<div class="planet-switch">
-  <a class="planet-switch__image" href="{{ path('game_overview_show') }}" title="{{ LNG.lm_overview }}">
-    {% if planet_style == 1 %}
-      <img src="{{ theme_asset('planeten/varianten/v1_magic/' ~ image ~ '_v1_magic.webp') }}" width="40" height="40" alt="">
-    {% elseif planet_style == 2 %}
-      <img src="{{ theme_asset('planeten/varianten/v2_storm/' ~ image ~ '_v2_storm.webp') }}" width="40" height="40" alt="">
-    {% elseif planet_style == 3 %}
-      <img src="{{ theme_asset('planeten/varianten/v3_voronoi/' ~ image ~ '_v3_voronoi.webp') }}" width="40" height="40" alt="">
-    {% else %}
-      <img src="{{ theme_asset('planeten/' ~ image ~ '.jpg') }}" width="40" height="40" alt="">
-    {% endif %}
-  </a>
-  <label class="visually-hidden" for="planetSelector">{{ LNG.ui_planet|default('Planet') }}</label>
-  <button type="button" class="planet-switch__step" data-planet-step="-1" title="{{ LNG.ui_planet_prev }} ([)" aria-label="{{ LNG.ui_planet_prev }}">{{ icon('chevron-left') }}</button>
-  <select id="planetSelector" class="planet-switch__select">
-    {{ forms.html_options({'options': PlanetSelect, 'selected': current_pid}) }}
-  </select>
-  <button type="button" class="planet-switch__step" data-planet-step="1" title="{{ LNG.ui_planet_next }} (])" aria-label="{{ LNG.ui_planet_next }}">{{ icon('chevron-right') }}</button>
-</div>
+<button class="planet-switch" type="button" popovertarget="planet-pop" aria-haspopup="listbox" data-tip="{{ LNG.shell_switch_planet }}" data-tip-kbd="[ ]">
+  <img src="{{ shell.planet_src(cur ? cur.image : image, cur ? cur.style : planet_style) }}" width="32" height="32" alt="">
+  <span class="planet-switch-text">
+    <strong>{{ cur ? cur.name : LNG.ui_planet }}</strong>
+    {% if cur %}<span class="mono muted">[{{ cur.galaxy }}:{{ cur.system }}:{{ cur.planet }}]</span>{% endif %}
+  </span>
+  {{ icon('chevron-down') }}
+</button>
+{# the arrow keys [ and ] of ui.js step through this list; it stays in the DOM, hidden #}
+<select id="planetSelector" hidden>
+  {{ forms.html_options({'options': PlanetSelect, 'selected': current_pid}) }}
+</select>
 
 <ul class="resources" aria-label="{{ LNG.lm_resources|default('Resources') }}">
   {% for resourceID, resourceData in resourceTable %}
     {% set tipFull = resourceData.current is defined and resourceData.current is not null and resourceData.max is defined and resourceData.max is not null and resourceData.current >= resourceData.max %}
     {% set tipHtml %}{% if resourceData.current is not defined or resourceData.current is null %}<div>{{ LNG.tech[resourceID] }}</div><div class="res_current{% if resourceData.max + resourceData.used < 0 %} colorNegative{% endif %}">{{ pretty_number(resourceData.max + resourceData.used) }}</div><div class="res_max colorPositive">{{ pretty_number(resourceData.max) }}</div><div class="res_rate">{{ LNG.ui_energy_used }}: {{ pretty_number(-resourceData.used) }}</div>{% else %}<div>{{ LNG.tech[resourceID] }}</div><div class="res_current{% if tipFull %} colorNegative{% endif %}">{{ pretty_number(resourceData.current) }}</div>{% if resourceData.max is defined and resourceData.max is not null %}<div class="res_max colorPositive">{{ pretty_number(resourceData.max) }}</div>{% endif %}{% if resourceData.production is defined %}<div class="res_rate {{ resourceData.production < 0 ? 'colorNegative' : 'colorPositive' }}">{{ resourceData.production < 0 ? '' : '+' }}{{ pretty_number(resourceData.production) }}/h</div>{% if resourceData.max is defined and resourceData.max is not null and resourceData.production > 0 %}<div class="res_full">{% if tipFull %}{{ LNG.ui_storage_full }}{% else %}{{ LNG.ui_full_in }}: <span class="res_full_val"></span>{% endif %}</div>{% endif %}{% endif %}{% endif %}{% endset %}
-    <li class="resource resource--{{ resourceData.name }} tooltip" data-tooltip-content="{{ tipHtml|e('html') }}"{% if resourceData.current is defined and resourceData.current is not null %} data-ticker-tip="current_{{ resourceData.name }}" data-full-text="{{ LNG.ui_storage_full }}"{% endif %}>
+    <li class="resource resource--{{ resourceData.name }} tooltip" tabindex="0" data-tooltip-content="{{ tipHtml|e('html') }}"{% if resourceData.current is defined and resourceData.current is not null %} data-ticker-tip="current_{{ resourceData.name }}" data-full-text="{{ LNG.ui_storage_full }}"{% endif %}>
       <a class="resource__icon"{% if noobInterface %} href="#" data-action="dialog-info" data-id="{{ resourceID }}"{% endif %}>
         <img src="{{ theme_asset('images/' ~ resourceData.name ~ '.gif') }}" alt="" width="32" height="22">
       </a>
@@ -43,12 +37,14 @@
           <span class="resource__value{% if free < 0 %} colorNegative{% endif %}">{{ pretty_number(free) }}<span class="resource__max"> / {{ pretty_number(resourceData.max) }}</span></span>
         {% else %}
           {% set full = (resourceData.max is defined and resourceData.max is not null) and resourceData.current >= resourceData.max %}
-          <span class="resource__value resource__value--full res_current{% if full %} colorNegative{% endif %}" id="current_{{ resourceData.name }}" data-ticker="current_{{ resourceData.name }}" data-real="{{ resourceData.current }}">{{ shortlyNumber ? shortly_number(resourceData.current) : pretty_number(resourceData.current) }}</span>
+          <span class="resource__value resource__value--full res_current{% if full %} colorNegative{% endif %}" id="current_{{ resourceData.name }}" data-ticker="current_{{ resourceData.name }}" data-real="{{ resourceData.current }}">{{ shortlyNumber ? shortly_number(resourceData.current) : millions_number(resourceData.current) }}</span>
           <span class="resource__value resource__value--short res_current{% if full %} colorNegative{% endif %}" data-ticker="current_{{ resourceData.name }}">{{ shortly_number(resourceData.current, null, true) }}</span>
           {% if resourceData.max is defined and resourceData.max is not null %}
+            {% if resourceData.production is defined %}<span class="resource__rate mono{% if resourceData.production < 0 %} neg{% endif %}">{{ resourceData.production < 0 ? '' : '+' }}{{ shortly_number(resourceData.production, null, true) }}/h</span>{% endif %}
             <span class="resource__max res_max" id="max_{{ resourceData.name }}" data-real="{{ resourceData.max }}">{{ pretty_number(resourceData.max) }}</span>
             <span class="resource__max resource__max--short">/ {{ shortly_number(resourceData.max, null, true) }}</span>
-            <span class="resource__bar{% if full %} is-full{% endif %}" data-ticker-bar="current_{{ resourceData.name }}" style="--fill: {{ resourceData.max > 0 ? min(100, resourceData.current / resourceData.max * 100)|round(1) : 0 }}%" aria-hidden="true"></span>
+            {% set fillPct = resourceData.max > 0 ? min(100, resourceData.current / resourceData.max * 100)|round(1) : 0 %}
+            <span class="resource__bar{% if full %} is-full{% elseif fillPct >= 90 %} is-warn{% endif %}" data-ticker-bar="current_{{ resourceData.name }}" style="--fill: {{ fillPct }}%" aria-hidden="true"></span>
           {% endif %}
         {% endif %}
       </span>
@@ -56,45 +52,56 @@
   {% endfor %}
 </ul>
 
-<nav class="topbar__status" aria-label="{{ LNG.lm_options|default('Account') }}">
-  <span class="topbar__item topbar__universe" title="{{ uni_name }}">
-    {{ icon('globe') }}<span class="topbar__label">{{ uni_name }}</span>
-  </span>
-  <span class="topbar__item topbar__clock" title="{{ LNG.ui_server_time|default('Server time') }}">
-    {{ icon('clock') }}<span class="servertime">{{ serverClock|default('') }}</span>
-  </span>
+<div class="topbar-tools">
+  <button class="search-btn" type="button" data-action="palette" data-tip="{{ LNG.shell_jump_tip }}" data-tip-kbd="Ctrl K">
+    {{ icon('search') }}<span>{{ LNG.shell_jump }}</span><kbd>Ctrl K</kbd>
+  </button>
   {% if isModuleAvailable(constant('MODULE_MESSAGES')) %}
-    <a class="topbar__item{% if new_message > 0 %} has-badge{% endif %}" href="{{ path('game_messages_show') }}" title="{{ LNG.ui_messages|default('Messages') }}">
-      {{ icon('mail', LNG.ui_messages|default('Messages')) }}
-      {% if new_message > 0 %}<span class="badge" id="newmesnum">{{ new_message }}</span>{% endif %}
+    <a class="icon-btn" href="{{ path('game_messages_show') }}" aria-label="{{ LNG.ui_messages|default('Messages') }}{% if new_message > 0 %} ({{ new_message }}){% endif %}" data-tip="{{ LNG.ui_messages|default('Messages') }}">
+      {{ icon('bell') }}
+      {% if new_message > 0 %}<span class="dot-badge" id="newmesnum">{{ new_message }}</span>{% endif %}
     </a>
   {% endif %}
-  {% if isModuleAvailable(constant('MODULE_STATISTICS')) %}
-    <a class="topbar__item topbar__rank" href="{{ path('game_statistics_show') }}" title="{{ LNG.ui_points|default('Points') }}: {{ pretty_number(userPoints) }}">
-      {{ icon('trophy') }}<span><span class="topbar__label">{{ LNG.ui_rank|default('Rank') }}</span> {{ userRank > 0 ? pretty_number(userRank) : '–' }}</span>
-    </a>
+  <span class="clock mono" data-tip="{{ LNG.ui_server_time|default('Server time') }}" tabindex="0"><span class="servertime">{{ serverClock|default('') }}</span></span>
+  <button class="avatar-btn" type="button" popovertarget="account-pop" aria-haspopup="menu" aria-label="{{ LNG.ui_user_menu }}" data-tip="{{ username }}">
+    <span class="avatar">{{ username|slice(0, 2)|upper }}</span>
+  </button>
+</div>
+
+<div class="pop planet-menu" popover id="planet-pop">
+  <ul role="listbox" aria-label="{{ LNG.shell_switch_planet }}">
+    {% for pid, pname in PlanetSelect %}
+      {% set entry = null %}
+      {% for p in planetList %}{% if p.id == pid %}{% set entry = p %}{% elseif p.moon and p.moon.id == pid %}{% set entry = p.moon %}{% endif %}{% endfor %}
+      <li role="presentation"><button type="button" role="option" data-planet-goto="{{ pid }}" aria-selected="{{ pid == current_pid ? 'true' : 'false' }}">
+        {% if entry %}<img src="{{ shell.planet_src(entry.image, entry.style) }}" width="28" height="28" alt="">{% else %}<span></span>{% endif %}
+        <strong>{{ entry ? entry.name : pname }}{% if entry and entry.isMoon %} <span class="muted">({{ LNG.fcm_moon }})</span>{% endif %}</strong>
+        {% if entry %}<span class="mono muted">{{ entry.galaxy }}:{{ entry.system }}:{{ entry.planet }}</span>{% endif %}
+      </button></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="pop pop-menu" popover id="account-pop">
+  <header class="pop-head">
+    <span class="avatar">{{ username|slice(0, 2)|upper }}</span>
+    <div><strong>{{ username }}</strong>{% if isModuleAvailable(constant('MODULE_STATISTICS')) %}<a class="mono muted" href="{{ path('game_statistics_show') }}">{{ userRank > 0 ? '#' ~ pretty_number(userRank) ~ ' · ' : '' }}{{ pretty_number(userPoints) }} {{ LNG.ui_points|default('Points') }}</a>{% endif %}</div>
+  </header>
+  <a href="{{ path('game_settings_show') }}">{{ icon('settings') }}<span>{{ LNG.lm_options }}</span></a>
+  {% if account_id != 0 %}
+    <a href="{{ path('account_account_show') }}">{{ icon('user') }}<span>{{ LNG['Account'] }}</span></a>
   {% endif %}
-  <div class="usermenu" data-usermenu>
-    <button type="button" class="topbar__item topbar__user usermenu__button" aria-haspopup="true" aria-expanded="false" aria-controls="usermenu-panel" aria-label="{{ LNG.ui_user_menu }}" title="{{ LNG.ui_user_menu }}">
-      {{ icon('user') }}<span class="topbar__label">{{ username }}</span>{{ icon('chevron-down') }}
-    </button>
-    <div class="usermenu__panel" id="usermenu-panel" hidden>
-      <a class="usermenu__item" href="{{ path('game_settings_show') }}">{{ icon('settings') }}<span>{{ LNG.lm_options }}</span></a>
-      {% if account_id != 0 %}
-        <a class="usermenu__item" href="{{ path('account_account_show') }}">{{ icon('user') }}<span>{{ LNG['Account'] }}</span></a>
-      {% endif %}
-      {% if isModuleAvailable(constant('MODULE_NOTICE')) and (not noobInterface or not tutorial) %}
-        <a class="usermenu__item" href="{{ path('game_notes_show') }}" data-action="popup" data-url="{{ path('game_notes_show') }}" data-width="720">{{ icon('sticky-note') }}<span>{{ LNG.lm_notes }}</span></a>
-      {% endif %}
-      <a class="usermenu__item" href="{{ path('login_data_privacy_show') }}" data-dialog data-dialog-width="820">{{ icon('shield-check') }}<span>{{ LNG.lm_dataPrivacy }}</span></a>
-      {% if authlevel > 0 %}
-        <a class="usermenu__item" href="./admin" title="{{ LNG.lm_administration }} ({{ version }})">{{ icon('shield-alert') }}<span>{{ LNG.lm_administration }}</span></a>
-      {% endif %}
-      <hr class="usermenu__sep">
-      <a data-method="post" class="usermenu__item usermenu__item--logout" href="{{ path('game_logout_show') }}">{{ icon('log-out') }}<span>{{ LNG.lm_logout }}</span></a>
-    </div>
-  </div>
-</nav>
+  {% if isModuleAvailable(constant('MODULE_NOTICE')) and (not noobInterface or not tutorial) %}
+    <a href="{{ path('game_notes_show') }}" data-action="popup" data-url="{{ path('game_notes_show') }}" data-width="720">{{ icon('sticky-note') }}<span>{{ LNG.lm_notes }}</span></a>
+  {% endif %}
+  <a href="{{ path('login_data_privacy_show') }}" data-dialog data-dialog-width="820">{{ icon('shield-check') }}<span>{{ LNG.lm_dataPrivacy }}</span></a>
+  {% if authlevel > 0 %}
+    <a href="./admin" data-tip="{{ LNG.lm_administration }} ({{ version }})">{{ icon('shield-alert') }}<span>{{ LNG.lm_administration }}</span></a>
+  {% endif %}
+  <button type="button" data-action="shortcuts">{{ icon('circle-help') }}<span>{{ LNG.shell_shortcuts }}</span><kbd>?</kbd></button>
+  <hr>
+  <a data-method="post" class="is-danger" href="{{ path('game_logout_show') }}">{{ icon('log-out') }}<span>{{ LNG.lm_logout }}</span></a>
+</div>
 
 {% if not vmode %}
 {# resource counters (scripts/app/ticker.js initResourceTickers) #}

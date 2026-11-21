@@ -1,0 +1,151 @@
+/* Page group "messages-alliance": page-specific blocks only, built on ui.css (docs/ui-layout.md). Layer "pages". */
+@layer pages {
+  .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  td.empty { padding: var(--space-6) var(--pad); }
+  .empty > .icon { display: block; margin: 0 auto var(--space-2); inline-size: 1.5rem; block-size: 1.5rem; }
+  .empty > p { margin: 0; }
+
+  /* ---------------------------------------------------------------- messages: categories */
+  /* categories: an even grid of equal boxes (name left, unread/total right) */
+  .mail-tools { display: grid; }
+  .mail-tools[open] { gap: var(--space-3); }
+  .mail-tools > summary { display: none; }
+  .mail-tools[open]::details-content { block-size: auto; opacity: 1; }
+  .mail__selhit { display: inline-grid; place-items: center; cursor: pointer; }
+  .mail-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); gap: var(--space-2); }
+  .mail-cat {
+    --cat: var(--c-muted);
+    display: flex; align-items: center; gap: var(--space-2); min-inline-size: 0;
+    min-block-size: var(--control-h); padding: 0 var(--space-3);
+    border: 1px solid var(--c-border); border-radius: var(--r);
+    color: var(--c-muted); font-size: var(--fs-sm);
+    transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  }
+  .mail-cat__name { flex: 1 1 auto; min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mail-cat__count { flex: none; display: inline-flex; align-items: baseline; gap: var(--space-1); }
+  @media (max-width: 40rem) {
+    /* phones: one swipeable row of chips (names never break, messages start above the fold); a fade at the end
+       shows there is more; message.js scrolls the active chip into view */
+    .mail-cats {
+      display: flex;
+      gap: var(--space-2);
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x proximity;
+      scroll-padding-inline: var(--pad);
+      scrollbar-width: none;
+      margin-inline: calc(var(--pad) * -1);
+      padding-inline: var(--pad);
+      mask-image: linear-gradient(90deg, #000 calc(100% - 2.5rem), transparent);
+    }
+    .mail-cats::-webkit-scrollbar { display: none; }
+    .mail-cat { flex: none; min-block-size: 2.75rem; scroll-snap-align: start; }
+    .mail-cat__name { overflow: visible; }
+    .mail-cat__count .mono { display: none; }
+    .mail-tools > summary {
+      display: flex; align-items: center; gap: var(--space-2);
+      min-block-size: 2.75rem; padding: 0 var(--space-3);
+      border: 1px solid var(--c-border); border-radius: var(--r);
+      color: var(--c-muted); font-size: var(--fs-sm); list-style: none; cursor: pointer;
+    }
+    .mail-tools > summary::-webkit-details-marker { display: none; }
+    .mail-tools > summary::after {
+      content: ""; margin-inline-start: auto; inline-size: 0.5rem; block-size: 0.5rem;
+      border-block-end: 2px solid currentColor; border-inline-end: 2px solid currentColor;
+      rotate: 45deg; translate: 0 -0.15rem; transition: rotate var(--t-med) var(--ease-out);
+    }
+    .mail-tools[open] > summary { color: var(--c-text); }
+    .mail-tools[open] > summary::after { rotate: -135deg; translate: 0 0.1rem; }
+    /* bulk bar: the action select takes the row and shortens instead of overflowing */
+    .msg-bulk-form { flex: 1 1 100%; min-inline-size: 0; max-inline-size: 100%; }
+    .msg-bulk-form { flex-wrap: nowrap; }
+    .msg-bulk-form select { flex: 1 1 0; min-inline-size: 0; max-inline-size: 100%; text-overflow: ellipsis; }
+    .msg-bulk-form :is(button, input[type="submit"]) { flex: none; }
+  }
+  .mail-cat::before { content: ""; flex: none; inline-size: 0.5rem; block-size: 0.5rem; border-radius: 50%; background: var(--cat); }
+  .mail-cat:hover { background: var(--c-panel-2); color: var(--c-text); }
+  .mail-cat.is-active { background: var(--tint); color: var(--c-text); border-color: var(--c-accent); }
+  .mail-cat.is-empty:not(.is-active) { opacity: 0.55; }
+  .mail-cat.has-unread { color: var(--c-text); }
+  .mail-cat__count { display: inline-flex; align-items: center; gap: var(--space-1); color: var(--c-muted); font-size: var(--fs-xs); }
+  .mail-cat__count .badge:not(.badge--accent) { border-color: transparent; padding: 0; }
+
+  /* ---------------------------------------------------------------- messages: toolbars */
+  .msg-search, .msg-quick, .msg-prefs, .msg-bulk-form { flex-wrap: wrap; }
+  .msg-search input[type="search"] { min-inline-size: 12rem; }
+  .msg-prefs label, .mail-selectall { display: inline-flex; align-items: center; gap: var(--space-1); color: var(--c-muted); font-size: var(--fs-sm); white-space: nowrap; cursor: pointer; }
+  .mail-bulk { flex: 1; min-inline-size: 0; }
+  .mail-gap { display: inline-flex; align-items: center; padding: 0 var(--space-2); color: var(--c-muted); }
+  .msg-bulk__danger { color: var(--c-negative); }
+
+  /* ---------------------------------------------------------------- messages: list */
+  .mail-list { display: block; }
+  .mail-group { display: block; }
+  .mail-group > .mail:not(:first-child) { border-inline-start: 2px solid var(--c-border-strong); }
+  .mail { --cat: var(--c-muted); position: relative; transition: background var(--t-fast) var(--ease); }
+  .mail-list > .mail + .mail, .mail-list > * + *, .mail-group > .mail + .mail { border-block-start: 1px solid var(--c-border); }
+  .mail:hover { background: var(--c-panel-2); }
+  .mail__row {
+    display: grid; grid-template-columns: auto auto minmax(0, 1fr) auto auto;
+    align-items: center; gap: var(--space-3); padding: var(--space-3) var(--pad);
+  }
+  .mail__dot { inline-size: 0.5rem; block-size: 0.5rem; border-radius: 50%; background: var(--cat); }
+  .mail__main { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-1) var(--space-3); min-inline-size: 0; overflow-wrap: anywhere; }
+  .mail__details { display: contents; }
+  .mail__from { color: var(--c-muted); font-size: var(--fs-sm); }
+  .mail__subject { font-weight: 500; font-size: var(--fs-md); }
+  .mail.is-unread .mail__subject { font-weight: 700; }
+  .mail__type { color: var(--cat); font: 600 var(--fs-xs) / 1.4 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; }
+  .mail__fw { color: var(--c-info); }
+  .mail__meta { flex-basis: 100%; color: var(--c-muted); font-size: var(--fs-xs); }
+  .mail__new { inline-size: 0.5rem; block-size: 0.5rem; border-radius: 50%; background: var(--c-accent); align-self: center; }
+  .mail__time { color: var(--c-muted); font: var(--fs-xs) / 1.2 var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .mail__tools { display: inline-flex; gap: var(--space-1); }
+  .mail__tools a {
+    display: inline-grid; place-items: center; inline-size: 1.75rem; block-size: 1.75rem;
+    border-radius: var(--r); color: var(--c-muted);
+    transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  }
+  .mail__tools a:hover, .mail__tools a:focus-visible { background: var(--c-panel-2); color: var(--c-text); }
+  .mail__tools .msg-act--delete:hover, .mail__tools .msg-act--delete:focus-visible { color: var(--c-negative); }
+  .mail__tools .msg-fav { display: inline-grid; }
+  .mail__tools .msg-fav.is-on { color: var(--c-warning); }
+  .mail__tools .msg-fav.is-on .icon { fill: currentColor; }
+  .mail__tools .msg-toggle { display: inline-grid; }
+  .mail__tools .msg-toggle .icon:last-child, .mail__tools .msg-toggle.is-collapsed .icon:first-child { display: none; }
+  .mail__tools .msg-toggle.is-collapsed .icon:last-child { display: inline-block; }
+  .mail__body {
+    padding: 0 var(--pad) var(--space-4) calc(var(--pad) + 2 * var(--space-3) + 1.5rem);
+    overflow-x: auto; overflow-wrap: anywhere; color: var(--c-text);
+  }
+  @media (max-width: 40rem) {
+    .mail__row { grid-template-columns: auto minmax(0, 1fr) auto; }
+    .mail__dot { display: none; }
+    .mail__time { grid-column: 2; grid-row: 2; }
+    .mail__tools { grid-column: 3; grid-row: 1 / span 2; }
+    .mail__body { padding-inline-start: var(--pad); }
+  }
+
+  /* ---------------------------------------------------------------- write dialog: receiver search */
+  .search-receiver { position: relative; display: block; }
+  .search-receiver .select-box { position: absolute; inset-inline-start: 0; z-index: 5; max-inline-size: 100%; background: var(--c-panel); border: 1px solid var(--c-border-strong); border-radius: var(--r); }
+  #receiver-list { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-block-start: var(--space-2); }
+  .receiver { padding: 0 var(--space-2); border: 1px solid var(--c-border-strong); border-radius: var(--r); }
+
+  /* ---------------------------------------------------------------- alliance */
+  .alliance-image { display: block; max-inline-size: 100%; block-size: auto; margin-block-end: var(--space-3); border-radius: var(--r); }
+  .ally-description { overflow-wrap: anywhere; overflow-x: auto; }
+  .panel__body > .stats + .kv { margin-block-start: var(--space-4); }
+  .panel__body > .kv + .kv, .panel__body > .hint { margin-block-start: var(--space-3); }
+  .panel__body > textarea { inline-size: 100%; }
+  .alliance-choice .panel__body { display: flex; justify-content: center; }
+  .danger-zone .panel__head { border-block-start: 1px solid var(--c-border); }
+  .danger-zone .panel__head:first-child { border-block-start: 0; }
+  .form-note { margin: 0; }
+  .alliance-chart { position: relative; }
+  .rank-table input[type="text"] { inline-size: 100%; min-inline-size: 8rem; }
+
+  /* ---------------------------------------------------------------- notes, tickets */
+  .ticket-message { inline-size: 100%; min-block-size: 8rem; }
+  .notes-table .tag { text-decoration: none; }
+}

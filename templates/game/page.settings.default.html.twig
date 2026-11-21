@@ -1,10 +1,12 @@
 {% import '_macros/forms.html.twig' as forms -%}
 {% import '_macros/community.html.twig' as c -%}
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_options }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_options, 'settings') }}{% endblock %}
 {% block content %}
-	<div class="tabs settings-tabs" data-tabs="settings">
-	<div class="tabs__list" role="tablist" aria-label="{{ LNG.lm_options|e('html_attr') }}">
+	<div class="tabs settings-tabs stack" data-tabs="settings">
+	<div class="tabs__list segmented" role="tablist" aria-label="{{ LNG.lm_options|e('html_attr') }}">
 		<button type="button" class="tabs__tab" role="tab" id="settings-tab-account" data-tab="account" aria-controls="settings-panel-account" aria-selected="true" tabindex="0">{{ LNG.op_user_data }}</button>
 		<button type="button" class="tabs__tab" role="tab" id="settings-tab-general" data-tab="general" aria-controls="settings-panel-general" aria-selected="false" tabindex="-1">{{ LNG.op_general_settings }}</button>
 		<button type="button" class="tabs__tab" role="tab" id="settings-tab-build" data-tab="build" aria-controls="settings-panel-build" aria-selected="false" tabindex="-1">{{ LNG.op_build_pages }}</button>
@@ -13,8 +15,9 @@
 		<button type="button" class="tabs__tab" role="tab" id="settings-tab-fleet" data-tab="fleet" aria-controls="settings-panel-fleet" aria-selected="false" tabindex="-1">{{ LNG.fleetPrio }}</button>
 		<button type="button" class="tabs__tab tabs__tab--danger" role="tab" id="settings-tab-danger" data-tab="danger" aria-controls="settings-panel-danger" aria-selected="false" tabindex="-1">{{ LNG.op_vacation_delete_mode }}</button>
 	</div>
-	<form id="settings-form" action="{{ path('game_settings_send') }}" method="post">
-	<section class="tabs__panel" role="tabpanel" id="settings-panel-account" aria-labelledby="settings-tab-account" data-tab="account" tabindex="0">
+	<form id="settings-form" class="stack" action="{{ path('game_settings_send') }}" method="post">
+	<section class="panel panel--flush tabs__panel" role="tabpanel" id="settings-panel-account" aria-labelledby="settings-tab-account" data-tab="account" tabindex="0">
+	{{ ui.panel_head(LNG.op_user_data) }}
 	<table class="form-table">
 		<tbody>
 				{% if userAuthlevel > 0 %}
@@ -26,9 +29,6 @@
 						<td><input id="set_adminprotection" name="adminprotection" type="checkbox" value="1" {% if adminProtection > 0 %}checked="checked" {% endif %}></td>
 					</tr>
 				{% endif %}
-				<tr>
-					<th colspan="2" id="sec-account">{{ LNG.op_user_data }}</th>
-				</tr>
 				<tr>
 					<td><label for="set_username">{{ LNG.op_username }}</label></td>
 					<td>{% if changeNickTime < 0 %}<input id="set_username" name="username" value="{{ username }}" type="text" maxlength="32">{% else %}{{ username }}{% endif %}</td>
@@ -49,12 +49,10 @@
 		</tbody>
 	</table>
 	</section>
-	<section class="tabs__panel" role="tabpanel" id="settings-panel-general" aria-labelledby="settings-tab-general" data-tab="general" tabindex="0" hidden>
+	<section class="panel panel--flush tabs__panel" role="tabpanel" id="settings-panel-general" aria-labelledby="settings-tab-general" data-tab="general" tabindex="0" hidden>
+	{{ ui.panel_head(LNG.op_general_settings) }}
 	<table class="form-table">
 		<tbody>
-				<tr>
-					<th colspan="2" id="sec-general">{{ LNG.op_general_settings }}</th>
-				</tr>
 				<tr>
 					<td><label for="set_timezone">{{ LNG.op_timezone }}</label></td>
 					<td>{{ forms.html_options({'id': 'set_timezone', 'name': 'timezone', 'options': Selectors.timezones, 'selected': timezone}) }}</td>
@@ -135,12 +133,10 @@
 		</tbody>
 	</table>
 	</section>
-	<section class="tabs__panel" role="tabpanel" id="settings-panel-build" aria-labelledby="settings-tab-build" data-tab="build" tabindex="0" hidden>
+	<section class="panel panel--flush tabs__panel" role="tabpanel" id="settings-panel-build" aria-labelledby="settings-tab-build" data-tab="build" tabindex="0" hidden>
+	{{ ui.panel_head(LNG.op_build_pages) }}
 	<table class="form-table">
 		<tbody>
-				<tr>
-					<th colspan="2" id="sec-build">{{ LNG.op_build_pages }}</th>
-				</tr>
 				<tr>
 					<td><label for="set_missing_requirements_opacity">{{ LNG.op_missing_requirements_opacity }}</label></td>
 					<td><input id="set_missing_requirements_opacity" name="missing_requirements_opacity" type="checkbox" value="1" {% if missing_requirements_opacity == 1 %}checked="checked" {% endif %}></td>
@@ -170,12 +166,10 @@
 		</tbody>
 	</table>
 	</section>
-	<section class="tabs__panel" role="tabpanel" id="settings-panel-galaxy" aria-labelledby="settings-tab-galaxy" data-tab="galaxy" tabindex="0" hidden>
+	<section class="panel panel--flush tabs__panel" role="tabpanel" id="settings-panel-galaxy" aria-labelledby="settings-tab-galaxy" data-tab="galaxy" tabindex="0" hidden>
+	{{ ui.panel_head(LNG.op_galaxy_settings) }}
 	<table class="form-table">
 		<tbody>
-				<tr>
-					<th colspan="2" id="sec-galaxy">{{ LNG.op_galaxy_settings }}</th>
-				</tr>
 				<tr>
 					<td><label for="set_spycount"><a title="{{ LNG.op_spy_probes_number_descrip }}">{{ LNG.op_spy_probes_number }}</a></label></td>
 					<td><input id="set_spycount" name="spycount" value="{{ spycount }}" type="number"></td>
@@ -190,7 +184,7 @@
 					<th>{{ LNG.op_show }}</th>
 				</tr>
 				<tr>
-					<td><label for="set_galaxySpy"><img class="inline" src="{{ theme_asset('img/e.gif') }}" alt="">{{ LNG.op_spy }}</label></td>
+					<td><label for="set_galaxySpy">{{ icon('scan-eye') }} {{ LNG.op_spy }}</label></td>
 					<td><input id="set_galaxySpy" name="galaxySpy" type="checkbox" value="1" {% if galaxySpy == 1 %}checked="checked" {% endif %}></td>
 				</tr>
 				<tr>
@@ -206,27 +200,25 @@
 					<td><input id="set_spyReportRecentHours" name="spyReportRecentHours" value="{{ spyReportRecentHours }}" type="number"> {{ LNG.fl_hours }}</td>
 				</tr>
 				<tr>
-					<td><label for="set_galaxyMessage"><img class="inline" src="{{ theme_asset('img/m.gif') }}" alt="">{{ LNG.op_write_message }}</label></td>
+					<td><label for="set_galaxyMessage">{{ icon('mail') }} {{ LNG.op_write_message }}</label></td>
 					<td><input id="set_galaxyMessage" name="galaxyMessage" type="checkbox" value="1" {% if galaxyMessage == 1 %}checked="checked" {% endif %}></td>
 				</tr>
 				<tr>
-					<td><label for="set_galaxyBuddyList"><img class="inline" src="{{ theme_asset('img/b.gif') }}" alt="">{{ LNG.op_add_to_buddy_list }}</label></td>
+					<td><label for="set_galaxyBuddyList">{{ icon('user-plus') }} {{ LNG.op_add_to_buddy_list }}</label></td>
 					<td><input id="set_galaxyBuddyList" name="galaxyBuddyList" type="checkbox" value="1" {% if galaxyBuddyList == 1 %}checked="checked" {% endif %}></td>
 				</tr>
 				<tr>
-					<td><label for="set_galaxyMissle"><img class="inline" src="{{ theme_asset('img/r.gif') }}" alt="">{{ LNG.op_missile_attack }}</label></td>
+					<td><label for="set_galaxyMissle">{{ icon('crosshair') }} {{ LNG.op_missile_attack }}</label></td>
 					<td><input id="set_galaxyMissle" name="galaxyMissle" type="checkbox" value="1" {% if galaxyMissle == 1 %}checked="checked" {% endif %}></td>
 				</tr>
 
 		</tbody>
 	</table>
 	</section>
-	<section class="tabs__panel" role="tabpanel" id="settings-panel-colors" aria-labelledby="settings-tab-colors" data-tab="colors" tabindex="0" hidden>
+	<section class="panel panel--flush tabs__panel" role="tabpanel" id="settings-panel-colors" aria-labelledby="settings-tab-colors" data-tab="colors" tabindex="0" hidden>
+	{{ ui.panel_head(LNG.own_colors) }}
 	<table class="form-table">
 		<tbody>
-				<tr>
-					<th colspan="2">{{ LNG.own_colors }}</th>
-				</tr>
 				<tr class="custom-colors-options-1">
 					<td><label for="set_colorMission1Own">{{ LNG.type_mission_1_own }}</label></td>
 					<td>
@@ -307,6 +299,7 @@
 							<button data-action="reset-color" type="button">{{ LNG['nt_reset'] }}</button>
 						</span>
 					</td>
+				</tr>
 				<tr class="custom-colors-options-1">
 					<td><label for="set_colorMission8Own">{{ LNG.type_mission_8_own }}</label></td>
 					<td>
@@ -543,12 +536,10 @@
 		</tbody>
 	</table>
 	</section>
-	<section class="tabs__panel" role="tabpanel" id="settings-panel-fleet" aria-labelledby="settings-tab-fleet" data-tab="fleet" tabindex="0" hidden>
+	<section class="panel panel--flush tabs__panel" role="tabpanel" id="settings-panel-fleet" aria-labelledby="settings-tab-fleet" data-tab="fleet" tabindex="0" hidden>
+	{{ ui.panel_head(LNG.fleetPrio) }}
 	<table class="form-table">
 		<tbody>
-				<tr>
-					<th colspan="2">{{ LNG.fleetPrio }}</th>
-				</tr>
 				{% for ID, score in missionPrios|default([]) %}
 					<tr class="custom-mission-prio">
 						<td><label for="prio_{{ ID }}">{{ LNG[ID] }}</label></td>
@@ -604,33 +595,23 @@
 		</tbody>
 	</table>
 	</section>
-	<div class="settings-save">
+	<div class="panel panel__foot settings-bar">
 		<span class="hint">{{ LNG.op_save_hint }}</span>
 		<strong class="settings-dirty" data-dirty-bar data-one="{{ LNG.op_unsaved_one|e('html_attr') }}" data-many="{{ LNG.op_unsaved_many|e('html_attr') }}" role="status" hidden><span data-dirty-count></span></strong>
 		<input value="{{ LNG.op_save_changes }}" type="submit" class="btn--primary">
 	</div>
 	</form>
-	<section class="tabs__panel" role="tabpanel" id="settings-panel-danger" aria-labelledby="settings-tab-danger" data-tab="danger" tabindex="0" hidden>
-	<table class="form-table danger-zone" id="danger">
-		<tbody>
-			<tr>
-				<th colspan="2">{{ LNG.op_vacation_delete_mode }}</th>
-			</tr>
-			<tr>
-				<td class="ctr">
-					<form action="{{ path('game_settings_toggle_vacation') }}" method="post">
-						<input name="vacation" type="submit" class="btn--danger" value="{{ LNG.op_activate_vacation_mode }}" data-confirm="{{ LNG.op_activate_vacation_mode_confirm|e('html_attr') }}"> <img src="./styles/resource/images/admin/i.webp" width="16" height="16" alt="" class="inline tooltip" data-tooltip-content="{{ LNG.op_activate_vacation_mode_descrip }}">
-					</form>
-				</td>
-				<td class="ctr">
-					<form action="{{ path('game_settings_toggle_delete') }}" method="post">
-						<input name="delete" type="submit" class="btn--danger" value="{% if delete %}{{ LNG.op_stop_dlte_account }}{% else %}{{ LNG.op_dlte_account }}{% endif %}"{% if not delete %} data-confirm-danger data-confirm="{{ LNG.op_dlte_account_confirm|e('html_attr') }}"{% endif %}> <img src="./styles/resource/images/admin/i.webp" width="16" height="16" alt="" class="inline tooltip" data-tooltip-content="{{ LNG.op_dlte_account_descrip }}">
-					</form>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	</section>
+	<section class="panel tabs__panel" role="tabpanel" id="settings-panel-danger" aria-labelledby="settings-tab-danger" data-tab="danger" tabindex="0" hidden>
+	{{ ui.panel_head(LNG.op_vacation_delete_mode) }}
+	<div class="panel__body toolbar danger-zone" id="danger">
+		<form action="{{ path('game_settings_toggle_vacation') }}" method="post" class="control-group">
+			<input name="vacation" type="submit" class="btn--danger" value="{{ LNG.op_activate_vacation_mode }}" data-confirm="{{ LNG.op_activate_vacation_mode_confirm|e('html_attr') }}"> <img src="./styles/resource/images/admin/i.webp" width="16" height="16" alt="" class="inline tooltip" data-tooltip-content="{{ LNG.op_activate_vacation_mode_descrip }}">
+		</form>
+		<form action="{{ path('game_settings_toggle_delete') }}" method="post" class="control-group">
+			<input name="delete" type="submit" class="btn--danger" value="{% if delete %}{{ LNG.op_stop_dlte_account }}{% else %}{{ LNG.op_dlte_account }}{% endif %}"{% if not delete %} data-confirm-danger data-confirm="{{ LNG.op_dlte_account_confirm|e('html_attr') }}"{% endif %} > <img src="./styles/resource/images/admin/i.webp" width="16" height="16" alt="" class="inline tooltip" data-tooltip-content="{{ LNG.op_dlte_account_descrip }}">
+		</form>
+	</div>
+</section>
 	</div>
 {% endblock %}
 {% block script %}{{ parent() }}

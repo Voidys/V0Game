@@ -1,50 +1,56 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_fleet }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_fleet, 'send', LNG.fl_fleet_sended) }}{% endblock %}
 {% block content %}
-<table>
-	<tr>
-		<th colspan="2" class="success">{{ LNG.fl_fleet_sended }}</th>
-	</tr>
-    <tr>
+<div class="grid-2 fleet-split">
+  <section class="panel">
+    {{ ui.panel_head(LNG.fl_fleet_sended) }}
+    <table class="data">
+      <tr>
         <td>{{ LNG.fl_mission }}</td>
-        <td>{{ LNG["type_mission_#{targetMission}"] }}</td>
-	</tr>
-    <tr>
+        <td class="num">{{ LNG["type_mission_#{targetMission}"] }}</td>
+      </tr>
+      <tr>
         <td>{{ LNG.fl_distance }}</td>
         <td class="num">{{ pretty_number(distance) }}</td>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <td>{{ LNG.fl_fleet_speed }}</td>
         <td class="num">{{ pretty_number(MaxFleetSpeed) }}</td>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <td>{{ LNG.fl_fuel_consumption }}</td>
         <td class="num">{{ pretty_number(consumption) }}</td>
-    </tr>
-    <tr>
+      </tr>
+      <tr>
         <td>{{ LNG.fl_from }}</td>
-        <td>{{ from }}</td>
-    </tr>
-    <tr>
+        <td class="num">{{ from }}</td>
+      </tr>
+      <tr>
         <td>{{ LNG.fl_destiny }}</td>
-        <td>{{ destination }}</td>
-    </tr>
-    <tr>
+        <td class="num">{{ destination }}</td>
+      </tr>
+      <tr>
         <td>{{ LNG.fl_arrival_time }}</td>
-        <td>{{ fleetStartTime }}</td>
-    </tr>
-    <tr>
+        <td class="num">{{ fleetStartTime }}</td>
+      </tr>
+      <tr>
         <td>{{ LNG.fl_return_time }}</td>
-        <td>{{ fleetEndTime }}</td>
-    </tr>
-    <tr>
-        <th colspan="2">{{ LNG.fl_fleet }}</th>
-    </tr>
-	{% for ShipID, ShipCount in FleetList %}
-	<tr>
-		<td>{{ LNG.tech[ShipID] }}</td>
-		<td class="num">{{ pretty_number(ShipCount) }}</td>
-	</tr>
-	{% endfor %}
-</table>
+        <td class="num">{{ fleetEndTime }}</td>
+      </tr>
+    </table>
+  </section>
+  <section class="panel">
+    {{ ui.panel_head(LNG.fl_fleet) }}
+    <table class="data">
+      {% for ShipID, ShipCount in FleetList %}
+      <tr>
+        <td>{{ LNG.tech[ShipID] }}</td>
+        <td class="num">{{ pretty_number(ShipCount) }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </section>
+</div>
 {% endblock %}

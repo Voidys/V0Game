@@ -7,10 +7,10 @@
   <base href="{{ basepath }}{{ app.request.attributes.get('uni') }}">
   {{ csrf_meta() }}
   <title>{% block title %} - {{ uni_name }} - {{ game_name }}{% endblock %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   {# versions all ES modules by mtime (imported modules carry no ?v=): App\\Twig\\GameExtension::importMap #}
   {{ import_map() }}
-  <meta name="theme-color" content="#05080d">
+  <meta name="theme-color" content="#0a0d11">
   {% if goto %}
     <meta http-equiv="refresh" content="{{ gotoinsec }};URL={{ goto }}">
   {% endif %}
@@ -18,20 +18,23 @@
   {# the wordmark font is used by every page (top bar): fetch it with the CSS instead of after the first layout #}
   <link rel="preload" href="./styles/resource/fonts/michroma/michroma-eu.woff2" as="font" type="font/woff2" crossorigin>
 
-  {# cascade layers: reset, base, legacy.content, legacy.theme, components; game.css (shell) stays unlayered #}
+  {# cascade layers (declared in base.css): reset, base, contract, theme, legacy.content, components, pages,
+     theme-extras, utilities; game.css (shell) stays unlayered. A theme only sets --theme-* tokens (docs/themes.md). #}
   <link rel="stylesheet" href="./styles/resource/css/app/base.css?v={{ asset_version }}">
+  <link rel="stylesheet" href="./styles/resource/css/app/theme-contract.css?v={{ asset_version }}">
+  <link rel="stylesheet" href="{{ themeCssPath }}?v={{ asset_version }}">
   <link rel="stylesheet" href="./styles/resource/css/app/rte.css?v={{ asset_version }}">
-  {# tables and forms of the content area: layout for every theme (layer "components", see the file header) #}
+  <style>@import url("./styles/resource/css/app/content.css?v={{ asset_version }}") layer(legacy.content);</style>
+  {# strict layout ruleset, then tables/forms and app components (all layer "components") #}
+  <link rel="stylesheet" href="./styles/resource/css/app/ui.css?v={{ asset_version }}">
   <link rel="stylesheet" href="./styles/resource/css/app/tables-forms.css?v={{ asset_version }}">
-  {# app-owned content components (forms, tables, controls) that no theme styles: also layer "components", after tables-forms #}
   <link rel="stylesheet" href="./styles/resource/css/app/components.css?v={{ asset_version }}">
   <link rel="stylesheet" href="./styles/resource/css/app/community.css?v={{ asset_version }}">
-  {# content components and the player's classic theme: sub-layers of "legacy", theme last (it overrides
-     content.css); base < legacy.content < legacy.theme < components < game.css #}
-  <style>
-    @import url("./styles/resource/css/app/content.css?v={{ asset_version }}") layer(legacy.content);
-    @import url("{{ themeCssPath }}?v={{ asset_version }}") layer(legacy.theme);
-  </style>
+  <link rel="stylesheet" href="./styles/resource/css/app/overlays.css?v={{ asset_version }}">
+  {# page groups (layer "pages"), one file per group of pages #}
+  {% for pageCss in ['overview', 'build', 'galaxy-fleet', 'messages-alliance', 'misc'] %}
+  <link rel="stylesheet" href="./styles/resource/css/app/pages/{{ pageCss }}.css?v={{ asset_version }}">
+  {% endfor %}
   <link rel="stylesheet" href="./styles/resource/css/app/game.css?v={{ asset_version }}">
   {# the player's signal colours win over theme and base styles. A colour still at its factory default is not
      emitted as a custom property: the theme may set --signal-* itself (fallbacks = the factory values) #}
@@ -44,9 +47,9 @@
       {% if sigNeg and sigNeg|lower != '#ff0000' %}--signal-negative: {{ sigNeg }};{% endif %}
       {% if sigNeu and sigNeu|lower != '#ffd600' %}--signal-neutral: {{ sigNeu }};{% endif %}
     }{% endif %}
-    .colorPositive { color: var(--signal-positive-local, var(--signal-positive, {{ sigPos|default('#3fbf6f') }})); }
-    .colorNegative { color: var(--signal-negative-local, var(--signal-negative, {{ sigNeg|default('#f05252') }})) !important; }
-    .colorNeutral { color: var(--signal-neutral-local, var(--signal-neutral, {{ sigNeu|default('#f0b429') }})); }
+    .colorPositive { color: var(--signal-positive-local, var(--signal-positive, var(--theme-pos))); }
+    .colorNegative { color: var(--signal-negative-local, var(--signal-negative, var(--theme-neg))) !important; }
+    .colorNeutral { color: var(--signal-neutral-local, var(--signal-neutral, var(--theme-warn))); }
   </style>
 
   {# server clock, language strings and flags for scripts/app/env.js (JSON, not executed: no inline script) #}
@@ -73,7 +76,22 @@
     numberSuffixes: numberSuffixes,
     viewShortlyNumber: shortlyNumber,
     vacation: vmode,
-    debug: debug == 1
+    debug: debug == 1,
+    ui: {
+      palette_placeholder: LNG.ui_palette_placeholder,
+      palette_empty: LNG.ui_palette_empty,
+      palette_pages: LNG.ui_palette_pages,
+      palette_planets: LNG.ui_palette_planets,
+      palette_go: LNG.ui_palette_go,
+      palette_galaxy: LNG.ui_palette_galaxy,
+      shortcuts_title: LNG.ui_shortcuts_title,
+      shortcuts_palette: LNG.ui_shortcuts_palette,
+      shortcuts_go_overview: LNG.ui_shortcuts_go_overview,
+      shortcuts_go_buildings: LNG.ui_shortcuts_go_buildings,
+      shortcuts_go_galaxy: LNG.ui_shortcuts_go_galaxy,
+      shortcuts_planets: LNG.ui_shortcuts_planets,
+      shortcuts_help: LNG.ui_shortcuts_help
+    }
   }) }}
 
   {# URLs the shared scripts (app/dialog.js, app/ui.js) open or post to: routes rendered here instead of built in JS #}

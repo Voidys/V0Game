@@ -711,6 +711,15 @@ document.addEventListener('modal:load', () => scavengers());
 
 window.onPageInit(() => {
   scavengers();
+  // phones: search, filters and bulk actions start collapsed (kept open while a search is active)
+  const tools = document.querySelector('.mail-tools');
+  if (tools && !tools.hasAttribute('data-keep-open') && window.matchMedia('(max-width: 40rem)').matches) tools.open = false;
+  // phones: the category row scrolls sideways; bring the active category into view (sideways only)
+  const cats = document.querySelector('.mail-cats');
+  const active = cats?.querySelector('.mail-cat.is-active');
+  if (cats && active && cats.scrollWidth > cats.clientWidth) {
+    cats.scrollLeft = active.offsetLeft - (cats.clientWidth - active.offsetWidth) / 2;
+  }
   for (const checkbox of document.querySelectorAll('input[name*="messageID"]')) {
     checkbox.addEventListener('change', () => {
       for (const same of document.querySelectorAll(`input[name="${checkbox.name}"]`)) {

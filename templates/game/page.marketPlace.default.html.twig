@@ -1,41 +1,27 @@
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_marketplace }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_marketplace, 'store', LNG.market_info_header) }}{% endblock %}
 {% block content %}
 
-<table class="market-table">
-	<tr>
-		<th colspan="2">
-			{{ LNG.market_info_header }}
-		</th>
-	</tr>
-	<tr>
+<section class="panel">
+	{{ ui.panel_head(LNG.market_info_header) }}
+	<div class="panel__body stack">
+		<div class="segmented market-tabs">
 		{% if isModuleAvailable(constant('MODULE_MARKET_TRADE')) and isModuleAvailable(constant('MODULE_MARKET_TRANSFER')) %}
-			<td>
-				<button id="resourceMBtn" class="marketOption selected">{{ LNG.market_tab_resources }}</button>
-			</td>
-			<td>
-				<button id="fleetMBtn" class="marketOption">{{ LNG.market_tab_fleets }}</button>
-			</td>
+			<button id="resourceMBtn" class="marketOption selected">{{ LNG.market_tab_resources }}</button>
+			<button id="fleetMBtn" class="marketOption">{{ LNG.market_tab_fleets }}</button>
 		{% elseif isModuleAvailable(constant('MODULE_MARKET_TRADE')) %}
-			<td colspan="2">
-				<button id="resourceMBtn" class="marketOption selected">{{ LNG.market_tab_resources }}</button>
-			</td>
+			<button id="resourceMBtn" class="marketOption selected">{{ LNG.market_tab_resources }}</button>
 		{% elseif isModuleAvailable(constant('MODULE_MARKET_TRANSFER')) %}
-			<td colspan="2">
-				<button id="fleetMBtn" class="marketOption selected">{{ LNG.market_tab_fleets }}</button>
-			</td>
+			<button id="fleetMBtn" class="marketOption selected">{{ LNG.market_tab_fleets }}</button>
 		{% endif %}
-	</tr>
-	<tr>
-		<td colspan="2">
-			<p>
-				{{ LNG.market_info_description }}
-			</p>
-		</td>
-	</tr>
+		</div>
+		<p>{{ LNG.market_info_description }}</p>
+	</div>
+</section>
 
-</table>
-
+<section class="panel panel--flush">
 <table class="ratio-ref form-table">
 	<tr class="ratio">
 		<td>{{ LNG.market_ratio_label }}<span class="hint">{{ LNG.market_ratio_hint }}</span></td>
@@ -66,26 +52,19 @@
 		</td>
 	</tr>
 </table>
+</section>
 
 {% if message %}
-<table class="market-table">
-	<tr>
-		<th>
-			{{ LNG.fcm_info }}
-		</th>
-	</tr>
-	<tr>
-		<td>
-			{{ message }}
-		</td>
-	</tr>
-</table>
+<section class="panel">
+	{{ ui.panel_head(LNG.fcm_info) }}
+	<div class="panel__body">{{ message }}</div>
+</section>
 {% endif %}
 
-<br/><br/>
-<div id="resourceMarketBox" hidden>
+<div id="resourceMarketBox" class="stack" hidden>
+<section class="panel panel--flush">{{ ui.panel_head(LNG.market_tab_resources) }}
 <div class="table-scroll">
-<table id="tradeList" class="market-list" data-sortable>
+<table id="tradeList" class="market-list data" data-sortable>
 	<thead>
 		<tr>
 			<th class="num">{{ LNG.market_p_cost_amount }}</th>
@@ -157,10 +136,11 @@
 	</tbody>
 </table>
 </div>
-<hr>
+</section>
 
+<section class="panel panel--flush">
 <div class="table-scroll">
-<table id="resourceHistoryList" class="market-list" data-sortable>
+<table id="resourceHistoryList" class="market-list data" data-sortable>
 	<thead>
 		<tr>
 			<th>{{ LNG.tkb_datum }}</th>
@@ -203,11 +183,13 @@
 	</tbody>
 </table>
 </div>
+</section>
 
 </div>
-<div id="fleetMarketBox" hidden>
+<div id="fleetMarketBox" class="stack" hidden>
+<section class="panel panel--flush">{{ ui.panel_head(LNG.market_tab_fleets) }}
 <div class="table-scroll">
-<table id="tradeFleetList" class="market-list" data-sortable>
+<table id="tradeFleetList" class="market-list data" data-sortable>
 	<thead>
 		<tr>
 			<th>{{ LNG['market_fleet'] }}</th>
@@ -269,10 +251,11 @@
 	</tbody>
 </table>
 </div>
-<hr/>
+</section>
 
+<section class="panel panel--flush">
 <div class="table-scroll">
-<table id="fleetHistoryList" class="market-list" data-sortable>
+<table id="fleetHistoryList" class="market-list data" data-sortable>
 	<thead>
 		<tr>
 			<th>{{ LNG.tkb_datum }}</th>
@@ -304,6 +287,7 @@
 	</tbody>
 </table>
 </div>
+</section>
 
 </div>
 {% endblock %}

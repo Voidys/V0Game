@@ -1,0 +1,150 @@
+/*
+ * Theme contract (game area). A theme (styles/theme/<name>/theme.css) only sets the --theme-* variables below,
+ * plus fonts and an optional short "theme-extras" layer. Everything else (layout, spacing, components) reads the
+ * derived tokens defined here, so every theme gets the same strict layout. Defaults = the V0Game theme.
+ *
+ * Layer "contract" sits above "base" (shared defaults of base.css, also used by admin/account) and below "theme",
+ * so a theme's :root values win over these defaults. Guide: docs/themes.md.
+ */
+@layer contract {
+  :root {
+    color-scheme: dark;
+
+    /* ---------------------------------------------------------------- the contract (theme sets these) */
+    /* ground */
+    --theme-bg: #06080b;
+    --theme-bg-2: #0a0d11;
+    --theme-bg-size: cover;            /* size of the page background image (set by the theme: body rule) */
+    /* surfaces */
+    --theme-panel: #0d1116;
+    --theme-raised: #131921;
+    --theme-hover: #18202a;
+    /* lines */
+    --theme-line: #1b232d;
+    --theme-line-strong: #2a3542;
+    --theme-field-line: #4a5a6c;       /* input borders, ≥ 3:1 against panel */
+    /* text */
+    --theme-text: #e2e7ed;
+    --theme-muted: #97a4b3;
+    /* accent: marks state only (current item, badges, focus, primary button, progress) */
+    --theme-accent: #2fbf71;
+    --theme-accent-ink: #03130a;       /* text on accent */
+    --theme-link: #9fe0bd;
+    /* signals */
+    --theme-pos: #6fdc9b;
+    --theme-neg: #ff6b6b;
+    --theme-warn: #f0b84c;
+    --theme-info: #6cb6ff;
+    /* type */
+    --theme-font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --theme-font-display: var(--theme-font-ui);   /* page titles (h1) */
+    --theme-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    /* shape: one radius for panels, controls and badges (0–4px; planets, avatars and dots stay round) */
+    --theme-radius: 2px;
+    /* shell surfaces (optional) */
+    --theme-topbar-bg: color-mix(in oklab, var(--theme-bg-2) 92%, transparent);
+    --theme-sidebar-bg: transparent;
+
+    /* ---------------------------------------------------------------- derived (do not set in themes) */
+    --tint: color-mix(in oklab, var(--theme-accent) 13%, transparent);
+    --tint-neg: color-mix(in oklab, var(--theme-neg) 10%, transparent);
+
+    /* shared tokens of base.css / content.css */
+    --c-bg: var(--theme-bg);
+    --c-bg-2: var(--theme-bg-2);
+    --c-panel: var(--theme-panel);
+    --c-panel-2: var(--theme-raised);
+    --c-border: var(--theme-line);
+    --c-border-strong: var(--theme-line-strong);
+    --c-text: var(--theme-text);
+    --c-muted: var(--theme-muted);
+    --c-accent: var(--theme-accent);
+    --c-accent-ink: var(--theme-accent-ink);
+    --c-accent-soft: var(--tint);
+    --c-link: var(--theme-link);
+    --c-positive: var(--theme-pos);
+    --c-negative: var(--theme-neg);
+    --c-danger: var(--theme-neg);
+    --c-warning: var(--theme-warn);
+    --c-info: var(--theme-info);
+    --font: var(--theme-font-ui);
+    --font-mono: var(--theme-font-mono);
+    --focus-color: var(--theme-accent);
+    --shadow: 0 1.25rem 3rem rgb(0 0 0 / 0.55);
+
+    /* one radius everywhere */
+    --r: var(--theme-radius);
+    --radius: var(--theme-radius);
+    --radius-sm: var(--theme-radius);
+    --radius-xs: var(--theme-radius);
+    --pill-radius: var(--theme-radius);
+    --btn-radius: var(--theme-radius);
+    --nav-link-radius: var(--theme-radius);
+
+    /* strict layout scale (ui.css) */
+    --space-1: 0.25rem;  /*  4 */
+    --space-2: 0.5rem;   /*  8 */
+    --space-3: 0.75rem;  /* 12 */
+    --space-4: 1rem;     /* 16 */
+    --space-5: 1.5rem;   /* 24 */
+    --space-6: 2rem;     /* 32 */
+    --space-7: 3rem;     /* 48 */
+    --space-8: 4rem;     /* 64 */
+    --gap: var(--space-4);
+    --pad: var(--space-4);
+    --row-h: 2.5rem;
+    --control-h: 2.125rem;
+    --control-h-sm: 1.75rem;
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.8125rem;
+    --fs-md: 0.875rem;
+    --fs-lg: 1rem;
+    --fs-xl: 1.25rem;
+    --fs-2xl: 1.5rem;
+
+    /* motion */
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: linear(0, 0.5 7%, 0.86 15%, 1.02 24%, 1.04 30%, 1.01 42%, 1);
+    --t-fast: 140ms;
+    --t-med: 240ms;
+    --t-slow: 420ms;
+
+    /* shell */
+    --shell-max: 100rem;
+    --shell-gutter: max(1rem, (100% - var(--shell-max)) / 2 + 1rem);
+    --shell-bar-bg: var(--theme-topbar-bg);
+    --shell-side-bg: var(--theme-sidebar-bg);
+    --shell-line: var(--theme-line);
+    --shell-bar-shadow: none;
+    --nav-active-bg: var(--tint);
+    --nav-active-fg: var(--theme-text);
+    --nav-active-icon: var(--theme-accent);
+    --nav-link-border: transparent;
+    --nav-link-align: start;
+    --nav-link-gap: 0;
+    --nav-icon-display: inline-block;
+
+    /* modal */
+    --modal-bg: var(--theme-panel);
+    --modal-border: var(--theme-line-strong);
+    --modal-fg: var(--theme-text);
+
+    /* buttons */
+    --btn-bg: var(--theme-raised);
+    --btn-fg: var(--theme-text);
+    --btn-border: var(--theme-line-strong);
+    --btn-hover-bg: var(--theme-hover);
+    --btn-hover-border: color-mix(in oklab, var(--theme-line-strong) 60%, var(--theme-text));
+    --btn-shadow: none;
+    --btn-selected: var(--theme-accent);
+
+    /* state */
+    --progress-fill: var(--theme-accent);
+    --progress-track: var(--theme-line);
+    --galaxy-pos-own: var(--theme-accent);
+    --galaxy-pos-taken: var(--theme-muted);
+    --galaxy-pos-free: var(--theme-pos);
+    --galaxy-pos-blocked: var(--theme-neg);
+  }
+}

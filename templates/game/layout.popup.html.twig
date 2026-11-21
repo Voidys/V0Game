@@ -3,5 +3,5 @@
 {% block bodyclass %}layout layout--popup popup{% endblock %}
 
 {% block body %}
-<main class="content content--popup" id="content">{% block content %}{% endblock %}</main>
+<main class="content content--popup" id="content">{% block pagehead %}{% endblock %}{% block content %}{% endblock %}</main>
 {% endblock %}

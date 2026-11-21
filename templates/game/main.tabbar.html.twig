@@ -1,19 +1,13 @@
-{# Phone tab bar (<= 40rem, see game.css): the four core pages plus "Menu" which opens the drawer; labels are existing menu strings. #}
-{% set tabPage = (app.request.attributes.get('_page') ?: app.request.query.get('page')|default('overview'))|lower %}
-{% macro tab(href, iconName, label, active) %}
-  <a class="tabbar__tab" href="{{ href }}"{% if active %} aria-current="page"{% endif %}>{{ icon(iconName) }}<span>{{ label }}</span></a>
-{% endmacro %}
-{% import _self as t %}
-<nav class="tabbar" aria-label="{{ LNG.ui_menu|default('Menu') }}">
-  {{ t.tab(path('game_overview_show'), 'layout-dashboard', LNG.lm_overview, tabPage in ['overview', 'tutorial']) }}
-  {% if isModuleAvailable(constant('MODULE_BUILDING')) %}
-    {{ t.tab(path('game_buildings_show'), 'building-2', LNG.lm_buildings, tabPage == 'buildings') }}
-  {% endif %}
-  {% if isModuleAvailable(constant('MODULE_GALAXY')) and (not noobInterface or not tutorial or tutorial['id'] >= 7) %}
-    {{ t.tab(path('game_galaxy_show'), 'orbit', LNG.lm_galaxy, tabPage == 'galaxy') }}
-  {% endif %}
-  {% if not noobInterface or not tutorial or tutorial['id'] > 6 %}
-    {{ t.tab(path('game_fleet_table_show'), 'send', LNG.lm_fleet, tabPage starts with 'fleet' and tabPage != 'fleetdealer') }}
-  {% endif %}
-  <button type="button" class="tabbar__tab" data-sidebar-toggle aria-controls="sidebar" aria-expanded="false">{{ icon('menu') }}<span>{{ LNG.ui_menu|default('Menu') }}</span></button>
+{# Phones: bottom tab bar in thumb reach (game.css, shown ≤ 60rem). The last tab opens the menu as a bottom sheet. #}
+{% set tbPage = (app.request.attributes.get('_page') ?: 'overview')|lower %}
+{% set tbAlerts = (new_message|default(0)) + (new_allyrequests|default(0)) + (new_buddyrequests|default(0)) %}
+<nav class="tabbar" aria-label="{{ LNG.ui_menu }}">
+  <a class="tabbar__item" href="{{ path('game_overview_show') }}"{% if tbPage in ['overview', 'tutorial'] %} aria-current="page"{% endif %}>{{ icon('layout-dashboard') }}<span>{{ LNG.lm_overview }}</span></a>
+  <a class="tabbar__item" href="{{ path('game_buildings_show') }}"{% if tbPage in ['buildings', 'research', 'shipyard', 'repairdock', 'techtree'] %} aria-current="page"{% endif %}>{{ icon('building-2') }}<span>{{ LNG.lm_buildings }}</span></a>
+  <a class="tabbar__item" href="{{ path('game_galaxy_show') }}"{% if tbPage == 'galaxy' %} aria-current="page"{% endif %}>{{ icon('galaxy') }}<span>{{ LNG.lm_galaxy }}</span></a>
+  <a class="tabbar__item" href="{{ path('game_fleet_table_show') }}"{% if tbPage starts with 'fleet' and tbPage != 'fleetdealer' %} aria-current="page"{% endif %}>{{ icon('send') }}<span>{{ LNG.lm_fleet }}</span></a>
+  <button type="button" class="tabbar__item" data-sidebar-toggle aria-controls="sidebar" aria-expanded="false">
+    {{ icon('menu') }}<span>{{ LNG.ui_menu }}</span>
+    {% if tbAlerts > 0 %}<b class="tabbar__badge">{{ tbAlerts > 99 ? '99+' : tbAlerts }}</b>{% endif %}
+  </button>
 </nav>

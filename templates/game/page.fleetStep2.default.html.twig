@@ -1,179 +1,158 @@
 {% import '_macros/forms.html.twig' as forms -%}
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_fleet }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_fleet, 'send', '[' ~ galaxy ~ ':' ~ system ~ ':' ~ planet ~ '] ' ~ LNG["type_planet_#{type}"]) }}{% endblock %}
 {% block content %}
 {% set backQuery = {galaxy: galaxy, system: system, planet: planet, type: type, target_mission: mission} %}
 {% for shipId, shipCount in FleetList %}{% set backQuery = backQuery|merge({('ship' ~ shipId): shipCount}) %}{% endfor %}
 {% include 'game/shared.fleetSummary.html.twig' with {changeTargetUrl: path('game_fleet_step1_show', backQuery)} %}
-<form action="{{ path('game_fleet_step3_show') }}" method="post" data-on-submit="check-resources" id="form" class="form-page">
+<form action="{{ path('game_fleet_step3_show') }}" method="post" data-on-submit="check-resources" id="form" class="form-page stack">
 <input type="hidden" name="token" value="{{ token }}">
 {% if Exchange %}
 <input type="hidden" name="metal" value="">
 <input type="hidden" name="crystal" value="">
 <input type="hidden" name="deuterium" value="">
 {% endif %}
-   	<table>
-        <tr>
-        	<th colspan="2">{{ galaxy }}:{{ system }}:{{ planet }} - {{ LNG["type_planet_#{type}"] }}</th>
-        </tr>
-		<tr>
-			<th>{{ LNG.fl_mission }}</th>
-        	<th>{{ LNG.fl_resources }}</th>
-        </tr>
-		<tr>
-			<td class="left top w-50 p-0"{% if StaySelector %} rowspan="{% if Exchange %}6{% else %}5{% endif %}"{% endif %}>
-        <div class="mission-list">
-          {% for MissionID in MissionSelector %}
-          <div class="mission-option">
-            <input id="radio_{{ MissionID }}" type="radio" name="mission" value="{{ MissionID }}" {% if mission == MissionID or loop.length == 1 %}checked="checked"{% endif %} data-on-change="check-hold" data-mission="{{ MissionID }}" class="fleet-radio"><label for="radio_{{ MissionID }}">{{ LNG["type_mission_#{MissionID}"] }}</label>
-            {% if MissionID == 17 %}<div class="fleet-alert">{{ LNG.fl_transfer_alert_message }}</div>{% endif %}
-            {% if MissionID == 15 %}<div class="fleet-alert">{{ LNG.fl_expedition_alert_message }}</div>{% endif %}
-          </div>
-          {% endfor %}
-          {% if Exchange %}
-          <div class="mission-option fleet-noreturn fleet-warning">{{ LNG.market_info_no_return }}</div>
-          {% endif %}
+  <div class="grid-2 fleet-split">
+    <section class="panel">
+      {{ ui.panel_head(LNG.fl_mission) }}
+      <div class="mission-list">
+        {% for MissionID in MissionSelector %}
+        <div class="mission-option">
+          <input id="radio_{{ MissionID }}" type="radio" name="mission" value="{{ MissionID }}" {% if mission == MissionID or loop.length == 1 %}checked="checked"{% endif %} data-on-change="check-hold" data-mission="{{ MissionID }}" class="fleet-radio"><label for="radio_{{ MissionID }}">{{ LNG["type_mission_#{MissionID}"] }}</label>
+          {% if MissionID == 17 %}<div class="fleet-alert">{{ LNG.fl_transfer_alert_message }}</div>{% endif %}
+          {% if MissionID == 15 %}<div class="fleet-alert">{{ LNG.fl_expedition_alert_message }}</div>{% endif %}
         </div>
-      </td>
-      <td class="top">
-				<table>
-          {% if Exchange %}
-          <tr id="tradeOfferRow">
-            <td class="transparent">
-              <select name="resOffer">
-                <option value="1" selected>{{ LNG.tech[901] }}</option>
-                <option value="2">{{ LNG.tech[902] }}</option>
-                <option value="3">{{ LNG.tech[903] }}</option>
+        {% endfor %}
+        {% if Exchange %}
+        <div class="mission-option fleet-noreturn fleet-warning">{{ LNG.market_info_no_return }}</div>
+        {% endif %}
+      </div>
+      {% if StaySelector %}
+      <div class="panel__body fleet-stay">
+        <span id="stay_head">{{ LNG.fl_hold_time }}</span>
+        <span id="stay">{{ forms.html_options({'name': 'staytime', 'options': StaySelector}) }} {{ LNG.fl_hours }}</span>
+      </div>
+      {% endif %}
+    </section>
+    <section class="panel">
+      {{ ui.panel_head(LNG.fl_resources) }}
+      <table class="data">
+        {% if Exchange %}
+        <tr id="tradeOfferRow">
+          <td>
+            <select name="resOffer">
+              <option value="1" selected>{{ LNG.tech[901] }}</option>
+              <option value="2">{{ LNG.tech[902] }}</option>
+              <option value="3">{{ LNG.tech[903] }}</option>
+            </select>
+          </td>
+          <td class="num"><span class="control-group"><a href="#" data-action="max-trade-offer">{{ LNG.fl_max }}</a> <input id="tradeOfferAmount" type="number" class="fleet-amount num"></span></td>
+        </tr>
+        {% else %}
+        <tr>
+          <td>{{ LNG.tech[901] }}</td>
+          <td class="num"><span class="control-group"><a href="#" data-action="max-resource" data-resource="metal">{{ LNG.fl_max }}</a> <input name="metal" data-on-change="calc-capacity" type="number" class="fleet-amount num"></span></td>
+        </tr>
+        <tr>
+          <td>{{ LNG.tech[902] }}</td>
+          <td class="num"><span class="control-group"><a href="#" data-action="max-resource" data-resource="crystal">{{ LNG.fl_max }}</a> <input name="crystal" data-on-change="calc-capacity" type="number" class="fleet-amount num"></span></td>
+        </tr>
+        <tr>
+          <td>{{ LNG.tech[903] }}</td>
+          <td class="num"><span class="control-group"><a href="#" data-action="max-resource" data-resource="deuterium">{{ LNG.fl_max }}</a> <input name="deuterium" data-on-change="calc-capacity" type="number" class="fleet-amount num"></span></td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td>{{ LNG.fl_resources_left }}</td>
+          <td class="num" id="remainingresources">-</td>
+        </tr>
+        {% if not Exchange %}
+        <tr>
+          <td colspan="2"><a href="#" data-action="max-resources">{{ LNG.fl_all_resources }}</a></td>
+        </tr>
+        {% endif %}
+        <tr id="selectedResRow"{% if not (predefinedRes['met'] ~ predefinedRes['krist'] ~ predefinedRes['deut'] matches '/[1-9]/') %} hidden{% endif %}>
+          <td colspan="2"><a id="selectedres" href="#" data-action="selected-resources" data="{{ predefinedRes['met'] }},{{ predefinedRes['krist'] }},{{ predefinedRes['deut'] }},{{ consumption }}">{{ LNG.fl_selected_resources }}</a></td>
+        </tr>
+        <tr>
+          <td>{{ LNG.fl_fuel_consumption }}</td>
+          <td class="num"><span id="consumption" class="consumption">{{ consumption }}</span></td>
+        </tr>
+        <tr>
+          <td>{{ LNG.fl_flying_arrival }}</td>
+          <td class="num"><span id="arr_time" duration="{{ duration }}"></span></td>
+        </tr>
+        <tr>
+          <td>{{ LNG.fl_return_home }}</td>
+          <td class="num"><span id="ret_time"></span></td>
+        </tr>
+      </table>
+    </section>
+  </div>
+  {% if Exchange %}
+  <div class="grid-2 fleet-split">
+    <section class="panel">
+      {{ ui.panel_head(LNG.fl_exchange) }}
+      <table class="form-table">
+        <tr>
+          <td>{{ LNG.market_p_cost_type }}</td>
+          <td>
+            <select name="resEx">
+              <option value="1">{{ LNG.tech[901] }}</option>
+              <option value="2" selected>{{ LNG.tech[902] }}</option>
+              <option value="3">{{ LNG.tech[903] }}</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>{{ LNG.market_p_cost_amount }}</td>
+          <td><input name="exchange" type="number" class="fleet-amount num"></td>
+        </tr>
+        <tr>
+          <td>{{ LNG.market_p_ratio }}</td>
+          <td id="tradeRelativeRatio">-</td>
+        </tr>
+      </table>
+    </section>
+    <section class="panel">
+      <div class="panel__body">
+        <table class="form-table">
+          <tr>
+            <td>{{ LNG.fl_visibility }}</td>
+            <td>
+              <select name="visibility">
+                <option value="2" selected>{{ LNG.fl_visibility_no_enemies }}</option>
+                <option value="1">{{ LNG.fl_visibility_alliance }}</option>
+                <option value="0">{{ LNG.fl_visibility_all }}</option>
               </select>
             </td>
-            <td class="transparent num"><span class="control-group"><a href="#" data-action="max-trade-offer">{{ LNG.fl_max }}</a> <input id="tradeOfferAmount" type="number" class="fleet-amount"></span></td>
-          </tr>
-          {% else %}
-          <tr>
-            <td class="transparent">{{ LNG.tech[901] }}</td>
-            <td class="transparent num"><span class="control-group"><a href="#" data-action="max-resource" data-resource="metal">{{ LNG.fl_max }}</a> <input name="metal" data-on-change="calc-capacity" type="number" class="fleet-amount"></span></td>
           </tr>
           <tr>
-            <td class="transparent">{{ LNG.tech[902] }}</td>
-            <td class="transparent num"><span class="control-group"><a href="#" data-action="max-resource" data-resource="crystal">{{ LNG.fl_max }}</a> <input name="crystal" data-on-change="calc-capacity" type="number" class="fleet-amount"></span></td>
+            <td>{{ LNG.fl_market_type }}</td>
+            <td>
+              <select name="markettype">
+                {% if isModuleAvailable(constant('MODULE_MARKET_TRADE')) and isModuleAvailable(constant('MODULE_MARKET_TRANSFER')) %}
+                  <option value="0" selected>{{ LNG.fl_mt_resources }}</option>
+                  <option value="1">{{ LNG.fl_mt_fleet }}</option>
+                {% elseif isModuleAvailable(constant('MODULE_MARKET_TRADE')) %}
+                  <option value="0" selected>{{ LNG.fl_mt_resources }}</option>
+                {% elseif isModuleAvailable(constant('MODULE_MARKET_TRANSFER')) %}
+                  <option value="1" selected>{{ LNG.fl_mt_fleet }}</option>
+                {% endif %}
+              </select>
+            </td>
           </tr>
-          <tr>
-            <td class="transparent">{{ LNG.tech[903] }}</td>
-            <td class="transparent num"><span class="control-group"><a href="#" data-action="max-resource" data-resource="deuterium">{{ LNG.fl_max }}</a> <input name="deuterium" data-on-change="calc-capacity" type="number" class="fleet-amount"></span></td>
-          </tr>
-          {% endif %}
-          <tr>
-            <td class="transparent">{{ LNG.fl_resources_left }}</td>
-            <td class="transparent num" id="remainingresources">-</td>
-          </tr>
-          {% if not Exchange %}
-          <tr>
-            <td class="transparent" colspan="2"><a href="#" data-action="max-resources">{{ LNG.fl_all_resources }}</a></td>
-          </tr>
-          {% endif %}
-          <tr id="selectedResRow"{% if not (predefinedRes['met'] ~ predefinedRes['krist'] ~ predefinedRes['deut'] matches '/[1-9]/') %} hidden{% endif %}>
-            <td class="transparent" colspan="2"><a  id="selectedres" href="#" data-action="selected-resources" data="{{ predefinedRes['met'] }},{{ predefinedRes['krist'] }},{{ predefinedRes['deut'] }},{{ consumption }}">{{ LNG.fl_selected_resources }}</a></td>
-          </tr>
-          <tr>
-            <td class="transparent" colspan="2">{{ LNG.fl_fuel_consumption }}: <span id="consumption" class="consumption">{{ consumption }}</span></td>
-          </tr>
-          <tr>
-            <td class="transparent" colspan="2">{{ LNG.fl_flying_arrival }}: <span id="arr_time" duration="{{ duration }}"></span></td>
-          </tr>
-          <tr>
-            <td class="transparent" colspan="2">{{ LNG.fl_return_home }}: <span id="ret_time"></span></td>
-          </tr>
-				</table>
-			</td>
-		</tr>
-		{% if Exchange %}
-		<tr>
-			<th colspan="2">{{ LNG.fl_exchange }}</th>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<table class="form-table">
-				<tr class="no-border">
-					<td>{{ LNG.market_p_cost_type }}</td>
-					<td>{{ LNG.market_p_cost_amount }}</td>
-				</tr>
-				<tr class="no-border">
-					<td>
-						<select name="resEx">
-							<option value="1">{{ LNG.tech[901] }}</option>
-							<option value="2" selected>{{ LNG.tech[902] }}</option>
-							<option value="3">{{ LNG.tech[903] }}</option>
-						</select>
-					</td>
-					<td>
-						<input name="exchange" type="number" class="fleet-amount">
-					</td>
-				</tr>
-				<tr class="no-border">
-					<td>{{ LNG.market_p_ratio }}</td>
-					<td id="tradeRelativeRatio">-</td>
-				</tr>
-			</table>
-			<!--
-			Max flight time (0 = unlimited):
-			<input name="maxFlightTime" type="text" value="0"> hours<br/>
-			-->
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<table class="form-table">
-				<tr class="no-border">
-					<td>
-						{{ LNG.fl_visibility }}
-					</td>
-					<td>
-						<select name="visibility">
-							<option value="2" selected>{{ LNG.fl_visibility_no_enemies }}</option>
-							<option value="1">{{ LNG.fl_visibility_alliance }}</option>
-							<option value="0">{{ LNG.fl_visibility_all }}</option>
-						</select>
-					</td>
-				</tr>
-				<tr class="no-border">
-					<td>
-						{{ LNG.fl_market_type }}
-					</td>
-					<td>
-						<select name="markettype">
-							{% if isModuleAvailable(constant('MODULE_MARKET_TRADE')) and isModuleAvailable(constant('MODULE_MARKET_TRANSFER')) %}
-								<option value="0" selected>{{ LNG.fl_mt_resources }}</option>
-								<option value="1">{{ LNG.fl_mt_fleet }}</option>
-							{% elseif isModuleAvailable(constant('MODULE_MARKET_TRADE')) %}
-								<option value="0" selected>{{ LNG.fl_mt_resources }}</option>
-							{% elseif isModuleAvailable(constant('MODULE_MARKET_TRANSFER')) %}
-								<option value="1" selected>{{ LNG.fl_mt_fleet }}</option>
-							{% endif %}
-						</select>
-					</td>
-				</tr>
-				</table>
-			</td>
-		</tr>
-		{% endif %}
-
-		{% if StaySelector %}
-		<tr id="stay_head">
-			<th>{{ LNG.fl_hold_time }}</th>
-		</tr>
-		<tr id="stay">
-			<td>
-			{{ forms.html_options({'name': 'staytime', 'options': StaySelector}) }} {{ LNG.fl_hours }}
-			</td>
-		</tr>
-		{% endif %}
-        <tr id="submit">
-			<td colspan="2" class="form-actions"><span class="reason reason--bad" id="send-notice" role="alert" hidden></span><a class="btn-back" href="{{ path('game_fleet_step1_show', backQuery) }}">{{ icon('arrow-left') }}{{ LNG.sys_back }}</a><input value="{{ LNG.fl_send_fleet }}" type="submit" data-action="send-fleet" class="btn-send"/></td>
-        </tr>
-		<tr id="wait" style="display:none;">
-			<td colspan="2" class="ctr">{{ LNG.fl_sending }}</td>
-		</tr>
-    </table>
+        </table>
+      </div>
+    </section>
+  </div>
+  {% endif %}
+  <div class="panel fleet-dock">
+    <footer class="panel__foot" id="submit"><span class="reason reason--bad" id="send-notice" role="alert" hidden></span><a class="btn-back" href="{{ path('game_fleet_step1_show', backQuery) }}">{{ icon('arrow-left') }}{{ LNG.sys_back }}</a><input value="{{ LNG.fl_send_fleet }}" type="submit" data-action="send-fleet" class="btn-send"></footer>
+    <footer class="panel__foot" id="wait" style="display:none;">{{ LNG.fl_sending }}</footer>
+  </div>
 </form>
 {% endblock %}
 {% block script %}{{ parent() }}

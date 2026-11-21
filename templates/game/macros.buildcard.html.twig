@@ -1,15 +1,54 @@
-{# Shared pieces of the build cards (buildings, research, hangar, defense): cost chips, "why not" lines, build time. #}
+{#
+  Build cards (buildings, research, hangar, defense) and their shared pieces. Layout: ui-layout.md + pages/build.css.
+  A card is assembled by the page: card(ID, Element, o) with the slots chip / sub / extra / note / tools / action
+  built by the caller ({% set x %}...{% endset %} blocks are Markup, so they are not escaped twice).
+#}
 
-{# One nowrap chip per resource; deficits in the negative colour. Hidden entirely by the caller at max level. #}
-{% macro costs(Element) %}
-  <div class="cost-list">
-    {% for RessID, RessAmount in Element.costResources %}
-      <span class="cost"><a href="#" data-action="dialog-info" data-id="{{ RessID }}" class="tooltip" {{ tooltip(include('game/tooltip.element.html.twig', {id: RessID})) }}>{{ LNG.tech[RessID] }}</a>: <b class="{% if Element.costOverflow[RessID] == 0 %}colorPositive{% else %}colorNegative{% endif %}">{{ pretty_number(RessAmount) }}</b></span>
-    {% endfor %}
-  </div>
+{# Page head on the shared ui.page_head block; meta = "planet · 12 / 163 fields". #}
+{% macro pagehead(title, iconName, meta = null) %}
+  {% import '_macros/ui.html.twig' as ui %}
+  {{ ui.page_head(title, iconName, meta) }}
 {% endmacro %}
 
-{# Greyed-out build button under a "why not" line: every card keeps its action, it just cannot be pressed (label = the build button text). #}
+{# Name of the current planet / moon from the shell's planetList (empty string when unknown). #}
+{% macro planetname(planetList) %}
+  {% set cur = null %}
+  {% for p in planetList|default([]) %}{% if p.current %}{% set cur = p %}{% elseif p.moon and p.moon.current %}{% set cur = p.moon %}{% endif %}{% endfor %}
+  {{- cur ? cur.name : '' -}}
+{% endmacro %}
+
+{# "14:32" for a timestamp in the player's time zone, with the date when it is not today. #}
+{% macro clock(timestamp) %}
+  {% set tz = TIMEZONESTRING|default('UTC') %}
+  {{- timestamp|date(timestamp|date('Ymd', tz) == 'now'|date('Ymd', tz) ? 'H:i' : 'd.m. H:i', tz) -}}
+{% endmacro %}
+
+{# Cost tiles: one per resource; a missing amount is shown in the negative colour under the value, with the details as tip. #}
+{% macro costs(Element) %}
+  {% set resNames = {901: 'metal', 902: 'crystal', 903: 'deuterium', 911: 'energy', 921: 'darkmatter'} %}
+  <dl class="cost-grid">
+    {% for RessID, RessAmount in Element.costResources %}
+      {% set missing = Element.costOverflow[RessID]|default(0) %}
+      {% set tip = LNG.tech[RessID] ~ ': ' ~ pretty_number(RessAmount) %}
+      {% if missing > 0 %}{% set tip = tip ~ ' · ' ~ LNG.bd_available|trim ~ ' ' ~ pretty_number(RessAmount - missing) ~ ' · ' ~ LNG.bd_missing ~ ' ' ~ pretty_number(missing) %}{% endif %}
+      <div{% if missing > 0 %} class="is-short"{% endif %} data-tip="{{ tip }}" aria-label="{{ tip }}">
+        <dt><a href="#" data-action="dialog-info" data-id="{{ RessID }}" aria-label="{{ LNG.tech[RessID] }}">{% if resNames[RessID] is defined %}<img class="cost-icon" src="{{ theme_asset('images/' ~ resNames[RessID] ~ '.gif') }}" alt="" width="20" height="20">{% else %}{{ LNG.tech[RessID] }}{% endif %}</a></dt>
+        <dd>{{ compact_number(RessAmount) }}{% if missing > 0 %}<small>&minus;{{ compact_number(missing) }}</small>{% endif %}</dd>
+      </div>
+    {% endfor %}
+  </dl>
+{% endmacro %}
+
+{# Requirement tags (all of them, met ones in the positive colour): "Research Lab 3/5". #}
+{% macro reqs(requirements) %}
+  <ul class="card__reqs" aria-label="{{ LNG.tt_requirements }}">
+    {% for requireID, NeedLevel in requirements %}
+      <li><a href="#" class="tag {% if NeedLevel.own < NeedLevel.count %}tag--neg{% else %}tag--pos{% endif %}" data-action="dialog-info" data-id="{{ requireID }}">{{ LNG.tech[requireID] }} {{ NeedLevel.own }}/{{ NeedLevel.count }}</a></li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{# Greyed-out build button: every card keeps its action, it just cannot be pressed (label = the build button text). #}
 {% macro locked(label) %}
   <button type="button" class="build_submit build_submit--locked" disabled>{{ label }}</button>
 {% endmacro %}
@@ -22,28 +61,50 @@
   </span>
 {% endmacro %}
 
-{# "Missing: Metal 120, Energy 898" (only what is really missing) plus the "buildable in" countdown when it can be computed. #}
+{# Not affordable: the "buildable in" countdown when it can be computed, otherwise the "missing resources" line. #}
 {% macro missing(Element) %}
-  {% set names = [] %}
-  {% for ResType, ResCount in Element.costOverflow %}{% if ResCount != 0 %}{% set names = names|merge([LNG.tech[ResType] ~ ' ' ~ pretty_number(ResCount)]) %}{% endif %}{% endfor %}
-  <span class="reason reason--bad">{% if names %}{{ LNG.bd_missing }}: {{ names|join(', ') }}{% else %}{{ LNG.bd_remaining }}{% endif %}</span>
-  {% if Element.timetobuild is defined and Element.timetobuild != 0 %}<span class="hint">{{ LNG.whenbuildable }}: <span class="buildcountdown bold" timestamp="{{ Element.timetobuild }}"></span></span>{% endif %}
+  {% if Element.timetobuild is defined and Element.timetobuild != 0 %}
+    <span class="hint">{{ LNG.whenbuildable }}: <span class="buildcountdown bold" timestamp="{{ Element.timetobuild }}"></span></span>
+  {% else %}
+    <span class="reason reason--bad">{{ LNG.bd_remaining }}</span>
+  {% endif %}
 {% endmacro %}
 
 {# "Time: 34m 35s" (the language strings differ in whether they carry a colon). #}
 {% macro time(seconds) %}<span class="build-time">{{ LNG.fgf_time|trim|trim(':')|trim }}: <span class="statictime" timestamp="{{ seconds }}"></span></span>{% endmacro %}
 
-{# Phone page head (layout.full block pagehead, shown <= 40rem only): title, plus the running queue entry with its countdown when there is one. #}
-{% macro pagehead(title, iconName, queue) %}
-  <div class="page-head">
-    <h1 class="page-head__title">{{ icon(iconName) }}<span>{{ title }}</span></h1>
-    {% if queue is not empty %}
-      {% set active = queue|first %}
-      <span class="page-head__queue" title="{{ LNG.tech[active.element] }} {{ active.level }}">
-        <span class="page-head__queue-name">{{ LNG.tech[active.element] }} {{ active.level }}</span>
-        <span class="countdown" data-time="{{ active.resttime }}"></span>
-        {% if queue|length > 1 %}<span class="page-head__queue-more">+{{ queue|length - 1 }}</span>{% endif %}
+{#
+  The card. o: domId, cls (extra classes, e.g. the filter class), index (entrance stagger), locked (greyed),
+  queued (level chip shows the queued target), level / levelTo / maxLevel (chip; omit for units), chip (Markup that replaces
+  the chip), watch (Markup, favourite toggle), desc / costs / time / foot (bool, default true), sub, extra, note, tools, time, done (timestamp), action.
+#}
+{% macro card(ID, Element, o) %}
+  {% import _self as b %}
+  <article class="card infos{% if o.cls is defined %} {{ o.cls }}{% endif %}{% if o.locked|default(false) %} is-locked unavailable{% endif %}{% if o.queued|default(false) %} is-queued{% endif %}"{% if o.domId is defined %} id="{{ o.domId }}"{% endif %} style="--i: {{ o.index|default(0) }}">
+    <a href="#" class="card__art" data-action="dialog-info" data-id="{{ ID }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ theme_asset('gebaeude/' ~ ID ~ '.gif') }}" alt="" width="120" height="120" loading="lazy" decoding="async">
+      {% if o.chip is defined %}{{ o.chip }}{% elseif o.level is defined and o.level is not null %}
+        <span class="card__level">{{ LNG.tt_lv_short|trim }} <b>{{ o.level }}</b>{% if o.queued|default(false) %} &rarr; <b>{{ o.levelTo }}</b>{% endif %}{% if o.maxLevel is defined and o.maxLevel != 255 %}<span class="card__level-max">/{{ o.maxLevel }}</span>{% endif %}</span>
+      {% endif %}
+    </a>
+    <div class="card__body">
+      <div class="card__head">
+        <div class="card__title">
+          <h3><a href="#" class="info-link" data-action="dialog-info" data-id="{{ ID }}" title="{{ LNG.tt_requirements }} / {{ LNG.fcm_info }}">{{ LNG.tech[ID] }}</a>{% if o.sub is defined %} {{ o.sub }}{% endif %}</h3>
+          {% if o.watch is defined %}{{ o.watch }}{% endif %}
+        </div>
+        {% if (o.desc is not defined or o.desc) %}<p class="card__desc">{{ LNG.shortDescription[ID] }}</p>{% endif %}
+      </div>
+      <div class="card__mid">{% if Element.requirements %}{{ b.reqs(Element.requirements) }}{% endif %}{% if o.extra is defined %}{{ o.extra }}{% endif %}</div>
+      <div class="card__costs">{% if (o.costs is not defined or o.costs) %}{{ b.costs(Element) }}{% endif %}{% if o.note is defined %}{{ o.note }}{% endif %}</div>
+      <div class="card__tools">{% if o.tools is defined %}{{ o.tools }}{% endif %}</div>
+    </div>
+    {% if (o.foot is not defined or o.foot) %}<footer class="card__foot">
+      <span class="when">
+        {% if (o.time is not defined or o.time) %}{{ b.time(Element.elementTime) }}{% endif %}
+        {% if o.done is defined and o.done %}<small>&rarr; {{ b.clock(o.done) }}</small>{% endif %}
       </span>
-    {% endif %}
-  </div>
+      {{ o.action|default('') }}
+    </footer>{% endif %}
+  </article>
 {% endmacro %}

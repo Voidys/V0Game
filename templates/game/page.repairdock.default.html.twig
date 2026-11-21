@@ -1,98 +1,107 @@
 {% extends layout_template %}
+{% import 'game/macros.buildcard.html.twig' as b %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_repairdock }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+  {% set pname = b.planetname(planetList|default([]))|trim %}
+  {{ b.pagehead(LNG.lm_repairdock, 'wrench', pname ?: null) }}
+{% endblock %}
 {% block content %}
   {% if repdock_level == 0 %}
-    <div class="infos">
-      <div class="empty-state">
+    <section class="panel">
+      <div class="empty">
         {{ icon('wrench') }}
         <p>{{ LNG.bd_repairdock_required }}</p>
         <a href="{{ path('game_buildings_show') }}">{{ LNG.lm_buildings }} &rarr;</a>
       </div>
-    </div>
+    </section>
   {% else %}
-    <p class="repair-infobox">{{ LNG.bd_repairdock_time }}: <span class="countdown" data-time="{{ wftime }}"></span></p><br><br>
+    <section class="panel"><div class="panel__body"><div class="stats">
+      <div class="stat"><span class="stat__label">{{ LNG.bd_repairdock_time }}</span><span class="stat__value countdown" data-time="{{ wftime }}"></span></div>
+    </div></div></section>
     {% if busy %}
-      <p class="repair-infobox">{{ LNG.bd_repairdock_busy }}</p><br><br>
+      <div class="infobox">{{ icon('triangle-alert') }}<span>{{ LNG.bd_repairdock_busy }}</span></div>
     {% endif %}
     {% if List %}
-      <div class="infos1 repair-list">
-        {% set ctime = 0 %}
-        <div class="repairb">
-          {% for shipID, amount in List.ships|default([]) %}
-            {{ LNG.tech[shipID] }} {{ amount }}<br>
-          {% endfor %}
-          {% set ctime = List.resttime+ ctime %}
-          <span id="progress">
-            <br>
-            <progress id="progressbar" data-time="{{ List.resttime }}" max="100" value="0"></progress>
-          </span>
+      <section class="panel">
+        {{ ui.panel_head(LNG.lm_repairdock) }}
+        <div class="panel__body repair-list">
+          <div class="repairb">
+            {% for shipID, amount in List.ships|default([]) %}
+              <span class="repair-list__ship">{{ LNG.tech[shipID] }} <span class="lvl">{{ amount }}</span></span>
+            {% endfor %}
+            {% set ctime = List.resttime + 0 %}
+            <span id="progress">
+              <progress id="progressbar" data-time="{{ List.resttime }}" max="100" value="0"></progress>
+            </span>
+          </div>
+          <div class="repaira">
+            <div id="time" data-time="{{ List.time }}"></div>
+            {% if umode == 0 %}
+              <form action="{{ path('game_repairdock_deploy') }}" method="post" class="build_form">
+                <button type="submit" class="build_submit onlist colorPositive" id="deployRepaired" style="display:none">{{ LNG.bd_deploy }}</button>
+              </form>
+            {% else %}
+              -
+            {% endif %}
+            <span class="colorPositive timer" data-time="{{ List.endtime }}" data-umode="{{ umode }}">{% if umode == 0 %}{{ List.pretty_end_time }}{% else %}{{ LNG.bd_paused }}{% endif %}</span>
+          </div>
         </div>
-        <div class="repaira">
-          <div id="time" data-time="{{ List.time }}"><br></div>
-          {% if umode == 0 %}
-            <form action="{{ path('game_repairdock_deploy') }}" method="post" class="build_form">
-              <button type="submit" class="build_submit onlist" id="deployRepaired" style="display:none">{{ LNG.bd_deploy }}</button>
-            </form>
-          {% else %}
-            -
-          {% endif %}
-          <br><span class="colorPositive timer" data-time="{{ List.endtime }}" data-umode="{{ umode }}">{% if umode == 0 %}{{ List.pretty_end_time }}{% else %}{{ LNG.bd_paused }}{% endif %}</span>
-        </div>
-      </div><br>
+      </section>
     {% endif %}
 
-    <div>
-      <div class="planeto">
-        <span class="segmented" role="group"><button id="ship1">{{ LNG.fm_civil }}</button><button id="ship2">{{ LNG.fm_military }}</button><button id="ship3">{{ LNG.fm_all }}</button></span>
-      </div>
-      <form action="{{ path('game_repairdock_start') }}" method="post">
-        {% if not busy %}
-          <br>
-          <div class="planeto">
-            <input type="button" value="{{ LNG.bd_max_ships }}" data-action="repair-all">
-            <input class="b colorPositive" type="submit" value="{{ LNG.bd_repair_ships }}">
-          </div>
-        {% endif %}
-        {% for ID, Element in elementList %}
-          <div class="infos" id="s{{ ID }}">
-            <div class="repairShipHeader">
-              <a href="#" data-action="dialog-info" data-id="{{ ID }}">{{ LNG.tech[ID] }}</a>
-              <span id="val_{{ ID }}">{% if Element.available != 0 %} ({{ LNG.bd_available }} {{ pretty_number(Element.available) }}){% endif %}</span>
-            </div>
-            <div class="repairShipContainer">
-              <a class="repair-element-link" href="#" data-action="dialog-info" data-id="{{ ID }}">
-                <img class="float-left" src="{{ theme_asset('gebaeude/' ~ ID ~ '.gif') }}" alt="{{ LNG.tech[ID] }}" width="120" height="120" loading="lazy" decoding="async">
-              </a>
-              <div class="repairShipContainerContent">
-                <span>
-                  <p>{{ LNG.bd_wreck_count }}: <span class="bold">{{ pretty_number(Element.wrecks) }}</span></p>
-                  <p>{{ LNG.bd_repair_rate }}: <span class="bold">{{ pretty_number(repairRate, 1) }}%</span></p>
-                  <p>{{ LNG.bd_max_ships_repair }}: <span class="bold">{{ pretty_number(Element.maxBuildable) }}</span></p>
-                </span>
-              </div>
-              <div class="repairShipContainerContent">
-                <span>
-                  {% if ID==212 %} +{{ SolarEnergy }} {{ LNG.tech[911] }}<br>{% endif %}
-                  {% if not busy and Element.maxBuildable > 0 %}
-                    <input type="number" class="numfield" data-max="{{ Element.maxBuildable }}" name="fmenge[{{ ID }}]" id="input_{{ ID }}" value="0" tabindex="{{ null }}">
-                    <input type="button" value="{{ LNG.bd_max_ships }}" data-action="fill-input" data-target="input_{{ ID }}" data-value="{{ Element.maxBuildable }}">
-                    <br>
-                  {% endif %}
-                  {{ LNG.fgr_time }}
-                  <span class="statictime" timestamp="{{ Element.elementTime }}"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-        {% if not busy %}
-          <br>
-          <div class="planeto">
-            <input type="button" value="{{ LNG.bd_max_ships }}" data-action="repair-all">
-            <input class="b colorPositive" type="submit" value="{{ LNG.bd_repair_ships }}">
-          </div>
-        {% endif %}
-      </form>
+    <div class="toolbar">
+      <span class="segmented" role="group"><button id="ship1">{{ LNG.fm_civil }}</button><button id="ship2">{{ LNG.fm_military }}</button><button id="ship3">{{ LNG.fm_all }}</button></span>
     </div>
+    <form action="{{ path('game_repairdock_start') }}" method="post" class="stack">
+      {% if not busy %}
+        <div class="toolbar">
+          <span class="toolbar__spacer"></span>
+          <input type="button" value="{{ LNG.bd_max_ships }}" data-action="repair-all">
+          <input class="b colorPositive" type="submit" value="{{ LNG.bd_repair_ships }}">
+        </div>
+      {% endif %}
+      <div class="build-grid">
+        {% for ID, Element in elementList %}
+          {% set sub %}<span id="val_{{ ID }}" class="card__owned">{% if Element.available != 0 %} ({{ LNG.bd_available }} {{ pretty_number(Element.available) }}){% endif %}</span>{% endset %}
+          {% set extra %}
+            <dl class="kv card__kv">
+              <dt>{{ LNG.bd_wreck_count }}</dt><dd class="mono">{{ pretty_number(Element.wrecks) }}</dd>
+              <dt>{{ LNG.bd_repair_rate }}</dt><dd class="mono">{{ pretty_number(repairRate, 1) }}%</dd>
+              <dt>{{ LNG.bd_max_ships_repair }}</dt><dd class="mono">{{ pretty_number(Element.maxBuildable) }}</dd>
+            </dl>
+            {% if ID==212 %}<span class="hint">+{{ SolarEnergy }} {{ LNG.tech[911] }}</span>{% endif %}
+            <div class="card__time">{{ b.time(Element.elementTime) }}</div>
+          {% endset %}
+          {% set action %}
+            {% if not busy and Element.maxBuildable > 0 %}
+              <span class="control-group card__order">
+                <input type="number" class="numfield" data-max="{{ Element.maxBuildable }}" name="fmenge[{{ ID }}]" id="input_{{ ID }}" value="0" min="0" tabindex="{{ null }}" aria-label="{{ LNG.tech[ID] }}">
+                <input type="button" value="{{ LNG.bd_max_ships }}" data-action="fill-input" data-target="input_{{ ID }}" data-value="{{ Element.maxBuildable }}">
+              </span>
+            {% endif %}
+          {% endset %}
+          {{ b.card(ID, Element, {
+            domId: 's' ~ ID,
+            index: loop.index0,
+            chip: '',
+            desc: false,
+            costs: false,
+            time: false,
+            foot: not busy and Element.maxBuildable > 0,
+            sub: sub,
+            extra: extra,
+            action: action,
+          }) }}
+        {% endfor %}
+      </div>
+      {% if not busy %}
+        <div class="toolbar">
+          <span class="toolbar__spacer"></span>
+          <input type="button" value="{{ LNG.bd_max_ships }}" data-action="repair-all">
+          <input class="b colorPositive" type="submit" value="{{ LNG.bd_repair_ships }}">
+        </div>
+      {% endif %}
+    </form>
   {% endif %}
 {% endblock %}

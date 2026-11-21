@@ -1,23 +1,22 @@
 {% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
 {% block title %}{{ LNG.lm_buddylist }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.bu_request_message, 'heart') }}{% endblock %}
 {% block content %}
-<form name="buddy" id="buddy" action="{{ path('game_buddy_list_send', {ajax: 1}) }}" method="post">
-<input type="hidden" name="id" value="{{ id }}">
-    <table class="form-table">
-    <tr>
-        <th colspan="2">{{ LNG.bu_request_message }}</th>
-    </tr>
-	<tr>
-        <td>{{ LNG.bu_player }}</td>
-        <td><input type="text" value="{{ username }} [{{ galaxy }}:{{ system }}:{{ planet }}]" readonly></td>
-    </tr>
-	<tr>
-        <td>{{ LNG.bu_request_text }}(<span id="cntChars">0</span> / 5000 {{ LNG.bu_characters }})</td>
-        <td><textarea name="text" id="text" rows="10" data-on-keyup="char-count" data-target="cntChars"></textarea></td>
-    </tr>
-	<tr>
-        <td colspan="2" class="form-actions"><input type="submit" value="{{ LNG.bu_send }}"></td>
-	</tr>
-</table>
+<form class="panel" name="buddy" id="buddy" action="{{ path('game_buddy_list_send', {ajax: 1}) }}" method="post">
+	<input type="hidden" name="id" value="{{ id }}">
+	<table class="form-table">
+		<tr>
+			<td><label for="buddy-player">{{ LNG.bu_player }}</label></td>
+			<td><input type="text" id="buddy-player" value="{{ username }} [{{ galaxy }}:{{ system }}:{{ planet }}]" readonly></td>
+		</tr>
+		<tr>
+			<td><label for="text">{{ LNG.bu_request_text }}</label> (<span id="cntChars">0</span> / 5000 {{ LNG.bu_characters }})</td>
+			<td><textarea name="text" id="text" rows="10" data-on-keyup="char-count" data-target="cntChars"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="form-actions"><input type="submit" value="{{ LNG.bu_send }}"></td>
+		</tr>
+	</table>
 </form>
 {% endblock %}

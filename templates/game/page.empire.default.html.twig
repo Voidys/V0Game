@@ -1,21 +1,31 @@
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_empire }}{{ parent() }}{% endblock %}
+{% import '_macros/ui.html.twig' as ui %}
+{% macro art(image, style, enabled) -%}
+{%- if not enabled or style == 0 -%}{{ theme_asset('planeten/' ~ image ~ '.jpg') }}
+{%- elseif style == 1 -%}{{ theme_asset('planeten/varianten/v1_magic/' ~ image ~ '_v1_magic.webp') }}
+{%- elseif style == 2 -%}{{ theme_asset('planeten/varianten/v2_storm/' ~ image ~ '_v2_storm.webp') }}
+{%- else -%}{{ theme_asset('planeten/varianten/v3_voronoi/' ~ image ~ '_v3_voronoi.webp') }}
+{%- endif -%}
+{% endmacro %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_empire, 'globe', LNG.lv_planet ~ ' ' ~ currentPlanetCount ~ ' / ' ~ maxPlanetCount) }}{% endblock %}
 {% block content %}
+  <section class="panel panel--flush">
   <div class="table-scroll">
-  <table class="empire-table">
+  <table class="empire-table data">
     <thead>
     <tr class="empire-head">
       <th>{{ LNG.lv_imperium_title }}</th>
       <th class="num" title="{{ LNG.lv_total }}">&Sigma; / &Oslash;</th>
-      {% for planetID, name in planetList.name %}
-        <th class="num"><a href="{{ path('game_overview_show', {cp: planetID}) }}" title="{{ name }}">{{ name }}</a></th>
+      {% for image in empireList.image %}
+        <th class="num"><a href="{{ path('game_overview_show', {cp: image.id}) }}" title="{{ empireList.name[image.id] }}"><img width="28" height="28" loading="lazy" decoding="async" alt="" src="{{ _self.art(image.picture, image.planet_style, enablePlanetStyles != 0) }}"><span>{{ empireList.name[image.id] }}</span></a></th>
       {% endfor %}
     </tr>
     </thead>
     <tbody>
-    <th colspan="{{ colspan }}">
+    <tr class="group"><th colspan="{{ colspan }}">
       <span data-toggle-rows="chart"><span id="chart-toggle">▲</span> {{ LNG.lm_statistics }}</span>
-    </th>
+    </th></tr>
     <tr class="chart"> <!-- Diagram -->
       <td colspan="100">
         <div class="chart empire-chart empire-chart--points">
@@ -27,76 +37,43 @@
       </td>
     </tr>
     <tr>
-      <td class="empire-col">{{ LNG.lv_planet }} ({{ currentPlanetCount }} / {{ maxPlanetCount }})</td>
-      <td class="num empire-col empire-sigma">&Sigma;</td>
-        {% for image in planetList.image %}
-          <td class="num empire-col">
-            <a href="{{ path('game_overview_show', {cp: image.id}) }}">
-              {% if enablePlanetStyles == 0 %}
-                <img class="inline-block" width="80" height="80" loading="lazy" decoding="async" alt="{{ planetList.name[image.id] }}" src="{{ theme_asset('planeten/' ~ image.picture ~ '.jpg') }}">
-              {% else %}
-                {% if image.planet_style == 0 %}
-                  <img class="inline-block" width="80" height="80" loading="lazy" decoding="async" alt="{{ planetList.name[image.id] }}" src="{{ theme_asset('planeten/' ~ image.picture ~ '.jpg') }}">
-                {% endif %}
-                {% if image.planet_style == 1 %}
-                  <img class="inline-block" width="80" height="80" loading="lazy" decoding="async" alt="{{ planetList.name[image.id] }}" src="{{ theme_asset('planeten/varianten/v1_magic/' ~ image.picture ~ '_v1_magic.webp') }}">
-                {% endif %}
-                {% if image.planet_style == 2 %}
-                  <img class="inline-block" width="80" height="80" loading="lazy" decoding="async" alt="{{ planetList.name[image.id] }}" src="{{ theme_asset('planeten/varianten/v2_storm/' ~ image.picture ~ '_v2_storm.webp') }}">
-                {% endif %}
-                {% if image.planet_style == 3 %}
-                  <img class="inline-block" width="80" height="80" loading="lazy" decoding="async" alt="{{ planetList.name[image.id] }}" src="{{ theme_asset('planeten/varianten/v3_voronoi/' ~ image.picture ~ '_v3_voronoi.webp') }}">
-                {% endif %}
-              {% endif %}
-            </a>
-          </td>
-        {% endfor %}
-    </tr>
-    <tr>
-      <td>{{ LNG.lv_name }}</td>
-      <td class="num">{{ LNG.lv_total }}</td>
-        {% for name in planetList.name %}
-          <td class="num">{{ name }}</td>
-        {% endfor %}
-    </tr>
-    <tr>
       <td>{{ LNG.lv_coords }}</td>
       <td class="num">-</td>
-        {% for coords in planetList.coords %}
+        {% for coords in empireList.coords %}
           <td class="num"><a href="{{ path('game_galaxy_show', {galaxy: coords.galaxy, system: coords.system}) }}">[{{ coords.galaxy }}:{{ coords.system }}:{{ coords.planet }}]</a></td>
         {% endfor %}
     </tr>
     <tr>
       <td>{{ LNG.lv_fields }}</td>
       <td class="num">-</td>
-        {% for field in planetList.field %}
+        {% for field in empireList.field %}
           <td class="num">{{ field.current }} / {{ field.max }}</td>
         {% endfor %}
     </tr>
     <tr>
       <td>{{ LNG.ov_temperature }}</td>
       <td class="num">-</td>
-        {% for temp in planetList.temp %}
+        {% for temp in empireList.temp %}
           <td class="num">{{ temp.max }} °C</td>
         {% endfor %}
     </tr>
     <tr>
       <td>{{ LNG.ov_points }}</td>
-      <td class="num">{{ pretty_number(array_sum(planetList.points)) }}</td>
-        {% for planetID, points in planetList.points %}
+      <td class="num">{{ pretty_number(array_sum(empireList.points)) }}</td>
+        {% for planetID, points in empireList.points %}
           <td class="num">{{ pretty_number(points) }}</td>
         {% endfor %}
     </tr>
-    <tr>
+    <tr class="group">
       <th colspan="{{ colspan }}">
         <span data-toggle-rows="ressources"><span id="ressources-toggle">▲</span> {{ LNG.lv_resources }}</span>
-        <span class="float-right">
-          {{ LNG.lv_show }}{{ LNG.lv_prodPerHour }} <input class="showProdPerHour" type="checkbox" {% if enableShowProdPerHour == "true" %}checked="checked"{% endif %} data-cookie="empire_showProdPerHour" />
-          | {{ LNG.lv_storageFilled }} <input class="showStorageFilled" type="checkbox" {% if enableShowStorageFilled == "true" %}checked="checked"{% endif %} data-cookie="empire_showStorageFilled" />
+        <span class="group__opts">
+          <label>{{ LNG.lv_show }}{{ LNG.lv_prodPerHour }} <input class="showProdPerHour" type="checkbox" {% if enableShowProdPerHour == "true" %}checked="checked"{% endif %} data-cookie="empire_showProdPerHour" /></label>
+          | <label>{{ LNG.lv_storageFilled }} <input class="showStorageFilled" type="checkbox" {% if enableShowStorageFilled == "true" %}checked="checked"{% endif %} data-cookie="empire_showStorageFilled" /></label>
         </span>
       </th>
     </tr>
-    {% for elementID, resourceArray in planetList.resource %}
+    {% for elementID, resourceArray in empireList.resource %}
       <tr class="ressources" data-info="r_{{ elementID }}">
         <td><a href='#' data-action="dialog-info" data-id="{{ elementID }}" class='tooltip'
                data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a>
@@ -106,19 +83,19 @@
           {% if elementID in [901, 902, 903] %}
             {% if enableShowProdPerHour == "true" %}
               <br><span class="colorPositive">
-                {{ pretty_number(array_sum(planetList.resourcePerHour[elementID])) }} /h
+                {{ pretty_number(array_sum(empireList.resourcePerHour[elementID])) }} /h
               </span>
             {% endif %}
             {% if enableShowStorageFilled == "true" %}
-              <br><span {% if min(planetList.resourceFull[elementID])>23 %}class="colorPositive"
-                  {% elseif min(planetList.resourceFull[elementID])<24 and min(planetList.resourceFull[elementID])>6 %}class="colorNeutral"
-                  {% elseif min(planetList.resourceFull[elementID])<7 %}class="colorNegative"
+              <br><span {% if min(empireList.resourceFull[elementID])>23 %}class="colorPositive"
+                  {% elseif min(empireList.resourceFull[elementID])<24 and min(empireList.resourceFull[elementID])>6 %}class="colorNeutral"
+                  {% elseif min(empireList.resourceFull[elementID])<7 %}class="colorNegative"
                 {% endif %}>
-                {{ pretty_number(min(planetList.resourceFull[elementID])) }} h
+                {{ pretty_number(min(empireList.resourceFull[elementID])) }} h
               </span>
             {% endif %}
-            {% if array_sum(planetList.currentTransported[elementID]) > 0 %}
-              <br><span class="colorNeutral">✈ {{ pretty_number(array_sum(planetList.currentTransported[elementID])) }}</span>
+            {% if array_sum(empireList.currentTransported[elementID]) > 0 %}
+              <br><span class="colorNeutral">✈ {{ pretty_number(array_sum(empireList.currentTransported[elementID])) }}</span>
             {% endif %}
           {% endif %}
         </td>
@@ -126,42 +103,42 @@
           <td class="num">
             {{ pretty_number(resource) }}
             {% if elementID in [901, 902, 903] %}
-              {% if planetList.planet_type[planetID] == 1 %}
+              {% if empireList.planet_type[planetID] == 1 %}
                 {% if enableShowProdPerHour == "true" %}
-                  <br><span {% if planetList.resourceProductionPercent[elementID][planetID] < 10 %}
-                      class="colorNeutral tooltip" data-tooltip-content="{{ LNG['bd_actual_production'] }} {{ planetList.resourceProductionPercent[elementID][planetID] * 10 }} %"
+                  <br><span {% if empireList.resourceProductionPercent[elementID][planetID] < 10 %}
+                      class="colorNeutral tooltip" data-tooltip-content="{{ LNG['bd_actual_production'] }} {{ empireList.resourceProductionPercent[elementID][planetID] * 10 }} %"
                     {% else %}
                       class="colorPositive"
                     {% endif %}>
-                    {{ pretty_number(planetList.resourcePerHour[elementID][planetID]) }} /h
+                    {{ pretty_number(empireList.resourcePerHour[elementID][planetID]) }} /h
                   </span>
                 {% endif %}
                 {% if enableShowStorageFilled == "true" %}
-                  <br><span {% if planetList.resourceFull[elementID][planetID]>23 %}class="colorPositive"
-                      {% elseif planetList.resourceFull[elementID][planetID]<24 and planetList.resourceFull[elementID][planetID]>6 %}class="colorNeutral"
-                      {% elseif planetList.resourceFull[elementID][planetID]<7 %}class="colorNegative"{% endif %}>
-                    {{ pretty_number(planetList.resourceFull[elementID][planetID]) }} h
+                  <br><span {% if empireList.resourceFull[elementID][planetID]>23 %}class="colorPositive"
+                      {% elseif empireList.resourceFull[elementID][planetID]<24 and empireList.resourceFull[elementID][planetID]>6 %}class="colorNeutral"
+                      {% elseif empireList.resourceFull[elementID][planetID]<7 %}class="colorNegative"{% endif %}>
+                    {{ pretty_number(empireList.resourceFull[elementID][planetID]) }} h
                   </span>
                 {% endif %}
               {% endif %}
-              {% if planetList.currentTransported[elementID][planetID] > 0 %}
-                <br><span class="colorNeutral">✈ {{ pretty_number(planetList.currentTransported[elementID][planetID]) }}</span>
+              {% if empireList.currentTransported[elementID][planetID] > 0 %}
+                <br><span class="colorNeutral">✈ {{ pretty_number(empireList.currentTransported[elementID][planetID]) }}</span>
               {% endif %}
             {% endif %}
           </td>
         {% endfor %}
       </tr>
     {% endfor %}
-    <tr>
+    <tr class="group">
       <th colspan="{{ colspan }}">
         <span data-toggle-rows="buildings"><span id="buildings-toggle">▲</span> {{ LNG.lv_buildings }}</span>
-        <span class="float-right">
-          {{ LNG.lv_highlight }}{{ LNG.lv_buildable }} <input class="highlightBuildable" type="checkbox" {% if enableHiglightBuildable == "true" %}checked="checked"{% endif %} data-cookie="empire_highlightBuildable" />
-          | {{ LNG.lv_unbuildable }} <input class="highlightNonBuildable" type="checkbox" {% if enableHiglightNonBuildable == "true" %}checked="checked"{% endif %} data-cookie="empire_highlightNonBuildable" />
+        <span class="group__opts">
+          <label>{{ LNG.lv_highlight }}{{ LNG.lv_buildable }} <input class="highlightBuildable" type="checkbox" {% if enableHiglightBuildable == "true" %}checked="checked"{% endif %} data-cookie="empire_highlightBuildable" /></label>
+          | <label>{{ LNG.lv_unbuildable }} <input class="highlightNonBuildable" type="checkbox" {% if enableHiglightNonBuildable == "true" %}checked="checked"{% endif %} data-cookie="empire_highlightNonBuildable" /></label>
         </span>
       </th>
     </tr>
-    {% for elementID, buildArray in planetList.build %}
+    {% for elementID, buildArray in empireList.build %}
       <tr class="buildings" data-info="b_{{ elementID }}">
         <td><a href='#' data-action="dialog-info" data-id="{{ elementID }}" class='tooltip'
                data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a>
@@ -169,18 +146,18 @@
         <td class="num">{{ pretty_number(avgBuildings[elementID], 1) }}</td>
         {% for planetID, build in buildArray %}
           <td class="num">
-            <span {% if planetList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(build) }}</span>
-            {% if planetList.currentBuilding[planetID]==elementID %}
-              <span class="colorNeutral"> ⬆ {{ planetList.currentBuildinglvl[planetID] }}</span>
+            <span {% if empireList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(build) }}</span>
+            {% if empireList.currentBuilding[planetID]==elementID %}
+              <span class="colorNeutral"> ⬆ {{ empireList.currentBuildinglvl[planetID] }}</span>
             {% endif %}
           </td>
         {% endfor %}
       </tr>
     {% endfor %}
-    <tr>
+    <tr class="group">
       <th colspan="{{ colspan }}" data-toggle-rows="technology"><span id="technology-toggle">▲</span> {{ LNG.lv_technology }}</th>
     </tr>
-    {% for elementID, techArray in planetList.tech %}
+    {% for elementID, techArray in empireList.tech %}
       <tr class="technology" data-info="t_{{ elementID }}">
         <td><a href='#' data-action="dialog-info" data-id="{{ elementID }}" class='tooltip'
                data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a>
@@ -190,9 +167,9 @@
           {% if elementID== researchq_id %}<span class="colorNeutral"> ⬆ {{ researchq_lvl }}</span>{% endif %}
         </td>
         {% for planetID, tech in techArray %}
-          {% if planetList.tech[elementID][planetID] >= 0 %}
+          {% if empireList.tech[elementID][planetID] >= 0 %}
             <td class="num">
-              <span {% if planetList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(tech) }}</span>
+              <span {% if empireList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(tech) }}</span>
               {% if planetID==researchq_planet and elementID== researchq_id %}<span class="colorNeutral"> ⬆ {{ researchq_lvl }}</span>{% endif %}
             </td>
           {% else %}
@@ -201,85 +178,85 @@
         {% endfor %}
       </tr>
     {% endfor %}
-    <tr>
+    <tr class="group">
       <th colspan="{{ colspan }}" data-toggle-rows="ships"><span id="ships-toggle">▲</span> {{ LNG.lv_ships }}</th>
     </tr>
-    {% for elementID, fleetArray in planetList.fleet %}
+    {% for elementID, fleetArray in empireList.fleet %}
       <tr class="ships" data-info="f_{{ elementID }}">
         <td><a href='#' data-action="dialog-info" data-id="{{ elementID }}" class='tooltip'
                data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a>
         </td>
         <td class="num">
           {{ pretty_number(array_sum(fleetArray)) }}
-          {% if array_sum(planetList.currentShipyard[elementID])!=0 %}
-            <span class="colorNeutral"> ⬆ {{ pretty_number(array_sum(planetList.currentShipyard[elementID])) }}</span>
+          {% if array_sum(empireList.currentShipyard[elementID])!=0 %}
+            <span class="colorNeutral"> ⬆ {{ pretty_number(array_sum(empireList.currentShipyard[elementID])) }}</span>
           {% endif %}
-          {% if array_sum(planetList.currentFlying[elementID])!=0 %}
-            <span class="colorNeutral"><br>✈ {{ pretty_number(array_sum(planetList.currentFlying[elementID])) }}</span>
+          {% if array_sum(empireList.currentFlying[elementID])!=0 %}
+            <span class="colorNeutral"><br>✈ {{ pretty_number(array_sum(empireList.currentFlying[elementID])) }}</span>
           {% endif %}
         </td>
         {% for planetID, fleet in fleetArray %}
           <td class="num">
-            <span {% if planetList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(fleet) }}</span>
-            {% if planetList.currentShipyard[elementID][planetID]!=0 %}
-              <span class="colorNeutral"> ⬆ {{ pretty_number(planetList.currentShipyard[elementID][planetID]) }}</span>
+            <span {% if empireList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(fleet) }}</span>
+            {% if empireList.currentShipyard[elementID][planetID]!=0 %}
+              <span class="colorNeutral"> ⬆ {{ pretty_number(empireList.currentShipyard[elementID][planetID]) }}</span>
             {% endif %}
-            {% if planetList.currentFlying[elementID][planetID]!=0 %}
-              <span class="colorNeutral"><br>✈ {{ pretty_number(planetList.currentFlying[elementID][planetID]) }}</span>
+            {% if empireList.currentFlying[elementID][planetID]!=0 %}
+              <span class="colorNeutral"><br>✈ {{ pretty_number(empireList.currentFlying[elementID][planetID]) }}</span>
             {% endif %}
           </td>
         {% endfor %}
       </tr>
     {% endfor %}
-    <tr>
+    <tr class="group">
       <th colspan="{{ colspan }}" data-toggle-rows="defenses"><span id="defenses-toggle">▲</span> {{ LNG.lv_defenses }}</th>
     </tr>
-    {% for elementID, defenceArray in planetList.defense %}
+    {% for elementID, defenceArray in empireList.defense %}
       <tr class="defenses" data-info="d_{{ elementID }}">
         <td><a href='#' data-action="dialog-info" data-id="{{ elementID }}" class='tooltip'
                data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a>
         </td>
         <td class="num">
           {{ pretty_number(array_sum(defenceArray)) }}
-          {% if array_sum(planetList.currentShipyard[elementID])!=0 %}
-            <span class="colorNeutral"> ⬆ {{ pretty_number(array_sum(planetList.currentShipyard[elementID])) }}</span>
+          {% if array_sum(empireList.currentShipyard[elementID])!=0 %}
+            <span class="colorNeutral"> ⬆ {{ pretty_number(array_sum(empireList.currentShipyard[elementID])) }}</span>
           {% endif %}
         </td>
         {% for planetID, defence in defenceArray %}
           <td class="num">
-            <span {% if planetList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(defence) }}</span>
-            {% if planetList.currentShipyard[elementID][planetID]!=0 %}
-              <span class="colorNeutral"> ⬆ {{ pretty_number(planetList.currentShipyard[elementID][planetID]) }}</span>
+            <span {% if empireList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(defence) }}</span>
+            {% if empireList.currentShipyard[elementID][planetID]!=0 %}
+              <span class="colorNeutral"> ⬆ {{ pretty_number(empireList.currentShipyard[elementID][planetID]) }}</span>
             {% endif %}
           </td>
         {% endfor %}
       </tr>
     {% endfor %}
-    <tr>
+    <tr class="group">
       <th colspan="{{ colspan }}" data-toggle-rows="missile"><span id="missile-toggle">▲</span> {{ LNG.tech[500] }}</th>
     </tr>
-    {% for elementID, missileArray in planetList.missiles %}
+    {% for elementID, missileArray in empireList.missiles %}
       <tr class="missile" data-info="d_{{ elementID }}">
         <td><a href='#' data-action="dialog-info" data-id="{{ elementID }}" class='tooltip'
                data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a>
         </td>
         <td class="num">
           {{ pretty_number(array_sum(missileArray)) }}
-          {% if array_sum(planetList.currentShipyard[elementID])!=0 %}
-            <span class="colorNeutral"> ⬆ {{ pretty_number(array_sum(planetList.currentShipyard[elementID])) }}</span>
+          {% if array_sum(empireList.currentShipyard[elementID])!=0 %}
+            <span class="colorNeutral"> ⬆ {{ pretty_number(array_sum(empireList.currentShipyard[elementID])) }}</span>
           {% endif %}
-          {% if array_sum(planetList.currentFlying[elementID])!=0 %}
-            <span class="colorNeutral"><br>✈ {{ pretty_number(array_sum(planetList.currentFlying[elementID])) }}</span>
+          {% if array_sum(empireList.currentFlying[elementID])!=0 %}
+            <span class="colorNeutral"><br>✈ {{ pretty_number(array_sum(empireList.currentFlying[elementID])) }}</span>
           {% endif %}
         </td>
         {% for planetID, missile in missileArray %}
           <td class="num">
-            <span {% if planetList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(missile) }}</span>
-            {% if planetList.currentShipyard[elementID][planetID]!=0 %}
-              <span class="colorNeutral"> ⬆ {{ pretty_number(planetList.currentShipyard[elementID][planetID]) }}</span>
+            <span {% if empireList.buildable[elementID][planetID] %}class="{% if enableHiglightBuildable == "true" %}colorPositive{% endif %}"{% else %}class="{% if enableHiglightNonBuildable == "true" %}colorNegative{% endif %}"{% endif %}>{{ pretty_number(missile) }}</span>
+            {% if empireList.currentShipyard[elementID][planetID]!=0 %}
+              <span class="colorNeutral"> ⬆ {{ pretty_number(empireList.currentShipyard[elementID][planetID]) }}</span>
             {% endif %}
-            {% if planetList.currentFlying[elementID][planetID]!=0 %}
-              <span class="colorNeutral"><br>✈ {{ pretty_number(planetList.currentFlying[elementID][planetID]) }}</span>
+            {% if empireList.currentFlying[elementID][planetID]!=0 %}
+              <span class="colorNeutral"><br>✈ {{ pretty_number(empireList.currentFlying[elementID][planetID]) }}</span>
             {% endif %}
           </td>
         {% endfor %}
@@ -288,6 +265,7 @@
     </tbody>
   </table>
   </div>
+  </section>
 {% endblock %}
 {% block script %}{{ parent() }}
   {# chart data for scripts/game/empire.js #}

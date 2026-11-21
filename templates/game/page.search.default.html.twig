@@ -1,24 +1,16 @@
 {% import '_macros/forms.html.twig' as forms -%}
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_search }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_search, 'search', LNG.sh_search_in_the_universe) }}{% endblock %}
 {% block content %}
-<form class="search-form" id="search-form" action="{{ path('game_search_show') }}" method="get" data-result-url="{{ path('game_search_result') }}" data-hint="{{ LNG.sh_hint|e('html_attr') }}">
-<table class="form-table">
-	<tr>
-		<th>{{ LNG.sh_search_in_the_universe }} <span id="loading" style="display:none;">{{ LNG.sh_loading }}</span></th>
-	</tr>
-	<tr>
-		<td>
-			<div class="search-bar">
-			<label class="visually-hidden" for="type">{{ LNG.sh_search_type }}</label>
-			{{ forms.html_options({'options': modeSelector, 'name': "type", 'id': "type"}) }}
-			<label class="visually-hidden" for="searchtext">{{ LNG.sh_search_text }}</label>
-			<input type="text" name="searchtext" id="searchtext" autocomplete="off" autofocus>
-			<input type="submit" value="{{ LNG.sh_search }}">
-			</div>
-		</td>
-	</tr>
-</table>
+<form class="toolbar" id="search-form" action="{{ path('game_search_show') }}" method="get" data-result-url="{{ path('game_search_result') }}" data-hint="{{ LNG.sh_hint|e('html_attr') }}">
+	<label class="visually-hidden" for="type">{{ LNG.sh_search_type }}</label>
+	{{ forms.html_options({'options': modeSelector, 'name': "type", 'id': "type"}) }}
+	<label class="visually-hidden" for="searchtext">{{ LNG.sh_search_text }}</label>
+	<input type="text" name="searchtext" id="searchtext" autocomplete="off" autofocus>
+	<input type="submit" class="btn--primary" value="{{ LNG.sh_search }}">
+	<span id="loading" style="display:none;">{{ LNG.sh_loading }}</span>
 </form>
 <div id="search-results" aria-live="polite"><p class="hint search-hint">{{ LNG.sh_hint }}</p></div>
 {% endblock %}

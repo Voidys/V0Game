@@ -1,60 +1,57 @@
 {#
-  Build/research queue: one compact row per entry plus free slots up to queueSlots, so the list keeps
+  Build/research queue as a panel with a horizontal strip of entries plus free slots up to queueSlots, so the list keeps
   its height while entries are added or cancelled. Used by page.buildings and page.research with
-  queuePage = 'buildings' | 'research'. buildlist.js drives #progressbar and #time of the active entry.
+  queuePage = 'buildings' | 'research'. buildlist.js / research.js drive #progressbar and #time of the active entry.
 #}
+{% import '_macros/ui.html.twig' as ui %}
 {% set queueLength = Queue|length %}
 {% if queueSlots > 0 %}
-  {% if queueLength > 0 and umode == 0 %}
-    {% set totalTime = 0 %}
-    {% for List in Queue %}{% set totalTime = totalTime + (loop.first ? List.resttime : List.time) %}{% endfor %}
-    <p class="build-queue__total">{{ LNG.ui_queue_done|replace({'%at%': (Queue|last).display, '%in%': '<span class="countdown" data-time="' ~ totalTime ~ '"></span>'})|raw }}</p>
-  {% endif %}
-  <ol id="buildlist" class="build-queue" aria-label="{{ LNG.ui_queue|default('Queue') }}">
-    {% set ctime = 0 %}
-    {% for List in Queue %}
-      {% set ID = List.element %}
-      {% set label %}{{ LNG.tech[ID] }} {{ List.level }}{% if List.destroy is defined and List.destroy %} {{ LNG.bd_dismantle }}{% endif %}{% if List.planet %} @ {{ List.planet }}{% endif %}{% endset %}
-      {% set ctime = ctime + (loop.first ? List.resttime : List.time) %}
-      <li class="build-queue__item{% if loop.first %} is-active{% endif %}">
-        <span class="build-queue__pos">{{ loop.index }}</span>
-        <span class="build-queue__name">
-          {{ label }}
-        </span>
-        <span class="build-queue__time">
-          {% if loop.first %}
-            <span id="time" data-time="{{ List.time }}"></span>
-          {% else %}
-            <span class="countdown" data-time="{{ ctime }}"></span>
-          {% endif %}
-        </span>
-        <span class="build-queue__end colorPositive{% if loop.first %} timer{% endif %}" data-time="{{ List.endtime }}" data-umode="{{ umode }}">{% if umode == 0 %}{{ List.display }}{% else %}{{ LNG.bd_paused }}{% endif %}</span>
-        <span class="build-queue__action">
+  <section class="panel">
+    {{ ui.panel_head(queueTitle|default(LNG.ui_queue), queueLength ~ ' / ' ~ queueSlots) }}
+    <ol id="buildlist" class="build-queue queue-strip" aria-label="{{ LNG.ui_queue }}">
+      {% set ctime = 0 %}
+      {% for List in Queue %}
+        {% set ID = List.element %}
+        {% set ctime = ctime + (loop.first ? List.resttime : List.time) %}
+        <li class="build-queue__item{% if loop.first %} is-active{% endif %}">
+          <img class="build-queue__img" src="{{ theme_asset('gebaeude/' ~ ID ~ '.gif') }}" alt="" width="40" height="40" loading="lazy" decoding="async">
+          <div class="build-queue__main">
+            <span class="build-queue__name{% if loop.first %} onlist{% endif %}">{{ LNG.tech[ID] }} <span class="lvl">{{ List.level }}</span>{% if List.destroy is defined and List.destroy %} {{ LNG.bd_dismantle }}{% endif %}{% if List.planet %} @ {{ List.planet }}{% endif %}</span>
+            <span class="build-queue__meta">
+              <span class="build-queue__time">
+                {% if loop.first %}
+                  <span id="time" data-time="{{ List.time }}"></span>
+                {% else %}
+                  <span class="countdown" data-time="{{ ctime }}"></span>
+                {% endif %}
+              </span>
+              <span class="build-queue__end{% if loop.first %} timer{% endif %}" data-time="{{ List.endtime }}" data-umode="{{ umode }}">{% if umode == 0 %}{{ List.display }}{% else %}{{ LNG.bd_paused }}{% endif %}</span>
+            </span>
+          </div>
           {% if umode == 0 %}
-            <form action="{{ path('game_' ~ queuePage ~ '_command') }}" method="post" class="build_form">
+            <form action="{{ path('game_' ~ queuePage ~ '_command') }}" method="post" class="build_form build-queue__action">
               {% if loop.first %}
                 <input type="hidden" name="cmd" value="cancel">
               {% else %}
                 <input type="hidden" name="cmd" value="remove">
                 <input type="hidden" name="listid" value="{{ loop.index }}">
               {% endif %}
-              <button type="submit" class="btn--danger btn--small" title="{{ LNG.bd_cancel }}">{{ icon('x') }}<span class="build-queue__cancel-label">{{ LNG.bd_cancel }}</span></button>
+              <button type="submit" class="btn--danger btn--small" title="{{ LNG.bd_cancel }}" aria-label="{{ LNG.bd_cancel }}">{{ icon('x') }}</button>
             </form>
-          {% else %}
-            –
           {% endif %}
-        </span>
-        {% if loop.first %}
-          <progress id="progressbar" class="build-queue__progress" data-time="{{ List.resttime }}" max="100" value="0"></progress>
-        {% endif %}
-      </li>
-    {% endfor %}
-    {% if queueSlots > queueLength %}
-      {# the free slots collapse into one row: "Queue: 0 / 5 - 5x free slot" #}
-      <li class="build-queue__item build-queue__item--free">
-        <span class="build-queue__pos">{{ queueLength }}/{{ queueSlots }}</span>
-        <span class="build-queue__name">{{ LNG.ui_queue|default('Queue') }} &middot; {{ queueSlots - queueLength }}&times; {{ LNG.ui_queue_free|default('free slot') }}</span>
-      </li>
+          {% if loop.first %}
+            <progress id="progressbar" class="build-queue__progress" data-time="{{ List.resttime }}" max="100" value="0"></progress>
+          {% endif %}
+        </li>
+      {% endfor %}
+      {% if queueLength == 0 %}
+        <li class="build-queue__item build-queue__item--free"><span class="empty">{{ LNG.ui_queue }} &middot; {{ queueSlots }}&times; {{ LNG.ui_queue_free }}</span></li>
+      {% endif %}
+    </ol>
+    {% if queueLength > 0 and umode == 0 %}
+      {% set totalTime = 0 %}
+      {% for List in Queue %}{% set totalTime = totalTime + (loop.first ? List.resttime : List.time) %}{% endfor %}
+      <footer class="panel__foot build-queue__total">{{ LNG.ui_queue_done|replace({'%at%': (Queue|last).display, '%in%': '<span class="countdown" data-time="' ~ totalTime ~ '"></span>'})|raw }}</footer>
     {% endif %}
-  </ol>
+  </section>
 {% endif %}

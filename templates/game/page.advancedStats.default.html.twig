@@ -1,8 +1,9 @@
 {% macro sub(key) %}{% if key starts with 'expo_found' %}found{% elseif key starts with 'expo_lost' %}lost{% elseif key starts with 'expo_first' or key starts with 'first_' %}first{% else %}count{% endif %}{% endmacro %}
+{% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.advancedStats }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.advancedStats, 'activity', LNG.as_intro) }}{% endblock %}
 {% block content %}
-<p class="page-intro">{{ LNG.as_intro }}</p>
 {% set groups = [
   {key: 'expo', label: LNG.expedition, rows: expo},
   {key: 'build', label: LNG.build, rows: build},
@@ -12,16 +13,19 @@
   {key: 'first', label: LNG.first, rows: first},
   {key: 'other', label: LNG.other, rows: rest},
 ] %}
-<div class="tabs advanced-stats" data-tabs="advanced-stats">
-  <label class="advanced-stats__toggle"><input type="checkbox" id="as-show-empty"> {{ LNG.as_show_empty }}</label>
-  <div class="tabs__list" role="tablist" aria-label="{{ LNG.advancedStats }}">
+<div class="tabs advanced-stats stack" data-tabs="advanced-stats">
+  <div class="toolbar">
+  <div class="tabs__list segmented" role="tablist" aria-label="{{ LNG.advancedStats }}">
     {% for group in groups %}
       <button type="button" class="tabs__tab" role="tab" id="as-tab-{{ group.key }}" data-tab="{{ group.key }}" aria-controls="as-panel-{{ group.key }}" aria-selected="{{ loop.first ? 'true' : 'false' }}" tabindex="{{ loop.first ? '0' : '-1' }}">{{ group.label }}</button>
     {% endfor %}
   </div>
+  <span class="toolbar__spacer"></span>
+  <label class="control-group"><input type="checkbox" id="as-show-empty"> {{ LNG.as_show_empty }}</label>
+  </div>
   {% for group in groups %}
-    <section class="tabs__panel" role="tabpanel" id="as-panel-{{ group.key }}" aria-labelledby="as-tab-{{ group.key }}" data-tab="{{ group.key }}" tabindex="0"{% if not loop.first %} hidden{% endif %}>
-      <table class="advanced-stats__table">
+    <section class="panel panel--flush tabs__panel" role="tabpanel" id="as-panel-{{ group.key }}" aria-labelledby="as-tab-{{ group.key }}" data-tab="{{ group.key }}" tabindex="0"{% if not loop.first %} hidden{% endif %}>
+      <table class="data advanced-stats__table">
         <tbody>
           {% set rowKeys = group.rows|keys %}
           {% for elementID, elementRow in group.rows %}
@@ -31,7 +35,7 @@
               <td class="num">{{ elementRow.value }}</td>
             </tr>
           {% else %}
-            <tr><td colspan="2" class="empty">-</td></tr>
+            <tr><td colspan="2" class="ctr">-</td></tr>
           {% endfor %}
         </tbody>
       </table>
