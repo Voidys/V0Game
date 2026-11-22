@@ -39,20 +39,19 @@ All 25 assets are in `public/styles/theme/v0game/planeten/*.webp` (300×300, q90
 - `mond01.webp` — Barren pale-grey/dark-basalt cratered moon with sharp ejecta rays, minimal starfield.
 - `mond02.webp` — Fractured dark-iron and dusty-ochre cratered moon with subtle rim lighting, minimal starfield.
 - `mond03.webp` — Icy-cratered pale frost-grey/slate-blue moon with radial frost streaks, minimal starfield.
+- `mond04.webp` — Dark basaltic maria plains contrasted with silver-grey highlands, crisp crater rims, minimal starfield.
+- `mond05.webp` — Sulfur/volcanic mottled olive-ochre & umber plains with faint amber night-side caldera vents, minimal starfield.
+- `mond06.webp` — Ash-grey silicate moon bisected by a deep equatorial canyon and fault scarps, subtle dark-slate dust.
+- `mond07.webp` — Titan-like slate-amber/dark-teal hydrocarbon haze veiling dark continents, soft amber rim, minimal starfield.
+- `mond08.webp` — Irregular captured iron/slate-grey asteroid moon with overlapping craters, minimal starfield.
+- `mond09.webp` — Iapetus-like two-tone moon (dark carbonaceous soot hemisphere vs. frost-white cratered ice), restrained dark-emerald/slate wisps.
 - `debris.webp` — Drifting shattered hull plates, solar-array trusses, and rocky fragments with faint emerald/amber salvage-beacon glints.
 - `wreckfield.webp` — Derelict broken capital-ship superstructure with drifting hull debris and faint cold-blue/amber emergency lights.
 
 ---
 
-## 3. Remaining to Generate: Moons `mond04`–`mond09` (6 remaining)
-*(Paused due to `gemini-3.1-flash-image` 429 quota exhaustion; resets `2026-11-22T00:05:56Z`.)*
-
-- **`mond04`** — Dark basaltic maria plains contrasted with silver-grey highlands, crisp crater rims, minimal `#070b09` starfield.
-- **`mond05`** — Sulfur/volcanic mottled olive-ochre & umber plains with faint amber night-side caldera vents, minimal `#070b09` starfield.
-- **`mond06`** — Ash-grey silicate moon bisected by a deep equatorial canyon and fault scarps, subtle dark-slate dust.
-- **`mond07`** — Titan-like slate-amber/dark-teal hydrocarbon haze veiling dark continents, soft amber rim, minimal `#070b09` starfield.
-- **`mond08`** — Irregular captured iron/slate-grey asteroid moon with overlapping craters, minimal `#070b09` starfield.
-- **`mond09`** — Iapetus-like two-tone moon (dark carbonaceous soot hemisphere vs. frost-white cratered ice), restrained dark-emerald/slate wisps.
+## 3. Remaining to Generate: 0 (All 25 Lean Set + 9 Moons Complete)
+All 32 assets (`21` planets across 7 classes, `9` moons `mond01`–`mond09`, `debris`, `wreckfield`) are generated, converted to `300×300` WebP, and committed!
 
 Below are the reference prompts used for the earlier 7:
 
