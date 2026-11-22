@@ -138,6 +138,7 @@ uni_closed: ' (zárva)'
 uni_reg_closed: ' (regisztráció zárva)'
 uni_reg_open: ' (csak regisztráció)'
 home_menu: Menü
+home_explore: 'Fedezd fel'
 home_meta_description: '%s – az űrstratégiai böngészőjáték 2000-es évekbeli bájjal: növeszd a bolygóidat, építs flottákat, kovácsolj szövetségeket.'
 home_started: Már fut!
 home_starts_in: Indulásig

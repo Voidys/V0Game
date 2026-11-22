@@ -115,6 +115,7 @@ uni_closed: ' (geschlossen)'
 uni_reg_closed: ' (Registrierung geschlossen)'
 uni_reg_open: ' (nur Registrierung)'
 home_menu: Menü
+home_explore: 'Erkunden'
 home_meta_description: '%s – das Weltraumstrategie-Browsergame mit 2000er-Charme: Planeten ausbauen, Flotten bauen, Allianzen schmieden.'
 home_started: Läuft bereits!
 home_starts_in: Noch

@@ -141,6 +141,7 @@ universe: Universum
 vertifyAdminMessage: Der Account „%s“ wurde aktiviert.
 vertifyNoUserFound: Ungültige Anfrage.
 home_menu: Menü
+home_explore: 'Entdecken'
 home_meta_description: '%s – das Weltraumstrategie-Browsergame mit 2000er-Charme: Planeten ausbauen, Flotten bauen, Allianzen schmieden.'
 home_started: Läuft bereits!
 home_starts_in: Noch

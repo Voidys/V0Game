@@ -140,6 +140,7 @@ uni_closed: ' (closed)'
 uni_reg_closed: ' (registration closed)'
 uni_reg_open: ' (registration only)'
 home_menu: Menu
+home_explore: 'Explore'
 home_meta_description: '%s – the space strategy browser game with 2000s charm: grow planets, build fleets, forge alliances.'
 home_started: Already running!
 home_starts_in: In

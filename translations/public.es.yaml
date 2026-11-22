@@ -115,6 +115,7 @@ uni_closed: ' (cerrado)'
 uni_reg_closed: ' (registro cerrado)'
 uni_reg_open: ' (solo registro)'
 home_menu: Menú
+home_explore: 'Explorar'
 home_meta_description: '%s – el juego de estrategia espacial de navegador con el encanto de los 2000: haz crecer planetas, construye flotas, forja alianzas.'
 home_started: ¡Ya está en marcha!
 home_starts_in: En

@@ -1,9 +1,10 @@
 {% extends 'login/layout.base.html.twig' %}
+{# messages without navigation (narrow): page head + one panel #}
 {% block main %}
   <main class="page page--popup" id="content">
     <div class="site-wrap">
+      <header class="page-head"><h1>{{ (block('title') is defined and block('title')|trim) ? block('title') : gameName }}</h1></header>
       <section class="panel page-card">
-        <h1 class="panel__head">{{ (block('title') is defined and block('title')|trim) ? block('title') : gameName }}</h1>
         <div class="panel__body">{% block content %}{% endblock %}</div>
       </section>
     </div>

@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../styles/resource/css/app/base.css?v={{ asset_version }}">
   <link rel="stylesheet" href="../styles/resource/css/login/login.css?v={{ asset_version }}">
   <link rel="stylesheet" href="../styles/resource/css/install/installer.css?v={{ asset_version }}">
-  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  {% include 'shared/icons.html.twig' with {p: '../'} only %}
   <script type="module" src="../scripts/install/main.js?v={{ asset_version }}"></script>
   {% block script %}{% endblock %}
 </head>

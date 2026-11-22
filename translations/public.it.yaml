@@ -141,6 +141,7 @@ uni_closed: ' (chiuso)'
 uni_reg_closed: ' (registrazioni chiuse)'
 uni_reg_open: ' (solo registrazione)'
 home_menu: Menu
+home_explore: 'Esplora'
 home_meta_description: '%s – il gioco di strategia spaziale nel browser con il fascino degli anni 2000: fai crescere i pianeti, costruisci flotte, stringi alleanze.'
 home_started: Già in corso!
 home_starts_in: Tra

@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="./styles/resource/css/app/theme-contract.css?v={{ asset_version }}">
   <link rel="stylesheet" href="./styles/resource/css/admin/admin.css?v={{ asset_version }}">
   <link rel="stylesheet" href="./styles/resource/css/app/rte.css?v={{ asset_version }}">
-  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  {% include 'shared/icons.html.twig' with {p: './'} only %}
   {# the admin's signal colours (settings) #}
   <style>
     .colorPositive { color: {{ signalColors.colorPositive|default('var(--c-positive)') }}; }

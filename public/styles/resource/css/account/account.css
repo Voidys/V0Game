@@ -14,7 +14,8 @@
   color: var(--c-text);
   background: transparent; /* the theme paints the space backdrop on <html> */
 
-  a { color: var(--c-link); }
+  /* not in the start page frame (board for visitors): login.css styles its header, footer and language modal */
+  a:where(:not(.site-header *, .site-footer *, .lang-dialog *)) { color: var(--c-link); }
 
   /* ------------------------------------------------------------------ top bar */
   .acc-topbar {
@@ -281,19 +282,24 @@
 
     .board-tabs, .board-chips, .board-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
 
+    /* sort tabs and category filters like the game's segmented control: one radius, active = tint + 2px accent underline */
     .board-tab, .board-chip {
-      padding: var(--space-1) var(--space-3);
-      border: 0.0625rem solid var(--c-border);
-      border-radius: 999px;
-      color: var(--c-text);
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--control-h-sm, 1.75rem);
+      padding: 0 var(--space-3);
+      border: 0.0625rem solid var(--c-border-strong);
+      border-radius: var(--r, var(--radius-sm));
+      color: var(--c-muted);
       text-decoration: none;
       background: var(--c-panel);
+      transition: color var(--t-fast, 140ms) ease, background-color var(--t-fast, 140ms) ease;
 
-      &:hover { border-color: var(--c-accent); }
-      &.is-active { background: var(--c-accent-soft); border-color: var(--c-accent); color: #fff; }
+      &:hover { color: var(--c-text); background: var(--theme-hover, var(--c-panel-2)); text-decoration: none; }
+      &.is-active { color: var(--c-text); background: var(--c-accent-soft); box-shadow: inset 0 -0.125rem 0 var(--c-accent); }
     }
-    .board-tab--sub { font-size: var(--fs-sm); color: var(--c-muted); }
-    .board-chip { font-size: var(--fs-sm); padding-block: 0.125rem; }
+    .board-tab--sub { font-size: var(--fs-sm); }
+    .board-chip { font-size: var(--fs-sm); }
 
     .board-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
 
@@ -423,3 +429,9 @@
   .account-page .board .board-post { grid-template-columns: 1fr; }
 }
 
+/* board for visitors (account/layout.site): on the start page grid, title like a page head */
+.account-page--site {
+  .acc-main { width: min(100% - 2rem, var(--site-max, 72rem)); max-width: none; padding: var(--space-6) 0 var(--space-7, 3rem); }
+  .acc-title { display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-2xl, 1.5rem); font-weight: 700; }
+  .acc-title .icon { width: 1.25rem; height: 1.25rem; color: var(--c-muted); }
+}

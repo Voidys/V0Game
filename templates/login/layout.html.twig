@@ -15,8 +15,10 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="{{ base }}/memes/solo-scouting.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="{{ base }}/favicon.ico" type="image/x-icon">
+  {% include 'shared/icons.html.twig' with {p: base ~ '/'} only %}
   <link rel="stylesheet" href="{{ base }}/styles/resource/css/app/base.css?v={{ asset_version }}">
+  <link rel="stylesheet" href="{{ base }}/styles/resource/css/app/theme-contract.css?v={{ asset_version }}">
+  <link rel="stylesheet" href="{{ base }}/styles/theme/v0game/theme.css?v={{ asset_version }}">
   <link rel="stylesheet" href="{{ base }}/styles/resource/css/login/login.css?v={{ asset_version }}">
   <link rel="stylesheet" href="{{ base }}/styles/resource/css/app/rte.css?v={{ asset_version }}">
   <script type="module" src="{{ base }}/scripts/login/main.js?v={{ asset_version }}"></script>
@@ -25,7 +27,7 @@
 <body id="{% block page_id %}overview{% endblock %}" class="site site--normal">
   <header class="site-header">
     <div class="site-wrap site-header__inner">
-      <a class="site-brand" href="{{ base }}/"><span>{{ gameName }}</span></a>
+      <a class="site-brand" href="{{ base }}/">{% if gameName is empty or gameName == 'V0Game' %}<span class="wordmark">V<b>0</b>Game</span>{% else %}<span class="wordmark">{{ gameName }}</span>{% endif %}</a>
       <button type="button" class="icon-button site-menu-toggle" data-site-menu aria-expanded="false" aria-controls="site-nav">{{ icon('menu', 'menu') }}</button>
       <nav class="site-nav" id="site-nav">
         <a href="{{ path('login_news_show') }}">{{ 'menu_news'|trans({}, 'public') }}</a>
@@ -33,29 +35,40 @@
         <a href="{{ path('login_battle_hall_show') }}">{{ 'menu_battlehall'|trans({}, 'public') }}</a>
         <a href="{{ path('login_screens_show') }}">{{ 'buttonScreenshot'|trans({}, 'public') }}</a>
         <a href="{{ path('login_rules') }}" aria-current="page">{{ 'menu_rules'|trans({}, 'public') }}</a>
+        {% if game_config('board_enabled', '1') != '0' %}<a href="{{ path('account_board_show') }}">{{ 'forum'|trans({}, 'public') }}</a>{% endif %}
       </nav>
       {% if language_names|length > 1 %}
-        <label class="site-lang">{{ icon('languages') }}<span class="visually-hidden">{{ 'registerLanguage'|trans({}, 'public') }}</span>
-          <select data-language-select>
-            {% for code, name in language_names %}<option value="{{ code }}"{% if code == app.request.locale %} selected{% endif %}>{{ name }}</option>{% endfor %}
-          </select>
-        </label>
+        <button type="button" class="site-lang" data-lang-open aria-haspopup="dialog" aria-controls="lang-dialog">{{ icon('languages') }}<span>{{ language_names[app.request.locale] ?? app.request.locale }}</span><span class="visually-hidden">· {{ 'registerLanguage'|trans({}, 'public') }}</span></button>
       {% endif %}
     </div>
   </header>
 
   <main class="page" id="content">
     <div class="site-wrap">
+      <header class="page-head"><h1>{{ block('title') }}</h1></header>
       <section class="panel page-card">
-        <h1 class="panel__head">{{ block('title') }}</h1>
         <div class="panel__body">{% block content %}{% endblock %}</div>
       </section>
     </div>
   </main>
 
+  {% if language_names|length > 1 %}
+    <dialog class="modal modal--inline lang-dialog" id="lang-dialog" aria-labelledby="lang-dialog-title">
+      <header class="modal__header"><h2 class="modal__title" id="lang-dialog-title">{{ 'registerLanguage'|trans({}, 'public') }}</h2></header>
+      <div class="modal__body">
+        <ul class="lang-grid">
+          {% for code, name in language_names %}
+            <li><a href="{{ app.request.baseUrl ~ app.request.pathInfo }}?lang={{ code }}" lang="{{ html_lang(code) }}" hreflang="{{ html_lang(code) }}"{% if code == app.request.locale %} aria-current="true"{% endif %}><span>{{ name }}</span><code>{{ code }}</code></a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <form method="dialog"><button type="submit" class="modal__close" aria-label="{{ 'dialog_cancel'|trans({}, 'l18n') }}">{{ icon('x') }}</button></form>
+    </dialog>
+  {% endif %}
+
   <footer class="site-footer">
     <div class="site-wrap site-footer__inner">
-      <span>{% if gameName is empty or gameName == 'V0Game' %}© Project V0Game{% else %}© {{ gameName }} on Project V0Game{% endif %}</span>
+      <span>© {{ 'now'|date('Y') }} {% if gameName is empty or gameName == 'V0Game' %}V0Game{% else %}{{ gameName }} · V0Game{% endif %} · {{ 'shell_footer_credits'|trans({}, 'ingame') }} · AGPL-3.0</span>
       <nav aria-label="Footer">
         <a href="{{ path('login_team_show') }}">{{ 'home_team'|trans({}, 'public') }}</a>
         <a href="{{ path('login_ban_list_show') }}">{{ 'menu_banlist'|trans({}, 'public') }}</a>

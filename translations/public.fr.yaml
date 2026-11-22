@@ -115,6 +115,7 @@ uni_closed: ' (fermée)'
 uni_reg_closed: ' (inscriptions fermées)'
 uni_reg_open: ' (inscriptions uniquement)'
 home_menu: Menu
+home_explore: 'Explorer'
 home_meta_description: '%s – le jeu de stratégie spatiale par navigateur avec le charme des années 2000 : développe des planètes, construis des flottes, forge des alliances.'
 home_started: Déjà lancé !
 home_starts_in: Dans

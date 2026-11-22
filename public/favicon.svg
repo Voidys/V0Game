@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>V0Game</title>
+  <defs>
+    <path id="v" d="M112 112h86l58 178 58-178h86L301 400h-90z"/>
+    <path id="front" d="M-214 0A214 64 0 0 0 214 0" transform="translate(256 262) rotate(-20)"/>
+    <clipPath id="vclip"><use href="#v"/></clipPath>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#0a0d11"/>
+  <ellipse rx="214" ry="64" transform="translate(256 262) rotate(-20)" fill="none" stroke="#2fbf71" stroke-width="30" opacity=".6"/>
+  <use href="#v" fill="#eef2f6"/>
+  <g clip-path="url(#vclip)"><use href="#front" fill="none" stroke="#0a0d11" stroke-width="58"/></g>
+  <use href="#front" fill="none" stroke="#2fbf71" stroke-width="30"/>
+</svg>

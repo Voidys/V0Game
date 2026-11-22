@@ -14,7 +14,7 @@
   {% if goto %}
     <meta http-equiv="refresh" content="{{ gotoinsec }};URL={{ goto }}">
   {% endif %}
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  {% include 'shared/icons.html.twig' with {p: './'} only %}
   {# the wordmark font is used by every page (top bar): fetch it with the CSS instead of after the first layout #}
   <link rel="preload" href="./styles/resource/fonts/michroma/michroma-eu.woff2" as="font" type="font/woff2" crossorigin>
 

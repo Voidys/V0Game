@@ -55,7 +55,7 @@ echo "==> installing production dependencies"
 echo "==> removing development-only files"
 # Allowlist: everything at the top level that is not listed here is dropped.
 KEEP=" bin config install licenses public src templates translations vendor var CHANGES.md LICENSE README.md \
-composer.json composer.lock symfony.lock .env favicon.ico install.sh docs stats "
+composer.json composer.lock symfony.lock .env install.sh docs stats "
 for entry in "$STAGE"/* "$STAGE"/.[!.]*; do
     [ -e "$entry" ] || continue
     case "$KEEP" in *" $(basename "$entry") "*) ;; *) rm -rf "$entry" ;; esac

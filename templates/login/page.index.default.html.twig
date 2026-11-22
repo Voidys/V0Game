@@ -1,37 +1,44 @@
 {% extends layout_template %}
 {% block title %}{{ LNG.siteTitleIndex }}{% endblock %}
+{#
+  Start page, compact: row 1 = pitch with the register call and universe status | login (what returning players
+  need first); row 2 = the comic (large, the page's eye-catcher) | latest news + explore links. Phones stack it
+  in that order. Styles: css/login/login.css (.home, .hero, .panel).
+#}
 {% block content %}
 <div class="home site-wrap">
-  <div class="home__main">
-    <section class="hero">
-      <h1 class="hero__title">{{ LNG.format('loginWelcome', gameName) }}</h1>
+  <div class="home__top">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 class="hero__title" id="hero-title">{{ LNG.format('loginWelcome', gameName) }}</h1>
       <p class="hero__text">{{ LNG.format('loginServerDesc', gameName) }}</p>
       <ul class="hero__steps">
         <li>{{ icon('hammer') }}<span>{{ LNG.home_step_build }}</span></li>
         <li>{{ icon('rocket') }}<span>{{ LNG.home_step_fleet }}</span></li>
         <li>{{ icon('users') }}<span>{{ LNG.home_step_alliance }}</span></li>
-        <li>{{ icon('scroll-text') }}<span>{% set rulesLink %}<a href="{{ rulesUrl }}">{{ LNG.menu_rules }}</a>{% endset %}{{ LNG.format('home_step_rules', rulesLink) }}</span></li>
       </ul>
-      {% if loginAccountName is null %}
-        <div class="hero__actions">
-          <a class="button btn--primary btn-hero" href="{{ path('login_register_show') }}">{{ LNG.buttonRegister }}</a>
-        </div>
-      {% endif %}
+      <div class="hero__actions">
+        {% if loginAccountName is null %}
+          <a class="button btn--primary btn-hero" href="{{ path('login_register_show') }}">{{ icon('user-plus') }}{{ LNG.buttonRegister }}</a>
+        {% endif %}
+        <a class="button btn-hero" href="{{ path('login_screens_show') }}">{{ icon('layers') }}{{ LNG.buttonScreenshot }}</a>
+      </div>
       {% if universeStarts %}
-        <div class="uni-starts">
+        <ul class="uni-starts">
           {% for universeStart in universeStarts %}
-            <span class="uni-start">
-              <span><strong>{{ universeStart.name }}</strong> · {{ universeStart.date }}</span>
+            <li class="uni-start">
+              <span class="status-dot" aria-hidden="true"></span>
+              <strong>{{ universeStart.name }}</strong>
+              <span class="uni-start__date">{{ universeStart.date }}</span>
               <span class="uni-countdown" data-start-timestamp="{{ universeStart.timestamp }}" data-text-in="{{ LNG.home_starts_in }}" data-text-done="{{ LNG.home_started }}" aria-live="polite"></span>
-            </span>
+            </li>
           {% endfor %}
-        </div>
+        </ul>
       {% endif %}
     </section>
 
-    <section class="panel" id="login">
+    <section class="panel panel--login" id="login">
       {% if loginAccountName is not null %}
-      <h2 class="panel__head">{{ icon('user') }}{{ LNG.home_logged_in_head }}</h2>
+      <h2 class="panel__head">{{ LNG.home_logged_in_head }}</h2>
       <div class="panel__body">
         <div class="login-form login-form--session">
           <p>{{ LNG.format('home_logged_in_as', loginAccountName) }}</p>
@@ -40,7 +47,7 @@
         </div>
       </div>
       {% else %}
-      <h2 class="panel__head">{{ icon('lock') }}{{ LNG.loginHeader }}</h2>
+      <h2 class="panel__head">{{ LNG.loginHeader }}</h2>
       <div class="panel__body">
         {% if code %}
           <div class="notice notice--danger" role="alert">{{ icon('circle-alert') }}<div>{{ code }}</div></div>
@@ -63,52 +70,46 @@
       </div>
       {% endif %}
     </section>
-
-    {% if latestNews %}
-    <section class="panel panel--news">
-      <h2 class="panel__head">{{ icon('newspaper') }}{{ LNG.news_latest }}</h2>
-      <div class="panel__body">
-        <ul class="news-teasers">
-          {% for item in latestNews %}
-            <li><a href="{{ path('login_news_article', {id: item.id}) }}"><span class="news-teasers__title">{{ item.title }}</span><time>{{ item.date }}</time></a></li>
-          {% endfor %}
-        </ul>
-        <a class="news-teasers__all" href="{{ path('login_news_show') }}">{{ LNG.news_all }} {{ icon('chevron-right') }}</a>
-      </div>
-    </section>
-    {% endif %}
   </div>
 
-  <div class="home__side">
+  <div class="home__more">
     {% if meme %}
-      <figure class="hero__art">
-        <img src="{{ meme.src }}"{% if meme.srcset %} srcset="{{ meme.srcset }}" sizes="(max-width: 60rem) min(calc(100vw - 2rem), 40rem), min(50vw, 37rem)"{% endif %} width="{{ meme.width }}" height="{{ meme.height }}" alt="{{ meme.alt|e('html_attr') }}" fetchpriority="high" decoding="async">
+      <figure class="home__art">
+        <img src="{{ meme.src }}"{% if meme.srcset %} srcset="{{ meme.srcset }}" sizes="(max-width: 60rem) calc(100vw - 2rem), 46rem"{% endif %} width="{{ meme.width }}" height="{{ meme.height }}" alt="{{ meme.alt|e('html_attr') }}" fetchpriority="high" decoding="async">
       </figure>
     {% endif %}
-
-    {% if discordWidget %}
-    {% set discordInner %}{{ icon('discord', null, 'discord-box__logo') }}<span class="discord-box__text"><span class="discord-box__count"><span class="discord-box__dot" aria-hidden="true"></span>{{ LNG.home_discord_online }} <strong>{{ discordWidget.online|number_format(0, ',', '.') }}</strong></span>{% if discordWidget.url %}<span class="discord-box__join">{{ LNG.home_discord_join }}</span>{% endif %}</span>{% endset %}
-    <section class="panel panel--discord" aria-label="Discord">
-      {% if discordWidget.url %}
-        <a class="discord-box" href="{{ discordWidget.url|e('html_attr') }}" target="_blank" rel="noopener">{{ discordInner }}{{ icon('chevron-right', null, 'discord-box__chevron') }}</a>
-      {% else %}
-        <div class="discord-box">{{ discordInner }}</div>
-      {% endif %}
+    <div class="home__side">
+    {% if latestNews %}
+    <section class="panel panel--news">
+      <h2 class="panel__head">{{ LNG.news_latest }}<a class="panel__more" href="{{ path('login_news_show') }}">{{ LNG.news_all }}{{ icon('chevron-right') }}</a></h2>
+      <ul class="news-teasers">
+        {% for item in latestNews %}
+          <li><a href="{{ path('login_news_article', {id: item.id}) }}"><span class="news-teasers__title">{{ item.title }}</span><time>{{ item.date }}</time></a></li>
+        {% endfor %}
+      </ul>
     </section>
     {% endif %}
 
-    <section class="panel panel--links">
-      <div class="panel__body">
-        <div class="links">
-          {% if game_config('discord_url') and not discordWidget %}<a href="{{ game_config('discord_url')|e('html_attr') }}" target="_blank" rel="noopener">{{ icon('message-circle') }}Discord</a>{% endif %}
-          {% if game_config('wiki_url') %}<a href="{{ game_config('wiki_url')|e('html_attr') }}" target="_blank" rel="noopener">{{ icon('book-open') }}Wiki</a>{% endif %}
-          <a href="{{ path('login_hof_show') }}" title="{{ LNG.home_hof_desc|e('html_attr') }}">{{ icon('trophy') }}{{ LNG.siteTitleHOF }}</a>
-          <a href="{{ path('login_battle_hall_show') }}" title="{{ LNG.home_battlehall_desc|e('html_attr') }}">{{ icon('swords') }}{{ LNG.menu_battlehall }}</a>
-          <a href="{{ path('login_screens_show') }}">{{ icon('layers') }}{{ LNG.buttonScreenshot }}</a>
-          <a href="{{ path('login_news_show') }}">{{ icon('newspaper') }}{{ LNG.menu_news }}</a>
-        </div>
-      </div>
+    <section class="panel panel--explore">
+      <h2 class="panel__head">{{ LNG.home_explore }}</h2>
+      <ul class="link-list">
+        {% if discordWidget %}
+          <li>
+            {% set discordInner %}{{ icon('discord', null, 'link-list__icon link-list__icon--discord') }}<span class="link-list__text"><span>{{ discordWidget.url ? LNG.home_discord_join : 'Discord' }}</span><small><span class="status-dot" aria-hidden="true"></span>{{ LNG.home_discord_online }} <strong>{{ discordWidget.online|number_format(0, ',', '.') }}</strong></small></span>{% endset %}
+            {% if discordWidget.url %}<a href="{{ discordWidget.url|e('html_attr') }}" target="_blank" rel="noopener">{{ discordInner }}{{ icon('chevron-right', null, 'link-list__chevron') }}</a>{% else %}<span class="link-list__static">{{ discordInner }}</span>{% endif %}
+          </li>
+        {% elseif game_config('discord_url') %}
+          <li><a href="{{ game_config('discord_url')|e('html_attr') }}" target="_blank" rel="noopener">{{ icon('discord', null, 'link-list__icon link-list__icon--discord') }}<span class="link-list__text"><span>{{ LNG.home_discord_join }}</span></span>{{ icon('chevron-right', null, 'link-list__chevron') }}</a></li>
+        {% endif %}
+        {% if game_config('wiki_url') %}
+          <li><a href="{{ game_config('wiki_url')|e('html_attr') }}" target="_blank" rel="noopener">{{ icon('book-open', null, 'link-list__icon') }}<span class="link-list__text"><span>Wiki</span></span>{{ icon('chevron-right', null, 'link-list__chevron') }}</a></li>
+        {% endif %}
+        <li><a href="{{ path('login_hof_show') }}">{{ icon('trophy', null, 'link-list__icon') }}<span class="link-list__text"><span>{{ LNG.siteTitleHOF }}</span><small>{{ LNG.home_hof_desc }}</small></span>{{ icon('chevron-right', null, 'link-list__chevron') }}</a></li>
+        <li><a href="{{ path('login_battle_hall_show') }}">{{ icon('swords', null, 'link-list__icon') }}<span class="link-list__text"><span>{{ LNG.menu_battlehall }}</span><small>{{ LNG.home_battlehall_desc }}</small></span>{{ icon('chevron-right', null, 'link-list__chevron') }}</a></li>
+        <li><a href="{{ rulesUrl }}">{{ icon('scroll-text', null, 'link-list__icon') }}<span class="link-list__text"><span>{{ LNG.menu_rules }}</span></span>{{ icon('chevron-right', null, 'link-list__chevron') }}</a></li>
+      </ul>
     </section>
+    </div>
   </div>
 </div>
 {% endblock %}

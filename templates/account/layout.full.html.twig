@@ -14,7 +14,7 @@
   <link rel="stylesheet" type="text/css" href="{{ themeCssPath }}?v={{ asset_version }}">
   <link rel="stylesheet" type="text/css" href="./styles/resource/css/account/account.css?v={{ asset_version }}">
   <link rel="stylesheet" type="text/css" href="./styles/resource/css/app/rte.css?v={{ asset_version }}">
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  {% include 'shared/icons.html.twig' with {p: './'} only %}
   {% include 'shared/page_config.html.twig' %}
   <script type="module" src="./scripts/page/config.js?v={{ asset_version }}"></script>
   <script type="module" src="./scripts/app/main.js?v={{ asset_version }}"></script>

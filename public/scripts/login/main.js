@@ -54,11 +54,18 @@ function countdowns() {
 }
 
 ready(() => {
-  on(document, 'change', '[data-language-select]', (event, select) => {
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang', select.value);
-    cookie.set('lang', select.value);
-    window.location.href = url.toString();
+  // language picker: the header button opens the modal list; a click on the backdrop closes it, a choice stores the cookie
+  on(document, 'click', '[data-lang-open]', () => {
+    const dialog = document.getElementById('lang-dialog');
+    if (dialog && !dialog.open) dialog.showModal();
+    dialog?.querySelector('[aria-current="true"]')?.focus();
+  });
+  on(document, 'click', '#lang-dialog', (event, dialog) => {
+    if (event.target === dialog) dialog.close();
+  });
+  on(document, 'click', '#lang-dialog a[href*="lang="]', (event, link) => {
+    const code = new URL(link.href).searchParams.get('lang');
+    if (code) cookie.set('lang', code);
   });
 
   // narrow screens: the toggle opens the menu; Escape, a click outside or a wider window closes it
