@@ -11,7 +11,12 @@ function select(root, key, focus) {
     const active = tab.dataset.tab === key;
     tab.setAttribute('aria-selected', String(active));
     tab.tabIndex = active ? 0 : -1;
-    if (active && focus) tab.focus();
+    if (active) {
+      if (focus) tab.focus();
+      if (tab.parentElement && tab.parentElement.scrollWidth > tab.parentElement.clientWidth) {
+        tab.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+      }
+    }
   }
   for (const panel of root.querySelectorAll('.tabs__panel')) {
     panel.hidden = panel.dataset.tab !== key;

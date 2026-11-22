@@ -89,7 +89,13 @@
   @media (max-width: 60rem) {
     .overview-planets { display: block; }
   }
-  .overview-planet { display: flex; gap: var(--space-3); align-items: center; font-size: var(--fs-sm); }
+  .overview-planet {
+    position: relative; display: flex; gap: var(--space-3); align-items: center;
+    padding: var(--space-2); margin: calc(var(--space-2) * -1); border-radius: var(--r);
+    font-size: var(--fs-sm); transition: background var(--t-fast) var(--ease);
+  }
+  .overview-planet:hover { background: var(--c-panel-2); }
+  .overview-planet > a::after { content: ""; position: absolute; inset: 0; }
   .overview-planet .planet-thumb { inline-size: 3rem; block-size: 3rem; margin: 0; border-radius: 50%; display: block; }
 
   @media (max-width: 60rem) {
@@ -97,14 +103,19 @@
     .hero-body { justify-self: stretch; }
     .hero-orbit { inline-size: 6rem; block-size: 6rem; margin: var(--space-2) 2rem var(--space-4); }
     .orbit-ring { inline-size: 10rem; block-size: 3.2rem; }
-    .orbit-moon { inline-size: 1.4rem; block-size: 1.4rem; offset-path: path('M -29.62 67.35 A 80 25.6 -14 1 1 125.62 28.65 A 80 25.6 -14 1 1 -29.62 67.35 Z'); }
+    .orbit-moon {
+      display: grid; place-items: center;
+      inline-size: 2.75rem; block-size: 2.75rem;
+      offset-path: path('M -29.62 67.35 A 80 25.6 -14 1 1 125.62 28.65 A 80 25.6 -14 1 1 -29.62 67.35 Z');
+    }
+    .orbit-moon img { inline-size: 1.4rem; block-size: 1.4rem; }
   }
   @media (max-width: 40rem) {
     /* phones: a compact header, so the activity panels start above the fold */
-    .hero { gap: var(--space-3); padding: var(--space-4); }
-    .hero-orbit { margin: 0 2rem; }
-    .hero-body .stats { gap: var(--space-2) var(--space-4); }
-    .hero-body .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hero { justify-items: center; gap: var(--space-3); padding: var(--space-3) var(--pad); }
+    .hero-orbit { inline-size: 5.5rem; block-size: 5.5rem; margin: 0 auto; }
+    .orbit-ring { inline-size: 9.25rem; block-size: 3rem; }
+    .hero-body .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2) var(--space-4); }
     .hero-body .stat--wide { grid-column: 1 / -1; }
   }
 
@@ -175,6 +186,16 @@
 
   /* ---------------------------------------------------------------- empire */
   .empire-table { --planet-img: 1.75rem; }
+  /* the planet matrix scrolls sideways when it does not fit: the right edge fades until the end is reached */
+  @property --edge-fade { syntax: "<length>"; inherits: false; initial-value: 0px; }
+  @keyframes edge-fade-out { from { --edge-fade: 2.5rem; } 92% { --edge-fade: 2.5rem; } to { --edge-fade: 0px; } }
+  @supports (animation-timeline: scroll()) {
+    .table-scroll:not(.is-fit):has(> .empire-table) {
+      mask-image: linear-gradient(90deg, #000 calc(100% - var(--edge-fade)), transparent);
+      animation: edge-fade-out linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
   .empire-head a { display: inline-flex; align-items: center; gap: var(--space-2); }
   .empire-head img { inline-size: var(--planet-img); block-size: var(--planet-img); border-radius: 50%; flex: none; }
   .empire-table tr.group > th {
@@ -192,6 +213,14 @@
   .prod-table select { inline-size: 5rem; }
   .prod-level { color: var(--c-muted); }
   .prod-info { display: grid; gap: var(--space-3); }
+  @media (max-width: 40rem) {
+    .prod-form .panel__head { flex-direction: column; align-items: stretch; gap: var(--space-2); padding-block: var(--space-3); }
+    .prod-form .prod-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+    .prod-form .prod-actions > * { inline-size: 100%; min-inline-size: 0; padding-inline: var(--space-2); overflow: hidden; text-overflow: ellipsis; }
+    .prod-table { min-inline-size: 28rem; }
+    .prod-table :is(td, th) { padding-inline: var(--space-2); }
+    .prod-table :is(td, th):first-child { max-inline-size: 9rem; white-space: normal; overflow-wrap: break-word; hyphens: auto; }
+  }
   /* legacy content.css fixes the rules link to a hard blue; use the theme link colour */
   .rules-link { color: var(--c-link); }
 }

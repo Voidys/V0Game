@@ -13,6 +13,7 @@ let sticky = false;
 let current = null;
 let pinned = false;
 let timer = 0;
+let lastTouch = 0;
 
 const TAGS = new Set(['TABLE', 'THEAD', 'TBODY', 'TR', 'TD', 'TH', 'BR', 'B', 'I', 'STRONG', 'EM', 'U', 'SMALL', 'SPAN', 'DIV', 'P', 'UL', 'LI', 'A', 'IMG']);
 const FORM_TAGS = new Set(['FORM', 'INPUT', 'BUTTON']);
@@ -97,8 +98,8 @@ function element() {
   return tip;
 }
 
-/** Shows the tooltip with the source's content (tooltipHtml) at the pointer position. */
-function open(source, x, y) {
+/** Shows the tooltip with the source's content (tooltipHtml) at the pointer position (or anchored on touch/sticky). */
+function open(source, x, y, preferAnchor = false) {
   const box = element();
   current = source;
   box.replaceChildren(sanitizeTooltip(tooltipHtml(source), source.hasAttribute('data-tooltip-forms')));
@@ -106,20 +107,29 @@ function open(source, x, y) {
   box.querySelectorAll('.statictime[timestamp]').forEach((el) => { el.textContent = getRestTimeFormat(el.getAttribute('timestamp')); });
   box.style.display = 'block';
   box.classList.toggle('tooltip_sticky_div', source.classList.contains('tooltip_sticky'));
-  if (source.classList.contains('tooltip_sticky')) anchor(source); else place(x, y);
+  if (preferAnchor || source.classList.contains('tooltip_sticky')) anchor(source); else place(x, y);
 }
 
-/** Positions a sticky tooltip directly under its trigger (no gap), above it when there is no room, clamped to the viewport. */
+/** Bottom clearance in px (accounts for the fixed mobile tab bar when visible). */
+function bottomInset() {
+  const tabbar = document.querySelector('.tabbar');
+  if (!tabbar) return 8;
+  const rect = tabbar.getBoundingClientRect();
+  return rect.height > 0 && rect.top < window.innerHeight ? window.innerHeight - rect.top + 8 : 8;
+}
+
+/** Positions a sticky/anchored tooltip directly under its trigger (no gap), above it when there is no room, clamped to the viewport. */
 function anchor(source) {
   const box = element();
   const rect = source.getBoundingClientRect();
   const width = box.offsetWidth;
   const height = box.offsetHeight;
-  const left = Math.min(Math.max(8, rect.left), Math.max(8, window.innerWidth - width - 8));
-  let top = rect.bottom - 1;
-  if (top + height > window.innerHeight - 8 && rect.top - height + 1 >= 8) top = rect.top - height + 1;
-  box.style.left = `${left + window.scrollX}px`;
-  box.style.top = `${Math.max(8, top) + window.scrollY}px`;
+  const clearance = bottomInset();
+  const left = Math.min(Math.max(8, rect.left + rect.width / 2 - width / 2), Math.max(8, window.innerWidth - width - 8));
+  let top = rect.bottom + 4;
+  if (top + height > window.innerHeight - clearance && rect.top - height - 4 >= 8) top = rect.top - height - 4;
+  box.style.left = `${Math.round(left + window.scrollX)}px`;
+  box.style.top = `${Math.round(Math.max(8, top) + window.scrollY)}px`;
 }
 
 /** Positions the tooltip next to (x, y), flipping to the other side when it would leave the viewport. */
@@ -127,10 +137,11 @@ function place(x, y) {
   const box = element();
   const width = box.offsetWidth;
   const height = box.offsetHeight;
+  const clearance = bottomInset();
   let left = x + 18;
   let top = y + 18;
   if (left + width > window.innerWidth - 12) left = x - width - 18;
-  if (top + height > window.innerHeight - 12) top = y - height - 18;
+  if (top + height > window.innerHeight - clearance) top = y - height - 18;
   box.style.left = `${Math.max(8, left) + window.scrollX}px`;
   box.style.top = `${Math.max(8, top) + window.scrollY}px`;
 }
@@ -287,7 +298,13 @@ export function initTooltips() {
     }
   }))).observe(document.body, { childList: true, subtree: true });
 
+  const isTouch = () => performance.now() - lastTouch < 700;
+  document.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'touch') lastTouch = performance.now();
+  }, { passive: true, capture: true });
+
   document.addEventListener('mouseover', (event) => {
+    if (isTouch()) return;
     if (inTip(event.target)) {
       clearTimeout(timer);
       return;
@@ -300,11 +317,12 @@ export function initTooltips() {
   });
 
   document.addEventListener('mousemove', (event) => {
+    if (isTouch()) return;
     if (current && !isSticky(current) && !pinned) place(event.clientX, event.clientY);
   });
 
   document.addEventListener('mouseout', (event) => {
-    if (!current || pinned) return;
+    if (isTouch() || !current || pinned) return;
     const to = event.relatedTarget;
     if (to instanceof Element && (current.contains(to) || inTip(to))) return;
     if (current.contains(event.target) || inTip(event.target)) {
@@ -315,11 +333,12 @@ export function initTooltips() {
   document.addEventListener('click', (event) => {
     const source = sourceOf(event.target);
     if (source) {
+      const fromTouch = isTouch();
       if (source.matches('a:not([href]), a[href="#"]') || isSticky(source)) event.preventDefault();
-      if (current === source && tip?.style.display === 'block' && (pinned || !isSticky(source))) {
+      if (current === source && tip?.style.display === 'block' && (pinned || (!fromTouch && !isSticky(source)))) {
         close();
       } else {
-        open(source, event.clientX, event.clientY);
+        open(source, event.clientX, event.clientY, fromTouch);
         pinned = true;
       }
       return;

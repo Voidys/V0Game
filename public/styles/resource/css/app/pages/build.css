@@ -178,6 +178,23 @@
   .card__order input[type="submit"] { flex: 1 1 auto; min-inline-size: 0; }
   .card__foot > .control-group { flex: 1 1 100%; }
 
+  /* phones: single column needs no subgrid; compact artwork, inline cost chips, uniform full-width actions */
+  @media (max-width: 40rem) {
+    .build-grid { row-gap: var(--space-3); }
+    .build-grid > .card { grid-row: auto; grid-template-rows: auto auto auto; margin-block-end: 0; }
+    .build-grid > .card > .card__body { grid-row: auto; grid-template-rows: auto; gap: var(--space-2); padding: var(--space-3); }
+    .card__body > :is(.card__mid, .card__costs, .card__tools):has(> *) { padding-block-start: 0; }
+    .card__body > :is(.card__mid, .card__costs, .card__tools):empty { display: none; }
+    .card__art { aspect-ratio: 21 / 7; }
+    .card .cost-grid { grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr)); }
+    .card .cost-grid > div { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2); }
+    .card .cost-grid dd { line-height: 1.2; }
+    .card__foot { padding: var(--space-2) var(--space-3) var(--space-3); gap: var(--space-2); }
+    .card__foot .when { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-1) var(--space-2); flex: 1 1 100%; }
+    .card__foot .build_form { flex: 1 1 100%; }
+    .card__foot .build_submit { inline-size: 100%; }
+  }
+
   /* ---------------------------------------------------------------- queue strip */
   .queue-strip {
     display: grid;
@@ -307,7 +324,14 @@
   }
   .tt-node { border-radius: var(--r); }
   .tt-img img { border-radius: 0; }
-  .tt-lv { background: var(--c-accent); color: var(--c-accent-ink); }
+  /* level badge on the top corner of the picture (never over the name below it); names may take three lines */
+  .tt-lv { inset-block-start: -0.3rem; inset-block-end: auto; inset-inline-start: -0.5rem; inset-inline-end: auto; background: var(--c-accent); color: var(--c-accent-ink); }
+  .tt-ghost .tt-img { align-self: flex-start; margin-inline-start: 0.35rem; }
+  .tt-ghost .tt-lv { inset-inline-start: -0.3rem; inset-block-start: -0.25rem; inset-block-end: auto; }
+  .tt-name { -webkit-line-clamp: 3; line-clamp: 3; }
+  @media (min-width: 40.0625rem) { .tt { --tt-cell-w: 6.5rem; } .tt-ghost { --tt-cell-w: 6.5rem; } }
+  /* phones: the wrapped rows make the routed connector lines noise; the detail bar lists requirements and unlocks */
+  @media (max-width: 40rem) { .tt-lines { display: none; } }
   .tt-edge-label rect { fill: var(--c-bg-2); }
 
   @media (prefers-reduced-motion: reduce) {

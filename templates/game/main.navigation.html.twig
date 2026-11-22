@@ -65,12 +65,12 @@
 {# drawer only (<= 60rem): the avatar menu is hidden there #}
 <div class="nav-group nav-account">
   <h2 class="nav-heading">{{ username }}</h2>
-  {{ nav.link(path('game_settings_show'), 'settings', LNG.lm_options, false) }}
+  {{ nav.link(path('game_settings_show'), 'settings', LNG.lm_options, currentPage == 'settings') }}
   {% if account_id != 0 %}
     {{ nav.link(path('account_account_show'), 'user', LNG['Account'], false) }}
   {% endif %}
   {% if isModuleAvailable(constant('MODULE_NOTICE')) and (not noobInterface or not tutorial) %}
-    {{ nav.link(path('game_notes_show'), 'sticky-note', LNG.lm_notes, false, null, ' data-action="popup" data-url="' ~ path('game_notes_show') ~ '" data-width="720"') }}
+    {{ nav.link(path('game_notes_show'), 'sticky-note', LNG.lm_notes, currentPage == 'notes', null, ' data-action="popup" data-url="' ~ path('game_notes_show') ~ '" data-width="720"') }}
   {% endif %}
   {% if authlevel > 0 %}
     {{ nav.link('./admin', 'shield-alert', LNG.lm_administration, false) }}

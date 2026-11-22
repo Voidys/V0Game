@@ -233,6 +233,29 @@
     /* phones: narrower amount fields, so "amount + max" groups fit their cells */
     :is(.content, .modal) { --cell-pad-x: var(--space-2); --control-w: 100%; --control-num-w: 5rem; }
     :is(.content, .modal) table.form-table :is(td, th):first-child:not(:only-child) { width: auto; }
+    /* stack two-column label|control form rows cleanly (keep single-checkbox rows side-by-side like mobile toggles) */
+    :is(.content, .modal) table.form-table tr:has(> td:nth-child(2)):not(:has(> td:nth-child(3))):not(:has(> td:nth-child(2) > input[type="checkbox"]:only-child)) {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-1);
+      padding: var(--space-2) var(--space-3);
+      border-block-end: 1px solid var(--c-border);
+    }
+    :is(.content, .modal) table.form-table tr:has(> td:nth-child(2)):not(:has(> td:nth-child(3))):not(:has(> td:nth-child(2) > input[type="checkbox"]:only-child)) > td {
+      padding: 0;
+      min-inline-size: 0;
+    }
+    :is(.content, .modal) table.form-table tr:has(> td:nth-child(2)):not(:has(> td:nth-child(3))):not(:has(> td:nth-child(2) > input[type="checkbox"]:only-child)) > td:first-child {
+      font-size: var(--fs-sm);
+    }
+    :is(.content, .modal) table.form-table tr:has(> td:nth-child(2)):not(:has(> td:nth-child(3))):not(:has(> td:nth-child(2) > input[type="checkbox"]:only-child)) > td:first-child label {
+      min-block-size: 0;
+    }
+    :is(.content, .modal) table.form-table tr:has(> td:nth-child(2) > input[type="checkbox"]:only-child):not(:has(> td:nth-child(3))) > td:nth-child(2) {
+      width: 1%;
+      text-align: end;
+      white-space: nowrap;
+    }
   }
 
   /* ------------------------------------------------------------------ build lists (buildings, research, hangar, defense)
@@ -553,10 +576,11 @@
     .content .fleet-select .fleet-select__head .sort-link { white-space: inherit; text-align: inherit; }
   }
   @media (max-width: 40rem) {
-    .content .fleet-select .fleet-amount { inline-size: 2.75rem; }
-    .content .fleet-select :is(td, th):not(.fleet-select__foot, .quick-fleets, .form-actions) { padding-inline: 0.25rem; }
-    .content .fleet-select td.num:has(.control-group) { padding-inline: 0.125rem; }
-    .content .fleet-select .control-group > button.link { padding-inline: 0.3125rem; font-size: 0.75rem; }
+    .content .fleet-select .fleet-amount { inline-size: 4.25rem; padding-inline: 0.375rem; }
+    .content .fleet-select :is(td, th):not(.fleet-select__foot, .quick-fleets, .form-actions) { padding-inline: 0.3rem; }
+    .content .fleet-select td.num:has(.control-group) { padding-inline: 0.25rem; }
+    .content .fleet-select .control-group > button.link { padding-inline: 0.35rem; font-size: 0.75rem; }
+    .content .fleet-select .fleet-select__foot .control-group { gap: var(--space-3); }
     .content .fleet-select .fleet-select__head .sort-link { padding-inline: 0; }
     .content .fleet-select .fleet-select__head > td.fl-col-exp { white-space: normal; }
     .content .fleet-select .fleet-select__head > td.num:not(.fl-col-exp) { white-space: nowrap; }

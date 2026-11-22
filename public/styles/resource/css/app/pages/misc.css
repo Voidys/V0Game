@@ -15,6 +15,17 @@
   .stats-table td:nth-child(3) { inline-size: 40%; }
   .toolbar .control-group > label { color: var(--c-muted); font-size: var(--fs-sm); }
   .toolbar .control-group > select { inline-size: auto; max-inline-size: 100%; }
+  @media (max-width: 40rem) {
+    #stats.toolbar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+    #stats.toolbar .control-group { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-1); min-inline-size: 0; }
+    #stats.toolbar .control-group > label { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.05em; }
+    #stats.toolbar .control-group > select { inline-size: 100%; }
+    #stats.toolbar .control-group:nth-of-type(3) { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; }
+    #stats.toolbar .control-group:nth-of-type(3) > label { flex: 1 0 100%; }
+    #stats.toolbar .control-group:nth-of-type(3) > select { flex: 1 1 0; min-inline-size: 0; }
+    #stats.toolbar .toolbar__spacer { display: none; }
+    #stats.toolbar > a.button { grid-column: 1 / -1; inline-size: 100%; justify-content: center; }
+  }
   .battle-link { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); text-decoration: none; }
   .battle-link:is(:hover, :focus-visible) span { color: var(--c-accent); }
   .battle-link__vs { inline-size: 1rem; block-size: 1rem; flex: none; color: var(--c-muted); }
@@ -27,7 +38,19 @@
   /* ------------------------------------------------------------------ records, advanced statistics, team */
   .tabs__list.segmented { display: inline-flex; margin: 0; max-inline-size: 100%; }
   .tabs__list.segmented { flex-wrap: wrap; }
-  @media (max-width: 40rem) { .tabs__list.segmented { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .tabs__list.segmented::-webkit-scrollbar { display: none; } }
+  @media (max-width: 40rem) {
+    .tabs__list.segmented {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x proximity;
+      padding-inline-end: var(--space-5);
+      mask-image: linear-gradient(90deg, #000 calc(100% - 2rem), transparent);
+      scrollbar-width: none;
+    }
+    .tabs__list.segmented::-webkit-scrollbar { display: none; }
+    .tabs__list.segmented > .tabs__tab { scroll-snap-align: start; }
+  }
   .tabs__list.segmented > .tabs__tab { flex: 0 0 auto; min-block-size: var(--control-h); white-space: nowrap; }
   tr.sub-head > th { text-align: start; }
   table.team td.top { white-space: normal; }
@@ -104,6 +127,11 @@
   .settings-bar .settings-dirty { margin: 0 auto 0 0; color: var(--c-accent); }
   .settings-bar.is-dirty { border-color: var(--c-accent); }
   .settings-bar.is-dirty .hint { display: none; }
+  @media (max-width: 40rem) {
+    .settings-bar { flex-wrap: nowrap; gap: var(--space-3); padding: var(--space-2) var(--space-3); }
+    .settings-bar .hint, .settings-bar .settings-dirty { font-size: var(--fs-xs); }
+    .settings-bar input[type="submit"] { flex: none; }
+  }
   #settings-form .theme-preview { display: block; margin-block-start: var(--space-2); max-inline-size: 100%; block-size: auto; border: 2px solid var(--c-accent); border-radius: var(--r); }
   .danger-zone { align-items: center; gap: var(--space-4); }
   .danger-zone form { margin: 0; }

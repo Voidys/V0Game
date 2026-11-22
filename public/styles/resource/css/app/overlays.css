@@ -96,6 +96,12 @@
     flex: 1; min-inline-size: 0; block-size: auto; padding: 0; background: transparent; border: 0; box-shadow: none; outline: none;
     color: inherit; font-size: var(--fs-lg);
   }
+  .palette-close {
+    flex: none; display: inline-grid; place-items: center; min-block-size: 0; margin: 0; padding: 0;
+    background: none; border: 0; box-shadow: none; color: var(--c-muted); cursor: pointer;
+  }
+  .palette-close:hover { background: none; border-color: transparent; color: var(--c-text); }
+  .palette-close .icon { display: none; inline-size: 1.15rem; block-size: 1.15rem; }
   .palette-list { max-block-size: 22rem; margin: 0; padding: var(--space-1); overflow-y: auto; list-style: none; }
   .palette-list li { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-3); border-radius: var(--r); cursor: pointer; }
   .palette-list li .icon { color: var(--c-muted); }
@@ -104,6 +110,16 @@
   .palette-list li[aria-selected="true"] .icon { color: var(--c-accent); }
   .palette-list .group { padding: var(--space-3) var(--space-3) var(--space-1); font-size: var(--fs-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); cursor: default; }
   .palette-list .palette-empty { justify-content: center; color: var(--c-muted); cursor: default; }
+  @media (max-width: 40rem), (pointer: coarse) {
+    .palette { inline-size: calc(100vw - 1rem); margin-block-start: max(var(--space-3), env(safe-area-inset-top, 0px)); }
+    .palette-input { padding: var(--space-2) var(--space-3); }
+    .palette-input input { font-size: max(1rem, 16px); }
+    .palette-close { inline-size: 2.75rem; block-size: 2.75rem; margin-inline-end: calc(var(--space-2) * -1); border-radius: var(--r); }
+    .palette-close kbd { display: none; }
+    .palette-close .icon { display: block; }
+    .palette-list { max-block-size: min(26rem, 58dvh); }
+    .palette-list li:not(.group) { min-block-size: 2.75rem; }
+  }
 
   /* ---------------------------------------------------------------- shortcut sheet */
   .sheet { inline-size: min(28rem, calc(100vw - 2rem)); margin-inline: auto; }

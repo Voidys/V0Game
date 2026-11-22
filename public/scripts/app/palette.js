@@ -138,9 +138,24 @@ function build() {
   input.setAttribute('aria-controls', 'palette-list');
   input.placeholder = uiText('palette_placeholder');
   input.setAttribute('aria-label', input.placeholder);
+  const closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.className = 'palette-close';
+  closeBtn.setAttribute('aria-label', document.documentElement.dataset.dialogCancel || 'Close');
   const esc = document.createElement('kbd');
   esc.textContent = 'Esc';
-  head.append(input, esc);
+  closeBtn.append(esc);
+  if (spriteHref) {
+    const xSvg = document.createElementNS(SVG, 'svg');
+    xSvg.setAttribute('class', 'icon');
+    xSvg.setAttribute('aria-hidden', 'true');
+    const xUse = document.createElementNS(SVG, 'use');
+    xUse.setAttribute('href', spriteHref.replace(/#.*$/, '#i-x'));
+    xSvg.append(xUse);
+    closeBtn.append(xSvg);
+  }
+  closeBtn.addEventListener('click', () => dialog.close());
+  head.append(input, closeBtn);
   list = document.createElement('ul');
   list.className = 'palette-list';
   list.id = 'palette-list';

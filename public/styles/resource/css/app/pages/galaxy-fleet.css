@@ -132,6 +132,15 @@
     .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td:not(.galaxy-pos):not(.galaxy-actions) { grid-column: 2; }
     .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td.galaxy-debris { grid-column: 3; }
     .galaxy-table tr:is(.is-empty, .galaxy-pirate) > td.galaxy-actions { grid-column: 3; margin: 0; }
+
+    .galaxy-sync { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); justify-content: stretch; }
+    .galaxy-sync__upload { grid-column: 1 / -1; }
+    .galaxy-sync .toolbar__spacer { display: none; }
+    .galaxy-sync #gala_reset { grid-column: 1 / -1; }
+    .galaxy-sync button { inline-size: 100%; }
+
+    .fleet-dock .panel__foot { padding: var(--space-2) var(--space-3); }
+    .fleet-dock .panel__foot :is(input[type="submit"], button) { flex: 1 1 auto; }
   }
 
   /* ---------------------------------------------------------------- fleet: shared bits */

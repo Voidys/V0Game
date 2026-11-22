@@ -288,7 +288,7 @@ function keepScroll() {
   }
 }
 
-/** mobile: the menu button opens the sidebar as a drawer */
+/** mobile: the menu button opens the sidebar as a bottom sheet / drawer */
 function sidebarToggle() {
   const setOpen = (open) => {
     document.body.classList.toggle('sidebar-open', open);
@@ -296,6 +296,7 @@ function sidebarToggle() {
   };
   on(document, 'click', '[data-sidebar-toggle]', () => setOpen(!document.body.classList.contains('sidebar-open')));
   on(document, 'click', '.sidebar-backdrop', () => setOpen(false));
+  on(document, 'click', '.sidenav [data-action="popup"], .sidenav [data-dialog]', () => setOpen(false));
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') setOpen(false);
   });
@@ -329,9 +330,18 @@ function userMenu() {
 
 /** phones: the tab bar hides while a text field is focused (on-screen keyboard) */
 function tabbarKeyboard() {
-  const typing = (el) => el instanceof HTMLElement && (el.matches('textarea') || (el.matches('input') && !/^(checkbox|radio|button|submit|range|color|file)$/.test(el.type)));
-  document.addEventListener('focusin', (event) => { if (typing(event.target)) document.body.classList.add('kb-open'); });
-  document.addEventListener('focusout', () => document.body.classList.remove('kb-open'));
+  const typing = (el) => el instanceof HTMLElement && (el.isContentEditable || el.matches('textarea') || (el.matches('input') && !/^(checkbox|radio|button|submit|reset|range|color|file|hidden)$/.test(el.type)));
+  document.addEventListener('focusin', (event) => {
+    if (typing(event.target)) document.body.classList.add('kb-open');
+  });
+  document.addEventListener('click', (event) => {
+    if (typing(event.target)) document.body.classList.add('kb-open');
+  });
+  document.addEventListener('focusout', () => {
+    requestAnimationFrame(() => {
+      if (!typing(document.activeElement)) document.body.classList.remove('kb-open');
+    });
+  });
 }
 
 /** phones: the floating page action (.page-fab) rises above the page footer while the footer is in view, so it never covers it */
@@ -356,6 +366,14 @@ function fabAboveFooter() {
   // content loaded or folded later moves the footer without a scroll
   if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(document.body);
   update();
+}
+
+/** keeps the active section tab visible in horizontal scroll strips on narrow screens */
+function scrollActiveSectionTab() {
+  const active = qs('.section-tabs__tab[aria-current="page"]');
+  if (active && active.parentElement && active.parentElement.scrollWidth > active.parentElement.clientWidth) {
+    active.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'instant' });
+  }
 }
 
 /** the side panel sticks below the top bar; its height varies (resource row, wrapping), so measure it */
@@ -398,6 +416,7 @@ export function initUi() {
   userMenu();
   tabbarKeyboard();
   fabAboveFooter();
+  scrollActiveSectionTab();
   topbarHeight();
   automationReport();
   qsa('[data-tabs]').forEach((el) => tabs(el));
