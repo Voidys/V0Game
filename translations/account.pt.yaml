@@ -67,7 +67,7 @@ board_not_found: Esta publicação ou comentário não existe.
 board_not_allowed: Não tens permissão para fazer isso.
 board_err_csrf: Não foi possível verificar o pedido. Recarrega a página e tenta novamente.
 board_err_title: Introduz um título.
-board_err_title_long: O título pode ter no máximo 200 caracteres.
+board_err_title_long: O título pode ter no máximo 200 carateres.
 board_err_body: Introduz um texto (não pode estar vazio nem ser demasiado longo).
 board_err_locked: Esta publicação está bloqueada, sem novos comentários.
 board_err_rate_post: Espera mais %d segundo(s) antes da próxima publicação.

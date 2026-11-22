@@ -1,11 +1,11 @@
 Olá {USERNAME},
 
-o endereço de correio eletrónico da sua conta acabou de ser alterado.
-A alteração tornar-se-á permanente dentro de alguns dias.
+O endereço de e-mail da tua conta acabou de ser alterado.
+A alteração torna-se definitiva dentro de alguns dias.
 
-Se ainda não o fizeste, cria um ticket no nosso Discord:
+Se não foste tu a fazê-lo, abre um ticket no nosso Discord:
 {DISCORD}
 
-Com os melhores cumprimentos
+Com os melhores cumprimentos,
 
-A tua equipa {GAMENAME}
+A tua equipa de {GAMENAME}

@@ -25,33 +25,15 @@ tutorial_text:
     Ligamos muitas vezes à nossa wiki, porque nem tudo cabe num tutorial. Podes abri-la a qualquer momento no menu da esquerda.<br>
     Podes saltar o tutorial quando quiseres, mas não o poderás recomeçar mais tarde.<br><br>
     Boa sorte, Imperador!
-  step1: |-
-    O teu objetivo: fazer o máximo de pontos possível. Ganhas um ponto por cada 1000 recursos que gastares, e a melhor fonte de recursos são as tuas próprias minas.<br>
-    Começa pelo abastecimento básico: precisas de metal e cristal das respetivas minas, mais energia da Planta de Energia Solar para as manter a funcionar. Se faltar energia, as minas produzem abaixo dos 100%.<br>
-    Melhora estes edifícios no menu <b>Edifícios</b>. Clica no nome de um edifício para veres o que o próximo nível te dá e quanta energia vai consumir.<br><br>
-    Queres saber mais? Dá uma vista de olhos à <b>Wiki</b>: 
-    <a href="{wiki_url}/wiki/En/Rohstoffe" target="_blank">Recursos</a>
+  step1: "O teu objetivo: fazer o máximo de pontos possível. Ganhas um ponto por cada 1000 recursos que gastares, e a melhor fonte de recursos são as tuas próprias minas.<br>\nComeça pelo abastecimento básico: precisas de metal e cristal das respetivas minas, mais energia da Planta de Energia Solar para as manter a funcionar. Se faltar energia, as minas produzem abaixo dos 100%.<br>\nMelhora estes edifícios no menu <b>Edifícios</b>. Clica no nome de um edifício para veres o que o próximo nível te dá e quanta energia vai consumir.<br><br>\nQueres saber mais? Dá uma vista de olhos à <b>Wiki</b>: \n<a href=\"{wiki_url}/wiki/En/Rohstoffe\" target=\"_blank\">Recursos</a>"
   step2: |-
     Jogar é mais divertido em conjunto. A maioria dos jogadores está no nosso Discord, onde podes obter respostas e encontrar gente para jogar.<br>
     Ainda estás com dúvidas? Também podes abrir aqui um pedido de suporte.
-  step3: |-
-    Pilhar os planetas de outros jogadores é outra forma de obter recursos – e também te pode acontecer a ti. Por isso, constrói a tua primeira defesa!<br>
-    Mesmo uma defesa pequena protege a tua produção durante a noite.<br><br>
-    Os números sozinhos não decidem uma batalha; a composição da frota atacante também conta.<br>
-    Os atacantes têm de ultrapassar a tua defesa antes de pilharem, e cada nave que tenham de enviar reduz o lucro e pode custar-lhes mais naves.<br>
-    Constrói defesas no menu <b>Defesas</b>. Precisas de um Hangar (que por sua vez precisa de uma Fábrica de Robots) e de algum deutério.<br><br>
-    Aqui tens o artigo correspondente na wiki: 
-    <a href="{wiki_url}/wiki/En/Verteidigung" target="_blank">Instalações de defesa</a>
+  step3: "Pilhar os planetas de outros jogadores é outra forma de obter recursos – e também te pode acontecer a ti. Por isso, constrói a tua primeira defesa!<br>\nMesmo uma defesa pequena protege a tua produção durante a noite.<br><br>\nOs números sozinhos não decidem uma batalha; a composição da frota atacante também conta.<br>\nOs atacantes têm de ultrapassar a tua defesa antes de pilharem, e cada nave que tenham de enviar reduz o lucro e pode custar-lhes mais naves.<br>\nConstrói defesas no menu <b>Defesas</b>. Precisas de um Hangar (que por sua vez precisa de uma Fábrica de Robots) e de algum deutério.<br><br>\nAqui tens o artigo correspondente na wiki: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Instalações de defesa</a>"
   step4: |-
     Mantém os recursos a fluir expandindo as tuas minas!<br>
     Edifícios, naves, defesas e pesquisas ficam mais caros com o tempo, por isso a tua produção tem de crescer a par. Abre agora Edifícios e melhora as minas sempre que tiveres recursos.
-  step5: |-
-    Constrói um Cargueiro Pequeno!<br>
-    Os Cargueiros Pequenos são transportadores rápidos e práticos.<br>
-    Com o Motor de Impulsão, são mais rápidos do que os Cargueiros Grandes em distâncias maiores.<br>
-    Usa-os para mover recursos entre os teus planetas, para trocar com outros jogadores ou para os atacar.<br><br>
-    Mais na wiki: 
-    <a href="{wiki_url}/wiki/En/Schiffe" target="_blank">Naves</a>
+  step5: "Constrói um Cargueiro Pequeno!<br>\nOs Cargueiros Pequenos são transportadores rápidos e práticos.<br>\nCom o Motor de Impulsão, são mais rápidos do que os Cargueiros Grandes em distâncias maiores.<br>\nUsa-os para mover recursos entre os teus planetas, para trocar com outros jogadores ou para os atacar.<br><br>\nMais na wiki: \n<a href=\"{wiki_url}/wiki/En/Schiffe\" target=\"_blank\">Naves</a>"
   step6: |-
     Dá um nome ao teu planeta para o identificares facilmente. Na Vista Geral, clica no nome do planeta no cabeçalho do painel de pontos. Experimenta agora.<br><br>
     Também podes enviar pedidos de amizade a outros jogadores. Quando os aceitarem, é mais fácil conversar e ver o estado online uns dos outros. Para isso não precisam de partilhar uma aliança. Os amigos também podem estacionar frotas nos planetas uns dos outros, para defenderem em conjunto fora de uma aliança.<br><br>
@@ -59,29 +41,15 @@ tutorial_text:
   step7: |-
     Para descobrires que recursos, edifícios, pesquisas, naves e defesas tem outro jogador, tens de o espiar. Envia uma Sonda de Espionagem a um jogador a partir do menu Frota ou da vista Galáxia.<br>
     Lembra-te: os outros jogadores também te podem espiar!
-  step8: |-
-    Uma expedição pode trazer recursos, naves, eventos especiais ou perdas. Para experimentares, pega numa nave, escolhe a posição de planeta 16 como destino e a missão «Expedição» no menu Frota.<br>
-    Cada tipo de nave contribui para o tamanho da tua frota de expedição, até um limite em que se atinge o tamanho máximo do evento.<br><br>
-    A wiki explica o que podes alterar para maximizar o lucro: 
-    <a href="{wiki_url}/wiki/En/Expoanleitung" target="_blank">Expedições</a>
-  step9: |-
-    Quantos mais planetas colonizares, mais depressa cresces: podes produzir recursos e construir naves em vários planetas ao mesmo tempo. Repara que só podes colonizar a margem interior ou exterior de um sistema se o teu nível de Astrofísica for suficientemente alto. A Nave de Colonização em si pode ser construída sem Astrofísica, mas a tua primeira colónia precisa dela!<br><br>
-    Colonizar no teu próprio sistema ou mesmo ao lado mantém as rotas de transporte curtas. A desvantagem: mais tarde no jogo, outros jogadores podem colocar uma colónia no teu sistema, não pelas minas, mas como base de frota temporária – uma chamada colónia de raide.<br><br>
-    Mais na wiki: 
-    <a href="{wiki_url}/wiki/En/Astrophysik" target="_blank">Astrofísica</a>
-  step10: |-
-    Queres recursos mais depressa? Ataca outros jogadores. Pesa o custo e o benefício para que o ataque compense, e usa relatórios de espionagem e o simulador de combate para o planear.<br><br>
-    Cuidado! Os outros jogadores conseguem seguir muitas missões de frota de várias formas.<br>
-    Não perder a frota que tanto custou a construir é uma das partes mais importantes do jogo.<br><br>
-    Por isso, lê estes tópicos da wiki: 
-    <a href="{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden" target="_blank">Salvar frotas</a> - 
-    <a href="{wiki_url}/wiki/En/Sensorenphalanx" target="_blank">Sensor Phalanx</a>
+  step8: "Uma expedição pode trazer recursos, naves, eventos especiais ou perdas. Para experimentares, pega numa nave, escolhe a posição de planeta 16 como destino e a missão «Expedição» no menu Frota.<br>\nCada tipo de nave contribui para o tamanho da tua frota de expedição, até um limite em que se atinge o tamanho máximo do evento.<br><br>\nA wiki explica o que podes alterar para maximizar o lucro: \n<a href=\"{wiki_url}/wiki/En/Expoanleitung\" target=\"_blank\">Expedições</a>"
+  step9: "Quantos mais planetas colonizares, mais depressa cresces: podes produzir recursos e construir naves em vários planetas ao mesmo tempo. Repara que só podes colonizar a margem interior ou exterior de um sistema se o teu nível de Astrofísica for suficientemente alto. A Nave de Colonização em si pode ser construída sem Astrofísica, mas a tua primeira colónia precisa dela!<br><br>\nColonizar no teu próprio sistema ou mesmo ao lado mantém as rotas de transporte curtas. A desvantagem: mais tarde no jogo, outros jogadores podem colocar uma colónia no teu sistema, não pelas minas, mas como base de frota temporária – uma chamada colónia de raide.<br><br>\nMais na wiki: \n<a href=\"{wiki_url}/wiki/En/Astrophysik\" target=\"_blank\">Astrofísica</a>"
+  step10: "Queres recursos mais depressa? Ataca outros jogadores. Pesa o custo e o benefício para que o ataque compense, e usa relatórios de espionagem e o simulador de combate para o planear.<br><br>\nCuidado! Os outros jogadores conseguem seguir muitas missões de frota de várias formas.<br>\nNão perder a frota que tanto custou a construir é uma das partes mais importantes do jogo.<br><br>\nPor isso, lê estes tópicos da wiki: \n<a href=\"{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden\" target=\"_blank\">Guardar frotas</a> - \n<a href=\"{wiki_url}/wiki/En/Sensorenphalanx\" target=\"_blank\">Sensor Phalanx</a>"
   step10_u6: |-
     Queres recursos mais depressa? Ataca outros jogadores. Pesa o custo e o benefício para que o ataque compense, e usa relatórios de espionagem e o simulador de combate para o planear.<br><br>
     Cuidado! Os outros jogadores conseguem seguir muitas missões de frota de várias formas.<br>
     Não perder a frota que tanto custou a construir é uma das partes mais importantes do jogo.<br><br>
     Por isso, lê estes tópicos da wiki:
-    <a href="{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden" target="_blank">Salvar frotas</a>
+    <a href="{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden" target="_blank">Guardar frotas</a>
   step11: |-
     Quando as frotas são destruídas, deixam um campo de destroços que podes recolher. Para isso precisas de Recicladores, com uma capacidade de carga de 20 000 cada. Aniquilar uma frota grande pode ser uma fonte de recursos muito lucrativa.<br><br>
     Também podes enviar Recicladores diretamente da vista Galáxia, clicando num campo de destroços, em vez de usares o menu Frota.

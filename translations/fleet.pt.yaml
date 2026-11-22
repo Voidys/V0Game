@@ -40,15 +40,15 @@ sys_and: e
 sys_attack_attacker_pos: Atacante
 sys_attack_defender_pos: Defensor
 sys_attack_round: Ronda
-cr_start: "Frotas iniciais"
-cr_rounds: "Rondas"
-cr_debris: "Campo de destroços"
-cr_loot: "Saque"
-cr_losses: "Perdas"
-cr_moon: "Hipótese de lua"
-cr_lost_round: "Perdas nesta ronda"
-cr_lost_total: "Perdas totais"
-cr_stats: "Estatísticas da batalha"
+cr_start: Frotas iniciais
+cr_rounds: Rondas
+cr_debris: Campo de destroços
+cr_loot: Saque
+cr_losses: Perdas
+cr_moon: Hipótese de lua
+cr_lost_round: Perdas nesta ronda
+cr_lost_total: Perdas totais
+cr_stats: Estatísticas da batalha
 sys_attack_title: 'As seguintes frotas defrontam-se em: '
 sys_attacker_lostunits: 'Perdas do atacante: '
 sys_attacker_won: O atacante ganhou a batalha!
@@ -87,7 +87,7 @@ sys_expe_attack_1_3_3: 'Acabámos de receber uma mensagem urgente do comandante 
 sys_expe_attack_2_1_1: A tua frota de expedição teve um primeiro contacto pouco amigável com uma espécie desconhecida.
 sys_expe_attack_2_1_2: Umas naves estranhas atacaram a frota de expedição sem aviso!
 sys_expe_attack_2_1_3: A nossa expedição foi atacada por um pequeno grupo de naves não identificadas!
-sys_expe_attack_2_1_4: A frota de expedição reporta contacto com naves desconhecidas. As mensagens de rádio não podem ser descodificadas, mas as naves estranhas parecem estar a ativar as armas.
+sys_expe_attack_2_1_4: A frota de expedição reporta contacto com naves desconhecidas. As mensagens de rádio não se conseguem descodificar, mas as naves estranhas parecem estar a ligar as armas.
 sys_expe_attack_2_2_1: Uma espécie desconhecida está a atacar a nossa expedição!
 sys_expe_attack_2_2_2: A tua frota de expedição violou, ao que parece, o território de uma raça alienígena até agora desconhecida, mas muito agressiva.
 sys_expe_attack_2_2_3: A ligação à nossa frota de expedição foi cortada de repente. A última coisa que ouvimos foi que a frota estava debaixo de fogo pesado. Os atacantes não puderam ser identificados.
@@ -185,9 +185,7 @@ sys_mess_spy_control: Serviços secretos centrais
 sys_mess_spy_destroyed: As tuas sondas de espionagem foram destruídas!
 sys_mess_spy_ennemyfleet_1: Sondas de espionagem inimigas do planeta %s foram avistadas perto de %s.
 sys_mess_spy_ennemyfleet_3: Sondas de espionagem inimigas da lua %s foram avistadas perto de %s.
-sys_mess_spy_link: >-
-  <a href="game/galaxy/%3$s/%4$s">%1$s (%2$s)
-  [%3$s:%4$s:%5$s]</a>
+sys_mess_spy_link: <a href="game/galaxy/%3$s/%4$s">%1$s (%2$s) [%3$s:%4$s:%5$s]</a>
 sys_mess_spy_lostproba: A probabilidade de as sondas serem detetadas era de %d%%
 sys_mess_spy_qg: Departamento de espionagem
 sys_mess_spy_repair_order: Neste momento estão a ser restauradas naves na doca de reparação.
@@ -243,10 +241,10 @@ type_planet_4: Base pirata
 type_planet_short_1: P
 type_planet_short_2: D
 type_planet_short_3: L
-depot_msg_subject: "Frota reabastecida"
-depot_msg_text: "A tua frota em %s foi reabastecida por %s: estadia prolongada em %s h."
-cr_actions: "Ações do relatório"
-cr_attack_again: "Atacar novamente"
-cr_simulate: "Simular"
-sys_expe_factor: "Factor %s"
-sys_irak_vacation: "The missiles were lost: the target player is in vacation mode."
+depot_msg_subject: Frota reabastecida
+depot_msg_text: 'A tua frota em %s foi reabastecida por %s: estadia prolongada em %s h.'
+cr_actions: Ações do relatório
+cr_attack_again: Atacar novamente
+cr_simulate: Simular
+sys_expe_factor: Fator %s
+sys_irak_vacation: 'Os mísseis perderam-se: o jogador alvo está em modo de férias.'

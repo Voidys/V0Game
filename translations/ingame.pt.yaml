@@ -335,8 +335,8 @@ al_memberlist_on: Online
 al_message: Mensagem
 al_name: Alterar nome da aliança
 al_name_required: Indica um nome para a aliança.
-al_link_too_long: O link é demasiado longo (no máximo 255 caracteres).
-al_name_tag_too_long: A tag pode ter no máximo 8 caracteres e o nome 30.
+al_link_too_long: O link é demasiado longo (no máximo 255 carateres).
+al_name_tag_too_long: A tag pode ter no máximo 8 carateres e o nome 30.
 al_new_apply: A tua aliança recebeu <a href="game/alliance/admin/applications">[uma candidatura]</a> do jogador <a href="#" data-action="dialog-playercard" data-id="%s" data-name="%s"><b>%s</b></a>.
 al_new_member_rank_text: Novo membro
 al_new_requests: '%d pendentes'
@@ -434,8 +434,8 @@ bd_more_engine: Produz mais <font class="colorPositive">%s</font> de %s
 bd_need_engine: Consome mais <font class="colorNegative">%s</font> de %s
 bd_next_level: 'Próximo nível:'
 bd_no_lab: Não há laboratório de pesquisas neste planeta. Podes ver a fila, mas não a alterar.
-bd_no_lab_here: 'Sem laboratório de pesquisa neste planeta'
-bd_on_this_planet: 'neste planeta'
+bd_no_lab_here: Sem laboratório de pesquisa neste planeta
+bd_on_this_planet: neste planeta
 bd_no_more_fields: Não há campos livres neste planeta.
 bd_operating: (Em construção)
 bd_paused: em pausa
@@ -606,11 +606,11 @@ fl_already_invited: ' já foi convidado.'
 fl_ammount: Naves
 fl_arrival: Chegada
 fl_arrival_time: Hora de chegada
-fl_arrival_target: "Chegada ao destino"
-fl_return_home: "Regresso"
-fl_attack_confirm_buddy: 'O alvo está na tua lista de amigos.
-
-  Tens a certeza de que queres atacar?'
+fl_arrival_target: Chegada ao destino
+fl_return_home: Regresso
+fl_attack_confirm_buddy: |-
+  O alvo está na tua lista de amigos.
+  Tens a certeza de que queres atacar?
 fl_attack_confirm_diplo: Tens um pacto (%s) com %s. Atacar mesmo assim?
 fl_attack_confirm_outlaw: Atacar %s vai tornar-te um fora-da-lei durante 7 dias.
 fl_bash_protection: Isso violaria a regra anti-bash.
@@ -618,7 +618,7 @@ fl_daily_cap_reached: Limite diário de frotas de %1$d atingido. Repõe-se em %2
 fl_daily_attack_cap_reached: Limite diário de ataques de %1$d atingido. Repõe-se em %2$dh %3$dmin.
 fl_beginning: Origem
 fl_blocked: ' não aceita convites.'
-fl_bonus: Bonus
+fl_bonus: Bónus
 fl_bonus_attack: Armas
 fl_bonus_defensive: Blindagem
 fl_bonus_shield: Escudos
@@ -728,9 +728,9 @@ fl_target_exists: Planeta de destino
 fl_trade_no_resource_loaded: Não carregaste nenhum recurso.
 fl_trade_same_resource: Não podes vender %s por %s.
 fl_trade_to_many_resources_loaded: Só podes vender um tipo de recurso.
-fl_transfer_alert_message: 'Atenção!
-
-  A tua frota vai ser transferida para outro jogador!'
+fl_transfer_alert_message: |-
+  Atenção!
+  A tua frota vai ser transferida para outro jogador!
 fl_vacation_mode_active: Modo de férias ativo
 fl_visibility: Visibilidade
 fl_visibility_all: Todos
@@ -875,7 +875,7 @@ lm_banned: Banidos
 lm_battlesim: Simulador
 lm_buddylist: Amigos
 lm_buildings: Edifícios
-lm_changelog: Changelog
+lm_changelog: Registo de alterações
 lm_dataPrivacy: Proteção de dados
 lm_defenses: Defesas
 lm_empire: Império
@@ -983,7 +983,7 @@ mg_deleted: Mensagem eliminada.
 mg_empty_text: Escreve um texto
 mg_error: Destinatário não encontrado!
 mg_too_many_recipients: Só podes escrever a um máximo de %d jogadores de cada vez.
-mg_text_too_long: A mensagem é demasiado longa (no máximo %d caracteres).
+mg_text_too_long: A mensagem é demasiado longa (no máximo %d carateres).
 mg_rate_limited: Estás a enviar mensagens depressa demais. Espera uns minutos.
 mg_favorite: Marcar como favorito
 mg_favorite_filter_off: Mostrar tudo
@@ -993,7 +993,7 @@ mg_grouping_off: Mostrar mensagens sem agrupar
 mg_grouping_on: Mostrar mensagens agrupadas
 mg_message: Mensagem
 mg_message_send: Mensagem enviada!
-mg_min_3_chars: Escreve pelo menos 3 caracteres para pesquisar
+mg_min_3_chars: Escreve pelo menos 3 carateres para pesquisar
 mg_new: Novo
 mg_no_subject: Sem assunto
 mg_no_user: Nenhum jogador encontrado
@@ -1031,7 +1031,7 @@ neutral: Neutro
 neutral_fights: Lutas neutras
 noob_interface: A interface para principiantes está ativa. É uma versão simplificada do jogo para um início rápido e fácil, e as entradas do menu vão sendo desbloqueadas à medida que avanças no tutorial. Podes desativá-la a qualquer momento nas opções.
 nt_back: Voltar
-nt_characters: caracteres
+nt_characters: carateres
 nt_create_new_note: Criar nova nota
 nt_create_note: Criar nota
 nt_date_note: Data
@@ -1086,7 +1086,7 @@ op_missile_attack: Ataque com mísseis
 op_missing_requirements_opacity: Esbater itens com requisitos em falta
 op_missing_resources_opacity: Esbater itens que não podes pagar
 op_need_pass_mail: Introduz a tua palavra-passe para alterar o endereço de email.
-op_new_pass: Nova palavra-passe (mín. 8 caracteres)
+op_new_pass: Nova palavra-passe (mín. 8 carateres)
 op_noob_interface: Interface para principiantes
 op_not_vaild_mail: Esse endereço de email não parece válido.
 op_old_pass: Palavra-passe atual
@@ -1144,18 +1144,18 @@ ov_fleet: Frotas
 ov_fleetbutton_hide: Ocultar
 ov_fleetbutton_show: Mostrar
 ov_free: Livre
-ov_have_new_message: Possuis uma nova mensagem
-ov_have_new_messages: Possuis %d novas mensagens
+ov_have_new_message: Tens uma nova mensagem
+ov_have_new_messages: Tens %d novas mensagens
 ov_queues: Filas
 ov_max_developed_fields: Total de campos
 ov_moon: Lua
 ov_newname_done: Planeta renomeado!
 ov_newname_specialchar: Os nomes de planetas só podem conter números, letras, espaços, sublinhados, hífenes e pontos!
-ov_newname_too_long: O nome do planeta pode ter no máximo %d caracteres.
+ov_newname_too_long: O nome do planeta pode ter no máximo %d carateres.
 ov_news: Notícias
-ov_news_all: 'Todas as notícias'
-tutorial_label: 'Tutorial'
-tutorial_step_of: 'Passo %1 de %2'
+ov_news_all: Todas as notícias
+tutorial_label: Tutorial
+tutorial_step_of: Passo %1 de %2
 ov_of: de
 ov_outlaw: 'Fora da lei até:'
 ov_place: Posição
@@ -1233,10 +1233,10 @@ rs_calculate: Guardar alterações
 rs_daily: Produção diária
 rs_lvl: Nível
 rs_production_on_planet: Recursos produzidos em "%s"
-rs_ramp_up: 'Tudo a 100%'
+rs_ramp_up: Tudo a 100%
 rs_ress_bonus: Bónus (através de pesquisas)
 rs_ress_bonus_position: Bónus (através da posição do planeta)
-rs_shut_down: 'Tudo a 0%'
+rs_shut_down: Tudo a 0%
 rs_storage_capacity: Capacidade de armazenamento
 rs_sum: Produção por hora
 rs_weekly: Produção semanal
@@ -1312,7 +1312,7 @@ stats:
   '410': Canhões de Gravitação
   '411': S. Orbital de Defesa
   '412': Bunker
-  '413': Titan Laser
+  '413': Laser Titã
   '414': Isca
   '502': Mísseis de Interceção
   '503': Mísseis Interplanetários
@@ -1359,11 +1359,10 @@ ti_category: Categoria
 ti_close: Ticket fechado
 ti_create: 'Ticket criado em '
 ti_create_head: Criar ticket
-ti_create_info: '<p>Ao criares um ticket de suporte, descreve o teu problema com o máximo de detalhe!</p>
-
+ti_create_info: |-
+  <p>Ao criares um ticket de suporte, descreve o teu problema com o máximo de detalhe!</p>
   <p>Uma descrição detalhada encurta o tempo de resolução e evita um vaivém demorado.</p>
-
-  <p>Em problemas relacionados com contas, indicar os dados relevantes da conta ajuda a atribuir o ticket e encurta o tempo de tratamento.</p>'
+  <p>Em problemas relacionados com contas, indicar os dados relevantes da conta ajuda a atribuir o ticket e encurta o tempo de tratamento.</p>
 ti_date: Data
 ti_error_closed: Este ticket já está fechado, por isso não pode ser respondido.
 ti_error_too_many_open: Já tens %d tickets abertos. Espera que um seja fechado antes de abrir outro.
@@ -1409,7 +1408,7 @@ tkb_verlierer: <b>-Derrotado-</b>
 tkb_week: semana
 tn_delete_mode: A tua conta será eliminada a %s.
 tn_vacation_mode: A tua conta está em modo de férias.
-tn_vacation_mode_kick: '<br><br>ATENÇÃO: o modo de férias é desativado automaticamente após 4 semanas de inatividade.'
+tn_vacation_mode_kick: '<br><br>ATENÇÃO: o modo de férias termina automaticamente após 4 semanas de inatividade.'
 tn_vacation_mode_until: A tua conta está em modo de férias até pelo menos %s.
 tr_exchange_done: Troca concluída!
 tr_exchange_error: A quantidade de recursos é inválida ou insuficiente
@@ -1497,14 +1496,14 @@ ui_menu: Menu
 ui_rank: Posição
 ui_queue: Fila
 ui_queue_free: vaga livre
-ui_planet_prev: "Planeta anterior"
-ui_planet_next: "Próximo planeta"
-ui_queue_done: "Tudo pronto às %at% (em %in%)"
-ui_full_in: "Cheio em"
-ui_energy_used: "Energia usada"
+ui_planet_prev: Planeta anterior
+ui_planet_next: Próximo planeta
+ui_queue_done: Tudo pronto às %at% (em %in%)
+ui_full_in: Cheio em
+ui_energy_used: Energia usada
 ui_points: Pontos
 ui_close: Fechar
-ui_storage_full: "Armazém cheio: produção parada"
+ui_storage_full: 'Armazém cheio: produção parada'
 ui_messages: Mensagens
 ui_server_time: Hora do servidor
 ui_planet: Planeta
@@ -1513,9 +1512,9 @@ ui_nav_universe: Universo
 ui_nav_community: Comunidade
 ui_nav_help: Ajuda
 ui_nav_personal: Pessoal
-ui_nav_rankings: 'Classificações'
-ui_nav_sections: 'Secções'
-ui_user_menu: 'Menu da conta'
+ui_nav_rankings: Classificações
+ui_nav_sections: Secções
+ui_user_menu: Menu da conta
 gl_points: Pontos
 mg_action: Ação
 mg_message_type: Tipo de mensagem
@@ -1565,105 +1564,105 @@ vt_postback_hint: A recompensa chega depois de o site confirmar o teu voto.
 vt_notice_rewarded: Obrigado por votares! A recompensa foi adicionada ao teu planeta principal.
 vt_notice_pending: Obrigado por votares! A recompensa chega depois de o site confirmar o teu voto.
 vt_notice_cooldown: Tens de esperar antes de votar novamente neste site.
-mg_confirm_delete_one: "Apagar esta mensagem?"
-mg_confirm_delete_bulk: "Apagar mesmo estas mensagens? Não é possível desfazer."
-mg_quick_read_all: "Marcar tudo como lido"
-mg_quick_delete_read: "Apagar lidas"
-mg_quick_delete_older: "Apagar com mais de %d dias"
-mg_confirm_delete_read: "Apagar todas as mensagens lidas desta categoria? Os favoritos são mantidos."
-mg_confirm_delete_older: "Apagar todas as mensagens desta categoria com mais de %d dias? Os favoritos são mantidos."
-mg_spy_again: "Espiar novamente"
-fl_change_target: "Alterar destino"
-mg_group_mark: "Marcar como lida"
-mg_group_delete: "Apagar"
-mg_pick_category: "Escolhe uma categoria acima para ver as mensagens."
-mg_no_messages: "Sem mensagens."
-mg_select_message: "Selecionar mensagem"
-mg_search_player: "Procurar jogador"
-mg_remove_receiver: "Remover destinatário"
-mg_no_receiver: "Escolhe pelo menos um destinatário."
-nt_confirm_delete: "Apagar as notas marcadas?"
-nt_priority_legend: "Cor = prioridade: verde baixa, amarelo normal, vermelho alta"
-al_save_all_hint: "Os dois botões Salvar salvam os textos e as opções juntos."
-al_dissolve_btn: "Dissolver aliança..."
-al_transfer_btn: "Transferir aliança..."
-al_dissolve_hint: "Isto exclui a aliança permanentemente e remove todos os membros. Não pode ser desfeito."
-al_transfer_hint: "Passe a liderança a outro membro. Você perde o posto de fundador."
-al_transfer_confirm: "Transferir a aliança ao membro selecionado? Você perderá a liderança."
-al_kick: "Expulsar"
-al_find_results: "Resultados"
-al_find_browse: "Maiores alianças"
-al_find_none_yet: "Ainda não há alianças neste universo."
-al_no_inside_text: "Ainda não há texto para os membros."
-bd_needs: 'Requer'
-bd_missing: 'Falta'
-honorfights: "Lutas honrosas"
-pl_block_head: "Bloquear"
-pl_block_hint: "Tem efeito imediato, não há botão Salvar."
-st_my_rank: "Ir para minha posição"
-st_legend_noob: "Proteção de novato"
-rec_intro: "O nível mais alto alcançado neste universo para cada construção e pesquisa, comparado ao seu."
-as_intro: "Contadores detalhados da sua própria atividade (expedições, construções, perdas, destruições). O ranking de todos os jogadores fica em Estatísticas."
-as_show_empty: "Mostrar linhas vazias"
-op_sections: "Ir para"
-op_save_hint: "As alterações só valem depois de salvar."
-op_dlte_account_confirm: "Excluir mesmo a sua conta? Ela é removida por completo após pelo menos 7 dias; até lá você pode cancelar a exclusão."
-ti_none: "Você ainda não tem tickets. Leia primeiro a %s; se não ajudar, crie um ticket."
-ti_faq_first: "Veja primeiro a FAQ: muitas perguntas já estão respondidas lá."
-team_contact_hint: "Precisa de ajuda? Abra um ticket em %s."
-cl_hint: "Mudanças técnicas no software do jogo, as mais recentes primeiro. Clique numa entrada para expandi-la."
-cl_empty: "Nenhuma alteração registrada."
-toc_contents: "Conteúdo"
-sh_hint: "Digite pelo menos dois caracteres e pressione Enter ou Procurar."
-sh_search_type: "Procurar por"
-sh_search_text: "Texto da busca"
-sh_no_players: "Nada encontrado. Verifique a ortografia ou tente um texto mais curto."
-sh_no_alliances: "Nenhuma aliança encontrada. Verifique a ortografia ou tente um texto mais curto."
-fl_no_ship_selected: "Escolhe pelo menos uma nave."
-fl_recall_confirm: "Chamar esta frota de volta? Ela volta agora e chega a casa às %s."
-fl_recall_return: "De volta se chamada agora"
-fl_no_fleets: "Nenhuma frota em missão."
-fl_quick_fleets: "Frotas rápidas"
-fl_quick_fleets_hint: "Nada guardado ainda. Guarda uma combinação de naves em \"Frotas próprias\" abaixo e ela aparece aqui como atalho; a tua última missão também aparece aqui."
-fl_load_hint: "Os valores cinzentos são o stock deste planeta. Os botões de carga sugerem quantas naves o levam; deixa vazio se não enviares nada."
-fl_load_clear: "Limpar"
-fl_cargo_options_hint: "Vermelho significa que não tens naves suficientes. Clica num ícone de nave para a pré-selecionar com o destino."
-fl_summary: "Resumo do envio"
-fl_coord_range: "Coordenadas inválidas. Permitido: galáxia 1-%d, sistema 1-%d, posição 1-%d."
-fl_sending: "A enviar a frota..."
-ft_rate_info: 'O comerciante fica com %s%% do valor da nave e paga o resto em recursos.'
-ft_per_ship: 'Pagamento por nave'
-ft_receive: 'Você recebe'
-market_tab_resources: 'Mercado de recursos'
-market_tab_fleets: 'Mercado de frotas'
-market_ratio_label: 'Comparar ofertas na proporção'
-market_ratio_hint: 'Define a taxa usada na coluna Proporção; o recurso escolhido é a base.'
-market_no_offers: 'Sem ofertas no momento.'
-gl_recycle_needs: "Reciclar (precisa de reciclador)"
-gl_keys_hint: "Teclado: setas ou A D mudam de sistema, W S de galáxia."
-rs_ramp_up_confirm: 'Colocar todos os produtores a 100% e guardar?'
-rs_shut_down_confirm: 'Colocar todos os produtores a 0% e guardar? A produção para.'
-rs_energy_deficit: 'Défice de energia: as minas funcionam abaixo do nível definido até a energia voltar ao equilíbrio.'
-ov_event_hostile: 'Hostil'
-ov_no_fleets: 'Sem movimentos de frota.'
-al_chart_x: "Tempo (horas atrás)"
-al_chart_y: "Pontos"
-as_sub_count: "Expedições"
-as_sub_found: "Achados"
-as_sub_lost: "Perdas"
-as_sub_first: "Primeiras vezes"
-op_notifications: "Notificações"
-rs_full_in: 'Armazém cheio em'
-rs_full_now: 'Cheio'
-fl_prepared_gone: "Esta frota já não está preparada (expirou, foi libertada ou já foi enviada). Começa de novo."
-gl_legend_activity: "Ativo nos últimos 15 min, depois (minutos) até 60"
-st_rank_change: "Alteração de posição desde a última atualização"
-st_prev_range: "Anteriores 100"
-st_next_range: "Próximos 100"
-op_unsaved_one: "1 alteração não guardada"
-op_unsaved_many: "%d alterações não guardadas"
-pl_note: "Nota"
-pl_galaxy_view: "Mostrar na galáxia"
+mg_confirm_delete_one: Apagar esta mensagem?
+mg_confirm_delete_bulk: Apagar mesmo estas mensagens? Não é possível desfazer.
+mg_quick_read_all: Marcar tudo como lido
+mg_quick_delete_read: Apagar lidas
+mg_quick_delete_older: Apagar com mais de %d dias
+mg_confirm_delete_read: Apagar todas as mensagens lidas desta categoria? Os favoritos são mantidos.
+mg_confirm_delete_older: Apagar todas as mensagens desta categoria com mais de %d dias? Os favoritos são mantidos.
+mg_spy_again: Espiar novamente
+fl_change_target: Alterar destino
+mg_group_mark: Marcar como lida
+mg_group_delete: Apagar
+mg_pick_category: Escolhe uma categoria acima para ver as mensagens.
+mg_no_messages: Sem mensagens.
+mg_select_message: Selecionar mensagem
+mg_search_player: Procurar jogador
+mg_remove_receiver: Remover destinatário
+mg_no_receiver: Escolhe pelo menos um destinatário.
+nt_confirm_delete: Apagar as notas marcadas?
+nt_priority_legend: 'Cor = prioridade: verde baixa, amarelo normal, vermelho alta'
+al_save_all_hint: Os dois botões Guardar guardam os textos e as opções em conjunto.
+al_dissolve_btn: Dissolver aliança...
+al_transfer_btn: Transferir aliança...
+al_dissolve_hint: Isto elimina a aliança de vez e remove todos os membros. Não há volta atrás.
+al_transfer_hint: Passa a liderança a outro membro. Perdes o posto de fundador.
+al_transfer_confirm: Transferir a aliança para o membro selecionado? Perdes a liderança.
+al_kick: Expulsar
+al_find_results: Resultados
+al_find_browse: Maiores alianças
+al_find_none_yet: Ainda não há alianças neste universo.
+al_no_inside_text: Ainda não há texto para os membros.
+bd_needs: Requer
+bd_missing: Falta
+honorfights: Lutas honrosas
+pl_block_head: Bloquear
+pl_block_hint: Tem efeito imediato, não há botão Guardar.
+st_my_rank: Ir para a minha posição
+st_legend_noob: Proteção de principiante
+rec_intro: O nível mais alto atingido neste universo em cada edifício e pesquisa, comparado com o teu.
+as_intro: Contadores detalhados da tua atividade (expedições, construções, perdas, destruições). A classificação de todos os jogadores está em Estatísticas.
+as_show_empty: Mostrar linhas vazias
+op_sections: Ir para
+op_save_hint: As alterações só valem depois de guardares.
+op_dlte_account_confirm: Eliminar mesmo a tua conta? É removida por completo ao fim de pelo menos 7 dias; até lá podes cancelar a eliminação.
+ti_none: Ainda não tens tickets. Lê primeiro a %s; se não ajudar, abre um ticket.
+ti_faq_first: 'Vê primeiro a FAQ: muitas perguntas já têm resposta lá.'
+team_contact_hint: Precisas de ajuda? Abre um ticket em %s.
+cl_hint: Alterações técnicas ao software do jogo, as mais recentes primeiro. Clica numa entrada para a expandir.
+cl_empty: Nenhuma alteração registada.
+toc_contents: Conteúdo
+sh_hint: Escreve pelo menos dois carateres e prime Enter ou Procurar.
+sh_search_type: Procurar por
+sh_search_text: Texto da pesquisa
+sh_no_players: Nada encontrado. Confirma a ortografia ou tenta um texto mais curto.
+sh_no_alliances: Nenhuma aliança encontrada. Confirma a ortografia ou tenta um texto mais curto.
+fl_no_ship_selected: Escolhe pelo menos uma nave.
+fl_recall_confirm: Chamar esta frota de volta? Vira já e chega a casa às %s.
+fl_recall_return: Chega de volta se a chamares agora
+fl_no_fleets: Nenhuma frota em missão.
+fl_quick_fleets: Frotas rápidas
+fl_quick_fleets_hint: Ainda não há nada guardado. Guarda uma combinação de naves em "Frotas personalizadas" mais abaixo e ela aparece aqui como atalho; a tua última missão também fica aqui.
+fl_load_hint: Os valores a cinzento são as reservas deste planeta. Os botões de carga sugerem quantas naves chegam para a levar; deixa vazio se não enviares nada.
+fl_load_clear: Limpar
+fl_cargo_options_hint: Vermelho quer dizer que não tens naves suficientes. Clica no ícone de uma nave para a pré-selecionar com este destino.
+fl_summary: Resumo do envio
+fl_coord_range: 'Coordenadas inválidas. Permitido: galáxia 1-%d, sistema 1-%d, posição 1-%d.'
+fl_sending: A enviar a frota...
+ft_rate_info: O comerciante fica com %s%% do valor da nave e paga o resto em recursos.
+ft_per_ship: Pagamento por nave
+ft_receive: Recebes
+market_tab_resources: Mercado de recursos
+market_tab_fleets: Mercado de frotas
+market_ratio_label: Comparar ofertas na proporção
+market_ratio_hint: Define a taxa usada na coluna Proporção; o recurso escolhido serve de base.
+market_no_offers: Sem ofertas de momento.
+gl_recycle_needs: Reciclar (precisa de reciclador)
+gl_keys_hint: 'Teclado: as setas ou A D mudam de sistema, W S mudam de galáxia.'
+rs_ramp_up_confirm: Pôr todos os produtores a 100% e guardar?
+rs_shut_down_confirm: Pôr todos os produtores a 0% e guardar? A produção pára.
+rs_energy_deficit: 'Défice de energia: as minas trabalham abaixo do nível definido até a energia voltar ao equilíbrio.'
+ov_event_hostile: Hostil
+ov_no_fleets: Sem movimentos de frota.
+al_chart_x: Tempo (horas atrás)
+al_chart_y: Pontos
+as_sub_count: Expedições
+as_sub_found: Achados
+as_sub_lost: Perdas
+as_sub_first: Primeiras vezes
+op_notifications: Notificações
+rs_full_in: Armazém cheio em
+rs_full_now: Cheio
+fl_prepared_gone: Esta frota já não está preparada (expirou, foi libertada ou já foi enviada). Começa de novo.
+gl_legend_activity: Ativo nos últimos 15 min, depois (minutos) até 60
+st_rank_change: Alteração de posição desde a última atualização
+st_prev_range: Anteriores 100
+st_next_range: Próximos 100
+op_unsaved_one: 1 alteração não guardada
+op_unsaved_many: '%d alterações não guardadas'
+pl_note: Nota
+pl_galaxy_view: Mostrar na galáxia
 shell_jump: Ir para…
 shell_jump_tip: Ir para uma página, planeta ou coordenadas
 shell_switch_planet: Mudar de planeta
@@ -1679,12 +1678,12 @@ shell_attack_in: Ataque em
 shell_attack_fleet: Frota
 shell_attack_details: Detalhes
 shell_attack_hide: Ocultar aviso
-shell_tagline: Estratégia espacial de código aberto no seu navegador.
+shell_tagline: Estratégia espacial de código aberto, no teu navegador.
 shell_footer: Rodapé
 shell_footer_game: Jogo
 shell_footer_community: Comunidade
 shell_footer_legal: Legal
-shell_footer_credits: 'construído sobre o trabalho de muitos projetos de código aberto'
+shell_footer_credits: construído sobre o trabalho de muitos projetos de código aberto
 shell_imprint: Aviso legal
 ui_palette_placeholder: 'Páginas, planetas, coordenadas (ex.: 1:42:8)…'
 ui_palette_empty: Sem resultados
@@ -1699,20 +1698,20 @@ ui_shortcuts_go_buildings: Edifícios
 ui_shortcuts_go_galaxy: Galáxia
 ui_shortcuts_planets: Planeta anterior / seguinte
 ui_shortcuts_help: Esta ajuda
-mg_not_delivered: "Not delivered to (they block messages): %s"
-al_already_member: "You are already a member of an alliance. Leave it first to found a new one."
-al_kicked: "Removed from the alliance"
-al_kicked_msg: "You have been removed from the alliance <b>%s</b>."
-al_disbanded: "Alliance disbanded"
-al_disbanded_msg: "The alliance <b>%s</b> has been disbanded. You are no longer a member."
-al_disbanded_applicant_msg: "The alliance <b>%s</b> has been disbanded, your application is void."
-al_disbanded_partner_msg: "The alliance <b>%s</b> has been disbanded. All treaties with it have ended."
-fa_no_debris: "No debris field to collect."
-fl_colonize_slot_taken: "There is already a planet at the target position."
-fl_choose_destination: "Choose destination"
-op_cant_activate_vacation_hostile: "You can't start vacation mode while hostile fleets are on their way to your planets."
-rec_staff_excluded: "Team members and banned players set no records, so your own levels can be higher."
-rec_hidden_holder: "hidden"
-rec_hidden_holder_info: "The record holder does not show their name in the records."
-rec_pending: "New record – counted at the next statistics update."
-rec_you: "You (not counted yet)"
+mg_not_delivered: 'Não entregue a (bloqueiam mensagens): %s'
+al_already_member: Já és membro de uma aliança. Sai primeiro dela para fundares uma nova.
+al_kicked: Expulso da aliança
+al_kicked_msg: Foste expulso da aliança <b>%s</b>.
+al_disbanded: Aliança dissolvida
+al_disbanded_msg: A aliança <b>%s</b> foi dissolvida. Já não és membro.
+al_disbanded_applicant_msg: A aliança <b>%s</b> foi dissolvida, por isso a tua candidatura ficou sem efeito.
+al_disbanded_partner_msg: A aliança <b>%s</b> foi dissolvida. Todos os pactos com ela terminaram.
+fa_no_debris: Não há campo de destroços para recolher.
+fl_colonize_slot_taken: Já existe um planeta na posição de destino.
+fl_choose_destination: Escolhe o destino
+op_cant_activate_vacation_hostile: Não podes iniciar o modo de férias enquanto houver frotas hostis a caminho dos teus planetas.
+rec_staff_excluded: Membros da equipa e jogadores banidos não fazem recordes, por isso os teus níveis podem ser mais altos.
+rec_hidden_holder: oculto
+rec_hidden_holder_info: O detentor do recorde não mostra o nome nos recordes.
+rec_pending: Novo recorde – conta na próxima atualização das estatísticas.
+rec_you: Tu (ainda não contado)

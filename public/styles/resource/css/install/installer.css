@@ -10,7 +10,7 @@
  */
 
 .install { width: min(100% - 2rem, 46rem); padding-block: var(--space-6) calc(var(--space-6) * 1.5); }
-.install-panel h2 { margin: var(--space-6) 0 var(--space-2); color: #fff; font-size: 1.05rem; }
+.install-panel h2 { margin: var(--space-6) 0 var(--space-2); color: var(--theme-text); font-size: 1.05rem; }
 .install-panel p { margin: 0 0 var(--space-4); color: #c9d1db; }
 
 /* step list */
@@ -23,29 +23,29 @@
   counter-reset: step;
 }
 .install-steps li { display: flex; flex: 1 1 0; flex-direction: column; align-items: center; gap: var(--space-1); min-width: 0; color: var(--c-muted); font-size: var(--fs-xs); text-align: center; }
-.install-steps li::before { content: ""; align-self: stretch; height: 2px; margin-bottom: var(--space-1); border-radius: 1px; background: var(--nova-line); }
-.install-steps li.is-done::before { background: var(--nova-teal); }
-.install-steps li.is-current::before { background: var(--nova-accent); }
+.install-steps li::before { content: ""; align-self: stretch; height: 2px; margin-bottom: var(--space-1); border-radius: 1px; background: var(--theme-line); }
+.install-steps li.is-done::before { background: var(--theme-link); }
+.install-steps li.is-current::before { background: var(--theme-accent); }
 .install-steps__dot {
   display: inline-grid;
   place-items: center;
   width: 1.6rem;
   height: 1.6rem;
-  border: 1px solid var(--nova-line);
+  border: 1px solid var(--theme-line);
   border-radius: 50%;
-  background: var(--nova-panel);
+  background: var(--theme-panel);
   font-weight: 700;
 }
 .install-steps__dot .icon { width: 0.9rem; height: 0.9rem; }
-.install-steps .is-done .install-steps__dot { border-color: var(--nova-teal); color: var(--nova-teal); }
-.install-steps .is-current { color: #fff; }
-.install-steps .is-current .install-steps__dot { border-color: var(--nova-accent); background: var(--nova-accent); color: #fff; }
+.install-steps .is-done .install-steps__dot { border-color: var(--theme-link); color: var(--theme-link); }
+.install-steps .is-current { color: var(--theme-text); }
+.install-steps .is-current .install-steps__dot { border-color: var(--theme-accent); background: var(--theme-accent); color: var(--theme-accent-ink); }
 .install-steps__label { overflow: hidden; max-width: 100%; text-overflow: ellipsis; white-space: nowrap; }
 @media (width <= 40rem) { .install-steps__label { display: none; } .install-steps li.is-current .install-steps__label { display: block; } }
 
 /* check list */
-.install-checks { display: grid; gap: 1px; margin: 0 0 var(--space-4); padding: 0; overflow: hidden; border: 1px solid var(--nova-line); border-radius: var(--radius-sm); list-style: none; background: var(--nova-line); }
-.install-checks li { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-3); background: var(--nova-panel-2); }
+.install-checks { display: grid; gap: 1px; margin: 0 0 var(--space-4); padding: 0; overflow: hidden; border: 1px solid var(--theme-line); border-radius: var(--radius-sm); list-style: none; background: var(--theme-line); }
+.install-checks li { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-3); background: var(--theme-raised); }
 .install-checks li > .icon { width: 1.15rem; height: 1.15rem; }
 .install-checks__detail { color: var(--c-muted); font-size: var(--fs-sm); text-align: end; overflow-wrap: anywhere; }
 .install-checks .is-ok > .icon { color: var(--c-positive); }
@@ -55,22 +55,22 @@
 @media (width <= 40rem) { .install-checks li { grid-template-columns: 1.25rem minmax(0, 1fr); } .install-checks__detail { grid-column: 2; text-align: start; } }
 
 /* build progress: state dot, spinner while running */
-.install-build__state { width: 1rem; height: 1rem; margin-inline: 0.1rem; border: 2px solid var(--nova-line); border-radius: 50%; }
-.install-build .is-running .install-build__state { border-color: var(--nova-accent) transparent var(--nova-accent) var(--nova-accent); animation: install-spin 0.8s linear infinite; }
-.install-build .is-ok .install-build__state { border-color: var(--c-positive); background: var(--c-positive); box-shadow: inset 0 0 0 2px var(--nova-panel-2); }
-.install-build .is-fail .install-build__state { border-color: var(--c-negative); background: var(--c-negative); box-shadow: inset 0 0 0 2px var(--nova-panel-2); }
+.install-build__state { width: 1rem; height: 1rem; margin-inline: 0.1rem; border: 2px solid var(--theme-line); border-radius: 50%; }
+.install-build .is-running .install-build__state { border-color: var(--theme-accent) transparent var(--theme-accent) var(--theme-accent); animation: install-spin 0.8s linear infinite; }
+.install-build .is-ok .install-build__state { border-color: var(--c-positive); background: var(--c-positive); box-shadow: inset 0 0 0 2px var(--theme-raised); }
+.install-build .is-fail .install-build__state { border-color: var(--c-negative); background: var(--c-negative); box-shadow: inset 0 0 0 2px var(--theme-raised); }
 .install-build .is-pending .install-checks__label { color: var(--c-muted); }
 @keyframes install-spin { to { rotate: 360deg; } }
-@media (prefers-reduced-motion: reduce) { .install-build .is-running .install-build__state { animation: none; border-color: var(--nova-accent); } }
+@media (prefers-reduced-motion: reduce) { .install-build .is-running .install-build__state { animation: none; border-color: var(--theme-accent); } }
 
 /* forms */
-.install-form fieldset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3) var(--space-4); margin: 0 0 var(--space-4); padding: var(--space-4); border: 1px solid var(--nova-line); border-radius: var(--radius-sm); }
-.install-form legend { padding-inline: var(--space-2); color: var(--nova-teal); font-size: var(--fs-sm); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.install-form fieldset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3) var(--space-4); margin: 0 0 var(--space-4); padding: var(--space-4); border: 1px solid var(--theme-line); border-radius: var(--radius-sm); }
+.install-form legend { padding-inline: var(--space-2); color: var(--theme-link); font-size: var(--fs-sm); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
 .install-field { display: grid; gap: var(--space-1); font-weight: 600; }
 .install-field input, .install-field select, .install-field textarea { width: 100%; min-height: 2.5rem; font-weight: 400; }
 .install-field textarea { width: 100%; font-weight: 400; resize: vertical; }
 .install-more { margin: 0 0 var(--space-4); }
-.install-more summary { cursor: pointer; margin-bottom: var(--space-3); color: var(--nova-teal); font-weight: 700; }
+.install-more summary { cursor: pointer; margin-bottom: var(--space-3); color: var(--theme-link); font-weight: 700; }
 .install-field small { color: var(--c-muted); font-size: var(--fs-xs); font-weight: 400; }
 .install-field--wide { grid-column: 1 / -1; }
 .install-check { display: flex; align-items: flex-start; gap: var(--space-2); margin-bottom: var(--space-4); }
@@ -79,39 +79,39 @@
 @media (width <= 40rem) { .install-form fieldset { grid-template-columns: minmax(0, 1fr); } }
 
 /* licence */
-.install-licence { max-height: 22rem; margin-bottom: var(--space-4); padding: var(--space-3) var(--space-4); overflow-y: auto; border: 1px solid var(--nova-line); border-radius: var(--radius-sm); background: rgb(0 0 0 / 0.25); color: #b9c2cd; font-size: var(--fs-sm); }
-.install-licence h3, .install-licence h4 { margin: var(--space-4) 0 var(--space-2); color: #fff; }
+.install-licence { max-height: 22rem; margin-bottom: var(--space-4); padding: var(--space-3) var(--space-4); overflow-y: auto; border: 1px solid var(--theme-line); border-radius: var(--radius-sm); background: rgb(0 0 0 / 0.25); color: #b9c2cd; font-size: var(--fs-sm); }
+.install-licence h3, .install-licence h4 { margin: var(--space-4) 0 var(--space-2); color: var(--theme-text); }
 
 /* buttons */
 .install-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-3); margin-top: var(--space-4); }
 .install-actions .button, .install-actions button { min-height: 2.6rem; padding-inline: 1.2rem; }
-.install-actions .btn--primary { border-color: var(--nova-accent); background: var(--nova-accent); color: #fff; }
-.install-actions .btn--primary:hover { background: #ff6a4a; }
+.install-actions .btn--primary { border-color: var(--theme-accent); background: var(--theme-accent); color: var(--theme-accent-ink); }
+.install-actions .btn--primary:hover { background: color-mix(in oklab, var(--theme-accent) 85%, white); }
 .site .install-actions a.button { text-decoration: none; }
-.install-upgrade { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--nova-line); }
+.install-upgrade { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--theme-line); }
 
 /* credits: the games V0Game descends from */
-.install-credits { margin-top: var(--space-6); padding: var(--space-4); border: 1px solid var(--nova-line); border-radius: var(--radius); background: rgb(22 22 24 / 0.7); color: var(--c-muted); font-size: var(--fs-sm); }
-.install-credits h2 { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-2); color: #fff; font-size: 1rem; }
-.install-credits h2 .icon { width: 1rem; height: 1rem; color: var(--nova-accent); }
+.install-credits { margin-top: var(--space-6); padding: var(--space-4); border: 1px solid var(--theme-line); border-radius: var(--radius); background: rgb(22 22 24 / 0.7); color: var(--c-muted); font-size: var(--fs-sm); }
+.install-credits h2 { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-2); color: var(--theme-text); font-size: 1rem; }
+.install-credits h2 .icon { width: 1rem; height: 1rem; color: var(--theme-accent); }
 .install-credits p { margin: 0 0 var(--space-3); }
 .install-lineage { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0 0 var(--space-3); padding: 0; list-style: none; }
-.install-lineage li { position: relative; display: grid; padding: 0.3rem 0.6rem; border: 1px solid var(--nova-line); border-radius: var(--radius-sm); background: var(--nova-panel-2); line-height: 1.3; }
-.install-lineage li:not(:last-child)::after { content: "→"; position: absolute; right: calc(-1 * var(--space-2) + 0.05rem); top: 50%; translate: 50% -50%; color: var(--nova-line); font-size: 0.75rem; }
+.install-lineage li { position: relative; display: grid; padding: 0.3rem 0.6rem; border: 1px solid var(--theme-line); border-radius: var(--radius-sm); background: var(--theme-raised); line-height: 1.3; }
+.install-lineage li:not(:last-child)::after { content: "→"; position: absolute; right: calc(-1 * var(--space-2) + 0.05rem); top: 50%; translate: 50% -50%; color: var(--theme-line); font-size: 0.75rem; }
 .install-lineage strong { color: #e6eaf0; font-size: var(--fs-sm); }
 .install-lineage span { font-size: var(--fs-xs); }
 .install-lineage a { color: inherit; text-decoration: none; }
-.install-lineage a:hover strong { color: var(--nova-teal); text-decoration: underline; }
+.install-lineage a:hover strong { color: var(--theme-link); text-decoration: underline; }
 .install-lineage .is-parent { border-color: rgb(0 210 190 / 0.45); }
-.install-lineage .is-current { border-color: var(--nova-accent); background: rgb(238 77 46 / 0.12); }
+.install-lineage .is-current { border-color: var(--theme-accent); background: var(--tint); }
 .install-credits__thanks { margin-bottom: 0 !important; font-style: italic; }
 pre.install-licence { white-space: pre-wrap; font-family: var(--font-mono, ui-monospace, monospace); font-size: var(--fs-xs); line-height: 1.5; }
 .install-diff { margin: 5px 10px; padding: 5px 10px; border: 1px solid #1C1F23; }
 
 /* advanced disclosure, hints, speed presets, final checklist */
 .install-advanced { margin: 0 0 var(--space-4); }
-.install-advanced > summary { margin-bottom: var(--space-3); color: var(--nova-teal); cursor: pointer; font-size: var(--fs-sm); font-weight: 700; }
+.install-advanced > summary { margin-bottom: var(--space-3); color: var(--theme-link); cursor: pointer; font-size: var(--fs-sm); font-weight: 700; }
 .install-hint { color: var(--c-muted); font-size: var(--fs-sm); }
 .install-hint small, .install-speed small { display: block; color: var(--c-muted); font-size: var(--fs-xs); font-weight: 400; }
 .install-todo { display: grid; gap: var(--space-3); margin: 0 0 var(--space-4); padding-inline-start: 1.4rem; color: #c9d1db; }
-.install-code { margin: var(--space-2) 0 0; padding: var(--space-2) var(--space-3); overflow-x: auto; border: 1px solid var(--nova-line); border-radius: var(--radius-sm); background: rgb(0 0 0 / 0.3); color: #fff; font-family: ui-monospace, monospace; font-size: var(--fs-sm); user-select: all; }
+.install-code { margin: var(--space-2) 0 0; padding: var(--space-2) var(--space-3); overflow-x: auto; border: 1px solid var(--theme-line); border-radius: var(--radius-sm); background: rgb(0 0 0 / 0.3); color: var(--theme-text); font-family: ui-monospace, monospace; font-size: var(--fs-sm); user-select: all; }

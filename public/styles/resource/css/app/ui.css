@@ -103,8 +103,8 @@
     text-transform: uppercase;
     color: var(--c-muted);
   }
-  .panel__head a { color: var(--c-muted); }
-  .panel__head a:hover { color: var(--c-text); }
+  .panel__head a:not(.btn, .button) { color: var(--c-muted); }
+  .panel__head a:not(.btn, .button):hover { color: var(--c-text); }
   .panel__body { padding: var(--pad); }
   .panel__body > * + * { margin-block-start: var(--space-3); }
   .panel__foot {

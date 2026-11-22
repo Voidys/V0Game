@@ -181,6 +181,12 @@ class SettingsUpdater
             'hangar_filters' => $form['hangarFilters'],
             'messages_per_page' => $messagesPerPage,
         ], $adminprotection, $discord_id, $discord_hook);
+        // the account area (lobby, account settings, board) wears the same skin as the game
+        $db->update(
+            'UPDATE %%ACCOUNTS%% a INNER JOIN %%ACCOUNTS_TO_USERS%% atu ON atu.account_id = a.id AND atu.end_time = 0'
+            . ' SET a.dpath = :dpath, a.css_dpath = :cssDpath WHERE atu.user_id = :userId;',
+            [':dpath' => $imageTheme, ':cssDpath' => $cssTheme, ':userId' => $this->state->USER['id']],
+        );
 
         $this->state->USER['dpath'] = $imageTheme;
         $this->state->USER['css_dpath'] = $cssTheme;

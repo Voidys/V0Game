@@ -1,11 +1,12 @@
 Olá {USERNAME},
 
-Obrigada por te juntares a um novo universo em {GAMENAME}
+Obrigado por te registares em {GAMENAME}!
 
-Esperamos que te divirtas e conquistas os teus objetivos connosco!
-Não te esquecas de visitares a comunidade para teres proveito do jogo.
+Estamos felizes por teres escolhido fazer parte da nossa comunidade
+e esperamos que te divirtas à grande!
 
-Também podes dar uma vista de olhos no nosso Discord: 
+Passa também pelo nosso Discord:
 {DISCORD}
 
-Bom jogo, a equipa de {GAMENAME}
+Bom jogo,
+A equipa de {GAMENAME}

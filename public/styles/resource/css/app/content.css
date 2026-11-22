@@ -1269,7 +1269,7 @@ textarea {
 .tt {
 	--tt-met: var(--signal-positive, var(--c-positive, #4caf72));
 	--tt-unmet: var(--signal-negative, var(--c-negative, #e05a5a));
-	--tt-accent: var(--c-accent, #ee4d2e);
+	--tt-accent: var(--c-accent, #2fbf71);
 	--tt-card: var(--theme-raised, #141b24);
 	--tt-line: var(--c-border-strong, #33475e);
 	--tt-muted: var(--c-muted, #8796a7);

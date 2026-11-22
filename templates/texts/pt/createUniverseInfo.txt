@@ -1,12 +1,12 @@
 <div class="left">
-<h2>Informação de Suporte para mais universos</h2>
-<p>V0Game pode suportar multi universos sem problemas, em que deves configurar o servidor Web de acordo com o solicitado.</p>
-<p>Podes descobrir qual servidor podes suportar em "Informação" nas "Configurações". Se não tens a certeza, melhor será perguntar a amigos à cerca do hoster que possuis (Empresa de hospedagem).</p>
+<h2>Informação de suporte para multiuniverso</h2>
+<p>O V0Game suporta vários universos sem problemas, mas tens de configurar o servidor web em conformidade.</p>
+<p>Podes ver o que o teu servidor suporta no botão "Informação". Se não tiveres a certeza, o melhor é perguntares à empresa de alojamento.</p>
 <h3>Apache</h3>
-<p>Se executas um servidor Apache, deves retirar fora apenas as linhas 48-51 no arquivo .htacces os caracteres principais de transporte (remover a route).<br>
-Além disso, o mod_rewrite será necessário.</p>
+<p>Se usas um servidor Apache, tens de remover apenas as linhas 48-51 do ficheiro .htaccess na pasta principal (remove a rota).<br>
+Além disso, o mod_rewrite é obrigatório.</p>
 <h3>nginx</h3>
-<p>Se ele será executado em um servidor nginx, a configuração de vhost é direta para reescrever a regra:</p>
+<p>Se usas um servidor nginx, a configuração do vhost precisa de ser alargada diretamente com a regra de reescrita:</p>
 <p><code>{NGINX-CODE}</code></p>
-<p>Basta colocar o texto de código abaixo da linha com o "server_name".</p>
+<p>Basta colar o excerto de código por baixo da linha com o "server_name".</p>
 </div>

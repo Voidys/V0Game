@@ -11,7 +11,7 @@
 	--faq-surface: color-mix(in oklab, currentColor 5%, transparent);
 	--faq-surface-hover: color-mix(in oklab, currentColor 10%, transparent);
 	--faq-muted: color-mix(in oklab, currentColor 68%, transparent);
-	--faq-accent: var(--c-accent, #ee4d2e);
+	--faq-accent: var(--c-accent, #2fbf71);
 	--faq-hit: color-mix(in oklab, var(--faq-accent) 38%, transparent);
 	--faq-radius: var(--radius, 0.5rem);
 	--faq-tap: 2.75rem;

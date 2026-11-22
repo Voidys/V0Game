@@ -1,16 +1,22 @@
 Olá {USERNAME},
 
-Obrigada por registares em {GAMENAME}
+Obrigado por te registares em {GAMENAME}!
 
-Para completar o seu registo por favor clique no seguinte link:
+Antes de podermos ativar a tua conta, falta mais um passo.
+Este passo é obrigatório para te tornares um utilizador registado.
+Só precisas de clicar uma vez no link abaixo para confirmar
+a tua identidade.
+
+Para concluíres o registo, clica no seguinte link de ativação:
 
 {VERTIFYURL}
 
-Dados de Login:
+Os teus dados de início de sessão:
 
-Email : {EMAIL}
+E-mail: {EMAIL}
 
-Se tiver algum problema com o registo automático, crie um bilhete no nosso Discord: 
+Se tiveres algum problema com o registo automático, abre um ticket no nosso Discord:
 {DISCORD}
 
-{GAMENAME} Team
+Até já,
+A equipa de {GAMENAME}

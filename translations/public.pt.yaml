@@ -4,7 +4,7 @@ buttonRegister: Regista-te agora!
 buttonScreenshot: Capturas de ecrã
 civil: Civil
 colony: Colónia
-deathstar: Estrela da morte
+deathstar: Estrela da Morte
 destroyed_sats: Satélites solares destruídos
 disclamerLabelAddress: 'Endereço do jogo:'
 disclamerLabelMail: 'Email de suporte:'
@@ -22,13 +22,13 @@ loginEmail: Email
 loginHeader: Início de sessão
 loginInfo: Ao iniciar sessão, aceito os %s.
 loginPassword: Palavra-passe
-loginRememberMe: 'Manter sessão iniciada durante %d dias'
+loginRememberMe: Manter sessão iniciada durante %d dias
 loginServerDesc: '%s é um jogo de estratégia espacial em que centenas de jogadores competem <strong>ao mesmo tempo</strong> para ser os melhores. Só precisas de um browser normal.'
 loginWelcome: Bem-vindo a %s
 Lowest_longterm_points: Contas pré-registadas com menos pontos
 menu_banlist: Muro da Vergonha
 menu_battlehall: Muro da Batalha
-menu_disclamer: Contactos
+menu_disclamer: Contacto
 menu_news: Notícias
 menu_rules: Regras
 military: Militar
@@ -65,7 +65,7 @@ registerErrorMailEmpty: Indica um endereço de email.
 registerErrorMailExist: Este endereço de email já está registado.
 registerErrorMailInvalid: Isto não parece um endereço de email válido.
 registerErrorMailSame: Os dois endereços de email não coincidem.
-registerErrorPasswordLength: A tua palavra-passe tem de ter pelo menos %s caracteres.
+registerErrorPasswordLength: A tua palavra-passe tem de ter pelo menos %s carateres.
 registerErrorPasswordSame: As duas palavras-passe não coincidem.
 registerErrorRules: Aceita as regras para continuar.
 registerErrorUniClosed: O registo está fechado neste universo.
@@ -76,7 +76,7 @@ registerLanguage: Idioma
 registerMailCompleteTitle: Bem-vindo a %s!
 registerMailVertifyTitle: Ativa a tua conta em %s
 registerPassword: Palavra-passe
-registerPasswordDesc: A tua palavra-passe tem de ter pelo menos %s caracteres.
+registerPasswordDesc: A tua palavra-passe tem de ter pelo menos %s carateres.
 registerPasswordReplay: Repetir palavra-passe
 registerPasswordReplayDesc: Escreve a mesma palavra-passe outra vez.
 registerReferral: 'Convidado por:'
@@ -85,14 +85,14 @@ registerRulesDesc: Concordo com o %s
 registerSendComplete: Obrigado pelo registo! Consulta o teu email (inclui a pasta de spam) para os próximos passos.
 registerTimezone: Fuso horário
 registerUsername: Nome de utilizador
-registerUsernameDesc: 'Usa entre 3 e 25 caracteres: letras, números, espaços, pontos, hífenes e sublinhados.'
+registerUsernameDesc: 'Usa entre 3 e 25 carateres: letras, números, espaços, pontos, hífenes e sublinhados.'
 registerWelcomePMSenderName: Administrador
 registerWelcomePMSubject: Bem-vindo
 registerWelcomePMText: Bem-vindo a %s! Começa por construir uma Planta de Energia Solar, porque é preciso energia para produzir recursos. Abre Edifícios no menu da esquerda e começa pela Planta de Energia Solar.<br>Quando tiveres energia, podes construir minas. Continua em Edifícios e constrói uma Mina de Metal e depois uma Mina de Cristal.<br><br>Para construir naves precisas de um Hangar. O menu Tecnologias, à esquerda, mostra o que é preciso para o desbloquear.<br>Se tiveres mais dúvidas, consulta a FAQ, a wiki, ou abre um pedido de suporte.<br><br>A equipa deseja-te muita diversão a explorar o universo!
 siteTitleBanList: Muro da Vergonha
 siteTitleBattleHall: Muro da Batalha
 siteTitleDataPrivacy: Privacidade dos dados
-siteTitleDisclamer: Contactos
+siteTitleDisclamer: Contacto
 siteTitleHOF: Hall da Fama
 siteTitleIndex: Página inicial
 siteTitleLostPassword: Esqueceste-te da palavra-passe?
@@ -115,10 +115,10 @@ uni_closed: ' (fechado)'
 uni_reg_closed: ' (registo encerrado)'
 uni_reg_open: ' (apenas registo)'
 home_menu: Menu
-home_explore: 'Explorar'
-home_meta_description: '%s – o jogo de estratégia espacial de browser com o charme dos anos 2000: faz crescer planetas, constrói frotas, forja alianças.'
-home_started: Já em curso!
-home_starts_in: Em
+home_explore: Explorar
+home_meta_description: '%s – o jogo de estratégia espacial no navegador com o charme dos anos 2000: faz crescer planetas, constrói frotas, forja alianças.'
+home_started: Já começou!
+home_starts_in: Começa em
 home_team: Equipa
 home_meme_alt: Meme de banda desenhada do posto de comando de {game_name}
 home_meme_alt_deep_space_transit: 'Banda desenhada: dois cadetes numa nave – um desanima ao ver um campo de asteroides, o outro sorri para uma nebulosa brilhante. «Patrulhas de setor normais vs. encontrar uma nebulosa inexplorada e rica em recursos.»'
@@ -126,7 +126,7 @@ home_meme_alt_deuterium_joyride: 'Banda desenhada: um comandante cansado no deck
 home_meme_alt_enemy_fleet: 'Banda desenhada: um cadete agarra a cabeça em pânico enquanto os alarmes piscam – «1000 destruidores inimigos a caminho?! Pensei que este setor era seguro?!»'
 home_meme_alt_fleet_decimated: 'Banda desenhada: um soldado em choque olha em frente enquanto naves explodem atrás da cúpula destruída – «Quando passas 20 horas a recolher recursos e a frota de um jogador do top 3 aparece e desmonta tudo em 3 segundos.»'
 home_meme_alt_solo_scouting: 'Banda desenhada: o comandante Kamioka sorri e pousa uma mão robótica no ombro de um cadete – «Não te preocupes, cadete. O Alto Comando tem confiança ‘total’ na tua missão de reconhecimento a solo no espaço.»'
-home_meme_alt_this_is_fine: 'Banda desenhada: um cão em fato espacial está sentado calmamente num centro de comando em chamas e diz «This is fine» – «Não te preocupes. A minha frota só volta com 4 horas de atraso.»'
+home_meme_alt_this_is_fine: 'Banda desenhada: um cão em fato espacial está sentado, calmíssimo, num centro de comando em chamas e diz «Está tudo bem» – «Calma. A minha frota só vai chegar 4 horas atrasada.»'
 source_code: Código-fonte
 news_back: Voltar às notícias
 lightbox_close: Fechar
@@ -144,43 +144,43 @@ home_logged_in_as: Sessão iniciada como %s
 home_continue: Continuar para os teus universos
 home_account_lobby: Lobby da conta
 rulesEmpty: Ainda não foram publicadas regras.
-loginLostPasswordOff: "Esqueceu a senha? %s"
-loginContactTeam: "Fale com a equipe."
-home_step_build: "Construa minas, pesquisa e estaleiros nos seus planetas."
-home_step_fleet: "Envie frotas: explore, comercie, ataque ou defenda."
-home_step_alliance: "Junte-se a uma aliança e suba no ranking."
-home_hof_desc: "Vencedores das rodadas encerradas"
-home_battlehall_desc: "As maiores batalhas da rodada atual"
-memorialFilter: "Batalhas memoriais"
-toc_contents: "Conteúdo"
-loginRememberHint: "Não use em um computador compartilhado."
-home_step_rules: "Leia as %s antes de começar."
-socialContinueWith: "Continuar com %s"
-socialOr: "ou"
-socialErrorState: "Não foi possível verificar o início de sessão (o pedido expirou ou era inválido). Começa de novo."
-socialErrorProvider: "O fornecedor não concluiu o início de sessão. Tenta novamente mais tarde."
-socialErrorCancelled: "O início de sessão foi cancelado."
-socialErrorNoEmail: "O fornecedor não partilhou um endereço de e-mail verificado. Regista-te com e-mail e palavra-passe e liga o serviço depois nas definições da conta."
-socialErrorTaken: "Esta conta do fornecedor já está ligada a outra conta de jogador."
-socialErrorExpired: "Este passo expirou. Começa o início de sessão de novo."
-socialLinkTitle: "Ligar a tua conta"
-socialLinkIntro: "Já existe uma conta com o endereço de e-mail %s. Para a ligar ao teu início de sessão com %s, introduz uma vez a palavra-passe dessa conta."
-socialLinkPassword: "Palavra-passe da conta existente"
-socialLinkHelp: "Isto confirma que a conta é tua. Só depois o teu início de sessão no fornecedor é ligado."
-socialLinkButton: "Ligar e iniciar sessão"
-socialLinkWrong: "A palavra-passe está errada."
-socialCancel: "Cancelar"
-socialCompleteTitle: "Concluir o registo"
-socialCompleteIntro: "Estás a iniciar sessão pela primeira vez com %s (%s). Escolhe o teu nome e aceita as regras para criar a conta. Não precisas de palavra-passe; podes definir uma mais tarde com a função de palavra-passe esquecida."
-socialConnectedTitle: "Serviços ligados"
-socialConnectedIntro: "Inicia sessão com estes serviços em vez de uma palavra-passe."
-socialConnected: "Ligado"
-socialConnectedAs: "Ligado (%s)"
-socialNotConnected: "Não ligado"
-socialConnect: "Ligar"
-socialDisconnect: "Desligar"
-socialLinked: "O serviço está agora ligado à tua conta."
-socialUnlinked: "O serviço foi desligado."
-socialLastMethod: "Este é o teu único modo de iniciar sessão. Define primeiro uma palavra-passe (palavra-passe esquecida na página inicial) e desliga o serviço depois."
-socialLastMethodHint: "Último método de início de sessão: define primeiro uma palavra-passe, depois poderás desligá-lo."
-socialErrorUnavailable: "Este método de início de sessão não está disponível."
+loginLostPasswordOff: Esqueceste-te da palavra-passe? %s
+loginContactTeam: Fala com a equipa.
+home_step_build: Constrói minas, pesquisa e estaleiros nos teus planetas.
+home_step_fleet: 'Envia frotas: explora, comercia, ataca ou defende.'
+home_step_alliance: Junta-te a uma aliança e sobe na classificação.
+home_hof_desc: Vencedores das rondas terminadas
+home_battlehall_desc: As maiores batalhas da ronda em curso
+memorialFilter: Batalhas memoriais
+toc_contents: Conteúdo
+loginRememberHint: Não uses isto num computador partilhado.
+home_step_rules: Lê as %s antes de começar.
+socialContinueWith: Continuar com %s
+socialOr: ou
+socialErrorState: Não foi possível verificar o início de sessão (o pedido expirou ou era inválido). Começa de novo.
+socialErrorProvider: O fornecedor não concluiu o início de sessão. Tenta novamente mais tarde.
+socialErrorCancelled: O início de sessão foi cancelado.
+socialErrorNoEmail: O fornecedor não partilhou um endereço de e-mail verificado. Regista-te com e-mail e palavra-passe e liga o serviço depois nas definições da conta.
+socialErrorTaken: Esta conta do fornecedor já está ligada a outra conta de jogador.
+socialErrorExpired: Este passo expirou. Começa o início de sessão de novo.
+socialLinkTitle: Ligar a tua conta
+socialLinkIntro: Já existe uma conta com o endereço de e-mail %s. Para a ligar ao teu início de sessão com %s, introduz uma vez a palavra-passe dessa conta.
+socialLinkPassword: Palavra-passe da conta existente
+socialLinkHelp: Isto confirma que a conta é tua. Só depois o teu início de sessão no fornecedor é ligado.
+socialLinkButton: Ligar e iniciar sessão
+socialLinkWrong: A palavra-passe está errada.
+socialCancel: Cancelar
+socialCompleteTitle: Concluir o registo
+socialCompleteIntro: Estás a iniciar sessão pela primeira vez com %s (%s). Escolhe o teu nome e aceita as regras para criar a conta. Não precisas de palavra-passe; podes definir uma mais tarde com a função de palavra-passe esquecida.
+socialConnectedTitle: Serviços ligados
+socialConnectedIntro: Inicia sessão com estes serviços em vez de uma palavra-passe.
+socialConnected: Ligado
+socialConnectedAs: Ligado (%s)
+socialNotConnected: Não ligado
+socialConnect: Ligar
+socialDisconnect: Desligar
+socialLinked: O serviço está agora ligado à tua conta.
+socialUnlinked: O serviço foi desligado.
+socialLastMethod: Este é o teu único modo de iniciar sessão. Define primeiro uma palavra-passe (palavra-passe esquecida na página inicial) e desliga o serviço depois.
+socialLastMethodHint: 'Último método de início de sessão: define primeiro uma palavra-passe, depois poderás desligá-lo.'
+socialErrorUnavailable: Este método de início de sessão não está disponível.

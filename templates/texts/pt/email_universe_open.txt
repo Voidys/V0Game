@@ -1,16 +1,16 @@
-﻿Olá {USERNAME},
+Olá {USERNAME},
 
-chegou o momento - a {UNINAME} abriu as suas portas em {OPENTIME}!
-Estamos muito contentes por estares aqui e desejamos-te muitas experiências divertidas e emocionantes.
+Chegou a hora - o {UNINAME} abriu as portas em {OPENTIME}!
+Estamos encantados por estares cá e desejamos-te muita diversão e aventuras emocionantes.
 
-Pode encontrar o jogo em {HTTPPATH}.
-Também és bem-vindo a visitar o nosso Discord:
+Encontras o jogo em {HTTPPATH}.
+Passa também pelo nosso Discord:
 {DISCORD}
 
-Se te esqueceste da tua palavra-passe, basta clicares em “Esqueci-me da palavra-passe” na página.
-Pouco tempo depois, receberá um e-mail com uma nova palavra-passe.
+Se te esqueceste da palavra-passe, basta clicares em "Esqueci-me da palavra-passe" na página.
+Pouco depois, recebes um e-mail com uma nova palavra-passe.
 
-Se continuar a ter problemas em iniciar sessão ou em registar-se, contacte-nos no Discord.
+Se continuares com problemas para iniciar sessão ou registar-te, fala connosco no Discord.
 
 Com os melhores cumprimentos,
 A equipa de {GAMENAME}

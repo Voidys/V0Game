@@ -130,7 +130,7 @@
   .btn.btn--primary {
     border-color: var(--c-accent);
     background: var(--c-accent);
-    color: #fff;
+    color: var(--c-accent-ink, #fff);
     font-weight: 600;
     &:hover { background: color-mix(in oklab, var(--c-accent) 85%, #fff); }
   }
@@ -275,7 +275,7 @@
       flex-wrap: wrap;
       gap: var(--space-3);
 
-      .acc-title { margin: 0; }
+      .acc-title { display: flex; align-items: center; gap: var(--space-2); margin: 0; }
     }
 
     .board__filters { display: flex; flex-direction: column; gap: var(--space-2); }

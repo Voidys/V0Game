@@ -14,7 +14,7 @@
     background: var(--c-bg-2, #0b111a);
     overflow: hidden;
   }
-  .rte:focus-within { border-color: var(--c-accent, #ee4d2e); box-shadow: 0 0 0 2px var(--c-accent-soft, rgb(238 77 46 / 0.16)); }
+  .rte:focus-within { border-color: var(--c-accent, #2fbf71); box-shadow: 0 0 0 2px var(--c-accent-soft, rgb(47 191 113 / 0.13)); }
   .rte__toolbar {
     display: flex;
     flex-wrap: wrap;
@@ -37,15 +37,15 @@
     cursor: pointer;
   }
   .rte__btn:hover:not(:disabled) { border-color: var(--c-border-strong, #33475e); background: rgb(255 255 255 / 0.05); }
-  .rte__btn.is-active { border-color: var(--c-accent, #ee4d2e); background: var(--c-accent-soft, rgb(238 77 46 / 0.16)); color: #fff; }
+  .rte__btn.is-active { border-color: var(--c-accent, #2fbf71); background: var(--c-accent-soft, rgb(47 191 113 / 0.13)); color: #fff; }
   .rte__btn:disabled { opacity: 0.35; cursor: default; }
-  .rte__btn:focus-visible { outline: 2px solid var(--c-accent, #ee4d2e); outline-offset: 1px; }
+  .rte__btn:focus-visible { outline: 2px solid var(--c-accent, #2fbf71); outline-offset: 1px; }
   .rte-b { font-weight: 800; }
   .rte-i { font-style: italic; font-family: Georgia, serif; }
   .rte-s { text-decoration: line-through; }
   .rte-link { color: var(--c-link, #5b9cff); text-decoration: underline; text-underline-offset: 2px; }
   .rte-unlink { color: var(--c-muted, #8796a7); text-decoration: line-through; }
-  .rte-clear { text-decoration: line-through; text-decoration-color: var(--c-accent, #ee4d2e); }
+  .rte-clear { text-decoration: line-through; text-decoration-color: var(--c-accent, #2fbf71); }
 
   .rte__area {
     min-height: 10rem;
@@ -106,6 +106,6 @@
 /* unlayered: theme stylesheets style every <button>, the toolbar keeps its own look */
 .rte .rte__btn { border: 1px solid transparent; background: transparent; box-shadow: none; color: var(--c-text, #d5dce5); text-shadow: none; }
 .rte .rte__btn:hover:not(:disabled) { border-color: var(--c-border-strong, #33475e); background: rgb(255 255 255 / 0.05); }
-.rte .rte__btn.is-active { border-color: var(--c-accent, #ee4d2e); background: var(--c-accent-soft, rgb(238 77 46 / 0.16)); color: #fff; }
+.rte .rte__btn.is-active { border-color: var(--c-accent, #2fbf71); background: var(--c-accent-soft, rgb(47 191 113 / 0.13)); color: #fff; }
 .rte .rte__btn.rte-link { color: var(--c-link, #5b9cff); }
 .rte .rte__btn.rte-unlink { color: var(--c-muted, #8796a7); }

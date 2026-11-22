@@ -1,72 +1,72 @@
-<p class="rules-notice"><strong>ATTENTION: The rules can change and every user is obliged to keep himself informed about the status!</strong></p>
-<h2>1. Accounts</h2>
-<p>The owner of an account is always the owner of the fixed e-mail address. An account may only be played alone. The only exception is siting. If it becomes necessary to monitor another person's account or to put it into holiday mode, the operator in charge must be informed in advance and permission obtained. For short-term sittings of less than 12 hours, a report to the operator is sufficient. During siting, all fleet movements are forbidden, only the siting of the fleet on coordinates of the sitter and the building of resources on the planet on which they are located is allowed. An account may be sat for a maximum of 72 hours. In case of exceptions, the permission of an operator must be obtained. The passing on of an account may take place max. every 3 months and exclusively free of charge. Report the account to the operator.</p>
+<p class="rules-notice"><strong>ATENÇÃO: as regras podem mudar e todos os utilizadores têm a obrigação de se manterem informados sobre o estado atual!</strong></p>
+<h2>1. Contas</h2>
+<p>O dono de uma conta é sempre o dono do endereço de e-mail registado. Uma conta só pode ser jogada por uma pessoa. A única exceção é o sitting (substituição). Se precisares de vigiar a conta de outra pessoa ou de a pôr em modo de férias, tens de avisar antes o operador responsável e obter autorização. Para sittings curtos, de menos de 12 horas, basta avisares o operador. Durante o sitting, todos os movimentos de frota estão proibidos: só é permitido guardar a frota nas coordenadas de quem faz o sitting e construir recursos no planeta onde ela se encontra. Uma conta só pode ficar em sitting durante 72 horas, no máximo. Para exceções, é preciso a autorização de um operador. A passagem de uma conta para outra pessoa só pode acontecer de 3 em 3 meses, no máximo, e exclusivamente a título gratuito. Comunica a transferência da conta ao operador.</p>
 <hr>
-<h2>2. Multiaccounts</h2>
-<p>Each player is only allowed to play one account per universe. If two or more accounts are usually, occasionally or permanently played from the same internet connection (e.g. schools, universities or internet cafés), this must be reported to an admin in advance. In such cases, the accounts in question are prohibited from having any fleet contact while using the same internet connection. Likewise, further commonalities are prohibited.</p>
+<h2>2. Multicontas</h2>
+<p>Cada jogador só pode ter uma conta por universo. Se duas ou mais contas forem jogadas, habitual, ocasional ou permanentemente, a partir da mesma ligação à internet (por exemplo escolas, universidades ou cibercafés), isso tem de ser comunicado antecipadamente a um administrador. Nesses casos, as contas em causa não podem ter qualquer contacto de frotas entre si enquanto usarem a mesma ligação. Também são proibidos outros pontos em comum.</p>
 <hr>
 <h2>3. Pushing</h2>
-<p>Pushing is generally prohibited. Pushing includes, for example, all resource transports and moon shots without appropriate compensation from accounts with lower points to accounts with higher points.<br>
-A trade must be completed within 24 hours. Exceptions must be approved in advance by the moderators via Discord ticket or in-game private message. <a href="./team">You can find the team here.</a>.<br>
-Failure to obtain authorization or disregarding the rule may result in a ban.</p>
+<p>O pushing é, em geral, proibido. Consideram-se pushing, por exemplo, todos os transportes de recursos e tiros a luas, sem a contrapartida adequada, de contas com menos pontos para contas com mais pontos.<br>
+Uma troca tem de estar concluída em 24 horas. As exceções têm de ser aprovadas antecipadamente pelos moderadores, através de um ticket no Discord ou de uma mensagem privada no jogo. <a href="./team">Encontras a equipa aqui.</a><br>
+Se não pedires autorização ou ignorares a regra, podes ser banido.</p>
 
-<h2>3.1 Trading and attacks</h2>
-<p>If players wish to sell or distribute resources to other players, they may do so at a ratio between 75%% and 125%% of the market price.</p>
-<p>Special case:<br>
-If it is not possible to distribute the captured resources within the 24h window after attacks with Death Stars, this is generally permitted, but must be reported to the moderators.</p>
+<h2>3.1 Comércio e ataques</h2>
+<p>Se quiseres vender ou distribuir recursos a outros jogadores, podes fazê-lo a uma razão entre 75%% e 125%% do preço de mercado.</p>
+<p>Caso especial:<br>
+Se não for possível distribuir os recursos capturados dentro da janela de 24 h depois de ataques com Estrelas da Morte, isso é permitido em geral, mas tem de ser comunicado aos moderadores.</p>
 <details>
-	<summary>Examples of irregular trading/attacks (click to expand):</summary>
+	<summary>Exemplos de comércio/ataques irregulares (clica para expandir):</summary>
 	<ul>
-	<li>Player A (weak in points) deliberately sends his fleet via attack to player B (strong in points) with the aim of destroying it completely. In this case, the stronger player must open a ticket.</li>
-	<li>Players from a common ACS do not share the captured resources and the debris field according to the 24h rule.</li>
-	<li>Player A informs others that he is quitting the game. For each recipient of this message, a 24h (from receiption of the message) attack stop applies to those notified. In this case, the moderators must be notified.</li>
-	<li>Player A shares his fleet details (arrival, flight times, size, position, etc.) with others so that this information can be used to attack player A. This is an unfair advantage over the other players (passive pushing). This represents an unfair advantage over the other players and is considered a provision of resources (passive pushing). In this case, the moderators must be notified.</li>
+	<li>O jogador A (fraco em pontos) envia de propósito a frota dele, em ataque, ao jogador B (forte em pontos) com o objetivo de a destruir por completo. Neste caso, o jogador mais forte tem de abrir um ticket.</li>
+	<li>Jogadores de um mesmo ACS não repartem os recursos capturados e o campo de destroços segundo a regra das 24 h.</li>
+	<li>O jogador A avisa outros de que vai deixar o jogo. Por cada destinatário dessa mensagem, aplica-se aos avisados uma paragem de ataques de 24 h (desde a receção da mensagem). Neste caso, é preciso avisar os moderadores.</li>
+	<li>O jogador A partilha com outros os dados da sua frota (chegada, tempos de voo, tamanho, posição, etc.) para que essa informação possa ser usada para atacar o jogador A. Isto é uma vantagem injusta sobre os outros jogadores e conta como entrega de recursos (pushing passivo). Neste caso, é preciso avisar os moderadores.</li>
 	</ul>
 </details>
 
-<h2>3.2 Farewell battles</h2>
-<p>Farewell battles must generally be coordinated with the moderation team in advance.</p>
+<h2>3.2 Batalhas de despedida</h2>
+<p>As batalhas de despedida têm, em geral, de ser combinadas antecipadamente com a equipa de moderação.</p>
 
 <p><a href="{wiki_url}/wiki/En/Regeln">wiki</a></p>
 <hr>
 <h2>4. Bashing</h2>
-<p>Bashing refers to multiple attacks within a 24-hour period on the same player or a planet/moon. This is prohibited, but the game prevents it from happening. <a href="{wiki_url}/wiki/En/Universen-Übersicht">Settings may vary by universe.</a> Attacks using spy probes or interplanetary missiles are not counted.</p>
-<p>The base rule applies exclusively to active players. If the parties are at war, further attacks are allowed. War must be declared in the forum at least 24 hours before further attacks (both alliances or the name of the individual declaring war must be correctly spelled in the topic of the announcement). A declaration of war can only be addressed to alliances, whereby the declaration of war can be made by an alliance or an individual.</p>
-<p>Acceptance of the war is not required. Wars that obviously only serve the massive circumvention of the bash rule are forbidden. It is up to the responsible moderators and operators to judge this.</p>
+<p>Bashing é fazer vários ataques, num período de 24 horas, ao mesmo jogador ou ao mesmo planeta/lua. Isto é proibido, mas o jogo impede que aconteça. <a href="{wiki_url}/wiki/En/Universen-Übersicht">As definições podem variar de universo para universo.</a> Os ataques com sondas de espionagem ou mísseis interplanetários não contam.</p>
+<p>A regra base aplica-se exclusivamente a jogadores ativos. Se as partes estiverem em guerra, são permitidos mais ataques. A guerra tem de ser declarada no fórum pelo menos 24 horas antes dos novos ataques (as duas alianças, ou o nome de quem declara guerra, têm de estar escritos corretamente no título do anúncio). Uma declaração de guerra só pode ser dirigida a alianças, podendo ser feita por uma aliança ou por um indivíduo.</p>
+<p>Não é preciso que a guerra seja aceite. São proibidas as guerras que servem, claramente, apenas para contornar em massa a regra do bash. Cabe aos moderadores e operadores responsáveis avaliar isso.</p>
 <hr>
-<h2>5. Interplanetary Missile-Attacks</h2>
-<p>Only 1,000 Interplanetary Missile attacks per 24 hours are allowed. The number of missiles per attack is independent.</p>
+<h2>5. Ataques com mísseis interplanetários</h2>
+<p>Só são permitidos 1000 ataques com mísseis interplanetários por 24 horas. O número de mísseis por ataque é independente.</p>
 <hr>
-<h2>6. Bugusing</h2>
-<p>Exploiting bugs and errors in programming is prohibited. Detected bugs should be reported as soon as possible via <a href="%s" target="_blank" rel="noopener noreferrer">GIT Issue</a> or in the Discord channel #bugs. Cheating is also forbidden.</p>
+<h2>6. Aproveitamento de bugs</h2>
+<p>É proibido explorar bugs e erros de programação. Os bugs encontrados devem ser comunicados o mais depressa possível através de uma <a href="%s" target="_blank" rel="noopener noreferrer">issue no Git</a> ou no canal #bugs do Discord. Fazer batota também é proibido.</p>
 <hr>
-<h2>6.1 Tools and Applications</h2>
-<p>The use of external tools and user scripts that have not been fully released is prohibited.</p>
-<p>Scripts and tools should not provide a gameplay advantage that players without them do not have. A moderator/administrator must be contacted to clear up any ambiguity regarding rule compliance of a tool.  For this approval process, the tool must be provided and approved for a specified reviewer. If a tool is approved through the review process, the features of it (not the tool itself) are published by the reviewer.</p>
-<p>Note: Publishing and making available tools developed in-house is strongly encouraged, but not mandatory.</p>
+<h2>6.1 Ferramentas e aplicações</h2>
+<p>É proibido usar ferramentas externas e scripts de utilizador que não tenham sido totalmente aprovados.</p>
+<p>Os scripts e as ferramentas não devem dar uma vantagem de jogo que os jogadores sem eles não tenham. Se tiveres dúvidas sobre se uma ferramenta cumpre as regras, fala com um moderador ou administrador. Para este processo de aprovação, a ferramenta tem de ser entregue a um revisor indicado e por ele aprovada. Se uma ferramenta for aprovada no processo de revisão, as funcionalidades dela (não a ferramenta em si) são publicadas pelo revisor.</p>
+<p>Nota: publicar e disponibilizar ferramentas feitas por ti é muito incentivado, mas não é obrigatório.</p>
 <hr>
-<h2>6.2 Abuse of the Anti-Vulture protection</h2>
-<p>The deliberate abuse of the anti-vulture mechanic in order to gain an advantage, like a risk free graviton research, for example, is prohibited and will be punished with a ban.</p>
+<h2>6.2 Abuso da proteção anti-abutre</h2>
+<p>É proibido abusar de propósito da mecânica anti-abutre para ganhar vantagem, como por exemplo uma pesquisa de gravitação sem risco, e isso é punido com banimento.</p>
 <hr>
-<h2>7. Threats/insults</h2>
-<p>RL blackmail and threats will result in exclusion from one or all game areas. Real-life blackmail and threats are any kind of communication that clearly signal intentions to locate and harm a person or a close third party.</p>
+<h2>7. Ameaças e insultos</h2>
+<p>A chantagem e as ameaças na vida real levam à exclusão de uma ou de todas as áreas do jogo. Consideram-se chantagem e ameaças na vida real todas as formas de comunicação que sinalizem claramente a intenção de localizar e prejudicar uma pessoa ou um terceiro próximo.</p>
 <hr>
-<h2>8. Spam and erotica</h2>
-<p>Spamming and third-party advertising is prohibited. Any form of eroticism and pornography is forbidden. And will be punished with a universe-wide and lifelong ban!</p>
+<h2>8. Spam e erotismo</h2>
+<p>O spam e a publicidade de terceiros são proibidos. Qualquer forma de erotismo e pornografia é proibida e é punida com um banimento vitalício em todo o universo!</p>
 <hr>
 <h2>9. Bullying</h2>
-<p>Behavior that is harmful to the community and bullying are undesirable here!</p>
+<p>Comportamentos prejudiciais para a comunidade e o bullying não são bem-vindos aqui!</p>
 
-<p>To define this: Bullying is any behavior that involves repeated, regular, emotional harassment, torment and injury.
-Both by individuals and by a group of people in a superior position.
-Abuse of power, threats of violence, verbal abuse, harassment, exposure and exclusion are just a few examples of how bullying can take place.</p>
+<p>Para definir: bullying é qualquer comportamento que envolva assédio emocional repetido e regular, tormento e ofensas.
+Tanto por parte de indivíduos como de um grupo de pessoas em posição superior.
+O abuso de poder, as ameaças de violência, os insultos, o assédio, a exposição e a exclusão são apenas alguns exemplos de como o bullying pode acontecer.</p>
 
-<p>If you are being bullied yourself or if you hear about it, you are welcome to contact us!
-We will try to find a way out of it.
-Bullying is not without consequences.</p>
+<p>Se estás a ser vítima de bullying ou se ouves falar de algum caso, fala connosco!
+Vamos tentar encontrar uma saída.
+O bullying não fica sem consequências.</p>
 <hr>
-<h2>10. Player names</h2>
-<p>Because of issues in the past every character, apart from the following, is banned:</p>
+<h2>10. Nomes de jogador</h2>
+<p>Por causa de problemas no passado, todos os carateres, exceto os seguintes, estão proibidos:</p>
 <p>a-z</p>
 <p>A-Z</p>
 <p>äÄ öÖ üÜ ß</p>

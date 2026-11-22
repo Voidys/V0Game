@@ -48,21 +48,23 @@
     color-scheme: dark;
 
     /* palette */
-    --c-bg: #05080d;
-    --c-bg-2: #0b111a;
-    --c-panel: rgb(13 16 20 / 0.92);
-    --c-panel-2: rgb(20 27 36 / 0.92);
-    --c-border: #233142;
-    --c-border-strong: #33475e;
-    --c-text: #d5dce5;
-    --c-muted: #8796a7;
-    --c-accent: #ee4d2e;      /* pr0 orange */
-    --c-accent-soft: rgb(238 77 46 / 0.16);
-    --c-link: #5b9cff;
-    --c-blue: #1d68e0;
-    --c-positive: #3fbf6f;
-    --c-negative: #f05252;
-    --c-warning: #f0b429;
+    /* palette: the V0Game theme (theme-contract.css maps a theme's --theme-* onto these; pages without a theme get V0Game) */
+    --c-bg: #06080b;
+    --c-bg-2: #0a0d11;
+    --c-panel: #0d1116;
+    --c-panel-2: #131921;
+    --c-border: #1b232d;
+    --c-border-strong: #2a3542;
+    --c-text: #e2e7ed;
+    --c-muted: #97a4b3;
+    --c-accent: #2fbf71;
+    --c-accent-ink: #03130a;
+    --c-accent-soft: rgb(47 191 113 / 0.13);
+    --c-link: #9fe0bd;
+    --c-blue: #6cb6ff;
+    --c-positive: #6fdc9b;
+    --c-negative: #ff6b6b;
+    --c-warning: #f0b84c;
 
     /* type & shape */
     --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
@@ -138,7 +140,7 @@
   }
 
   html { scrollbar-color: var(--c-border-strong) transparent; caret-color: var(--c-accent); }
-  ::selection { background: rgb(238 77 46 / 0.35); color: #fff; }
+  ::selection { background: color-mix(in oklab, var(--c-accent) 35%, transparent); color: var(--c-text); }
 
   /* game numbers line up: resources, timers, table data */
   td, th, .res_current, .res_max, .countdown, .servertime, .buildcountdown, .statictimer, .statictime {
@@ -273,8 +275,8 @@
   /* destructive = negative */
   :where(.btn--danger, .btn-danger) {
     border-color: color-mix(in oklab, var(--c-negative) 40%, var(--btn-border));
-    color: var(--c-negative);
-    &:hover { background: var(--c-negative); border-color: var(--c-negative); color: var(--c-accent-ink, #fff); }
+    color: color-mix(in oklab, var(--c-negative) 72%, var(--c-text));
+    &:hover { background: var(--c-negative); border-color: var(--c-negative); color: var(--c-bg, #000); }
   }
   :where(.build_submit) { white-space: normal; } /* long element names in build lists wrap */
   :where(.btn--small, .btn-sm) { min-block-size: var(--control-h-sm, 1.75rem); padding: 0 var(--space-2); font-size: var(--fs-sm); }
@@ -604,4 +606,10 @@
 /* bot check (scripts/app/pow.js): honeypot field out of sight for humans and screen readers */
 @layer utilities {
   .pow-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+}
+
+/* guard: a primary button rendered as a link keeps its accent text. The button rules use :where() (zero specificity),
+   so any "links in X are muted" rule (panel heads, toolbars, dialogs) would otherwise grey out the label on the accent. */
+@layer utilities {
+  a:is(.btn--primary, .primary):is(.btn, .button), a.btn--primary { color: var(--c-accent-ink, #fff); }
 }

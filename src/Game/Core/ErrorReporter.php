@@ -156,7 +156,8 @@ class ErrorReporter
     	<meta charset="utf-8">
     	<title>' . $gameName . ' - Error</title>
     	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/resource/css/app/base.css">
-    	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/theme/nova/theme.css">
+    	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/resource/css/app/theme-contract.css">
+    	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/theme/v0game/theme.css">
     	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/resource/css/app/content.css">
     	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     </head>

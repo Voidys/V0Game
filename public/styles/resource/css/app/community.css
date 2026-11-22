@@ -20,9 +20,10 @@
 /* ---- dangerous buttons (dissolve, transfer, leave, delete): negative colour, filled on hover */
 :is(input, button).btn--danger {
 	border-color: color-mix(in oklab, var(--c-negative), var(--btn-border) 45%);
-	color: var(--c-negative);
+	color: color-mix(in oklab, var(--c-negative) 72%, var(--c-text));
 	display: inline-flex; align-items: center; gap: 0.4rem;
-	&:hover, &:focus-visible { border-color: var(--c-negative); background: var(--c-negative); color: #fff; }
+	/* filled: dark text, every theme's negative colour is a light red */
+	&:hover, &:focus-visible { border-color: var(--c-negative); background: var(--c-negative); color: var(--c-bg, #000); }
 }
 input.btn--danger { display: inline-block; }
 .danger-zone > tbody > tr > th, table.danger-zone th { color: var(--c-negative); }
@@ -36,7 +37,7 @@ input.btn--danger { display: inline-block; }
 	padding: 0.4rem 0.85rem; border: 0.0625rem solid transparent; border-block-end: 0; border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 	color: var(--c-muted); font-weight: 600; text-decoration: none;
 	&:hover { background: color-mix(in oklab, transparent, var(--c-text) 6%); color: var(--c-text); }
-	&.is-active { border-color: var(--c-border-strong, #33475e); background: var(--theme-raised, #141b24); color: var(--c-text); box-shadow: inset 0 -0.1875rem 0 var(--c-accent, #ee4d2e); }
+	&.is-active { border-color: var(--c-border-strong, #33475e); background: var(--theme-raised, #141b24); color: var(--c-text); box-shadow: inset 0 -0.1875rem 0 var(--c-accent, #2fbf71); }
 }
 
 .rank-delta { font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }

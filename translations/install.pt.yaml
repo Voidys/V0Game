@@ -1,65 +1,69 @@
 back: Voltar
 continue: Continuar
 continueUpgrade: Atualizar!
-install_desc: "Para ativar a ferramenta de instalação, crie o arquivo \"var/ENABLE_INSTALL_TOOL\"<br> O nome do arquivo diferencia maiúsculas de minúsculas e não tem final de tipo de arquivo.<br> O arquivo pode estar vazio. \nEle será excluído automaticamente após a conclusão da instalação ou se tiver mais de uma hora."
+install_desc: |-
+  Para ativares a ferramenta de instalação, cria o ficheiro "var/ENABLE_INSTALL_TOOL".<br> O nome do ficheiro distingue maiúsculas de minúsculas e não tem extensão.<br> O ficheiro pode estar vazio.
+  É apagado automaticamente quando a instalação terminar ou se tiver mais de uma hora.
 install_title: A ferramenta de instalação está bloqueada
 intro_install: Para Instalação
 intro_lang: Idioma
-intro_text: O V0Game é um dos melhores projectos de OGame.<br>O V0Game é a versão mais recente e mais estável do XNova actualmente desenvolvido. V0Game é notável por sua facilidade de estabilidade, flexibilidade, dinamismo, qualidade e utilização. Nós sempre esperamos ser melhor do que as tuas expectativas.<br><br>O sistema de instalação irá guiar-te através da instalação ou atualizar de uma versão anterior para a mais recente. Cada questão, um problema, por favor não hesites em pedir ao nosso desenvolvimento e suporte em caso de duvidas!<br><br>O V0Game é um projeto em Open Source, lincenciado sob GNU GPL v3. Para que esta seja verificado, por favor clica no link acima onde se refera a "Lincença"<br><br>Antes da instalação pode ser iniciado um pequeno teste para verificar se o teu Plano/Dominio tem todos os requesitos para suportar o V0Game
+intro_text: 'O V0Game é um jogo de estratégia espacial de código aberto, no navegador: faz crescer os teus planetas, pesquisa, envia frotas e mede forças com centenas de jogadores ao mesmo tempo.<br><br>Este assistente monta uma instalação nova passo a passo: verifica o teu servidor, liga-se à base de dados e cria-a, constrói as tabelas, deixa-te dar um nome ao jogo e cria o administrador.'
 intro_upgrade_head: V0Game já instalado?
-intro_upgrade_text: <p>Já instalaste o V0Game e queres fácil actualização?</p><p>Aqui podes atualizar a base de dados antiga com apenas alguns cliques!</p>
-intro_welcome: Olá utilizador de V0Game!
-licence_accept: Para prosseguires a instalação de V0Game, precisas de concordar com os Termos e Condições da Lincença do V0Game
-licence_desc: Por favor, leia os termos de licença a seguir. Usa a barra de scroll para poderes ver todo o conteudo do documento
+intro_upgrade_text: <p>Já instalaste o V0Game e queres atualizar sem complicações?</p><p>Aqui atualizas a base de dados antiga com apenas alguns cliques!</p>
+intro_welcome: Bem-vindo ao V0Game!
+licence_accept: Aceitas os termos da licença? Só podes instalar o software se os aceitares.
+licence_desc: Lê com atenção os termos da licença abaixo. Usa a barra de deslocamento para ver o documento completo.
 licence_head: Termos de Licença
-licence_need_accept: Se quiseres continuar com a instalação, terás que aceitar os termos da licença
-login: Login
+licence_need_accept: Tens de aceitar os termos da licença para continuares a instalação.
+login: Iniciar sessão
 menu_install: Instalação
 menu_upgrade: Atualizar
-reg_dir: A pasta &raquo;%s&laquo; é gravavel?
-reg_file: O ficheiro &raquo;%s&laquo; é gravavel?
+reg_dir: A pasta &raquo;%s&laquo; tem permissão de escrita?
+reg_file: O ficheiro &raquo;%s&laquo; tem permissão de escrita?
 reg_not_found: Não encontrado
-reg_not_writable: 'Não gravavel  '
-reg_writable: Gravavel
-req_desc: Antes da instalação prosseguir, o V0Game realizará alguns testes para verificar se o teu Servidor suporta o V0Game, de modo garantir que o V0Game possa ser instalado. É surgerido que leia cuidadosamente os resultados, e não prossiga até todos estes serem verificados.
-sql_close_reason: "O universo está sendo configurado. \nPor favor, aguarde."
-sql_welcome: Bem vindo ao V0Game v
-step1_head: Configurar Instalação de base de dados
-step1_mysql_dbname: Nome da Base de Dados
-step1_mysql_dbpass: Password da Base de Dados
-step1_mysql_dbuser: Utilizador da Base de Dados
-step1_mysql_migrationpass: Senha de migração de banco de dados
-step1_mysql_migrationpass_info: A senha de migração será solicitada quando forem necessárias alterações ou atualizações no banco de dados para uma nova versão do jogo.
-step1_mysql_port: Porta da Base de Dados
-step1_mysql_prefix: 'Prefixo de tabelas:'
-step2_conf_op_fail: config.php não pode ser gravado!
-step2_config_exists: config.php já existe!
-step2_db_con_fail: Existe um erro na ligação à Base de Dados. Os detalhes serão exibidos abaixo
-step2_db_done: A conexão à Base de Dados foi bem-sucedida!
-step2_db_no_dbname: Não especificaste o nome para a base de dados
-step2_db_too_long: O prefixo de tabela é muito longo. Deve conter no máximo 36 caracteres
-step2_prefix_invalid: O prefixo de Base de Dados deve conter caracteres alfanuméricos e sublinhado como ultimo caracter
-step3_db_error: 'Falha ao criar tabelas na Base de Dados:'
-step3_head: Criar tabelas de Base de Dados
-step4_admin_mail: 'E-mail de contato:'
-step4_admin_name: 'Nome de Usário de Administrador:'
-step4_admin_name_desc: Escreva o nome de usário com o comprimento de 3 a 20 caracteres
-step4_admin_pass: 'Password de Administrador:'
-step4_desc: O assistente de instalação vai agora criar uma conta de administrador para ti. Escreve o nome de usário, a tua password e o teu email
-step4_head: Conta do Administrador
-step6_desc: Instalaste com sucesso o sistema V0Game
-step6_head: Instalação concluida!
+reg_not_writable: Sem permissão de escrita
+reg_writable: Com permissão de escrita
+req_desc: Antes de a instalação continuar, o V0Game vai verificar a configuração e os ficheiros do teu servidor para garantir que pode ser instalado e usado. Lê os resultados com atenção e só continuas quando todos os testes obrigatórios passarem.
+sql_close_reason: |-
+  O universo está a ser preparado.
+  Aguarda um momento.
+sql_welcome: Bem-vindo ao V0Game v
+step1_head: Configurar a base de dados
+step1_mysql_dbname: Nome da base de dados
+step1_mysql_dbpass: Palavra-passe da base de dados
+step1_mysql_dbuser: Utilizador da base de dados
+step1_mysql_migrationpass: Palavra-passe de migração da base de dados
+step1_mysql_migrationpass_info: Esta palavra-passe é pedida quando uma nova versão do jogo exigir alterações ou atualizações à base de dados.
+step1_mysql_port: Porta da base de dados
+step1_mysql_prefix: 'Prefixo das tabelas:'
+step2_conf_op_fail: Não foi possível escrever o config.php!
+step2_config_exists: O config.php já existe!
+step2_db_con_fail: Não foi possível ligar à base de dados. Vê os detalhes do erro abaixo.
+step2_db_done: Ligação à base de dados bem-sucedida!
+step2_db_no_dbname: Não indicaste o nome da base de dados.
+step2_db_too_long: O prefixo das tabelas é demasiado longo. Pode ter no máximo 36 carateres.
+step2_prefix_invalid: O prefixo das tabelas só pode conter letras, números e sublinhados.
+step3_db_error: 'Falha ao criar as tabelas da base de dados:'
+step3_head: Criar as tabelas da base de dados
+step4_admin_mail: 'E-mail de contacto:'
+step4_admin_name: 'Nome de utilizador do administrador:'
+step4_admin_name_desc: Escolhe um nome de utilizador com 3 a 20 carateres.
+step4_admin_pass: 'Palavra-passe do administrador:'
+step4_desc: O assistente vai agora criar uma conta de administrador. Indica o nome de utilizador, o e-mail e a palavra-passe.
+step4_head: Conta de administrador
+step6_desc: O V0Game ficou instalado com sucesso.
+step6_head: Instalação concluída!
 title_install: Instalação
-upgrade_available: 'Atualizações disponíveis! A tua base de dados se encontra na revisão %s e poderás atualizar para a revisão %s.<br><br>Escolhe um dos primeiros comandos SQL para iniciar a instalação:'
-upgrade_back: Atrás
-upgrade_intro_welcome: Bem vindo à atualização de base de dados!
-upgrade_message_admin: 'Administradores: para instalar a atualização do banco de dados, digite a senha de migração e continue.'
-upgrade_message_user: 'Jogadores: Por favor, aguarde um pouco e tente clicar em "Retornar ao jogo"'
-upgrade_notavailable: A revisão %s é a ultima para a tua base de dados.
-upgrade_nothingtodo: Sem ação requerida, base de dados na revisão %s.
+upgrade_available: Há atualizações da base de dados disponíveis. A base de dados está na revisão %s e pode ser atualizada para a revisão %s.
+upgrade_back: Voltar
+upgrade_intro_welcome: Bem-vindo à atualização da base de dados!
+upgrade_message_admin: 'Administradores: para instalares a atualização da base de dados, introduz a palavra-passe de migração e continua.'
+upgrade_message_user: 'Jogadores: aguardem um momento e depois cliquem em "Voltar ao jogo".'
+upgrade_notavailable: A revisão %s é a mais recente para a tua base de dados.
+upgrade_nothingtodo: 'Nada a fazer: a base de dados já está na revisão %s.'
 upgrade_return: Voltar ao jogo
-upgrade_success: Atualização de base de dados com sucesso, de momento na revisão %s.
-upgrade_title: A atualização do banco de dados é necessária!
+upgrade_success: Base de dados atualizada com sucesso, agora na revisão %s.
+upgrade_title: É necessário atualizar a base de dados!
 ins_step_licence: Licença
 ins_step_requirements: Requisitos
 ins_step_database: Base de dados
@@ -72,16 +76,16 @@ ins_db_connection: Ligação
 ins_db_createdb: Criar a base de dados se ainda não existir
 ins_db_connect: Ligar e criar
 ins_db_no_host: Nenhum servidor de base de dados indicado.
-ins_db_name_invalid: O nome da base de dados só pode conter letras, dígitos, _ e - (máx. 64 caracteres).
+ins_db_name_invalid: O nome da base de dados só pode conter letras, dígitos, _ e - (máx. 64 carateres).
 ins_check_input: Entrada verificada
 ins_check_connect: Ligado ao servidor de base de dados
 ins_check_database: Base de dados »%s«
-ins_db_missing: não existe (marque "criar a base de dados" ou crie-a você mesmo)
+ins_db_missing: não existe (marca "criar a base de dados" ou cria-a tu)
 ins_db_create_fail: 'não pôde ser criada:'
 ins_db_created: criada
 ins_db_exists: existe
 ins_check_tables: Ainda não há tabelas com o prefixo »%s«
-ins_tables_exist: Já existem %d tabela(s) com este prefixo. Escolha outro prefixo ou outra base de dados.
+ins_tables_exist: Já existem %d tabela(s) com este prefixo. Escolhe outro prefixo ou outra base de dados.
 ins_check_write: '%s escrito'
 ins_build_desc: O instalador cria agora as tabelas do jogo e preenche-as com os valores predefinidos, passo a passo.
 ins_task_tables: Criar tabelas
@@ -93,41 +97,41 @@ ins_back_database: Voltar às definições da base de dados
 ins_game_name: Nome do jogo
 ins_game_name_info: 'Mostrado no título, no cabeçalho e nos e-mails. Predefinição: V0Game.'
 ins_default_theme: Tema predefinido
-ins_default_theme_info: Tema para contas novas e visitantes; os jogadores podem alterá-lo nas suas definições.
-ins_game_name_invalid: Introduza um nome de jogo de 1 a 64 caracteres.
+ins_default_theme_info: Tema para contas novas e visitantes; os jogadores podem mudá-lo nas definições deles.
+ins_game_name_invalid: Introduz um nome de jogo de 1 a 64 carateres.
 ins_theme_invalid: Tema desconhecido.
 ins_to_start: Para a página inicial
 ins_credits_head: Aos ombros de gigantes
 ins_credits_text: 'O V0Game continua uma longa linhagem de jogos de navegador de código aberto. Respeito por todos os que o construíram e o mantiveram vivo antes de nós:'
-ins_credits_thanks: 'Obrigado a todos os programadores e mantenedores que criaram este jogo e o mantiveram vivo ao longo dos anos, do 2Moons e SteemNova ao pr0game.'
+ins_credits_thanks: Obrigado a todos os programadores e mantenedores que criaram este jogo e o mantiveram vivo ao longo dos anos, do 2Moons e SteemNova ao pr0game.
 ins_licence_note: Software livre sob a GNU AGPL v3
 ins_task_images: Otimizar imagens (WebP)
-ins_db_help: O V0Game guarda tudo numa base de dados MySQL ou MariaDB. Obtém os valores abaixo no painel do seu alojamento (procure "Bases de dados" ou "MySQL") ou de quem configurou o seu servidor. Se instalou o MySQL você mesmo, as predefinições costumam funcionar.
+ins_db_help: O V0Game guarda tudo numa base de dados MySQL ou MariaDB. Obténs os valores abaixo no painel do teu alojamento (procura "Bases de dados" ou "MySQL") ou de quem configurou o teu servidor. Se instalaste o MySQL tu mesmo, as predefinições costumam funcionar.
 ins_db_host: Servidor de base de dados
 ins_db_host_info: Quase sempre "localhost". Alguns alojamentos dão um nome como "db1.example.com".
-ins_db_name_info: O nome da base de dados do jogo. Crie-a primeiro no painel do alojamento ou deixe o instalador criá-la (veja a caixa abaixo).
+ins_db_name_info: O nome da base de dados do jogo. Cria-a primeiro no painel do alojamento ou deixa o instalador criá-la (vê a caixa abaixo).
 ins_db_advanced: Avançado (porta, prefixo das tabelas, palavra-passe de migração) - normalmente desnecessário
-ins_db_prefix_info: Adicionado antes de cada nome de tabela. Altere apenas se partilhar uma base de dados com outro software.
-ins_db_migrationpw_info: Protege a página de atualização (install/?mode=upgrade) para futuras atualizações do jogo. Se deixar vazio, o instalador gera uma forte e mostra-a uma vez na última página.
+ins_db_prefix_info: Acrescentado antes do nome de cada tabela. Só o alteres se partilhares a base de dados com outro software.
+ins_db_migrationpw_info: Protege a página de atualização (install/?mode=upgrade) em futuras atualizações do jogo. Se deixares vazio, o instalador gera uma palavra-passe forte e mostra-a uma vez na última página.
 ins_db_migrationpw_placeholder: gerada automaticamente
 ins_migrationpw_invalid: A palavra-passe de migração não pode conter aspas, barras invertidas, $ nem quebras de linha.
 ins_err_technical: detalhes técnicos
-ins_err_access_denied: O servidor de base de dados recusou o nome de utilizador ou a palavra-passe. Verifique ambos no painel do alojamento (maiúsculas e minúsculas contam).
-ins_err_unknown_db: Esta base de dados não existe no servidor. Verifique o nome ou marque "Criar a base de dados" abaixo.
-ins_err_no_privilege: Este utilizador da base de dados não tem permissão para usar essa base de dados. Dê-lhe todos os privilégios sobre ela no painel do alojamento.
-ins_err_no_create: Este utilizador não tem permissão para criar bases de dados. Crie uma base de dados vazia no painel do alojamento e desmarque "Criar a base de dados".
-ins_err_socket: O socket do servidor de base de dados não foi encontrado. Experimente o anfitrião "127.0.0.1" em vez de "localhost".
-ins_err_unreachable: Não é possível contactar o servidor de base de dados "%s". Verifique o nome do anfitrião e a porta, e se o servidor de base de dados está em execução. Muitos alojamentos só permitem ligações dos seus próprios servidores web, por isso "localhost" costuma ser o correto.
-ins_game_desc: Dê um nome ao seu jogo e escolha como ele funciona. Tudo aqui pode ser alterado mais tarde na administração (Admin - Definições).
+ins_err_access_denied: O servidor de base de dados recusou o nome de utilizador ou a palavra-passe. Verifica ambos no painel do alojamento (maiúsculas e minúsculas contam).
+ins_err_unknown_db: Esta base de dados não existe no servidor. Verifica o nome ou marca "Criar a base de dados" abaixo.
+ins_err_no_privilege: Este utilizador da base de dados não tem permissão para usar essa base de dados. Dá-lhe todos os privilégios sobre ela no painel do alojamento.
+ins_err_no_create: Este utilizador não tem permissão para criar bases de dados. Cria uma base de dados vazia no painel do alojamento e desmarque "Criar a base de dados".
+ins_err_socket: Não foi encontrado o socket do servidor de base de dados. Experimenta o anfitrião "127.0.0.1" em vez de "localhost".
+ins_err_unreachable: Não é possível contactar o servidor de base de dados "%s". Verifica o nome do anfitrião e a porta, e se o servidor de base de dados está em execução. Muitos alojamentos só permitem ligações dos seus próprios servidores web, por isso "localhost" costuma ser o correto.
+ins_game_desc: Dá um nome ao teu jogo e escolhe como funciona. Tudo isto pode ser alterado mais tarde na administração (Admin - Definições).
 ins_group_general: Geral
 ins_uni_name: Nome do universo
 ins_uni_name_info: Mostrado aos jogadores quando escolhem um universo. Vazio = "Universo 1".
-ins_uni_name_invalid: O nome do universo pode ter no máximo 60 caracteres.
+ins_uni_name_invalid: O nome do universo pode ter no máximo 60 carateres.
 ins_language: Idioma predefinido
-ins_language_info: Idioma para novos visitantes e para a sua conta de administrador.
+ins_language_info: Idioma para novos visitantes e para a tua conta de administrador.
 ins_language_invalid: Idioma desconhecido.
 ins_timezone: Fuso horário
-ins_timezone_info: Pré-selecionado a partir do seu servidor. Usado para a hora do servidor apresentada.
+ins_timezone_info: Pré-selecionado a partir do teu servidor. Usado para mostrar a hora do servidor.
 ins_timezone_invalid: Fuso horário desconhecido.
 ins_group_speed: Velocidade do jogo
 ins_speed_info: A rapidez com que avançam edifícios, pesquisa, naves, frotas e produção. Clássico é o ritmo original; as predefinições mais rápidas servem comunidades pequenas e rondas curtas.
@@ -142,47 +146,47 @@ ins_speed_invalid: Predefinição de velocidade desconhecida.
 ins_group_players: Jogadores
 ins_registration: Registo
 ins_registration_open: Aberto - qualquer pessoa pode registar-se
-ins_registration_closed: Fechado - só você pode criar contas
-ins_registration_info: Escolha "fechado" enquanto ainda estiver a configurar. Pode abri-lo mais tarde em Admin - Definições.
+ins_registration_closed: Fechado - só tu podes criar contas
+ins_registration_info: Escolhe "fechado" enquanto ainda estiveres a configurar. Podes abri-lo mais tarde em Admin - Definições.
 ins_registration_invalid: Definição de registo desconhecida.
 ins_bots: Jogadores do computador (bots)
 ins_bots_info: De 0 a 50. Os bots jogam como jogadores reais com hábitos diferentes, para que um universo novo não fique vazio. 0 = sem bots.
 ins_bots_invalid: O número de bots tem de estar entre 0 e 50.
 ins_mail: Enviar e-mails (registo, reposição de palavra-passe)
-ins_mail_info: Desativado por predefinição. Ative apenas quando o seu servidor puder enviar correio; pode configurar o SMTP mais tarde em Admin - Definições.
+ins_mail_info: Desativado por predefinição. Ativa só quando o teu servidor conseguir enviar correio; podes configurar o SMTP mais tarde em Admin - Definições.
 ins_admin_mail_info: Usado para repor palavras-passe e como endereço de contacto.
-ins_admin_mail_invalid: Introduza um endereço de e-mail válido.
+ins_admin_mail_invalid: Introduz um endereço de e-mail válido.
 ins_admin_pass_confirm: Repetir palavra-passe
-ins_admin_pass_rules: A palavra-passe precisa de pelo menos %d caracteres (no máximo 64). Uma frase com algumas palavras é fácil de lembrar e difícil de adivinhar.
-ins_admin_pass_short: A palavra-passe precisa de pelo menos %d caracteres.
-ins_admin_pass_long: A palavra-passe pode ter no máximo 64 caracteres.
+ins_admin_pass_rules: A palavra-passe precisa de pelo menos %d carateres (no máximo 64). Uma frase com algumas palavras é fácil de lembrar e difícil de adivinhar.
+ins_admin_pass_short: A palavra-passe precisa de pelo menos %d carateres.
+ins_admin_pass_long: A palavra-passe pode ter no máximo 64 carateres.
 ins_admin_pass_mismatch: As duas palavras-passe não coincidem.
-ins_done_checklist: A sua lista de verificação
-ins_done_login: Inicie sessão na administração.
-ins_done_login_info: 'Já iniciou sessão como "%s". Da próxima vez use:'
-ins_done_cron: Configure o cronjob (obrigatório).
-ins_done_cron_info: 'Sem ele nada avança no jogo (frotas, filas de construção, estatísticas). Adicione esta linha ao crontab do utilizador do servidor web (crontab -e) ou crie um cronjob com ela no painel do alojamento:'
-ins_done_cron_help: "Como configurar o cronjob (também num painel de alojamento)"
+ins_done_checklist: A tua lista de verificação
+ins_done_login: Inicia sessão na administração.
+ins_done_login_info: 'Já iniciaste sessão como "%s". Da próxima vez usa:'
+ins_done_cron: Configura o cronjob (obrigatório).
+ins_done_cron_info: 'Sem ele nada avança no jogo (frotas, filas de construção, estatísticas). Acrescenta esta linha ao crontab do utilizador do servidor web (crontab -e) ou cria um cronjob com ela no painel do alojamento:'
+ins_done_cron_help: Como configurar o cronjob (também num painel de alojamento)
 ins_done_locked: A ferramenta de instalação está agora bloqueada.
-ins_done_locked_info: Ninguém pode voltar a executar o assistente. Para atualizar mais tarde, siga a secção de atualização da documentação.
-ins_done_https: Use HTTPS.
-ins_done_https_info: 'Está em HTTP simples: as palavras-passe viajam sem cifragem. Configure um certificado (por exemplo Let''s Encrypt) antes de convidar jogadores.'
+ins_done_locked_info: Ninguém pode voltar a executar o assistente. Para atualizar mais tarde, segue a secção de atualização da documentação.
+ins_done_https: Usa HTTPS.
+ins_done_https_info: 'Estás em HTTP simples: as palavras-passe viajam sem cifra. Configura um certificado (por exemplo Let''s Encrypt) antes de convidares jogadores.'
 ins_done_https_ok: Esta página foi servida por HTTPS - ótimo.
-ins_done_settings: Altere as definições mais tarde.
+ins_done_settings: Altera as definições mais tarde.
 ins_done_settings_info: 'Admin - Definições: nome do jogo, velocidade, registo, e-mail (SMTP), bots e muito mais.'
 ins_done_bots: Bots.
-ins_done_bots_info: Foram criados %d bots. Atuam quando o cronjob é executado. Gira-os na administração.
-ins_done_bots_failed: O administrador foi criado, mas não foi possível criar os bots. Pode adicioná-los mais tarde na administração.
-ins_done_migrationpw: Anote a sua palavra-passe de migração (mostrada apenas uma vez).
-ins_done_migrationpw_info: Precisa dela para as atualizações do jogo. Também fica guardada em config/game.php.
+ins_done_bots_info: Foram criados %d bots. Entram em ação quando o cronjob corre. Gere-os na administração.
+ins_done_bots_failed: O administrador foi criado, mas não foi possível criar os bots. Podes adicioná-los mais tarde na administração.
+ins_done_migrationpw: Anota a tua palavra-passe de migração (só é mostrada uma vez).
+ins_done_migrationpw_info: Vais precisar dela nas atualizações do jogo. Também fica guardada em config/game.php.
 ins_done_docs: 'Documentação:'
 ins_done_to_admin: Para a administração
-ins_step_legal: Legal
+ins_step_legal: Aspetos legais
 ins_legal_desc: Escolhe onde o jogo fica alojado e como começam as páginas legais e o fórum da comunidade. Podes alterar tudo isto mais tarde na área de administração (Definições, Páginas).
 ins_group_privacy: Região de alojamento
 ins_privacy_info: A região determina a política de privacidade usada por predefinição.
 ins_privacy_eu: UE / EEE - política de privacidade RGPD
-ins_privacy_eu_info: Escolhe esta opção se o jogo estiver alojado na União Europeia ou no Espaço Económico Europeu, ou se for destinado a jogadores de lá.
+ins_privacy_eu_info: Escolhe esta opção se o jogo estiver alojado na União Europeia ou no Espaço Económico Europeu, ou se for dirigido a jogadores de lá.
 ins_privacy_other: Fora da UE - política de privacidade geral
 ins_privacy_other_info: Uma política de privacidade em linguagem simples, sem referências ao RGPD.
 ins_group_rules: Regras
@@ -191,53 +195,53 @@ ins_rules_default_info: A página de regras começa com as regras padrão do jog
 ins_rules_blank: Começar em branco
 ins_rules_blank_info: A página de regras fica vazia até escreveres as tuas próprias regras na área de administração.
 ins_group_community: Comunidade
-ins_cookie_consent: "Mostrar aviso de consentimento de cookies (RGPD)"
-ins_cookie_consent_info: "Mostra aos visitantes um aviso sobre os cookies usados pelo jogo. Recomendado para operadores que servem a UE. Pode ser alterado mais tarde nas definições."
+ins_cookie_consent: Mostrar aviso de consentimento de cookies (RGPD)
+ins_cookie_consent_info: Mostra aos visitantes um aviso sobre os cookies usados pelo jogo. Recomendado a operadores que servem a UE. Pode ser alterado mais tarde nas definições.
 ins_board: Ativar o fórum da comunidade
 ins_board_info: Um fórum para os teus jogadores. Quando desligado, todas as ligações para o fórum ficam ocultas e as páginas do fórum não estão disponíveis.
 ins_legal_note: Os textos gerados são apenas modelos. Como operador, és responsável pelos textos legais do teu jogo e deves revê-los.
 ins_legal_region_invalid: Escolhe uma região de alojamento válida.
 ins_legal_rules_invalid: Escolhe como devem começar as regras.
-ins_step_mail: 'E-mail'
-ins_mail_desc: 'Opcional. Escolhe como o jogo envia e-mails (registo, repor palavra-passe). Podes saltar este passo e configurá-lo mais tarde em Admin - Definições.'
-ins_mail_enable: 'Enviar e-mails'
-ins_mail_method: 'Método'
-ins_mail_method_php: 'Função mail() do PHP'
-ins_mail_method_smtp: 'Servidor SMTP'
-ins_mail_from: 'Endereço do remetente'
-ins_mail_host: 'Anfitrião SMTP'
-ins_mail_port: 'Porta SMTP'
-ins_mail_enc: 'Encriptação'
-ins_mail_enc_none: 'Nenhuma'
-ins_mail_user: 'Utilizador SMTP'
-ins_mail_pass: 'Palavra-passe SMTP'
-ins_mail_pass_info: 'Não é mostrada de novo; introduz-a outra vez após um e-mail de teste.'
-ins_mail_save: 'Guardar e continuar'
-ins_mail_skip: 'Saltar (o e-mail fica desativado)'
-ins_mail_test_head: 'Enviar um e-mail de teste'
-ins_mail_test_to: 'Enviar e-mail de teste para'
-ins_mail_test_send: 'Enviar e-mail de teste'
-ins_mail_test_ok: 'E-mail de teste enviado para %s.'
+ins_step_mail: E-mail
+ins_mail_desc: Opcional. Escolhe como o jogo envia e-mails (registo, repor palavra-passe). Podes saltar este passo e configurá-lo mais tarde em Admin - Definições.
+ins_mail_enable: Enviar e-mails
+ins_mail_method: Método
+ins_mail_method_php: Função mail() do PHP
+ins_mail_method_smtp: Servidor SMTP
+ins_mail_from: Endereço do remetente
+ins_mail_host: Anfitrião SMTP
+ins_mail_port: Porta SMTP
+ins_mail_enc: Cifragem
+ins_mail_enc_none: Nenhuma
+ins_mail_user: Utilizador SMTP
+ins_mail_pass: Palavra-passe SMTP
+ins_mail_pass_info: Não é mostrada de novo; introduz-a outra vez após um e-mail de teste.
+ins_mail_save: Guardar e continuar
+ins_mail_skip: Saltar (o e-mail fica desativado)
+ins_mail_test_head: Enviar um e-mail de teste
+ins_mail_test_to: Enviar e-mail de teste para
+ins_mail_test_send: Enviar e-mail de teste
+ins_mail_test_ok: E-mail de teste enviado para %s.
 ins_mail_test_fail: 'O e-mail de teste falhou: %s'
-ins_mail_from_invalid: 'Introduz um endereço de remetente válido.'
-ins_mail_host_required: 'Introduz o anfitrião SMTP.'
-ins_mail_port_invalid: 'Introduz uma porta válida (1-65535).'
-ins_mail_test_invalid: 'Introduz um endereço de e-mail válido para o teste.'
-ins_mail_test_subject: 'E-mail de teste do V0Game'
-ins_mail_test_body: 'Este é um e-mail de teste do instalador do V0Game. As tuas definições de e-mail funcionam.'
-ins_done_social: 'Início de sessão social (opcional).'
-ins_social_hint: 'O início de sessão com Discord, Google, GitHub ou Facebook pode ser ativado mais tarde em Admin - Início de sessão social.'
-ins_group_imprint: 'Aviso legal (opcional)'
-ins_imprint_info: 'Dados de contacto para a página de aviso legal. Ambos podem ficar vazios e podem ser alterados mais tarde em Admin - Definições.'
-ins_imprint_eu_hint: 'Os operadores na UE costumam precisar de um aviso legal com um e-mail de contacto. Podes saltar agora, mas preenche antes de abrir ao público.'
-ins_imprint_mail: 'E-mail de contacto'
-ins_imprint_address: 'Morada do aviso legal'
-ins_imprint_mail_invalid: 'Introduz um e-mail de contacto válido para o aviso legal.'
-ins_more_settings: 'Mais definições'
-ins_update_check: 'Verificar atualizações'
-ins_update_check_info: 'O painel de administração pergunta ao servidor de atualizações (GitHub) pela versão mais recente.'
-ins_discord_url: 'Ligação de convite do Discord'
-ins_discord_url_info: 'Opcional, por exemplo https://discord.gg/oteuservidor.'
-ins_discord_url_invalid: 'Introduz uma ligação do Discord válida a começar por http:// ou https://.'
-ins_mail_user_valid: 'Exigir ativação por e-mail'
-ins_mail_user_valid_info: 'As contas novas têm de confirmar o endereço por e-mail antes de jogar. Só disponível com o e-mail ativado.'
+ins_mail_from_invalid: Introduz um endereço de remetente válido.
+ins_mail_host_required: Introduz o anfitrião SMTP.
+ins_mail_port_invalid: Introduz uma porta válida (1-65535).
+ins_mail_test_invalid: Introduz um endereço de e-mail válido para o teste.
+ins_mail_test_subject: E-mail de teste do V0Game
+ins_mail_test_body: Este é um e-mail de teste do instalador do V0Game. As tuas definições de e-mail funcionam.
+ins_done_social: Início de sessão social (opcional).
+ins_social_hint: O início de sessão com Discord, Google, GitHub ou Facebook pode ser ativado mais tarde em Admin - Início de sessão social.
+ins_group_imprint: Informação legal (opcional)
+ins_imprint_info: Dados de contacto para a página de informação legal. Ambos podem ficar vazios e ser alterados mais tarde em Admin - Definições.
+ins_imprint_eu_hint: Os operadores na UE costumam precisar de uma página de informação legal com um e-mail de contacto. Podes saltar agora, mas preenche antes de abrires ao público.
+ins_imprint_mail: E-mail de contacto
+ins_imprint_address: Morada da informação legal
+ins_imprint_mail_invalid: Introduz um e-mail de contacto válido para a informação legal.
+ins_more_settings: Mais definições
+ins_update_check: Verificar atualizações
+ins_update_check_info: O painel de administração pergunta ao servidor de atualizações (GitHub) pela versão mais recente.
+ins_discord_url: Ligação de convite do Discord
+ins_discord_url_info: Opcional, por exemplo https://discord.gg/oteuservidor.
+ins_discord_url_invalid: Introduz uma ligação do Discord válida a começar por http:// ou https://.
+ins_mail_user_valid: Exigir ativação por e-mail
+ins_mail_user_valid_info: As contas novas têm de confirmar o endereço por e-mail antes de jogar. Só disponível com o e-mail ativado.
