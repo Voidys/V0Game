@@ -1,0 +1,12 @@
+Salut {USERNAME},
+
+Mulțumim că te-ai înregistrat pe {GAMENAME}!
+
+Ne bucurăm că ai ales să faci parte din comunitatea noastră 
+și sperăm să te distrezi pe cinste!
+
+Poți arunca o privire și pe Discord-ul nostru: 
+{DISCORD}
+
+Cu drag,
+Echipa {GAMENAME}

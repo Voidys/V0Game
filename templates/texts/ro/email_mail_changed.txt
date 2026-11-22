@@ -1,0 +1,11 @@
+Salut {USERNAME},
+
+Adresa de e-mail a contului tău tocmai a fost schimbată.
+Schimbarea devine definitivă în câteva zile.
+
+Dacă nu ai făcut-o tu, deschide un tichet pe Discord-ul nostru:
+{DISCORD}
+
+Cu drag,
+
+Echipa ta {GAMENAME}

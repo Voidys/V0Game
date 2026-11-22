@@ -1,0 +1,210 @@
+build_ships: Total nave construite
+buttonLostPassword: Ți-ai uitat parola?
+buttonRegister: Înregistrare
+buttonScreenshot: Capturi de ecran
+civil: Civil
+colony: Colonie
+deathstar: Steaua morții
+destroyed_sats: Sateliți solari distruși
+disclamerLabelAddress: 'Adresa jocului:'
+disclamerLabelMail: 'E-mail suport:'
+disclamerLabelNotice: Mai multe informații
+disclamerLabelPhone: 'Telefon:'
+first_fights: Primele lupte din univers
+forum: Forum
+hof_empty: "Încă nu există date în hall of fame."
+login_error_1: >-
+  E-mail sau parolă greșită! Sfat: managerii de parole completează adesea
+  numele de utilizator, dar te conectezi cu e-mailul.
+login_error_2: >-
+  Contul tău a fost conectat de pe alt dispozitiv sau adresa ta IP s-a
+  schimbat.
+login_error_3: Sesiunea ta a expirat. Conectează-te din nou.
+login_error_4: 'Prea multe încercări de conectare. Așteaptă 15 minute și încearcă din nou.'
+loginButton: Conectare
+loginEmail: E-mail
+loginHeader: Conectare
+loginInfo: Conectându-mă, accept %s.
+loginPassword: Parolă
+loginRememberMe: 'Rămâi conectat %d zile'
+loginServerDesc: >-
+  %s este un joc de strategie spațială în care sute de jucători concurează
+  <strong>în același timp</strong> ca să fie cei mai buni. Tot ce-ți trebuie
+  este un browser web obișnuit.
+loginWelcome: Bun venit la %s
+Lowest_longterm_points: Conturi preînregistrate cu cele mai puține puncte
+menu_banlist: Listă de banuri
+menu_battlehall: Sala bătăliilor
+menu_disclamer: Contact
+menu_news: Noutăți
+menu_rules: Reguli
+military: Militar
+news_does_not_exist: Nu există noutăți.
+news_from: Pe %s de %s
+overall: General
+passwordBack: Înapoi
+passwordChangedMailSend: Parola ta nouă este pe drum. Vei primi în curând un e-mail.
+passwordChangedMailTitle: 'Parolă nouă pentru %s'
+passwordConfirmInfo: 'Apasă butonul ca să-ți resetezi parola. Îți trimitem parola nouă pe e-mail.'
+passwordConfirmSubmit: 'Trimite-mi o parolă nouă'
+passwordErrorMailEmpty: Nu cunoaștem această adresă de e-mail.
+passwordInfo: >-
+  Ți-ai uitat parola? Introdu numele de utilizator și adresa de e-mail ale
+  contului tău. Dacă nu le mai știi, contactează un administrator.
+passwordMail: E-mail
+passwordNext: Înainte
+passwordSubmit: Trimite
+passwordUsername: Nume de utilizator
+passwordValidInValid: Cerere invalidă.
+passwordValidMailSend: Vei primi în curând un e-mail cu pașii următori.
+passwordValidMailTitle: 'Resetare parolă pentru %s'
+players: Jucători
+points_amount: Puncte / Cantitate
+powFailed: >-
+  Verificarea automată anti-boți a eșuat sau a expirat. Întoarce-te, așteaptă
+  puțin și trimite din nou formularul.
+powNoCrypto: >-
+  Browserul tău nu poate rula verificarea automată anti-boți (are nevoie de o
+  conexiune https sigură).
+powVerifying: Se verifică browserul …
+registerBack: Înapoi
+registerDataPrivacyDesc: Sunt de acord cu %s
+registerEmail: E-mail
+registerEmailDesc: Introdu adresa ta de e-mail.
+registerEmailReplay: Repetă e-mailul
+registerEmailReplayDesc: Introdu din nou adresa de e-mail ca s-o confirmi.
+registerErrorDataPrivacy: Acceptă politica de confidențialitate ca să continui.
+registerErrorMailEmpty: Introdu o adresă de e-mail.
+registerErrorMailExist: Această adresă de e-mail este deja înregistrată.
+registerErrorMailInvalid: Nu pare o adresă de e-mail validă.
+registerErrorMailSame: Cele două adrese de e-mail nu se potrivesc.
+registerErrorPasswordLength: Parola ta trebuie să aibă cel puțin %s caractere.
+registerErrorPasswordSame: Cele două parole nu se potrivesc.
+registerErrorRules: Acceptă regulile ca să continui.
+registerErrorUniClosed: Înregistrarea este închisă în acest univers.
+registerErrorUsernameChar: Numele tău de utilizator poate conține doar litere, cifre, spații, _, - și .
+registerErrorUsernameEmpty: Introdu un nume de utilizator.
+registerErrorUsernameExist: Acest nume de utilizator este deja luat.
+registerLanguage: Limbă
+registerMailCompleteTitle: Bun venit la %s!
+registerMailVertifyTitle: 'Activează-ți contul pentru %s'
+registerPassword: Parolă
+registerPasswordDesc: Parola ta trebuie să aibă cel puțin %s caractere.
+registerPasswordReplay: Repetă parola
+registerPasswordReplayDesc: Introdu aceeași parolă din nou.
+registerReferral: 'Recomandat de:'
+registerRules: Reguli
+registerRulesDesc: Sunt de acord cu %s
+registerSendComplete: >-
+  Mulțumim pentru înregistrare! Verifică-ți e-mailul (inclusiv folderul de
+  spam) pentru pașii următori.
+registerTimezone: Fus orar
+registerUsername: Nume de utilizator
+registerUsernameDesc: >-
+  Folosește între 3 și 25 de caractere: litere, cifre, spații, puncte, cratime
+  și underscore.
+registerWelcomePMSenderName: Administrator
+registerWelcomePMSubject: Bun venit
+registerWelcomePMText: >-
+  Bun venit la %s! Mai întâi construiește o Centrală solară, pentru că ai
+  nevoie de energie ca să produci resurse. Deschide Clădiri din meniul din
+  stânga și începe cu Centrala solară.<br>Când ai energie, poți construi mine.
+  Rămâi la Clădiri și construiește o Mină de metal, apoi o Mină de cristal.<br><br>Ca să
+  construiești nave ai nevoie de un Șantier naval. Meniul Tehnologii din
+  stânga îți arată ce e necesar ca să îl deblochezi.<br>Dacă mai ai întrebări,
+  uită-te în FAQ, în wiki sau deschide un tichet de suport.<br><br>Echipa îți
+  urează multă distracție în explorarea universului!
+siteTitleBanList: Listă de banuri
+siteTitleBattleHall: Sala bătăliilor
+siteTitleDataPrivacy: Politica de confidențialitate
+siteTitleDisclamer: Contact
+siteTitleHOF: Hall of Fame
+siteTitleIndex: Acasă
+siteTitleLostPassword: Ți-ai uitat parola?
+siteTitleNews: Noutăți
+siteTitleRegister: Înregistrare
+siteTitleRules: Reguli
+siteTitleScreens: Capturi de ecran
+spy: Sonde de spionaj
+st_buildings: Clădiri
+st_defenses: Apărare
+st_fleets: Flotă
+st_points: Puncte
+st_researh: Cercetare
+theme: Temă
+universe: Univers
+vertifyAdminMessage: Contul „%s” a fost activat.
+vertifyNoUserFound: Cerere invalidă.
+passwordErrorUsernameEmpty: Nu ai introdus un nume de utilizator!
+uni_closed: ' (închis)'
+uni_reg_closed: ' (înregistrare închisă)'
+uni_reg_open: ' (doar înregistrare)'
+home_menu: Meniu
+home_meta_description: '%s – jocul de strategie spațială în browser cu farmecul anilor 2000: crește planete, construiește flote, încheie alianțe.'
+home_started: Rulează deja!
+home_starts_in: Peste
+home_team: Echipa
+home_meme_alt: 'Meme-comic de pe puntea de comandă {game_name}'
+home_meme_alt_deep_space_transit: "Comic: doi cadeți într-o navetă – unul se prăbușește la vederea unui câmp de asteroizi, celălalt zâmbește larg la o nebuloasă strălucitoare. „Patrulele standard de sector vs. descoperirea unei nebuloase neexplorate bogate în resurse.”"
+home_meme_alt_deuterium_joyride: "Comic: un comandant istovit privește de pe puntea de observație cum doi recruți plutesc afară – „Mă uit cum noii recruți își irosesc tot Deuteriul plimbându-se pe afară, în timp ce eu aștept 12 ore pentru upgrade-urile minelor mele.”"
+home_meme_alt_enemy_fleet: "Comic: un cadet își apucă capul panicat în timp ce alarmele clipesc – „1000 de distrugătoare inamice se apropie?! Credeam că sectorul ăsta e sigur?!”"
+home_meme_alt_fleet_decimated: "Comic: un soldat în stare de șoc se uită în gol în timp ce nave explodează în afara unei cupole sparte – „Când îți petreci 20 de ore strângând resurse, iar flota unui jucător din top 3 intră și desface totul în 3 secunde.”"
+home_meme_alt_solo_scouting: "Comic: Comandantul Kamioka zâmbește larg și își sprijină o mână robotică pe umărul unui cadet – „Nu-ți face griji, cadetule. Înaltul Comandament are încredere «totală» în misiunea ta solo de recunoaștere în Spațiu.”"
+home_meme_alt_this_is_fine: "Comic: un câine în costum spațial stă liniștit într-un centru de comandă în flăcări și zice „Totul e bine” – „Nu-ți face griji. Flota mea întârzie doar 4 ore la întoarcere.”"
+source_code: Cod sursă
+news_back: Înapoi la noutăți
+lightbox_close: "Închide"
+lightbox_prev: "Imaginea anterioară"
+lightbox_next: "Imaginea următoare"
+news_pinned: Fixat
+news_read_more: Citește mai mult
+news_latest: Ultimele noutăți
+home_discord_online: "Online"
+home_discord_join: "Intră pe Discord-ul nostru"
+news_all: Toate noutățile
+csrf_invalid: 'Verificarea de securitate a eșuat (sesiunea ta poate să fi expirat). Reîncarcă pagina și încearcă din nou.'
+home_logged_in_head: "Contul tău"
+home_logged_in_as: "Conectat ca %s"
+home_continue: "Continuă spre universurile tale"
+home_account_lobby: "Holul contului"
+rulesEmpty: "Încă nu au fost publicate reguli."
+loginLostPasswordOff: "Ți-ai uitat parola? %s"
+loginContactTeam: "Contactează echipa."
+home_step_build: "Construiește mine, cercetări și șantiere navale pe planetele tale."
+home_step_fleet: "Trimite flote: explorează, fă comerț, jefuiește sau apără."
+home_step_alliance: "Intră într-o alianță și urcă în clasamente."
+home_hof_desc: "Câștigătorii rundelor încheiate"
+home_battlehall_desc: "Cele mai mari bătălii ale rundei curente"
+memorialFilter: "Bătălii memorabile"
+toc_contents: "Cuprins"
+loginRememberHint: "Nu folosi asta pe un computer partajat."
+home_step_rules: "Citește %s înainte să începi."
+socialContinueWith: "Continuă cu %s"
+socialOr: "sau"
+socialErrorState: "Conectarea nu a putut fi verificată (cererea a expirat sau a fost invalidă). Începe din nou."
+socialErrorProvider: "Furnizorul nu a finalizat conectarea. Încearcă din nou mai târziu."
+socialErrorCancelled: "Conectarea a fost anulată."
+socialErrorNoEmail: "Furnizorul nu a transmis o adresă de e-mail verificată. Înregistrează-te cu e-mail și parolă și conectează serviciul apoi din setările contului."
+socialErrorTaken: "Acest cont al furnizorului este deja conectat la alt cont de jucător."
+socialErrorExpired: "Acest pas a expirat. Începe conectarea din nou."
+socialLinkTitle: "Leagă-ți contul"
+socialLinkIntro: "Există deja un cont cu adresa de e-mail %s. Ca să îl legi de conectarea ta cu %s, introdu o singură dată parola acelui cont."
+socialLinkPassword: "Parola contului existent"
+socialLinkHelp: "Asta confirmă că acel cont este al tău. Conectarea ta cu furnizorul se leagă abia după aceea."
+socialLinkButton: "Leagă și conectează-te"
+socialLinkWrong: "Parola este greșită."
+socialCancel: "Anulează"
+socialCompleteTitle: "Finalizează înregistrarea"
+socialCompleteIntro: "Te conectezi cu %s (%s) pentru prima dată. Alege-ți numele și acceptă regulile ca să-ți creezi contul. Nu ai nevoie de o parolă; poți seta una mai târziu cu funcția de parolă uitată."
+socialConnectedTitle: "Servicii conectate"
+socialConnectedIntro: "Conectează-te cu aceste servicii în loc de parolă."
+socialConnected: "Conectat"
+socialConnectedAs: "Conectat (%s)"
+socialNotConnected: "Neconectat"
+socialConnect: "Conectează"
+socialDisconnect: "Deconectează"
+socialLinked: "Serviciul este acum conectat la contul tău."
+socialUnlinked: "Serviciul a fost deconectat."
+socialLastMethod: "Aceasta este singura ta metodă de conectare. Setează mai întâi o parolă (parolă uitată pe pagina de start), apoi deconectează serviciul."
+socialLastMethodHint: "Ultima metodă de conectare: setează mai întâi o parolă, apoi o poți deconecta."
+socialErrorUnavailable: "Această metodă de conectare nu este disponibilă."

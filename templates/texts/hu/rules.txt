@@ -1,0 +1,73 @@
+<p class="rules-notice"><strong>FIGYELEM: A szabályok változhatnak, és minden felhasználó köteles magát tájékoztatni a jelenlegi állapotról!</strong></p>
+<h2>1. Fiókok</h2>
+<p>A fiók tulajdonosa mindig a rögzített e-mail-cím tulajdonosa. Egy fiókot csak egyedül szabad játszani. Az egyetlen kivétel a helyettesítés (sitting). Ha szükségessé válik egy másik személy fiókjának figyelése vagy nyaralás módba helyezése, előre tájékoztatni kell a felelős üzemeltetőt, és engedélyt kell kérni. 12 óránál rövidebb helyettesítésnél elég az üzemeltetőnek tett bejelentés. A helyettesítés alatt tilos minden flottamozgás, csak a flotta helyettesítői koordinátákon való állomásoztatása és a bolygón, ahol vannak, a nyersanyag-termelés építése megengedett. Egy fiókot legfeljebb 72 órán át lehet helyettesíteni. Kivételek esetén az üzemeltető engedélyét kell kérni. A fiók átadása legfeljebb 3 havonta történhet, kizárólag ingyenesen. Jelentsd a fiókot az üzemeltetőnek.</p>
+<hr>
+<h2>2. Többszörös fiókok</h2>
+<p>Minden játékos univerzumonként csak egy fiókot játszhat. Ha két vagy több fiókot rendszeresen, alkalmanként vagy tartósan ugyanarról az internetkapcsolatról játszanak (pl. iskolák, egyetemek vagy internetkávézók), ezt előre jelenteni kell egy adminnak. Ilyen esetekben az érintett fiókoknak tilos bármilyen flottakapcsolatot létesíteniük egymással, amíg ugyanazt az internetkapcsolatot használják. Ugyanígy tilos további közös vonások fenntartása is.</p>
+<hr>
+<h2>3. Tolás</h2>
+<p>A tolás általában tilos. Tolásnak számít például minden olyan nyersanyag-szállítás és holdlövés, amelyért nincs megfelelő ellenszolgáltatás, az alacsonyabb pontszámú fiókoktól a magasabb pontszámúak felé.<br>
+Egy kereskedelmet 24 órán belül le kell zárni. A kivételeket előre jóvá kell hagyatni a moderátorokkal Discord-jegyen vagy játékon belüli privát üzeneten keresztül. <a href="./team">A csapatot itt találod.</a>.<br>
+Az engedély megszerzésének elmulasztása vagy a szabály figyelmen kívül hagyása kitiltást vonhat maga után.</p>
+
+<h2>3.1 Kereskedelem és támadások</h2>
+<p>Ha a játékosok nyersanyagot szeretnének eladni vagy szétosztani más játékosok között, ezt a piaci ár 75%% és 125%% közötti arányán tehetik.</p>
+<p>Különleges eset:<br>
+Ha a Halálcsillagokkal végrehajtott támadások után a zsákmányolt nyersanyagot nem lehet a 24 órás időablakon belül szétosztani, ez általában megengedett, de jelenteni kell a moderátoroknak.</p>
+<details>
+	<summary>Példák szabálytalan kereskedelemre/támadásokra (kattints a kibontáshoz):</summary>
+	<ul>
+	<li>A játékos (pontszámban gyenge) szándékosan elküldi a flottáját támadással a B játékosnak (pontszámban erős) azzal a céllal, hogy teljesen elpusztíttassa. Ebben az esetben az erősebb játékosnak jegyet kell nyitnia.</li>
+	<li>Egy közös ACS játékosai nem osztják szét a zsákmányolt nyersanyagot és a törmelékmezőt a 24 órás szabály szerint.</li>
+	<li>Az A játékos tájékoztat másokat, hogy kilép a játékból. Ennek az üzenetnek minden címzettje esetében 24 órás (az üzenet kézhezvételétől számított) támadási tilalom érvényes az értesítettekre. Ebben az esetben értesíteni kell a moderátorokat.</li>
+	<li>Az A játékos megosztja a flottája adatait (érkezés, repülési idők, méret, pozíció stb.) másokkal, hogy ezekkel az információkkal meg lehessen támadni az A játékost. Ez tisztességtelen előny a többi játékossal szemben (passzív tolás). Ez tisztességtelen előnyt jelent a többi játékossal szemben, és nyersanyag-juttatásnak minősül (passzív tolás). Ebben az esetben értesíteni kell a moderátorokat.</li>
+	</ul>
+</details>
+
+<h2>3.2 Búcsúcsaták</h2>
+<p>A búcsúcsatákat általában előre egyeztetni kell a moderátorcsapattal.</p>
+
+<p><a href="{wiki_url}/wiki/En/Regeln">wiki</a></p>
+<hr>
+<h2>4. Bashelés</h2>
+<p>A bashelés ugyanazon játékos vagy bolygó/Hold elleni többszöri támadást jelent egy 24 órás időszakon belül. Ez tilos, de a játék megakadályozza, hogy megtörténjen. <a href="{wiki_url}/wiki/En/Universen-Übersicht">A beállítások univerzumonként eltérhetnek.</a> A kémszondákkal vagy bolygóközi rakétákkal végrehajtott támadásokat nem számoljuk.</p>
+<p>Az alapszabály kizárólag az aktív játékosokra vonatkozik. Ha a felek háborúban állnak, további támadások megengedettek. A háborút legalább 24 órával a további támadások előtt ki kell hirdetni a fórumban (mindkét szövetségnek vagy a háborút üzenő egyén nevének helyesen kell szerepelnie a bejelentés témájában). A hadüzenet csak szövetségeknek szólhat, és a hadüzenetet egy szövetség vagy egy egyén is megteheti.</p>
+<p>A háború elfogadása nem szükséges. Az olyan háborúk, amelyek nyilvánvalóan csak a bash-szabály tömeges kijátszását szolgálják, tiltottak. Ennek megítélése a felelős moderátorok és üzemeltetők dolga.</p>
+<hr>
+<h2>5. Bolygóközi rakétatámadások</h2>
+<p>24 óránként csak 1000 bolygóközi rakétatámadás megengedett. A támadásonkénti rakétaszám független ettől.</p>
+<hr>
+<h2>6. Hibakihasználás</h2>
+<p>A programozási hibák és bugok kihasználása tilos. A felfedezett hibákat a lehető leghamarabb jelentsd a <a href="%s" target="_blank" rel="noopener noreferrer">GIT Issue</a>-n vagy a Discord #bugs csatornáján. A csalás szintén tilos.</p>
+<hr>
+<h2>6.1 Eszközök és alkalmazások</h2>
+<p>A teljesen nem engedélyezett külső eszközök és felhasználói szkriptek használata tilos.</p>
+<p>A szkriptek és eszközök nem adhatnak olyan játékmeneti előnyt, amellyel az azok nélküli játékosok nem rendelkeznek. Egy eszköz szabálykövetésével kapcsolatos bármilyen kétség tisztázásához moderátort/adminisztrátort kell megkeresni. Ehhez az engedélyezési folyamathoz az eszközt át kell adni, és egy megadott felülvizsgálónak jóvá kell hagynia. Ha egy eszköz átmegy a felülvizsgálaton, a felülvizsgáló közzéteszi a funkcióit (nem magát az eszközt).</p>
+<p>Megjegyzés: A házon belül fejlesztett eszközök közzététele és elérhetővé tétele erősen ajánlott, de nem kötelező.</p>
+<hr>
+<h2>6.2 A keselyűvédelem kijátszása</h2>
+<p>A keselyűellenes mechanika szándékos kijátszása előny szerzése céljából, például kockázatmentes gravitonkutatás érdekében, tilos, és kitiltással büntetjük.</p>
+<hr>
+<h2>7. Fenyegetések/sértések</h2>
+<p>A való életbeli zsarolás és fenyegetés kizárást von maga után a játék egy vagy összes területéről. Való életbeli zsarolásnak és fenyegetésnek minősül minden olyan kommunikáció, amely egyértelműen jelzi a szándékot egy személy vagy egy közeli harmadik fél felkutatására és bántására.</p>
+<hr>
+<h2>8. Spam és erotika</h2>
+<p>A spamelés és a harmadik felek reklámozása tilos. Az erotika és a pornográfia bármilyen formája tilos. És az egész univerzumra kiterjedő, életre szóló kitiltással büntetjük!</p>
+<hr>
+<h2>9. Zaklatás</h2>
+<p>A közösségre ártalmas viselkedés és a zaklatás itt nem kívánatos!</p>
+
+<p>Ennek meghatározása: zaklatás minden olyan viselkedés, amely ismételt, rendszeres érzelmi bántalmazást, gyötrést és sértést jelent.
+Mind egyének, mind egy felsőbbrendű helyzetben lévő személycsoport részéről.
+A hatalommal való visszaélés, az erőszakkal való fenyegetés, a szóbeli bántalmazás, a zaklatás, a kiteregetés és a kirekesztés csak néhány példa arra, hogyan történhet zaklatás.</p>
+
+<p>Ha te magad zaklatás áldozata vagy, vagy hallasz róla, nyugodtan fordulj hozzánk!
+Megpróbálunk kiutat találni belőle.
+A zaklatás nem marad következmények nélkül.</p>
+<hr>
+<h2>10. Játékosnevek</h2>
+<p>A múltbeli problémák miatt a következőkön kívül minden karakter tiltott:</p>
+<p>a-z</p>
+<p>A-Z</p>
+<p>äÄ öÖ üÜ ß</p>
+<p>" ", "-", "_"</p>

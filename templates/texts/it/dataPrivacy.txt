@@ -1,0 +1,89 @@
+<p>Questa informativa sulla privacy spiega quali dati personali tratta {game_name}, perché, su quale base giuridica e per quanto tempo, e quali diritti hai ai sensi del Regolamento generale sulla protezione dei dati (GDPR). Termini come "dati personali" e "trattamento" sono usati come definiti nell'art. 4 GDPR.</p>
+
+<h2>Titolare del trattamento</h2>
+<p>Il titolare del trattamento ai sensi dell'art. 4(7) GDPR è l'operatore di questo sito. Nome e indirizzo postale dell'operatore sono indicati nella <a href="{contacts_url}">pagina dei contatti</a>.<!--mail--> Puoi raggiungerci via e-mail all'indirizzo {contact_mail}.<!--/mail--></p>
+
+<h2>Visita del sito</h2>
+<p>Ogni volta che apri una pagina, il server web registra automaticamente:</p>
+<ul>
+<li>il tuo indirizzo IP,</li>
+<li>la data e l'ora della richiesta,</li>
+<li>l'indirizzo richiesto e la pagina di provenienza,</li>
+<li>il browser e il sistema operativo (user agent),</li>
+<li>il codice di stato e la quantità di dati trasferiti.</li>
+</ul>
+<p>Ci servono questi dati per fornire il sito e per mantenerlo stabile e sicuro, ad esempio per individuare e respingere gli attacchi. La base giuridica è l'art. 6(1)(f) GDPR (il nostro legittimo interesse a un servizio sicuro e funzionante). I file di log del server vengono eliminati al più tardi dopo 7 giorni, a meno che non servano come prova di uno specifico incidente di sicurezza. In quel caso vengono conservati finché l'incidente non è risolto.</p>
+
+<h2>Dati dell'account e del giocatore</h2>
+<p>Per giocare ti serve un account. Quando ti registri e giochi, trattiamo:</p>
+<ul>
+<li>nome dell'account, indirizzo e-mail e password (conservata solo come hash con salt, mai in chiaro),</li>
+<li>lingua, fuso orario e impostazioni di visualizzazione,</li>
+<li>data di registrazione, indirizzo IP alla registrazione, ora e indirizzo IP dell'ultimo accesso e tentativi di accesso falliti,</li>
+<li>un giocatore per universo: nome del giocatore e dati di gioco come pianeti, costruzioni, ricerche, flotte, risorse, punti, obiettivi, rapporti di combattimento e di spionaggio.</li>
+</ul>
+<p>La base giuridica è l'art. 6(1)(b) GDPR: questi dati servono per fornire il gioco a cui ti sei iscritto. Senza un indirizzo e-mail e una password non si può creare nessun account.</p>
+<p>La natura del gioco rende alcuni dati visibili agli altri giocatori: nome del giocatore, coordinate dei tuoi pianeti, alleanza, punti e classifiche (statistiche, hall of fame) e i contenuti che scegli di pubblicare (testi dell'alleanza<!--board-->, post della bacheca<!--/board-->).</p>
+
+<h2>Comunicazione all'interno del gioco</h2>
+<p>Quando usi le funzioni di comunicazione, ne conserviamo il contenuto insieme a mittente, destinatari e ora: messaggi privati e dell'alleanza, richieste d'amicizia, note, ticket di supporto<!--board-->, e post, commenti e voti sulla bacheca<!--/board-->. Lo facciamo perché le funzioni possano funzionare (art. 6(1)(b) GDPR). I moderatori possono leggere i ticket di supporto e, se si sospetta una violazione delle regole, i contenuti segnalati.<!--messages--> I messaggi vengono eliminati automaticamente dopo {message_days} giorni.<!--/messages--></p>
+
+<h2>Fair play e protezione dagli abusi</h2>
+<p>Per mantenere il gioco leale e far rispettare le regole (ad esempio il divieto di multiaccount e di pushing tra account), trattiamo:</p>
+<ul>
+<li>gli indirizzi IP delle sessioni e degli accessi attivi, confrontati tra gli account per individuare più account giocati dalla stessa connessione,</li>
+<li>i record delle sessioni (ID di sessione, indirizzo IP, ultima attività), che vengono eliminati alla scadenza della sessione,</li>
+<li>le note del team di gioco sui singoli account e i record dei ban con motivo e durata,</li>
+<li>se c'è un sospetto concreto di violazione delle regole per un singolo account, un registro delle pagine richieste da quell'account con l'ora di ogni richiesta. Questo registro viene eliminato a indagine conclusa.</li>
+</ul>
+<p>Quando ti registri, controlliamo il dominio del tuo indirizzo e-mail rispetto a una lista pubblica di provider di e-mail usa e getta. La lista viene scaricata sul nostro server e il tuo indirizzo non viene inviato da nessuna parte.</p>
+<p>La base giuridica è l'art. 6(1)(f) GDPR (il nostro legittimo interesse, e quello di tutti i giocatori, a un gioco leale e alla prevenzione degli abusi). Misure come i ban vengono decise da membri del team di gioco, non da un processo automatico.</p>
+
+<h2>E-mail</h2>
+<p>Inviamo e-mail all'indirizzo con cui ti sei registrato quando servono per gestire il tuo account: attivazione dell'account, reimpostazione della password, conferma del cambio di indirizzo e-mail, avvisi prima che un account inattivo venga eliminato e comunicazioni importanti sul gioco (ad esempio l'apertura di un nuovo universo). La base giuridica è l'art. 6(1)(b) GDPR. Non inviamo newsletter né pubblicità.</p>
+
+<h2>Protezione anti-bot</h2>
+<p>La registrazione e il modulo della password dimenticata sono protetti dagli abusi automatizzati da un piccolo calcolo che il tuo browser risolve da solo quando apri il modulo. Viene controllato sul nostro server; non viene contattato nessun servizio di terze parti e per questo non si usano cookie né identificatori di tracciamento. Il nostro server tratta i dati tecnici della richiesta (in particolare il tuo indirizzo IP) come per qualsiasi altra richiesta. La base giuridica è l'art. 6(1)(f) GDPR (protezione dei nostri moduli da spam e creazione automatica di account).</p>
+
+<h2>Cookie e archiviazione locale</h2>
+<p>Usiamo solo cookie e archiviazione del browser tecnicamente necessari a fornire il servizio che richiedi (§ 25(2) n. 2 TDDDG, art. 6(1)(b) e (f) GDPR):</p>
+<ul>
+<li><strong>2Moons</strong>: cookie di sessione che ti tiene connesso. Scade 12 ore dopo la tua ultima attività, oppure quando esci.</li>
+<li><strong>v0_device</strong>: ID casuale del dispositivo (2 anni). Per ogni account ne viene conservato solo un hash, per 90 giorni dopo l'ultima visita, per individuare più account giocati dallo stesso browser.</li>
+<li><strong>lang</strong>: ricorda la lingua che hai scelto.</li>
+<li><strong>account</strong>: ricorda che questo browser è stato usato per accedere, così la pagina iniziale può mostrare prima il login. Non contiene dati personali.</li>
+<li>Archiviazione locale: preferenze di visualizzazione dell'interfaccia di gioco (ad esempio l'ultima categoria di messaggi aperta). Restano nel tuo browser e non vengono inviate a noi.</li>
+</ul>
+<p>Non usiamo cookie di tracciamento, di analisi o pubblicitari, e non creiamo profili degli utenti a fini di marketing.</p>
+
+<h2>Destinatari</h2>
+<p>I tuoi dati vengono trattati dai membri del team di gioco (amministratori e moderatori) nella misura in cui i loro compiti lo richiedono. I fornitori di servizi tecnici agiscono per nostro conto e solo secondo le nostre istruzioni (art. 28 GDPR): il provider di hosting dei server e, se applicabile, il servizio di invio e-mail. Gli altri giocatori vedono i dati descritti in "Dati dell'account e del giocatore" e "Comunicazione all'interno del gioco". Comunichiamo dati alle autorità solo se siamo obbligati per legge. Non vendiamo dati personali.</p>
+<p>I link a servizi esterni (ad esempio Discord o il wiki) ti portano solo a quei servizi. Lì i dati vengono trattati solo dopo che apri il link, secondo l'informativa sulla privacy del rispettivo fornitore.</p>
+
+<h2>Periodo di conservazione</h2>
+<ul>
+<li>Puoi eliminare il tuo account nelle impostazioni dell'account. Viene rimosso dopo un periodo di attesa di {deletion_days} giorni, durante il quale puoi annullare l'eliminazione.</li>
+<!--inactive--><li>I giocatori che non sono stati attivi per {inactive_days} giorni vengono eliminati automaticamente. Dove il gioco invia e-mail di avviso, ne ricevi una prima dell'eliminazione.</li>
+<!--/inactive--><li>Gli account senza nessun giocatore vengono eliminati dopo 30 giorni di inattività.</li>
+<li>File di log del server: non più di 7 giorni, vedi "Visita del sito".</li>
+<li>I dati che dobbiamo conservare per motivi legali, o che ci servono per accertare, esercitare o difendere pretese legali, vengono limitati invece che eliminati e conservati solo per il tempo necessario.</li>
+<li>I backup del database contengono i dati al momento del backup. Vengono conservati per un tempo limitato e sostituiti a rotazione.</li>
+</ul>
+
+<h2>I tuoi diritti</h2>
+<p>Hai i seguenti diritti riguardo ai tuoi dati personali:</p>
+<ul>
+<li>accesso ai tuoi dati e copia degli stessi (art. 15 GDPR),</li>
+<li>rettifica dei dati inesatti (art. 16 GDPR),</li>
+<li>cancellazione (art. 17 GDPR) e limitazione del trattamento (art. 18 GDPR),</li>
+<li>portabilità dei dati in un formato strutturato, di uso comune e leggibile da dispositivo automatico (art. 20 GDPR),</li>
+<li>revoca di un consenso che hai dato, con effetto per il futuro (art. 7(3) GDPR).</li>
+</ul>
+<p><strong>Diritto di opposizione (art. 21 GDPR):</strong> dove trattiamo i tuoi dati sulla base dell'art. 6(1)(f) GDPR, hai il diritto di opporti in qualsiasi momento, per motivi connessi alla tua situazione particolare. In tal caso cesseremo il trattamento, a meno che non possiamo dimostrare motivi legittimi cogenti che prevalgono sui tuoi interessi, diritti e libertà, oppure il trattamento serva ad accertare, esercitare o difendere pretese legali.</p>
+<p>Per esercitare i tuoi diritti, contattaci con i recapiti nella <a href="{contacts_url}">pagina dei contatti</a><!--mail--> o via e-mail all'indirizzo {contact_mail}<!--/mail-->. Hai inoltre il diritto di proporre reclamo a un'autorità di controllo per la protezione dei dati, in particolare nello Stato membro dell'UE in cui risiedi, in cui lavori o in cui si è verificata la presunta violazione (art. 77 GDPR).</p>
+
+<h2>Decisioni automatizzate e sicurezza</h2>
+<p>Non prendiamo decisioni basate unicamente su un trattamento automatizzato, compresa la profilazione, che producano effetti giuridici su di te o incidano in modo analogo significativamente su di te (art. 22 GDPR). Tutte le connessioni a questo sito sono cifrate (TLS), le password sono conservate solo come hash e l'accesso ai dati personali è limitato ai membri del team di gioco che ne hanno bisogno.</p>
+
+<h2>Modifiche</h2>
+<p>Aggiorniamo questa informativa sulla privacy quando cambiano il sito o i requisiti legali. Vale la versione pubblicata in questa pagina.</p>

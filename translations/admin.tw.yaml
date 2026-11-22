@@ -1,0 +1,1792 @@
+ac_account_data: 帳號詳細資料
+ac_act_time: 最後活動日期
+ac_ali_idid: 'ID：'
+ac_alliance: 聯盟
+ac_ally_ranking: 聯盟統計
+ac_ally_web: 聯盟網站
+ac_auth_level: 階級
+ac_banned: 已停權？
+ac_checkip_title: IP 檢查
+ac_coords: 座標
+ac_diameter: 直徑
+ac_enter_user_id: 選擇一位玩家
+ac_ext_text: 對外文字
+ac_fields: 欄位
+ac_filter_placeholder: 篩選...
+ac_home_planet_coord: 母星座標
+ac_home_planet_id: 母星 ID
+ac_id_names_coords: ID、名稱與座標
+ac_image: 聯盟標誌
+ac_info_ally: 聯盟資訊
+ac_int_text: 對內文字
+ac_last_ip: 最後 IP
+ac_leader: 領袖
+ac_leyend: '[ 圖例 ]'
+ac_moon: 月球
+ac_name: 名稱
+ac_name_ali: 完整名稱
+ac_no_ally: 沒有聯盟
+ac_no_img: 這個聯盟沒有標誌
+ac_no_text_ext: 這個聯盟沒有對外文字
+ac_no_text_int: 這個聯盟沒有對內文字
+ac_no_text_sol: 這個聯盟沒有申請文字
+ac_note_k: >-
+  <table><tr><th width=10%><font class="colorPositive">T+</font></th><th>超過一兆</th></tr><tr><th width=10%><font class="colorPositive">T</font></th><th>一兆以上</th></tr><tr><th width=10%><font class="colorPositive">B</font></th><th>十億以上</th></tr><tr><th width=10%><font class="colorPositive">M</font></th><th>百萬以上</th></tr><tr><th width=10%><font class="colorPositive">K</font></th><th>千以上</th></tr></table>
+ac_on_vacation: 假期中？
+ac_points_count: 分數 | 數量
+ac_ranking: 排名
+ac_recent_destroyed_planets: 最近被摧毀的行星
+ac_reg_ip: 註冊 IP
+ac_register_ally_time: 創立時間
+ac_register_time: 註冊時間
+ac_research: 研究
+ac_see_ranking: 查看統計
+ac_select_id_num: 手動輸入 ID（選填）
+ac_sol_text: 申請文字
+ac_suspended_autor: 停權者
+ac_suspended_longer: 直到
+ac_suspended_reason: 原因
+ac_suspended_time: 停權時間
+ac_suspended_title: 停權詳情
+ac_swap_invalid: 選擇無效，請選兩位不同的使用者！
+ac_swap_no_entry: 找不到其中一位或兩位使用者的帳號資料。
+ac_swap_submit: 交換
+ac_swap_success: 帳號交換成功。
+ac_swap_title: 交換帳號
+ac_swap_user_a: 使用者 A
+ac_swap_user_b: 使用者 B
+ac_tag: 標籤
+ac_temperature: 溫度
+ac_time_destruyed: 摧毀日期
+ac_total_members: 成員數
+ac_total_points: '總計：'
+ac_user_ranking: 玩家統計
+ac_user_system: 玩家星系
+ac_username_doesnt: 這位玩家不存在！
+ac_view_image: 在新視窗開啟圖片
+account_already_has_user: 這個帳號在這個宇宙已經有玩家了
+accountID: 帳號 ID
+ad_add_build_success: 建築新增成功！
+ad_add_defenses_success: 防禦新增成功！
+ad_add_not_exist: ID 不存在！
+ad_add_res_sucess: 資源新增成功！
+ad_add_ships_sucess: 艦船新增成功！
+ad_add_tech_success: 研究新增成功！
+ad_ally_change_id: 更換創辦人
+ad_ally_delete: 刪除聯盟
+ad_ally_delete_u: 刪除成員
+ad_ally_name: 聯盟名稱
+ad_ally_not_exist: 這個聯盟不存在！
+ad_ally_not_exist2: 這位成員不存在！
+ad_ally_not_exist3: 這位使用者不是這個聯盟的成員
+ad_ally_succes: 成功
+ad_ally_tag: 聯盟標籤
+ad_ally_text1: 聯盟簡介
+ad_ally_text2: 對內文字
+ad_ally_text3: 申請範本
+ad_ally_title: 聯盟
+ad_ally_user_id: （輸入使用者 ID）
+ad_authlevel_aa: '[顯示管理員]'
+ad_authlevel_auth: 階級
+ad_authlevel_error_3: 你不能更改遊戲創建者的階級！
+ad_authlevel_insert_id: 手動輸入 ID（選填）
+ad_authlevel_jj: '[顯示玩家]'
+ad_authlevel_mm: '[顯示版主]'
+ad_authlevel_oo: '[顯示營運者]'
+ad_authlevel_succes: 階級更改成功
+ad_authlevel_title: 階級
+ad_authlevel_tt: '[顯示全部]'
+ad_buildings: 建築
+ad_buildings_title: 建築
+ad_count: 數量
+ad_defenses: 防禦
+ad_defenses_title: 防禦
+ad_delete_build_success: 建築移除成功！
+ad_delete_defenses_success: 防禦移除成功！
+ad_delete_res_sucess: 資源移除成功！
+ad_delete_ships_sucess: 艦船移除成功！
+ad_delete_tech_success: 研究移除成功！
+ad_editor_alliances: 聯盟
+ad_editor_buildings: 建築
+ad_editor_defenses: 防禦
+ad_editor_personal: 個人資料
+ad_editor_planets: 行星與月球
+ad_editor_researchs: 研究
+ad_editor_resources: 資源
+ad_editor_ships: 艦船
+ad_editor_title: 帳號編輯器
+ad_levels: 等級
+ad_number: ID
+ad_personal_name: 使用者名稱
+ad_personal_succes: 設定已儲存
+ad_personal_title: 編輯個人資料
+ad_personal_vacat: 假期模式
+ad_pla_change_p: 行星座標
+ad_pla_change_pp: 勾選以套用座標變更
+ad_pla_delete_b: 移除所有建築
+ad_pla_delete_cb: 清除建造佇列
+ad_pla_delete_d: 移除所有防禦
+ad_pla_delete_hd: 清除太空船廠和防禦佇列
+ad_pla_delete_s: 移除所有艦船
+ad_pla_edit_diameter: 編輯直徑
+ad_pla_edit_fields: 編輯欄位
+ad_pla_edit_name: 名稱
+ad_pla_error_planets: 月球不能更換擁有者
+ad_pla_error_planets2: 這顆行星不存在
+ad_pla_error_planets3: 這些座標已經被使用了！
+ad_pla_error_planets4: 你不能把月球指派給已經有月球的行星！
+ad_pla_error_planets5: 這些座標已經有行星了
+ad_pla_error_planets6: 這些座標超出宇宙範圍
+ad_pla_succes: 變更儲存成功
+ad_pla_title: 行星與月球
+ad_pla_title_l: 如果有月球，它的座標也會一起更改
+ad_research: 研究
+ad_research_title: 研究
+ad_ships: 艦船
+ad_ships_title: 艦船
+adm_absenden: 送出
+adm_cp_index: 首頁
+adm_cp_title: 管理面板
+adm_email: 電子信箱
+adm_login: 登入
+adm_password: 密碼
+adm_username: 使用者名稱
+an_analyzed_list: 已分析的玩家
+an_btn_disable: 停用分析並刪除資料
+an_btn_enable: 啟用分析
+an_timestamp: 時間戳記
+an_total_analyzed: 已分析的玩家數
+an_user_list: 玩家名單
+ap_aktivieren: 啟用
+ap_datum: 日期
+ap_del: 刪除
+ap_email: 電子信箱
+ap_entfernen: '?'
+ap_id: ID
+ap_ip: IP
+ap_nicht_aktivierte: 未啟用的使用者
+ap_nicht_aktivierte_user: 未啟用的使用者
+ap_sicher: '你確定要移除 '
+ap_status: 狀態
+ap_username: 使用者名稱
+bo_accountname: 帳號名稱
+bo_ban: 停權
+bo_ban_change: 更改
+bo_ban_player: 停權 / 解除停權
+bo_banned: ' 已被停權。'
+bo_bbb_title_1: 停權系統
+bo_bbb_title_2: 停權到期
+bo_bbb_title_3: 停權系統 • <font color="red">這位玩家已被停權</font>
+bo_bbb_title_4: >-
+  要縮短剩餘的停權時間，請在時間前面加上負號，例如 -5。<br>如果玩家被永久停權，輸入正數時間會把它換成該段時間。
+bo_bbb_title_5: 停權到
+bo_bbb_title_6: 更改日期
+bo_characters_1: 剩餘字元數
+bo_characters_suus: 已停權
+bo_order_banned: '[依停權排序]'
+bo_order_id: '[依 ID 排序]'
+bo_order_username: '[依名稱排序]'
+bo_permanent: 永久停權
+bo_reason: 停權原因
+bo_select_title: 顯示以下字母開頭的名稱
+bo_the_player: '玩家 '
+bo_the_player2: '玩家 '
+bo_total_accs: '帳號總數：'
+bo_total_accs_banned: '被停權的帳號：'
+bo_total_banneds: '被停權的玩家：'
+bo_total_users: '玩家總數：'
+bo_unban: 解除停權
+bo_unban_player: 停權名單
+bo_unbanned: ' 已被解除停權。'
+bo_username: 使用者名稱
+bo_vacaations: 假期模式
+bo_vacation_mode: 假期模式
+buildings_title: 建築
+button_add: 新增
+button_cancel: 取消
+button_delete: 刪除
+button_deselect: 清除選取
+button_filter: 篩選
+button_reset: 重設
+button_submit: 送出
+button_test: 測試
+button_test_negative: 測試失敗
+button_test_positive: 測試成功
+cc_cache_clear: 快取已清除
+cronjob_class: 類別
+cronjob_delete: 刪除
+cronjob_desc: >-
+  設定這個排程工作要在什麼時候執行。條件之間是「且」的關係，所以只有在所有選取的條件都符合時，工作才會執行。如果在「星期」和「日」兩欄都選了特定值，工作可能會不規律地執行；這兩個欄位至少要有一個選「全部」。<br>「全部」的優先權最高，會覆蓋該清單中的其他值。
+cronjob_desc_class: 要呼叫的類別。對於 includes/classes/cronjobs/foo.class.php，請輸入「foo」。
+cronjob_desc_name: 你自己取的名稱，用來辨識這個排程工作。
+cronjob_dom: 日
+cronjob_dow: 星期
+cronjob_edit: 編輯
+cronjob_error_class: 沒有指定類別！
+cronjob_error_dom: 沒有選擇日期！
+cronjob_error_dow: 沒有選擇星期！
+cronjob_error_filenotfound: '找不到指定的檔案：'
+cronjob_error_hours: 沒有選擇小時！
+cronjob_error_min: 沒有選擇分鐘！
+cronjob_error_month: 沒有選擇月份！
+cronjob_error_name: 沒有輸入名稱！
+cronjob_headline: 排程工作 ID
+cronjob_hours: 時
+cronjob_lastTime: 上次執行
+cronjob_min: 分
+cronjob_month: 月
+cronjob_name: 名稱
+cronjob_new: 建立排程工作
+cronjob_nextTime: 下次執行
+cronjob_run: 執行
+cronjob_selectall: 全部
+cronName_cleaner: 刪除舊資料
+cronName_bots: "機器人"
+cronName_disposable_email_domains: "更新拋棄式電子信箱網域"
+cronName_fleets: "艦隊事件"
+cronName_daily: 每日工作
+cronName_databasedump: 資料庫備份
+cronName_inactive: 刪除不活躍帳號
+cronName_pirates: 建立海盜基地
+cronName_referral: 推薦獎勵
+cronName_statistic: 統計
+cronName_statisticjson: 匯出 stats.json
+cronName_tracking: 傳送全球伺服器統計
+cs_time_between_updates: 更新間隔時間
+defenses_title: 防禦
+du_choose_tables: 選擇資料表
+du_not_tables_selected: 你沒有選擇任何要備份的資料表！
+du_select_all_tables: 全部資料表
+du_submit: 送出
+du_success: '備份建立成功！檔案：%s'
+email_reg: 電子信箱
+email2_reg: 確認電子信箱
+empty_account_field: 沒有提供帳號 ID
+et_encript: 產生
+et_md5_encripter: MD5 產生器
+et_pass: 密碼
+et_result: 結果
+exp_deck_cards: 卡牌
+exp_deck_count_desc: 牌組中這種類型的卡牌數量
+exp_deck_count_label: count
+exp_deck_edit: 編輯卡牌牌組設定
+exp_deck_event_type: 事件類型
+exp_deck_example: '範例：'
+exp_deck_format_help: >-
+  卡牌牌組設定是一個 JSON 陣列，其中每個項目代表一種卡牌類型，具有以下屬性：
+exp_deck_format_instructions: 格式說明
+exp_deck_percentage: 百分比
+exp_deck_save_success: 卡牌牌組設定儲存成功！
+exp_deck_size_desc: 事件規模（Small、Medium、Big、None）
+exp_deck_size_label: size
+exp_deck_statistics: 目前卡牌牌組統計
+exp_deck_total: 總計
+exp_deck_type_desc: 事件類型（Res、Ships、Pirates、Aliens、BlackHole、Fast、Slow、Nothing）
+exp_deck_type_label: type
+exp_deck_warning: '警告：無效的 JSON 會被拒絕'
+exp_ships_description: >-
+  為每艘啟用中的艦船，選擇遠征是否能發現它，以及哪些艦船可以發現它。
+exp_ships_findable: 可被發現
+exp_ships_found_by: 發現者艦船
+exp_ships_select_finders: 選擇發現者艦船
+exp_ships_ship: 艦船
+ff_arrivaltime: 抵達
+ff_del: 移除
+ff_endtime: 返航
+ff_fleetid: ID
+ff_holdtime: 駐守到
+ff_lock: 鎖定
+ff_mission: 任務
+ff_no_fleets: 目前沒有艦隊在飛行
+ff_sendFleetBack: 召回
+ff_sendFleetsBack: 召回所有攻擊
+ff_ships: 艦船
+ff_startplanet: 出發行星
+ff_starttime: 出發
+ff_startuser: 發送者
+ff_targetplanet: 目的行星
+ff_targetuser: 接收者
+ff_unlock: 解鎖
+ga_definetarget: 設定目標
+ga_homecoordinates: 僅限母星
+ga_no_inactives: 排除不活躍玩家
+ga_planettypes: 行星類型
+ga_selectplanettype: 請至少選擇一種行星類型！
+ga_success: 成功！
+info_information: >-
+  回報臭蟲到 <a href="%s" target="tracker">GitHub issues</a> 時，請附上這些資訊。<br>沒有這些資訊的支援請求將不會被處理。
+input_id: ID
+input_id_account: 帳號 ID
+input_id_ally: 聯盟 ID
+input_id_p_m: 行星或月球 ID
+input_id_planet: 行星 ID
+input_id_user: 玩家 ID
+lang_reg: 語言
+log_admin: 管理員
+log_alliance: 編輯過的聯盟
+log_cat: '選擇分類：'
+log_disclamersettings: 法律聲明
+log_element: 元素
+log_id: ID
+log_info: 資訊
+log_log: 紀錄
+log_new: 之後
+log_no_data: 紀錄裡沒有資料！
+log_old: 之前
+log_planet: 編輯過的行星
+log_player: 編輯過的玩家
+log_present: 發放的禮物
+log_settings: 編輯過的設定
+log_ssettings: 伺服器設定
+log_statsettings: 統計設定
+log_target_alliance: 更改的聯盟
+log_target_planet: 更改的行星
+log_target_universe: 更改的設定區段
+log_target_user: 更改的玩家
+log_time: 時間
+log_uni_short: 宇宙
+log_universe: 宇宙
+log_usettings: 宇宙設定
+log_view: 檢視
+ma_all: 全部
+ma_characters: 字元
+ma_message: 訊息
+ma_message_sended: 你的訊息已發送！
+ma_mode: 發送方式
+ma_modes:
+  - 遊戲內
+  - 電子郵件
+  - 遊戲內與電子郵件
+ma_none: 全域消息
+ma_send_global_message: 發送全域訊息
+ma_subject: 主旨
+ma_subject_needed: 需要填寫主旨！
+ma_no_recipients: '沒有符合篩選條件的收件人，沒有寄出任何郵件。'
+message_a: '訊息狀態：'
+message_t: '客服單狀態：'
+mip_known: 已核准？
+ml_date: 日期
+ml_date_range: 期間
+ml_deleted: 訊息已刪除
+ml_id: '#ID'
+ml_message_list: 訊息列表
+ml_receiver: 收件人
+ml_sender: 寄件人
+ml_subject: 主旨
+ml_type: 訊息類型
+ml_type_submit: 送出
+mo_diameter: 直徑
+mo_fields_avaibles: 欄位
+mo_moon: 月球
+mo_moon_added: 月球新增成功！
+mo_moon_name: 月球名稱
+mo_moon_random: 隨機
+mo_moon_unavaible: 這顆行星已經有月球了！
+mo_planet_doesnt_exist: 這位玩家不存在！
+mod_active: 啟用中
+mod_change_active: 啟用
+mod_change_deactive: 停用
+mod_deactive: 未啟用
+mod_info: 遊戲模組
+mod_module: 模組
+modul_0: 聯盟
+modul_1: 任務 — 攻擊
+modul_2: 建造 — 建築
+modul_3: 建造 — 研究
+modul_4: 建造 — 艦隊
+modul_5: 建造 — 防禦
+modul_6: 好友名單
+modul_9: 艦隊
+modul_10: 艦隊 — 事件處理器
+modul_11: 銀河系
+modul_12: 名人堂
+modul_13: 商人
+modul_14: 資訊
+modul_15: 帝國
+modul_16: 訊息
+modul_17: 筆記
+modul_19: 密集陣
+modul_20: 玩家資料卡
+modul_21: 停權名單
+modul_22: 紀錄
+modul_23: 資源
+modul_24: 任務 — 間諜
+modul_25: 統計
+modul_26: 搜尋
+modul_27: 客服單
+modul_28: 科技樹
+modul_29: 任務 — 摧毀
+modul_30: 任務 — 遠征
+modul_32: 任務 — 回收
+modul_33: 任務 — 駐守
+modul_34: 任務 — 運輸
+modul_35: 任務 — 殖民
+modul_36: 任務 — 部署
+modul_38: 廢料商人
+modul_39: 戰鬥模擬器
+modul_40: 任務 — 飛彈攻擊
+modul_41: 艦隊捷徑
+modul_42: 任務 — 聯盟戰
+modul_43: 任務 — 交易
+modul_44: 任務 — 轉讓
+modul_45: 市集 — 資源
+modul_46: 市集 — 艦隊
+modul_47: 依間諜科技而定的統計
+modul_48: 修理船塢
+modul_49: 資源保護
+modul_50: 假期模式踢除
+modul_51: 好友與聯盟踢除
+modul_52: Stats.json
+modul_53: 教學
+modul_54: 教學獎勵
+modul_55: 榮譽點數
+modul_56: 海盜基地
+mu_active_planets: '活躍行星'
+mu_clear_cache: '清除快取'
+mu_connected: 在線
+mu_cronjob: '排程工作'
+mu_dump: '資料庫備份'
+mu_flying_fleets: '飛行中的艦隊'
+mu_game_info: 資訊
+mu_general: 一般
+mu_giveaway: 贈禮
+mu_global_message: '全域訊息'
+mu_info_account_page: '帳號資訊'
+mu_logs: '管理員紀錄'
+mu_manual_points_update: '更新分數'
+mu_md5_encripter: 密碼雜湊
+mu_mess_list: '訊息列表'
+mu_moderation_page: 權限
+mu_module: 模組
+mu_mpu_confirmation: 分數會自動更新。點擊確定即可立刻更新。
+mu_multiip_page: '多重 IP'
+mu_news: 消息
+mu_search_page: '進階搜尋'
+mu_support: '客服單'
+mu_tools: 工具
+mu_universe: 宇宙
+mu_users_settings: '玩家'
+mu_vaild_users: '活躍使用者'
+new_account_success: '新帳號已建立。ID：%d'
+new_add_account: 新增帳號
+new_add_user: 新增玩家
+new_coord: 座標
+new_creator_coor: 座標
+new_creator_go_back: '[ 返回選單 ]'
+new_creator_refresh: '[ 重新整理 ]'
+new_creator_title_a: 建立/刪除帳號
+new_creator_title_l: 建立/刪除月球
+new_creator_title_p: 建立/刪除行星
+new_creator_title_t: 建立測試使用者
+new_creator_title_u: 建立/刪除使用者
+new_range: 排名
+new_title: 建立新玩家
+new_title_acc: 建立新帳號
+new_user_success: '新玩家已建立。ID：%d，行星：%d'
+nws_confirm: 你確定要刪除消息「%s」嗎？
+nws_content: 內容
+nws_create: 建立消息
+nws_del: 刪除
+nws_from: 發佈者
+nws_head_create: 建立消息
+nws_head_edit: '編輯消息：%s'
+nws_news: 消息
+nws_title: 標題
+one_is_yes_0: '否'
+one_is_yes_1: '是'
+online_users: 在線
+ow_default_uri_missing: '郵件連結需要 DEFAULT_URI（.env.local）：在設定之前，不會寄出註冊和重設密碼的郵件。'
+ow_app_secret_weak: 'APP_SECRET 是公開的預設值，或太短了：任何人都可以偽造登入 Cookie。請在 .env.local 設定新的隨機值（例如 php -r ''echo bin2hex(random_bytes(32));''）並清除 var/cache。'
+ow_app_env_dev: '伺服器正在開發模式下執行（APP_ENV 不是 prod，或 APP_DEBUG 開著）：錯誤詳情會被看見，而且遊戲會比較慢。請在 .env.local 設定 APP_ENV=prod 和 APP_DEBUG=0。'
+ow_dir_not_writable: /%s 無法寫入！
+ow_file_detected: 發現檔案 %s。為了安全，請刪除或重新命名它。
+ow_proyect_leader: "前艦隊總司令（2Moons 專案負責人）"
+ow_former_pr0game_crew: "前 pr0game 團隊"
+ow_crew_dev: "開發與緊急處理"
+ow_crew_mod: "管理"
+ow_crew_community: "社群"
+ow_pr0game_contributors: "pr0game 程式碼貢獻者"
+ow_special_thanks: 特別感謝
+ow_translator: 翻譯者
+pass_reg: 密碼
+pass2_reg: 確認密碼
+player: 玩家
+po_add_moon: 新增月球
+po_add_planet: 新增殖民地
+po_colony: 殖民地
+po_complete_all: 資料無效或已被使用！
+po_complete_all2: 座標無效！
+po_complete_succes: 行星建立成功
+po_fields_max: 欄位
+po_galaxy: 銀河系
+po_name_planet: 行星名稱
+po_planet: 行星
+po_system: 星系
+qe_authattack: 管理員攻擊保護
+qe_build: 建築
+qe_change: 更改
+qe_coords: 座標
+qe_count: 可用
+qe_defensive: 防禦
+qe_edit_planet_sucess: 行星 %s [%d:%d:%d] 編輯成功！
+qe_edit_player_sucess: '玩家 %s（ID：%d）編輯成功！'
+qe_fields: 欄位
+qe_fleet: 艦隊
+qe_hpcoords: 母星座標
+qe_id: ID
+qe_info: 資訊
+qe_level: 等級
+qe_owner: 擁有者
+qe_password: 密碼
+qe_planetname: 行星
+qe_reset: 重設
+qe_resources: 資源
+qe_send: 送出
+qe_submit: 送出
+qe_tech: 研究
+qe_temp: 溫度
+qe_username: 使用者名稱
+re_buildings_lu: 重設月球建築
+re_buildings_pl: 重設建築
+re_buldings: 建築
+re_defenses: 重設防禦
+re_defenses_and_ships: 艦船與防禦
+re_general: 一般
+re_inve: 研究
+re_investigations: 重設研究
+re_player_and_planets: 玩家與行星
+re_reset_all: 重設整個宇宙
+re_reset_allys: 重設所有聯盟
+re_reset_banned: 重設停權
+re_reset_buddies: 重設好友名單
+re_reset_buldings: 重設建造佇列
+re_reset_errors: 重設錯誤清單
+re_reset_excess: 設定重設成功！
+re_reset_fleets: 重設飛行中的艦隊
+re_reset_hangar: 重設太空船廠和防禦佇列
+re_reset_invest: 重設研究佇列
+re_reset_messages: 重設所有訊息
+re_reset_moons: 重設所有月球
+re_reset_notes: 重設所有筆記
+re_reset_planets: 重設行星（刪除殖民地）
+re_reset_player: 重設玩家（全部刪除）
+re_reset_rw: 重設戰鬥報告
+re_reset_statpoints: 重設統計
+re_reset_universe: 重設宇宙
+re_reset_universe_confirmation: >-
+  這個動作無法復原。點擊確定之前，請確定你已經備份了資料庫。
+re_resources: 資源
+re_resources_met_cry: 重設所有資源（金屬/晶體/重氫）
+re_ships: 重設艦隊
+researchs_title: 研究
+resources_title: 資源
+rp_done: 行星重新洗牌成功
+rp_explain: >-
+  點擊送出後，請等到彈出視窗出現。重新定位可能需要幾秒鐘。
+rp_header: '行星重新洗牌'
+rp_planet_error: 有玩家擁有超過一顆行星！
+rp_rights_error: 沒有管理員權限！
+rp_universe_error: 宇宙尚未完全關閉！
+sb_final_memory: '結束時使用的記憶體：%e KB / 最大 %m KB<br>'
+sb_sql_counts: 'SQL 查詢：%d'
+sb_start_memory: '開始時使用的記憶體：%i KB / 最大 %m KB<br>'
+sb_stats_update: 統計在 %s 秒內更新完成<br>
+sb_stats_updated: 統計已更新。<br>摘要：<br>
+sb_top_memory: '記憶體尖峰：%p KB / 最大 %m KB <br>'
+se__before: 上一頁
+se__next: 下一頁
+se_activity: 最後活動
+se_adm_attack: 管理員保護
+se_adm_attack_info: 啟用後，管理員和版主可以讓自己無法被攻擊。
+se_all_planet_pictures: 所有行星圖片
+se_all_planet_pictures_info: 允許所有行星圖片出現在所有位置。
+se_alliance_create_min_points: 創立聯盟所需的最低分數
+se_allys: 聯盟
+se_asc_desc: 遞增 / 遞減
+se_attacks: 攻擊設定
+se_auth: 階級
+se_authlevels: 管理員
+se_ban: 已停權？
+se_ban_author: 停權者
+se_ban_limit: 直到
+se_ban_reason: 原因
+se_ban_time: 停權時間
+se_bash_per_planet: 每顆行星的洗點上限
+se_bash_per_planet_info: >-
+  一位玩家在 24 小時內可以攻擊另一位玩家的行星幾次（以每顆行星計算）。0 = 關閉
+se_bash_count_missiles: 洗點上限計入飛彈攻擊
+se_bash_count_missiles_info: >-
+  星際飛彈攻擊和艦隊攻擊一樣計入洗點上限（每位玩家與每顆行星）。關閉：飛彈不計入。
+se_bash_per_user: 每位玩家的洗點上限
+se_bash_per_user_info: >-
+  一位玩家在 24 小時內可以攻擊另一位玩家幾次（所有行星合計）。0 = 關閉
+se_update_check: "檢查更新"
+se_update_check_info: "開啟管理儀表板時（最多每 6 小時一次），向 GitHub（api.github.com）詢問最新版本並公告新版。不會傳送任何關於你伺服器的資料。關閉後就不會發出任何對外請求。"
+se_cookie_consent: "Cookie 提示"
+se_cookie_consent_info: "在登入區、帳號區和遊戲的底部顯示 Cookie 提示，直到訪客做出選擇（「全部接受」或「僅必要」；儲存在 cookie_consent 這個 Cookie 中，為期一年）。法律文字由營運者負責。"
+se_block_planet_creation: 封鎖
+se_board_enabled: 啟用社群討論區
+se_board_enabled_info: "關閉：所有討論區連結都會隱藏，討論區頁面也無法使用。"
+se_building_speed: 建造速度
+se_buildings: 建築設定
+se_buildlist: 佇列設定
+se_cascading_moon_chance: 連鎖月球機率
+se_cascading_moon_chance_info: >-
+  在最高機率下每次月球嘗試失敗後增加的額外月球機率。只適用於帳號的第一顆月球。0 = 關閉
+se_catch_up: 追趕機制
+se_catch_up_info: >-
+  依與第一名玩家的分數差距，以指數方式縮短建造和研究時間，最多縮短至十分之一。達到領先者分數約 90% 以上時沒有加成。約 54% 時係數是 2.5，27% 時是 5，11% 時是 7.5。這會被換算成 1.0 到 0.5 的範圍。
+se_catchup_percent: 最大追趕加成（百分比）
+se_close_reason: 伺服器關閉訊息
+se_colonisation_config: 殖民設定
+se_configuration_title: 伺服器設定
+se_confirm_planet: >-
+  選取的行星會被完全重設。你要繼續嗎？行星名稱：
+se_contrac: 收合
+se_cookie_advert: >-
+  更改 Cookie 名稱會讓所有人登出。<br>如果你運行多個宇宙，請使用不同的名稱。
+se_cookie_name: Cookie 名稱
+se_crystal_basic_income: 基本晶體產量
+se_crystal_start: 初始晶體
+se_crystal_start_info: 給新玩家母星的晶體。
+se_days: 天
+se_debris_moon: 月球形成後清除殘骸
+se_debris_moon_info: 月球形成後移除殘骸場。
+se_debug: 除錯模式
+se_debug_info: >-
+  記錄 SQL 查詢，並為管理員顯示含有查詢數和執行時間的狀態列。
+se_def_debris_percentage: 防禦轉殘骸
+se_def_debris_percentage_info: 攻擊後被摧毀的防禦中，變成殘骸的百分比。
+se_del_oldstuff: 多久後刪除訊息
+se_del_oldstuff_info: 在 X 天後刪除訊息和戰鬥報告。
+se_del_user_automatic: 多久後刪除不活躍玩家
+se_del_user_automatic_info: 刪除 X 天沒登入的玩家。（0 = 停用）
+se_del_user_manually: 申請刪除的帳號多久後刪除
+se_del_user_manually_info: 在 X 天後刪除申請刪除帳號的玩家。
+se_del_user_sendmail: 多久後寄送提醒
+se_del_user_sendmail_info: 在 X 天沒登入後寄出提醒電子郵件。
+se_delete_succes_p: 刪除成功
+se_delete_not_found: '沒有刪除任何東西：玩家或行星不存在，或無法刪除。'
+se_deuterium_basic_income: 基本重氫產量
+se_deuterium_cost_galaxy: 銀河系重氫成本
+se_deuterium_cost_galaxy_info: '每次點擊銀河系的重氫成本（預設：10）'
+se_deuterium_start: 初始重氫
+se_deuterium_start_info: 給新玩家母星的重氫。
+se_disclaimer: 法律聲明設定
+se_disclamer_address: 地址
+se_disclamer_mail: 電子信箱
+se_disclamer_notice: 更多資訊
+se_disclamer_phone: 電話號碼
+se_discord_exceptions_hook: 例外與警告
+se_discord_hooks: Discord Webhooks
+se_discord_logs_hook: 紀錄
+se_discord_tickets_hook: 客服單
+se_dst: 日光節約時間？
+se_dst_sel:
+  - '否'
+  - '是'
+  - 自動
+se_email: 電子信箱
+se_end: 結束日期
+se_end_time: 結束時間
+se_energy_basic_income: 基本能源產量
+se_energy_multiplier: 能源係數
+se_expand: 展開
+se_expedition_parameters: 遠征設定
+se_expo_hold_multiplier: 遠征速度
+se_expo_hold_multiplier_info: '一般速度：1'
+se_expo_ress_crys_chance: 遠征獲得晶體的機率
+se_expo_ress_deut_chance: 遠征獲得重氫的機率
+se_expo_ress_met_chance: 遠征獲得金屬的機率
+se_factor_university: 大學係數
+se_factor_university_info: 每一級大學縮短研究時間的百分比
+se_fields: 欄位
+se_filter_title: 篩選
+se_fleet_debris_percentage: 艦隊轉殘骸
+se_fleet_speed: 艦隊速度
+se_fleet_speed_info: '一般速度：1'
+se_forum_url: 論壇連結
+se_galaxy: 銀河系
+se_galaxy_distance_factor: 銀河系距離係數
+se_galaxy_distance_factor_info: '預設：20000，計算方式：銀河系差距 × 銀河系距離係數'
+se_galaxy_parameters: 銀河系設定
+se_galaxy_type: 銀河系類型
+se_galaxy_type_info: >-
+  <TABLE><tr><td>線性銀河系</td><td>到星系 1 的距離會隨著銀河系中每多一個星系而增加。</td></tr><tr><td>環狀銀河系</td><td>銀河系的最後一個和第一個星系是相連的，所以遠處星系到第一個星系的距離會縮短。</td></tr><tr><td>球狀銀河系</td><td>同一個銀河系中的每個星系彼此距離都相同。</td></tr></TABLE>
+se_default_theme: 預設主題
+se_default_theme_info: 新帳號和訪客使用的主題
+se_legal: 法律與社群
+se_privacy_region: 架設地區（隱私權政策）
+se_privacy_region_info: "選擇預設的隱私權政策：GDPR 版本（歐盟/歐洲經濟區）或一般版本。已經編輯過的頁面保持不變；法律文字由營運者負責。"
+se_privacy_region_sel:
+  eu: 歐盟 / 歐洲經濟區 - GDPR 隱私權政策
+  other: 歐盟以外 - 一般隱私權政策
+se_rules_default: 使用預設規則
+se_rules_default_info: "關閉：在你到「頁面」撰寫自己的規則之前，規則頁面會保持空白。已經編輯過的規則會保留。"
+se_source_url: 原始碼網址
+se_source_url_info: '這台伺服器所執行程式碼的公開儲存庫，會在頁尾以「原始碼」連結的形式顯示（AGPL 要求你向玩家提供你的修改）。留空就會隱藏連結。'
+se_game_name: 遊戲名稱
+se_git_issues_link: 問題追蹤連結
+se_git_issues_link_info: 可以回報臭蟲和問題的頁面
+se_id_owner: 擁有者 ID
+se_inactives: 不活躍
+se_initial_fields: '初始欄位：'
+se_initial_temp: '初始溫度：'
+se_input_a: A
+se_input_act_pla: ' 顆活躍行星'
+se_input_activity: 活動
+se_input_admm: ' 位管理員'
+se_input_allyy: ' 個聯盟'
+se_input_asc: 遞增
+se_input_authlevel: 階級
+se_input_connect: ' 位玩家在線'
+se_input_d: D
+se_input_desc: 遞減
+se_input_email: 電子信箱
+se_input_g: 銀河系
+se_input_have_moon: 有月球？
+se_input_hay: '目前有 '
+se_input_inact: ' 位不活躍玩家'
+se_input_inacti: 不活躍
+se_input_ip: IP
+se_input_longer: 時間長度
+se_input_members: 成員
+se_input_members2: 成員
+se_input_moonn: ' 顆月球'
+se_input_name: 名稱
+se_input_p: 行星
+se_input_planett: ' 顆行星'
+se_input_prop: 擁有者
+se_input_register: 註冊
+se_input_s: 星系
+se_input_submit: 搜尋
+se_input_susss: ' 位被停權'
+se_input_time: 時間
+se_input_userss: ' 位玩家'
+se_input_vacatii: ' 位玩家在假期中'
+se_intro: 字詞或關鍵字
+se_iter_planet_creation: 迭代式（預設）
+se_jumpgate_factor: 躍遷門充能
+se_jumpgate_factor_info: 躍遷門充能時間的除數（預設 1）
+se_lang: 語言
+se_limit: 上限
+se_line_galaxy: 線性銀河系（預設）
+se_line_uni: 線性宇宙（預設）
+se_mail_active: 啟用電子郵件
+se_mail_sel:
+  - PHP mail()
+  - Sendmail / Qmail
+  - SMTP Auth
+se_mail_use: '郵件方式：'
+se_max_additional_planets: 天體物理學可額外增加的最多行星數
+se_max_additional_planets_info: 玩家透過天體物理學可以額外殖民的行星數
+se_max_elements_build: 建造佇列上限
+se_max_elements_build_info: 建造佇列中建築的最大數量
+se_max_elements_ships: 太空船廠佇列上限
+se_max_elements_ships_info: 太空船廠佇列中訂單的最大數量
+se_max_elements_tech: 研究佇列上限
+se_max_elements_tech_info: 研究佇列中項目的最大數量
+se_max_fleet_per_build: 每筆訂單的單位上限
+se_max_fleet_per_build_info: 每筆太空船廠訂單的最大單位數
+se_max_fleets_per_acs: 每場聯盟戰的艦隊上限
+se_max_fleets_per_acs_info: 一場聯盟戰中的最大艦隊數（預設 16）
+se_max_galaxy: 銀河系上限
+se_max_galaxy_info: 宇宙中的最大銀河系數
+se_max_initial_planets: 無研究時的行星上限
+se_max_initial_planets_info: 玩家一開始不靠天體物理學就能殖民的行星數
+se_max_overflow: 倉庫溢出
+se_max_overflow_info: 倉庫已滿時還能繼續生產多少資源的係數
+se_max_participants_per_acs: 每場聯盟戰的參與者上限
+se_max_participants_per_acs_info: 一場聯盟戰中的最大參與者數（預設 5）
+se_max_planets: 行星上限
+se_max_planets_info: '每個星系的最大行星數（預設：15）'
+se_max_player_planets: 每位玩家的行星上限
+se_max_player_planets_info: 不需研究的最大殖民地數
+se_max_system: 星系上限
+se_max_system_info: 每個銀河系的最大星系數
+se_message_delete_days: 在 X 天後清除已刪除的訊息
+se_messages: 訊息
+se_metal_basic_income: 基本金屬產量
+se_metal_start: 初始金屬
+se_metal_start_info: 給新玩家母星的金屬。
+se_min_build_time: 最短建造時間
+se_min_build_time_info: >-
+  建築、研究、艦船和防禦的最短建造時間（秒）。預設為 1。<br>0 表示停用最短時間。<br>停用可能造成臭蟲。
+se_missile_range_factor: 飛彈射程係數
+se_moon_chance: 最高月球機率
+se_moon_chance_info: 形成月球的最高機率
+se_moon_factor: 月球機率係數
+se_moon_factor_info: 形成月球機率的倍數
+se_moon_size_factor: 月球大小係數
+se_moon_size_factor_info: 月球大小的倍數，1 = 預設
+se_moons: 月球
+se_name: 名稱
+se_news: 消息設定
+se_no_data: 沒有資料
+se_noob_inactives: 對不活躍玩家套用新手保護係數
+se_noob_protection: 新手保護
+se_noob_protection_multi: 新手保護係數
+se_noob_protection_multi_info: >-
+  你只能攻擊分數在「你的分數 × 這個係數」以內的玩家。以 18 為例：如果你有 1,000 分，就能攻擊分數低於 18,000 的玩家。一位 20,000 分的玩家可以攻擊最高 360,000 分的任何人，所以 50,000 分的玩家仍在他的範圍內。
+se_noob_protection_outlaw: 亡命之徒系統
+se_noob_protection_outlaw_info: >-
+  讓較弱的玩家可以攻擊較強的玩家。攻擊者會成為亡命之徒 7 天，並失去新手保護。
+se_noob_protection_time: 新手保護到 X 分
+se_noob_protection_time_info: 分數在這個值以下的玩家會維持在新手保護中。
+se_normal_speed: '一般速度：1'
+se_order_list_now: 搜尋
+se_overview_news_frame: 啟用消息
+se_overview_news_frame_info: 關閉的話，總覽頁面不會顯示消息。
+se_overview_news_text: 消息
+se_overview_news_text_info: 最多 255 個字元。允許使用 HTML。
+se_pagees: 頁面
+se_per_hour: 每小時
+se_phalanx_range_factor: 密集陣射程係數
+se_piratebase: 海盜基地
+se_piratebase_fleet_percentage_max: '艦隊：玩家艦隊的最大 %'
+se_piratebase_fleet_percentage_min: '艦隊：玩家艦隊的最小 %'
+se_piratebase_mainplanet_only: '資源：僅限母星'
+se_piratebase_min_points: 最低分數
+se_piratebase_min_points_info: 玩家需要達到的最低分數，海盜基地才會出現
+se_piratebase_ress_hours: '資源：產量的小時數'
+se_planet: 行星
+se_planet_creation: 母星放置方式
+se_planet_creation_info: >-
+  新的母星可以依序遍歷星系和銀河系放置、隨機放置、以區塊方式放置，或 50% 隨機加 50% 區塊。<br>隨機放置會在隨機位置均勻填滿銀河系和星系。<br>區塊放置會挑選已經有一或兩顆行星的星系。如果沒有這樣的星系，或玩家少於 50 人，就會改成隨機放置。
+se_planet_distance: 最小行星距離
+se_planet_distance_factor: 行星距離係數
+se_planet_distance_factor_info: >-
+  預設：5，計算方式：行星差距 × 行星距離係數 + 最小行星距離
+se_planet_distance_info: >-
+  預設：1000，計算方式：行星差距 × 行星距離係數 + 最小行星距離
+se_planet_parameters: 行星設定
+se_planet_ressource_bonus: 依位置的資源加成
+se_planet_ressource_bonus_info: 依行星位置，讓行星的資源產量增加 x%。
+se_planet_size_factor: 行星大小係數
+se_planet_size_factor_info: 行星大小的倍數，1 = 預設
+se_planets: 行星
+se_planets_act: 活躍行星
+se_planets_per_tech: 每級天體物理學的額外行星
+se_planets_per_tech_info: 每一級天體物理學解鎖的額外殖民地
+se_prepare_text: 伺服器準備中文字
+se_random_planet_creation: 隨機
+se_rank:
+  - 玩家
+  - 版主
+  - 營運者
+  - 管理員
+se_pow_adaptive: 機器人防護 - 自適應難度
+se_pow_adaptive_info: >-
+  開啟：可疑的 IP 位址和網段（/24 或 /64）會拿到難得多的謎題（短時間內有很多請求、失敗或註冊）。關閉：每位訪客都拿到基本謎題，也不讀取任何計數器。
+se_pow_elevated_factor: 機器人防護 - 風險升高時的係數
+se_pow_elevated_factor_info: 謎題會變成這麼多倍難（預設 20）。
+se_pow_high_factor: 機器人防護 - 高風險時的係數
+se_pow_high_factor_info: 謎題會變成這麼多倍難（預設 100）。
+se_pow_max_cap: 機器人防護 - 難度上限
+se_pow_max_cap_info: >-
+  套用係數後的最高數字。1500000 在一支很慢的智慧型手機上大約需要 25 秒。
+se_pow_sensitivity: 機器人防護 - 風險偵測靈敏度
+se_pow_sensitivity_info: >-
+  預設門檻的百分比（每個 IP：升高為 10 分鐘 5 次請求、每小時 3 次失敗或 24 小時 2 次註冊；高風險為 20 / 10 / 5；網段則是三倍）。200 = 需要兩倍多的事件，50 = 一半。
+se_pow_max_number: 機器人防護 - 難度（最大數字）
+se_pow_max_number_info: >-
+  瀏覽器會嘗試最高到這個數字的雜湊，平均試一半。25000 遠低於一秒就能完成。越高，機器人要做的工作越多。
+se_pow_min_seconds: 機器人防護 - 送出前的最短時間（秒）
+se_pow_min_seconds_info: >-
+  載入後比這個時間更快送出的表單會被拒絕。0 表示停用檢查。
+se_proofofwork: 機器人防護
+se_proofofwork_info: >-
+  註冊和忘記密碼受到一個小型運算保護，由瀏覽器自己解開，不需要任何第三方。
+se_rebuild_protection: 重建保護
+se_rebuild_protection_info: >-
+  在遭受重大損失後，玩家會在 6 小時後獲得抵禦進一步攻擊的重建保護，從攻擊起算持續 48 小時。必須在一次攻擊中損失 70% 的艦隊或 80% 的運輸容量，而且該損失至少要達到「新手保護分數 × 1,000」的單位或容量。玩家可以提前結束這個模式。
+se_redis_connection_url: Redis 連線網址
+se_redis_connection_url_info: redis[s]://[[username][:password]@][host][:port][/db-number]
+se_ref: 推薦連結
+se_ref_active: 啟用推薦連結
+se_ref_active_info: 推薦連結讓玩家邀請朋友。被招募的玩家會帶來獎勵。
+se_ref_bonus: 推薦獎勵
+se_ref_bonus_info: 推薦人每招募一位玩家所獲得的暗物質。
+se_ref_max_referals: 最大推薦人數
+se_ref_max_referals_info: 一位使用者最多能招募的玩家數。
+se_ref_minpoints: 獲得獎勵的最低分數
+se_ref_minpoints_info: >-
+  被招募的玩家必須達到這個分數，推薦人才會收到獎勵。
+se_research_speed: 研究速度
+se_resource_multiplier: 資源生產速度
+se_resource_multiplier_info: '一般速度：1'
+se_ress_chance: 資源機率
+se_ring_galaxy: 環狀銀河系
+se_ring_uni: 環狀宇宙
+se_save_parameters: 儲存
+se_se_fleet_debris_percentage_info: 攻擊後被摧毀的艦隊中，變成殘骸的百分比
+se_search: 搜尋
+se_search_alliance_0: ID
+se_search_alliance_1: 名稱
+se_search_alliance_2: 標籤
+se_search_alliance_3: 領袖
+se_search_alliance_4: 創立時間
+se_search_alliance_5: 成員
+se_search_banned_0: ID
+se_search_banned_1: 名稱
+se_search_banned_2: 停權開始
+se_search_banned_3: 停權到
+se_search_banned_4: 原因
+se_search_banned_5: 執行者
+se_search_edit: 編輯
+se_search_in: 搜尋範圍
+se_search_info: 搜尋
+se_search_order: 排序
+se_search_planets_0: ID
+se_search_planets_1: 名稱
+se_search_planets_2: 擁有者
+se_search_planets_3: 最後活動
+se_search_planets_4: 銀河系
+se_search_planets_5: 星系
+se_search_planets_6: 行星
+se_search_planets_7: 有月球？
+se_search_title: 進階搜尋
+se_search_users_0: ID
+se_search_users_1: 名稱
+se_search_users_2: 電子信箱
+se_search_users_3: 最後活動
+se_search_users_4: 註冊日期
+se_search_users_5: 最後 IP
+se_search_users_6: 階級
+se_search_users_7: 已停權？
+se_search_users_8: 假期中？
+se_sendmail_inactive: 啟用提醒電子郵件
+se_server_naame: 遊戲名稱
+se_server_parameters: 宇宙設定
+se_session_handler: 工作階段處理器
+se_several_parameters: 其他設定
+se_shipyard_speed: 太空船廠速度
+se_silo_factor: 飛彈發射井大小
+se_silo_factor_info: 飛彈發射井大小的倍數
+se_smail_path: Sendmail / Qmail 的路徑
+se_smtp: SMTP 設定
+se_smtp_host: 'SMTP 主機：'
+se_smtp_host_info: 你的 SMTP 伺服器位址。
+se_smtp_info: 用來從 {game_name} 伺服器寄信給玩家的 SMTP 設定。
+se_smtp_pass: 'SMTP 密碼：'
+se_smtp_port: 'SMTP 連接埠：'
+se_smtp_port_info: SMTP 伺服器連接埠。通常是 25。
+se_smtp_sendmail: 'SMTP 寄件者：'
+se_smtp_sendmail_info: 寄件者地址。不一定要和登入地址相同。
+se_smtp_ssl: 'SMTP SSL/TLS：'
+se_smtp_ssl_info: 這台伺服器和郵件伺服器之間使用的加密。很少需要。
+se_smtp_ssl_sel:
+  - 無
+  - SSL
+  - TLS
+se_smtp_user: 'SMTP 使用者名稱：'
+se_sphere_galaxy: 球狀銀河系
+se_sphere_uni: 球狀宇宙
+se_start: 開始日期
+se_start_time: 開始時間
+se_stat: 給管理員 0 分
+se_stat_level: 從階級
+se_stat_sel:
+  - '否'
+  - '是'
+  - 隱藏管理員
+se_stat_settings: 1 個統計點數的價值
+se_statistics: 統計
+se_statsjson_delay: stats.json 延遲
+se_storage_multiplier: 資源倉儲倍數
+se_suspended: 已停權
+se_system: 星系
+se_system_distance: 最小星系距離
+se_system_distance_factor: 星系距離係數
+se_system_distance_factor_info: >-
+  預設：95，計算方式：星系差距 × 星系距離係數 + 最小星系距離
+se_system_distance_info: >-
+  預設：2700，計算方式：星系差距 × 星系距離係數 + 最小星系距離
+se_tag: 標籤
+se_temp: 度
+se_time_of_page: 頁面產生時間
+se_timezone: 宇宙時區
+se_trade_allowed_ships: '允許的艦船：'
+se_trade_charge: '商人手續費：'
+se_trader: 廢料商人設定
+se_ttf_file: 字型（TTF/OTF）
+se_ttf_file_info: >-
+  在 public/styles/resource/fonts/ 裡找到的字型檔案（把新檔案放在那裡）。如果選擇的檔案不存在，會使用內建的 DroidSansMono。
+se_type_all: 一般搜尋
+se_type_exact: 精確搜尋
+se_type_first: 開頭是
+se_type_last: 結尾是
+se_type_typee: 類型
+se_uni_name: 宇宙名稱
+se_uni_status: 宇宙狀態
+se_uni_status_regclosed_gameclosed: 註冊與登入皆關閉（例如維護中）
+se_uni_status_regclosed_gameopen: 註冊關閉、登入開放（例如舊宇宙）
+se_uni_status_regopen_gameclosed: 註冊開放、登入關閉（例如新宇宙）
+se_uni_status_regopen_gameopen: 註冊與登入皆開放
+se_uni_type: 宇宙類型
+se_uni_type_info: >-
+  <TABLE><tr><td>線性宇宙</td><td>到銀河系 1 的距離會隨著每多一個銀河系而增加。</td></tr><tr><td>環狀宇宙</td><td>最後一個和第一個銀河系是相連的，所以遠處銀河系到第一個的距離會縮短。</td></tr><tr><td>球狀宇宙</td><td>每個銀河系彼此距離都相同。</td></tr></TABLE>
+se_user_settings: 玩家設定
+se_user_valid: 電子郵件驗證
+se_user_valid_info: >-
+  啟用後，玩家必須透過電子郵件啟用帳號。下方必須先設定好 SMTP。
+se_users: 玩家
+se_vacat: 假期中？
+se_vacations: 假期
+se_vmode_min_time: 最短假期時間
+se_vmode_min_time_info: 玩家必須待在假期模式中的最短時間（秒）
+se_wreckfield_cooldown: 殘骸場冷卻時間
+se_wreckfield_min_percent: 產生殘骸場所需的艦隊單位最低摧毀百分比
+se_wreckfield_min_units: 產生殘骸場所需的最低摧毀單位數
+select_option: 請選擇...
+ships_title: 艦船
+sp_answer_message: '你的客服單 #%d 有新的回覆！'
+sp_answer_message_title: '客服單 #%d'
+status: 狀態
+subject: 主旨
+test_data_amount: 測試使用者數量
+test_data_stage:
+  - 初期（間諜衛星）
+  - 中期（戰列艦、1 顆月球）
+  - 後期（戰鬥巡洋艦、密集陣）
+  - 終局（死星、躍遷門）
+test_data_stage_label: 階段
+test_data_success: 測試資料建立成功
+test_data_title: 建立測試使用者資料
+text: 詳情
+time_days: 天
+time_hours: 小時
+time_minutes: 分鐘
+time_seconds: 秒
+ul_sure_you_want_dlte: 你確定要移除這個嗎？
+uni_reg: 宇宙
+user_reg: 名稱
+uvs_actions: 操作
+uvs_back: 返回
+uvs_delete: 刪除
+uvs_id: 宇宙 ID
+uvs_inactive: 未啟用
+uvs_name: 名稱
+uvs_new: 新增宇宙
+uvs_off: 已關閉
+uvs_on: 開放中
+uvs_open: 狀態
+uvs_planets: 行星
+uvs_players: 玩家
+uvs_reload: 重新載入
+uvs_speeds: 速度係數（遊戲/艦隊/資源/遠征）
+uvs_speeds_full: 速度係數（遊戲/艦隊/資源/遠征）
+vt_all: 所有檔案
+vt_head: 驗證遊戲檔案
+vt_info: >-
+  這份清單列出與原版不同的檔案。<br>如果你自己沒有改過遊戲，請用原版檔案取代這些檔案。
+adm_comments: 註解
+adm_analytics: 分析
+ad_system: 系統
+adm_menu_filter: 篩選選單 …
+adm_menu_empty: 找不到選單項目
+adm_menu_toggle: 選單
+adm_back_to_game: 返回遊戲
+adm_drop_rights: 登出
+adm_universe_switch: 宇宙
+adm_dash_attention: 需要注意
+adm_dash_all_good: 一切正常 – 沒有警告。
+adm_dash_online: 線上玩家（15 分鐘）
+adm_dash_players: 玩家總數
+adm_dash_tickets: 未結案客服單
+adm_dash_fleets: 飛行中的艦隊
+adm_dash_quick: 快速存取
+adm_dash_system: 系統
+adm_update_available: "有可用的更新"
+adm_update_released: "發佈於"
+adm_update_you_run: "你目前使用"
+adm_update_notes: "版本說明"
+adm_update_howto: "如何更新"
+adm_update_check_now: "立即檢查"
+adm_update_check: "檢查更新"
+adm_update_up_to_date: "已是最新"
+adm_dash_version: 版本
+adm_dash_php: PHP
+adm_dash_uni_status: 宇宙狀態
+adm_dash_credits: 製作名單
+adm_dash_project: 專案首頁
+adm_confirm: 你確定嗎？
+adm_dash_cron_locked: '排程工作已鎖定（不再執行）：%s'
+adm_dash_cron_never: "排程工作從來沒有執行過。艦隊、統計和其他背景工作都在等它。"
+adm_dash_cron_stale: "排程工作上次執行是在 %s（它應該每分鐘執行一次）。艦隊、統計和其他背景工作都在等它。"
+adm_dash_cron_help: "如何設定排程工作"
+adm_dash_next_cron: 下次排程工作
+adm_dash_cron_count: 個啟用中的排程工作
+adm_unsaved_hint: 變更在儲存後才會生效。
+adm_sections: 分區
+adm_skip: 跳到內容
+adm_filter_page: 篩選這個頁面 …
+adm_actions: 操作
+adm_ac_no_destroyed: 最近沒有行星被摧毀。
+adm_ae_addremove_hint: 數值會加到目前的數量（新增）或從中扣除（刪除）。數值為 0 表示該項目保持不變。
+adm_ae_confirm_remove: 真的要從目前數量中扣除輸入的數值嗎？
+adm_ae_danger_zone: 危險區域
+adm_ae_group_planet: 行星 / 月球
+adm_ae_group_player: 玩家
+adm_ae_menu_hint: '選擇要編輯什麼。玩家以玩家 ID 選取，行星以行星或月球 ID 選取。'
+adm_ae_wipe: 重設行星
+adm_ae_wipe_hint: '勾選的區域會從行星上被清除。這個動作無法復原。'
+adm_as_confirm: 真的要交換這兩位選定玩家的帳號嗎？
+adm_as_explain: '兩位選定的玩家會互換帳號（登入資料）。遊戲進度和行星留在各自的玩家身上，只有登入資料換了擁有者。左邊選玩家 A，右邊選玩家 B。'
+adm_ban_accounts: 帳號
+adm_ban_duration: 時間長度
+adm_ban_users: 玩家
+adm_continue: 繼續
+adm_coord_position: 位置
+adm_cron_active: 啟用中
+adm_cron_click_disable: 點擊以停用
+adm_cron_click_enable: 點擊以啟用
+adm_cron_click_lock: 點擊以鎖定
+adm_cron_click_unlock: 點擊以解鎖（卡住的執行）
+adm_cron_free: 閒置
+adm_cron_hint: 點擊狀態標籤來切換
+adm_cron_inactive: 未啟用
+adm_cron_locked: 已鎖定
+adm_cron_state: 狀態
+adm_giveaway_confirm: 這些數量會發放給這個宇宙所有符合條件的行星。要繼續嗎？
+adm_giveaway_hint: 數量會加到每顆符合條件的行星目前的庫存上。留在 0 的欄位保持不變。
+adm_reset_warning: '下方勾選的所有項目，在這個宇宙中都會被永久刪除或重設。沒有備份，也不能復原。'
+adm_rights_edit: 編輯權限
+adm_rights_other: 其他
+adm_rights_page: 頁面
+adm_rights_pick: 請挑選你要編輯權限的玩家。
+adm_uni_close: 關閉宇宙
+adm_uni_open: 開放宇宙
+adm_edit: 編輯
+adm_ma_recipients: 收件人
+adm_ml_from: 從
+adm_ml_to: 到
+ac_detailed_planet_moon_info: 行星與月球詳細資料
+ad_max: （最大 %d）
+adm_password_info: 請輸入你的密碼來驗證身分！
+button_des_se: 全選/取消全選
+er_dlte_all: 全部刪除
+input_id_moon: 月球 ID
+input_text: '說明：'
+mip_ip: IP
+adm_cfg_crystal_pct: 晶體 %
+adm_cfg_deuterium_pct: 重氫 %
+adm_cfg_fields_max: 最大欄位
+adm_cfg_fields_min: 最小欄位
+adm_cfg_metal_pct: 金屬 %
+adm_cfg_planet_props: 各位置的行星屬性
+adm_cfg_planet_props_hint: 溫度（°C）、欄位、產量加成（%）
+adm_cfg_temp_max: 最高溫
+adm_cfg_temp_min: 最低溫
+adm_comment_col: 註解
+adm_date_dd: 日
+adm_date_format: （日.月.年）
+adm_date_mm: 月
+adm_date_yyyy: 年
+adm_exp_deck_err_card: '卡牌格式無效：缺少類型、規模或數量'
+adm_exp_deck_err_count: '卡牌數量無效：不可為負數'
+adm_exp_deck_err_empty: 牌組至少要有一張卡牌
+adm_exp_deck_err_format: '牌組格式無效：必須是陣列'
+adm_exp_deck_err_json: JSON 格式無效
+adm_exp_ships_saved: 艦船設定儲存成功！
+adm_flight_distance: 距離
+adm_flight_err_dist_missing: 請完整填寫所有距離數值。
+adm_flight_err_format: 請依「銀河系:星系:行星」的格式輸入。
+adm_flight_err_galaxy_over: '銀河系超過 max_galaxy。'
+adm_flight_err_max_missing: 請完整填寫 max_galaxy、max_system 和 max_planets。
+adm_flight_err_min_one: 銀河系、星系和行星至少要是 1。
+adm_flight_err_planet_over: '行星超過 max_planets。'
+adm_flight_err_system_over: '星系超過 max_system。'
+adm_flight_fleet_speed: 艦隊速度
+adm_flight_preview: 飛行時間預覽
+adm_flight_preview_help: 以艦船速度 45,000 和艦隊速度 1，從 1:1:1 飛到目標的飛行時間；宇宙類型、銀河系類型、最大值、距離係數和最小距離都會即時套用。
+adm_flight_ship_speed: 艦船速度
+adm_flight_time: 飛行時間
+adm_info_col: 資訊
+adm_info_db_version: 資料庫版本
+adm_info_errorlog: 錯誤紀錄
+adm_info_game: 遊戲
+adm_info_game_address: 遊戲網址
+adm_info_game_version: 遊戲版本
+adm_info_memory_limit: 記憶體限制
+adm_info_mysql_client: MySQL 用戶端
+adm_info_mysql_server: MySQL 伺服器
+adm_info_php_version: PHP 版本
+adm_info_server: 伺服器
+adm_info_server_info: 伺服器資訊
+adm_info_text: 以文字顯示
+adm_info_timezone: 時區（PHP/設定/使用者）
+adm_loading: 載入中 …
+adm_log_not_found: 在紀錄中找不到
+adm_mip_activity: 活動
+adm_mip_show_allowed: 顯示已核准
+adm_mip_show_banned: 顯示已停權
+adm_ml_end_day: 結束日
+adm_ml_end_month: 結束月
+adm_ml_end_year: 結束年
+adm_ml_start_day: 開始日
+adm_ml_start_month: 開始月
+adm_ml_start_year: 開始年
+adm_pagination: 分頁
+adm_permission_error: '權限不足！'
+adm_ti_all: 全部
+adm_ti_debug_errors: 除錯/錯誤
+adm_ti_user_tickets: 使用者客服單
+adm_group_community: 社群
+adm_nav_accounts: 帳號
+adm_nav_expeditions: 遠征
+adm_nav_messages: 訊息
+adm_nav_moderation: 管理
+adm_nav_players: 玩家
+adm_nav_settings: 設定
+adm_tab_bans: 停權
+adm_tab_card_deck: 卡牌牌組
+adm_tab_create: 建立
+adm_tab_editor: 編輯器
+adm_tab_findable_ships: 可發現的艦船
+adm_tab_moons: 月球
+adm_tab_planets: 行星
+adm_tab_players: 玩家
+adm_tab_server: 伺服器
+adm_tab_swap: 交換
+adm_tab_universe: 宇宙
+adm_maint_cache_text: 清除遊戲快取（語言、範本、遊戲資料）並重新計算排程工作時間。當設定或文字的變更沒有顯示時很有用。
+adm_maint_log_head: "遊戲紀錄"
+adm_maint_log_text: "遊戲的錯誤紀錄（var/log/game.log）。清除會清空這個檔案；新的錯誤會馬上重新寫入。"
+adm_migr_head: "資料庫遷移"
+adm_migr_text: "套用隨更新而來的資料庫變更（例如把新版本解壓縮覆蓋到現有安裝之後）。"
+adm_migr_current: "目前的資料庫修訂版"
+adm_migr_pending: "待處理的遷移"
+adm_migr_backup: "請先建立資料庫備份。"
+adm_migr_revision: "修訂版"
+adm_migr_file: "檔案"
+adm_migr_status: "狀態"
+adm_migr_ok: "完成"
+adm_migr_failed: "失敗"
+adm_migr_skipped: "已略過的查詢"
+adm_migr_uptodate: "資料庫已是最新。"
+adm_migr_confirm: "現在要執行所有待處理的遷移嗎？"
+adm_migr_run: "執行遷移"
+adm_migr_result: "結果"
+adm_migr_nothing: "沒有待處理的遷移。"
+adm_maint_log_size: "大小"
+adm_maint_log_changed: "最後變更"
+adm_maint_log_missing: "紀錄檔還不存在。"
+adm_maint_log_clear: "清除遊戲紀錄"
+adm_maint_log_confirm: "要清空 var/log/game.log 嗎？這個動作無法復原。"
+adm_maint_log_cleared: "遊戲紀錄已清除。"
+adm_maint_log_failed: "無法清除遊戲紀錄（檔案無法寫入）。"
+adm_maint_points_text: 立刻重新計算分數和排名。否則這會透過統計排程工作自動進行，玩家多的時候可能要等一下。
+adm_nav_maintenance: 維護
+adm_nav_content: 內容
+adm_tab_pages: 頁面
+adm_tab_team: 團隊
+nws_back: 返回列表
+nws_view: 檢視
+nws_summary: 摘要
+nws_summary_help: '消息列表的選填預告（最多 300 個字元）。留空 = 取文字的節錄。'
+nws_publish_date: 發佈日期
+nws_publish_help: '未來的日期會把消息排程：到時它會自動出現。'
+nws_status: 狀態
+nws_status_draft: 草稿
+nws_status_published: 已發佈
+nws_status_scheduled: 已排程
+nws_pinned: 置頂
+nws_filter_all: 全部
+nws_filter_drafts: 草稿
+nws_empty: 沒有消息
+nws_saved: 消息已儲存。
+nws_deleted: 消息已刪除。
+nws_error_empty: 標題和內容不可為空。
+cms_page_contacts: 聯絡我們
+cms_page_dataPrivacy: 資料隱私
+cms_page_rules: 規則
+cms_language: 語言
+cms_status: 狀態
+cms_status_default: 預設
+cms_status_edited: 已編輯
+cms_last_edit: 最後編輯
+cms_title: 標題
+cms_content: 內容
+cms_save: 儲存頁面
+cms_view: 檢視頁面
+cms_reset: 重設為預設
+cms_reset_confirm: 要刪除編輯過的版本，並重新顯示預設內容嗎？
+cms_saved: 頁面已儲存。
+cms_reset_done: 頁面已重設為預設內容。
+team_name: 名稱
+team_position: 職位
+team_contact: 聯絡方式（例如 Discord）
+team_description: 說明
+team_add: 新增成員
+team_delete: 移除
+team_move_up: 上移
+team_move_down: 下移
+team_save: 儲存團隊
+team_saved: 團隊已儲存。
+team_empty: 還沒有團隊成員。
+team_hint: 列的順序就是公開團隊頁面上的順序。沒有名稱的列在儲存時會被丟棄。
+nws_image: 圖片
+nws_image_remove: 移除圖片
+nws_image_help: '選填，每則消息一張圖片（JPEG、PNG、GIF 或 WebP，最大 8 MB）。會自動轉換成 WebP。'
+
+bot_action: "動作"
+bot_actions_per_session: "每個階段的動作數"
+bot_active: "啟用中"
+bot_active_none: "不使用 LLM（只用本地備案）"
+bot_activity: "每小時活躍度"
+bot_activity_info: "24 個以逗號分隔、介於 0 到 1 的值（離線機器人開始一個階段的機率，0-23 時）"
+bot_alliance_chance: "每個階段的聯盟活動機率"
+bot_alliance_join_chance: "申請加入機器人聯盟的機率（每回合）"
+bot_fleetsave_chance: "艦隊保全的機率（階段結束、受威脅時）"
+bot_saving_discipline: "存錢紀律（為目標存資源，而不是亂買便宜的東西）"
+bot_expedition_slots: "為遠征保留的空艦隊欄位"
+bot_api_key: "API 金鑰"
+bot_base_url: "基底網址"
+bot_buddy_accept_chance: "接受好友邀請的機率"
+bot_cancel: "取消"
+bot_chat_style: "聊天風格提示"
+bot_raid_enabled: "啟用突襲"
+bot_raid_chance: "出去掠奪的階段比例"
+bot_scout_range: "偵察範圍（自己行星周圍的星系數）"
+bot_min_profit_ratio: "最低獲利比（戰利品 / 燃料 + 損失）"
+bot_relentless_minutes: "命中後的連續突襲時間（分鐘，最小 - 最大）"
+bot_recall_check_chance: "命中前重新偵查並檢查是否召回的機率"
+bot_max_attacks_per_target: "每個目標每天的最大攻擊次數"
+bot_attack_bots: "攻擊其他機器人"
+bot_attack_humans: "攻擊真人玩家"
+bot_prefer_inactive: "偏好不活躍目標（0-100）"
+bot_check_interval: "登入檢查間隔"
+bot_colonize_chance: "每個階段的殖民機率"
+bot_confirm_delete: "真的要刪除嗎？"
+bot_confirm_restore: "要把預設設定檔重設為原始值嗎？"
+bot_csrf_error: "安全權杖無效，請重新整理頁面。"
+bot_days_zero_off: "天（0 = 關閉）"
+bot_default: "預設"
+bot_defaults_restored: "預設設定檔已還原。"
+bot_delete: "刪除"
+bot_deleted: "已刪除。"
+bot_description: "說明"
+bot_detail: "詳情"
+bot_disabled: "已停用"
+bot_duplicate: "複製"
+bot_edit: "編輯"
+bot_edit_profile: "編輯設定檔"
+bot_enabled: "已啟用"
+bot_expedition_chance: "每個階段的遠征機率"
+bot_failed: "失敗"
+bot_hours_every: "小時，每"
+bot_invalid_url: "基底網址必須以 http:// 或 https:// 開頭。"
+bot_key: "金鑰"
+bot_key_keep: "留空表示保留"
+bot_key_not_set: "未設定"
+bot_key_stored: "已儲存"
+bot_last_action: "最後動作"
+bot_last_test: "上次測試"
+bot_list: "機器人"
+bot_llm_advice: "允許 LLM（名稱與聊天）"
+bot_log: "最近的動作"
+bot_mistake_chance: "失誤機率"
+bot_mode: "機器人模式"
+bot_model: "模型"
+bot_name: "名稱"
+bot_name_required: "請輸入名稱。"
+bot_new_profile: "新設定檔"
+bot_next_tick: "下次檢查"
+bot_none: "無。"
+bot_offline: "離線"
+bot_online: "在線"
+bot_open_config: "宇宙設定"
+bot_pattern_shift: "輪班模式"
+bot_player: "玩家"
+bot_points: "分數"
+bot_profile: "設定檔"
+bot_profile_default_locked: "預設設定檔無法刪除。"
+bot_profile_in_use: "這個設定檔仍有機器人在使用。"
+bot_profile_missing: "找不到設定檔。"
+bot_provider: "提供者"
+bot_providers_info: "LLM 是選用的，只用於機器人「像人」的那一面：暱稱、人設、行星名稱和聊天（回覆訊息、聯盟、好友）。遊戲決策永遠在本地做出。沒有啟用的提供者時，會使用內建的名稱產生器和罐頭訊息。金鑰欄位留空表示保留已儲存的金鑰。"
+bot_randomness: "隨機性"
+bot_reply_chance: "回覆機率（私人訊息）"
+bot_restore_defaults: "還原預設值"
+bot_saved: "已儲存。"
+bot_session: "階段"
+bot_session_minutes: "階段長度"
+bot_skill: "技巧"
+bot_skill_gain: "每天成長"
+bot_skill_max: "最大"
+bot_skill_start: "起始"
+bot_spawn: "產生機器人"
+bot_profile_mixed: "混合（所有設定檔）"
+bot_spawned: "已建立 %d 個機器人。"
+bot_summary: "摘要"
+bot_summary_actions: "動作"
+bot_summary_mistakes: "失誤"
+bot_summary_session: "階段"
+bot_tab_profiles: "設定檔"
+bot_tab_providers: "LLM 提供者"
+bot_test: "測試連線"
+bot_testing: "測試中..."
+bot_time: "時間"
+bot_universe: "宇宙"
+bot_w_defense: "防禦"
+bot_w_energy: "能源"
+bot_w_facilities: "設施"
+bot_w_mines: "礦場"
+bot_w_research: "研究"
+bot_w_ships: "艦船"
+bot_w_storage: "倉儲"
+bot_weights: "權重"
+adm_nav_bots: 機器人
+adm_tab_bot_providers: LLM 提供者
+adm_tab_bot_profiles: 設定檔
+adm_tab_bot_list: 機器人
+se_bots: "機器人"
+se_bots_enabled: "啟用機器人"
+se_bots_enabled_info: "讓伺服器端的機器人在這個宇宙中玩遊戲。它們由排程工作每分鐘處理一次。"
+se_bots_llm_daily_limit: "每個機器人每天的 LLM 呼叫次數"
+se_bots_llm_daily_limit_info: "單一機器人每天最多能呼叫 LLM 的次數。之後會改用本地備案。"
+se_bots_llm_enabled: "用 LLM 產生名稱與聊天"
+se_bots_llm_enabled_info: "使用目前啟用的提供者，啟用由 LLM 產生的暱稱、人設、行星名稱和聊天（訊息、聯盟、好友）。遊戲決策永遠留在本地。"
+se_bots_max_count: "機器人最大數量"
+se_bots_max_count_info: "這個宇宙中可產生的機器人數量上限。"
+se_bots_ticks_per_run: "每次排程執行處理的機器人數"
+se_bots_ticks_per_run_info: "單次排程執行中最多處理的機器人數量。"
+se_bots_raids_enabled: "機器人掠奪其他玩家"
+se_bots_raids_enabled_info: "讓機器人偵察、偵查並攻擊附近的玩家和其他機器人，適用與玩家相同的規則（洗點上限、保護、假期）。預設關閉。"
+adm_info_summary_fail: "%s 項檢查失敗，%s 項警告。請先修正失敗的檢查。"
+adm_info_summary_warn: "沒有失敗的檢查，但有 %s 項警告需要看一下。"
+adm_info_summary_ok: "所有健康檢查都通過了。"
+adm_info_health: "健康檢查"
+adm_info_status_ok: "正常"
+adm_info_status_warn: "警告"
+adm_info_status_fail: "失敗"
+adm_info_status_info: "資訊"
+adm_info_chk_php: "PHP 版本（8.4 或更新）"
+adm_info_chk_php_hint: "遊戲需要 PHP 8.4 或更新的版本。"
+adm_info_chk_ext_required: "必要的 PHP 擴充套件"
+adm_info_chk_ext_required_hint: "請安裝缺少的擴充套件，沒有它們遊戲無法運作。"
+adm_info_chk_ext_optional: "選用的 PHP 擴充套件"
+adm_info_chk_ext_optional_hint: "不是必要的，但能啟用更快或額外的功能（見擴充套件清單）。"
+adm_info_chk_opcache: "OPcache"
+adm_info_chk_opcache_hint: "OPcache 是關閉的。正式環境請啟用它，能大幅加快 PHP。"
+adm_info_chk_environment: "環境（APP_ENV / 除錯）"
+adm_info_chk_environment_hint: "公開伺服器請以 APP_ENV=prod 並關閉除錯來執行。"
+adm_info_chk_display_errors: "display_errors"
+adm_info_chk_display_errors_hint: "頁面上的錯誤輸出可能洩漏內部資訊。公開伺服器請設定 display_errors=Off。"
+adm_info_chk_writable: "可寫入的目錄"
+adm_info_chk_writable_hint: "網站伺服器的使用者必須能寫入這些目錄（快取、紀錄、工作階段、上傳）。"
+adm_info_chk_install_tool: "安裝工具"
+adm_info_chk_install_tool_hint: "var/ENABLE_INSTALL_TOOL 存在。沒在安裝的時候請刪掉它。"
+adm_info_chk_migrations: "資料庫遷移"
+adm_info_chk_migrations_hint: "有待處理的遷移。它們會在下一次遊戲請求時套用；如果一直待處理，請檢查紀錄。"
+adm_info_chk_battle_engine: "戰鬥引擎"
+adm_info_chk_battle_engine_hint: "Rust 引擎無法使用（bin/battlerust、bin/libbattlerust.so、proc_open）。戰鬥會用較慢的 PHP 引擎執行。"
+adm_info_chk_cron: "排程工作"
+adm_info_chk_cron_hint: "排程看起來卡住了，或沒有在執行。請確認 bin/console app:cron:run 每分鐘都有執行，並到「排程工作」解鎖卡住的工作。"
+adm_info_chk_https: "HTTPS"
+adm_info_chk_https_hint: "這個請求沒有使用 HTTPS。密碼和工作階段會以未加密的方式傳送。"
+adm_info_chk_mail: "郵件寄送"
+adm_info_chk_mail_hint: "郵件已停用或設定不完整（啟用信和重設密碼信將無法送達）。請見設定。"
+adm_info_chk_session: "工作階段處理器"
+adm_info_chk_session_hint: "請檢查工作階段儲存空間。"
+adm_info_os: "作業系統"
+adm_info_hostname: "主機名稱"
+adm_info_max_exec: "最長執行時間"
+adm_info_upload_max: "上傳限制（upload_max_filesize）"
+adm_info_post_max: "POST 限制（post_max_size）"
+adm_info_realpath: "Realpath 快取"
+adm_info_peak: "這個請求的記憶體尖峰"
+adm_info_cpu: "CPU 核心數"
+adm_info_load: "平均負載（1 / 5 / 15 分鐘）"
+adm_info_uptime: "系統運行時間"
+adm_info_disk: "磁碟（專案）"
+adm_info_memory: "系統記憶體"
+adm_info_free_of: "%s 可用，共 %s（已使用 %s %%）"
+adm_info_opcache_line: "已使用 %s / %s，命中率 %s %%，已快取 %s 個腳本"
+adm_info_extensions: "PHP 擴充套件"
+adm_info_extensions_hint: "滑過可看用途。紅色 = 必要但缺少，灰色 = 選用且缺少。"
+adm_info_required: "必要"
+adm_info_ext_pdo_mysql: "資料庫存取（PDO MySQL）"
+adm_info_ext_intl: "數字、日期和語言格式化"
+adm_info_ext_mbstring: "多位元組字串處理"
+adm_info_ext_gd: "圖片處理（頭像、消息圖片）"
+adm_info_ext_curl: "HTTP 請求（Discord、外部 API）"
+adm_info_ext_json: "JSON 編碼與解碼"
+adm_info_ext_ctype: "字元類型檢查"
+adm_info_ext_opcache: "快取編譯後的 PHP 程式碼（加速）"
+adm_info_ext_ffi: "外部函式介面（原生程式碼）"
+adm_info_ext_ds: "快速資料結構"
+adm_info_ext_redis: "Redis 工作階段與快取"
+adm_info_ext_imap: "信箱存取（IMAP）"
+adm_info_database: "資料庫"
+adm_info_db_schema: "結構描述"
+adm_info_db_size: "大小"
+adm_info_tables: "張資料表"
+adm_info_pending: "待處理的遷移"
+adm_info_db_uptime: "MySQL 運行時間"
+adm_info_threads: "已連線的執行緒"
+adm_info_max: "最大"
+adm_info_qps: "每秒查詢數（平均）"
+adm_info_queries: "次查詢"
+adm_info_slow: "慢查詢"
+adm_info_buffer_pool: "InnoDB 緩衝池"
+adm_info_top_tables: "最大的資料表"
+adm_info_table: "資料表"
+adm_info_rows: "列"
+adm_info_data: "資料"
+adm_info_index: "索引"
+adm_info_game_stats: "遊戲統計"
+adm_info_universe: "宇宙"
+adm_info_players: "玩家"
+adm_info_accounts: "帳號"
+adm_info_online: "在線"
+adm_info_planets: "行星"
+adm_info_moons: "月球"
+adm_info_fleets: "飛行中的艦隊"
+adm_info_acs: "聯盟戰團隊"
+adm_info_alliances: "聯盟"
+adm_info_messages: "訊息"
+adm_info_unread: "未讀"
+adm_info_activity: "活動與註冊"
+adm_info_active: "活躍玩家"
+adm_info_registrations: "新註冊"
+adm_info_banned: "被停權的玩家"
+adm_info_vacation: "假期模式中"
+adm_info_bots: "機器人玩家"
+adm_info_points_avg: "平均分數"
+adm_info_points_top: "最高分數"
+adm_info_last_stats: "上次統計更新"
+adm_info_market: "未成交的市集掛單"
+adm_info_reports: "已儲存的戰鬥報告"
+adm_info_debris: "有內容的殘骸場（金屬 / 晶體）"
+adm_info_resources: "儲存在行星上的資源"
+adm_info_fleets_by_mission: "依任務分類的艦隊"
+adm_info_mission: "任務"
+adm_info_no_fleets: "沒有艦隊在飛行。"
+adm_info_reg_chart: "註冊數，最近 30 天"
+adm_info_no_registrations: "最近 30 天沒有註冊。"
+adm_info_all_universes: "所有宇宙"
+adm_info_total: "總計"
+adm_info_logs: "紀錄與快取"
+adm_info_game_log: "遊戲紀錄"
+adm_info_errors_24h: "錯誤，最近 24 小時"
+adm_info_warnings_24h: "警告，最近 24 小時"
+adm_info_scanned: "已掃描（檔案結尾）"
+adm_info_symfony_log: "Symfony 紀錄"
+adm_info_lines: "行"
+adm_info_files: "個檔案"
+adm_info_last_errors: "最新的錯誤"
+adm_info_no_errors: "紀錄中已掃描的部分沒有錯誤。"
+adm_info_time: "伺服器時間"
+adm_info_timezone_of: "來源"
+adm_info_zone: "時區"
+adm_info_tz_php: "PHP"
+adm_info_tz_config: "遊戲設定"
+adm_info_tz_user: "你的帳號"
+adm_login_throttled: '嘗試次數太多。請幾分鐘後再試。'
+se_community_links: "社群連結"
+se_discord_url: "Discord 邀請網址"
+se_discord_url_info: "你的 Discord 伺服器邀請連結（https://...）。會顯示在選單、登入頁面、郵件和文字中。留空就會隱藏。"
+se_discord_widget_guild: "Discord 伺服器 ID（線上小工具）"
+se_discord_widget_guild_info: "你的 Discord 伺服器 ID（17-20 位數；伺服器設定 → 小工具，必須開啟「啟用伺服器小工具」）。在首頁顯示一個有在線人數的方塊，每 5 分鐘更新一次。留空就會隱藏。"
+se_wiki_url: "Wiki 網址"
+se_wiki_url_info: "外部 Wiki 的基底網址，結尾不要加斜線（https://...）。FAQ、教學和規則中的 Wiki 連結都由它組成。留空就會隱藏。"
+se_donate_url: "贊助網址"
+se_donate_url_info: "贊助用的連結（https://...），顯示在選單中。留空就會隱藏。"
+se_userscripts_url: "使用者腳本網址"
+se_userscripts_url_info: "說明你遊戲使用者腳本的頁面（https://...），連結在設定中。留空就會隱藏。"
+se_bots_alliances_enabled: "機器人組成聯盟"
+se_bots_alliances_enabled_info: "機器人會創立自己的聯盟，偶爾也會加入別的聯盟。關閉：機器人維持獨行俠，哪裡都不申請，並退出自己所屬的聯盟（機器人創立的聯盟會保留）。"
+se_bots_join_human_alliances: "機器人可加入玩家聯盟"
+se_bots_join_human_alliances_info: "機器人也可以申請由真人玩家創立的聯盟。關閉：機器人只會加入機器人創立的聯盟，並退出玩家聯盟。"
+se_bot_reply_delay_hours: "回覆延遲（小時）"
+se_bot_reply_delay_hours_info: "玩家最舊的未回覆私人訊息要等幾小時，機器人才會把該玩家所有待處理的訊息一次回覆完。也是機器人主動對同一位玩家發出的兩則訊息（攻擊反應、掠奪嘲諷）之間的最短間隔。0 = 不延遲。"
+se_bot_chatter: "機器人聊天"
+se_bot_chatter_info: "開啟：機器人會回覆私人訊息。關閉：訊息仍會被讀取並計數，但只會發出戰鬥反應（被攻擊後，或掠奪了寫信給它們的玩家之後）。機器人絕不會主動先寫信給玩家。"
+mu_hall_of_fame: "名人堂"
+hof_head: "名人堂（宇宙）"
+hof_view: "查看公開頁面"
+hof_status: "狀態"
+hof_has_data: "有資料"
+hof_entries: "排名項目"
+hof_updated: "最後更新"
+hof_no_data: "這個宇宙沒有名人堂資料。"
+hof_export: "匯出 JSON"
+hof_clear: "清除資料"
+hof_confirm_clear: "要刪除這個宇宙的名人堂資料嗎？"
+hof_import: "匯入 JSON"
+hof_file: "JSON 檔案"
+hof_import_help: "格式：hall-of-fame，版本 1（最大 1 MB）。會取代這個宇宙現有的資料。"
+hof_confirm_import: "要取代這個宇宙現有的名人堂資料嗎？"
+hof_imported: "名人堂已匯入。"
+hof_cleared: "名人堂資料已刪除。"
+hof_error_nofile: "沒有上傳有效的檔案。"
+hof_error_invalid: "匯入被拒絕："
+se_bash_war_exempt: "戰爭解除洗點上限"
+se_bash_war_exempt_info: "處於戰爭中的聯盟之間的攻擊（已接受、超過一天）不計入洗點上限。關閉：戰爭攻擊和其他攻擊一樣計入。"
+se_honor_pair_cap: "每對玩家的光榮戰鬥（24 小時）"
+se_honor_pair_cap_info: "同樣兩位玩家之間（任一方向）在 24 小時內有幾場光榮戰鬥能獲得榮譽。之後的戰鬥算中立。0 = 無限制。"
+se_market_push_tolerance: "市集灌資容許度"
+se_market_push_tolerance_info: "市集交易可接受的價值差異百分比（0-90），超過就算灌資。預設 30。"
+se_transport_push_check: "運輸灌資防護"
+se_transport_push_check_info: "當過去 7 天內送給另一位玩家的價值，超過對方回送價值達到下方上限以上時，拒絕對他的運輸、駐守和轉讓（貨物和艦船）。"
+se_transport_push_limit: "運輸灌資上限"
+se_transport_push_limit_info: "超過這個貨物價值（以重氫單位計，依市集比率）時，防護就會生效。0 = 關閉防護。"
+se_depot_cost_real_consumption: "倉庫成本依實際消耗"
+se_depot_cost_real_consumption_info: "聯盟倉庫每小時改收艦隊的實際燃料消耗（含擁有者的引擎和燃料科技）/ 10，而不是基礎消耗 / 10。"
+se_hours: 小時
+se_remember_me_days: '「保持登入」持續'
+se_remember_me_days_info: '勾選「保持登入」登入後，在瀏覽器重啟和工作階段過期後還能維持的天數。更改密碼會結束它。0 表示停用這個選項。'
+se_session_lifetime: 工作階段在閒置多久後過期
+se_session_lifetime_info: '完全沒有任何請求經過幾小時後，玩家會被登出（「工作階段已過期」）。'
+abuse_menu: "濫用報告"
+abuse_days: "天數"
+abuse_apply: "套用"
+abuse_weights: "價值權重 金屬 : 晶體 : 重氫"
+abuse_none: "這個時段內沒有發現任何東西。"
+abuse_from: "從"
+abuse_to: "到"
+abuse_count: "數量"
+abuse_sent: "送出"
+abuse_back: "回送"
+abuse_net: "淨價值"
+abuse_linked: "關聯"
+abuse_last: "最後"
+abuse_link_ip: "相同 IP"
+abuse_link_multi: "多帳號群組"
+abuse_link_multi_known: "多帳號群組（已知）"
+abuse_link_subnet: "相同子網路（較弱）"
+abuse_thresholds: "門檻：單向達到 %s 金屬單位、回送最多 %s 的轉移配對會被列出；市集配對則是從 %s 筆交易開始，差異超過 %s 就標記。沒有任何列表示沒有達到這些限制（或紀錄裡什麼都沒有），不代表什麼事都沒發生。"
+abuse_transfers: "單向的運輸與駐守"
+abuse_transfers_info: "兩位玩家之間的運輸、駐守和艦船轉讓（未被召回；艦船以建造成本計算），貨物單向價值至少達到 %s 金屬單位，而回送的價值最多只有 %s。依淨價值排序；權重是已儲存的市集比率。"
+abuse_trades: "重複的市集交易"
+abuse_trades_info: "同樣兩位玩家之間至少 %s 次的資源交易。比率 = 給得多的一方所付出的價值除以另一方（1.00 = 市集參考價）；差異超過 %s 就標記這一對。"
+abuse_giver: "給得多"
+abuse_receiver: "收得多"
+abuse_ratio: "比率"
+abuse_outlier: "異常值"
+abuse_protections: "重建保護授予"
+abuse_protections_info: "在這個時段內獲得重建保護的玩家。對手是那場戰鬥的戰鬥報告中的另一方；戰利品是他們的艦隊在其中獲得的價值（殘骸和被摧毀的價值不會儲存）。"
+abuse_protected: "受保護的玩家"
+abuse_granted: "授予時間"
+abuse_opponents: "對手"
+abuse_loot: "對手戰利品"
+abuse_report: "報告"
+abuse_recalls: "抵達時或之後的召回"
+abuse_recalls_info: "在抵達時間已到之後才被召回的攻擊、聯盟戰和摧毀艦隊（抵達後召回的模式）。"
+abuse_mission: "任務"
+abuse_arrival: "抵達"
+abuse_recalled: "召回"
+abuse_late: "抵達之後"
+abuse_fought: "已交戰"
+abuse_mission_1: "攻擊"
+abuse_mission_2: "聯盟戰攻擊"
+abuse_mission_9: "摧毀"
+abuse_missiles_skipped: "飛彈發射與發射井內容的比對不在這份報告內：資料表中沒有可供比較的發射井歷史。"
+abuse_link_device: "相同裝置"
+abuse_graph: "價值流動群集"
+abuse_graph_info: "在過去 %s 天（固定時段）內因價值流動而相連的玩家：運輸、駐守、艦船轉讓（以建造成本）、市集交易（雙方）和攻擊戰利品，雙向加總。只有至少移動 %s 金屬單位且有 %s 次流動的配對才會被連起來；列出由兩位以上組成的相連群組（依價值排前 %s 名）。淨值 = 群集中最單向的配對的價值（佔其總價值的比例）。關聯旗標會顯示成員是否與另一位成員共用 IP、裝置或多帳號群組。每個來源的列數都有讀取上限。"
+abuse_members: "成員"
+abuse_value: "總價值"
+abuse_flows: "流動"
+abuse_top_edge: "最單向的配對"
+abuse_activity: "艦隊出發活動（24 小時）"
+abuse_activity_info: "最近 24 小時內艦隊出發次數最多的帳號；尖峰 = 最忙的那一個整點小時的出發次數。持續偏高的尖峰可能代表腳本操作。"
+abuse_player: "玩家"
+abuse_launches: "出發次數"
+abuse_peak: "尖峰 / 小時"
+adm_dash_unprotected: "這個宇宙的防濫用保護已關閉："
+adm_dash_unprotected_push: "運輸、駐守和轉讓的灌資防護已關閉（transport_push_check / transport_push_limit）。"
+adm_dash_unprotected_honor: "榮譽配對上限為 0（同樣兩位玩家之間的榮譽無限制）。"
+adm_dash_unprotected_bash: "宣告的戰爭會解除洗點上限（bash_war_exempt）。"
+adm_dash_unprotected_depot: "倉庫駐守按便宜的基礎消耗計費（depot_cost_real_consumption 已關閉）。"
+adm_dash_unprotected_market: "市集灌資容許度高於 10 %（market_push_tolerance）。"
+modul_57: "投票網站"
+adm_nav_voting: "投票網站"
+vt_sites: "投票網站"
+vt_add: "新增網站"
+vt_create_head: "新增投票網站"
+vt_edit_head: "編輯投票網站"
+vt_back: "返回"
+vt_name: "名稱"
+vt_vote_url: "投票網址"
+vt_vote_url_help: "玩家被導向的連結。{token}（這次投票的一次性權杖）和 {userId} 會被取代。"
+vt_image_url: "圖片網址（選填）"
+vt_image_url_help: "顯示在玩家頁面該網站旁的橫幅或標誌（https）。"
+vt_cooldown: "冷卻時間（小時）"
+vt_cooldown_help: "每位玩家每個網站在這個時間窗內只有一次獎勵，從上次獎勵起算。"
+vt_reward: "獎勵"
+vt_res_901: "金屬"
+vt_res_902: "晶體"
+vt_res_903: "重氫"
+vt_verification: "驗證"
+vt_verify_none: "無（點擊即給獎勵）"
+vt_verify_postback: "Postback（網站回呼時給獎勵）"
+vt_verification_help: "沒有驗證時，玩家點擊投票按鈕就會發放獎勵（只受冷卻限制）。使用 postback 時，網站必須呼叫回呼網址。"
+vt_sort: "排序"
+vt_active: "啟用中"
+vt_enabled: "啟用中"
+vt_disabled: "未啟用"
+vt_enable: "啟用"
+vt_disable: "停用"
+vt_delete: "刪除網站"
+vt_renew_secret: "產生新的密鑰"
+vt_renew_secret_help: "讓舊的 postback 網址失效：請到投票網站更新它。"
+vt_postback: "Postback"
+vt_postback_url: "回呼網址"
+vt_secret: "密鑰"
+vt_postback_help: "在投票網站把這個網址填入回呼/postback。把 {token} 換成該網站用來代表投票網址中所收到的值的巨集。接受 GET 和 POST；密鑰也可以用標頭 X-Vote-Secret 傳送。"
+vt_saved: "已儲存。"
+vt_deleted: "投票網站已刪除。"
+vt_empty: "還沒有投票網站。"
+vt_confirm_delete: "要刪除投票網站「%s」及其紀錄嗎？"
+vt_module_off: "「投票網站」模組已關閉，玩家看不到投票頁面。"
+vt_error_name: "名稱為必填。"
+vt_error_vote_url: "投票網址必須是有效的 http(s) 位址。"
+vt_error_image_url: "圖片網址必須是有效的 http(s) 位址。"
+vt_error_reward: "獎勵數量必須介於 0 到 1,000,000,000 之間。"
+vt_clicks: "點擊"
+vt_verified: "已驗證"
+vt_rewarded: "已給獎勵"
+vt_log: "最近的投票"
+vt_log_time: "時間"
+vt_log_player: "玩家"
+vt_log_status: "狀態"
+vt_log_ip: "IP"
+vt_log_empty: "還沒有投票。"
+vt_status_rewarded: "已給獎勵"
+vt_status_verified: "已驗證，無獎勵"
+vt_status_pending: "已點擊"
+adm_nav_social: "社群登入"
+se_social: "社群登入"
+se_social_info: "讓玩家用現有的 Discord、Facebook、GitHub 或 Google 帳號登入或註冊（OAuth2）。所有提供者預設都是關閉的。請到提供者那邊建立應用程式，在那裡註冊下方顯示的回呼網址，並在這裡填入用戶端 ID 和密鑰。"
+se_social_site_url_missing: "遊戲的基底網址（.env.local 中的 DEFAULT_URI）尚未設定，所以無法產生回呼網址，提供者依然無法使用。"
+se_social_incomplete: "已開啟，但缺少用戶端 ID 或用戶端密鑰：登入按鈕仍會隱藏。"
+se_social_enabled: "啟用"
+se_social_enabled_info: "在首頁和註冊頁面顯示登入按鈕。"
+se_social_client_id: "用戶端 ID"
+se_social_client_id_info: "提供者那邊的應用程式（用戶端）ID。"
+se_social_client_secret: "用戶端密鑰"
+se_social_client_secret_info: "不會再顯示。留空表示保留已儲存的密鑰。"
+se_social_callback: "回呼網址"
+se_social_callback_info: "請在提供者那邊把這個位址原封不動地登記為重新導向 / 回呼網址。"
+se_social_create_app: "建立應用程式"
+se_social_discord_help: "Discord Developer Portal：New Application，然後 OAuth2：加入重新導向，複製用戶端 ID 和用戶端密鑰。"
+se_social_facebook_help: "Meta for Developers：以 Facebook Login 的使用情境建立應用程式，並把網址加到有效的 OAuth 重新導向 URI。Facebook 的電子信箱永遠不會被視為已驗證：新玩家無法透過它註冊，現有帳號也不會依電子信箱比對；從帳號設定連結則可以使用。"
+se_social_github_help: "GitHub Settings、Developer settings、OAuth Apps：New OAuth App，把回呼網址填入 authorization callback URL。"
+se_social_google_help: "Google Cloud Console、APIs and Services、Credentials：建立類型為 Web application 的 OAuth 用戶端 ID，並把回呼網址加到 authorized redirect URIs。"
+se_social_scopes: "請求的範圍：%s"
+se_del_user_automatic_on: "自動刪除不活躍玩家"
+se_del_user_automatic_on_info: "開關：在上方設定的天數後，自動刪除一般不活躍的玩家（不含假期模式、不含被停權者）。關閉：不活躍的玩家永遠不會被自動刪除。"
+se_del_user_vacation_on: "自動刪除假期模式中的玩家"
+se_del_user_vacation_on_info: "開關：自動刪除處於假期模式、且超過下方天數沒登入的玩家。關閉：假期模式中的玩家永遠不會被自動刪除。"
+se_del_user_vacation: "假期模式中的玩家多久後刪除"
+se_del_user_vacation_info: "假期模式中的玩家在沒登入多少天後會被刪除。0 = 與不活躍玩家相同的天數。"
+se_del_user_banned_on: "自動刪除被停權的玩家"
+se_del_user_banned_on_info: "開關：自動刪除超過下方天數沒登入的被停權玩家。關閉：被停權的玩家永遠不會被自動刪除（停權會保留）。"
+se_del_user_banned: "被停權的玩家多久後刪除"
+se_del_user_banned_info: "被停權的玩家在沒登入多少天後會被刪除。0 = 與不活躍玩家相同的天數。"
+se_vmode_allow_incoming: "有敵對艦隊來襲時的假期模式"
+se_vmode_allow_incoming_info: "開啟：玩家在有外來艦隊正前往他們時也可以進入假期模式（攻擊會被彈開）。關閉：只要有帶著攻擊、聯盟戰攻擊、飛彈、摧毀或間諜任務的外來艦隊正前往該玩家的某顆行星或月球，就會拒絕進入假期模式。"
+rp_fleets_error: "還有屬於玩家或前往玩家的艦隊在飛行！"

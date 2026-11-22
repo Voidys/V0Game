@@ -1,0 +1,1751 @@
+Account: Fiók
+Achievement_names:
+  '1': Álmatlan és morcos
+  '2': Perpetuum mobile
+  '3': Kiérdemelted
+  '4': Most már mi értelme?
+  '5': Mert megtehetem
+  '6': Minimálbér
+  '7': Francia forradalom
+  '8': Részeg flottamentés
+  '9': Ez nem hold
+  '10': Golyózás
+  '11': TheLegend27
+  '12': Slippy áldása
+  '13': Hajszál híján
+  '14': Slippy átka
+  '15': Maradt még Könnyű harcosunk?
+  '16': Hé, haver, hol a törmelékmezőm?!
+  '17': Végső védelem!
+  '18': Keleti pályaudvar
+  '19': Vastag bőr 1
+  '20': Vastag bőr 2
+  '21': Vastag bőr 3
+  '22': Vastag bőr 4
+  '23': Vastag bőr 5
+  '24': Pew-pew, tüzel a lézer
+  '25': GDPR-sértés
+  '26': Mindent a teljesítményekért
+  '27': Nagyagy-idő
+  '28': Alternatív játékmenet
+  '29': Kommunista kiáltvány
+  '30': Ez Spárta!
+  '31': Irány a nyaralás
+  '32': Kalóz!
+  '33': Bármikor abba tudom hagyni!
+  '34': Az étlapon
+  '35': Ez nem szép dolog!
+  '36': Miesernachtsmann
+  '37': Én nem vagyok az a fajta lány
+  '38': Cornag and Offz
+  '39': Az élet értelme
+  '40': Kolumbusz
+  '41': Flottahely-filantróp
+  '42': Legalább bekerültem a Csatacsarnokba
+  '43': Csukott szemmel
+  '44': Mindenkivel megesik
+  '45': Lakatos
+  '46': Tiszta gyűlölet!
+  '47': Hasfelmetsző Jack
+  '48': Jack, a Hasfelmetszett
+  '49': A Rocket csapat megint elrepül
+  '50': Hoppá
+  '51': Túl szegény a böngészéshez
+  '52': Nagyzási hóbort
+  '53': Einstein
+  '54': Boldog új évet!
+  '55': Élő legenda
+Achievement_text:
+  '1': Egy egész éjszakád volt, és egyetlen lövést sem találtál be.
+  '2': 90 napig megállás nélkül mozgásban voltak a flottáid.
+  '3': 'Elvesztetted a flottádat, miközben a nyelved „francia” volt.'
+  '4': Kutasd ki az Ionizációs technikát a 10. szintre.
+  '5': Kutasd ki a Gravitonkutatást a 2. szintre, csak mert megteheted.
+  '6': Az egyik támadásod mindössze 1 fémmel, 1 kristállyal és 1 deutériummal tért vissza.
+  '7': 'Győzz le legalább 10 000 hajóból álló kalóz- vagy idegen flottát. Az űr a miénk!'
+  '8': Jelenj meg a Stammtischen (keddenként este 8-kor a Discordon).
+  '9': Építsd meg az első Halálcsillagodat.
+  '10': Pusztítsd el egy játékos Holdját.
+  '11': Játssz 14 napig kizárólag mobilon.
+  '12': Az első expedíciód során egy fekete lyuk megsemmisítette a flottádat.
+  '13': Küldd el a flottádat, amikor 5 másodpercnél kevesebb van hátra egy beérkező támadásig.
+  '14': Veszíts el 10 flottát fekete lyukakban. Az űr éhes.
+  '15': Ne sikerüljön Holdat létrehozni egy bolygónál 10 próbálkozás után. Legközelebb több szerencsét.
+  '16': Több mint 250 Szemetesed tért vissza üresen.
+  '17': Állíts sorba legalább 5000 Rakétakilövőt egyetlen építési megbízásban.
+  '18': Égess el 5 millió deutériumot üzemanyagként egyetlen bolygón 24 órán belül.
+  '19': Kutasd ki a Páncélozást a 3. szintre.
+  '20': Kutasd ki a Páncélozást a 6. szintre.
+  '21': Kutasd ki a Páncélozást a 9. szintre.
+  '22': Kutasd ki a Páncélozást a 12. szintre.
+  '23': Kutasd ki a Páncélozást a 15. szintre.
+  '24': Kutasd ki a Lézertechnikát a 12. szintre.
+  '25': Jelentkezz be a Rekordokba.
+  '26': Töröld a bolygót, amelyik a legtöbb pontot adja neked (legalább 100 000 pont).
+  '27': Kutasd ki az Intergalaktikus kutatóhálózatot az 1. szintre.
+  '28': Fejleszd egy Holdon mind a három raktárat legalább a 3. szintre.
+  '29': Kollektivizáld egy magasabb pontszámú játékos flottáját egy 5 játékos részvételű ACS-sel.
+  '30': Verj vissza egyedül egy 5 játékos részvételű ACS-t.
+  '31': Küldj egy játékost nyaralás módba a támadásoddal.
+  '32': 'Fosztogass 1000 bolygót a „SetSail” témával. Arr!'
+  '33': Térj vissza a nyaralás módból.
+  '34': Támadjanak meg először. Üdv az univerzumban.
+  '35': Támadj meg egy aktív játékost, akinek kevesebb mint a pontjaid 1/10-e van.
+  '36': "Kapj egy üzenetet, amely a következő blokkok egyikét tartalmazza:\r\n                        \"Hurensohn\", \"gleichstarke Ziele\", \"gegen Schwächere\", \"ehrenlos\""
+  '37': Töröljön el egy 5 játékos részvételű ACS.
+  '38': 'Támadd meg a saját szövetséged tagjait. Baráti tűz, valaki?'
+  '39': Támadj meg valakit pontosan 42 hajóval.
+  '40': Gyarmatosíts egy bolygót legalább fél univerzumnyira.
+  '41': Blokkolj egy flottahelyet egy hétig egy rossz piactéri ajánlattal.
+  '42': Kerülj be 4-szer a Csatacsarnokba a vesztes oldalon.
+  '43': "Nyerj egy csatát, miközben a fiókod Inaktívként van megjelölve,\r\n            az egyik olyan bolygódon, ahová korábban megérkezett egy flotta, amelynek repülési ideje több mint 7 nap volt."
+  '44': 'Termelj egy nyersanyagot egy bolygón több mint 7 napig 100%-nál kisebb energiával.'
+  '45': Nyerj egy támadást egy olyan játékos ellen, aki a védelem top 5-jében van.
+  '46': Aktiváld a bash-védelmet bolygóközi rakéták kilövésével.
+  '47': Pusztíts el 5 holdat.
+  '48': Veszíts el 5 Halálcsillagot holdak elpusztítására tett kísérletben. Au.
+  '49': Bontsd le a kolóniát röviddel a létrehozása után.
+  '50': "Veszítsd el egy bolygón az összes napműholdadat, miközben elég\r\n            energiád van a Gravitonkutatás kutatásához, anélkül hogy kikutattad volna a Gravitonkutatást."
+  '51': Használd el az összes deutériumodat a galaxisnézet böngészése közben.
+  '52': >-
+    Építs Halálcsillagot úgy, hogy előtte nem építettél más harci hajót
+    (Könnyű harcos, Nehéz harcos, Cirkáló, Csatahajó, Bombázó, Romboló vagy
+    Csatacirkáló).
+  '53': Tartsd a csúcsszintet 5 kutatásban egyszerre.
+  '54': 'Időzíts egy támadást egy aktív játékosra úgy, hogy 01/01 00:00:00-kor érkezzen.'
+  '55': Különleges teljesítmény
+ach_filter_all: Mind
+ach_filter_locked: Zárolt
+ach_filter_unlocked: Feloldott
+ach_locked: Még nincs feloldva
+ach_progress: '%d / %d feloldva'
+ach_unlocked_on: 'Feloldva: %s'
+Achievements: Teljesítmények
+admin_access_1: Ideiglenes admin jogaid vannak.
+admin_access_2: ' ha nincs rájuk azonnal szükség.'
+admin_access_link: JOGOSULTSÁGOK KIKAPCSOLÁSA
+Advanced_Stats:
+  destroy_moon_rips_lost: Holdpusztítási kísérletben elvesztett Halálcsillagok
+  desunits: Részt vett egységek pusztításában
+  desunits_real: Megsemmisített ellenséges egységek
+  dishonorable_fights: Becstelen csaták
+  draws: Döntetlen
+  expo_aliens_large: Nagy idegenek
+  expo_aliens_medium: Közepes idegenek
+  expo_aliens_small: Kis idegenek
+  expo_black_hole: Fekete lyukak
+  expo_count: Expedíciók
+  expo_fast: Gyors expedíciók
+  expo_first: 'Expedícióban talált ekkor:'
+  expo_found: 'Expedíciós leletek:'
+  expo_lost: 'Expedíciós veszteségek:'
+  expo_nothing: Üres kézzel végződő expedíciók
+  expo_pirates_large: Nagy kalózok
+  expo_pirates_medium: Közepes kalózok
+  expo_pirates_small: Kis kalózok
+  expo_res_large: Nagy nyersanyagleletek
+  expo_res_medium: Közepes nyersanyagleletek
+  expo_res_small: Kis nyersanyagleletek
+  expo_ships_large: Nagy hajóleletek
+  expo_ships_medium: Közepes hajóleletek
+  expo_ships_small: Kis hajóleletek
+  expo_slow: Lassú expedíciók
+  first: 'Első szint/darab:'
+  first_attack: Első támadás
+  first_attack_win: Első sikeres támadás
+  first_big_attack_win: Első nagy támadási győzelem (1 M megsemmisített egység)
+  first_big_defense_win: Első nagy védelmi győzelem (1 M megsemmisített egység)
+  first_colony: Első kolónia
+  first_defense: Első védelem
+  first_defense_win: Első sikeres védekezés
+  first_espionage: Első kémküldetés
+  first_expedition: Első expedíció
+  first_expo_aliens_large: Első nagy idegen találkozás
+  first_expo_aliens_medium: Első közepes idegen találkozás
+  first_expo_aliens_small: Első kis idegen találkozás
+  first_expo_black_hole: Első fekete lyukkal való találkozás
+  first_expo_fast: Első gyors expedíció
+  first_expo_nothing: Első üres kézzel végződő expedíció
+  first_expo_pirates_large: Első nagy kalóztalálkozás
+  first_expo_pirates_medium: Első közepes kalóztalálkozás
+  first_expo_pirates_small: Első kis kalóztalálkozás
+  first_expo_res_large: Első nagy nyersanyaglelet
+  first_expo_res_medium: Első közepes nyersanyaglelet
+  first_expo_res_small: Első kis nyersanyaglelet
+  first_expo_ships_large: Első nagy hajólelet
+  first_expo_ships_medium: Első közepes hajólelet
+  first_expo_ships_small: Első kis hajólelet
+  first_expo_slow: Első lassú expedíció
+  first_moon: Első Hold
+  first_moon_trys: Próbálkozások az első Holdra
+  first_recycling: Első hasznosítási küldetés
+  first_vacation: Első nyaralás mód
+  galaxy_scroll_spending: A galaxisnézet görgetésére elköltött összes deutérium
+  honorable_fights: Becsületes csaták
+  honorpoints: Becsületpontok
+  kbcrystal: Részt vett kristálytörmelékben
+  kbcrystal_real: Létrehozott kristálytörmelék
+  kbmetal: Részt vett fémtörmelékben
+  kbmetal_real: Létrehozott fémtörmelék
+  loos: Vesztett
+  lostunits: Részt vett egységveszteségekben
+  lostunits_real: Saját egységveszteségek
+  moons_created: Létrehozott holdak
+  moons_deleted: Elhagyott holdak
+  moons_destroyed: Elpusztított holdak
+  moons_lost: Elvesztett holdak
+  moons_received: Kapott holdak
+  outlaw_activations: Törvényenkívüli-aktiválások
+  planets_created: Gyarmatosított bolygók
+  planets_deleted: Elhagyott bolygók
+  raided_crystal: Zsákmányolt kristály
+  raided_deuterium: Zsákmányolt deutérium
+  raided_metal: Zsákmányolt fém
+  recycled_crystal: Hasznosított kristály
+  recycled_metal: Hasznosított fém
+  set_sail_wins: A SetSail témával megnyert csaták
+  stolen_crystal: Ellopott kristály
+  stolen_deuterium: Ellopott deutérium
+  stolen_metal: Ellopott fém
+  used_fuel: Elfogyasztott üzemanyag
+  wons: Nyert
+advancedStats: Haladó statisztikák
+al_acept_request: Elfogadás
+al_actions: Műveletek
+al_all_players: Minden játékos
+al_alliance: Szövetség
+al_alliance_closed: Ez a szövetség nem fogad új tagokat.
+al_alliance_full: Ez a szövetség megtelt. Próbálj egy másikat.
+al_apply_rate_limited: "Ma túl sok jelentkezést küldtél. Próbáld újra holnap."
+al_alliance_make: Hozd létre a saját szövetségedet
+al_alliance_min_points: 'Legalább %d pont kell ahhoz, hogy jelentkezhess ebbe a szövetségbe.'
+al_alliance_search: Szövetségek keresése
+al_ally_info_members: Tagok
+al_ally_info_name: Név
+al_ally_info_tag: Címke
+al_ally_information: Szövetségi információk
+al_already_exists: 'Már létezik <b>%s</b> nevű szövetség. Válassz másik nevet.'
+al_apply_accepted: Jelentkezés elfogadva.
+al_apply_declined: Jelentkezés elutasítva.
+al_apply_not_exists: Ez a jelentkezés már nem létezik.
+al_applyform_send: Küldés
+al_back: Vissza
+al_candidate: Jelentkező
+al_characters: karakter
+al_circular_alliance: 'Szövetség '
+al_circular_front_text: '<b>%s</b> szövetségi tag ezt írta:'
+al_circular_message: Szövetségi üzenetek
+al_circular_reset: Visszaállítás
+al_circular_send_ciruclar: Tömeges üzenet küldése
+al_circular_send_submit: Küldés
+al_circular_sended: 'Az üzenetet elküldtük ezeknek a játékosoknak:'
+al_click_to_send_request: Csatlakozás a szövetséghez
+al_close_ally: 'Tényleg fel akarod oszlatni a szövetséget?'
+al_configura_ranks: Rangok kezelése
+al_continue: Tovább
+al_coords: Koordináták
+al_create: Létrehozás
+al_create_new_rank: Új rang létrehozása
+al_created: 'A(z) <b>%s</b> szövetség megalapítva!'
+al_decline_request: Elutasítás
+al_default_leader_name: Vezető
+al_delete_request: Jelentkezés visszavonása
+al_delete_request_confirm: 'Visszavonod a jelentkezésedet?'
+al_description_message: Ez a szövetség még nem írt leírást.
+al_diplo: Diplomácia
+al_diplo_accept: Beérkező kérelmek
+al_diplo_accept_no: Paktum elutasítva.
+al_diplo_accept_no_confirm: 'Elutasítod ezt a paktumot?'
+al_diplo_accept_no_mes: A paktumot (%s) a(z) <b>%s</b> és <b>%s</b> szövetségek között elutasították!
+al_diplo_accept_send: Kimenő kérelmek
+al_diplo_accept_yes: Paktum aláírva.
+al_diplo_accept_yes_confirm: 'Elfogadod ezt a paktumot?'
+al_diplo_accept_yes_mes: A paktumot (%s) a(z) <b>%s</b> és <b>%s</b> szövetségek között aláírták!
+al_diplo_ally: Szövetség
+al_diplo_ask: Paktumkérelem
+al_diplo_ask_mes: >-
+  <a href="game/alliance/admin/diplomacy">[Paktumkérelem]</a> (%s)
+  érkezett: '<b>%s</b> küldte ide: <b>%s</b>.<br>Indoklás: %s'
+al_diplo_confirm_delete: 'Felmondod ezt a paktumot?'
+al_diplo_create: Paktum kérése
+al_diplo_create_done: Paktumkérelem elküldve.
+al_diplo_delete: Paktum véget ért
+al_diplo_delete_mes: 'A paktum (%s) a(z) <b>%s</b> és <b>%s</b> szövetségek között véget ért.'
+al_diplo_exists: 'Már van aktív vagy függőben lévő paktumod ezzel: %s.'
+al_diplo_head: Diplomáciai kezelés
+al_diplo_info: >-
+  <p>Ezen az oldalon kezelheted a szövetséged diplomáciai paktumait.</p><p>A
+  paktumtípusok lent vannak felsorolva. További információ: <a
+  href="game/faq">GYIK</a> vagy a <a
+  href="{wiki_url}/wiki/En/Hauptseite"
+  target="_blank">wiki</a>.</p>
+al_diplo_level:
+  - Fő
+  - Szárny
+  - Szövetség
+  - Kereskedelmi paktum
+  - Megnemtámadási egyezmény
+  - Háború
+  - Titkos szövetség
+  - Béke
+al_diplo_level_des: Paktumtípusok
+al_diplo_no_accept: '- Nincs kérelem -'
+al_diplo_no_alliance: 'Nem található szövetség ezzel az azonosítóval: %s.'
+al_diplo_no_entry: '- Nincs paktum -'
+al_diplo_same_alliance: 'A saját szövetségeddel nem köthetsz paktumot!'
+al_diplo_text: Kérelem/Indoklás
+al_diplo_war: Hadüzenet
+al_diplo_war_end: Békenyilatkozat
+al_diplo_war_end_mes: 'A(z) %s a(z) <b>%s</b> és <b>%s</b> szövetségek között éppen véget ért.'
+al_diplo_war_mes: >-
+  A(z) <b>%1$s</b> szövetség a(z) <b>%2$s</b> ellen a következőt hirdette
+  ki: '%3$s!'
+  <br>Indoklás:<br>%4$s<br><br>Tudnivaló: a háború <b>24 óra</b> múlva
+  kezdődik, ekkor a Bash-szabály felfüggesztésre kerül.<br>További
+  információért olvasd el a <a href="./rules?lang=en"
+  target="_blank">[Szabályokat]</a>.
+al_diplo_withdraw: Paktumkérelem visszavonva.
+al_diplo_withdraw_confirm: 'Visszavonod ezt a paktumkérelmet?'
+al_diplo_withdraw_mes: A paktumkérelmet (%s) a(z) <b>%s</b> és <b>%s</b> szövetségek között visszavonták.
+al_disolve_alliance: Szövetség feloszlatása
+al_dlte: Törlés
+al_estate: Online
+al_find_alliances: Szövetségek keresése
+al_find_no_alliances: Nincs találat. Próbálj más keresést.
+al_find_submit: Keresés
+al_find_text: Keresés erre
+al_founder_rank_text: Alapító
+al_go_out_no: 'Nem'
+al_go_out_yes: 'Igen'
+al_has_accepted: '</b> szövetség elfogadta a jelentkezésedet!<br>Üzenet: <br>'
+al_has_declined: '</b> szövetség elutasította a jelentkezésedet!<br>Üzenet: <br>'
+al_hi_the_alliance: A(z) <b>
+al_inside_section: Csak tagoknak
+al_inside_text: Privát leírás
+al_invalid_rank_name: A rangnevek csak betűket, számokat, szóközöket, aláhúzásjeleket, kötőjeleket és pontokat tartalmazhatnak.
+al_kick_player: 'Kirúgod %s játékost a szövetségből?'
+al_leave_alliance: Kilépés a szövetségből
+al_leave_ally: 'Kilépsz a szövetségből?'
+al_leave_sucess: 'Kiléptél a(z) <b>%s</b> szövetségből.'
+al_leaving: A játékos kilépett a szövetségből
+al_leaving_msg: >-
+  <a href="#" data-action="dialog-playercard" data-id="%s" data-name="%s"><b>%s</b></a> játékos kilépett a szövetségből!
+al_make_alliance: Szövetség létrehozása
+al_make_ally_insufficient_points: 'Nincs elég pontod egy szövetség létrehozásához.<br>Legalább %s pont kell, és még %s hiányzik.'
+al_make_ally_name_required: Szövetség neve (3-30 karakter)
+al_make_ally_tag_required: Szövetség címkéje (3-8 karakter)
+al_make_submit: Létrehozás
+al_manage_alliance: Szövetség kezelése
+al_manage_diplo: Diplomácia
+al_manage_founder_rank: Vezetői rang
+al_manage_image: Bannerkép
+al_manage_members: Tagok
+al_manage_options: Beállítások
+al_manage_ranks: Rangok
+al_manage_request_min_points: Min. pontok
+al_manage_requests: Jelentkezések
+al_member: Név
+al_member_since: Csatlakozott
+al_memberlist_min: perc
+al_memberlist_off: Offline
+al_memberlist_on: Online
+al_message: Üzenet
+al_name: Szövetség nevének módosítása
+al_name_required: Add meg a szövetség nevét.
+al_link_too_long: A link túl hosszú (legfeljebb 255 karakter).
+al_name_tag_too_long: A címke legfeljebb 8, a név legfeljebb 30 karakter lehet.
+al_new_apply: >-
+  A szövetségednek <a
+  href="game/alliance/admin/applications">[jelentkezése]</a> érkezett
+  <a href="#" data-action="dialog-playercard" data-id="%s" data-name="%s"><b>%s</b></a> játékostól.
+al_new_member_rank_text: Új tag
+al_new_requests: '%d függőben'
+al_newname_specialchar: A szövetségnevek és -címkék csak betűket, számokat, szóközöket, aláhúzásjeleket, kötőjeleket és pontokat tartalmazhatnak.
+al_no_diplo: '-'
+al_no_ranks_defined: 'Még nincsenek rangok. Hozd létre az elsőt!'
+al_no_requests: Jelenleg nincs jelentkezés.
+al_not_exists: Ez a szövetség nem létezik.
+al_num: Azonosító
+al_ok: OK
+al_outside_text: Nyilvános leírás
+al_points: Pontok
+al_position: Rang
+al_rank: A rangod
+al_rank_desc:
+  ADMIN: Kezelheti a szövetséget
+  DIPLOMATIC: Kezelheti a diplomáciát
+  EVENTS: Láthatja az eseményeket
+  KICK: Kirúghat tagokat
+  MANAGEAPPLY: Kezelheti a jelentkezéseket
+  MANAGEUSERS: Kezelheti a tagokat
+  MEMBERLIST: Láthatja a taglistát
+  ONLINESTATE: Láthatja, ki van online
+  RANKS: Kezelheti a rangokat
+  ROUNDMAIL: Küldhet tömeges üzeneteket
+  SEEAPPLY: Láthatja a jelentkezéseket
+  TRANSFER: Szövetségi vezetővé válhat
+al_rank_diplo: Diplomata
+al_rank_name: Név
+al_receiver: Címzett
+al_reply_to_request: Válasz
+al_request: Jelentkezés
+al_request_confirmation_message: 'Jelentkezés elküldve!<br> Üzenetet kapsz, amint elfogadják vagy elutasítják.'
+al_request_date: Jelentkezés dátuma
+al_request_deleted: 'A(z) <b>%s</b> szövetséghez való jelentkezésedet visszavontad.<br> Most új jelentkezést küldhetsz, vagy létrehozhatod a saját szövetségedet.'
+al_request_from: Kérelem a(z) <b>%s</b> számára
+al_request_last_onlinetime: Utolsó aktivitás
+al_request_list: Kérelemlista
+al_request_register_time: Regisztrált
+al_request_text: Jelentkezési űrlap
+al_request_wait_message: 'A(z) <b>%s</b> szövetséghez való jelentkezésed még függőben van.<br> Várj a válaszra, vagy vond vissza, és jelentkezz máshová.'
+al_requests: Kérelmek
+al_requests_allowed: Nyitva
+al_requests_min_points: ' %s pont'
+al_requests_not_allowed: Zárva
+al_save: Mentés
+al_saved: Mentve!
+al_send_circular_message: Tömeges üzenet küldése
+al_set_max_members: Max. tagok
+al_tag: Szövetség címkéjének módosítása
+al_tag_required: Add meg a szövetség címkéjét.
+al_texts: Szövegek
+al_the_alliance: Szövetség
+al_transfer_alliance: Szövetség átadása
+al_transfer_submit: Átadás
+al_transfer_to: Átadás neki
+al_user_list: Taglista
+al_users_list: 'Tagok (összesen: %d)'
+al_users_list_main: 'Fő tagok (összesen: %d) - %s'
+al_users_list_wing: 'Szárnytagok (összesen: %d) - %s'
+al_view_diplo: Diplomácia megjelenítése
+al_view_stats: Csatastatisztika megjelenítése
+al_web_site: Honlap
+al_web_text: Szövetség weboldala
+al_write_request: Jelentkezés a(z) <b>%s</b> szövetségbe
+al_you_was_acceted: 'Felvettek ide: '
+al_you_was_declined: 'Elutasítottak innen: '
+al_your_ally: A szövetséged
+al_your_request_title: A jelentkezésed
+banned_message: >-
+  Ki lettél tiltva. <!--discord_url-->Ha szerinted ez tévedés, írj nekünk Discordon:
+  <a href="{discord_url}">{discord_url}</a><!--/discord_url-->
+bd_actual_production: 'Jelenlegi termelés:'
+bd_available: 'Elérhető: '
+bd_build: Építés
+bd_build_next_level: 'Fejlesztés '
+bd_build_ships: Építés
+bd_building_lab: Nem kutathatsz, amíg a kutatólabort fejlesztik.
+bd_building_shipyard: Nem építhetsz hajókat vagy védelmet, amíg a Hajógyárat (vagy a Nanitgyárat) fejlesztik.
+bd_buildlist_full: Az építési sor megtelt.
+bd_cancel: Mégse
+bd_cancel_send: Építés megszakítása
+bd_cancel_warning: 'Figyelem!<br>A megszakítás csak a költség 60%-át téríti vissza.'
+bd_continue: Folytatás
+bd_deploy: Szolgálatba állítás
+bd_deployable: 'A javítás kész! Automatikus szolgálatba állítás:'
+bd_destroy_time: Időtartam
+bd_dismantle: Bontás
+bd_jump_gate_action: Ugrás
+bd_lvl: Szint
+bd_max_builds: 'A sorod megtelt: legfeljebb %d megbízás.'
+bd_max_ships: max
+bd_max_ships_long: Legfeljebb építhető egységek száma
+bd_max_ships_repair: Legfeljebb helyreállítható egységek száma
+bd_maxlevel: Elérted a maximális szintet
+bd_more_engine: <font class="colorPositive">%s</font> többet termel (%s)
+bd_need_engine: <font class="colorNegative">%s</font> többet fogyaszt (%s)
+bd_next_level: 'Következő szint:'
+bd_no_lab: Ezen a bolygón nincs kutatólabor. A sort láthatod, de nem módosíthatod.
+bd_no_lab_here: 'Ezen a bolygón nincs kutatólabor'
+bd_on_this_planet: 'ezen a bolygón'
+bd_no_more_fields: Nincs több szabad mező ezen a bolygón.
+bd_operating: '(Építés alatt)'
+bd_paused: szünetel
+bd_price_for_destroy: 'Bontási költség:'
+bd_protection_shield_only_one: Csak egy pajzsot építhetsz!
+bd_remaining: Hiányzó nyersanyag
+bd_repair_rate: Javítási arány
+bd_repair_ships: Javítás
+bd_repairdock_busy: A javítódokk egy másik munkával van elfoglalva.
+bd_repairdock_deploy: 'A javítás kész. A hajók újra szolgálatban!'
+bd_repairdock_empty: Itt nincs javítható roncsmező.
+bd_repairdock_required: Előbb építs javítódokkot ezen a bolygón.
+bd_repairdock_time: A roncsmező hátralévő ideje
+bd_repairing: Javítás folyamatban
+bd_requirements: Hiányzó követelmények
+bd_researclist_full: A kutatási sor megtelt.
+bd_shipyard_required: Előbb építs Hajógyárat.
+bd_tech: Kutatás
+bd_tech_next_level: 'Kutatás '
+bd_working: Elfoglalt
+bd_wreck_count: Roncsok a roncsmezőben
+blockDm: Közvetlen üzenetek tiltása
+blockTrade: Kereskedelem tiltása
+bn_by: Tiltó
+bn_exists: 'Összesen '
+bn_from: Mikortól
+bn_no_players_banned: Jelenleg senki nincs kitiltva.
+bn_player: Játékos
+bn_players_banned: ' kitiltott játékos'
+bn_players_banned_list: A kitiltott játékosok listája
+bn_reason: Indok
+bn_until: Meddig
+bn_writemail: 'Írj neki: %s'
+bs_acs_slot: ACS-hely
+bs_add_acs_slot: ACS-hely hozzáadása
+bs_atter: Támadó
+bs_cancel: Visszaállítás
+bs_too_many_units: "Túl sok egység egy szimulációhoz (legfeljebb %s)."
+bs_busy: "Már fut egy szimuláció, várd meg, amíg befejeződik."
+bs_deffer: Védő
+bs_derbis_raport: 'A törmelék hasznosításához szükséges: %s %s.'
+bs_load: Betöltés
+bs_load_invalid: Érvénytelen megosztási kód
+bs_load_no_input: Nem adtál meg megosztási kódot
+bs_reset: Visszaállítás
+bs_send: Számítás
+bs_share: Megosztás
+bs_share_code: Megosztási kód
+bs_share_copy_fail: A másolás nem sikerült
+bs_share_copy_prompt: 'Másold ki kézzel a megosztási kódot:'
+bs_share_error: Nem sikerült létrehozni a megosztási kódot
+bs_share_success: A megosztási kód a vágólapra másolva
+bs_steal: 'A védő nyersanyagai:'
+bs_steal_raport: 'A nyersanyagok elfoglalásához szükséges: %s %s vagy %s %s.'
+bs_swap: Oldalak cseréje
+bs_techno: Technológia
+bs_wait: Várj 5 másodpercet a következő szimuláció előtt
+bu_accept: Elfogadás
+bu_accepted_request_body: Szia %s,<br>%s elfogadta a barátkérelmedet!
+bu_accepted_request_title: 'Barátkérelem elfogadva!'
+bu_action: Művelet
+bu_alliance: Szövetség
+bu_buddy_list: Barátlista
+bu_cancel_request: Kérelem visszavonása
+bu_cannot_request_yourself: Magadnak nem küldhetsz barátkérelmet
+bu_characters: Karakterek
+bu_connected: Kapcsolódva
+bu_coords: Koordináták
+bu_decline: Elutasítás
+bu_delete: Törlés
+bu_disconnected: Offline
+bu_minutes: ' perc'
+bu_my_requests: Kérelmeim
+bu_new_request_body: 'Szia %s,<br>%s a barátod szeretne lenni!'
+bu_new_request_title: Új barátkérelem
+bu_no_buddys: 'Még nincsenek barátaid. Küldj kérelmet egy játékos profiljáról!'
+bu_no_request: Nincs kérelem.
+bu_online: Online
+bu_partners: Partnerek
+bu_player: Játékos
+bu_player_not_exist: Ez a játékos nem létezik.
+bu_rejected_request_body: 'Szia %s,<br>%s elutasította a barátkérelmedet!'
+bu_rejected_request_title: 'Barátkérelem elutasítva!'
+bu_request_exists: 'Ehhez a játékoshoz már van barátkérelem!'
+bu_request_limit: 'Túl sok barátkérelem. Várj néhány percet, mielőtt továbbiakat küldesz.'
+bu_request_message: Üzenet kérése
+bu_request_send: Barátkérelem elküldve.
+bu_request_text: Kérelem üzenete
+bu_requests: Kérelmek
+bu_send: Küldés
+bu_text: Szöveg
+build: Építés
+cff_acs_fleet: Flotta az ACS-ben
+cff_aproaching: 'A flotta összetétele: '
+cff_mission_acs: 'Egy %s (innen: %s %s %s) elérte ezt: %s %s %s. Küldetés: %s'
+cff_mission_other_expo_0: 'Egy %s (innen: %s %s %s) elérte a(z) %s pozíciót. Küldetés: %s'
+cff_mission_other_expo_2: 'Egy %s (innen: %s %s %s) expedíción van a(z) %s pozíción. Küldetés: %s'
+cff_mission_other_recy_0: 'Egy %s (innen: %s %s %s) elérte a(z) %s törmelékmezőt. Küldetés: %s'
+cff_mission_other_0: 'Egy %s (innen: %s %s %s) elérte ezt: %s %s %s. Küldetés: %s'
+cff_mission_other_1: 'Egy %s visszatér innen: %s %s %s ide: %s %s %s. Küldetés: %s'
+cff_mission_other_2: 'Egy %s (innen: %s %s %s) pályán kering itt: %s %s %s. Küldetés: %s'
+cff_mission_other_expo_1: 'Egy %s visszatér a(z) %s pozícióról ide: %s %s %s. Küldetés: %s'
+cff_mission_other_mip: 'Rakétatámadás (%d) innen: %s %s %s ide: %s %s %s.'
+cff_mission_other_recy_1: 'Egy %s visszatér a(z) %s törmelékmezőről a(z) %s %s %s bolygóra. Küldetés: %s'
+cff_mission_own_0: 'A te %s egységed (innen: %s %s %s) elérte ezt: %s %s %s. Küldetés: %s'
+cff_mission_own_1: 'A te %s egységed visszatér innen: %s %s %s ide: %s %s %s. Küldetés: %s'
+cff_mission_own_2: 'A te %s egységed (innen: %s %s %s) pályán kering itt: %s %s %s. Küldetés: %s'
+cff_mission_own_expo_0: 'A te %s egységed (innen: %s %s %s) elérte a(z) %s pozíciót. Küldetés: %s'
+cff_mission_own_expo_1: 'A te %s egységed visszatér a(z) %s pozícióról ide: %s %s %s. Küldetés: %s'
+cff_mission_own_expo_2: 'A te %s egységed (innen: %s %s %s) expedíción van a(z) %s pozíción. Küldetés: %s'
+cff_mission_own_mip: 'Rakétatámadás (%d) innen: %s %s %s ide: %s %s %s.'
+cff_mission_own_recy_0: 'A te %s egységed (innen: %s %s %s) elérte a(z) %s törmelékmezőt. Küldetés: %s'
+cff_mission_own_recy_1: >-
+  A te %s egységed visszatér a(z) %s törmelékmezőről a(z) %s %s %s
+  bolygóra. Küldetés: '%s'
+cff_mission_target_bad: 'Egy ellenséges %s (játékos: %s, innen: %s %s %s) elérte ezt: %s %s %s. Küldetés: %s'
+cff_mission_target_good: 'Egy baráti %s (játékos: %s, innen: %s %s %s) elérte ezt: %s %s %s. Küldetés: %s'
+cff_mission_target_mip: 'Rakétatámadás (%d) %s játékostól, innen: %s %s %s, ide: %s %s %s.'
+cff_mission_target_stay: >-
+  Egy baráti %s (játékos: '%s, innen: %s %s %s) pályán kering itt: %s %s %s.'
+  Küldetés: '%s'
+cff_no_fleet_data: Nincsenek flottaadatok
+cff_ships: ' egység'
+colonyWarn: Figyelmeztetés, ha egy rendszerben 2-nél több bolygót gyarmatosítasz
+css_account_banned_expire: >-
+  Ki vagy tiltva eddig: '%1$s!<br>Kérdés esetén <a style="color: -webkit-link;" href="%2$s">vedd fel velünk a kapcsolatot (link)</a>.'
+css_account_banned_message: A fiókodat kitiltották.
+css_account_banned_reason: 'Indok: %s'
+css_goto_homeside: <a href="./">Irány a kezdőlap</a>
+custom_fleet: Egyéni flották
+custom_fleet_confirm: Eltávolítod a(z) %s flottasablont?
+delete_confirm_gala: 'Törlöd a helyileg mentett galaxisadatokat?'
+Description: Leírás
+destroyed: Megsemmisült
+dishonorable_fights: Becstelen csaták
+donate: Adományozás
+expedition: Expedíció
+fa_action_not_allowed: A művelet nem engedélyezett
+fa_no_fleetroom: Nincs elég rakomány hely az üzemanyagnak
+fa_no_more_slots: Nincs szabad flottahely
+fa_no_recyclers: Nincsenek elérhető Szemetesek
+fa_no_spios: Nincsenek elérhető szondák
+fa_not_enough_fuel: Nincs elég üzemanyag
+fa_not_enough_probes: Nincsenek elérhető szondák
+fa_not_spy_yourself: Magadra nem kémkedhetsz
+fa_planet_not_exist: A bolygó nem létezik
+fa_sending: Küldés
+fa_strong_player: A játékos túl erős
+fa_vacation_mode: A játékos nyaralás módban van
+fa_vacation_mode_current: Nyaralás módban vagy
+fa_week_player: A játékos túl gyenge
+fcm_info: Infó
+fcm_mainplanet: Anyabolygó
+fcm_moon: Hold
+fcm_planet: Bolygó
+fcm_universe: Univerzum
+fcp_colony: Kolónia
+fgf_time: 'Idő: '
+fgr_time: 'Javítási idő: '
+first: Elsők
+fl_a: (T)
+fl_acs: ACS
+fl_acs_change: Módosítás
+fl_acs_change_name: Add meg az új nevet
+fl_acs_invitation_message: ' meghívva az ACS-be.'
+fl_acs_invitation_title: ACS
+fl_acs_newname_alphanum: Az ACS neve csak betűket és számokat tartalmazhat
+fl_acs_title: Szövetségi támadás
+fl_add_to_attack: ' hozzáadva a támadáshoz.'
+fl_admin_attack: Adminokat nem lehet megtámadni.
+fl_all_resources: Összes nyersanyag
+fl_already_invited: ' már meg lett hívva.'
+fl_ammount: Hajók
+fl_arrival: Érkezés
+fl_arrival_time: Érkezési idő
+fl_arrival_target: "Érkezés a célhoz"
+fl_return_home: "Visszatérés"
+fl_attack_confirm_buddy: |-
+  A célpont a barátlistádon van.
+  Biztosan megtámadod?
+fl_attack_confirm_diplo: 'Van egy paktumod (%s) a(z) %s szövetséggel. Mégis megtámadod?'
+fl_attack_confirm_outlaw: 'A(z) %s megtámadása 7 napra törvényen kívülivé tesz.'
+fl_bash_protection: Ez megszegné a bash-szabályt.
+fl_daily_cap_reached: "Elérted a napi flottalimitet (%1$d). %2$d óra %3$d perc múlva áll vissza."
+fl_daily_attack_cap_reached: "Elérted a napi támadási limitet (%1$d). %2$d óra %3$d perc múlva áll vissza."
+fl_beginning: Kiindulás
+fl_blocked: ' nem fogad meghívást.'
+fl_bonus: Bónusz
+fl_bonus_attack: Fegyverek
+fl_bonus_defensive: Páncél
+fl_bonus_shield: Pajzsok
+fl_cargo_capacity: Rakománykapacitás
+fl_colonize_confirm: 'Már több bolygód van ebben a rendszerben. A zsúfolt rendszerek vonzzák az erős játékosokat. Mégis gyarmatosítod?'
+fl_continue: Tovább
+fl_debris_shortcut: (TM)
+fl_departure: Indulás
+fl_destiny: Úti cél
+fl_distance: Távolság
+fl_dlte_shortcut: Törlés
+fl_dont_exist: ' nem létezik.'
+fl_empty_target: 'Nincs elérhető küldetés. Létezik a célpont?'
+fl_error: Valami félresikerült. Próbáld újra.
+fl_error_empty_derbis: 'Ezeken a koordinátákon nincs törmelékmező!'
+fl_error_no_moon: Ezeken a koordinátákon nincs Hold.
+fl_error_not_avalible: Ezeken a koordinátákon nincs semmi.
+fl_error_same_planet: 'A kiindulás és a cél ugyanaz a bolygó!'
+fl_exchange: Csere
+fl_expedition_alert_message: 'Vigyázat: az expedíciók kockázatosak. Elveszítheted az egész flottádat!'
+fl_expedition_tech_required: Expedíció indításához 1. szintű Asztrofizika kell.
+fl_expeditions: Expedíciók
+fl_fleet: Flotta
+fl_fleet_sended: 'Flotta elküldve!'
+fl_fleet_speed: Flottasebesség
+fl_fleets: Flotta
+fl_flying_arrival: Érkezés
+fl_flying_return: Visszatérés
+fl_flying_time: Időtartam (egy irány)
+fl_from: Innen
+fl_fuel_consumption: Deutériumfogyasztás
+fl_hold_confirm_outlaw: 'A(z) %s melletti tartózkodás 7 napra törvényen kívülivé tesz.'
+fl_hold_max_fleets: Már túl sok flotta tart ezekre a koordinátákra, ezért a flottádat nem lehetett elküldeni.
+fl_hold_max_user: Elérted a védők maximális számát, ezért a flottádat nem lehetett elküldeni.
+fl_hold_time: Tartózkodási idő
+fl_hold_time_not_exists: Válassz érvényes tartózkodási időt.
+fl_hours: Óra
+fl_in_vacation_player: A játékos nyaralás módban van
+fl_info_detail: Részletek
+fl_invalid_mission: Ez a küldetés itt nem lehetséges.
+fl_invalid_target: Ez a célpont nem érvényes.
+fl_invite_members: Tagok meghívása
+fl_market_type: Piactípus
+fl_max: max
+fl_max_speed: Max. sebesség
+fl_members_invited: Meghívva
+fl_mission: Küldetés
+fl_modify_sac_name: ACS neve
+fl_moon_shortcut: (H)
+fl_mt_fleet: Flottapiac
+fl_mt_resources: Nyersanyagpiac
+fl_my_planets: Bolygóim
+fl_new_mission_title: 'Új küldetés: flotta kiválasztása'
+fl_no_colony: Nincs kolónia
+fl_no_expedition_slot: Nincs szabad expedíciós hely.
+fl_no_more_slots: Nincs szabad hely
+fl_no_noresource: 'Nincs nyersanyag felrakva!'
+fl_no_noresource_exchange: Nem adtál meg nyersanyagot a cseréhez
+fl_no_probe_expos: 'Egy expedíció nem állhat csak Kémszondákból!'
+fl_no_same_alliance: 'A célpont játékosnak a szövetségedben vagy a barátlistádon kell lennie!'
+fl_no_ships: Nincsenek elérhető hajók
+fl_no_shortcuts: Nincsenek gyorsgombok
+fl_no_slots: Nincsenek elérhető helyek
+fl_no_target: Nincs elérhető célbolygó
+fl_not_all_ship_avalible: Nem minden hajó érhető el.
+fl_not_enough: 'Nincs elég %s.'
+fl_not_enough_deuterium: Nincs elég deutérium ehhez a repüléshez.
+fl_not_enough_space: Nincs elég rakomány hely.
+fl_null: nincs
+fl_number: Azonosító
+fl_objective: Vége ennyi múlva
+fl_only_planets_colonizable: Csak bolygókat lehet gyarmatosítani.
+fl_onway: Kifelé
+fl_order: Sorrend
+fl_own_planet_error: Valami félresikerült. Válaszd ki újra azt a bolygót, ahonnan a flottát küldenéd.
+fl_planet_shortcut: (B)
+fl_planets: Bolygók
+fl_player: 'Játékos '
+fl_player_is_noob: A játékos újoncvédelem alatt áll.
+fl_player_is_strong: A játékos túl erős.
+fl_r: (Hasz)
+fl_remove_all_ships: Nincs hajó
+fl_resources: 'Nyersanyag felrakása'
+fl_resources_left: Szabad kapacitás
+fl_return_time: Visszatérési idő
+fl_returning: Visszatér
+fl_sac_of_fleet: ACS-flotta
+fl_select_all_ships: Minden hajó
+fl_selected_resources: Kiválasztott nyersanyagok
+fl_send_back: Visszahívás
+fl_send_fleet: Flotta küldése
+fl_ship_available: Elérhető hajók
+fl_ship_type: Hajótípus
+fl_shortcut: Gyorsgombok
+fl_shortcut_add: Hozzáadás
+fl_shortcut_edition: Gyorsgomb szerkesztése
+fl_shortcut_name: Név
+fl_shortcut_save: Gyorsgomb mentése
+fl_shortcut_saved: Gyorsgomb elmentve!
+fl_simulate: Szimuláció
+fl_speed_title: 'Sebesség: '
+fl_spy_confirm_outlaw: 'A(z) %s kémlelése 7 napra törvényen kívülivé tesz.'
+fl_strong_player: A játékos túl erős.
+fl_stronger_techs: A fegyver-, páncél- vagy pajzstechnikád túl alacsony.
+fl_system_places: Különleges helyek
+fl_target_exists: Célbolygó
+fl_trade_no_resource_loaded: Nem raktál fel nyersanyagot.
+fl_trade_same_resource: 'A(z) %s nem adható el a következőért: %s.'
+fl_trade_to_many_resources_loaded: Csak egyfajta nyersanyagot adhatsz el.
+fl_transfer_alert_message: |-
+  Figyelem!
+  A flottád átkerül egy másik játékoshoz!
+fl_vacation_mode_active: Nyaralás mód aktív
+fl_visibility: Láthatóság
+fl_visibility_all: Mindenki
+fl_visibility_alliance: Szövetség, paktumpartnerek és barátok
+fl_visibility_no_enemies: Mindenki, kivéve az ellenségeket
+fl_week_player: A játékos újoncvédelem alatt áll
+fleet_table_custom_empty_name: 'Adj meg egy flottanevet!'
+fleetPrio: Flottasorrend-prioritás
+fm_add_filter: Hajószűrő hozzáadása
+fm_all: Mind
+fm_civil: Civil
+fm_engines: Hajtóművek
+fm_imperial: Birodalmi
+fm_military: Katonai
+fm_mining: Bányászat
+fm_other: Egyéb
+fm_recycler: Szemetes
+fm_storage: Tárolás
+foreign_colors: Idegen színek
+found: 'Találat: '
+ft_absenden: Küldés
+ft_charge: Kereskedői árfolyam
+ft_count: Szám
+ft_empty: Üres
+ft_head: Kereskedőflották
+ft_max: max
+ft_total: Összesen
+general_colors: Általános színek
+gl_actions: Műveletek
+gl_activity: (*)
+gl_activity_inactive: (%d perc)
+gl_all_defenses: Minden védelem
+gl_alliance: Szövetség
+gl_alliance_page: Szövetségi oldal
+gl_alliance_web_page: Szövetség weboldala
+gl_avaible_missiles: Elérhető rakéták
+gl_avaible_recyclers: Szemetesek
+gl_avaible_spyprobes: Kémszondák
+gl_banned: Kitiltva / Felfüggesztve
+gl_buddy_request: Barátkérelem
+gl_colonizable: Gyarmatosítható
+gl_debris_field: Törmelékmező
+gl_diameter: Átmérő
+gl_features: Tulajdonságok
+gl_fleets: Flottahelyek
+gl_galaxy: Galaxis
+gl_in_the_rank: '%s játékos, %d. rang'
+gl_inactive_seven: 7 napja inaktív
+gl_inactive_twentyeight: 28 napja inaktív
+gl_legend: Jelmagyarázat
+gl_member: '%d tag'
+gl_member_add: '%d tag'
+gl_missil_flytime: Becsapódásig hátralévő idő
+gl_missil_launch: Rakétatámadás
+gl_missil_launch_action: Rakéták kilövése
+gl_missil_to_launch: 'Mennyiség (<b>%d</b> elérhető)'
+gl_missile_attack: Rakétatámadás
+gl_moon: Hold
+gl_no_deuterium_to_view_galaxy: 'Nincs elég deutérium a galaxis megtekintéséhez!'
+gl_no_spy_report: Ehhez a bolygóhoz még nincs kémjelentés.
+gl_not_colonizable: Nem gyarmatosítható!
+gl_objective: Fő cél
+gl_out_space: Mélyűr
+gl_phalanx: Falanx
+gl_planet: Bolygó
+gl_planet_destroyed: Bolygó elpusztítva
+gl_player: Játékos
+gl_player_estate: Játékos (állapot)
+gl_playercard: Játékosprofil
+gl_populed_planets: '%d lakott bolygó'
+gl_pos: Poz.
+gl_resources: Nyersanyagok
+gl_see_on_stats: Statisztika
+gl_short_ban: T
+gl_short_inactive: i
+gl_short_long_inactive: I
+gl_short_newbie: 'Ú'
+gl_short_strong: E
+gl_short_vacation: NM
+gl_show: Rendszer mutatása
+gl_show_spy_report: Kémjelentés
+gl_solar_system: Rendszer
+gl_spy: Kémkedés
+gl_spy_report_fresh: Kémjelentés (< %d ó)
+gl_spy_report_none: Nincs kémjelentés
+gl_spy_report_old: Kémjelentés (> %d ó)
+gl_spy_report_recent: Kémjelentés (< %d ó)
+gl_strong_player: Erős játékos
+gl_sync: Adatok mentése
+gl_sync_export_csv: CSV exportálása
+gl_sync_export_json: JSON exportálása
+gl_sync_import_json: JSON importálása
+gl_sync_reset: Adatok visszaállítása
+gl_temperature: Hőmérséklet
+gl_to: eddig
+gl_trade_space: Piactér
+gl_vacation: Nyaralás mód
+gl_week_player: Gyenge játékos
+honor_rank: Becsületrang
+honor_rank_low_1: Banditacsászár
+honor_rank_low_10: Banditák királya
+honor_rank_low_20: Banditaúr
+honor_rank_low_30: Bandita
+honor_rank_top_1: Istencsászár
+honor_rank_top_10: Nagycsászár
+honor_rank_top_20: Császár
+honor_rank_top_30: Csillagúr
+honorable_fights: Becsületes csaták
+honorpoints: Becsületpontok
+in_attack_pt: Támadóerő
+in_base_speed: Alapsebesség
+in_capacity: Rakománykapacitás
+in_consumption: Üzemanyag-fogyasztás
+in_destroy: Pusztítás
+in_difference: Különbség
+in_engine: Hajtómű
+in_jump_gate_already_used: 'Az ugrókapu töltődik. Kész ennyi múlva: '
+in_jump_gate_doesnt_have_one: Nincs másik ugrókapud, ahová ugorhatnál.
+in_jump_gate_done: 'Az ugrás sikeres! Az ugrókapu újra kész ennyi múlva: %s'
+in_jump_gate_error_data: 'Érvénytelen ugrási koordináták!'
+in_jump_gate_finish_moon: Úti cél
+in_jump_gate_jump: Ugrás
+in_jump_gate_no_target: Nincs elérhető ugrási cél.
+in_jump_gate_not_ready_target: 'A célkapu még töltődik. Kész ennyi múlva: '
+in_jump_gate_select_ships: 'Ugrókapu: hajók kiválasztása'
+in_jump_gate_start_moon: Kiindulás
+in_jump_gate_wait_time: 'A következő ugrás lehetséges ennyi múlva:'
+in_level: Szint
+in_missilesamount: Elérhető
+in_missilestype: Rakétatípus
+in_prod_p_hour: Óránként
+in_rf_again: Gyorstűz ellen
+in_rf_explanation: >-
+  Gyorstűz: ez az egység minden csatafordulóban többször is tüzelhet. A
+  százalék azt mutatja, mekkora az esélye egy újabb lövésnek, miután
+  eltalált egy ilyen típusú célpontot.
+in_rf_from: Gyorstűz ettől
+in_shield_pt: Pajzserő
+in_storage: Tárolás
+in_struct_pt: Szerkezeti épség
+kontakt: 'Szia!<br>Ez az oldal azokat mutatja, akik üzemeltetik, moderálják és fejlesztik ezt a projektet.<br>Kérdésed vagy problémád van? Vedd fel velünk a kapcsolatot.<br><br><!--discord_url-->A velünk és a többi játékossal való jobb eszmecseréhez egy Discord-szervert üzemeltetünk. <a href="{discord_url}">Itt</a> vagy a menün keresztül találod meg.<br>Ott megtalálod a legfrissebb híreket és az univerzum szövetségeinek legjobb mémjeit.<br>Kérdezz a játékmechanikáról, és oszd meg az ötleteidet a játék jövőjére.<br><br><!--/discord_url-->Természetesen a játékon belüli kérdéseidre is válaszolunk.<br>Kérjük, vedd figyelembe, hogy hobbiból játszunk, így a válaszok néhány napot is késhetnek.<br>'
+lm_administration: Adminisztráció
+lm_alliance: Szövetség
+lm_banned: Kitiltottak
+lm_battlesim: Szimulátor
+lm_buddylist: Barátok
+lm_buildings: Épületek
+lm_changelog: Változásnapló
+lm_dataPrivacy: Adatvédelem
+lm_defenses: Védelem
+lm_empire: Birodalom
+lm_faq: GYIK
+lm_fleet: Flotta
+lm_fleettrader: Flottakereskedő
+lm_galaxy: Galaxis
+lm_info: Infó
+lm_logout: Kijelentkezés
+lm_marketplace: Piactér
+lm_messages: Üzenetek
+lm_notes: Jegyzetek
+lm_options: Beállítások
+lm_overview: Áttekintés
+lm_playercard: Játékosprofil
+lm_records: Rekordok
+lm_repairdock: Javítódokk
+lm_research: Kutatás
+lm_resources: Nyersanyagok
+lm_rules: Szabályok
+lm_search: Keresés
+lm_shipshard: Hangár
+lm_statistics: Statisztika
+lm_support: Támogatás
+lm_technology: Technológiák
+lm_topkb: Csatacsarnok
+lo_continue: Kattints a folytatáshoz.
+lo_logout: 'Kijelentkeztél. Hamarosan találkozunk!'
+lo_notify: 'Átirányítás <span id="seconds">5</span> másodperc múlva'
+lo_redirect: Átirányítás
+lo_title: Kijelentkezve
+loading: Betöltés ...
+lost: Elveszett
+lv_buildable: Építhető
+lv_buildings: Épületek
+lv_coords: Koordináták
+lv_defenses: Védelem
+lv_fields: Mezők
+lv_highlight: 'Kiemelés: '
+lv_imperium_title: Birodalom
+lv_name: Név
+lv_planet: Bolygó
+lv_prodPerHour: Óránkénti termelés
+lv_resources: Nyersanyagok
+lv_ships: Hajók
+lv_show: 'Mutat: '
+lv_storageFilled: Órák a megtelésig
+lv_technology: Technológiák
+lv_total: Összesen
+lv_unbuildable: Nem építhető
+ma_add_missile_number: 'Add meg a rakéták számát! '
+ma_all: Mind
+ma_impulse_drive_required: Impulzushajtómű szükséges
+ma_missiles_sended: ' rakéta kilőve. Célpont: '
+ma_no_missiles: Nincsenek rakéták
+ma_no_range: A célpont a rakétáid hatótávján kívül van.
+ma_own_planet: "A saját bolygódat nem támadhatod rakétákkal."
+ma_not_send_other_galaxy: 'Másik galaxisba nem küldhetsz rakétákat. '
+ma_planet_doesnt_exists: 'Ez a bolygó nem létezik. '
+ma_silo_level: 'A rakétasilónak legalább 4. szintűnek kell lennie! '
+ma_wrong_target: Rossz célpont
+market_buyable_no_enemies: Nincsenek ellenségek
+market_buyable_no_tech: Túl gyenge
+market_buyable_only_trade_partners: Csak partnerek
+market_buyable_too_far: Túl messze
+market_confirm_are_you_sure: Biztos vagy benne?
+market_fleet: Flotta
+market_info_description: 'Bal oldal: eladási ajánlatok | Jobb oldal: kért ár<br><br>&bull; Az elfogadott ajánlatok nem vonhatók vissza &bull;<br>&bull; Egyes ajánlatokat a tolási szabály miatt nem lehet elfogadni &bull;<br>&bull; A megvásárolt flotta üzemanyagát a vevő fizeti &bull;'
+market_info_header: Piactér
+market_info_no_return: 'A piactéri ajánlatok nem vonhatók vissza!'
+market_msg_trade_bought: 'A flottád ide repül: %s, magával víve: %s %s, %s %s, %s %s, és ennyibe kerül: %s %s.'
+market_msg_trade_from: Piactér
+market_msg_trade_sold: 'A flottád ide repül: %s, magával víve: %s %s, %s %s, %s %s.'
+market_msg_trade_topic: Kereskedelem állapota
+market_p_buy: Vétel
+market_p_cost_amount: Mennyiség
+market_p_cost_type: Költségtípus
+market_p_end: Vége
+market_p_from_duration: Repülés innen
+market_p_msg_more_ships_is_needed: Ehhez az ajánlathoz több hajóra van szükséged.
+market_p_msg_not_found: Ez az ajánlat már nincs meg.
+market_p_msg_own_offer: A saját ajánlatodat nem vásárolhatod meg.
+market_p_msg_purchase_failed: A vásárlás nem ment át. Próbáld újra.
+market_p_msg_resources_error: Nincs elég nyersanyagod.
+market_p_msg_too_far: Ez az ajánlat túl messze van, az út tovább tartana, mint amennyit az eladó megenged.
+market_p_msg_sent: 'Elküldve: %s Kis szállító, %s Nagy szállító'
+market_p_msg_wrong_resource_type: Ez az ajánlat érvénytelen nyersanyagot kér.
+market_p_offer_type: Ajánlat típusa
+market_p_ratio: Arány
+market_p_submit: Vedd meg most!
+market_p_to_duration: Repülés ide
+market_ship_as_first: 'Válaszd ki a hajótípust a kereskedéshez:'
+Messages: Üzenetek
+messagesPerPage: Üzenetek oldalanként (3-50)
+mg_answer_to: Válasz neki
+mg_blocked: Ez a játékos nem fogad üzeneteket.
+mg_characters: Karakterek
+mg_confirm: Megerősítés
+mg_delete: Üzenet törlése
+mg_delete_all: Összes üzenet törlése
+mg_delete_marked: Megjelölt üzenetek törlése
+mg_delete_type_all: Az ilyen típusú összes üzenet törlése
+mg_delete_unmarked: Az ilyen típusú megjelöletlen üzenetek törlése
+mg_deleted: Üzenet törölve.
+mg_empty_text: Írj be egy szöveget
+mg_error: 'A címzett nem található!'
+mg_too_many_recipients: "Egyszerre legfeljebb %d játékosnak írhatsz."
+mg_text_too_long: "Az üzenet túl hosszú (legfeljebb %d karakter)."
+mg_rate_limited: "Túl gyorsan küldesz üzeneteket. Várj néhány percet."
+mg_favorite: Megjelölés kedvencként
+mg_favorite_filter_off: Összes mutatása
+mg_favorite_filter_on: Csak a kedvencek mutatása
+mg_forward: Üzenet továbbítása
+mg_grouping_off: Üzenetek mutatása csoportosítás nélkül
+mg_grouping_on: Üzenetek mutatása csoportosítva
+mg_message: Üzenet
+mg_message_send: 'Üzenet elküldve!'
+mg_min_3_chars: A kereséshez adj meg legalább 3 karaktert
+mg_new: Új
+mg_no_subject: Nincs tárgy
+mg_no_user: Nincs találat a játékosok között
+mg_overview: Üzenetkezelés
+mg_open_all: 'Mindig az „Összes üzenet” kategória nyíljon meg'
+mg_page: Oldal
+mg_read_all: Összes üzenet olvasottnak jelölése
+mg_read_marked: Kijelölt üzenetek olvasottnak jelölése
+mg_read_type_all: Az ilyen típusú összes üzenet olvasottnak jelölése
+mg_search: Keresés
+mg_search_placeholder: Írd be a keresett kifejezést
+mg_send: Küldés
+mg_send_new: Üzenet írása
+mg_send_to: Címzett
+mg_subject: Tárgy
+mg_remember_last_category: Az utolsó üzenetkategória megjegyzése
+mg_select_all: Összes kijelölése
+mg_type:
+  '0': Kémjelentések
+  '1': Játékosüzenetek
+  '2': Szövetségi üzenetek
+  '3': Csatajelentések
+  '4': Rendszerüzenetek
+  '5': Szállítás
+  '6': Idegen szállítás
+  '7': Kémelhárítás
+  '15': Expedíciós jelentések
+  '50': Játéküzenetek
+  '99': Építés
+  '100': Összes üzenet
+  '998': Kedvencek
+  '999': Üzenetek keresése
+negativ: Negatív
+neutral: Semleges
+neutral_fights: Semleges csaták
+noob_interface: A kezdő felület be van kapcsolva. Ez a játék egyszerűsített változata a gyors, könnyű induláshoz, és a menüpontok a bemutató haladtával oldódnak fel. A beállításokban bármikor kikapcsolhatod.
+nt_back: Vissza
+nt_characters: karakter
+nt_create_new_note: Új jegyzet létrehozása
+nt_create_note: Jegyzet létrehozása
+nt_date_note: Dátum
+nt_dlte_note: Törlés
+nt_edit_note: Jegyzet szerkesztése
+nt_important: Magas
+nt_no_text: Nincs szöveg
+nt_limit_reached: 'Elérted a jegyzetek maximális számát (%1$d). Előbb törölj régi jegyzeteket.'
+nt_no_title: Nincs cím
+nt_normal: Normál
+nt_note: Jegyzet
+nt_notes: Jegyzetek
+nt_priority: Prioritás
+nt_reset: Visszaállítás
+nt_save: Mentés
+nt_size_note: Méret
+nt_subject_note: Tárgy
+nt_unimportant: Alacsony
+nt_you_dont_have_notes: Még nincsenek jegyzeteid
+op_activate_vacation_mode: Nyaralás mód bekapcsolása
+op_activate_vacation_mode_confirm: '48 óráig nem tudod kikapcsolni a nyaralás módot. Biztos vagy benne?'
+op_activate_vacation_mode_descrip: 'A nyaralás mód hosszabb távollét alatt véd. Csak akkor kapcsolható be, ha egyik flottád sincs úton. Bekapcsolva megvéd az új támadásoktól. Az már megkezdett támadások azonban folytatódnak, és a tartózkodó baráti flották visszakerülnek! A nyersanyagtermelés, az épületek építése, a hajógyári megbízások és a kutatás ez idő alatt szünetel, majd utána folytatódik. A nyaralás mód az első 48 órában nem kapcsolható ki!'
+op_active_build_messages: Építési üzenetek bekapcsolása
+op_active_spy_messages_mode: Összevont kémjelentések bekapcsolása
+op_add_to_buddy_list: Barátkérelem küldése
+op_admin_discord_hook: Discord webhook a privát üzenetekhez
+op_admin_discord_id: Discord felhasználói azonosító a privát üzenetek pingjeihez
+op_admin_planets_protection: Admin bolygóvédelem bekapcsolása
+op_admin_title_options: Admin beállítások
+op_block_pm: Privát üzenetek tiltása
+op_build_pages: Épületek / Kutatás
+op_cant_activate_vacation_mode: Nem kapcsolhatod be a nyaralás módot, amíg a flottáid úton vannak.
+op_cant_deactivate_vacation_mode: A nyaralás mód még nem fejezhető be.
+op_change_mail_exist: 'A(z) %s e-mail-cím már használatban van.'
+op_change_name_exist: 'A(z) %s felhasználónév már foglalt.'
+op_change_name_pro_week: 'A felhasználónevedet csak 7 naponta egyszer változtathatod meg!'
+op_collapse_spy_reports: Kémjelentések alapból összecsukva
+op_decimal_separator: Tizedeselválasztó
+op_dlte_account: Fiók törlése
+op_dlte_account_descrip: A fiókod legalább 7 nap után teljesen törlődik. A pontos időpont attól függ, mikor fut a törlési feladat, így még néhány napig eltarthat. A törlést megszakíthatod, amíg még nem hajtották végre, vagyis amíg be tudsz lépni a fiókba.
+op_email_adress: E-mail-cím
+op_enable_planet_styles: Holo-effektek mutatása azokon a bolygókon, amelyeknek van
+op_end_vacation_mode: Nyaralás mód kikapcsolása
+op_galaxy_settings: Galaxis
+op_general_settings: Általános
+op_hangar_filters: Extra szűrők mutatása a hajógyárban
+op_hangar_group_filters: Hajógyári csoportszűrők
+op_hide_useless: Alapkutatások elrejtése, ha elérik a maximálisan hasznos szintjüket
+op_lang: Nyelv
+op_max_fleets_messages: Flottaüzenetek maximális száma
+op_missile_attack: Rakétatámadás
+op_missing_requirements_opacity: Azoknak a tételeknek az elhalványítása, amelyeknek hiányoznak a követelményei
+op_missing_resources_opacity: Azoknak a tételeknek az elhalványítása, amelyeket nem engedhetsz meg magadnak
+op_need_pass_mail: Az e-mail-címed módosításához add meg a jelszavad.
+op_new_pass: Új jelszó (min. 8 karakter)
+op_noob_interface: Kezdő felület
+op_not_vaild_mail: Ez az e-mail-cím nem tűnik érvényesnek.
+op_old_pass: Jelenlegi jelszó
+op_options_changed: Beállítások elmentve.
+op_options_deletion_activated: A fiók törlése aktiválva!
+op_options_deletion_deactivated: A fiók törlése deaktiválva!
+op_options_no_other_settings_changed: Más nem változott.
+op_options_vacation_activated: 'A nyaralás mód be van kapcsolva. Élvezd a pihenést!'
+op_options_vacation_deactivated: 'A nyaralás mód ki van kapcsolva. Üdv újra!'
+op_repeat_new_pass: Új jelszó (újra)
+op_save_changes: Módosítások mentése
+op_shortcut: Gyorsgomb
+op_show: Nézet
+op_show_all_buildable_elements: Azokat a tételeket is mutassa, amelyeknek hiányoznak a követelményei
+op_show_message_category: Ugrás közvetlenül a megfelelő üzenetkategóriára
+op_skin_example: Téma
+op_sort_abc: Ábécé szerint
+op_sort_down: Csökkenő
+op_sort_kind: Rendezési sorrend
+op_sort_koords: Koordináták
+op_sort_normal: Gyarmatosítási sorrend
+op_sort_planets_by: Bolygók rendezése
+op_sort_up: Növekvő
+op_spy: Kémkedés
+op_spy_probes_number: Kémszondák küldetésenként
+op_spy_probes_number_descrip: A Galaxis nézetből küldött szondák száma.
+op_spy_report: Kémjelentés
+op_spy_report_fresh_time: Friss kémjelentés (zöld pont), legfeljebb
+op_spy_report_fresh_time_tooltip: >-
+  A megadott óraszámnál újabb kémjelentések zöld pontot kapnak a
+  galaxisnézetben.
+op_spy_report_recent_time: Közelmúltbeli kémjelentés (sárga pont), legfeljebb
+op_spy_report_recent_time_tooltip: >-
+  A megadott óraszámnál újabb kémjelentések sárga pontot kapnak; a régebbiek
+  piros pontot.
+op_spy_report_time_invalid: Érvénytelen kémjelentés-idők. Mindkét értéknek legalább 1 órának kell lennie, és a közelmúltbeli értéknek nagyobbnak kell lennie a frissnél.
+op_stop_dlte_account: Fiók törlésének megszakítása
+op_timezone: Időzóna
+op_user_data: Felhasználói adatok
+op_user_name_no_alphanumeric: 'A felhasználóneved csak betűket és számokat tartalmazhat!'
+op_username: Felhasználónév
+op_vacation_delete_mode: Veszélyzóna
+op_vacation_mode_active_message: 'A nyaralás mód addig nem kapcsolható ki: '
+op_write_message: Üzenet írása
+other: Egyéb
+ov_abandon_planet_not_possible: Ezt a kolóniát nem törölheted, amíg flották repülnek hozzá vagy tőle.
+ov_admins_online: Aktív adminok
+ov_aprox: Körülbelül
+ov_checknews_hide: Hírek elrejtése
+ov_checknews_show: Hírek mutatása
+ov_closed: 'Ez az univerzum jelenleg zárva van!'
+ov_delete_planet: Bolygó törlése
+ov_developed_fields: Használt mezők
+ov_diameter: Átmérő
+ov_distance_unit: km
+ov_events: Események
+ov_fields: Mezők
+ov_fleet: Flották
+ov_fleetbutton_hide: Elrejtés
+ov_fleetbutton_show: Mutatás
+ov_free: Szabad
+ov_have_new_message: Új üzeneted érkezett
+ov_have_new_messages: '%d új üzeneted érkezett'
+ov_queues: Sorok
+ov_max_developed_fields: Összes mező
+ov_moon: Hold
+ov_newname_done: A bolygó átnevezve!
+ov_newname_specialchar: 'A bolygónevek csak számokat, betűket, szóközöket, aláhúzásjeleket, kötőjeleket és pontokat tartalmazhatnak!'
+ov_newname_too_long: 'A bolygó neve legfeljebb %d karakter lehet.'
+ov_news: Hírek
+ov_news_all: 'Összes hír'
+tutorial_label: 'Bevezető'
+tutorial_step_of: '%1. lépés / %2'
+ov_of: '/'
+ov_outlaw: 'Törvényen kívüli eddig:'
+ov_place: Pozíció
+ov_planet: Bolygó
+ov_planet_abandoned: Bolygó törölve.
+ov_planet_rename: Bolygó átnevezése
+ov_planetmenu: Átnevezés vagy törlés
+ov_planets: Bolygók és holdak
+ov_points: Pontok
+ov_position: Pozíció
+ov_principal_planet_cant_abanone: 'Az anyabolygódat nem törölheted!'
+ov_rename_label: Új név
+ov_rules: Szabályok
+ov_rulesnotify: 'Kérjük, tartsd be a következőt:'
+ov_security_confirm: 'Biztosan el akarod pusztítani ezt: %s?'
+ov_security_request: Biztonsági kérdés
+ov_server_time: Szerveridő
+ov_temp_unit: °C
+ov_temperature: Hőmérséklet
+ov_ticketbot: Jegybot
+ov_to: eddig
+ov_userrank_info: '%s (%s <a href="game/statistics?range=%d">%d</a> %s %s)'
+ov_wrong_name: 'Hibás név!'
+ov_wrong_pass: 'Hibás jelszó!'
+own: Saját
+own_colors: Saját színek
+page_doesnt_exist: A kért oldal nem létezik.
+pl_ally: Szövetség
+pl_buddy: Barát
+pl_builds: Épületek
+pl_def: Védelem
+pl_dercrystal: Hasznosított kristály
+pl_dermetal: Hasznosított fém
+pl_destroy: '%s részt vett ebben:'
+pl_destroy_real: '%s személyesen részt vett ebben:'
+pl_etc: 'Stb. '
+pl_fightdraw: Döntetlen
+pl_fightlose: Vereség
+pl_fights: Csaták
+pl_fightstats: Csatastatisztika
+pl_fightwon: Győzelem
+pl_fleet: Flotta
+pl_fprocent: Százalék
+pl_homeplanet: Anyabolygó
+pl_message: Üzenet
+pl_name: Felhasználónév
+pl_overview: Játékosprofil
+pl_points: Pontok
+pl_range: Rang
+pl_tech: Kutatás
+pl_total: Összesen
+pl_totalfight: Összes csata
+pl_unitslose: Elvesztett egységek
+pl_unitsshot: Lelőtt egységek
+PM: '[PÜ]'
+positiv: Pozitív
+px_fleet_movement: Mozgásban lévő flotta
+px_no_deuterium: Nincs elég deutérium.
+px_no_fleet: Jelenleg nincs mozgásban lévő flotta.
+px_out_of_range: Hatótávon kívül
+px_scan_position: Pozíció letapogatása
+ready: Kész
+rebuild_proteciton_link: Korán kikapcsolhatod itt.
+rebuild_proteciton_mode: A fiókod újjáépítési védelem alatt áll, amely megvédhet a támadásoktól.
+rec_count: Mennyiség
+rec_last_update_on: 'Utolsó frissítés: '
+rec_level: Szint
+rec_players: Játékos
+rec_time: Dátum/idő
+recordsOptIn: Rekordjaid megjelenítése minden játékosnak
+repaired: Megjavítva
+rs_amount: Mennyiség
+rs_basic_income: Alaptermelés
+rs_calculate: Módosítások mentése
+rs_daily: Napi termelés
+rs_lvl: Szint
+rs_production_on_planet: 'A(z) „%s” bolygón termelt nyersanyagok'
+rs_ramp_up: 'Mind 100%-ra'
+rs_ress_bonus: Bónusz (kutatásból)
+rs_ress_bonus_position: Bónusz (bolygópozícióból)
+rs_shut_down: 'Mind 0%-ra'
+rs_storage_capacity: Tárolókapacitás
+rs_sum: Óránkénti termelés
+rs_weekly: Heti termelés
+sh_alliance: Szövetség
+sh_alliance_name: Szövetség neve
+sh_alliance_tag: Szövetség címkéje
+sh_buddy_request: Barátkérelem
+sh_coords: Pozíció
+sh_loading: (Betöltés ...)
+sh_members: Tagok
+sh_name: Név
+sh_planet: Bolygó
+sh_planet_name: Bolygó neve
+sh_player_name: Játékos neve
+sh_points: Pontok
+sh_position: Rang
+sh_search: Keresés
+sh_search_in_the_universe: Keresés az univerzumban
+sh_tag: Címke
+sh_write_message: Privát üzenet
+spec_mail_inactive_title: '%s - Emlékeztető'
+spytech_playercard:
+  level2: A Kémtechnika 2. szintjétől látható!
+  level4: A Kémtechnika 4. szintjétől látható!
+  level6: A Kémtechnika 6. szintjétől látható!
+st_alliance: Szövetség
+st_buildings: Épületek
+st_defenses: Védelem
+st_fleets: Flotta
+st_honor: Becsületpontok
+st_in_the_positions: rangban
+st_members: Tagok
+st_per: szerint
+st_per_member: Tagonként
+st_player: Játékos
+st_points: Pontok
+st_position: Rang
+st_researh: Kutatás
+st_show: Mutat
+st_statistics: Statisztika
+st_units: Egységek
+st_updated: Frissítve
+st_write_message: Privát üzenet
+StaticTimer: Érkezési idő
+stats:
+  '202': Kis szállítók
+  '203': Nagy szállítók
+  '204': Könnyű harcosok
+  '205': Nehéz harcosok
+  '206': Cirkálók
+  '207': Csatahajók
+  '208': Kolóniahajók
+  '209': Szemetesek
+  '210': Kémszondák
+  '211': Bombázók
+  '212': Napműholdak
+  '213': Rombolók
+  '214': Halálcsillagok
+  '215': Csatacirkálók
+  '216': Fekete Holdak
+  '217': Harci szállítók
+  '218': Avatárok
+  '219': Harci szemetesek
+  '401': Rakétakilövők
+  '402': Kis lézerágyúk
+  '403': Nagy lézerágyúk
+  '404': Gauss-ágyúk
+  '405': Ionágyúk
+  '406': Plazmaágyúk
+  '407': Kis pajzskupolák
+  '408': Nagy pajzskupolák
+  '409': Légköri pajzsok
+  '410': Gravitonágyúk
+  '411': Orbitális védelmi platformok
+  '412': Bunkerek
+  '413': Titán lézerek
+  '414': Csalik
+  '502': Elhárítók
+  '503': Bolygóközi rakéták
+  '901': Fém
+  '902': Kristály
+  '903': Deutérium
+stb_activ: Részletes kémjelentések (Scavengers Toolbox) bekapcsolva
+stb_big_ress: Bőséges nyersanyag (kevesebb mint)
+stb_big_ress_tooltip: Ha a bolygón ennél az értéknél kevesebb nyersanyag van, a kémjelentés világoszölddel van jelölve (jó). Az ennél az értéknél több nyersanyagot tartalmazó kémjelentések világoskékkel látszanak (optimális).
+stb_big_time: Bőséges nyersanyag másodpercenként (kevesebb mint)
+stb_big_time_tooltip: A lehető legjobb másodpercenkénti nyersanyaghozam, két tizedesre kerekítve. Az ennél az értéknél kisebb arány jónak számít (világoszöld), a nagyobb optimálisnak (világoskék).
+stb_low_ress: Kevés nyersanyag (kevesebb mint)
+stb_low_ress_tooltip: Ha a bolygón ennél az értéknél kevesebb nyersanyag van, a kémjelentés élénkpirossal van jelölve (rossz).
+stb_med_time: Mérsékelt nyersanyag másodpercenként (kevesebb mint)
+stb_med_time_tooltip: A lehető legjobb másodpercenkénti nyersanyaghozam, két tizedesre kerekítve. Az ennél az értéknél kisebb arány közepesnek számít (világos narancs).
+stb_mid_ress: Mérsékelt nyersanyag (kevesebb mint)
+stb_mid_ress_tooltip: Ha a bolygón ennél az értéknél kevesebb nyersanyag van, a kémjelentés világos narancssárgával van jelölve (közepes).
+stb_small_time: Kevés nyersanyag másodpercenként (kevesebb mint)
+stb_small_time_tooltip: A lehető legjobb másodpercenkénti nyersanyaghozam, két tizedesre kerekítve. Az ennél az értéknél kisebb arány rossznak számít (világospiros).
+stb_title: Scavengers Toolbox
+sys_back: Vissza
+sys_buildlist: Építési sor
+sys_buildlist_fail: Az építés nem sikerült
+sys_catchup: 'Költség- és építésiidő-bónusz: %01.2f'
+sys_catchup_short: 'Bónusz: %01.2f'
+sys_catchup_tooltip: 'Felzárkózási bónusz: rövidebb idő és alacsonyabb költség az épület/kutatás rekordszintje alapján'
+sys_closed_game: 'A játék egyelőre zárva van:'
+sys_forward: Következő
+sys_game_is_setup: '<h1>A regisztráció kész!</h1><br><p>Előkészítjük az univerzumodat!</p><!--discord_url--><p>Addig is, hogy semmiről ne maradj le, csatlakozz hozzánk itt:</p><h3><a href="{discord_url}" target="_blank">-> Discord <-</a></h3><!--/discord_url-->'
+sys_module_inactive: Ez a modul inaktív
+sys_nomore_level: 'Nincs lebontható %s.'
+sys_notenough_money: 'Nincs elég nyersanyag itt: %s <a href="./game/buildings?cp=%d&amp;re=0">[%d:%d:%d]</a> a következő építéséhez: %s. <br>Neked van: %s %s, %s %s és %s %s. <br>A költsége: %s %s, %s %s és %s %s.'
+sys_refferal_from: Rendszer
+sys_refferal_text: A(z) %s játékos, akit te toboroztál, elérte a(z) %s pontot.
+sys_refferal_title: Játékosbónusz %s
+sys_techlist: Kutatási sor
+team: A csapat
+teamRole: Szerep
+ti_admin_close: Jegy lezárva!
+ti_admin_open: Jegy megnyitva!
+ti_answer: Válasz
+ti_answers: Válaszok
+ti_category: Kategória
+ti_close: Jegy lezárva
+ti_create: 'Jegy létrehozva: '
+ti_create_head: Jegy létrehozása
+ti_create_info: "<p>Támogatási jegy létrehozásakor kérjük, a lehető legrészletesebben írd le a problémádat!</p>\r\n<p>A részletes leírás lerövidíti a megoldás idejét, és elkerüli az időigényes oda-vissza levelezést.</p>\r\n<p>Fiókkal kapcsolatos problémáknál a releváns fiókadatok megadása segíti a jegy hozzárendelését, és lerövidíti a feldolgozási időt.</p>"
+ti_date: Dátum
+ti_error_closed: Ez a jegy már le van zárva, ezért nem válaszolhatsz rá.
+ti_error_too_many_open: "Már %d nyitott jegyed van. Várj, amíg az egyiket lezárják, mielőtt újat nyitsz."
+ti_error_rate_limited: "Túl gyorsan nyitsz jegyeket. Próbáld újra később."
+ti_error_no_subject: Add meg a tárgyat.
+ti_from: írta
+ti_header: Támogatási rendszer
+ti_id: Jegy
+ti_message: Üzenet
+ti_msgtime: Üzenet ideje
+ti_new: Új jegy
+ti_not_exist: 'A(z) #%d jegy nem található.'
+ti_open: Jegy megnyitása
+ti_overview: Vissza
+ti_read: Olvasandó jegy
+ti_responded: 'A jegyre válaszoltak: '
+ti_status: Állapot
+ti_status_answer: Válasz
+ti_status_closed: Lezárva
+ti_status_open: Nyitva
+ti_subject: Tárgy
+ti_submit: Küldés
+ti_username: Játékos
+tkb_all: mind
+tkb_datum: Dátum
+tkb_day: nap
+tkb_diplomacy: Diplomácia
+tkb_exclude: kizár
+tkb_galaxy: Galaxis
+tkb_gewinner: <b>-Győztes-</b>
+tkb_gratz: 'A teljes csapat gratulál a top 100-nak '
+tkb_legende: '<b>Jelmagyarázat: </b>'
+tkb_memorial: Emlékcsaták
+tkb_month: hónap
+tkb_only: csak
+tkb_owners: Érintett felhasználók
+tkb_platz: Helyezés
+tkb_self: csak saját
+tkb_timeframe: Időszak
+tkb_top: Csatacsarnok
+tkb_units: Egységek
+tkb_verlierer: <b>-Vesztes-</b>
+tkb_week: hét
+tn_delete_mode: 'A fiókod törlése ekkor történik: %s.'
+tn_vacation_mode: A fiókod nyaralás módban van.
+tn_vacation_mode_kick: >-
+  <br><br>FIGYELEM: A nyaralás mód 4 hét inaktivitás után automatikusan
+  kikapcsol.
+tn_vacation_mode_until: 'A fiókod legalább eddig nyaralás módban van: %s.'
+tr_exchange_done: 'A csere megtörtént!'
+tr_exchange_error: A nyersanyag mennyisége érvénytelen vagy nem elegendő
+tt_lvl: 'Szint '
+tt_lv_short: 'Sz.'
+tt_requirements: Követelmények
+tt_unlocks: 'Megnyitja'
+tt_status_owned: 'Megépítve'
+tt_status_available: 'Elérhető'
+tt_status_locked: 'Zárolt'
+tt_hint: 'Vidd az egeret egy technológia fölé, vagy válaszd ki, hogy lásd a követelményeit (fent) és hogy mit nyit meg (lent). Kattints a kitűzéshez, Esc a törléshez.'
+tt_foreign: 'Ehhez a kategóriához kell, de egy másikhoz tartozik'
+tt_none: 'nincs'
+tt_graph: 'Technológiai fa'
+type_mission_1: Támadás
+type_mission_1_foreign: Idegen támadás
+type_mission_1_own: Saját támadás
+type_mission_2: Szövetségi támadás
+type_mission_2_foreign: Idegen ACS-támadó flotta
+type_mission_2_friend: Baráti ACS-támadó flotta
+type_mission_2_own: Saját ACS-támadó flotta
+type_mission_3: Szállítás
+type_mission_3_foreign: Idegen szállítás
+type_mission_3_own: Saját szállítás
+type_mission_4: Állomásoztatás
+type_mission_4_foreign: Idegen állomásoztatás
+type_mission_4_own: Saját állomásoztatás
+type_mission_5: Tartózkodás
+type_mission_5_foreign: Idegen tartózkodás
+type_mission_5_own: Saját tartózkodás
+type_mission_6: Kémkedés
+type_mission_6_foreign: Idegen kémkedés
+type_mission_6_own: Saját kémkedés
+type_mission_7: Gyarmatosítás
+type_mission_7_foreign: Idegen gyarmatosítás
+type_mission_7_own: Saját gyarmatosítás
+type_mission_7_own_return: Saját gyarmatosítás visszatérése
+type_mission_8: Hasznosítás
+type_mission_8_foreign: Idegen hasznosítás
+type_mission_8_own: Saját hasznosítás
+type_mission_9: Pusztítás
+type_mission_9_foreign: Idegen pusztítás
+type_mission_9_own: Saját pusztítás
+type_mission_10: Rakétatámadás
+type_mission_10_foreign: Idegen rakétatámadás
+type_mission_10_own: Saját rakétatámadás
+type_mission_15: Expedíció
+type_mission_15_foreign: Idegen expedíció
+type_mission_15_own: Saját expedíció
+type_mission_16: Kereskedés
+type_mission_16_foreign: Idegen piactéri flotta
+type_mission_16_own: Saját piactéri flotta
+type_mission_17: Átvitel
+type_mission_17_foreign: Idegen átvitel
+type_mission_17_own: Saját átvitel
+type_mission_20: Támadás
+type_mission_21: Kémkedés
+type_mission_22: Hasznosítás
+type_mission_return_foreign: Idegen visszatérés
+type_mission_return_own: Saját visszatérés
+type_planet_1: Bolygó
+type_planet_2: Törmelékmező
+type_planet_3: Hold
+type_planet_4: Kalózbázis
+type_planet_short_1: B
+type_planet_short_2: T
+type_planet_short_3: H
+type_planet_short_4: Kb
+user_level_0: Játékos
+user_level_1: Moderátor
+user_level_2: Üzemeltető
+user_level_3: Adminisztrátor
+whenbuildable: Építhető ennyi múlva
+write_message: Üzenet írása
+fl_cargo_options: Rakományopciók
+fl_cargo_preset: Előbeállítás
+fl_cargo_needed: szükséges
+fl_cargo_select: kiválaszt
+fl_cargo_current_planet: Jelenlegi bolygó
+ui_skip_to_content: Ugrás a tartalomra
+ui_watch: Figyelés
+ui_unwatch: Figyelés leállítása
+ui_message_tools: Keresés, szűrők és műveletek
+ui_menu: Menü
+ui_rank: Rang
+ui_queue: Sor
+ui_queue_free: szabad hely
+ui_planet_prev: "Előző bolygó"
+ui_planet_next: "Következő bolygó"
+ui_queue_done: "Minden kész ekkor: %at% (%in% múlva)"
+ui_full_in: "Megtelik ennyi múlva:"
+ui_energy_used: "Felhasznált energia"
+ui_points: Pontok
+ui_close: Bezárás
+ui_storage_full: "Raktár tele: a termelés leállt"
+ui_messages: Üzenetek
+ui_server_time: Szerveridő
+ui_planet: Bolygó
+ui_nav_empire: Birodalom
+ui_nav_universe: Univerzum
+ui_nav_community: Közösség
+ui_nav_help: Segítség
+ui_nav_personal: Személyes
+ui_nav_rankings: 'Ranglisták'
+ui_nav_sections: 'Szakaszok'
+ui_user_menu: 'Fiókmenü'
+gl_points: Pontok
+mg_action: Művelet
+mg_message_type: Üzenet típusa
+mg_to: Címzett
+tkb_unentschieden: '<b>-Döntetlen-</b>'
+source_code: Forráskód
+teamMemberName: Név
+teamMemberContact: Kapcsolat
+teamMemberAbout: Bemutatkozás
+teamEmpty: Még nem adtak hozzá csapattagokat.
+
+lm_board: Fórum
+bd_depot_action: "Flották ellátása"
+depot_title: "Szövetségi raktár"
+depot_intro: "Itt láthatod el az ezen a bolygón tartózkodó baráti flottákat. Minden ellátás 1 és %s óra között hosszabbítja meg a tartózkodásukat (a raktárad szintje), és a bolygó deutériumába kerül. Egy flottának soha nem lehet %s óránál több hátralévő tartózkodása."
+depot_deuterium_stock: "Deutérium ezen a bolygón"
+depot_empty: "Jelenleg nem tartózkodik baráti flotta ezen a bolygón."
+depot_col_owner: "Játékos"
+depot_col_ships: "Hajók"
+depot_col_stay_end: "A tartózkodás vége"
+depot_col_hourly: "Költség óránként"
+depot_col_supply: "Ellátás"
+depot_hours: "%s ó"
+depot_cost: "Költség"
+depot_supply: "Ellátás"
+depot_full: "Elérte a maximális tartózkodást"
+depot_done: "A flotta ellátva: a tartózkodása %s órával meghosszabbodott %s deutériumért."
+depot_err_not_owner: "Ez a bolygó nem a tiéd."
+depot_err_no_depot: "Ezen a bolygón nincs Szövetségi raktár."
+depot_err_hours: "Egy flottát egyszerre 1 és %s óra közötti időre láthatsz el (a raktárad szintje)."
+depot_err_fleet: "Ez a flotta már nem tartózkodik ezen a bolygón."
+depot_err_max_stay: "Egy flottának legfeljebb %s óra hátralévő tartózkodása lehet. Válassz kevesebb órát."
+depot_err_deuterium: "Nincs elég deutérium ezen a bolygón: %s kell."
+op_discord_hook_invalid: "Érvénytelen Discord webhook. Csak https://discord.com/api/webhooks/... URL-ek engedélyezettek."
+fl_push_guard: "Ez a szállítás blokkolva van: a célpont játékos mostanában nem küldött neked nyersanyagot, és a rakomány értéke a limit felett van."
+rl_too_many_requests: "Túl sok kérés rövid időn belül. Várj %d másodpercet, és próbáld újra."
+lm_vote: "Szavazás"
+vt_head: "Szavazz a játékra"
+vt_intro: "Szavazz az alábbi oldalakon, és kapj jutalmat az anyabolygódon. Minden oldalon újra szavazhatsz a várakozási idő letelte után."
+vt_site: "Oldal"
+vt_reward: "Jutalom"
+vt_status: "Állapot"
+vt_ready: "Kész"
+vt_wait: "Újra %d ó %d perc múlva"
+vt_button: "Szavazás"
+vt_none: "Jelenleg nincsenek szavazóoldalak."
+vt_postback_hint: "A jutalom azután érkezik, hogy az oldal megerősítette a szavazatodat."
+vt_notice_rewarded: "Köszi a szavazatot! A jutalom bekerült az anyabolygódra."
+vt_notice_pending: "Köszi a szavazatot! A jutalom azután érkezik, hogy az oldal megerősítette a szavazatodat."
+vt_notice_cooldown: "Várnod kell, mielőtt újra szavazhatsz ezen az oldalon."
+mg_confirm_delete_one: "Törlöd ezt az üzenetet?"
+mg_confirm_delete_bulk: "Tényleg törlöd ezeket az üzeneteket? Ez nem vonható vissza."
+mg_quick_read_all: "Mind olvasott"
+mg_quick_delete_read: "Olvasottak törlése"
+mg_quick_delete_older: "%d napnál régebbiek törlése"
+mg_confirm_delete_read: "Törlöd a kategória összes olvasott üzenetét? A kedvencek megmaradnak."
+mg_confirm_delete_older: "Törlöd a kategória %d napnál régebbi üzeneteit? A kedvencek megmaradnak."
+mg_spy_again: "Kémkedés újra"
+fl_change_target: "Célpont módosítása"
+mg_group_mark: "Olvasottnak jelölés"
+mg_group_delete: "Törlés"
+mg_pick_category: "Válassz egy kategóriát fent az üzeneteinek megtekintéséhez."
+mg_no_messages: "Itt nincsenek üzenetek."
+mg_select_message: "Üzenet kijelölése"
+mg_search_player: "Játékos keresése"
+mg_remove_receiver: "Címzett eltávolítása"
+mg_no_receiver: "Válassz legalább egy címzettet."
+nt_confirm_delete: "Törlöd a megjelölt jegyzeteket?"
+nt_priority_legend: "Szín = prioritás: zöld alacsony, sárga normál, piros magas"
+al_save_all_hint: "Mindkét Mentés gomb együtt menti a szövegeket és a beállításokat."
+al_dissolve_btn: "Szövetség feloszlatása..."
+al_transfer_btn: "Szövetség átadása..."
+al_dissolve_hint: "Ez véglegesen törli a szövetséget, és eltávolítja az összes tagot. Nem vonható vissza."
+al_transfer_hint: "Add át a vezetést egy másik tagnak. Elveszíted az alapítói rangot."
+al_transfer_confirm: "Átadod a szövetséget a kiválasztott tagnak? Elveszíted a vezetést."
+al_kick: "Kirúgás"
+al_find_results: "Találatok"
+al_find_browse: "A legnagyobb szövetségek"
+al_find_none_yet: "Ebben az univerzumban még nincsenek szövetségek."
+al_no_inside_text: "Még nincs szöveg a tagoknak."
+bd_needs: 'Kell'
+bd_missing: 'Hiányzik'
+honorfights: "Becsületcsaták"
+pl_block_head: "Tiltás"
+pl_block_hint: "Azonnal érvénybe lép, nincs Mentés gomb."
+st_my_rank: "Ugrás a rangomra"
+st_legend_noob: "Újoncvédelem"
+rec_intro: "Az univerzumban elért legmagasabb szint minden épületnél és kutatásnál, a sajátjaiddal összehasonlítva."
+as_intro: "A saját aktivitásod részletes számlálói (expedíciók, építések, veszteségek, kilövések). Az összes játékos ranglistája a Statisztika oldalon van."
+as_show_empty: "Üres sorok mutatása"
+op_sections: "Ugrás ide"
+op_save_hint: "A módosítások mentés után lépnek életbe."
+op_dlte_account_confirm: "Tényleg törlöd a fiókodat? Legalább 7 nap után teljesen eltávolítjuk; addig megszakíthatod a törlést."
+ti_none: "Még nincsenek jegyeid. Előbb olvasd el ezt: %s; ha az nem segít, hozz létre egy jegyet."
+ti_faq_first: "Nézd meg előbb a GYIK-et: sok kérdésre ott van válasz."
+team_contact_hint: "Segítség kell? Nyiss egy jegyet itt: %s."
+cl_hint: "A játékszoftver technikai változásai, legújabbak elöl. Kattints egy bejegyzésre a kibontásához."
+cl_empty: "Nincs rögzített változás."
+toc_contents: "Tartalom"
+sh_hint: "Írj be legalább két karaktert, majd nyomd meg az Entert vagy a Keresést."
+sh_search_type: "Keresés erre"
+sh_search_text: "Keresett szöveg"
+sh_no_players: "Nincs találat. Ellenőrizd a helyesírást, vagy próbálj rövidebb szöveget."
+sh_no_alliances: "Nincs találat a szövetségek között. Ellenőrizd a helyesírást, vagy próbálj rövidebb szöveget."
+fl_no_ship_selected: "Válassz ki legalább egy hajót."
+fl_recall_confirm: "Visszahívod ezt a flottát? Most megfordul, és ekkor ér haza: %s."
+fl_recall_return: "Ekkor érne haza, ha most hívnád vissza"
+fl_no_fleets: "Nincs úton lévő flotta."
+fl_quick_fleets: "Gyorsflották"
+fl_quick_fleets_hint: "Még nincs semmi elmentve. Mentsd el egy hajókombinációdat lent az „Egyéni flották” alatt, és itt egykattintásos gyorsgombként megjelenik; az utolsó küldetésed is itt látható."
+fl_load_hint: "A szürke értékek a bolygó készletei. A rakománygombok azt javasolják, hány hajó viszi el; hagyj egy mezőt üresen, ha semmit nem akarsz vinni."
+fl_load_clear: "Törlés"
+fl_cargo_options_hint: "A piros azt jelenti, hogy nincs elég abból a hajóból. Kattints egy hajóikonra, hogy a célponttal együtt előre kijelöld."
+fl_summary: "Indítási összegzés"
+fl_coord_range: "Érvénytelen koordináták. Megengedett: galaxis 1-%d, rendszer 1-%d, pozíció 1-%d."
+fl_sending: "Flotta küldése..."
+ft_rate_info: 'A kereskedő megtartja a hajó értékének %s%%-át, a többit nyersanyagban fizeti ki.'
+ft_per_ship: 'Kifizetés hajónként'
+ft_receive: 'Ezt kapod'
+market_tab_resources: 'Nyersanyagpiac'
+market_tab_fleets: 'Flottapiac'
+market_ratio_label: 'Ajánlatok összehasonlítása ezzel az aránnyal'
+market_ratio_hint: 'Beállítja az Arány oszlopban használt árfolyamot; a kiválasztott nyersanyag az alap.'
+market_no_offers: 'Jelenleg nincsenek ajánlatok.'
+gl_recycle_needs: "Hasznosítás (Szemetes kell hozzá)"
+gl_keys_hint: "Billentyűzet: a nyílgombok vagy az A D a rendszert, a W S a galaxist mozgatja."
+rs_ramp_up_confirm: 'Minden termelőt 100%-ra állítasz, és elmented?'
+rs_shut_down_confirm: 'Minden termelőt 0%-ra állítasz, és elmented? A termelés leáll.'
+rs_energy_deficit: 'Energiahiány: a bányák a beállított szint alatt működnek, amíg az energia vissza nem áll egyensúlyba.'
+ov_event_hostile: 'Ellenséges'
+ov_no_fleets: 'Nincs flottamozgás.'
+al_chart_x: "Idő (órával ezelőtt)"
+al_chart_y: "Pontok"
+as_sub_count: "Expedíciók"
+as_sub_found: "Leletek"
+as_sub_lost: "Veszteségek"
+as_sub_first: "Elsők"
+op_notifications: "Értesítések"
+rs_full_in: 'Megtelik ennyi múlva'
+rs_full_now: 'Tele'
+fl_prepared_gone: "Ez a flotta már nincs előkészítve (lejárt, felszabadult vagy már elment). Kezdd újra."
+gl_legend_activity: "Az elmúlt 15 percben aktív, (percekkel ezelőtt) formában mutatva 60-ig"
+st_rank_change: "Rangváltozás az utolsó frissítés óta"
+st_prev_range: "Előző 100"
+st_next_range: "Következő 100"
+op_unsaved_one: "1 mentetlen módosítás"
+op_unsaved_many: "%d mentetlen módosítás"
+pl_note: "Jegyzet"
+pl_galaxy_view: "Mutatás a galaxisban"
+shell_jump: "Ugrás…"
+shell_jump_tip: "Ugrás egy oldalra, bolygóra vagy koordinátákra"
+shell_switch_planet: "Bolygóváltás"
+shell_switch_to: "Váltás ide: %s"
+shell_moon_of: "%s Holdja"
+shell_fields: "mező"
+shell_slots_tip: "%1 / %2 bolygóhely használatban"
+shell_shortcuts: "Gyorsbillentyűk"
+shell_shortcuts_title: "Gyorsbillentyűk"
+shell_attack_title: "Ellenséges flotta közeledik"
+shell_attack_arrives: "érkezik ennyi múlva:"
+shell_attack_in: "Támadás ennyi múlva:"
+shell_attack_fleet: "Flotta"
+shell_attack_details: "Részletek"
+shell_attack_hide: "Figyelmeztetés elrejtése"
+shell_tagline: "Nyílt forráskódú űrstratégia a böngésződben."
+shell_footer: "Lábléc"
+shell_footer_game: "Játék"
+shell_footer_community: "Közösség"
+shell_footer_legal: "Jogi"
+shell_footer_credits: 'sok nyílt forráskódú projekt munkájára épül'
+shell_imprint: "Impresszum"
+ui_palette_placeholder: "Oldalak, bolygók, koordináták (pl. 1:42:8)…"
+ui_palette_empty: "Nincs találat"
+ui_palette_pages: "Oldalak"
+ui_palette_planets: "Bolygók"
+ui_palette_go: "Ugrás"
+ui_palette_galaxy: "Galaxis"
+ui_shortcuts_title: "Gyorsbillentyűk"
+ui_shortcuts_palette: "Ugrás oldalra, bolygóra vagy koordinátákra"
+ui_shortcuts_go_overview: "Áttekintés"
+ui_shortcuts_go_buildings: "Épületek"
+ui_shortcuts_go_galaxy: "Galaxis"
+ui_shortcuts_planets: "Előző / következő bolygó"
+ui_shortcuts_help: "Ez a súgó"
+mg_not_delivered: "Nem kézbesítve (tiltják az üzeneteket): %s"
+al_already_member: "Már tagja vagy egy szövetségnek. Előbb lépj ki belőle, ha újat akarsz alapítani."
+al_kicked: "Eltávolítottak a szövetségből"
+al_kicked_msg: "Eltávolítottak a(z) <b>%s</b> szövetségből."
+al_disbanded: "A szövetség feloszlott"
+al_disbanded_msg: "A(z) <b>%s</b> szövetség feloszlott. Már nem vagy a tagja."
+al_disbanded_applicant_msg: "A(z) <b>%s</b> szövetség feloszlott, a jelentkezésed érvénytelen."
+al_disbanded_partner_msg: "A(z) <b>%s</b> szövetség feloszlott. Az összes vele kötött szerződés véget ért."
+fa_no_debris: "Nincs begyűjthető törmelékmező."
+fl_colonize_slot_taken: "A célpozíción már van bolygó."
+fl_choose_destination: "Válassz úti célt"
+op_cant_activate_vacation_hostile: "Nem kapcsolhatod be a nyaralás módot, amíg ellenséges flották tartanak a bolygóid felé."
+rec_staff_excluded: "A csapattagok és a kitiltott játékosok nem állítanak fel rekordokat, így a saját szintjeid lehetnek magasabbak."
+rec_hidden_holder: "rejtett"
+rec_hidden_holder_info: "A rekorder nem mutatja a nevét a rekordokban."
+rec_pending: "Új rekord – a következő statisztikafrissítéskor számítjuk be."
+rec_you: "Te (még nincs beszámítva)"

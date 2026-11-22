@@ -1,0 +1,16 @@
+Szia {USERNAME}!
+
+Elérkezett az idő - a(z) {UNINAME} {OPENTIME} időpontban megnyitotta kapuit!
+Örülünk, hogy itt vagy, és sok szórakozást és izgalmas élményt kívánunk.
+
+A játékot itt találod: {HTTPPATH}.
+Szívesen látunk a Discordunkon is:
+{DISCORD}
+
+Ha elfelejtetted a jelszavad, egyszerűen kattints az oldalon az „Elfelejtett jelszó” gombra.
+Röviddel utána e-mailt kapsz egy új jelszóval.
+
+Ha továbbra is gondjaid vannak a bejelentkezéssel vagy a regisztrációval, keress minket a Discordon.
+
+Üdvözlettel,
+a(z) {GAMENAME} csapata

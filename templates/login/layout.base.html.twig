@@ -6,7 +6,7 @@
 #}
 {% set currentPage = (app.request.attributes.get('_page')|default('index'))|lower %}
 <!DOCTYPE html>
-<html lang="{{ lang }}" data-dialog-ok="{{ LNG.dialog_ok }}" data-dialog-cancel="{{ LNG.dialog_cancel }}">
+<html lang="{{ html_lang(lang) }}" data-dialog-ok="{{ LNG.dialog_ok }}" data-dialog-cancel="{{ LNG.dialog_cancel }}">
 <head>
   <meta charset="utf-8">
   {# pages live below the site root (/account/board, /news/7): relative asset URLs resolve against the universe directory #}

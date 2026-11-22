@@ -1,0 +1,575 @@
+faq_overview: FAQ
+faq_intro: "Răspunsuri despre mecanica jocului, reguli și meniuri. Caută sau alege o categorie."
+faq_search_label: "Caută în FAQ"
+faq_search_placeholder: "Caută în întrebări și răspunsuri (apasă / pentru focus)"
+faq_clear: "Șterge căutarea"
+faq_results_one: "1 rezultat"
+faq_results_many: "{n} rezultate"
+faq_no_results: "Nu s-a găsit nimic pentru „{q}”"
+faq_no_results_hint: "Verifică ortografia, încearcă mai puține cuvinte sau cuvinte mai generale ori răsfoiește categoriile."
+faq_show_all: "Arată toate categoriile"
+faq_entries_one: "1 articol"
+faq_entries_many: "{n} articole"
+faq_contents: "În acest articol"
+faq_prev: "Înapoi"
+faq_next: "Înainte"
+faq_back: "Înapoi la FAQ"
+faq_copy_link: "Copiază linkul către această secțiune"
+faq_link_copied: "Link copiat"
+faq_to_top: "La început"
+questions:
+  '1':
+    category: "Primii pași"
+    icon: "rocket"
+    '1':
+      title: "Primii tăi pași"
+      body: |-
+        <p>Începi cu o planetă și câteva resurse (implicit 500 de metal și 500 de cristal). Tot restul se construiește din trei resurse, metal, cristal și deuteriu, plus energia care îți ține minele în funcțiune.</p>
+        <h2 id="order">O deschidere rezonabilă</h2>
+        <ol>
+        <li><b>Centrala solară</b> prima. Minele nu funcționează cum trebuie fără energie.</li>
+        <li><b>Mina de metal</b> apoi, după aceea <b>Mina de cristal</b>. Metalul e necesar aproape pentru orice; ține-l câteva niveluri înaintea celorlalte mine la început.</li>
+        <li><b>Sintetizatorul de deuteriu</b>. Deuteriul este combustibilul flotei și e necesar pentru mai multe clădiri și cercetări importante.</li>
+        <li><b>Fabrica de roboți</b> și <b>Laboratorul de cercetare</b> imediat ce construcția devine lentă sau apar primele cercetări disponibile.</li>
+        <li><b>Șantierul naval</b> pentru câteva Transportoare mici și ceva apărare.</li>
+        </ol>
+        <h2 id="queues">Cozi</h2>
+        <p>Clădirile, cercetarea și șantierul naval au fiecare coada lor, așa că poți construi, cerceta și produce nave în același timp. Implicit, cozile țin 5 clădiri, 2 cercetări și 10 comenzi de șantier naval per planetă; universurile pot schimba asta.</p>
+        <h2 id="progress">Cum se măsoară progresul</h2>
+        <p>Scorul tău vine din resursele pe care le investești, implicit 1 punct la 1.000 de unități de resurse (vezi <a href="game/faq/11/3">Statistici și puncte</a>). <a href="game/faq/1/3">Tutorialul</a> te duce prin primii pași și împarte recompense.</p>
+    '2':
+      title: "Unde găsești ce"
+      body: |-
+        <p>Panoul lateral grupează toate paginile. Cele mai importante:</p>
+        <table class="faq-table">
+        <tr><th>Pagina</th><th>La ce folosește</th></tr>
+        <tr><td>Prezentare generală</td><td>Planetele tale, cozile în desfășurare și flotele care sosesc sau pleacă.</td></tr>
+        <tr><td>Resurse</td><td>Producția pe oră, bilanțul energetic și procentul de producție al fiecărei clădiri.</td></tr>
+        <tr><td>Clădiri, Cercetare, Hangar, Apărare</td><td>Construcție, cercetare, nave și apărare. Fiecare arată costuri, timp de construcție și cerințe.</td></tr>
+        <tr><td>Tehnologii</td><td>Arborele tehnologic cu cerințele pentru fiecare clădire, cercetare, navă și apărare.</td></tr>
+        <tr><td>Flotă, Galaxie</td><td>Trimite flote; răsfoiește sisteme, spionează, atacă, reciclează, lansează rachete.</td></tr>
+        <tr><td>Alianță, Prieteni</td><td>Gestionarea alianței și lista de prieteni.</td></tr>
+        <tr><td>Piață, Negustor de flote</td><td>Fă comerț cu resurse sau nave cu alți jucători; vinde nave pe resurse.</td></tr>
+        <tr><td>Simulator</td><td>Testează luptele înainte să trimiți o flotă.</td></tr>
+        <tr><td>Statistici, Recorduri, Hall of Fame</td><td>Clasamente, recordurile universului și cele mai mari bătălii.</td></tr>
+        <tr><td>Imperiu</td><td>Toate planetele și lunile tale într-un singur tabel.</td></tr>
+        <tr><td>Mesaje, Notițe, Suport</td><td>Rapoarte și mesaje, notițe personale, tichete către echipă.</td></tr>
+        <tr><td>Opțiuni, Reguli</td><td>Setările contului, modul vacanță și regulile acestui univers.</td></tr>
+        </table>
+        <p>Unele pagini există doar când universul activează modulul respectiv; dacă lipsește ceva descris aici, întreabă la <a href="game/faq/11/4">Suport</a>.</p>
+    '3':
+      title: "Tutorial și realizări"
+      body: |-
+        <p>Dacă universul are tutorialul activat, o casetă de tutorial te ghidează pas cu pas: construiește-ți primele mine și prima apărare, trimite un prim transport, spionează un jucător, reciclează resturi, colonizează, trimite o expediție, redenumește o planetă, trimite o cerere de prietenie sau de aderare la o alianță. Obiectivele îndeplinite pot aduce recompense; poți sări peste obiective individuale sau peste tot tutorialul. <b>Interfața pentru începători</b> din Opțiuni ține meniul scurt până parcurgi tutorialul.</p>
+        <h2 id="achievements">Realizări</h2>
+        <p>Pagina Realizări listează obiective pe termen lung (prima lună, primele găsiri din expediții, bătălii mari și altele). Se deblochează singure pe măsură ce joci.</p>
+    '4':
+      title: "Alți jucători, boți și baze de pirați"
+      body: |-
+        <p>Fiecare univers este împărțit cu alți jucători. În funcție de setările universului, pot juca alături de tine și <b>boți</b> rulați de server. Boții respectă aceleași reguli ca jucătorii; dacă raidurile boților sunt activate, ei fac recunoaștere, spionează și atacă în aceleași limite (limita de bash, protecție, modul vacanță).</p>
+        <h2 id="pirates">Baze de pirați</h2>
+        <p>Dacă universul activează bazele de pirați, câte o bază per jucător activ (online în ultimele 7 zile și peste un scor minim) apare într-un sistem în care jucătorul are o planetă și este înlocuită săptămânal. O bază conține o parte din navele acelui jucător și câteva ore de producție; când o jefuiești, iei toate resursele, nu doar jumătate. Setările universului definesc partea și scorul minim.</p>
+  '2':
+    category: "Economie și clădiri"
+    icon: "building-2"
+    '1':
+      title: "Resurse și producție"
+      body: |-
+        <p>Metalul, cristalul și deuteriul sunt produse de minele de pe fiecare planetă, plus un mic <b>venit de bază</b> pe oră (implicit 20 de metal și 10 de cristal). Fiecare mină are nevoie de energie.</p>
+        <h2 id="percent">Procentul de producție</h2>
+        <p>Pe pagina Resurse poți seta fiecare producător între 0 și 100&nbsp;%. Setările mai mici folosesc mai puțină energie și deuteriu (Centrala cu fuziune arde deuteriu) și produc mai puțin. Folosește asta ca să echilibrezi energia.</p>
+        <h2 id="factors">Ce schimbă producția</h2>
+        <ul>
+        <li>Nivelul minei (producția crește mai repede decât liniar, la fel și costul).</li>
+        <li>Temperatura planetei: producția Sintetizatorului de deuteriu este mai mare pe planetele mai reci; un Satelit solar produce mai mult pe cele mai calde.</li>
+        <li>Cercetările de producție (Producție de metal, de cristal, de deuteriu): +2&nbsp;% pe nivel fiecare.</li>
+        <li>Multiplicatorul de resurse al universului.</li>
+        </ul>
+        <h2 id="full">Depozit plin</h2>
+        <p>Producția unei resurse pe o planetă se oprește când depozitul ei este plin (implicit exact la capacitate). Resursele pe care le aduci dintr-un raid sau o expediție te pot duce peste această limită.</p>
+    '2':
+      title: "Energie"
+      body: |-
+        <p>Minele consumă energie; pagina Resurse arată energia produsă și cea folosită. Dacă consumul depășește producția, <b>fiecare producător este încetinit</b> la raportul produs / necesar din producția lui normală, deci un deficit de energie te costă deopotrivă metal, cristal și deuteriu.</p>
+        <h2 id="sources">Surse</h2>
+        <ul>
+        <li><b>Centrala solară</b>: ieftină, fără costuri de funcționare. Construiește-o prima.</li>
+        <li><b>Centrala cu fuziune</b>: arde deuteriu. Energie = 30 x nivel x (1,05 + 0,01 x nivelul Tehnologiei energiei)^nivel, deci Tehnologia energiei o face mai bună.</li>
+        <li><b>Sateliți solari</b>: se construiesc în Hangar, nu cer câmpuri; energia depinde de temperatura planetei. Pot fi doborâți, așa că în luptă contează ca nave.</li>
+        </ul>
+    '3':
+      title: "Depozitare și protejarea resurselor"
+      body: |-
+        <p>Fiecare resursă are o capacitate de depozitare (10.000 de unități fără clădire de depozitare) care crește rapid cu nivelul Depozitului de metal, Depozitului de cristal și Rezervorului de deuteriu.</p>
+        <h2 id="stash">Protecție împotriva raidurilor</h2>
+        <p>Dacă universul folosește ascunzătoarea de resurse, fiecare nivel de depozit protejează de jefuire 1&nbsp;% din producția zilnică a acelei resurse pe planetă, până la 10&nbsp;% (nivelul 10 de depozit). În afară de asta, un raid nu poate lua niciodată mai mult de jumătate dintr-o resursă aflată pe planetă; vezi <a href="game/faq/5/2">Prada</a>.</p>
+        <p>Cea mai bună protecție rămâne să cheltuiești resursele înainte să te deconectezi sau să le ții într-o coadă.</p>
+    '4':
+      title: "Construirea clădirilor"
+      body: |-
+        <p>Fiecare nivel costă un factor fix mai mult decât cel dinaintea lui (de exemplu 1,5 x pentru Mina de metal, 1,6 x pentru Mina de cristal, 2 x pentru majoritatea celorlalte clădiri), deci pagina Clădiri e locul unde verifici prețurile reale.</p>
+        <h2 id="time">Timpul de construcție</h2>
+        <p>La viteza normală a universului: (cost metal + cristal) / (2500 x (1 + nivelul Fabricii de roboți)) ore, înjumătățit pentru fiecare nivel al Fabricii de nanoboți. Fabrica de roboți ajută și pe luni. Navele se construiesc în (metal + cristal) / (2500 x (1 + nivelul Șantierului naval)) ore, din nou înjumătățit pe nivel de nanoboți; cercetarea e tratată la <a href="game/faq/3/1">Cercetare</a>. Setările de viteză ale universului scalează toate acestea.</p>
+        <h2 id="cancel">Anulare și demolare</h2>
+        <p>Anularea unei clădiri sau a unei cercetări returnează costul integral. Anularea unei comenzi de șantier naval returnează 60&nbsp;%. Demolarea unei clădiri durează mult mai puțin decât construirea (aproximativ 36&nbsp;%).</p>
+        <h2 id="catchup">Recuperare</h2>
+        <p>Universurile pot activa un mecanism de recuperare: jucătorii mult în urma liderului construiesc și cercetează mai ieftin și mai repede, până la maximul configurat (implicit 50&nbsp;%).</p>
+    '5':
+      title: "Câmpurile planetei și Terraformatorul"
+      body: |-
+        <p>Fiecare planetă și lună are un număr limitat de câmpuri; fiecare nivel de clădire de pe o planetă ocupă un câmp (cercetările și navele nu).</p>
+        <ul>
+        <li><b>Terraformator</b> (doar planete): +5 câmpuri pe nivel și încă +1 la fiecare nivel par; fiecare nivel ocupă el însuși un câmp. Are nevoie de energie (care nu se consumă) și nu poate fi demolat.</li>
+        <li><b>Bază lunară</b> (doar luni): +3 câmpuri pe nivel, ocupând și ea un câmp. Vezi <a href="game/faq/7/2">Clădirile lunii</a>.</li>
+        </ul>
+    '6':
+      title: "Colonii"
+      body: |-
+        <p>Colonizează planete libere cu o <b>Navă de colonizare</b> (misiunea Colonizare). Nava se consumă și se transformă în noua colonie. Ai nevoie de cercetarea Astrofizică.</p>
+        <h2 id="limit">Câte planete</h2>
+        <p>Implicit, numărul total de planete (inclusiv planeta-mamă) este 1 + nivelul Astrofizicii / 2, rotunjit în sus, cu un maxim de 12 planete:</p>
+        <p>Nivelurile 1-2 = 2 planete, 3-4 = 3, 5-6 = 4, 7-8 = 5, 9-10 = 6, 11-12 = 7, 13-14 = 8, 15-16 = 9, 17-18 = 10, 19-20 = 11, 21+ = 12.</p>
+        <h2 id="positions">Ce poziții</h2>
+        <p>Pozițiile exterioare și interioare cer mai multă Astrofizică: pozițiile 4-12 de la nivelul 1, pozițiile 3 și 13 de la nivelul 4, pozițiile 2 și 14 de la nivelul 6, pozițiile 1 și 15 de la nivelul 8 (pentru un sistem cu 15 poziții).</p>
+  '3':
+    category: "Cercetare"
+    icon: "flask-conical"
+    '1':
+      title: "Cercetarea și Laboratorul de cercetare"
+      body: |-
+        <p>Cercetarea se face în <b>Laboratorul de cercetare</b> și se aplică tuturor planetelor tale. Nivelul laboratorului și o listă de cerințe decid ce poți cerceta; pagina Tehnologii le arată.</p>
+        <ul>
+        <li>Rulează o singură cercetare odată (coada ține 2 implicit). Cât timp rulează o cercetare, niciun Laborator de cercetare nu poate fi îmbunătățit.</li>
+        <li>Timp de cercetare = (cost metal + cristal) / (1000 x (1 + nivelul laboratorului)) ore la viteza normală. O <b>Universitate</b> îl scurtează, implicit cu 8&nbsp;% pe nivel.</li>
+        <li><b>Rețeaua intergalactică de cercetare</b> lasă laboratoarele celorlalte planete ale tale să ajute: fiecare nivel adaugă încă un laborator (cele mai înalte care îndeplinesc cerința de laborator a cercetării respective), iar nivelurile lor se adună în calcul.</li>
+        <li>Anularea unei cercetări în desfășurare returnează costul integral.</li>
+        </ul>
+    '2':
+      title: "Ce fac tehnologiile"
+      body: |-
+        <h2 id="fleet">Flotă</h2>
+        <ul>
+        <li><b>Tehnologia calculatoarelor</b>: +1 slot de flotă pe nivel (începi cu 1 slot).</li>
+        <li><b>Propulsia cu combustie / cu impuls / hiperspațială</b>: navele care folosesc acea propulsie zboară cu +10 / +20 / +30&nbsp;% din viteza de bază pe nivel. Unele nave schimbă propulsia la un anumit nivel (de exemplu Transportorul mic cu Propulsia cu impuls). Nivelul impulsului stabilește și raza rachetelor.</li>
+        <li><b>Eficiența combustibilului</b>: -2&nbsp;% consum de combustibil pe nivel.</li>
+        <li><b>Astrofizica</b>: colonii, expediții și poziții colonizabile, vezi <a href="game/faq/2/6">Colonii</a> și <a href="game/faq/8/1">Expediții</a>.</li>
+        <li><b>Tehnologia de spionaj</b>: rapoarte de spionaj mai bune; decide și ce vezi despre flotele care se apropie.</li>
+        </ul>
+        <h2 id="combat">Luptă</h2>
+        <ul>
+        <li><b>Tehnologia armelor, a scuturilor și a blindajului</b>: +10&nbsp;% atac, scut și blindaj pe nivel pentru toate unitățile tale.</li>
+        <li>Tehnologia laser, ionică și a plasmei deblochează arme; Cercetarea de graviton este necesară pentru distrugerea lunilor.</li>
+        </ul>
+        <h2 id="economy">Economie</h2>
+        <ul>
+        <li><b>Tehnologia energiei</b>: crește producția Centralei cu fuziune și deschide multe tehnologii.</li>
+        <li><b>Producție de metal / cristal / deuteriu</b>: +2&nbsp;% producție pe nivel.</li>
+        </ul>
+  '4':
+    category: "Flotă și misiuni"
+    icon: "send"
+    '1':
+      title: "Trimiterea unei flote"
+      body: |-
+        <ol>
+        <li><b>Alege navele</b> pe pagina Flotă (sau trimite tot din vizualizarea Galaxiei).</li>
+        <li><b>Țintă și viteză</b>: introdu coordonatele (galaxie:sistem:poziție) și tipul: planetă, câmp de resturi sau lună. Viteza este 10-100&nbsp;% în pași de 10; mai încet e mai ieftin și durează mai mult.</li>
+        <li><b>Misiune și încărcătură</b>: alege o misiune disponibilă pentru acea țintă, încarcă resurse dacă e nevoie și confirmă. Pentru Menținere, Expediție și Comerț alegi și cât timp rămâne.</li>
+        </ol>
+        <p>Pagina arată timpul de zbor, ora sosirii și combustibilul înainte să confirmi. Flota are nevoie de suficient deuteriu pe planetă ca să plătească zborul.</p>
+        <p>Poți zbura cu cel mult atâtea flote simultan câte <b>sloturi de flotă</b> ai: 1 + nivelul Tehnologiei calculatoarelor. Expedițiile au propria limită, vezi <a href="game/faq/8/1">Expediții</a>.</p>
+    '2':
+      title: "Viteză, timp de zbor și combustibil"
+      body: |-
+        <ul>
+        <li>O flotă zboară cu viteza <b>celei mai lente nave</b>.</li>
+        <li>Viteza navei = viteza de bază x (1 + 0,1 / 0,2 / 0,3 x nivelul propulsiei) pentru cea mai bună propulsie pe care o poate folosi nava; vezi <a href="game/faq/3/2">tehnologiile</a>.</li>
+        <li>Timp de zbor = (3500 / (viteză&nbsp;% x 0,1) x rădăcina pătrată din (distanță x 10 / viteza flotei) + 10) / viteza flotelor din univers. Minimul este 5 secunde.</li>
+        <li>Distanța crește cu numărul de galaxii și sisteme traversate; aceeași galaxie și același sistem este mult mai aproape decât alt sistem.</li>
+        <li>Consumul de combustibil crește mai repede decât scade timpul de zbor: zborul mai lent economisește deuteriu. Fiecare nivel de Eficiență a combustibilului reduce consumul cu 2&nbsp;%.</li>
+        </ul>
+        <p>Unele universuri sunt circulare (sistemele sau galaxiile se închid în cerc). Pagina Flotă include deja asta în calcul.</p>
+    '3':
+      title: "Toate misiunile dintr-o privire"
+      body: |-
+        <table class="faq-table">
+        <tr><th>Misiune</th><th>Țintă</th><th>Ce se întâmplă</th></tr>
+        <tr><td>Atac</td><td>planeta sau luna altui jucător</td><td>Bătălie; supraviețuitorii se întorc cu prada. Vezi <a href="game/faq/5/1">Luptă</a>.</td></tr>
+        <tr><td>Atac de alianță</td><td>la fel, în grup</td><td>Mai mulți jucători atacă împreună, vezi <a href="game/faq/9/3">ACS</a>.</td></tr>
+        <tr><td>Transport</td><td>orice planetă ocupată</td><td>Livrează resurse și se întoarce.</td></tr>
+        <tr><td>Staționare</td><td>planetele sau lunile tale</td><td>Navele și încărcătura rămân acolo; fără zbor de întoarcere.</td></tr>
+        <tr><td>Menținere</td><td>planeta unui membru de alianță sau a unui prieten</td><td>Flota așteaptă și apără planeta, vezi <a href="game/faq/9/4">Menținere</a>.</td></tr>
+        <tr><td>Transfer</td><td>planeta unui membru de alianță sau a unui prieten</td><td>Dăruiește nave și încărcătură; nu se mai întorc.</td></tr>
+        <tr><td>Spionaj</td><td>planeta sau luna altui jucător</td><td>Doar o flotă formată din sonde poate spiona; vezi <a href="game/faq/6/1">Spionaj</a>.</td></tr>
+        <tr><td>Colonizare</td><td>poziție liberă de planetă</td><td>Are nevoie de o Navă de colonizare, vezi <a href="game/faq/2/6">Colonii</a>.</td></tr>
+        <tr><td>Reciclare</td><td>câmp de resturi</td><td>Are nevoie de Reciclatoare, vezi <a href="game/faq/4/4">Reciclare</a>.</td></tr>
+        <tr><td>Distrugere</td><td>o lună</td><td>Are nevoie de Stele ale morții, vezi <a href="game/faq/7/5">Distrugerea lunii</a>.</td></tr>
+        <tr><td>Expediție</td><td>poziția de expediție (16) a unui sistem</td><td>Tragere la sorți a unui eveniment, vezi <a href="game/faq/8/1">Expediții</a>.</td></tr>
+        <tr><td>Comerț</td><td>poziția de comerț (17) a unui sistem</td><td>Livrează bunurile unui schimb pe <a href="game/faq/4/6">piață</a>.</td></tr>
+        <tr><td>Atac cu rachete</td><td>planetă în raza rachetelor</td><td>Rachetele lovesc apărarea, vezi <a href="game/faq/5/5">Rachete</a>.</td></tr>
+        </table>
+        <p>Dacă o misiune este oferită depinde de țintă și de modulele activate în univers. Misiunile ostile împotriva jucătorilor în modul vacanță se întorc din drum.</p>
+    '4':
+      title: "Câmpuri de resturi și reciclare"
+      body: |-
+        <p>Navele distruse în bătălie lasă un <b>câmp de resturi</b> la poziția țintei. Implicit conține 30&nbsp;% din costul în metal și cristal al tuturor navelor distruse de ambele părți și 0&nbsp;% pentru apărare; deuteriul nu devine niciodată resturi. Universurile pot schimba ambele procente.</p>
+        <ul>
+        <li>Trimite <b>Reciclatoare</b> (misiunea Reciclare, tipul țintei câmp de resturi) ca să-l colectezi. O flotă încarcă cât poate duce; metalul și cristalul se iau proporțional, restul rămâne în câmp.</li>
+        <li>Oricine poate colecta un câmp de resturi. Aparține celui care ajunge primul.</li>
+        <li>Sondele doborâte în timpul spionajului lasă și ele resturi.</li>
+        <li>Pagina și raportul de reciclare îți spun câte Reciclatoare ți-ar mai trebui.</li>
+        </ul>
+    '5':
+      title: "Rechemarea flotelor"
+      body: |-
+        <p>Poți rechema o flotă aflată la dus din pagina Flotă sau din Prezentarea generală. Se întoarce din drum și îi trebuie la întoarcere cât a zburat deja.</p>
+        <ul>
+        <li><b>Nu poți rechema</b> o flotă după ce a ajuns la țintă (sosirea se rezolvă mai întâi, deci nu poți evita o bătălie), flotele de expediție după sosire sau rachetele interplanetare.</li>
+        <li>O flotă în Menținere poate fi rechemată mai devreme; atunci îi trebuie cât a durat zborul dus.</li>
+        <li>Dacă fondatorul unui atac ACS rechemă, tot grupul este rechemat. Flotele care se alătură se rechemă doar pe ele însele.</li>
+        </ul>
+    '6':
+      title: "Negustorul de flote, Piața și transferurile"
+      body: |-
+        <h2 id="dealer">Negustorul de flote</h2>
+        <p>Negustorul de flote îți cumpără navele la costul lor în resurse minus un comision (implicit 30&nbsp;%). Poate fi vândută doar o listă configurată de nave (implicit de la Transportorul mic până la Crucișătorul de luptă, fără cele mai mari nave). Nu e disponibil în modul vacanță.</p>
+        <h2 id="market">Piața</h2>
+        <p>Jucătorii oferă resurse sau nave și își stabilesc prețul în alte resurse. Schimburile sunt livrate de flote care zboară spre poziția de comerț a sistemului ofertei (poziția 17 în sistemele cu 15 planete, misiunea Comerț). Prețurile de referință sunt derivate din schimburile încheiate în ultimele 7 zile (ținute între 0,5 și 5).</p>
+        <h2 id="transfer">Transfer</h2>
+        <p>Misiunea Transfer dăruiește nave și resurse unui membru de alianță sau unui prieten. Nu se mai întoarce nimic.</p>
+        <p>Cadourile mari, într-o singură direcție, sunt verificate, vezi <a href="game/faq/10/5">Pushing și limite de comerț</a>.</p>
+  '5':
+    category: "Luptă"
+    icon: "swords"
+    '1':
+      title: "Cum funcționează o bătălie"
+      body: |-
+        <p>Când o flotă atacatoare ajunge la țintă, toate flotele atacatoare (inclusiv participanții ACS) se luptă cu apărarea și flota planetei, plus toate flotele aflate în Menținere acolo. Sunt cel mult <b>6 runde</b>.</p>
+        <ul>
+        <li>În fiecare rundă, fiecare navă trage o dată într-o navă inamică aleasă la întâmplare (focul rapid poate adăuga trageri).</li>
+        <li>Un scut absoarbe mai întâi o lovitură; o lovitură mai slabă de 1&nbsp;% din scutul țintei ricoșează. Scuturile se refac după fiecare rundă, daunele la blindaj nu.</li>
+        <li>Blindajul unei nave = (cost metal + cristal) / 10. Navele sub 70&nbsp;% din blindaj pot exploda la următoarea lovitură; cu cât sunt mai avariate, cu atât mai probabil.</li>
+        <li><b>Foc rapid</b>: dacă tipul țintei este în lista de foc rapid a trăgătorului cu valoarea N, trăgătorul trage din nou cu probabilitatea (N-1)/N. Este afișat pe pagina Tehnologii.</li>
+        <li>Tehnologia armelor, a scuturilor și a blindajului adaugă 10&nbsp;% pe nivel la atac, scut și blindaj.</li>
+        <li>Toate loviturile dintr-o rundă sunt trase deodată; navele care ajung la 0 blindaj sunt scoase după rundă.</li>
+        </ul>
+        <h2 id="result">Rezultat</h2>
+        <p>Dacă apărătorii sunt anihilați, atacatorul câștigă și jefuiește. Dacă ambele părți mai au nave după 6 runde, bătălia este egală și nimeni nu jefuiește. Dacă atacatorii sunt anihilați, apărătorul câștigă. Raportul de luptă, cu fiecare rundă, este trimis tuturor părților; fiecare raport are un link public.</p>
+    '2':
+      title: "Prada"
+      body: |-
+        <p>Doar un atacator învingător jefuiește. Capacitatea de transport liberă a navelor atacatoare supraviețuitoare (sondele de spionaj nu contează) este umplută în ordinea următoare:</p>
+        <ol>
+        <li>până la 1/3 din capacitate cu metal,</li>
+        <li>jumătate din capacitatea rămasă cu cristal,</li>
+        <li>restul cu deuteriu,</li>
+        <li>orice spațiu rămas liber este umplut din nou cu metal (jumătate) și cristal.</li>
+        </ol>
+        <p>Pentru fiecare resursă se poate lua cel mult <b>jumătate din stocul planetei</b>. Alte limite: partea protejată de <a href="game/faq/2/3">depozitare</a> (dacă e activată). Jucătorii cu un istoric de onoare foarte prost pot fi jefuiți de mai mult de jumătate, vezi <a href="game/faq/5/7">Puncte de onoare</a>.</p>
+        <p>Bazele de pirați sunt excepția: când o jefuiești, iei tot ce permite capacitatea.</p>
+    '3':
+      title: "Resturi, epave și Docul de reparații"
+      body: |-
+        <h2 id="debris">Resturi</h2>
+        <p>Vezi <a href="game/faq/4/4">Câmpuri de resturi și reciclare</a>: implicit 30&nbsp;% din metalul și cristalul navelor pierdute.</p>
+        <h2 id="wreck">Câmp de epave</h2>
+        <p>Dacă universul are modulul Doc de reparații, navele pierdute de <b>proprietarul planetei</b> (nu apărarea) pot lăsa un <b>câmp de epave</b>, dar doar dacă s-a pierdut mult dintr-o dată: implicit cel puțin 150.000 de unități de valoare și 75&nbsp;% din flotă. Epava conține partea navelor care nu a devenit resturi.</p>
+        <h2 id="dock">Doc de reparații</h2>
+        <p>Un Doc de reparații (doar planete) poate repara navele din epave: rata de reparare este 24&nbsp;% + nivel^1,5&nbsp;% din epave, cel mult 100&nbsp;%. Comanda de reparare durează cât timpul de construcție al navelor, dar cel puțin 30 de minute de la apariția epavei și cel mult 12 ore. Pornește-o în 3 zile, apoi repune navele reparate în serviciu din pagina Doc de reparații; dacă uiți, revin automat în serviciu după 3 zile. Epavele expiră după 72 de ore.</p>
+    '4':
+      title: "Apărare"
+      body: |-
+        <ul>
+        <li>Unitățile de apărare luptă împreună cu toate flotele de la planetă. Nu zboară niciodată.</li>
+        <li>După o bătălie, <b>apărarea distrusă este reconstruită parțial gratuit</b>: dacă s-au pierdut mai mult de 10 unități de un tip, revin 60-80&nbsp;% din ele (aleatoriu); dacă 10 sau mai puține, fiecare unitate are 70&nbsp;% șanse.</li>
+        <li>Apărarea care nu este reconstruită nu lasă resturi implicit.</li>
+        <li>Rachetele distrug apărarea care <b>nu</b> este reconstruită, vezi <a href="game/faq/5/5">Rachete</a>.</li>
+        <li>Cupolele de scut, Scutul atmosferic și Platforma orbitală de apărare pot fi construite o singură dată pe planetă.</li>
+        <li>Sateliții solari de pe planetă luptă ca nave și contează ca flotă, nu ca apărare.</li>
+        </ul>
+    '5':
+      title: "Rachete"
+      body: |-
+        <p>Ai nevoie de un <b>Siloz de rachete</b>. Implicit, fiecare nivel ține 10 sloturi; o Rachetă interceptoare ocupă 1 slot, o Rachetă interplanetară ocupă 2.</p>
+        <ul>
+        <li><b>Rachetele interplanetare</b> atacă apărarea unei planete din aceeași galaxie aflate în rază. Se consumă, nu pot fi rechemate, iar dauna depinde de Tehnologia armelor.</li>
+        <li>Raza = 5 x nivelul Propulsiei cu impuls - 1 sisteme (un factor al universului o poate schimba). Timp de zbor = (30 + 60 x distanța în sisteme) / viteza flotelor din univers secunde.</li>
+        <li>Alege o <b>țintă principală</b>: acel tip de apărare este lovit primul. Altfel încep Lansatoarele de rachete.</li>
+        <li><b>Rachetele interceptoare</b> doboară rachetele care sosesc una la una; apărătorul pierde o Interceptoare pentru fiecare rachetă interceptată.</li>
+        <li>Apărarea distrusă nu este reconstruită.</li>
+        <li>Atacurile cu rachete contează la limitele de bash, dacă universul nu dezactivează asta.</li>
+        </ul>
+    '6':
+      title: "Simulator și rapoarte de luptă"
+      body: |-
+        <p><b>Simulatorul</b> rulează o luptă cu tehnologiile și flotele pe care le introduci și arată rezultatul și pierderile. Rapoartele de spionaj trimit în el cu un clic. Luptele simulate au aceleași reguli ca cele reale, dar aleatoriul (foc rapid, explozii) face ca rezultatele să difere ușor de bătălia reală; rulează-l de mai multe ori pentru o estimare.</p>
+        <p>Rapoartele de luptă reale sunt stocate în mesajele tale și au un link public, ca să le poți distribui. Hall of Fame listează cele mai mari bătălii ale universului.</p>
+    '7':
+      title: "Puncte de onoare"
+      body: |-
+        <p>Dacă universul folosește puncte de onoare, luptele corecte 1 contra 1 aduc ambilor jucători puncte de onoare, în timp ce atacarea unui jucător clar mai slab îl costă puncte pe atacator.</p>
+        <ul>
+        <li><b>Onorabil</b> (ambii câștigă): atacatorul nu are mai multe puncte decât apărătorul și nu este de mai mult de două ori mai puternic militar, sau apărătorul este un bandit cunoscut.</li>
+        <li><b>Neonorabil</b> (atacatorul pierde puncte): scorul militar al atacatorului este mai mult de dublul celui al apărătorului (iar diferența e de peste 10 puncte) în timp ce apărătorul are un rang bun de onoare.</li>
+        <li>Luptele împotriva jucătorilor inactivi, a membrilor alianței și a prietenilor sunt neutre. Implicit, aceiași doi jucători pot câștiga onoare din cel mult 3 lupte în 24 de ore.</li>
+        </ul>
+        <h2 id="effects">Efecte</h2>
+        <ul>
+        <li>Onoarea mare (500 de puncte și un loc în top 30 / 20 / 10&nbsp;% din univers) îți reduce combustibilul de zbor cu 5 / 12 / 20&nbsp;%.</li>
+        <li>Onoarea foarte mică (-500 de puncte sau mai rău, ultimii 30 / 20 / 10&nbsp;%) înseamnă că atacatorii pot jefui până la 60 / 80 / 100&nbsp;% din stocul tău în loc de jumătate. Vezi <a href="game/faq/5/2">Prada</a>.</li>
+        </ul>
+  '6':
+    category: "Spionaj"
+    icon: "scan-eye"
+    '1':
+      title: "Spionaj cu sonde"
+      body: |-
+        <p>Doar o flotă formată <b>exclusiv din Sonde de spionaj</b> poate folosi misiunea Spionaj. Primești un raport în mesaje, iar ținta este anunțată că a fost văzută o flotă străină.</p>
+        <h2 id="level">Ce arată raportul</h2>
+        <p>Resursele sunt mereu vizibile. Ce mai vezi depinde de numărul de sonde și de nivelurile Tehnologiei de spionaj ale ambilor jucători (al tău <i>s</i>, al țintei <i>t</i>): sondele necesare pentru flote sunt n0 = (|s - t|)^2, negativ dacă ai nivelul mai mare. Apărarea cere n0 + 1 sonde, clădirile n0 + 3 și cercetarea n0 + 5. Trimite mai multe sonde decât crezi că ai nevoie.</p>
+        <h2 id="risk">Contraspionaj</h2>
+        <p>Planeta țintă poate doborî sondele. Șansa în&nbsp;% = 2^(t - s) x sonde x (nave și apărare de pe planetă) x 0,0025, cel mult 100. Planetele fără nave sau apărare nu trag niciodată. Sondele pierdute lasă resturi. Raportul este livrat oricum.</p>
+        <p>Un raport de spionaj are un link către Simulator cu datele țintei precompletate.</p>
+    '2':
+      title: "Ce vezi despre flotele care se apropie"
+      body: |-
+        <p>Nivelul propriei tale Tehnologii de spionaj decide și ce arată Prezentarea generală despre flotele străine care vin spre tine:</p>
+        <ul>
+        <li>Nivelul 0-1: doar că se apropie o flotă.</li>
+        <li>Nivelul 2-3: câte nave.</li>
+        <li>Nivelul 4-7: ce tipuri de nave.</li>
+        <li>Nivelul 8 și peste: câte din fiecare tip.</li>
+        </ul>
+        <p>Statisticile altor jucători pot depinde și de Tehnologia ta de spionaj dacă universul activează acel modul.</p>
+  '7':
+    category: "Luni și falangă"
+    icon: "moon"
+    '1':
+      title: "Cum se creează lunile"
+      body: |-
+        <p>O lună se poate forma după o bătălie pe o <b>planetă</b> care nu are încă una. Șansa este <b>1&nbsp;% la 100.000 de unități de resturi create în acea bătălie</b> (se aplică factorul universului), cel mult maximul universului (implicit 20&nbsp;%). Lunile nu se formează niciodată la luni.</p>
+        <ul>
+        <li>Contează doar resturile acelei bătălii: navele pierdute de ambele părți și apărarea, dacă universul lasă apărarea să facă resturi.</li>
+        <li>Unele universuri șterg câmpul de resturi când se formează o lună.</li>
+        <li>Universurile pot adăuga un bonus în cascadă după eșecuri repetate la șansa maximă, până există prima lună.</li>
+        <li>Luna aparține proprietarului planetei țintă. O planetă poate avea o singură lună.</li>
+        </ul>
+        <h2 id="size">Mărime</h2>
+        <p>Diametru = rădăcina pătrată din (10-20 + 3 x șansa în&nbsp;%) x 1.000 km, înmulțit cu factorul de mărime al universului. La o șansă de 20&nbsp;% asta înseamnă între aproximativ 8.370 și 8.940 km. O lună nouă are loc pentru exact 1 câmp.</p>
+    '2':
+      title: "Clădirile lunii"
+      body: |-
+        <p>Pe o lună poți construi Fabrica de roboți, Șantierul naval, cele trei clădiri de depozitare și clădirile doar pentru luni:</p>
+        <h2 id="base">Bază lunară</h2>
+        <p>Fiecare nivel oferă 3 câmpuri și folosește unul. Nu poate fi demolată. Construiește-o prima.</p>
+        <h2 id="phalanx">Falanga senzorială</h2>
+        <p>Vezi <a href="game/faq/7/3">Falanga senzorială</a>.</p>
+        <h2 id="gate">Poarta de salt</h2>
+        <p>Vezi <a href="game/faq/7/4">Poarta de salt</a>.</p>
+        <p>Lunile nu produc resurse și, cu puține câmpuri, nu pot ține de toate: planifică-ți bugetul de câmpuri înainte să construiești.</p>
+    '3':
+      title: "Falanga senzorială"
+      body: |-
+        <p>O Falangă senzorială pe o lună arată mișcările de flote ale unei planete din <b>aceeași galaxie</b> aflate în rază. Lunile nu pot fi scanate.</p>
+        <ul>
+        <li><b>Raza</b> = nivel^2 - 1 sisteme (nivelul 1 acoperă doar propriul sistem), înmulțit cu factorul universului.</li>
+        <li><b>Cost</b>: 5.000 de deuteriu pe scanare, luat de pe lună.</li>
+        <li>Vezi flotele care pleacă de la sau zboară spre planeta scanată: sosiri, sfârșituri de Menținere și întoarceri. Staționările și rachetele nu sunt afișate.</li>
+        <li>Nu funcționează în modul vacanță sau împotriva jucătorilor pe care nu-i poți ataca din cauza protecției.</li>
+        </ul>
+        <p>Deschide vizualizarea Galaxiei de pe lună și apasă pe o planetă din rază.</p>
+    '4':
+      title: "Poarta de salt"
+      body: |-
+        <p>Porțile de salt mută nave între două dintre lunile tale instantaneu și fără combustibil. Resursele nu pot fi mutate.</p>
+        <ul>
+        <li>Ambele porți trebuie să fie gata. După un salt, fiecare poartă are nevoie de o răcire: 60 de minute la nivelul 1, scăzând cu fiecare nivel până la 10 minute de la nivelul 15 (un factor al universului o poate schimba).</li>
+        <li>Sateliții solari nu pot sări.</li>
+        </ul>
+    '5':
+      title: "Distrugerea lunilor"
+      body: |-
+        <p>Misiunea <b>Distrugere</b> este disponibilă împotriva lunilor dacă flota conține <b>Stele ale morții</b>. O distrugere are loc doar după ce atacatorul câștigă bătălia.</p>
+        <ul>
+        <li><b>Șansa de distrugere a lunii</b> în&nbsp;% = (100 - rădăcina pătrată din diametrul lunii) x rădăcina pătrată din numărul de Stele ale morții, cel mult 100. Lunile mai mari sunt mai greu de distrus.</li>
+        <li><b>Riscul pentru flotă</b>: flota atacatoare se pierde cu o șansă de (rădăcina pătrată din diametru) / 2&nbsp;%, indiferent dacă luna este distrusă sau nu.</li>
+        <li>Flotele staționate la lună sunt mutate pe planetă când luna este distrusă. O lună distrusă nu lasă resturi.</li>
+        </ul>
+  '8':
+    category: "Expediții"
+    icon: "compass"
+    '1':
+      title: "Trimiterea unei expediții"
+      body: |-
+        <p>Expedițiile merg la <b>poziția 16</b> (cea de după ultima planetă, în sistemele cu 15 planete) din orice sistem. Au nevoie de cercetarea <b>Astrofizică</b>.</p>
+        <ul>
+        <li><b>Sloturi</b>: rădăcina pătrată a nivelului Astrofizicii, rotunjită în jos (nivelul 1-3 = 1, 4-8 = 2, 9-15 = 3, 16-24 = 4, ...). Sunt separate de sloturile tale normale de flotă.</li>
+        <li><b>Staționare</b>: cel mult 1 oră pe nivel de Astrofizică (un factor al universului o poate schimba).</li>
+        <li>O flotă formată doar din sonde nu poate pleca în expediție.</li>
+        <li>După ce a ajuns, o expediție <b>nu poate fi rechemată</b>. Evenimentul se rezolvă când se termină staționarea, apoi flota zboară acasă.</li>
+        <li>Rezultatele expedițiilor sunt raportate în mesajele tale și numărate în Statisticile tale.</li>
+        </ul>
+    '2':
+      title: "Ce poate găsi o expediție"
+      body: |-
+        <p>Fiecare jucător trage cărți de eveniment dintr-un pachet personal care este amestecat și reumplut când se golește, așa că în timp frecvențele se potrivesc. Pachetul implicit de 1.000 de cărți (universul îl poate schimba):</p>
+        <table class="faq-table">
+        <tr><th>Eveniment</th><th>Pondere</th><th>Detalii</th></tr>
+        <tr><td>Resurse</td><td>37&nbsp;%</td><td>Găsire mică, medie sau mare. Metal 50&nbsp;%, cristal 33&nbsp;%, deuteriu 17&nbsp;% din timp implicit.</td></tr>
+        <tr><td>Nave</td><td>26,4&nbsp;%</td><td>Navele se alătură flotei tale; pot fi găsite doar anumite tipuri de nave.</td></tr>
+        <tr><td>Nimic</td><td>19&nbsp;%</td><td>Flota se întoarce cu mâinile goale.</td></tr>
+        <tr><td>Întârziere</td><td>6,7&nbsp;%</td><td>Întoarcerea durează cu 2, 3 sau 5 ore mai mult (mică, medie, mare).</td></tr>
+        <tr><td>Pirați</td><td>5,7&nbsp;%</td><td>Te lupți cu o flotă de pirați.</td></tr>
+        <tr><td>Extratereștri</td><td>2,6&nbsp;%</td><td>Te lupți cu o flotă extraterestră.</td></tr>
+        <tr><td>Întoarcere mai rapidă</td><td>2,3&nbsp;%</td><td>Zborul de întoarcere este mai scurt cu 20, 30 sau 50&nbsp;%.</td></tr>
+        <tr><td>Gaură neagră</td><td>0,3&nbsp;%</td><td>Întreaga flotă este pierdută.</td></tr>
+        </table>
+        <h2 id="size">Cât găsești</h2>
+        <p>O găsire de resurse scalează cu valoarea flotei tale (până la un plafon al universului) și este limitată de capacitatea de transport a flotei: găsirile mici sunt de 10-50 x, cele medii de 50-100 x, cele mari de 100-200 x o unitate de valoare; găsirile de cristal sunt înjumătățite, cele de deuteriu împărțite la trei. Adu cargouri pentru găsirile mari.</p>
+        <h2 id="depletion">Poziții epuizate</h2>
+        <p>Dacă multe expediții au mers la aceleași coordonate în ultimele 24 de ore, cartea poate deveni „nimic”: peste 10 expediții dau 25&nbsp;% șanse, peste 25 dau 50&nbsp;% șanse, peste 50 dau 75&nbsp;% șanse. Împrăștie-ți expedițiile.</p>
+  '9':
+    category: "Alianțe și ACS"
+    icon: "handshake"
+    '1':
+      title: "Întemeierea și gestionarea unei alianțe"
+      body: |-
+        <p>Deschide <b>Alianță</b> din panoul lateral și creează una cu un tag și un nume (litere, cifre și spații; ambele nefolosite). Unele universuri cer un scor minim pentru a întemeia o alianță.</p>
+        <h2 id="manage">Gestionare</h2>
+        <ul>
+        <li><b>Ranguri</b>: definește drepturi per rang (cereri, excluderi, mesaje în masă, ...).</li>
+        <li><b>Membri</b>: atribuie ranguri, exclude membri, vezi când au fost ultima dată online.</li>
+        <li><b>Cereri</b>: deschide sau închide recrutarea, citește și răspunde la cereri; textul cererii este un șablon pentru solicitanți.</li>
+        <li><b>Texte</b>: textul extern este public, cel intern doar pentru membri.</li>
+        <li><b>Mesaj circular</b> către toți sau către ranguri alese.</li>
+        <li><b>Diplomație</b> cu alte alianțe, vezi <a href="game/faq/9/2">Diplomație</a>.</li>
+        <li>Poți preda alianța altui membru sau o poți desființa.</li>
+        </ul>
+    '2':
+      title: "Diplomația alianțelor"
+      body: |-
+        <p>Alianțele își pot propune pacte una alteia; cealaltă parte le acceptă sau le respinge. Tipuri: Principală, Aripă, Alianță, Pact comercial, Pact de neagresiune, Război, Alianță secretă și Pace.</p>
+        <p>Pacturile înregistrează relația dintre două alianțe. Atacurile dintre alianțe aflate în <b>război</b> pot fi scutite de limita de bash (setare a universului) după ce războiul a fost acceptat cu mai mult de o zi în urmă și atacatorul nu este legat de țintă printr-o legătură de cont.</p>
+    '3':
+      title: "Atacul în grup (ACS)"
+      body: |-
+        <h2 id="start">Pornirea unui grup</h2>
+        <p>Trimite mai întâi o flotă cu misiunea <b>Atac</b>. Apoi deschide pagina Flotă, folosește funcția ACS pe acea flotă și invită alți jucători. Fiecare jucător invitat își trimite propria flotă la aceleași coordonate cu misiunea <b>Atac de alianță</b>.</p>
+        <h2 id="rules">Reguli</h2>
+        <ul>
+        <li>Grupul ajunge împreună cu cea mai lentă flotă.</li>
+        <li>O flotă care se alătură poate întârzia grupul cu cel mult <b>30&nbsp;%</b> din timpul rămas.</li>
+        <li>Implicit, un grup cuprinde cel mult 16 flote de la cel mult 5 jucători (setări ale universului).</li>
+        <li>Prada se împarte după capacitate; toți participanții iau parte la bătălie.</li>
+        </ul>
+        <p><b>Atenție:</b> dacă fondatorul rechemă, tot grupul este rechemat.</p>
+    '4':
+      title: "Apărarea: Menținere și Depozitul de alianță"
+      body: |-
+        <p>Trimite o flotă cu misiunea <b>Menținere</b> pe planeta unui membru de alianță sau a unui prieten. Aceasta așteaptă 1, 2, 4, 8, 12, 16 sau 32 de ore și, dacă planeta este atacată între timp, luptă ca apărător. Apare în rapoartele de spionaj ca și cum ar face parte din planetă.</p>
+        <ul>
+        <li>La lansare nu există niciun cost suplimentar în afara combustibilului de zbor.</li>
+        <li>Numărul de flote și de jucători în Menținere pe o planetă este limitat de setările ACS ale universului.</li>
+        <li>Poți rechema o flotă în Menținere oricând.</li>
+        </ul>
+        <h2 id="depot">Depozitul de alianță</h2>
+        <p>Proprietarul planetei poate aproviziona flotele în Menținere cu deuteriu din Depozitul de alianță, ca să poată rămâne mai mult: de la 1 până la (nivelul depozitului) ore per aprovizionare. Costul pe oră este o zecime din consumul de bază de combustibil însumat al flotei, rotunjit în sus. O flotă nu are niciodată mai mult de 32 de ore de staționare rămase.</p>
+    '5':
+      title: "Prieteni"
+      body: |-
+        <p>Prietenii își pot trimite cereri unul altuia de pe pagina Prieteni sau din profilul jucătorului. Prietenii pot folosi Menținere și Transfer unul către altul, sunt scutiți de schimbările de onoare și se văd în lista de prieteni.</p>
+        <p>Dacă universul o activează, jucătorii care rămân offline mai mult de 7 zile (în afara modului vacanță) sunt scoși automat din listele de prieteni și din alianțe.</p>
+  '10':
+    category: "Protecție și vacanță"
+    icon: "shield-check"
+    '1':
+      title: "Protecția începătorilor și haiducii"
+      body: |-
+        <p>Protecția se bazează pe <b>puncte</b>. Implicit, un jucător este protejat când are 5.000 de puncte sau mai puține <b>și</b> celălalt jucător are mai mult de 5 ori punctele lui. Ambele numere sunt setări ale universului, iar întreaga protecție poate fi dezactivată.</p>
+        <ul>
+        <li>Acoperă atacuri, Atacuri de alianță, distrugerea lunilor, Menținere, spionaj, atacuri cu rachete și scanări cu Falanga senzorială.</li>
+        <li>Funcționează în ambele sensuri: dacă <i>tu</i> ești sub limita de puncte și celălalt jucător are mai mult de 5 ori punctele tale, nici tu nu-l poți ataca (dacă universul nu folosește sistemul de haiduci, vezi mai jos).</li>
+        <li>Protecția nu se aplică jucătorilor banați și, implicit, nici jucătorilor care au fost offline 7 zile.</li>
+        <li>Vizualizarea Galaxiei marchează jucătorii protejați (N = slab, S = puternic).</li>
+        </ul>
+        <h2 id="outlaw">Haiduci</h2>
+        <p>Dacă universul folosește sistemul de haiduci, un jucător slab poate ataca totuși unul mult mai puternic. Devine atunci un <b>haiduc</b>: protecția nu i se mai aplică 2 zile (prima dată) sau 7 zile (de fiecare dată următoare), așa că jucătorul puternic poate riposta.</p>
+    '2':
+      title: "Limita de bash"
+      body: |-
+        <p>Limita de bash oprește atacurile repetate asupra aceleiași ținte. Implicit poți ataca aceeași <b>planetă de cel mult 6 ori în 24 de ore</b>; se poate seta și o limită per jucător (dezactivată implicit). Atacurile cu rachete contează dacă universul nu dezactivează asta.</p>
+        <ul>
+        <li>Mai multe flote ale unui grup ACS contează ca un singur atac.</li>
+        <li>Spionajul cu o singură sondă nu contează.</li>
+        <li>Țintele inactive (7 zile) nu sunt protejate.</li>
+        <li>Dacă universul are „războaiele ridică limita de bash”, nici atacurile dintre alianțe aflate în război nu contează.</li>
+        </ul>
+    '3':
+      title: "Protecția de reconstrucție"
+      body: |-
+        <p>Dezactivată implicit. Dacă universul o activează (are nevoie de protecția începătorilor), un jucător care pierde cea mai mare parte din averea lui într-o singură luptă primește <b>protecție de reconstrucție</b>: mai mult de 70&nbsp;% din valoarea flotei și apărării lui sau mai mult de 80&nbsp;% din capacitatea lui de transport și cel puțin o valoare minimă care urmează limita protecției începătorilor (cel mult 5.000.000 de unități).</p>
+        <ul>
+        <li>Începe la 3 ore după luptă (6 ore pentru jucătorii care l-au atacat) și se termină la 48 de ore după luptă. În acest interval nu poate fi atacat.</li>
+        <li>Jucătorul o poate încheia mai devreme.</li>
+        <li>Se declanșează cel mult o dată pe lună și nu dacă toți adversarii sunt legați de învins (același IP, dispozitiv sau grup multiplu, alianță, prieten).</li>
+        </ul>
+    '4':
+      title: "Modul vacanță"
+      body: |-
+        <p>Modul vacanță îți îngheață contul cât timp ești plecat. Îl activezi din <b>Opțiuni</b>.</p>
+        <ul>
+        <li>Trebuie să nu ai <b>nicio flotă</b> în zbor.</li>
+        <li>Producția se oprește pe toate planetele; cozile tale se opresc și continuă când te întorci. Flotele în Menținere la planetele tale sunt trimise acasă.</li>
+        <li>Misiunile ostile împotriva ta se întorc din drum (atacuri, spionaj, rachete).</li>
+        <li>Poți ieși doar după timpul minim (48 de ore implicit).</li>
+        <li>La întoarcere, producția repornește la 100&nbsp;% pe toate planetele. Nu se produce nimic cât ești plecat.</li>
+        <li>Dacă universul o activează, jucătorii în modul vacanță care au fost offline 28 de zile sunt scoși din el.</li>
+        </ul>
+        <p>Conturile inactive mult timp sunt șterse oricum, vacanță sau nu, vezi <a href="game/faq/11/2">Inactivitate și ștergerea contului</a>.</p>
+    '5':
+      title: "Pushing și limite de comerț"
+      body: |-
+        <p>Pushing înseamnă să hrănești alt jucător (adesea un al doilea cont) cu resurse sau nave. Este împotriva regulilor și este verificat automat.</p>
+        <ul>
+        <li>Implicit, un transport, o Menținere sau un transfer către alt jucător este refuzat dacă, în ultimele 7 zile, i-ai trimis acelui jucător o valoare mai mare decât ți-a trimis el înapoi cu mai mult de 100.000 (în echivalent deuteriu).</li>
+        <li>Schimburile de pe piață trebuie să rămână în toleranța de push a universului (valoarea oferită și cea cerută trebuie să fie apropiate).</li>
+        <li>Conturile cu același IP, dispozitiv sau grup multiplu sunt legate și tratate mai strict.</li>
+        </ul>
+        <p>Regulile universului sunt pe pagina Reguli.</p>
+  '11':
+    category: "Cont și setări"
+    icon: "user-cog"
+    '1':
+      title: "Setările contului"
+      body: |-
+        <p>Deschide <b>Opțiuni</b> pentru:</p>
+        <ul>
+        <li><b>Date de utilizator</b>: nume de utilizator (doar litere și cifre, poate fi schimbat o dată la 7 zile), adresă de e-mail, parolă nouă (cel puțin 8 caractere; ai nevoie de parola curentă pentru modificări), limbă, fus orar și temă.</li>
+        <li><b>General</b>: sortarea planetelor, estomparea elementelor pe care nu ți le permiți, filtre de șantier naval, rapoarte de spionaj rezumate, opțiuni de mesaje, blocarea mesajelor private și <b>interfața pentru începători</b> (un meniu simplificat care deblochează intrări pe măsură ce avansezi prin tutorial).</li>
+        <li><b>Galaxie și spionaj</b>: câte sonde se trimit din vizualizarea Galaxiei și cât de vechi poate fi un raport de spionaj ca să conteze ca proaspăt sau recent.</li>
+        <li><a href="game/faq/10/4">Modul vacanță</a> și ștergerea contului (&quot;Zona periculoasă&quot;).</li>
+        </ul>
+    '2':
+      title: "Inactivitate și ștergerea contului"
+      body: |-
+        <ul>
+        <li>După <b>7 zile</b> fără conectare, un jucător apare ca inactiv (i); după <b>28 de zile</b>, ca inactiv de mult timp (I). Jucătorii inactivi nu sunt acoperiți de limita de bash și, implicit, nici de protecția pe puncte.</li>
+        <li>După <b>90 de zile</b> offline (setare a universului, 0 = niciodată) contul este șters automat, împreună cu planetele și flotele lui.</li>
+        <li>Dacă ceri tu ștergerea din Opțiuni, aceasta are loc după cel puțin 7 zile (setare a universului); o poți anula între timp.</li>
+        </ul>
+    '3':
+      title: "Statistici și puncte"
+      body: |-
+        <p>Pagina Statistici ierarhizează jucătorii și alianțele după puncte totale și după clădiri, cercetare, flotă și apărare. Se actualizează după un program, nu live.</p>
+        <ul>
+        <li>Puncte = resurse investite împărțite la 1.000 (implicit; setare a universului).</li>
+        <li>Punctele alianței contează doar membrii care au fost online în ultimele 7 zile.</li>
+        <li>Recordurile arată cele mai mari niveluri de clădiri și cercetări din univers.</li>
+        <li>Dacă universul o activează, unele statistici sunt vizibile doar cu suficientă Tehnologie de spionaj.</li>
+        </ul>
+    '4':
+      title: "Mai mult ajutor"
+      body: |-
+        <!--wiki_url--><h2 id="wiki">Wiki și comunitate</h2><p><a href="{wiki_url}/wiki/En/Hauptseite" target="_blank">Pagina principală wiki</a>, <a href="{wiki_url}/wiki/En/Buildorder" target="_blank">ordini de construcție</a>, <a href="{wiki_url}/wiki/En/Saven" target="_blank">salvarea flotei</a>, <a href="{wiki_url}/wiki/En/Expoanleitung" target="_blank">expediții</a>.</p><!--/wiki_url-->
+        <h2 id="support">Suport</h2>
+        <p>Întrebări despre contul tău sau buguri: deschide un tichet pe pagina <b>Suport</b>. Citește pagina <b>Reguli</b> înainte să jefuiești, să faci comerț sau să folosești mai multe conturi.</p>

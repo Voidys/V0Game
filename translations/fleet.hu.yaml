@@ -1,0 +1,467 @@
+and: és
+battle_stats_damage_done: Okozott sebzés
+battle_stats_damage_dead: Túlzott sebzés
+battle_stats_shield_hit: Pajzstalálatok
+battle_stats_ship_destroyed: Megsemmisített hajók
+battle_stats_shield_bounced: Kivédett sebzés
+battle_stats_rapid_fire_done: Gyorstűz
+battle_stats_explosion_triggered: Robbanások
+battle_stats_stunned_done: Lebénítva
+battle_stats_target: Célpont
+battle_stats_total: Összesen
+battle_stats_total_all_targets: Összesen (minden célpont)
+battle_stats_total_all_fleets: Összesen (minden flotta)
+damage: sebzéspontot nyelnek el.
+debree_field_1: 'Ezeken a koordinátákon most ennyi van:'
+debree_field_2: ' törmelék.'
+fcp_colony: Kolónia
+fl_expocap_explain: >-
+  Ez az a legnagyobb expedíciós pontmennyiség, amelyet érdemes küldeni. Ami
+  efölött van, az nem növeli a jutalmadat, de el is veszhet.
+fl_send_back: Visszahívás
+fl_simulate: Szimuláció
+fleet_attack_1: 'A támadó flotta'
+fleet_attack_2: 'erővel tüzel a védőre. A védő pajzsai'
+fleet_defs_1: 'A védő flotta'
+fleet_defs_2: 'erővel tüzel a támadóra. A támadó pajzsai'
+spy_best_planet: Legjobb bolygó
+spy_best_resources_per_second: Legjobb nyersanyag másodpercenként
+spy_energy: Energia
+spy_hazard_potential: Veszélyességi potenciál
+spy_large_transporter: Nagy szállító
+spy_market_value: Piaci érték
+spy_necessary_recycler: Szükséges szemetesek
+spy_necessary_transporters: Szükséges hajók
+spy_potential_recycling: Hasznosítási potenciál
+spy_potential_resources: Potenciális nyersanyag
+spy_small_transporter: Kis szállító
+spy_summary: Összegzés
+spy_total_resources: Összes nyersanyag
+sys_adress_planet: '[%s:%s:%s]'
+sys_and: és
+sys_attack_attacker_pos: Támadó
+sys_attack_defender_pos: Védő
+sys_attack_round: Forduló
+cr_start: "Induló flották"
+cr_rounds: "Fordulók"
+cr_debris: "Törmelékmező"
+cr_loot: "Zsákmány"
+cr_losses: "Veszteségek"
+cr_moon: "Holdesély"
+cr_lost_round: "Elveszett ebben a fordulóban"
+cr_lost_total: "Összes veszteség"
+cr_stats: "Csatastatisztika"
+sys_attack_title: 'A következő flották csapnak össze itt: '
+sys_attacker_lostunits: 'A támadó veszteségei:'
+sys_attacker_won: A támadó megnyerte a csatát!
+sys_both_won: 'A csata döntetlenre végződik! '
+sys_colo_allisok: >-
+  A flottád megérkezett a(z) %s koordinátákra. A telepesek hozzáfogtak az új
+  bolygó benépesítéséhez.
+sys_colo_badpos: >-
+  A flottád megérkezett a(z) %s koordinátákra. Itt nem lehet letelepedni, ezért
+  a telepesek csalódottan hazatértek.
+sys_colo_maxcolo: >-
+  A flottád megérkezett a(z) %s koordinátákra. A letelepedés nem lehetséges:
+  legfeljebb %d bolygód lehet.
+sys_colo_mess_from: Gyarmatosítás
+sys_colo_mess_report: Gyarmatosítási jelentés
+sys_colo_notech: >-
+  A flottád megérkezett a(z) %s koordinátákra. A telepesek rájöttek, hogy a
+  felszerelésük nem alkalmas az éghajlatra, és fejleszteni kell. Csalódottan
+  hazatértek.
+sys_colo_notfree: >-
+  A flottád megérkezett a(z) %s koordinátákra. A telepesek sajnos azt találták,
+  hogy a bolygó már lakott! Teljesen demoralizálva hazatértek.
+sys_debris: Törmelékmező
+sys_def_rebuild: 'A védelem egy részét sikerült megjavítani:'
+sys_defender_lostunits: 'A védő veszteségei:'
+sys_defender_won: A védő megnyerte a csatát!
+sys_destroyed: Megsemmisült
+sys_destruc_echec: >-
+  Földrengések rázták meg a bolygót, de valami félresikerült: a Halálcsillagok
+  felrobbantak és ezer darabra estek szét, a lökéshullámok pedig az egész
+  flottát kiiktatták.
+sys_destruc_lune: 'Esély a Hold elpusztítására: %d%%'
+sys_destruc_mess1: 'A Halálcsillagok a hatalmas energiájukat a Holdra lőtték.'
+sys_destruc_null: >-
+  A Halálcsillagok nem tudtak teljesen feltöltődni a lövés előtt.<br> A Hold
+  nem semmisült meg.
+sys_destruc_reussi: >-
+  A Halálcsillagok sugarai elérték a Holdat, és darabokra tépték. <br>A teljes
+  Hold megsemmisült!
+sys_destruc_rip: 'Esély, hogy a flotta elpusztítja önmagát: %d%%'
+sys_destruc_stop: 'A védő sikeresen megakadályozta a Hold elpusztítását.'
+sys_destruc_title: 'A következő flották csapnak össze egy Hold elpusztításáért:'
+sys_expe_attack_1_1_1: Egy kétségbeesett űrkalóz megpróbálta elfoglalni az expedíciós flottánkat.
+sys_expe_attack_1_1_2: >-
+  Néhány primitív barbár megtámadott minket űrhajókkal. Legalább a hajóik
+  rettenetes állapotban voltak. Ha a tűzerejük komoly veszélyt jelentett volna,
+  kénytelenek lettünk volna a sajátunkkal válaszolni.
+sys_expe_attack_1_1_3: >-
+  Elfogtunk néhány rádióüzenetet néhány nagyon részeg kalóztól. Úgy tűnik,
+  megtámadnak minket.
+sys_expe_attack_1_1_4: >-
+  Meg kellett küzdenünk néhány kalózzal, de szerencsére mi voltunk többen.
+sys_expe_attack_1_1_5: >-
+  A flottánk jelenti, hogy egy bizonyos Moa Tikarr és legénysége a flottánk
+  feltétel nélküli megadását követelte. Ha komolyan gondolják, rájönnek, hogy
+  nagyon jól meg tudjuk védeni magunkat.
+sys_expe_attack_1_2_1: Az expedíciós flottád váratlanul összefutott néhány űrkalózzal.
+sys_expe_attack_1_2_2: >-
+  Belerepültünk néhány csillagkalóz lesébe! Sajnos a harc elkerülhetetlen volt.
+sys_expe_attack_1_2_3: >-
+  Egy másik expedíciós flotta segélykiáltása néhány ravasz kalóz csapdájának
+  bizonyult. A csata elkerülhetetlen volt.
+sys_expe_attack_1_3_1: >-
+  Az elfogott jelek nem ismeretlen idegenektől jöttek, hanem egy titkos
+  kalózbázisról! A kalózok nem örültek túlzottan, hogy a szektorukban vagyunk.
+sys_expe_attack_1_3_2: Az expedíciós flotta heves harcokról számolt be azonosítatlan kalózhajókkal!
+sys_expe_attack_1_3_3: >-
+  Épp most kaptunk sürgős üzenetet az expedíció parancsnokától: „Ránk törnek!
+  Kiugrottak a hipertérből, szerencsére csak kalózok, szóval van esélyünk,
+  harcolunk!”
+sys_expe_attack_2_1_1: Az expedíciós flottád barátságtalan első kapcsolatba került egy ismeretlen fajjal.
+sys_expe_attack_2_1_2: Néhány furcsa hajó figyelmeztetés nélkül megtámadta az expedíciós flottát!
+sys_expe_attack_2_1_3: Az expedíciónkat megtámadta egy kis csoport azonosítatlan űrhajó!
+sys_expe_attack_2_1_4: >-
+  Az expedíciós flotta ismeretlen hajókkal való kapcsolatfelvételt jelent. A
+  rádióüzeneteket nem lehet megfejteni, de a furcsa hajók úgy tűnik, élesítik a
+  fegyvereiket.
+sys_expe_attack_2_2_1: Egy ismeretlen faj megtámadja az expedíciónkat!
+sys_expe_attack_2_2_2: >-
+  Az expedíciós flottád láthatóan megsértette egy eddig ismeretlen, de rendkívül
+  agresszív idegen faj területét.
+sys_expe_attack_2_2_3: >-
+  A kapcsolat az expedíciós flottánkkal hirtelen megszakadt. Az utolsó hír
+  szerint a flotta erős tűz alá került. A támadókat nem sikerült azonosítani.
+sys_expe_attack_2_3_1: >-
+  Az expedíciód egy idegen inváziós flottába ütközött, és hatalmas csatákról
+  számol be!
+sys_expe_attack_2_3_2: >-
+  Ismeretlen eredetű kristályhajók nagy csoportja halad egyenesen ütközési
+  pályán az expedíciós flottánkkal. A legrosszabbra kell felkészülnünk.
+sys_expe_attack_2_3_3: >-
+  Egy kis nehézségünk akadt az idegen faj nyelvjárásának helyes kiejtésével. A
+  diplomatánk véletlenül azt kiáltotta: „Tűz!” a „Béke!” helyett.
+sys_expe_attackname_1: Kalózok
+sys_expe_attackname_2: Idegenek
+sys_expe_back_home: A flottád visszatért ide (%1$s %2$s) a(z) %3$s expedícióból.
+sys_expe_back_home_ress: Hoz magával %s %s, %s %s és %s %s mennyiséget.
+sys_expe_back_home_ships_flound: 'A következő hajókat találták:'
+sys_expe_back_home_ships_lost: 'A következő hajókat elvesztették:'
+sys_expe_depleted_max_1: >-
+  Bejegyzés a híradós tiszt naplójából: Ha bármikor veszélyben éreznénk
+  magunkat, mindig összefoghatunk a többi erre repkedő expedícióval.
+sys_expe_depleted_max_2: >-
+  Bejegyzés a híradós tiszt naplójából: Ha ez így megy tovább, navigációs
+  bójákat kell kitennünk, hogy kezeljük ezt a sok forgalmat.
+sys_expe_depleted_max_3: >-
+  Bejegyzés a híradós tiszt naplójából: Talán többet érne itt egy
+  szuvenírbolt nyitása, mint újabb expedíciót küldeni.
+sys_expe_depleted_med_1: >-
+  Bejegyzés a híradós tiszt naplójából: Több expedíciós flotta nyomait találtuk
+  a környéken. Hazafelé tartunk.
+sys_expe_depleted_med_2: >-
+  Bejegyzés a híradós tiszt naplójából: Baráti rádiókapcsolatot létesítettünk
+  néhány másik expedícióval ebben a szektorban.
+sys_expe_depleted_med_3: >-
+  Bejegyzés a híradós tiszt naplójából: Megünnepeltük az expedíció végét egy
+  másik, ugyanebben a szektorban utazó expedíciós flotta legénységével. Nekik
+  sincs semmi újdonság.
+sys_expe_depleted_min_1: >-
+  Bejegyzés a híradós tiszt naplójából: Úgy tűnik, emberek már jártak a galaxis
+  ezen részén.
+sys_expe_depleted_min_2: >-
+  Bejegyzés a híradós tiszt naplójából: Régi űrhajók roncsait találtuk. Nem mi
+  vagyunk az elsők itt.
+sys_expe_depleted_min_3: >-
+  Bejegyzés a híradós tiszt naplójából: Majdnem összeütköztünk egy másik
+  expedíciós flottával. Sosem gondoltam volna, hogy itt kint más is van.
+sys_expe_depleted_not_1: >-
+  Bejegyzés a híradós tiszt naplójából: Úgy tűnik, az univerzum ezt a részét még
+  nem fedezték fel.
+sys_expe_depleted_not_2: >-
+  Bejegyzés a híradós tiszt naplójából: Fantasztikus érzés elsőként utazni egy
+  felfedezetlen szektoron át.
+sys_expe_feqeuence_few: Több mint 10 expedíció az elmúlt 24 órában
+sys_expe_feqeuence_many: Több mint 50 expedíció az elmúlt 24 órában
+sys_expe_feqeuence_medium: Több mint 25 expedíció az elmúlt 24 órában
+sys_expe_found_goods: '%s %s kibányászva.'
+sys_expe_found_ress_1_1: >-
+  Az expedíciód felfedezett egy kis aszteroidacsoportot, amelyből némi
+  nyersanyagot ki lehetett nyerni.
+sys_expe_found_ress_1_2: >-
+  Egy távoli kisbolygón több könnyen hozzáférhető nyersanyagmezőt találtak, és
+  sikeresen kitermelték a nyersanyagokat.
+sys_expe_found_ress_1_3: >-
+  Az expedíciód egy régmúlt csata nagyon öreg űrhajóroncsaira bukkant. Egyes
+  alkatrészeket sikerült megmenteni és újrahasznosítani.
+sys_expe_found_ress_1_4: >-
+  Az expedíció egy sugárzással szennyezett bolygót fedezett fel rendkívül
+  mérgező légkörrel. A letapogatások azonban kimutatták, hogy ez a bolygó sok
+  nyersanyagot tartalmaz. Automata drónokkal próbáltak minél több nyersanyagot
+  kinyerni.
+sys_expe_found_ress_2_1: >-
+  Az expedíciód egy ősi teherhajókaravánra bukkant, amely teljesen megrakott, de
+  elhagyatott. Némi nyersanyagot sikerült szerezni. 
+sys_expe_found_ress_2_2: >-
+  Az expedíciód hatalmas nyersanyaglelőhelyeket talált egy saját légkörrel
+  rendelkező kis holdon. A legénység éppen ezt a kincset termeli ki.
+sys_expe_found_ress_2_3: >-
+  Találkoztunk civil hajók egy kis konvojával, amelynek sürgősen élelemre és
+  gyógyszerre volt szüksége. Cserébe jelentős mennyiségű hasznos nyersanyagot
+  kaptunk.
+sys_expe_found_ress_3_1: >-
+  Az expedíciós flotta egy hatalmas idegen hajóroncs felfedezéséről számol be.
+  Bár a technológiával nem tudtak mit kezdeni, a hajót szét lehetett szedni
+  alkatrészeire, értékes nyersanyagot nyerve ki belőle.
+sys_expe_found_ress_3_2: >-
+  Egy ismeretlen bolygó körüli aszteroidaövben hatalmas mennyiségű nyersanyag
+  volt. Az expedíciós flotta teletöltötte a raktereit!
+sys_expe_found_ress_logbook_1: >-
+  Bejegyzés az első tiszt naplójából: Minden szabad helyet felhasználtunk, de
+  még így sem tudtuk elvinni az összes talált nyersanyagot.
+sys_expe_found_ress_logbook_2: >-
+  Bejegyzés az első tiszt naplójából: Ha lett volna még néhány teherhajónk! Így
+  rengeteg nyersanyagot kell hátrahagynunk.
+sys_expe_found_ress_logbook_3: >-
+  Bejegyzés az első tiszt naplójából: Már kidobtunk mindent, amire nincs
+  szükségünk, de még így sem tudunk elég helyet csinálni az összes talált
+  nyersanyagnak.
+sys_expe_found_ress_logbook_4: >-
+  Bejegyzés az első tiszt naplójából: Még akkor sem tudtuk elszállítani az
+  összes talált nyersanyagot, amikor a büfét és az összes társalgót
+  raktárhelyiséggé alakítottuk.
+sys_expe_found_ships_1_1: >-
+  Egy elődexpedíció maradványaira bukkantunk! A technikusaink ellenőrzik, hogy
+  vissza tudnak-e állítani működésbe néhányat a roncsokból.
+sys_expe_found_ships_1_2: >-
+  Egy elhagyatott kalózbázist találtunk. Néhány régi hajó még a hangárban áll. A
+  technikusaink ellenőrzik, hogy használhatók-e még a hajók közül.
+sys_expe_found_ships_1_3: >-
+  Az expedíciónk egy háborúk által szinte teljesen elpusztított bolygóra
+  bukkant. Különféle hajóroncsok sodródtak a pályán. A technikusok megpróbáltak
+  megjavítani néhányat. Talán többet megtudhatunk arról, mi történt itt.
+sys_expe_found_ships_1_4: >-
+  Az expedíció egy régi csillagbázisra bukkant, amely úgy tűnik, egy örökkévalóság
+  óta elhagyatott. Az erőd hangárjában néhány hajót találtak. A technikusoknak
+  sikerült néhányat újra repülésre bírniuk.
+sys_expe_found_ships_2_1: >-
+  Egy armada maradványait találtuk meg. Az expedíció technikusai azonnal
+  felmentek a részben ép hajókra, és néhányat meg is tudtak javítani.
+sys_expe_found_ships_2_2: >-
+  Az expedíciónk egy régi automata hajógyárat fedezett fel, amelyben néhány hajó
+  még gyártási fázisban volt. A hajógyár energiaellátásának helyreállítása
+  után a technikusaink azon dolgoztak, hogy befejezzék az építésüket.
+sys_expe_found_ships_3_1: >-
+  Egy gigantikus hajótemetőt találtunk. Az expedíció néhány technikusának
+  sikerült egy-két hajót újra üzembe helyeznie.
+sys_expe_found_ships_3_2: >-
+  Egy olyan bolygót fedeztünk fel, amelyen egy civilizáció maradványai vannak.
+  A világűrből egy másik, még ép gigantikus hajóállomást is észrevettünk.
+  Néhány technikusunk és pilótánk a felszínre ment, hogy megállapítsák, kimenthető-e
+  néhány hajó.
+sys_expe_found_ships_logbook_1: >-
+  Bejegyzés a gépházi tiszt naplójából: Ha hoztunk volna magunkkal még néhány
+  hajót, könnyű lett volna hazavinni néhányat ezekből a szépségekből!
+sys_expe_found_ships_logbook_2: >-
+  Bejegyzés a gépházi tiszt naplójából: Sajnos nem volt kapacitásunk
+  visszahozni az összes hajót, amit ezen a küldetésen felfedeztünk.
+sys_expe_found_ships_logbook_3: >-
+  Bejegyzés a gépházi tiszt naplójából: Sajnos nincs elég kapacitásunk, hogy
+  az összes talált hajót magunkkal vigyük.
+sys_expe_found_ships_nothing: Nem sikerült hajókat találni.
+sys_expe_lost_fleet_1: >-
+  Az expedícióból csak a következő rádióüzenet maradt: Zzzrrt
+  jaj Istenem!...Krrrzzzzt a zrrrtrzt látja krgzzzz igen honnan Krzzzzzzzztzzzz...
+sys_expe_lost_fleet_2: >-
+  Az expedíciótól utoljára néhány hihetetlenül jó közelképet kaptunk egy
+  kinyíló fekete lyukról.
+sys_expe_lost_fleet_3: >-
+  Az egyik parancsnoki hajó atomi balesete láncreakcióhoz vezetett, amely egy
+  látványos robbanásban megsemmisítette az egész expedíciót.
+sys_expe_lost_fleet_4: >-
+  Az expedíciós flotta nem tért vissza a hipertérugrásból. A tudósaink még
+  mindig törik a fejüket, mi történhetett, de a flotta úgy tűnik, örökre elveszett.
+sys_expe_nothing_1: >-
+  Ez az expedíció semmi izgalmasat nem hoz haza, csak néhány különös kis állatot
+  egy ismeretlen mocsárbolygóról.
+sys_expe_nothing_2: >-
+  Az expedíciód gyönyörű képeket készített egy szupernóváról. Új felismerést
+  azonban nem igazán hozott ez az expedíció. De jó esélye van megnyerni az idei
+  Az Univerzum Legjobb Képe versenyt.
+sys_expe_nothing_3: >-
+  Egy furcsa számítógépes vírus megbénította a navigációt nem sokkal a
+  naprendszer elhagyása után. Ezért az egész expedíciós flotta végig körökben
+  repült. Mondanunk sem kell, az expedíció nem volt különösebben sikeres.
+sys_expe_nothing_4: >-
+  Egy tiszta energiából álló életforma több napig hipnotikus szimbólumokra
+  bámultatta az expedíció összes tagját a képernyőjükön. Mire a legtöbben végre
+  kitisztult a fejük, az expedíciót deutériumhiány miatt le kellett fújni.
+sys_expe_nothing_5: >-
+  Nos, legalább most már tudjuk, hogy az 5. osztályú vörös anomáliák nem csak
+  kaotikus hatással vannak a hajó rendszereire, hanem tömeges hallucinációkat is
+  kiválthatnak a legénységben. Sajnos ezen az expedíción semmi más nem derült ki.
+sys_expe_nothing_6: >-
+  Az ebben a szektorban végzett kezdetben ígéretes letapogatások ellenére
+  sajnos üres kézzel jöttünk vissza.
+sys_expe_nothing_7: >-
+  Talán nem kellett volna a kapitány születésnapját ezen a távoli bolygón
+  megünnepelni. Egy csúnya vérzéses láz a legénység nagy részét a
+  betegszobára küldte, és az akut létszámhiány miatt az expedíció kudarcot
+  vallott.
+sys_expe_nothing_8: >-
+  Az expedíciód nem talált mást, csak az űr végtelen ürességét. Még egy kis
+  aszteroida, sugárzás, részecske vagy bármi más sem volt, ami legalább egy
+  kicsit izgalmassá tehette volna ezt az expedíciót.
+sys_expe_nothing_9: >-
+  A parancsnoki hajó reaktorhibája majdnem az egész expedíciót
+  megsemmisítette. Szerencsére a technikusok többnyire hozzáértők voltak, és
+  megakadályozták a legrosszabbat. A javítás azonban annyi időt vett igénybe,
+  hogy az expedíció eredmény nélkül tért haza.
+sys_expe_report: Expedíciós jelentés
+sys_expe_report_msg: '%s %s flottájának expedíciós jelentése, helyszín: %s:'
+sys_expe_time_fast_1: >-
+  A hajtómű-energiatekercsekben egy előre nem látott visszacsatolási hurok
+  felgyorsította az expedíció hazatérését, így a vártnál korábban érkezik. Az
+  első jelentések szerint azonban nincs más jelenteni valója.
+sys_expe_time_fast_2: >-
+  Az újonnan kinevezett, kissé vakmerő parancsnok egy instabil féregjáratot
+  használt a visszaút lerövidítésére - sikerrel! Magáról az expedícióról
+  azonban nem derültek ki új felismerések.
+sys_expe_time_fast_3: >-
+  Az expedíciód nem jelzett anomáliát a felfedezett szektorban. A flotta azonban
+  napszéllel találkozott a visszaúton, ami jelentősen felgyorsította az utat. Az
+  expedíciód így a vártnál valamivel korábban ér haza.
+sys_expe_time_slow_1: >-
+  A navigátor súlyos baklövése miatt a flotta teljesen rossz helyre jutott. A
+  visszaút ezért jóval tovább tartott.
+sys_expe_time_slow_2: >-
+  Egyelőre ismeretlen okból a flotta ugrása teljesen félresikerült. Majdnem egy
+  csillag szívében kötöttek ki! Szerencsére egy ismert rendszerben értek földet,
+  de a visszaút hosszabb lesz az eredetileg tervezettnél.
+sys_expe_time_slow_3: >-
+  Az új navigációs modult úgy tűnik, még mindig hibák gyötrik. Az expedíciós
+  flotta nemcsak teljesen rossz irányba ment, hanem az összes deutériumát is
+  elfogyasztotta! Az expedíció csalódottan tér vissza tartalék energiával.
+sys_expe_time_slow_4: >-
+  Az expedíciód egy felerősödött részecskeviharos szektorba lépett. Ez
+  túlterhelte az energiatároló rendszereket, így az összes hajó főrendszerei
+  leálltak. A szerelőid megakadályozták a legrosszabbat, de az expedíció most
+  jelentős késéssel tér vissza.
+sys_expe_time_slow_5: >-
+  Az expedíciós flottád zászlóshajója ütközött egy idegen járművel, amely
+  figyelmeztetés nélkül a flotta közepébe ugrott. Az idegen hajó felrobbant, és
+  a zászlóshajó kára jelentős. Ha a legsúlyosabb javításokkal végeztek, a
+  hajóid megkezdik a visszautat, mert az expedíció a jelenlegi állapotában nem
+  folytatható.
+sys_expe_time_slow_6: >-
+  Egy vörös óriás csillagszele eltorzította az expedíció ugrását, ezért a
+  navigációs rendszerek teljesen elszámolták a visszautat. Emiatt az expedíció
+  az ismeretlen csillagok közötti hatalmas ürességben találja magát.
+sys_fleet_return: A flottád visszatér ide - %s %s %s - és szállít %s %s, %s %s és %s %s mennyiséget. %s
+sys_fleet_won: >-
+  A flottád visszatért a(z) %s %s elleni támadásból ide: '%s %s. Zsákmányod: %s %s, %s %s és %s %s.'
+sys_gain: Nyereség
+sys_honorpoints_changed: 'Becsületpontok:'
+sys_irak_def: '%d rakétát elhárítottak.'
+sys_irak_mess: 'Bolygóközi rakéták (%d) innen: %s becsapódtak ide: %s <br><br>'
+sys_irak_no_att: Az összes rakétát elhárították.
+sys_irak_no_def: A bolygónak nincs védelme.
+sys_irak_subject: Rakétabecsapódás
+sys_lost: Veszteségek
+sys_mess_attack_cancel: |-
+  A(z) %s %s csatát törölték.
+  A szerver nem tudta kiszámítani.
+sys_mess_attack_report: Támadási jelentés
+sys_mess_fleetback: Flotta visszatérése
+sys_mess_piratebase_gone: 'A flottád megérkezett ide: %s, de a kalózbázis már nincs ott. A flotta hazatér.'
+sys_mess_spy_activity: Kémelhárítási jelentés
+sys_mess_spy_control: Központi Hírszerzés
+sys_mess_spy_destroyed: A kémszondáid megsemmisültek!
+sys_mess_spy_ennemyfleet_1: 'Ellenséges kémszondákat észleltek a(z) %s bolygóról itt: %s.'
+sys_mess_spy_ennemyfleet_3: 'Ellenséges kémszondákat észleltek a(z) %s Holdról itt: %s.'
+sys_mess_spy_link: >-
+  <a href="game/galaxy/%3$s/%4$s">%1$s (%2$s)
+  [%3$s:%4$s:%5$s]</a>
+sys_mess_spy_lostproba: 'A kémszondák lelepleződési esélye: %d%%'
+sys_mess_spy_qg: Kémosztály
+sys_mess_spy_repair_order: Hajók helyreállítása folyik a javítódokkban.
+sys_mess_spy_report: Hírszerzési jelentés
+sys_mess_spy_report_details_1: 'Kémjelentés a(z) %1$s (%2$s) [%3$s:%4$s:%5$s] bolygóról, ideje: %6$s'
+sys_mess_spy_report_details_3: 'Kémjelentés a(z) %1$s (%2$s) [%3$s:%4$s:%5$s] Holdról, ideje: %6$s'
+sys_mess_spy_report_details_4: 'Kémjelentés innen: %1$s (%2$s) [%3$s:%4$s:%5$s], ideje: %6$s'
+sys_mess_tower: Flottaparancsnokság
+sys_mess_transport: Szállítás
+sys_moonbuilt: >-
+  A hatalmas mennyiségű szabad fém és kristály vonzza egymást, és műholdat
+  formál a bolygó körül!
+sys_moonproba: 'Holdesély: '
+sys_raport_amount_error: >-
+  Nincs hajó vagy védelem kiválasztva, vagy túl sok van a szimulációhoz.
+sys_raport_lost_contact: >-
+  Elveszett a kapcsolat a támadó flottával (az első fordulóban lelőtték).
+sys_raport_not_found: 'Érvénytelen csatajelentés-azonosító'
+sys_recy_gotten: >-
+  A szemeteseid begyűjtöttek %2$s %6$s és %3$s %7$s mennyiséget a(z) %1$s
+  koordinátákon lévő összesen %4$s %6$s és %5$s %7$s közül.
+sys_recy_mess: 'A szemetes flottád visszatért ide: %s %s, magával hozva %s %s, %s %s és %s %s mennyiséget.'
+sys_recy_report: 'Hasznosítási jelentés'
+sys_ship_armour: Páncél
+sys_ship_count: Mennyiség
+sys_ship_repaired: Megjavítva
+sys_ship_shield: Pajzs
+sys_ship_type: Típus
+sys_ship_weapon: Tűzerő
+sys_spy_fleet: Flotta
+sys_stat_mess: >-
+  A flottád innen: '%s %s megérkezett ide: %s %s %s, és leszállított %s %s, %s %s'
+  és %s %s mennyiséget. %s
+sys_stat_mess_stay: Állomásozó flotta
+sys_stealed_ressources: Ezt zsákmányolják
+sys_trade_mess_arr_success: >-
+  A kereskedőflottád készen áll a visszatérésre ide: '%1$s %2$s (visszaút: %5$s). <form'
+  action="game/fleet/recall"
+  method="post"><input name="fleetID" value="%3$s" type="hidden"><input
+  value="%4$s" type="submit"></form>
+sys_trade_mess_back: 'A kereskedőflottád sikertelenül tért vissza ide: %s %s.'
+sys_trade_mess_back_success: >-
+  A kereskedőflottád sikeresen visszatért ide: '%4$s %5$s,'
+  %1$s fémmel, %2$s kristállyal és %3$s deutériummal.
+sys_tran_mess_back: 'A flottád visszatért ide: %s %s.'
+sys_tran_mess_owner: >-
+  A flottád innen: '%s %s megérkezett ide: %s %s %s, és leszállított %s %s, %s %s'
+  és %s %s mennyiséget.
+sys_tran_mess_user: 'Egy békés flotta innen: %s %s megérkezett ide: %s %s, és leszállított %s %s, %s %s és %s %s mennyiséget.'
+sys_units: egység
+sys_wreckfield: >-
+  A védő megsemmisült hajóinak egy része néhány napig roncsmezőt alkot a bolygó
+  pályáján.
+sys_wreckfield_added: 'Hozzáadva a roncsmezőhöz:'
+type_mission_1: Támadás
+type_mission_2: Szövetségi támadás
+type_mission_3: Szállítás
+type_mission_4: Állomásoztatás
+type_mission_5: Tartózkodás
+type_mission_6: Kémkedés
+type_mission_7: Gyarmatosítás
+type_mission_8: Hasznosítás
+type_mission_9: Pusztítás
+type_mission_15: Expedíció
+type_mission_16: Kereskedés
+type_mission_17: Átvitel
+type_planet_1: Bolygó
+type_planet_2: Törmelék
+type_planet_3: Hold
+type_planet_4: Kalózbázis
+type_planet_short_1: B
+type_planet_short_2: T
+type_planet_short_3: H
+depot_msg_subject: "Flotta ellátva"
+depot_msg_text: "A(z) %s melletti flottádat ellátta: %s - a tartózkodás %s órával meghosszabbodott."
+cr_actions: "Jelentés műveletei"
+cr_attack_again: "Támadás újra"
+cr_simulate: "Szimuláció"
+sys_expe_factor: "Faktor %s"
+sys_irak_vacation: "A rakéták elvesztek: a célpont játékos nyaralás módban van."

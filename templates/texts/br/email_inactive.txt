@@ -1,0 +1,8 @@
+Olá, {USERNAME}!
+
+Faz um tempo que você não aparece em {GAMENAME} (desde {LASTDATE}). Se ainda quer fazer parte da nossa comunidade, é só entrar com os dados da sua conta. Senão, a conta vai ser excluída.
+
+Esqueceu a senha? Acesse {HTTPPATH} e clique em "Esqueci a senha". Em poucos minutos você recebe um e-mail com uma senha nova.
+
+Até logo,
+Equipe {GAMENAME}

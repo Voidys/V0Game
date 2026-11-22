@@ -1,0 +1,12 @@
+<div class="left">
+<h2>Informații despre suportul multi-univers</h2>
+<p>V0Game poate rula fără probleme mai multe universuri, dar trebuie să configurezi serverul web conform cerințelor.</p>
+<p>Poți afla ce suportă serverul tău cu butonul „Informații”. Dacă nu ești sigur, cel mai bine întreabă pe cineva de la firma de hosting.</p>
+<h3>Apache</h3>
+<p>Dacă rulezi un server Apache, trebuie să elimini doar liniile 48-51 din fișierul .htaccess din directorul principal (scoate ruta).<br>
+În plus, este necesar mod_rewrite.</p>
+<h3>nginx</h3>
+<p>Dacă rulezi un server nginx, trebuie să extinzi direct în configurația vhost regula de rewrite:</p>
+<p><code>{NGINX-CODE}</code></p>
+<p>Lipește fragmentul de cod chiar sub linia cu „server_name”.</p>
+</div>

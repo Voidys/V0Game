@@ -1,0 +1,12 @@
+<div class="left">
+<h2>Informações sobre o suporte a vários universos</h2>
+<p>O V0Game dá conta de vários universos sem problema, mas você precisa configurar o servidor web do jeito certo.</p>
+<p>Para ver o que o seu servidor suporta, use o botão "Informações". Na dúvida, o melhor é perguntar para o pessoal da empresa de hospedagem.</p>
+<h3>Apache</h3>
+<p>Se você roda um servidor Apache, é só comentar (remover) as linhas 48 a 51 do arquivo .htaccess na pasta principal (as da rota).<br>
+Além disso, o mod_rewrite é obrigatório.</p>
+<h3>nginx</h3>
+<p>Se você usa nginx, a configuração do vhost precisa ser ampliada diretamente com a regra de rewrite:</p>
+<p><code>{NGINX-CODE}</code></p>
+<p>É só colar o trecho de código logo abaixo da linha com o "server_name".</p>
+</div>

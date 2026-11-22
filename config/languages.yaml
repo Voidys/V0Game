@@ -81,7 +81,7 @@ fr:
 of:
     name: Ogerfränkisch
     fun: true
-    tag: OF
+    tag: de
     author: 'Appendix / Altschauerberg 8 (ASB8)'
     date: 08.09.2022
     number_suffixes:
@@ -101,7 +101,7 @@ of:
 pi:
     name: SetSails
     fun: true
-    tag: pi
+    tag: de
     author: Slippy
     date: 16.09.2022
     number_suffixes:
@@ -294,6 +294,120 @@ zh:
     tag: zh-Hans
     author: 'V0Game'
     date: 16.11.2026
+    number_suffixes:
+        - ''
+        - K
+        - M
+        - B
+        - T
+        - Q
+        - Q+
+        - S
+        - S+
+        - O
+        - N
+    number_profile: short
+    decimal_separator: 1
+it:
+    name: Italiano
+    tag: it
+    author: 'V0Game'
+    date: 22.11.2026
+    number_suffixes:
+        - ''
+        - k
+        - Mln
+        - Mld
+        - Bln
+        - Bld
+        - Trl
+        - Trd
+        - Qa
+        - Qad
+        - Qi
+    number_profile: long
+    decimal_separator: 0
+cs:
+    name: Čeština
+    tag: cs
+    author: 'V0Game'
+    date: 22.11.2026
+    number_suffixes:
+        - ''
+        - k
+        - mil
+        - mld
+        - bil
+        - bld
+        - tril
+        - trd
+        - Qa
+        - Qad
+        - Qi
+    number_profile: long
+    decimal_separator: 0
+hu:
+    name: Magyar
+    tag: hu
+    author: 'V0Game'
+    date: 22.11.2026
+    number_suffixes:
+        - ''
+        - e
+        - M
+        - Mrd
+        - B
+        - Brd
+        - T
+        - Trd
+        - Qa
+        - Qad
+        - Qi
+    number_profile: long
+    decimal_separator: 0
+ro:
+    name: Română
+    tag: ro
+    author: 'V0Game'
+    date: 22.11.2026
+    number_suffixes:
+        - ''
+        - k
+        - mil
+        - mld
+        - bil
+        - bld
+        - tril
+        - trd
+        - Qa
+        - Qad
+        - Qi
+    number_profile: long
+    decimal_separator: 0
+br:
+    name: Português (Brasil)
+    tag: pt-BR
+    author: 'V0Game'
+    date: 22.11.2026
+    number_suffixes:
+        - ''
+        - K
+        - Mi
+        - Bi
+        - Tri
+        - Qa
+        - Qi
+        - Sx
+        - Sp
+        - Oc
+        - 'No'
+    number_profile: short
+    decimal_separator: 0
+tw:
+    name: 繁體中文
+    tag: zh-Hant-TW
+    author: 'V0Game'
+    date: 22.11.2026
     number_suffixes:
         - ''
         - K

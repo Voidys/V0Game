@@ -1,0 +1,832 @@
+bonus:
+  Attack: Attacco
+  BuildTime: 'Tempo di costruzione'
+  Defensive: Difesa
+  DefensiveTime: 'Tempo di costruzione della difesa'
+  Energy: 'Produzione di energia'
+  Expedition: Spedizioni
+  FleetSlots: 'Slot flotta'
+  FlyTime: 'Tempo di volo'
+  GateCoolTime: Tempo di ricarica del Portale di salto
+  MoreFound: 'Ritrovamenti in spedizione'
+  Planets: Pianeti
+  ResearchTime: Tempo di ricerca
+  Resource: 'Produzione di risorse'
+  ResourceStorage: Stoccaggio delle risorse
+  Shield: Scudo
+  ShipStorage: 'Stiva delle navi'
+  ShipTime: 'Tempo di costruzione delle navi'
+  SpyPower: Potenza di spionaggio
+longDescription:
+  '1': >-
+    Le miniere di metallo estraggono il minerale su cui si fonda ogni impero,
+    nascente o consolidato.
+  '2': >-
+    Il cristallo è l'ingrediente chiave per i circuiti elettronici e certe
+    leghe.
+  '3': >-
+    Il deuterio alimenta le tue astronavi e si ricava dalle profondità marine.
+    È una sostanza rara, quindi relativamente costosa.
+  '4': >-
+    Le centrali solari trasformano la luce del sole in energia. Ogni miniera ha
+    bisogno di energia per funzionare.
+  '6': >-
+    Di default, ogni livello riduce il tempo di ricerca dell'8%.
+  '12': >-
+    La Centrale a fusione produce energia fondendo il deuterio. Rende più
+    energia di una Centrale solare, ma costa di più da costruire. La resa
+    aumenta con la Tecnologia energetica e con il livello della centrale stessa.
+    La formula per la produzione di energia è:<br>
+    Energia prodotta = 30 x livello Centrale a fusione x (1,05 + (0,01 *
+    livello Tecnologia energetica))^livello Centrale a fusione
+  '14': >-
+    Le fabbriche di robot forniscono robot da costruzione che aiutano a
+    costruire i tuoi edifici. Ogni livello velocizza i potenziamenti degli
+    edifici.
+  '15': >-
+    Il massimo della robotica. Ogni livello dimezza il tempo di costruzione di
+    edifici, navi e difese.
+  '21': 'Tutte le navi e le difese vengono costruite nel cantiere spaziale planetario.'
+  '22': Offre spazio di stoccaggio per il Metallo in eccesso.
+  '23': Offre spazio di stoccaggio per il Cristallo in eccesso.
+  '24': 'Offre spazio di stoccaggio per il Deuterio in eccesso.'
+  '31': >-
+    Ti serve un laboratorio di ricerca per ricercare nuove tecnologie. Il
+    livello del laboratorio stabilisce quanto in fretta ricerchi e quali
+    tecnologie puoi sbloccare. La ricerca si svolge nel laboratorio del pianeta
+    in cui la avvii, e il risultato vale per tutti i tuoi pianeti. Mentre una
+    ricerca è in corso, nessun laboratorio di ricerca può essere potenziato.
+  '33': >-
+    Il Terraformer amplia l'area utilizzabile del pianeta. Ogni livello ti dà 5
+    campi in più, più un campo extra a ogni livello pari. Ogni livello del
+    Terraformer occupa a sua volta un campo.<br>Costruirlo richiede energia, ma
+    l'energia non viene consumata: al tuo pianeta basta produrne a sufficienza
+    (1.000 per il livello 1, raddoppiando a ogni livello), anche se le tue
+    miniere la stanno già usando. Una volta costruito, il Terraformer non può
+    più essere demolito.
+  '34': "Il Deposito dell'alleanza ti permette di rifornire di deuterio le flotte amiche in mantenimento sul tuo pianeta e così prolungarne la permanenza. Aprilo dalla pagina delle costruzioni: per ogni flotta in mantenimento scegli da 1 ora fino a tante ore quante il livello del deposito, e paghi ore per il costo orario di mantenimento della flotta con il deuterio del tuo pianeta. Il costo orario di mantenimento è un decimo del consumo base di carburante sommato delle navi della flotta, arrotondato per eccesso. Una flotta può essere rifornita più e più volte, ma non può mai avere più di 32 ore di permanenza rimanenti. Si possono rifornire solo le flotte di altri giocatori attualmente in orbita attorno al tuo pianeta."
+  '35': >-
+    Il bacino di riparazione può riparare le navi distrutte in battaglia che
+    hanno lasciato un campo di rottami. Una riparazione dura al massimo 12 ore e
+    non può finire prima di 30 minuti dalla comparsa del campo di rottami.<br>
+    Quando compare il campo di rottami, hai 3 giorni per avviare la riparazione.
+    A riparazione finita, devi rimettere in servizio le navi da solo. Se non lo
+    fai, tornano in servizio automaticamente dopo 3 giorni.
+  '41': >-
+    La luna non ha atmosfera, e una luna appena nata ha spazio per un solo
+    edificio, quindi parti dalla Base lunare. Ogni livello dà 3 campi extra e ne
+    occupa uno a sua volta. Una volta costruita, la Base lunare non può più
+    essere smantellata.
+  '42': >-
+    La falange dei sensori ti permette di osservare i movimenti delle flotte.
+    Più alto è il livello, maggiore è la gittata della Falange: (livello
+    Falange)^2 - 1 sistemi di default, quindi il livello 1 copre solo il
+    sistema della luna stessa. Una scansione costa 5.000 di deuterio, che deve
+    trovarsi sulla luna. Per scansionare, apri la vista Galassia dalla luna e
+    clicca su un pianeta nella gittata. Le lune stesse non si possono
+    scansionare con la Falange, perché non hanno atmosfera.<br><br>La Falange
+    mostra le flotte che partono dal pianeta scansionato o vi sono dirette:
+    quando arrivano, quando finisce un mantenimento e quando le flotte del
+    proprietario tornano a casa. Schieramenti e missili non vengono mai
+    mostrati, e nemmeno i voli di riciclaggio o commercio diretti al pianeta.
+  '43': >-
+    I portali di salto sono enormi trasmettitori che inviano grandi flotte
+    attraverso l'universo senza perdere tempo. Non usano deuterio, ma in questo
+    modo non puoi trasferire risorse. Entrambi i portali devono essere pronti:
+    dopo un salto, ogni portale ha bisogno di un tempo di ricarica, che di
+    default è di 60 minuti al livello 1 e si accorcia a ogni livello, fino a 10
+    minuti dal livello 15.
+  '44': >-
+    I silo missilistici immagazzinano i tuoi missili. Di default ogni livello
+    aggiunge 10 slot. Un Missile intercettore occupa 1 slot, un Missile
+    interplanetario ne occupa 2.
+  '106': >-
+    Questa tecnologia ti permette di raccogliere informazioni su altri pianeti
+    e lune. Quando invii delle sonde, la tua Tecnologia di spionaggio viene
+    confrontata con quella del bersaglio: più alto è il tuo livello, più
+    informazioni ci sono nel rapporto e minore è la probabilità che le tue
+    sonde vengano individuate. Più sonde rivelano più dettagli ma aumentano il
+    rischio di individuazione. A certi livelli di Tecnologia di spionaggio
+    scopri di più anche sulle flotte straniere nella schermata Panoramica:<br><br><li>Ai
+    livelli 0-1 vedi solo che una flotta si sta avvicinando al tuo
+    pianeta</li><li>Ai livelli 2-3 vedi quante navi si stanno avvicinando</li><li>Ai
+    livelli 4-7 vedi quali tipi di nave ci sono nella flotta</li><li>Dal
+    livello 8 vedi quante navi di ogni tipo ci sono nella flotta</li>
+  '108': >-
+    Computer migliori ti permettono di comandare più flotte. Ogni livello di
+    Tecnologia computazionale aumenta di uno il numero massimo di flotte.
+  '109': >-
+    La Tecnologia delle armi rende più efficaci i sistemi d'arma. Ogni livello
+    aumenta la potenza delle armi di tutte le unità del 10% del valore base.
+  '110': >-
+    La Tecnologia degli scudi rende più efficaci gli scudi di navi e strutture
+    difensive. Ogni livello aumenta la potenza degli scudi del 10% del valore
+    base.
+  '111': >-
+    Leghe speciali migliorano la corazza di navi e strutture difensive. Ogni
+    livello aumenta l'efficacia della corazza del 10%.
+  '113': >-
+    Padroneggiare i diversi tipi di energia è la chiave di molte nuove
+    tecnologie. Ogni livello di Tecnologia energetica aumenta anche la resa
+    energetica della Centrale a fusione.
+  '114': >-
+    Integrando la quarta e la quinta dimensione, puoi ricercare un nuovo tipo di
+    propulsore più economico ed efficiente.
+  '115': >-
+    Sviluppare questo propulsore rende più veloci alcune navi, ma ogni livello
+    aggiunge solo il 10% della velocità base. Navi interessate: Cargo leggero,
+    Cargo pesante, Caccia leggero, Riciclatrice e Sonda spia (Cargo leggero e
+    Riciclatrice passano più avanti a propulsori migliori).
+  '117': >-
+    Il propulsore a impulso funziona secondo il principio di reazione.
+    Svilupparlo ulteriormente rende più veloci alcune navi, ma ogni livello
+    aggiunge solo il 20% della velocità base: Bombardiere, Incrociatore, Caccia
+    pesante e Colonizzatrice, più Cargo leggero e Riciclatrice una volta passati
+    a questo propulsore. Anche i missili interplanetari volano più lontano a
+    ogni livello.
+  '118': >-
+    Il propulsore iperspaziale piega lo spazio attorno a una nave. Svilupparlo
+    rende più veloci alcune navi, ma ogni livello aggiunge solo il 30% della
+    velocità base: Incrociatore da battaglia, Nave da battaglia, Corazzata,
+    Morte Nera, Luna Nera, Trasporto da battaglia, Avatar e Riciclatrice da
+    battaglia, più Bombardiere e Riciclatrice una volta passati a questo
+    propulsore. Richiede Tecnologia iperspaziale (livello 3) e un Laboratorio di
+    ricerca (livello 7).
+  '120': >-
+    La luce focalizzata produce un raggio che danneggia qualsiasi cosa colpisca.
+    Richiede un Laboratorio di ricerca (livello 1) e Tecnologia energetica
+    (livello 2).
+  '121': 'Un letale raggio di ioni accelerati che causa danni enormi all''impatto.'
+  '122': >-
+    Un ulteriore sviluppo della tecnologia ionica che accelera plasma ad alta
+    energia, creato surriscaldando gli ioni. Ha un effetto devastante
+    all'impatto.
+  '123': >-
+    I ricercatori di pianeti diversi comunicano tramite questa rete. Ogni
+    livello permette a un laboratorio in più di unirsi al laboratorio in cui
+    avvii una ricerca. Vengono scelti i laboratori con i livelli più alti, e un
+    laboratorio in rete deve essere abbastanza avanzato da poter eseguire da
+    solo quella ricerca. I loro livelli vengono sommati per calcolare il tempo
+    di ricerca.
+  '124': >-
+    La ricerca Astrofisica sblocca la colonizzazione e le spedizioni nello
+    spazio profondo. Il limite di colonie, il tempo di permanenza e le
+    posizioni qui sotto sono le impostazioni predefinite; il tuo universo può
+    differire.<br><br> <li>Limite di colonie</li> Livello 1-2 = 2
+    pianeti<br> Livello 3-4 = 3 pianeti<br> Livello 5-6 = 4 pianeti<br> Livello
+    7-8 = 5 pianeti<br> Livello 9-10 = 6 pianeti<br> Livello 11-12 = 7
+    pianeti<br> Livello 13-14 = 8 pianeti<br> Livello 15-16 = 9 pianeti<br>
+    Livello 17-18 = 10 pianeti<br> Livello 19-20 = 11 pianeti<br> Livello 21+ =
+    12 pianeti<br><br> <li>Slot di spedizione</li> Livello 1-3 = 1
+    spedizione<br> Livello 4-8 = 2 spedizioni<br> Livello 9-15 = 3
+    spedizioni<br> Livello 16-24 = 4 spedizioni<br>(una in più a ogni ulteriore
+    livello quadrato: 25, 36, ...)<br><br> <li>Tempo di permanenza in
+    spedizione</li> Livello = Tempo massimo di permanenza in ore<br><br>
+    <li>Posizioni colonizzabili</li> Livello 1-3 = 4-12<br> Livello 4-5 =
+    3-13<br> Livello 6-7 = 2-14<br> Livello 8+ = 1-15
+  '131': >-
+    Aumenta la produzione di Metallo del 2% per livello.
+  '132': >-
+    Aumenta la produzione di Cristallo del 2% per livello.
+  '133': >-
+    Aumenta la produzione di Deuterio del 2% per livello.
+  '134': >-
+    Riduce i costi di volo del 2% per livello.
+  '199': >-
+    Sparare una carica concentrata di particelle di gravitoni crea un campo
+    gravitazionale artificiale che può distruggere navi e perfino lune. Richiede
+    un Laboratorio di ricerca (livello 12).
+  '202': >-
+    Il cargo leggero è una nave agile che porta in fretta risorse ad altri
+    pianeti.<br>Vola con il propulsore a combustione finché il tuo Propulsore a
+    impulso non raggiunge il livello 5. Da lì passa al propulsore a impulso, che
+    raddoppia la sua velocità base.
+  '203': >-
+    Questa nave da carico trasporta molto più del cargo leggero ed è in
+    generale più veloce grazie a un propulsore migliorato.
+  '204': >-
+    La prima nave da combattimento che ogni imperatore costruisce. Il caccia
+    leggero è agile ma vulnerabile da solo; in grandi numeri diventa una vera
+    minaccia per qualsiasi impero. I caccia leggeri sono i primi a scortare
+    cargo leggeri e pesanti verso pianeti ostili con difese deboli.
+  '205': 'Questo caccia ha una corazza migliore e colpisce più forte del caccia leggero.'
+  '206': >-
+    Gli incrociatori hanno una corazza quasi tre volte quella dei caccia pesanti
+    e una potenza di fuoco più che doppia. Sono anche molto veloci.
+  '207': >-
+    Le navi da battaglia sono la spina dorsale di una flotta. Cannoni pesanti,
+    alta velocità e grandi stive ne fanno avversari da prendere sul serio.
+  '208': >-
+    Questa nave ben corazzata conquista nuovi pianeti, di cui un impero in
+    crescita ha bisogno per espandersi. Sulla nuova colonia la nave viene
+    smontata e tutto il materiale riciclabile va nello sviluppo del nuovo
+    mondo. Quanti pianeti puoi colonizzare dipende direttamente dalla ricerca
+    Astrofisica: il primo livello e ogni secondo livello successivo permettono
+    un'altra colonia (di default).
+  '209': >-
+    La riciclatrice raccoglie materie prime dai campi di detriti. La sua
+    capacità di carico è di 20.000. Parte con il propulsore a combustione, passa
+    al propulsore a impulso quando il tuo Propulsore a impulso raggiunge il
+    livello 17, e al propulsore iperspaziale quando il tuo Propulsore
+    iperspaziale raggiunge il livello 15.
+  '210': >-
+    Le sonde spia sono piccoli droni agili che consegnano dati su flotte e
+    pianeti su lunghe distanze.
+  '211': >-
+    Il bombardiere è stato costruito apposta per distruggere le difese di un
+    pianeta.<br>Vola con il propulsore a impulso e passa al propulsore
+    iperspaziale quando il tuo Propulsore iperspaziale raggiunge il livello 8.
+  '212': >-
+    I satelliti solari sono semplici piattaforme di celle solari in un'alta
+    orbita stazionaria. Raccolgono la luce del sole e la trasmettono alla
+    stazione a terra tramite laser.
+  '213': >-
+    La corazzata è la regina delle navi da guerra. Contro i Laser leggeri ha il
+    fuoco rapido: dopo ogni colpo spara di nuovo nove volte su dieci.
+  '214': >-
+    Il potere distruttivo della Morte Nera non ha rivali, e può distruggere le
+    lune.
+  '215': 'L''Incrociatore da battaglia è specializzato nell''intercettare le flotte ostili.'
+  '216': >-
+    La succeditrice della popolare Morte Nera: molto più veloce e robusta, con
+    una stiva enorme, ma colpisce un po' meno forte.
+  '217': >-
+    Uno sviluppo del cargo pesante con una capacità di carico molto superiore.
+    Funziona con il propulsore iperspaziale, quindi parte più lento del cargo
+    pesante ma lo supera man mano che sale il livello del tuo Propulsore
+    iperspaziale.
+  '218': 'Lo scenario peggiore in assoluto, anche se molto lento.'
+  '219': >-
+    Un enorme spazio di carico e nuovi motori lo fanno volare più veloce e
+    raccogliere di più dai campi di detriti.
+  '220': >-
+    Il Colosso d'acciaio è una vera fortezza nello spazio, protetta da barriere
+    inflessibili e da una corazza massiccia. Anche gli attacchi più feroci
+    rimbalzano mentre avanza implacabile. Ma questa superiorità difensiva ha un
+    prezzo: il suo armamento merita appena di essere citato, e i suoi motori
+    lenti ne fanno un gigante lento. Invece di attacchi fulminei o manovre
+    agili, questa nave punta sulla pura resistenza. Chi vuole fermarlo deve
+    avere grande resistenza – o una potenza di fuoco schiacciante.
+  '221': >-
+    La Lama della tempesta è un caccia di prima classe: incredibilmente
+    veloce e armato senza pietà. Gli avversari la vedono a malapena prima che
+    colpisca. La difesa è una preoccupazione secondaria – non ha bisogno di
+    resistere a ciò che può semplicemente seminare. Il suo unico obiettivo sono
+    le flotte di trasportatori e riciclatrici, che vengono annientate senza
+    resistenza. Con la sua velocità bruciante può colpire a piacimento e
+    sparire prima che arrivino i rinforzi. Chi finisce nel mirino della Lama
+    della tempesta ha poche possibilità di scampo.
+  '222': >-
+    L'Incrociatore pesante è un'evoluzione rinforzata dell'incrociatore
+    standard. Con scudi migliorati e armi potenti, può tenere testa a nemici
+    ingombranti. Dà il meglio se schierato insieme a Colossi d'acciaio,
+    Corazzate e Bombardieri, dove la sua potenza di fuoco brilla davvero.
+    Tuttavia, nonostante la sua forza, resta lento e poco manovrabile.
+  '223': >-
+    Il Drone scudo rappresenta un nuovo approccio alla difesa della flotta,
+    concentrato soprattutto sulla protezione dell'equipaggio. Tecnologie di
+    schermatura innovative ma pesanti hanno ridotto in modo significativo
+    velocità di volo e manovrabilità. Nonostante la scarsa velocità e agilità,
+    è molto efficace in difesa. La struttura ormai superata è stata spinta ai
+    suoi limiti per offrire una difesa quasi impenetrabile.
+  '224': >-
+    Il Trasporto d'assalto improvvisato è un mezzo di trasporto non collaudato
+    con armamento minimo, creato apposta per disturbare vicini incauti e
+    impreparati. Questo veicolo di fortuna non è pensato per l'uso a lungo
+    termine, ma per attacchi rapidi e impulsivi che provocano reazioni
+    immediate. Una lite di vicinato è praticamente garantita non appena viene
+    schierato. Con il suo equipaggiamento limitato e la sua natura imprevedibile
+    diventa uno strumento pericoloso per un'escalation rapida del conflitto.
+  '225': >-
+    Il Trasporto tempesta è una vera meraviglia della tecnologia, con il
+    perfetto equilibrio tra potenza di combattimento, velocità e capacità di
+    trasporto. La sua capacità di schierare rapidamente truppe e risorse
+    portando sul campo di battaglia una potenza di fuoco impressionante lo ha
+    reso un elemento essenziale di ogni flotta potente. Che sia per unità
+    d'assalto rapide o a supporto di operazioni a lungo termine, il Trasporto
+    tempesta è la chiave di una guerra efficace e un assoluto must in ogni
+    flotta.
+  '226': >-
+    Il Trasporto da battaglia colossale rappresenta il culmine dell'ingegneria.
+    Nonostante il design un po' massiccio e la conseguente lentezza di volo, è
+    il trasporto da battaglia più corazzato mai visto da una flotta. La sua
+    potenza di fuoco schiacciante ne fa una forza inarrestabile sul campo di
+    battaglia. Questo bestione può sfondare senza sforzo le linee nemiche
+    offrendo la massima protezione al suo equipaggio. Incarna forza e
+    resilienza, ed è un elemento essenziale per qualsiasi flotta pesantemente
+    armata.
+  '227': >-
+    La Riciclatrice ottimizzata è un potenziamento all'avanguardia della
+    riciclatrice standard. Dotata di un potente motore a impulso, raggiunge i
+    campi di detriti più in fretta e a minor costo, diventando un elemento
+    essenziale per qualsiasi flotta avanzata. Il suo design ottimizzato riduce i
+    costi di costruzione aumentando l'efficienza di recupero delle risorse.
+    Disponibile dalla metà partita, offre un vantaggio strategico a qualsiasi
+    impero in espansione.
+  '228': >-
+    La Riciclatrice Omega rappresenta il culmine della tecnologia di riciclaggio
+    – ma a caro prezzo. Il suo potente propulsore iperspaziale le permette di
+    raggiungere i campi di detriti in tempi record e di recuperare risorse più
+    in fretta di qualsiasi altra nave. Tuttavia, questa velocità va a scapito
+    dell'efficienza: i suoi costi di costruzione e di carburante sono
+    immensi, il che la rende un'opzione solo per i comandanti ricchi a fine
+    partita. Per chi mette la velocità prima del costo, è la Riciclatrice
+    definitiva.
+  '229': >-
+    Sviluppata per spezzare il dominio degli Xer, la Vipera è l'arma definitiva
+    contro Caccia leggeri, Caccia pesanti e Incrociatori. Con i suoi cannoni a
+    fuoco rapido e la tecnologia avanzata, sposta l'equilibrio di potere
+    nell'universo.
+  '230': >-
+    Veloce. Precisa. Intoccabile. L'Intercettore non è fatto per i combattimenti
+    leali – è progettato per colpire in fretta e forte, creando un vantaggio
+    schiacciante in un batter d'occhio.
+  '231': >-
+    Il Behemoth è il risultato di decenni di ricerca sui gravitoni, trasformata
+    in una piattaforma da combattimento implacabile. A differenza delle Morti
+    Nere, non è stato progettato per la distruzione planetaria, ma per la
+    massima efficienza sul campo di battaglia. Rinunciando ai sistemi
+    energivori necessari per distruggere le lune, il suo progetto è stato
+    alleggerito in modo significativo, permettendo motori più potenti, maggiore
+    agilità e più potenza di fuoco. Il suo compatto cannone a gravitoni ne fa
+    una macchina di distruzione mobile, capace di annientare da solo anche
+    flotte enormi.
+  '232': >-
+    Il Titano del vuoto rappresenta il culmine della moderna tecnologia dei
+    gravitoni. Ogni aspetto del suo progetto serve a un unico scopo: la rapida
+    annichilazione delle lune nemiche. Le torrette d'arma convenzionali sono
+    state omesse di proposito per ridurre la massa e fare spazio a colossali
+    generatori di cristallo. Questi alimentano le bobine di accelerazione più
+    avanzate mai costruite nelle galassie conosciute, dando alla nave un livello
+    di mobilità senza pari. L'enorme fabbisogno di cristallo rende ogni Titano
+    del vuoto un monumentale traguardo industriale – e un simbolo di potere
+    distruttivo illimitato.
+  '401': >-
+    Il Lanciamissili è una difesa semplice ma conveniente. Dopo una battaglia,
+    in media circa il 70% delle difese distrutte viene ricostruito.
+  '402': >-
+    I laser leggeri sono semplici armi a terra. Speciali sistemi di puntamento
+    seguono il nemico e un laser ad alta intensità taglia lo scafo del
+    bersaglio. Dopo una battaglia, in media circa il 70% delle difese distrutte
+    viene ricostruito.
+  '403': >-
+    Il Laser pesante è una versione pratica e migliorata del Laser leggero. Dopo
+    una battaglia, in media circa il 70% delle difese distrutte viene
+    ricostruito.
+  '404': >-
+    Il Cannone Gauss spara proiettili metallici ad alta densità a velocità
+    estremamente elevata. Dopo una battaglia, in media circa il 70% delle
+    difese distrutte viene ricostruito.
+  '405': >-
+    Un cannone ionico spara raggi di ioni (particelle con carica positiva o
+    negativa). Dopo una battaglia, in media circa il 70% delle difese distrutte
+    viene ricostruito.
+  '406': >-
+    La Torretta al plasma usa la cella di combustibile di un grande reattore
+    nucleare per alimentare un acceleratore elettromagnetico che spara impulsi
+    (toroidi) di plasma. Dopo una battaglia, in media circa il 70% delle difese
+    distrutte viene ricostruito.
+  '407': >-
+    La Cupola scudo piccola avvolge l'intero pianeta in un campo che assorbe
+    quantità enormi di energia. Se ne può costruire solo una per pianeta.
+  '408': >-
+    La Cupola scudo grande è un ulteriore sviluppo che richiede molta più
+    energia per resistere agli attacchi. Se ne può costruire solo una per
+    pianeta.
+  '409': >-
+    L'evoluzione della tecnologia delle cupole scudo. Usa molta più energia, ma
+    resiste a più attacchi di qualsiasi altro scudo. Se ne può costruire solo
+    uno per pianeta.
+  '410': >-
+    Dopo anni di ricerca sulla gravità, gli scienziati hanno sviluppato un
+    cannone a gravitoni che genera un piccolo campo di gravitoni concentrato e
+    lo spara contro il nemico.
+  '411': >-
+    Una piattaforma difensiva immobile, senza propulsione propria, tenuta in
+    un'orbita stabile attorno al pianeta dalla gravità. Avviare questo processo
+    richiede enormi quantità di energia. Se ne può costruire solo una per
+    pianeta.
+  '412': >-
+    Il Bunker è una struttura fortificatissima progettata per resistere anche
+    agli attacchi più potenti. Offre una protezione impareggiabile agli
+    abitanti del pianeta e alle infrastrutture critiche, diventando la pietra
+    angolare della difesa planetaria.
+  '413': >-
+    Il Laser Titano è un'arma colossale dal potere distruttivo senza pari.
+  '414': >-
+    L'Esca è un sofisticato sistema difensivo progettato per ingannare e
+    confondere le forze nemiche. Camuffandosi da Lanciamissili, scoraggia gli
+    attacchi.
+  '502': >-
+    I missili intercettori distruggono i missili interplanetari in arrivo. Serve
+    un missile intercettore per ogni missile interplanetario.
+  '503': >-
+    I missili interplanetari distruggono le difese dell'avversario, a meno che i
+    missili intercettori non li abbattano. Le difese distrutte in questo modo non
+    vengono ricostruite. Di default la loro gittata (in sistemi solari) dipende
+    dal livello del tuo Propulsore a impulso:<br>Gittata = (5 x livello
+    Propulsore a impulso) - 1
+  '901': >-
+    Il metallo è la risorsa principale per edifici e navi. È la risorsa più
+    economica, ma anche quella di cui hai più bisogno, e, come il cristallo,
+    richiede pochissima energia per essere prodotta. Più grandi sono le
+    miniere, più in profondità scavano nella terra.
+  '902': >-
+    Il cristallo è la risorsa principale per i circuiti elettronici e certe
+    leghe. Si produce in miniere sotterranee, dove la materia prima viene
+    trasformata subito in circuiti.
+  '903': >-
+    Il deuterio si trova nei mari più profondi ed è una delle risorse più rare
+    dell'universo. Devi raggiungere il fondale per ottenerlo, il che ne fa la
+    risorsa più costosa.
+  '911': 'L''energia serve per produrre ogni risorsa.'
+secureResources: >-
+  Ogni livello di un edificio di stoccaggio protegge l'1% della produzione
+  giornaliera di quella risorsa dal saccheggio durante gli attacchi, fino a un
+  massimo del 10%.
+shortDescription:
+  '1': >-
+    Le miniere di metallo estraggono il minerale su cui si fonda ogni impero,
+    nascente o consolidato.
+  '2': >-
+    Il cristallo è l'ingrediente chiave per i circuiti elettronici e certe
+    leghe.
+  '3': >-
+    Il deuterio alimenta le tue astronavi e si ricava dalle profondità marine.
+    È una sostanza rara, quindi relativamente costosa.
+  '4': >-
+    Le centrali solari trasformano la luce del sole in energia. Ogni miniera ha
+    bisogno di energia per funzionare.
+  '6': >-
+    Di default, ogni livello riduce il tempo di ricerca dell'8%.
+  '12': La Centrale a fusione fonde il deuterio per produrre energia.
+  '14': >-
+    Le fabbriche di robot forniscono robot da costruzione che aiutano a
+    costruire i tuoi edifici. Ogni livello velocizza i potenziamenti degli
+    edifici.
+  '15': >-
+    Il massimo della robotica. Ogni livello dimezza il tempo di costruzione di
+    edifici, navi e difese.
+  '21': 'Tutte le navi e le difese vengono costruite nel cantiere spaziale planetario.'
+  '22': Offre spazio di stoccaggio per il Metallo in eccesso.
+  '23': Offre spazio di stoccaggio per il Cristallo in eccesso.
+  '24': 'Offre spazio di stoccaggio per il Deuterio in eccesso.'
+  '31': 'Ti serve un laboratorio di ricerca per ricercare nuove tecnologie.'
+  '33': >-
+    Il Terraformer amplia l'area utilizzabile del pianeta: 5 campi in più per
+    livello, più uno extra a ogni livello pari. Ogni livello occupa a sua volta
+    un campo.
+  '34': "Il Deposito dell'alleanza ti permette di prolungare in cambio di deuterio la permanenza delle flotte amiche in mantenimento sul tuo pianeta: per rifornimento fino a tante ore quante il livello del deposito."
+  '35': 'Il bacino di riparazione ripristina le navi di un campo di rottami.'
+  '41': >-
+    La luna non ha atmosfera, e una luna appena nata ha spazio per un solo
+    edificio, quindi parti dalla Base lunare.
+  '42': >-
+    La falange dei sensori ti permette di osservare i movimenti delle flotte.
+    Più alto è il livello, maggiore è la gittata della Falange.
+  '43': >-
+    I portali di salto sono enormi trasmettitori che inviano grandi flotte
+    attraverso l'universo senza perdere tempo.
+  '44': 'I silo missilistici immagazzinano i tuoi missili.'
+  '106': >-
+    Questa tecnologia ti permette di raccogliere informazioni su altri pianeti
+    e lune.
+  '108': >-
+    Computer migliori ti permettono di comandare più flotte. Ogni livello di
+    Tecnologia computazionale aumenta di uno il numero massimo di flotte.
+  '109': >-
+    La Tecnologia delle armi rende più efficaci i sistemi d'arma. Ogni livello
+    aumenta la potenza delle armi di tutte le unità del 10% del valore base.
+  '110': >-
+    La Tecnologia degli scudi rende più efficaci gli scudi di navi e strutture
+    difensive. Ogni livello aumenta la potenza degli scudi del 10% del valore
+    base.
+  '111': >-
+    Leghe speciali migliorano la corazza di navi e strutture difensive. Ogni
+    livello aumenta l'efficacia della corazza del 10%.
+  '113': >-
+    Padroneggiare i diversi tipi di energia è la chiave di molte nuove
+    tecnologie.
+  '114': >-
+    Integrando la quarta e la quinta dimensione, puoi ricercare un nuovo tipo di
+    propulsore più economico ed efficiente.
+  '115': >-
+    Sviluppare questo propulsore rende più veloci alcune navi, ma ogni livello
+    aggiunge solo il 10% della velocità base.
+  '117': >-
+    Il propulsore a impulso funziona secondo il principio di reazione.
+    Svilupparlo ulteriormente rende più veloci alcune navi, ma ogni livello
+    aggiunge solo il 20% della velocità base.
+  '118': >-
+    Il propulsore iperspaziale piega lo spazio attorno a una nave. Svilupparlo
+    rende più veloci alcune navi, ma ogni livello aggiunge solo il 30% della
+    velocità base.
+  '120': 'La luce focalizzata produce un raggio che danneggia qualsiasi cosa colpisca.'
+  '121': 'Un letale raggio di ioni accelerati che causa danni enormi all''impatto.'
+  '122': >-
+    Un ulteriore sviluppo della tecnologia ionica che accelera plasma ad alta
+    energia, creato surriscaldando gli ioni. Ha un effetto devastante
+    all'impatto.
+  '123': I ricercatori di pianeti diversi comunicano tramite questa rete.
+  '124': >-
+    Sblocca la colonizzazione e le spedizioni nello spazio profondo. Pianeti
+    extra ai livelli dispari, slot di spedizione extra ai livelli quadrati,
+    permanenze in spedizione più lunghe e più posizioni planetarie in un
+    sistema.
+  '131': >-
+    Aumenta la produzione di Metallo del 2% per livello.
+  '132': >-
+    Aumenta la produzione di Cristallo del 2% per livello.
+  '133': >-
+    Aumenta la produzione di Deuterio del 2% per livello.
+  '134': >-
+    Riduce i costi di volo del 2% per livello.
+  '199': >-
+    Sparare una carica concentrata di particelle di gravitoni crea un campo
+    gravitazionale artificiale che può distruggere navi e perfino lune.
+  '202': >-
+    Il cargo leggero è una nave agile che porta in fretta risorse ad altri
+    pianeti.
+  '203': >-
+    Questa nave da carico trasporta molto più del cargo leggero ed è in
+    generale più veloce grazie a un propulsore migliorato.
+  '204': >-
+    La prima nave da combattimento che ogni imperatore costruisce. Il caccia
+    leggero è agile ma vulnerabile da solo; in grandi numeri diventa una vera
+    minaccia per qualsiasi impero. I caccia leggeri sono i primi a scortare
+    cargo leggeri e pesanti verso pianeti ostili con difese deboli.
+  '205': 'Questo caccia ha una corazza migliore e colpisce più forte del caccia leggero.'
+  '206': >-
+    Gli incrociatori hanno una corazza quasi tre volte quella dei caccia pesanti
+    e una potenza di fuoco più che doppia. Sono anche molto veloci.
+  '207': >-
+    Le navi da battaglia sono la spina dorsale di una flotta. Cannoni pesanti,
+    alta velocità e grandi stive ne fanno avversari da prendere sul serio.
+  '208': 'Con questa nave si possono colonizzare i pianeti vuoti.'
+  '209': 'La riciclatrice raccoglie materie prime dai campi di detriti.'
+  '210': >-
+    Le sonde spia sono piccoli droni agili che consegnano dati su flotte e
+    pianeti su lunghe distanze.
+  '211': 'Il bombardiere è stato costruito apposta per distruggere le difese di un pianeta.'
+  '212': >-
+    I satelliti solari sono semplici piattaforme di celle solari in un'alta
+    orbita stazionaria. Raccolgono la luce del sole e la trasmettono alla
+    stazione a terra tramite laser.
+  '213': 'La corazzata è la regina delle navi da guerra.'
+  '214': >-
+    Il potere distruttivo della Morte Nera non ha rivali, e può distruggere le
+    lune.
+  '215': 'L''Incrociatore da battaglia è specializzato nell''intercettare le flotte ostili.'
+  '216': >-
+    La succeditrice della popolare Morte Nera: molto più veloce e robusta, con
+    una stiva enorme, ma colpisce un po' meno forte.
+  '217': >-
+    Uno sviluppo del cargo pesante con una capacità di carico molto superiore.
+    Funziona con il propulsore iperspaziale, quindi parte più lento del cargo
+    pesante ma lo supera man mano che sale il livello del tuo Propulsore
+    iperspaziale.
+  '218': 'Lo scenario peggiore in assoluto, anche se molto lento.'
+  '219': >-
+    Un enorme spazio di carico e nuovi motori lo fanno volare più veloce e
+    raccogliere di più dai campi di detriti.
+  '220': >-
+    Il Colosso d'acciaio resiste a qualsiasi attacco con scudi massicci e
+    corazza spessa, ma armi e motori lasciano molto a desiderare.
+  '221': >-
+    La Lama della tempesta è un caccia fulmineo, armato fino ai denti. La
+    difesa? Inutile – la sua preda sono trasportatori e riciclatrici indifesi.
+  '222': >-
+    Un incrociatore lento ma pesantemente armato, con scudi e capacità
+    offensive potenziati.
+  '223': >-
+    Una riprogettazione del caccia leggero che dà priorità alla sicurezza
+    dell'equipaggio a scapito di scarse caratteristiche di volo.
+  '224': >-
+    Un mezzo di trasporto non collaudato con armamento minimo, pensato per
+    disturbare i vicini incauti e scatenare un conflitto immediato.
+  '225': >-
+    Una nave che unisce potenza di combattimento, velocità e capacità di
+    trasporto, rendendola indispensabile per qualsiasi flotta potente.
+  '226': >-
+    Un trasporto da battaglia pesantemente corazzato dal design imponente e un
+    po' massiccio, la cui potenza di fuoco schiacciante può sconfiggere anche
+    gli avversari più coriacei.
+  '227': >-
+    Una versione migliorata della classica riciclatrice con motori a impulso,
+    che permette missioni di recupero più efficienti a costi inferiori.
+  '228': Un potenziamento estremamente veloce ma inefficiente della Riciclatrice con propulsore iperspaziale.
+  '229': >-
+    Sviluppata per spezzare il dominio degli Xer, la Vipera è l'arma definitiva
+    contro Caccia leggeri, Caccia pesanti e Incrociatori. Con i suoi cannoni a
+    fuoco rapido e la tecnologia avanzata, sposta l'equilibrio di potere
+    nell'universo.
+  '230': >-
+    Veloce. Precisa. Intoccabile. L'Intercettore non è fatto per i combattimenti
+    leali – è progettato per colpire in fretta e forte, creando un vantaggio
+    schiacciante in un batter d'occhio.
+  '231': >-
+    Una Morte Nera più piccola e veloce che non può distruggere le lune. Il
+    Behemoth è letale contro le flotte.
+  '232': >-
+    Più veloce, più esplosivo, sempre una bella sorpresa.
+    Il Titano del vuoto è il terrore delle lune.
+  '401': Il Lanciamissili è una difesa semplice ma conveniente.
+  '402': >-
+    I laser leggeri sono semplici armi di difesa a terra. Speciali sistemi di
+    puntamento seguono le navi nemiche e un laser ad alta intensità taglia lo
+    scafo del bersaglio.
+  '403': Il Laser pesante è una versione migliorata del Laser leggero.
+  '404': >-
+    Il Cannone Gauss spara proiettili metallici ad alta densità a velocità
+    estremamente elevata.
+  '405': >-
+    Un cannone ionico spara raggi di ioni (particelle con carica positiva o
+    negativa).
+  '406': >-
+    La Torretta al plasma usa la cella di combustibile di un grande reattore
+    nucleare per alimentare un acceleratore elettromagnetico che spara impulsi
+    (toroidi) di plasma.
+  '407': >-
+    La Cupola scudo piccola avvolge l'intero pianeta in un campo che assorbe
+    quantità enormi di energia.
+  '408': >-
+    La Cupola scudo grande può assorbire molta più energia durante gli attacchi.
+  '409': >-
+    L'evoluzione della tecnologia delle cupole scudo. Usa molta più energia, ma
+    resiste a più attacchi di qualsiasi altro scudo.
+  '410': >-
+    Dopo anni di ricerca sulla gravità, gli scienziati hanno sviluppato un
+    cannone a gravitoni che genera un piccolo campo di gravitoni concentrato e
+    lo spara contro il nemico.
+  '411': >-
+    Una piattaforma difensiva immobile, senza propulsione propria, tenuta in
+    un'orbita stabile attorno al pianeta dalla gravità. Avviare questo processo
+    richiede enormi quantità di energia.
+  '412': 'Protegge! Come il mattoncino Lego in Kindergarten TD.'
+  '413': 'Il Laser Titano è un laser colossale.'
+  '414': >-
+    L'Esca è un sofisticato sistema difensivo progettato per ingannare e
+    confondere le forze nemiche. Camuffandosi da Lanciamissili, scoraggia gli
+    attacchi.
+  '502': 'I missili intercettori distruggono i missili interplanetari in arrivo.'
+  '503': 'I missili interplanetari distruggono le difese dell''avversario.'
+  '901': >-
+    Il metallo è la risorsa principale per edifici e navi. È la risorsa più
+    economica, ma anche quella di cui hai più bisogno.
+  '902': >-
+    I cristalli sono la risorsa principale usata per costruire circuiti
+    elettronici e formare certi composti di leghe.
+  '903': >-
+    Il deuterio si trova nei mari più profondi. È la risorsa più costosa e
+    richiede anche più energia.
+  '911': 'L''energia serve per produrre ogni risorsa.'
+shortNames:
+  '202': Cargo leggero
+  '203': Cargo pesante
+  '204': Caccia leggero
+  '205': Caccia pesante
+  '206': Incrociatore
+  '207': Nave da battaglia
+  '208': Colonizzatrice
+  '209': Riciclatrice
+  '210': Sonda spia
+  '211': Bombardiere
+  '212': Satellite solare
+  '213': Corazzata
+  '214': Morte Nera
+  '215': Incrociatore da battaglia
+  '216': Luna Nera
+  '217': Trasporto da battaglia
+  '218': Avatar
+  '219': Riciclatrice da battaglia
+  '220': Colosso d'acciaio
+  '221': Lama della tempesta
+  '222': Incrociatore pesante
+  '223': Drone scudo
+  '224': Trasporto d'assalto improvvisato
+  '225': Trasporto tempesta
+  '226': Trasporto da battaglia colossale
+  '227': Riciclatrice ottimizzata
+  '228': Riciclatrice Omega
+  '229': Vipera
+  '230': Intercettore
+  '231': Behemoth
+  '232': Titano del vuoto
+  '401': Lanciamissili
+  '402': Torretta laser leggera
+  '403': Torretta laser pesante
+  '404': Cannone Gauss
+  '405': Cannone ionico
+  '406': Cannone al plasma
+  '407': Cupola scudo piccola
+  '408': Cupola scudo grande
+  '409': Scudo atmosferico
+  '410': 'Cannone a gravitoni'
+  '411': Piattaforma di difesa orbitale
+  '412': Bunker
+  '413': Laser Titano
+  '414': Esca
+spytechStatsDescription: >-
+  Ai livelli 0 e 1 puoi vedere solo i punti totali degli altri giocatori. Dal
+  livello 2 vedi anche i loro punti costruzioni; dal livello 4, i loro punti
+  ricerca. Dal livello 6 vedi anche i loro punti navi e difesa, oltre alle loro
+  statistiche di battaglia.
+tech:
+  '0': Costruzioni
+  '1': Miniera di metallo
+  '2': Miniera di cristallo
+  '3': Sintetizzatore di deuterio
+  '4': 'Centrale solare'
+  '6': Università
+  '12': Centrale a fusione
+  '14': Fabbrica di robot
+  '15': Fabbrica di nanobot
+  '21': Cantiere spaziale
+  '22': Magazzino del metallo
+  '23': Magazzino del cristallo
+  '24': Deposito di deuterio
+  '31': Laboratorio di ricerca
+  '33': Terraformer
+  '34': Deposito dell'alleanza
+  '35': 'Bacino di riparazione'
+  '40': Costruzioni lunari
+  '41': 'Base lunare'
+  '42': Falange dei sensori
+  '43': Portale di salto
+  '44': Silo missilistico
+  '100': Ricerca
+  '106': Tecnologia di spionaggio
+  '108': Tecnologia computazionale
+  '109': Tecnologia delle armi
+  '110': Tecnologia degli scudi
+  '111': Tecnologia della corazza
+  '113': Tecnologia energetica
+  '114': Tecnologia iperspaziale
+  '115': Propulsore a combustione
+  '117': Propulsore a impulso
+  '118': Propulsore iperspaziale
+  '120': Tecnologia laser
+  '121': Tecnologia ionica
+  '122': Tecnologia al plasma
+  '123': Rete di ricerca intergalattica
+  '124': Astrofisica
+  '131': Produzione di metallo
+  '132': Produzione di cristallo
+  '133': Produzione di deuterio
+  '134': Efficienza del carburante
+  '199': Ricerca sui gravitoni
+  '200': Navi
+  '202': Cargo leggero
+  '203': Cargo pesante
+  '204': Caccia leggero
+  '205': Caccia pesante
+  '206': Incrociatore
+  '207': Nave da battaglia
+  '208': Colonizzatrice
+  '209': Riciclatrice
+  '210': Sonda spia
+  '211': Bombardiere
+  '212': Satellite solare
+  '213': Corazzata
+  '214': Morte Nera
+  '215': Incrociatore da battaglia
+  '216': Luna Nera
+  '217': Trasporto da battaglia
+  '218': Avatar
+  '219': Riciclatrice da battaglia
+  '220': Colosso d'acciaio
+  '221': Lama della tempesta
+  '222': Incrociatore pesante
+  '223': Drone scudo
+  '224': Trasporto d'assalto improvvisato
+  '225': Trasporto tempesta
+  '226': Trasporto da battaglia colossale
+  '227': Riciclatrice ottimizzata
+  '228': Riciclatrice Omega
+  '229': Vipera
+  '230': Intercettore
+  '231': Behemoth
+  '232': Titano del vuoto
+  '400': Difesa planetaria
+  '401': Lanciamissili
+  '402': Torretta laser leggera
+  '403': Torretta laser pesante
+  '404': Cannone Gauss
+  '405': Cannone ionico
+  '406': Cannone al plasma
+  '407': Cupola scudo piccola
+  '408': Cupola scudo grande
+  '409': Scudo atmosferico
+  '410': 'Cannone a gravitoni'
+  '411': Piattaforma di difesa orbitale
+  '412': Bunker
+  '413': Laser Titano
+  '414': Esca
+  '500': Missili
+  '502': Intercettore
+  '503': Missili interplanetari
+  '900': Risorse
+  '901': Metallo
+  '902': Cristallo
+  '903': Deuterio
+  '911': Energia

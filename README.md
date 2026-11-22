@@ -34,8 +34,11 @@ technologies, send fleets, trade and fight together in alliances. Everything hap
 You run it yourself: put it on your own web space or server, and you have your own game for friends or a community.
 You decide the speed, the rules and who may join. It is free and open source.
 
+V0Game is developed by **Abraxis**.
+
 ## Contents
 
+**Everyone**
 - [Highlights](#highlights)
 - [Screenshots](#screenshots)
 - [Features](#features)
@@ -43,12 +46,16 @@ You decide the speed, the rules and who may join. It is free and open source.
 - [Quick start](#quick-start)
 - [After installing](#after-installing)
 - [Something does not work?](#something-does-not-work)
+
+**Server admins and developers** (technical)
 - [Requirements](#requirements)
 - [Running a server](#running-a-server)
 - [Performance](#performance)
 - [Development](#development)
 - [Battle engines](#battle-engines)
 - [Tech stack](#tech-stack)
+
+**About**
 - [Thanks](#thanks)
 - [Origin, license and credits](#origin-license-and-credits)
 
@@ -58,7 +65,7 @@ The game rules are the same as before; everything around them is new.
 
 | | |
 | --- | --- |
-| **81 game bugs fixed** | Including **3 critical** ones: a jump gate security hole, a way to duplicate ships at the repair dock, and a cleanup job that could delete every player. All of them are listed in [docs/GAMEBUGS.md](docs/GAMEBUGS.md) |
+| **Over 80 old game bugs fixed** | Including **3 critical** ones: a jump gate security hole, a way to duplicate ships at the repair dock, and a cleanup job that could delete every player ([the list](docs/GAMEBUGS.md)). Four more review rounds fixed many smaller glitches since ([changelog](CHANGES.md)) |
 | **Pages up to 65 % faster** | A typical game page loads about 30 % faster and asks the database half as often. With the recommended server settings, pages take about half their old time ([numbers](#performance)) |
 | **Background jobs up to 96 % faster** | Statistics, records and resource updates need a fraction of the time, so even large servers stay quick |
 | **Lighter downloads** | Images as WebP (53.7 MB → 12.7 MB), scripts 3.1 MB → 512 KB, the biggest pages about half their size |
@@ -106,11 +113,12 @@ All of them, desktop and phone, are in [`public/styles/resource/images/login/scr
   - they play on their own, no extra service needed; no two build the same;
   - optionally an AI service (OpenAI, Claude, OpenCode Go, DeepSeek, OpenRouter) gives them names, chat and alliance life;
   - start them in the setup wizard or later under **Admin → Bots**.
-- **Languages:** 14 languages, all complete: German, English, Spanish, French, Dutch, Polish, Portuguese, Russian,
-  Ukrainian, Turkish, Thai, Filipino, Vietnamese and Chinese, plus two fun variants (Ogerfränkisch and pirate German).
+- **Languages:** 20 languages, all complete: German, English, Spanish, French, Italian, Dutch, Polish, Czech, Hungarian,
+  Romanian, Portuguese, Brazilian Portuguese, Russian, Ukrainian, Turkish, Thai, Filipino, Vietnamese, Simplified Chinese and
+  Traditional Chinese, plus two fun variants (Ogerfränkisch and pirate German).
 - **Privacy and security:**
   - no Google services: no Analytics, and a self-hosted bot check instead of reCAPTCHA;
-  - modern login (Symfony Security), protection against cross-site scripting in every page;
+  - a modern, secure login, and every page is protected against code injected by other players;
   - the installer creates all secrets for you.
 
 The full list, step by step, is in the **[changelog](CHANGES.md)**.
@@ -234,6 +242,8 @@ More answers: [troubleshooting in the install guide](docs/INSTALL.md#troubleshoo
 [Open an issue](https://github.com/Voidys/V0Game/issues).
 
 ## Requirements
+
+*From here on it gets technical. If you just want to run a game, the sections above are all you need.*
 
 The technical list for server admins:
 
@@ -402,7 +412,7 @@ The game uses the first engine that is available:
 | Themes | Eight skins in `public/styles/theme/`; each sets a small contract of colours, fonts and images (`theme-contract.css`), the layout is shared ([docs/themes.md](docs/themes.md)) |
 | Database | MySQL 8.4 or MariaDB 10.11; schema in `install/install.sql`, changes as migrations in `install/migrations/` |
 | Charts | Reduced Chart.js 4 build (`public/scripts/lib/chart.js`, rebuild with `sh tools/chartjs/build.sh`) |
-| Translations | `translations/<domain>.<locale>.yaml`, 16 complete locales (14 languages and two fun variants) |
+| Translations | `translations/<domain>.<locale>.yaml`, 22 complete locales (20 languages and two fun variants) |
 
 ## Thanks
 
@@ -412,7 +422,9 @@ of their work.**
 
 Why this update: a few friends wanted to play the classic version again, but with a modern touch. This update (the
 Symfony and Twig port, new interface, bug fixes, performance work) was made with the help of Claude, because I had
-resources left on my weekly usage.
+resources left on my weekly usage. — *Abraxis*
+
+Check out my modern interpretation of a sci-fi browser game: **[www.voidverse.net](https://www.voidverse.net)**
 
 ## Origin, license and credits
 
@@ -427,10 +439,10 @@ Based on [2Moons](https://github.com/jkroepke/2Moons), [SteemNova](https://githu
 - Code copyright 2018-2020 @IntinteDAO, released under the MIT License (f66f0bf9f2d502f9cc3932e7f05e4795b3622ce6).
 - Code copyright 07.05.2020-2020 @IntinteDAO, released under the AGPLv3 License.
 - Code copyright 2022-2026 the pr0game dev team and community ([codeberg.org/pr0game/pr0game](https://codeberg.org/pr0game/pr0game)), released under the AGPLv3 License.
-- Code copyright 2026 the V0Game contributors, released under the AGPLv3 License.
+- Code copyright 2026 Abraxis and the V0Game contributors, released under the AGPLv3 License.
 
 **Credits**
-- 2026 V0Game - V0Game contributors
+- 2026 V0Game - Abraxis
 - 2022-2026 pr0game - pr0game dev team and community
 - 2018-2020 SteemNova - @steemnova, @IntinteDAO
 - 2009-2019 2Moons Browsergame Engine - jkroepke

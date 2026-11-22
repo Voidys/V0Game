@@ -1,0 +1,211 @@
+build_ships: Navi costruite in totale
+buttonLostPassword: Password dimenticata?
+buttonRegister: Registrati
+buttonScreenshot: Screenshot
+civil: Civile
+colony: Colonia
+deathstar: Morte Nera
+destroyed_sats: Satelliti solari distrutti
+disclamerLabelAddress: 'Indirizzo del gioco:'
+disclamerLabelMail: 'E-mail di supporto:'
+disclamerLabelNotice: Maggiori informazioni
+disclamerLabelPhone: 'Telefono:'
+first_fights: Primi scontri nell'universo
+forum: Bacheca
+hof_empty: "Ancora nessun dato nella Hall of Fame."
+login_error_1: >-
+  E-mail o password sbagliata! Suggerimento: i gestori di password spesso
+  compilano il tuo nome utente, ma per accedere serve l'e-mail.
+login_error_2: >-
+  Il tuo account è stato usato da un altro dispositivo, oppure il tuo indirizzo
+  IP è cambiato.
+login_error_3: La tua sessione è scaduta. Accedi di nuovo.
+login_error_4: 'Troppi tentativi di accesso. Aspetta 15 minuti e riprova.'
+loginButton: Accedi
+loginEmail: E-mail
+loginHeader: Login
+loginInfo: Accedendo accetto %s.
+loginPassword: Password
+loginRememberMe: 'Resta connesso per %d giorni'
+loginServerDesc: >-
+  %s è un gioco di strategia spaziale in cui centinaia di giocatori si sfidano
+  <strong>contemporaneamente</strong> per essere i migliori. Ti serve solo un
+  normale browser.
+loginWelcome: Benvenuto su %s
+Lowest_longterm_points: Account preregistrati con meno punti
+menu_banlist: Lista dei ban
+menu_battlehall: Sala delle battaglie
+menu_disclamer: Contatti
+menu_news: Novità
+menu_rules: Regole
+military: Militare
+news_does_not_exist: Nessuna novità disponibile.
+news_from: Il %s da %s
+overall: Generale
+passwordBack: Indietro
+passwordChangedMailSend: La tua nuova password è in arrivo. Riceverai a breve un'e-mail.
+passwordChangedMailTitle: 'Nuova password per %s'
+passwordConfirmInfo: 'Clicca sul pulsante per reimpostare la password. Ti invieremo la nuova password via e-mail.'
+passwordConfirmSubmit: 'Mandami una nuova password'
+passwordErrorMailEmpty: Non conosciamo questo indirizzo e-mail.
+passwordInfo: >-
+  Hai dimenticato la password? Inserisci il nome utente e l'indirizzo e-mail
+  del tuo account. Se non te li ricordi, contatta un amministratore.
+passwordMail: E-mail
+passwordNext: Avanti
+passwordSubmit: Invia
+passwordUsername: Nome utente
+passwordValidInValid: Richiesta non valida.
+passwordValidMailSend: Riceverai a breve un'e-mail con i prossimi passaggi.
+passwordValidMailTitle: 'Reimpostazione della password per %s'
+players: Giocatori
+points_amount: Punti / Quantità
+powFailed: >-
+  Il controllo automatico anti-bot è fallito o scaduto. Torna indietro,
+  aspetta un attimo e invia di nuovo il modulo.
+powNoCrypto: >-
+  Il tuo browser non riesce a eseguire il controllo automatico anti-bot (serve
+  una connessione https sicura).
+powVerifying: Controllo del browser in corso …
+registerBack: Indietro
+registerDataPrivacyDesc: Accetto %s
+registerEmail: E-mail
+registerEmailDesc: Inserisci il tuo indirizzo e-mail.
+registerEmailReplay: Ripeti l'e-mail
+registerEmailReplayDesc: Inserisci di nuovo il tuo indirizzo e-mail per confermarlo.
+registerErrorDataPrivacy: Accetta l'informativa sulla privacy per continuare.
+registerErrorMailEmpty: Inserisci un indirizzo e-mail.
+registerErrorMailExist: Questo indirizzo e-mail è già registrato.
+registerErrorMailInvalid: Non sembra un indirizzo e-mail valido.
+registerErrorMailSame: I due indirizzi e-mail non coincidono.
+registerErrorPasswordLength: La password deve essere lunga almeno %s caratteri.
+registerErrorPasswordSame: Le due password non coincidono.
+registerErrorRules: Accetta le regole per continuare.
+registerErrorUniClosed: In questo universo le registrazioni sono chiuse.
+registerErrorUsernameChar: Il tuo nome utente può contenere solo lettere, numeri, spazi, _, - e .
+registerErrorUsernameEmpty: Inserisci un nome utente.
+registerErrorUsernameExist: Questo nome utente è già preso.
+registerLanguage: Lingua
+registerMailCompleteTitle: Benvenuto su %s!
+registerMailVertifyTitle: 'Attiva il tuo account per %s'
+registerPassword: Password
+registerPasswordDesc: La password deve essere lunga almeno %s caratteri.
+registerPasswordReplay: Ripeti la password
+registerPasswordReplayDesc: Inserisci di nuovo la stessa password.
+registerReferral: 'Invitato da:'
+registerRules: Regole
+registerRulesDesc: Accetto %s
+registerSendComplete: >-
+  Grazie per esserti registrato! Controlla la tua e-mail (anche nello spam) per
+  i prossimi passaggi.
+registerTimezone: Fuso orario
+registerUsername: Nome utente
+registerUsernameDesc: >-
+  Usa da 3 a 25 caratteri: lettere, numeri, spazi, punti, trattini e
+  trattini bassi.
+registerWelcomePMSenderName: Amministratore
+registerWelcomePMSubject: Benvenuto
+registerWelcomePMText: >-
+  Benvenuto su %s! Come prima cosa costruisci una Centrale solare, perché
+  serve energia per produrre risorse. Apri Costruzioni nel menu a sinistra e
+  parti dalla Centrale solare.<br>Quando hai l'energia, puoi costruire le
+  miniere. Resta in Costruzioni e costruisci una Miniera di metallo, poi una
+  Miniera di cristallo.<br><br>Per costruire navi ti serve un Cantiere
+  spaziale. Il menu Tecnologie a sinistra ti mostra cosa serve per sbloccarlo.
+  <br>Se hai altre domande, dai un'occhiata alle FAQ, al wiki, o apri un
+  ticket di supporto.<br><br>Il team ti augura un sacco di divertimento
+  nell'esplorare l'universo!
+siteTitleBanList: Lista dei ban
+siteTitleBattleHall: Sala delle battaglie
+siteTitleDataPrivacy: Informativa sulla privacy
+siteTitleDisclamer: Contatti
+siteTitleHOF: Hall of Fame
+siteTitleIndex: Home
+siteTitleLostPassword: Password dimenticata?
+siteTitleNews: Novità
+siteTitleRegister: Registrati
+siteTitleRules: Regole
+siteTitleScreens: Screenshot
+spy: Sonde spia
+st_buildings: Costruzioni
+st_defenses: Difesa
+st_fleets: Flotta
+st_points: Punti
+st_researh: Ricerca
+theme: Tema
+universe: Universo
+vertifyAdminMessage: L'account "%s" è stato attivato.
+vertifyNoUserFound: Richiesta non valida.
+passwordErrorUsernameEmpty: Non hai inserito un nome utente!
+uni_closed: ' (chiuso)'
+uni_reg_closed: ' (registrazioni chiuse)'
+uni_reg_open: ' (solo registrazione)'
+home_menu: Menu
+home_meta_description: '%s – il gioco di strategia spaziale nel browser con il fascino degli anni 2000: fai crescere i pianeti, costruisci flotte, stringi alleanze.'
+home_started: Già in corso!
+home_starts_in: Tra
+home_team: Team
+home_meme_alt: 'Meme a fumetti dal ponte di comando di {game_name}'
+home_meme_alt_deep_space_transit: "Fumetto: due cadetti su una navetta, uno si accascia alla vista di un campo di asteroidi, l'altro sogghigna davanti a una nebulosa luminosa. “Pattuglie di settore standard vs. scoprire una nebulosa inesplorata ricca di risorse.”"
+home_meme_alt_deuterium_joyride: "Fumetto: un comandante stanco sul ponte di osservazione guarda due reclute fluttuare là fuori – “Guardare le nuove reclute sprecare tutto il Deuterio facendo giretti all'esterno mentre io aspetto 12 ore per i potenziamenti delle miniere.”"
+home_meme_alt_enemy_fleet: "Fumetto: un cadetto si prende la testa tra le mani in preda al panico mentre lampeggiano gli allarmi – “1000 cacciatorpediniere nemici in arrivo?! Non era un settore sicuro?!”"
+home_meme_alt_fleet_decimated: "Fumetto: un soldato sotto shock fissa il vuoto mentre fuori dalla cupola in frantumi esplodono delle navi – “Quando passi 20 ore a farmare risorse e poi la flotta di un giocatore top 3 salta dentro e smantella tutto in 3 secondi.”"
+home_meme_alt_solo_scouting: "Fumetto: il comandante Kamioka sogghigna e appoggia una mano robotica sulla spalla di un cadetto – “Non preoccuparti, cadetto. L'Alto Comando ha una fiducia ‘totale’ nella tua missione di ricognizione in solitaria nello Spazio.”"
+home_meme_alt_this_is_fine: "Fumetto: un cane in tuta spaziale siede tranquillo in un centro di comando in fiamme e dice “Va tutto bene” – “Tranquillo. La mia flotta è in ritardo di sole 4 ore.”"
+source_code: Codice sorgente
+news_back: Torna alle novità
+lightbox_close: "Chiudi"
+lightbox_prev: "Immagine precedente"
+lightbox_next: "Immagine successiva"
+news_pinned: In evidenza
+news_read_more: Leggi tutto
+news_latest: Ultime novità
+home_discord_online: "Online"
+home_discord_join: "Unisciti al nostro Discord"
+news_all: Tutte le novità
+csrf_invalid: 'Il controllo di sicurezza è fallito (la tua sessione potrebbe essere scaduta). Ricarica la pagina e riprova.'
+home_logged_in_head: "Il tuo account"
+home_logged_in_as: "Connesso come %s"
+home_continue: "Vai ai tuoi universi"
+home_account_lobby: "Lobby dell'account"
+rulesEmpty: "Non è ancora stata pubblicata nessuna regola."
+loginLostPasswordOff: "Hai dimenticato la password? %s"
+loginContactTeam: "Contatta il team."
+home_step_build: "Costruisci miniere, ricerche e cantieri spaziali sui tuoi pianeti."
+home_step_fleet: "Invia flotte: esplora, commercia, razzia o difendi."
+home_step_alliance: "Entra in un'alleanza e scala le classifiche."
+home_hof_desc: "I vincitori dei round conclusi"
+home_battlehall_desc: "Le battaglie più grandi del round in corso"
+memorialFilter: "Battaglie commemorative"
+toc_contents: "Indice"
+loginRememberHint: "Non usarlo su un computer condiviso."
+home_step_rules: "Leggi %s prima di iniziare."
+socialContinueWith: "Continua con %s"
+socialOr: "oppure"
+socialErrorState: "Non è stato possibile verificare l'accesso (la richiesta è scaduta o non era valida). Ricomincia da capo."
+socialErrorProvider: "Il provider non ha completato l'accesso. Riprova più tardi."
+socialErrorCancelled: "L'accesso è stato annullato."
+socialErrorNoEmail: "Il provider non ha condiviso un indirizzo e-mail verificato. Registrati con e-mail e password e collega il servizio dopo, nelle impostazioni del tuo account."
+socialErrorTaken: "Questo account del provider è già collegato a un altro account giocatore."
+socialErrorExpired: "Questo passaggio è scaduto. Ricomincia l'accesso."
+socialLinkTitle: "Collega il tuo account"
+socialLinkIntro: "Esiste già un account con l'indirizzo e-mail %s. Per collegarlo al tuo accesso con %s, inserisci una volta la password di quell'account."
+socialLinkPassword: "Password dell'account esistente"
+socialLinkHelp: "Questo conferma che l'account è tuo. Il tuo accesso con il provider verrà collegato solo dopo."
+socialLinkButton: "Collega e accedi"
+socialLinkWrong: "La password è sbagliata."
+socialCancel: "Annulla"
+socialCompleteTitle: "Completa la registrazione"
+socialCompleteIntro: "Stai accedendo con %s (%s) per la prima volta. Scegli il tuo nome e accetta le regole per creare il tuo account. Non ti serve una password; potrai impostarne una più tardi con la funzione password dimenticata."
+socialConnectedTitle: "Servizi collegati"
+socialConnectedIntro: "Accedi con questi servizi al posto della password."
+socialConnected: "Collegato"
+socialConnectedAs: "Collegato (%s)"
+socialNotConnected: "Non collegato"
+socialConnect: "Collega"
+socialDisconnect: "Scollega"
+socialLinked: "Il servizio è ora collegato al tuo account."
+socialUnlinked: "Il servizio è stato scollegato."
+socialLastMethod: "Questo è il tuo unico modo per accedere. Imposta prima una password (password dimenticata nella pagina iniziale), poi scollega il servizio."
+socialLastMethodHint: "Ultimo metodo di accesso: imposta prima una password, poi potrai scollegarlo."
+socialErrorUnavailable: "Questo metodo di accesso non è disponibile."

@@ -1,0 +1,82 @@
+dir: ltr
+js_tdformat: '[M] [D] [d] [H]:[i]:[s]'
+months:
+  - led
+  - úno
+  - bře
+  - dub
+  - kvě
+  - čvn
+  - čvc
+  - srp
+  - zář
+  - říj
+  - lis
+  - pro
+php_tdformat: 'j. n. Y, H:i:s'
+short_day: d
+short_hour: h
+short_minute: m
+short_second: s
+timezones:
+  '-1': '[UTC - 1] Azorský standardní čas, kapverdský čas, východogrónský čas'
+  '-2': >-
+    [UTC - 2] Čas Fernanda de Noronha, čas Jižní Georgie a Jižních Sandwichových
+    ostrovů
+  '-3': '[UTC - 3] Amazonský standardní čas, středogrónský čas'
+  '-3.5': '[UTC - 3:30] Newfoundlandský standardní čas'
+  '-4': '[UTC - 4] Atlantický standardní čas'
+  '-4.5': '[UTC - 4:30] Venezuelský standardní čas'
+  '-5': '[UTC - 5] Východní standardní čas'
+  '-6': '[UTC - 6] Centrální standardní čas'
+  '-7': '[UTC - 7] Horský standardní čas'
+  '-8': '[UTC - 8] Pacifický standardní čas'
+  '-9': '[UTC - 9] Aljašský standardní čas, čas ostrova Gambier'
+  '-9.5': '[UTC - 9:30] Markézský čas'
+  '-10': '[UTC - 10] Havajsko-aleutský standardní čas, čas Cookových ostrovů'
+  '-11': '[UTC - 11] Niuejský čas, samojský standardní čas'
+  '-12': '[UTC - 12] Čas ostrova Baker'
+  '0': '[UTC] Západoevropský čas, greenwichský čas'
+  '1': '[UTC + 1] Středoevropský čas, západoafrický čas'
+  '2': '[UTC + 2] Východoevropský čas, středoafrický čas'
+  '3': '[UTC + 3] Moskevský standardní čas, východoafrický čas'
+  '3.5': '[UTC + 3:30] Íránský standardní čas'
+  '4': '[UTC + 4] Standardní čas Perského zálivu, samarský standardní čas'
+  '4.5': '[UTC + 4:30] Afghánský čas'
+  '5': '[UTC + 5] Pákistánský standardní čas, jekatěrinburský standardní čas'
+  '5.5': '[UTC + 5:30] Indický standardní čas, srílanský čas'
+  '5.75': '[UTC + 5:45] Nepálský čas'
+  '6': '[UTC + 6] Bangladéšský čas, bhútánský čas, novosibirský standardní čas'
+  '6.5': '[UTC + 6:30] Čas Kokosových ostrovů, myanmarský čas'
+  '7': '[UTC + 7] Indočínský čas, krasnojarský standardní čas'
+  '8': >-
+    [UTC + 8] Čínský standardní čas, západoaustralský standardní čas, irkutský
+    standardní čas
+  '8.75': '[UTC + 8:45] Standardní čas jihovýchodu Západní Austrálie'
+  '9': '[UTC + 9] Japonský standardní čas, korejský standardní čas, čitský standardní čas'
+  '9.5': '[UTC + 9:30] Středoaustralský standardní čas'
+  '10': '[UTC + 10] Východoaustralský standardní čas, vladivostocký standardní čas'
+  '10.5': '[UTC + 10:30] Standardní čas ostrova Lord Howe'
+  '11': '[UTC + 11] Čas Šalamounových ostrovů, magadanský standardní čas'
+  '11.5': '[UTC + 11:30] Čas ostrova Norfolk'
+  '12': '[UTC + 12] Novozélandský čas, fidžijský čas, kamčatský standardní čas'
+  '12.75': '[UTC + 12:45] Čas Chathamských ostrovů'
+  '13': '[UTC + 13] Tongánský čas, čas Fénixových ostrovů'
+  '14': '[UTC + 14] Čas ostrovů Line'
+week_day:
+  - Ne
+  - Po
+  - Út
+  - St
+  - Čt
+  - Pá
+  - So
+php_dateformat: 'j. n. Y'
+lang_group_fun: "Zábavné jazyky"
+dialog_ok: "OK"
+dialog_cancel: "Zrušit"
+cookie_notice_title: "Cookies"
+cookie_notice_text: "Tenhle web používá jen technicky nezbytné cookies (přihlašovací relace, jazyk, „zůstat přihlášen“, pokud si to zvolíš, odkaz na zařízení). Volitelné cookies používáme jen s tvým souhlasem."
+cookie_notice_privacy: "Zásady ochrany soukromí"
+cookie_notice_necessary: "Jen nezbytné"
+cookie_notice_all: "Přijmout vše"

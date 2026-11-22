@@ -1,0 +1,79 @@
+<p>Questa informativa sulla privacy spiega in parole semplici quali dati personali raccoglie {game_name}, a cosa servono, per quanto tempo vengono conservati e chi può vederli.</p>
+
+<h2>Chi gestisce questo sito</h2>
+<p>Questo sito è gestito dal suo operatore. Nome e indirizzo postale dell'operatore sono indicati nella <a href="{contacts_url}">pagina dei contatti</a>.<!--mail--> Puoi raggiungerci via e-mail all'indirizzo {contact_mail}.<!--/mail--></p>
+
+<h2>Visita del sito</h2>
+<p>Ogni volta che apri una pagina, il server web registra automaticamente:</p>
+<ul>
+<li>il tuo indirizzo IP,</li>
+<li>la data e l'ora della richiesta,</li>
+<li>l'indirizzo richiesto e la pagina di provenienza,</li>
+<li>il browser e il sistema operativo (user agent),</li>
+<li>il codice di stato e la quantità di dati trasferiti.</li>
+</ul>
+<p>Usiamo questi dati per fornire il sito e per mantenerlo stabile e sicuro, ad esempio per individuare e respingere gli attacchi. I file di log del server vengono eliminati al più tardi dopo 7 giorni, a meno che non servano come prova di uno specifico incidente di sicurezza. In quel caso vengono conservati finché l'incidente non è risolto.</p>
+
+<h2>Dati dell'account e del giocatore</h2>
+<p>Per giocare ti serve un account. Quando ti registri e giochi, raccogliamo:</p>
+<ul>
+<li>nome dell'account, indirizzo e-mail e password (conservata solo come hash con salt, mai in chiaro),</li>
+<li>lingua, fuso orario e impostazioni di visualizzazione,</li>
+<li>data di registrazione, indirizzo IP alla registrazione, ora e indirizzo IP dell'ultimo accesso e tentativi di accesso falliti,</li>
+<li>un giocatore per universo: nome del giocatore e dati di gioco come pianeti, costruzioni, ricerche, flotte, risorse, punti, obiettivi, rapporti di combattimento e di spionaggio.</li>
+</ul>
+<p>Ci servono questi dati per fornire il gioco a cui ti sei iscritto. Senza un indirizzo e-mail e una password non si può creare nessun account.</p>
+<p>La natura del gioco rende alcuni dati visibili agli altri giocatori: nome del giocatore, coordinate dei tuoi pianeti, alleanza, punti e classifiche (statistiche, hall of fame) e i contenuti che scegli di pubblicare (testi dell'alleanza<!--board-->, post della bacheca<!--/board-->).</p>
+
+<h2>Comunicazione all'interno del gioco</h2>
+<p>Quando usi le funzioni di comunicazione, ne conserviamo il contenuto insieme a mittente, destinatari e ora: messaggi privati e dell'alleanza, richieste d'amicizia, note, ticket di supporto<!--board-->, e post, commenti e voti sulla bacheca<!--/board-->. Lo facciamo perché le funzioni possano funzionare. I moderatori possono leggere i ticket di supporto e, se si sospetta una violazione delle regole, i contenuti segnalati.<!--messages--> I messaggi vengono eliminati automaticamente dopo {message_days} giorni.<!--/messages--></p>
+
+<h2>Fair play e protezione dagli abusi</h2>
+<p>Per mantenere il gioco leale e far rispettare le regole (ad esempio il divieto di multiaccount e di pushing tra account), usiamo:</p>
+<ul>
+<li>gli indirizzi IP delle sessioni e degli accessi attivi, confrontati tra gli account per individuare più account giocati dalla stessa connessione,</li>
+<li>i record delle sessioni (ID di sessione, indirizzo IP, ultima attività), che vengono eliminati alla scadenza della sessione,</li>
+<li>le note del team di gioco sui singoli account e i record dei ban con motivo e durata,</li>
+<li>se c'è un sospetto concreto di violazione delle regole per un singolo account, un registro delle pagine richieste da quell'account con l'ora di ogni richiesta. Questo registro viene eliminato a indagine conclusa.</li>
+</ul>
+<p>Quando ti registri, controlliamo il dominio del tuo indirizzo e-mail rispetto a una lista pubblica di provider di e-mail usa e getta. La lista viene scaricata sul nostro server e il tuo indirizzo non viene inviato da nessuna parte. Misure come i ban vengono decise da membri del team di gioco, non da un processo automatico.</p>
+
+<h2>E-mail</h2>
+<p>Inviamo e-mail all'indirizzo con cui ti sei registrato quando servono per gestire il tuo account: attivazione dell'account, reimpostazione della password, conferma del cambio di indirizzo e-mail, avvisi prima che un account inattivo venga eliminato e comunicazioni importanti sul gioco (ad esempio l'apertura di un nuovo universo). Non inviamo newsletter né pubblicità.</p>
+
+<h2>Protezione anti-bot</h2>
+<p>La registrazione e il modulo della password dimenticata sono protetti dagli abusi automatizzati da un piccolo calcolo che il tuo browser risolve da solo quando apri il modulo. Viene controllato sul nostro server; non viene contattato nessun servizio di terze parti e per questo non si usano cookie né identificatori di tracciamento.</p>
+
+<h2>Cookie e archiviazione locale</h2>
+<p>Usiamo solo cookie e archiviazione del browser necessari a fornire il servizio che richiedi:</p>
+<ul>
+<li><strong>2Moons</strong>: cookie di sessione che ti tiene connesso. Scade 12 ore dopo la tua ultima attività, oppure quando esci.</li>
+<li><strong>v0_device</strong>: ID casuale del dispositivo (2 anni). Per ogni account ne viene conservato solo un hash, per 90 giorni dopo l'ultima visita, per individuare più account giocati dallo stesso browser.</li>
+<li><strong>lang</strong>: ricorda la lingua che hai scelto.</li>
+<li><strong>account</strong>: ricorda che questo browser è stato usato per accedere, così la pagina iniziale può mostrare prima il login. Non contiene dati personali.</li>
+<li>Archiviazione locale: preferenze di visualizzazione dell'interfaccia di gioco (ad esempio l'ultima categoria di messaggi aperta). Restano nel tuo browser e non vengono inviate a noi.</li>
+</ul>
+<p>Non usiamo cookie di tracciamento, di analisi o pubblicitari, e non creiamo profili degli utenti a fini di marketing.</p>
+
+<h2>Chi può vedere i tuoi dati</h2>
+<p>I tuoi dati vengono gestiti dai membri del team di gioco (amministratori e moderatori) nella misura in cui i loro compiti lo richiedono. I fornitori di servizi tecnici lavorano per nostro conto e solo secondo le nostre istruzioni: il provider di hosting dei server e, se applicabile, il servizio di invio e-mail. Gli altri giocatori vedono i dati descritti in "Dati dell'account e del giocatore" e "Comunicazione all'interno del gioco". Trasmettiamo dati alle autorità solo se siamo obbligati per legge. Non vendiamo dati personali.</p>
+<p>I link a servizi esterni (ad esempio Discord o il wiki) ti portano solo a quei servizi. Lì i dati vengono trattati solo dopo che apri il link, secondo l'informativa sulla privacy del rispettivo fornitore.</p>
+
+<h2>Per quanto tempo conserviamo i dati</h2>
+<ul>
+<li>Puoi eliminare il tuo account nelle impostazioni dell'account. Viene rimosso dopo un periodo di attesa di {deletion_days} giorni, durante il quale puoi annullare l'eliminazione.</li>
+<!--inactive--><li>I giocatori che non sono stati attivi per {inactive_days} giorni vengono eliminati automaticamente. Dove il gioco invia e-mail di avviso, ne ricevi una prima dell'eliminazione.</li>
+<!--/inactive--><li>Gli account senza nessun giocatore vengono eliminati dopo 30 giorni di inattività.</li>
+<li>File di log del server: non più di 7 giorni, vedi "Visita del sito".</li>
+<li>I dati che dobbiamo conservare per motivi legali, o che ci servono per gestire pretese legali, vengono conservati solo per il tempo necessario.</li>
+<li>I backup del database contengono i dati al momento del backup. Vengono conservati per un tempo limitato e sostituiti a rotazione.</li>
+</ul>
+
+<h2>Le tue scelte</h2>
+<p>Puoi modificare i dati del tuo account nelle impostazioni dell'account ed eliminarlo lì in qualsiasi momento. Se vuoi sapere quali dati abbiamo su di te, vuoi farli correggere o rimuovere, o hai qualsiasi altra domanda sui tuoi dati, contattaci con i recapiti nella <a href="{contacts_url}">pagina dei contatti</a><!--mail--> o via e-mail all'indirizzo {contact_mail}<!--/mail-->. A seconda di dove vivi, puoi avere ulteriori diritti in base alla legge locale sulla protezione dei dati e puoi rivolgerti all'autorità locale per la protezione dei dati.</p>
+
+<h2>Sicurezza</h2>
+<p>Tutte le connessioni a questo sito sono cifrate (TLS), le password sono conservate solo come hash e l'accesso ai dati personali è limitato ai membri del team di gioco che ne hanno bisogno. Non prendiamo decisioni su di te basate esclusivamente su un trattamento automatizzato.</p>
+
+<h2>Modifiche</h2>
+<p>Aggiorniamo questa informativa sulla privacy quando cambiano il sito o i requisiti legali. Vale la versione pubblicata in questa pagina.</p>

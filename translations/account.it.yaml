@@ -1,0 +1,84 @@
+Active_players: Giocatori attivi
+Back: Indietro
+mail:
+  subject:
+    mail_changed: 'L''indirizzo e-mail del tuo account %s è stato cambiato'
+Other_universes: Altri universi
+Play: Gioca
+Playername: Nome giocatore
+Register: Registrati
+Settings: Impostazioni
+Sitting_end: Fine sitting
+Sitting_request: Richiedi sitting (non ancora disponibile)
+uni_status_regclosed_gameclosed: Chiuso
+uni_status_regclosed_gameopen: Aperto per giocare
+uni_status_regopen_gameclosed: Aperto per registrarsi
+uni_status_regopen_gameopen: Aperto
+Universe_end: Fine
+Universe_start: Inizio
+Universe_status: 'Stato dell''universo: '
+Universes: Universi
+Your_universes: I tuoi universi
+board_create: Nuovo post
+board_edit_post: Modifica post
+board_sort: Ordina
+board_sort_hot: Di tendenza
+board_sort_new: Nuovi
+board_sort_top: Migliori
+board_period_all: Di sempre
+board_period_week: Questa settimana
+board_csort_best: Migliori
+board_flair: Etichetta
+board_flair_all: Tutte
+board_flair_general: Generale
+board_flair_guide: Guida
+board_flair_question: Domanda
+board_flair_suggestion: Suggerimento
+board_flair_bug: Bug
+board_flair_offtopic: Off-topic
+board_upvote: Voto positivo
+board_downvote: Voto negativo
+board_pinned: In evidenza
+board_locked: Bloccato
+board_by: di
+board_comments: Commenti
+board_empty: Ancora nessun post. Scrivi tu il primo.
+board_no_comments: Ancora nessun commento.
+board_title: Titolo
+board_body: Testo
+board_publish: Pubblica
+board_save: Salva
+board_cancel: Annulla
+board_edit: Modifica
+board_edited: modificato
+board_delete: Elimina
+board_deleted: "[eliminato]"
+board_deleted_user: "[eliminato]"
+board_confirm_delete: Vuoi davvero eliminarlo?
+board_reply: Rispondi
+board_collapse: Comprimi la discussione
+board_add_comment: Scrivi un commento
+board_comment_send: Commenta
+board_mod_pin: Metti in evidenza
+board_mod_unpin: Togli dall'evidenza
+board_mod_lock: Blocca
+board_mod_unlock: Sblocca
+board_not_found: Questo post o commento non esiste.
+board_not_allowed: Non puoi farlo.
+board_err_csrf: Non è stato possibile verificare la richiesta. Ricarica la pagina e riprova.
+board_err_title: Inserisci un titolo.
+board_err_title_long: Il titolo può essere lungo al massimo 200 caratteri.
+board_err_body: Inserisci un testo (non vuoto e non troppo lungo).
+board_err_locked: Questo post è bloccato - niente nuovi commenti.
+board_err_rate_post: "Aspetta ancora %d secondo/i prima del prossimo post."
+board_err_rate_comment: "Aspetta ancora %d secondo/i prima del prossimo commento."
+board_ago_now: proprio ora
+board_ago_min: "%d min fa"
+board_ago_hours: "%d h fa"
+board_ago_days: "%d g fa"
+board_guest_hint: Accedi per scrivere post, commentare e votare.
+board_guest_login: Accedi
+board_guest_register: Registrati
+rl_board_err_self_vote: "Non puoi votare il tuo stesso post o commento."
+rl_board_err_vote_cap: "Limite giornaliero di voti raggiunto. Riprova domani."
+rl_board_err_write_cap: "Limite giornaliero di post e commenti raggiunto. Riprova domani."

@@ -1,0 +1,89 @@
+<p>Această politică de confidențialitate explică ce date cu caracter personal prelucrează {game_name}, de ce, pe ce temei legal și pentru cât timp, precum și ce drepturi ai în baza Regulamentului General privind Protecția Datelor (GDPR). Termeni precum „date cu caracter personal” și „prelucrare” sunt folosiți așa cum sunt definiți la art. 4 GDPR.</p>
+
+<h2>Operatorul</h2>
+<p>Operatorul în sensul art. 4 alin. (7) GDPR este administratorul acestui site. Numele și adresa poștală a administratorului sunt afișate pe <a href="{contacts_url}">pagina de contact</a>.<!--mail--> Ne poți contacta prin e-mail la {contact_mail}.<!--/mail--></p>
+
+<h2>Vizitarea site-ului</h2>
+<p>De fiecare dată când deschizi o pagină, serverul web înregistrează automat:</p>
+<ul>
+<li>adresa ta IP,</li>
+<li>data și ora cererii,</li>
+<li>adresa solicitată și pagina de proveniență,</li>
+<li>browserul și sistemul de operare (user agent),</li>
+<li>codul de stare și cantitatea de date transferată.</li>
+</ul>
+<p>Avem nevoie de aceste date ca să livrăm site-ul și să îl menținem stabil și sigur, de exemplu ca să detectăm și să respingem atacuri. Temeiul legal este art. 6 alin. (1) lit. (f) GDPR (interesul nostru legitim pentru un serviciu sigur și funcțional). Fișierele de jurnal ale serverului se șterg după cel mult 7 zile, cu excepția cazului în care sunt necesare ca probă pentru un incident de securitate concret. În acest caz se păstrează până când incidentul este rezolvat.</p>
+
+<h2>Date de cont și de jucător</h2>
+<p>Ca să joci, ai nevoie de un cont. Când te înregistrezi și joci, prelucrăm:</p>
+<ul>
+<li>numele contului, adresa de e-mail și parola (stocată doar ca hash cu salt, niciodată în text clar),</li>
+<li>limba, fusul orar și setările de afișare,</li>
+<li>momentul înregistrării, adresa IP de la înregistrare, momentul și adresa IP ale ultimei conectări și încercările eșuate de conectare,</li>
+<li>un jucător per univers: numele jucătorului și datele de joc, precum planete, clădiri, cercetări, flote, resurse, puncte, realizări, rapoarte de luptă și de spionaj.</li>
+</ul>
+<p>Temeiul legal este art. 6 alin. (1) lit. (b) GDPR: aceste date sunt necesare pentru a furniza jocul la care te-ai înscris. Fără o adresă de e-mail și o parolă nu se poate crea un cont.</p>
+<p>Natura jocului face ca unele date să fie vizibile pentru ceilalți jucători: numele jucătorului, coordonatele planetelor tale, alianța, punctele și clasamentele (statistici, hall of fame), precum și conținutul pe care alegi să îl publici (texte de alianță<!--board-->, postări pe forum<!--/board-->).</p>
+
+<h2>Comunicarea în joc</h2>
+<p>Când folosești funcțiile de comunicare, stocăm conținutul lor împreună cu expeditorul, destinatarii și momentul: mesaje private și de alianță, cereri de prietenie, notițe, tichete de suport<!--board-->, precum și postări, comentarii și voturi pe forum<!--/board-->. Facem asta ca funcțiile să poată funcționa (art. 6 alin. (1) lit. (b) GDPR). Moderatorii pot citi tichetele de suport și, dacă există suspiciunea unei încălcări a regulilor, conținutul raportat.<!--messages--> Mesajele se șterg automat după {message_days} zile.<!--/messages--></p>
+
+<h2>Joc corect și protecție împotriva abuzurilor</h2>
+<p>Ca să păstrăm jocul corect și să aplicăm regulile (de exemplu interdicția multiconturilor și a account pushing-ului), prelucrăm:</p>
+<ul>
+<li>adresele IP ale sesiunilor și conectărilor active, comparate între conturi ca să detectăm mai multe conturi jucate de pe aceeași conexiune,</li>
+<li>înregistrările sesiunilor (ID de sesiune, adresă IP, ultima activitate), care se șterg după expirarea sesiunii,</li>
+<li>notițele echipei jocului despre conturi individuale și înregistrările banurilor, cu motivul și durata lor,</li>
+<li>dacă există o suspiciune concretă de încălcare a regulilor pentru un anumit cont, o evidență a paginilor solicitate de acel cont, cu ora fiecărei cereri. Această evidență se șterge după încheierea investigației.</li>
+</ul>
+<p>La înregistrare, verificăm domeniul adresei tale de e-mail într-o listă publică de furnizori de e-mail de unică folosință. Lista este descărcată pe serverul nostru, iar adresa ta nu este trimisă nicăieri.</p>
+<p>Temeiul legal este art. 6 alin. (1) lit. (f) GDPR (interesul nostru legitim, și al tuturor jucătorilor, pentru un joc corect și pentru prevenirea abuzurilor). Măsuri precum banurile sunt decise de membri ai echipei jocului, nu printr-un proces automat.</p>
+
+<h2>E-mailuri</h2>
+<p>Trimitem e-mailuri la adresa cu care te-ai înregistrat atunci când sunt necesare pentru administrarea contului tău: activarea contului, resetarea parolei, confirmarea schimbării adresei de e-mail, avertizări înainte de ștergerea unui cont inactiv și anunțuri importante despre joc (de exemplu startul unui univers nou). Temeiul legal este art. 6 alin. (1) lit. (b) GDPR. Nu trimitem newslettere sau reclame.</p>
+
+<h2>Protecția împotriva boților</h2>
+<p>Înregistrarea și formularul de parolă pierdută sunt protejate împotriva abuzului automat printr-un mic calcul pe care browserul tău îl rezolvă singur când deschizi formularul. Verificarea se face pe propriul nostru server; nu este contactat niciun serviciu terț și nu se folosesc cookie-uri sau identificatori de urmărire pentru asta. Serverul nostru prelucrează datele tehnice ale cererii (în special adresa ta IP), ca la orice altă cerere. Temeiul legal este art. 6 alin. (1) lit. (f) GDPR (protejarea formularelor noastre împotriva spamului și a creării automate de conturi).</p>
+
+<h2>Cookie-uri și stocare locală</h2>
+<p>Folosim doar cookie-uri și stocare în browser care sunt necesare tehnic pentru a furniza serviciul pe care îl ceri (§ 25 alin. (2) nr. 2 TDDDG, art. 6 alin. (1) lit. (b) și (f) GDPR):</p>
+<ul>
+<li><strong>2Moons</strong>: cookie de sesiune care te ține conectat. Expiră la 12 ore după ultima activitate sau când te deconectezi.</li>
+<li><strong>v0_device</strong>: ID aleatoriu al dispozitivului (2 ani). Pentru fiecare cont se stochează doar un hash al lui, timp de 90 de zile după ultima vizită, ca să detectăm mai multe conturi jucate din același browser.</li>
+<li><strong>lang</strong>: ține minte limba pe care ai ales-o.</li>
+<li><strong>account</strong>: ține minte că acest browser a fost folosit pentru conectare, ca pagina de start să poată afișa mai întâi conectarea. Nu conține date cu caracter personal.</li>
+<li>Stocare locală: preferințe de afișare ale interfeței jocului (de exemplu ultima categorie de mesaje deschisă). Rămân în browserul tău și nu ne sunt trimise.</li>
+</ul>
+<p>Nu folosim cookie-uri de urmărire, de analiză sau publicitare și nu creăm profiluri de utilizator în scopuri de marketing.</p>
+
+<h2>Destinatari</h2>
+<p>Datele tale sunt prelucrate de membri ai echipei jocului (administratori și moderatori) în măsura în care sarcinile lor o cer. Furnizorii tehnici de servicii acționează în numele nostru și doar conform instrucțiunilor noastre (art. 28 GDPR): furnizorul de hosting al serverelor și, după caz, serviciul de livrare a e-mailurilor. Ceilalți jucători văd datele descrise la „Date de cont și de jucător” și „Comunicarea în joc”. Dezvăluim date autorităților doar dacă avem obligația legală. Nu vindem date cu caracter personal.</p>
+<p>Linkurile către servicii externe (de exemplu Discord sau wiki) te duc doar la acele servicii. Datele sunt prelucrate acolo abia după ce deschizi linkul, conform politicii de confidențialitate a furnizorului respectiv.</p>
+
+<h2>Perioada de stocare</h2>
+<ul>
+<li>Îți poți șterge contul din setările contului. Acesta este eliminat după o perioadă de așteptare de {deletion_days} zile, în care poți anula ștergerea.</li>
+<!--inactive--><li>Jucătorii care nu au fost activi timp de {inactive_days} zile sunt șterși automat. Acolo unde jocul trimite e-mailuri de avertizare, primești unul înainte de ștergere.</li>
+<!--/inactive--><li>Conturile fără niciun jucător se șterg după 30 de zile fără activitate.</li>
+<li>Fișierele de jurnal ale serverului: cel mult 7 zile, vezi „Vizitarea site-ului”.</li>
+<li>Datele pe care trebuie să le păstrăm din motive legale sau de care avem nevoie pentru a constata, exercita sau apăra pretenții legale sunt restricționate în loc să fie șterse și sunt păstrate doar cât este necesar.</li>
+<li>Copiile de rezervă ale bazei de date conțin datele de la momentul copiei. Se păstrează un timp limitat și sunt înlocuite prin rotație.</li>
+</ul>
+
+<h2>Drepturile tale</h2>
+<p>Ai următoarele drepturi cu privire la datele tale cu caracter personal:</p>
+<ul>
+<li>accesul la datele tale și o copie a lor (art. 15 GDPR),</li>
+<li>rectificarea datelor incorecte (art. 16 GDPR),</li>
+<li>ștergerea (art. 17 GDPR) și restricționarea prelucrării (art. 18 GDPR),</li>
+<li>portabilitatea datelor într-un format structurat, utilizat în mod curent și care poate fi citit automat (art. 20 GDPR),</li>
+<li>retragerea unui consimțământ dat, cu efect pentru viitor (art. 7 alin. (3) GDPR).</li>
+</ul>
+<p><strong>Dreptul la opoziție (art. 21 GDPR):</strong> atunci când îți prelucrăm datele pe baza art. 6 alin. (1) lit. (f) GDPR, ai dreptul să te opui în orice moment, din motive legate de situația ta particulară. Atunci vom înceta prelucrarea, cu excepția cazului în care putem demonstra motive legitime și imperioase care prevalează asupra intereselor, drepturilor și libertăților tale sau dacă prelucrarea servește la constatarea, exercitarea sau apărarea unor pretenții legale.</p>
+<p>Ca să îți exerciți drepturile, contactează-ne folosind datele de pe <a href="{contacts_url}">pagina de contact</a><!--mail--> sau prin e-mail la {contact_mail}<!--/mail-->. Ai, de asemenea, dreptul să depui o plângere la o autoritate de supraveghere a protecției datelor, în special în statul membru UE în care locuiești, în care lucrezi sau în care a avut loc presupusa încălcare (art. 77 GDPR).</p>
+
+<h2>Decizii automatizate și securitate</h2>
+<p>Nu luăm decizii bazate exclusiv pe prelucrare automată, inclusiv crearea de profiluri, care produc efecte juridice asupra ta sau te afectează în mod similar într-o măsură semnificativă (art. 22 GDPR). Toate conexiunile către acest site sunt criptate (TLS), parolele sunt stocate doar ca hash-uri, iar accesul la datele cu caracter personal este limitat la membrii echipei jocului care au nevoie de el.</p>
+
+<h2>Modificări</h2>
+<p>Actualizăm această politică de confidențialitate când se schimbă site-ul sau cerințele legale. Se aplică versiunea publicată pe această pagină.</p>

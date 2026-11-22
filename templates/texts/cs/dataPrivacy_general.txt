@@ -1,0 +1,79 @@
+<p>Tyto zásady ochrany soukromí srozumitelně vysvětlují, jaké osobní údaje {game_name} shromažďuje, k čemu je používá, jak dlouho je uchovává a kdo je může vidět.</p>
+
+<h2>Kdo tenhle web provozuje</h2>
+<p>Tento web provozuje jeho provozovatel. Jméno a poštovní adresa provozovatele jsou uvedeny na <a href="{contacts_url}">stránce s kontakty</a>.<!--mail--> Můžeš nás také zastihnout e-mailem na {contact_mail}.<!--/mail--></p>
+
+<h2>Návštěva webu</h2>
+<p>Při každém otevření stránky webový server automaticky zaznamenává:</p>
+<ul>
+<li>tvou IP adresu,</li>
+<li>datum a čas požadavku,</li>
+<li>požadovanou adresu a odkazující stránku,</li>
+<li>prohlížeč a operační systém (user agent),</li>
+<li>stavový kód a objem přenesených dat.</li>
+</ul>
+<p>Tato data používáme k doručení webu a k jeho stabilitě a bezpečnosti, například k odhalování a odrážení útoků. Logy serveru se mažou nejpozději po 7 dnech, pokud nejsou potřeba jako důkaz konkrétního bezpečnostního incidentu. V takovém případě se uchovávají, dokud není incident vyřešen.</p>
+
+<h2>Údaje o účtu a hráči</h2>
+<p>Ke hraní potřebuješ účet. Při registraci a hraní shromažďujeme:</p>
+<ul>
+<li>jméno účtu, e-mailovou adresu a heslo (ukládá se jen jako hash se solí, nikdy jako čistý text),</li>
+<li>jazyk, časové pásmo a nastavení zobrazení,</li>
+<li>čas registrace, IP adresu při registraci, čas a IP adresu posledního přihlášení a neúspěšné pokusy o přihlášení,</li>
+<li>jednoho hráče na vesmír: jméno hráče a herní data, jako jsou planety, budovy, výzkum, flotily, suroviny, body, úspěchy, bojové a špionážní zprávy.</li>
+</ul>
+<p>Tyto údaje potřebujeme k poskytování hry, do které ses přihlásil. Bez e-mailové adresy a hesla nelze účet vytvořit.</p>
+<p>Povaha hry způsobuje, že některé údaje jsou viditelné pro ostatní hráče: jméno hráče, souřadnice tvých planet, aliance, body a žebříčky (statistiky, Síň slávy) a obsah, který se rozhodneš zveřejnit (texty aliance<!--board-->, příspěvky na fóru<!--/board-->).</p>
+
+<h2>Komunikace ve hře</h2>
+<p>Když používáš komunikační funkce, ukládáme jejich obsah spolu s odesílatelem, příjemci a časem: soukromé zprávy a zprávy aliance, žádosti o přátelství, poznámky, tickety podpory<!--board-->, a příspěvky, komentáře a hlasy na fóru<!--/board-->. Děláme to proto, aby funkce fungovaly. Moderátoři mohou číst tickety podpory a při podezření na porušení pravidel nahlášený obsah.<!--messages--> Zprávy se automaticky mažou po {message_days} dnech.<!--/messages--></p>
+
+<h2>Fair play a ochrana proti zneužití</h2>
+<p>Aby hra zůstala férová a abychom vymáhali pravidla (například zákaz multiúčtů a pushingu účtů), používáme:</p>
+<ul>
+<li>IP adresy aktivních relací a přihlášení, porovnávané mezi účty, abychom odhalili několik účtů hraných ze stejného připojení,</li>
+<li>záznamy relací (ID relace, IP adresa, poslední aktivita), které se po vypršení relace smažou,</li>
+<li>poznámky herního týmu k jednotlivým účtům a záznamy o banech s důvodem a dobou trvání,</li>
+<li>při konkrétním podezření na porušení pravidel u jednoho účtu záznam stránek, které tento účet požadoval, s časem každého požadavku. Tento záznam se po skončení šetření smaže.</li>
+</ul>
+<p>Při registraci kontrolujeme doménu tvé e-mailové adresy proti veřejnému seznamu poskytovatelů jednorázových e-mailů. Seznam se stahuje na náš server a tvoje adresa se nikam neodesílá. Opatření jako bany rozhodují členové herního týmu, ne automatizovaný proces.</p>
+
+<h2>E-maily</h2>
+<p>Na adresu, se kterou ses registroval, posíláme e-maily, když jsou potřeba k provozu tvého účtu: aktivace účtu, obnovení hesla, potvrzení změny e-mailové adresy, varování před smazáním neaktivního účtu a důležitá oznámení o hře (například start nového vesmíru). Nezasíláme newslettery ani reklamu.</p>
+
+<h2>Ochrana proti botům</h2>
+<p>Registrace a formulář zapomenutého hesla jsou chráněny proti automatizovanému zneužití malým výpočtem, který tvůj prohlížeč vyřeší sám při otevření formuláře. Kontroluje se na našem vlastním serveru; nekontaktuje se žádná služba třetí strany a nepoužívají se k tomu žádné cookies ani sledovací identifikátory.</p>
+
+<h2>Cookies a lokální úložiště</h2>
+<p>Používáme jen cookies a úložiště prohlížeče, které jsou potřeba k poskytování služby, o kterou žádáš:</p>
+<ul>
+<li><strong>2Moons</strong>: cookie relace, která tě drží přihlášeného. Vyprší 12 hodin po tvé poslední aktivitě nebo když se odhlásíš.</li>
+<li><strong>v0_device</strong>: náhodné ID zařízení (2 roky). Ukládá se jen jeho hash na účet, po dobu 90 dnů od poslední návštěvy, aby se odhalilo několik účtů hraných ze stejného prohlížeče.</li>
+<li><strong>lang</strong>: pamatuje si jazyk, který sis vybral.</li>
+<li><strong>account</strong>: pamatuje si, že se z tohoto prohlížeče už přihlašovalo, takže úvodní stránka může nejdřív ukázat přihlášení. Neobsahuje žádné osobní údaje.</li>
+<li>Lokální úložiště: předvolby zobrazení herního rozhraní (například naposledy otevřená kategorie zpráv). Zůstávají ve tvém prohlížeči a nám se neodesílají.</li>
+</ul>
+<p>Nepoužíváme sledovací, analytické ani reklamní cookies a nevytváříme uživatelské profily pro marketing.</p>
+
+<h2>Kdo může tvé údaje vidět</h2>
+<p>S tvými údaji nakládají členové herního týmu (administrátoři a moderátoři) v rozsahu, který jejich úkoly vyžadují. Technicky nám pomáhají poskytovatelé služeb, kteří pracují naším jménem a jen podle našich pokynů: hostingový poskytovatel serverů a případně služba pro doručování e-mailů. Ostatní hráči vidí údaje popsané v částech „Údaje o účtu a hráči“ a „Komunikace ve hře“. Údaje předáváme úřadům jen tehdy, když nám to ukládá zákon. Osobní údaje neprodáváme.</p>
+<p>Odkazy na externí služby (například Discord nebo wiki) tě tam jen přesměrují. Údaje se tam zpracovávají až po otevření odkazu, podle zásad ochrany soukromí příslušného poskytovatele.</p>
+
+<h2>Jak dlouho se údaje uchovávají</h2>
+<ul>
+<li>Svůj účet můžeš smazat v nastavení účtu. Odstraní se po čekací době {deletion_days} dnů, během které můžeš smazání zrušit.</li>
+<!--inactive--><li>Hráči, kteří nebyli aktivní {inactive_days} dnů, se mažou automaticky. Pokud hra posílá varovné e-maily, jeden dostaneš před smazáním.</li>
+<!--/inactive--><li>Účty bez jakéhokoli hráče se mažou po 30 dnech bez aktivity.</li>
+<li>Logy serveru: nejdéle 7 dnů, viz „Návštěva webu“.</li>
+<li>Údaje, které musíme uchovávat ze zákonných důvodů nebo potřebujeme k řešení právních nároků, se uchovávají jen po nezbytnou dobu.</li>
+<li>Zálohy databáze obsahují údaje v době zálohy. Uchovávají se omezenou dobu a střídavě se nahrazují.</li>
+</ul>
+
+<h2>Tvoje možnosti</h2>
+<p>Údaje o svém účtu můžeš měnit v nastavení účtu a tam také kdykoli smazat svůj účet. Pokud chceš vědět, jaké údaje o tobě máme, chceš je opravit nebo odstranit, nebo máš jakýkoli jiný dotaz ke svým údajům, kontaktuj nás pomocí údajů na <a href="{contacts_url}">stránce s kontakty</a><!--mail--> nebo e-mailem na {contact_mail}<!--/mail-->. Podle toho, kde žiješ, můžeš mít další práva podle místních předpisů o ochraně údajů a můžeš se obrátit na místní úřad pro ochranu údajů.</p>
+
+<h2>Zabezpečení</h2>
+<p>Všechna spojení s tímto webem jsou šifrovaná (TLS), hesla se ukládají jen jako hashe a přístup k osobním údajům mají jen členové herního týmu, kteří ho potřebují. O tobě nerozhodujeme výhradně na základě automatizovaného zpracování.</p>
+
+<h2>Změny</h2>
+<p>Tyto zásady ochrany soukromí aktualizujeme, když se změní web nebo právní požadavky. Platí verze zveřejněná na této stránce.</p>

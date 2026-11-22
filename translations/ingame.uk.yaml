@@ -1158,6 +1158,7 @@ ov_newname_specialchar: Назви планет можуть містити ли
 ov_newname_too_long: Назва планети може містити щонайбільше %d символів.
 ov_news: Новини
 ov_news_all: 'Усі новини'
+tutorial_label: 'Навчання'
 tutorial_step_of: 'Крок %1 з %2'
 ov_of: з
 ov_outlaw: 'Поза законом до:'
@@ -1687,6 +1688,7 @@ shell_footer: Нижній колонтитул
 shell_footer_game: Гра
 shell_footer_community: Спільнота
 shell_footer_legal: Правова інформація
+shell_footer_credits: 'створено на основі роботи багатьох open-source-проєктів'
 shell_imprint: Вихідні дані
 ui_palette_placeholder: Сторінки, планети, координати (напр. 1:42:8)…
 ui_palette_empty: Нічого не знайдено

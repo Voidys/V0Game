@@ -1,0 +1,1729 @@
+Account: 帳號
+Achievement_names:
+  '1': 失眠又暴躁
+  '2': 永動機
+  '3': 罪有應得
+  '4': 現在還有什麼意義？
+  '5': 因為我可以
+  '6': 基本工資
+  '7': 法國大革命
+  '8': 醉酒搶救
+  '9': 那不是月球
+  '10': 彈珠遊戲
+  '11': TheLegend27
+  '12': Slippy 的祝福
+  '13': 好險好險
+  '14': Slippy 的詛咒
+  '15': 我們還有輕型戰鬥機嗎？
+  '16': 欸，我的殘骸場呢？！
+  '17': 霸主防禦！
+  '18': 法蘭克福中央車站
+  '19': 厚皮 1
+  '20': 厚皮 2
+  '21': 厚皮 3
+  '22': 厚皮 4
+  '23': 厚皮 5
+  '24': 我要發射我的雷射啦
+  '25': 違反 GDPR
+  '26': 為了成就，什麼都肯做
+  '27': 大腦時間到
+  '28': 另類玩法
+  '29': 共產黨宣言
+  '30': 這裡是斯巴達
+  '31': 放假去也
+  '32': 海盜來了！
+  '33': 我想戒隨時都能戒！
+  '34': 今日菜單
+  '35': 這樣不太好喔！
+  '36': 被問候全家
+  '37': 我才不是那種女生
+  '38': Cornag and Offz
+  '39': 生命的意義
+  '40': 哥倫布
+  '41': 艦隊欄位慈善家
+  '42': 至少我有上戰鬥大廳
+  '43': 閉著眼睛也能贏
+  '44': 人人都會遇到
+  '45': 鎖匠
+  '46': 純粹的恨意！
+  '47': 開膛手傑克
+  '48': 克傑手膛開
+  '49': 火箭隊又要起飛了
+  '50': 哎呀
+  '51': 窮到逛不起
+  '52': 狂妄自大
+  '53': 愛因斯坦
+  '54': 新年快樂！
+  '55': 活生生的傳奇
+Achievement_text:
+  '1': 你有整整一個晚上的時間，卻一發都沒打中。
+  '2': 你的艦隊連續 90 天一直在飛行中。
+  '3': '你在語言設成「法文」的時候，損失了你的艦隊。'
+  '4': 研究離子科技 10 級。
+  '5': 研究重力子研究 2 級，只因為你辦得到。
+  '6': 你的其中一次攻擊只帶回 1 金屬、1 晶體和 1 重氫。
+  '7': '擊敗總數至少 10,000 艘的海盜或外星艦隊。太空是我們的！'
+  '8': 出席 Strammtisch 固定聚會（每週二晚上 8 點，在 Discord 上）。
+  '9': 建造你的第一艘死星。
+  '10': 摧毀一位玩家的月球。
+  '11': 連續 14 天只用手機玩。
+  '12': 你的艦隊在你第一次遠征時被黑洞摧毀了。
+  '13': 在來襲攻擊抵達前不到 5 秒，把你的艦隊送走。
+  '14': 損失 10 支艦隊給黑洞。虛空很餓。
+  '15': 在一顆行星上嘗試 10 次都沒能產生月球。下次會更好運。
+  '16': 超過 250 艘你的回收船空手而回。
+  '17': 在單一建造訂單中排入至少 5000 座飛彈發射器。
+  '18': 在 24 小時內，於單一行星上燒掉 500 萬重氫當燃料。
+  '19': 研究裝甲科技 3 級。
+  '20': 研究裝甲科技 6 級。
+  '21': 研究裝甲科技 9 級。
+  '22': 研究裝甲科技 12 級。
+  '23': 研究裝甲科技 15 級。
+  '24': 研究雷射科技 12 級。
+  '25': 選擇加入紀錄榜。
+  '26': 刪除帶給你最多分數的行星（至少 100,000 分）。
+  '27': 研究星際研究網路 1 級。
+  '28': 把月球上的三種倉庫都升到至少 3 級。
+  '29': 用 5 人聯盟戰把分數比你高的玩家的艦隊共產化。
+  '30': 獨自一人擋下 5 人聯盟戰。
+  '31': 用你的攻擊把一位玩家送進假期模式。
+  '32': '使用「SetSail」主題掠奪 1000 顆行星。啊哈！'
+  '33': 從假期模式回來。
+  '34': 第一次被攻擊。歡迎來到宇宙。
+  '35': 攻擊一位分數不到你 1/10 的活躍玩家。
+  '36': "收到一則包含以下任一字詞的訊息：\r\n                        \"Hurensohn\"、\"gleichstarke Ziele\"、\"gegen Schwächere\"、\"ehrenlos\""
+  '37': 被 5 人聯盟戰團滅。
+  '38': '攻擊你自己聯盟的成員。友軍誤傷，有人要嗎？'
+  '39': 用剛好 42 艘船攻擊某人。
+  '40': 殖民一顆距離至少半個宇宙遠的行星。
+  '41': 用一個爛市集掛單把一個艦隊欄位卡住一週。
+  '42': 以戰敗方身分登上戰鬥大廳 4 次。
+  '43': "在你的帳號被標記為不活躍的情況下，於你其中一顆行星上贏得一場戰鬥，而該行星之前有一支飛行時間超過 7 天的艦隊抵達過。"
+  '44': '在能源低於 100% 的情況下，在一顆行星上生產某種資源超過 7 天。'
+  '45': 贏得對一位防禦排名前 5 的玩家的攻擊。
+  '46': 發射星際飛彈觸發洗點保護。
+  '47': 摧毀 5 顆月球。
+  '48': 嘗試摧毀月球時損失 5 艘死星。好痛。
+  '49': 在殖民地剛建立不久後就拆掉它。
+  '50': "在一顆能源足夠研究重力子科技的行星上，沒研究過重力子科技卻損失了所有太陽能衛星。"
+  '51': 在逛銀河系檢視時把重氫用光。
+  '52': >-
+    在沒有先建造其他戰鬥艦船（輕型戰鬥機、重型戰鬥機、巡洋艦、戰列艦、轟炸機、毀滅者或戰鬥巡洋艦）的情況下，建造一艘死星。
+  '53': 同時擁有 5 項研究的最高等級。
+  '54': '把對一位活躍玩家的攻擊抓準在 01/01 00:00:00 抵達。'
+  '55': 特別成就
+ach_filter_all: 全部
+ach_filter_locked: 未解鎖
+ach_filter_unlocked: 已解鎖
+ach_locked: 尚未解鎖
+ach_progress: '已解鎖 %d / %d'
+ach_unlocked_on: '解鎖於 %s'
+Achievements: 成就
+admin_access_1: 你目前擁有暫時的管理員權限。
+admin_access_2: ' 如果不是馬上需要的話。'
+admin_access_link: 停用權限
+Advanced_Stats:
+  destroy_moon_rips_lost: 嘗試摧毀月球時損失的死星
+  desunits: 參與的單位摧毀
+  desunits_real: 摧毀的敵方單位
+  dishonorable_fights: 不光榮的戰鬥
+  draws: 平手
+  expo_aliens_large: 大型外星人
+  expo_aliens_medium: 中型外星人
+  expo_aliens_small: 小型外星人
+  expo_black_hole: 黑洞
+  expo_count: 遠征
+  expo_fast: 快速遠征
+  expo_first: '遠征中發現於：'
+  expo_found: '遠征發現：'
+  expo_lost: '遠征損失：'
+  expo_nothing: 空手而回的遠征
+  expo_pirates_large: 大型海盜
+  expo_pirates_medium: 中型海盜
+  expo_pirates_small: 小型海盜
+  expo_res_large: 大型資源發現
+  expo_res_medium: 中型資源發現
+  expo_res_small: 小型資源發現
+  expo_ships_large: 大型艦船發現
+  expo_ships_medium: 中型艦船發現
+  expo_ships_small: 小型艦船發現
+  expo_slow: 緩慢遠征
+  first: '第一個等級/件數：'
+  first_attack: 首次攻擊
+  first_attack_win: 首次成功攻擊
+  first_big_attack_win: 首次大型攻擊勝利（摧毀 100 萬單位）
+  first_big_defense_win: 首次大型防守勝利（摧毀 100 萬單位）
+  first_colony: 第一個殖民地
+  first_defense: 首次防守
+  first_defense_win: 首次成功防守
+  first_espionage: 首次間諜任務
+  first_expedition: 首次遠征
+  first_expo_aliens_large: 首次遭遇大型外星人
+  first_expo_aliens_medium: 首次遭遇中型外星人
+  first_expo_aliens_small: 首次遭遇小型外星人
+  first_expo_black_hole: 首次遭遇黑洞
+  first_expo_fast: 首次快速遠征
+  first_expo_nothing: 首次空手而回的遠征
+  first_expo_pirates_large: 首次遭遇大型海盜
+  first_expo_pirates_medium: 首次遭遇中型海盜
+  first_expo_pirates_small: 首次遭遇小型海盜
+  first_expo_res_large: 首次大型資源發現
+  first_expo_res_medium: 首次中型資源發現
+  first_expo_res_small: 首次小型資源發現
+  first_expo_ships_large: 首次大型艦船發現
+  first_expo_ships_medium: 首次中型艦船發現
+  first_expo_ships_small: 首次小型艦船發現
+  first_expo_slow: 首次緩慢遠征
+  first_moon: 第一顆月球
+  first_moon_trys: 第一顆月球的嘗試次數
+  first_recycling: 首次回收任務
+  first_vacation: 首次假期模式
+  galaxy_scroll_spending: 滑動銀河系檢視花掉的重氫總量
+  honorable_fights: 光榮的戰鬥
+  honorpoints: 榮譽點數
+  kbcrystal: 參與的晶體殘骸
+  kbcrystal_real: 產生的晶體殘骸
+  kbmetal: 參與的金屬殘骸
+  kbmetal_real: 產生的金屬殘骸
+  loos: 敗
+  lostunits: 參與的單位損失
+  lostunits_real: 自己的單位損失
+  moons_created: 形成的月球
+  moons_deleted: 放棄的月球
+  moons_destroyed: 摧毀的月球
+  moons_lost: 失去的月球
+  moons_received: 獲得的月球
+  outlaw_activations: 亡命之徒啟動次數
+  planets_created: 殖民的行星
+  planets_deleted: 放棄的行星
+  raided_crystal: 掠奪的晶體
+  raided_deuterium: 掠奪的重氫
+  raided_metal: 掠奪的金屬
+  recycled_crystal: 回收的晶體
+  recycled_metal: 回收的金屬
+  set_sail_wins: 使用 SetSail 主題時贏得的戰鬥
+  stolen_crystal: 被搶的晶體
+  stolen_deuterium: 被搶的重氫
+  stolen_metal: 被搶的金屬
+  used_fuel: 消耗的燃料
+  wons: 勝
+advancedStats: 進階統計
+al_acept_request: 接受
+al_actions: 操作
+al_all_players: 所有玩家
+al_alliance: 聯盟
+al_alliance_closed: 這個聯盟目前不收新成員。
+al_alliance_full: 這個聯盟已經滿了。試試別的吧。
+al_apply_rate_limited: "你今天送出的申請太多了，明天再試。"
+al_alliance_make: 創立你自己的聯盟
+al_alliance_min_points: '你需要至少 %d 分才能申請這個聯盟。'
+al_alliance_search: 搜尋聯盟
+al_ally_info_members: 成員
+al_ally_info_name: 名稱
+al_ally_info_tag: 標籤
+al_ally_information: 聯盟資訊
+al_already_exists: '已經有一個叫做 <b>%s</b> 的聯盟了。換個名字吧。'
+al_apply_accepted: 申請已接受。
+al_apply_declined: 申請已拒絕。
+al_apply_not_exists: 這份申請已經不存在了。
+al_applyform_send: 送出
+al_back: 返回
+al_candidate: 申請者
+al_characters: 個字元
+al_circular_alliance: '聯盟 '
+al_circular_front_text: '聯盟成員 <b>%s</b> 寫道：'
+al_circular_message: 聯盟訊息
+al_circular_reset: 重設
+al_circular_send_ciruclar: 發送群體訊息
+al_circular_send_submit: 發送
+al_circular_sended: '訊息已發送給這些玩家：'
+al_click_to_send_request: 加入聯盟
+al_close_ally: '你真的要解散聯盟嗎？'
+al_configura_ranks: 管理階級
+al_continue: 繼續
+al_coords: 座標
+al_create: 建立
+al_create_new_rank: 建立新階級
+al_created: '聯盟 <b>%s</b> 成立了！'
+al_decline_request: 拒絕
+al_default_leader_name: 領袖
+al_delete_request: 撤回申請
+al_delete_request_confirm: '要撤回你的申請嗎？'
+al_description_message: 這個聯盟還沒有寫簡介。
+al_diplo: 外交
+al_diplo_accept: 收到的請求
+al_diplo_accept_no: 條約已拒絕。
+al_diplo_accept_no_confirm: '要拒絕這份條約嗎？'
+al_diplo_accept_no_mes: 條約（%s）在聯盟 <b>%s</b> 和 <b>%s</b> 之間被拒絕了！
+al_diplo_accept_send: 送出的請求
+al_diplo_accept_yes: 條約已簽署。
+al_diplo_accept_yes_confirm: '要接受這份條約嗎？'
+al_diplo_accept_yes_mes: 條約（%s）在聯盟 <b>%s</b> 和 <b>%s</b> 之間簽署了！
+al_diplo_ally: 聯盟
+al_diplo_ask: 條約請求
+al_diplo_ask_mes: >-
+  <a href="game/alliance/admin/diplomacy">[條約請求]</a>（%s）已從 <b>%s</b> 發送給 <b>%s</b>。<br>理由：%s
+al_diplo_confirm_delete: '要終止這份條約嗎？'
+al_diplo_create: 請求條約
+al_diplo_create_done: 條約請求已送出。
+al_diplo_delete: 條約已終止
+al_diplo_delete_mes: '條約（%s）在聯盟 <b>%s</b> 和 <b>%s</b> 之間已終止。'
+al_diplo_exists: '你和 %s 已經有生效中或等待中的條約了。'
+al_diplo_head: 外交管理
+al_diplo_info: >-
+  <p>在這個頁面，你可以管理聯盟的外交條約。</p><p>條約類型列在下方。更多資訊：<a href="game/faq">FAQ</a> 或 <a href="{wiki_url}/wiki/En/Hauptseite" target="_blank">Wiki</a>。</p>
+al_diplo_level:
+  - 主盟
+  - 分盟
+  - 聯盟
+  - 貿易協定
+  - 互不侵犯條約
+  - 戰爭
+  - 秘密聯盟
+  - 和平
+al_diplo_level_des: 條約類型
+al_diplo_no_accept: '- 沒有請求 -'
+al_diplo_no_alliance: '找不到編號 %s 的聯盟。'
+al_diplo_no_entry: '- 沒有條約 -'
+al_diplo_same_alliance: '你不能和自己的聯盟訂條約！'
+al_diplo_text: 請求/理由
+al_diplo_war: 宣戰
+al_diplo_war_end: 停戰宣告
+al_diplo_war_end_mes: '%s 在聯盟 <b>%s</b> 和 <b>%s</b> 之間剛剛結束了。'
+al_diplo_war_mes: >-
+  聯盟 <b>%1$s</b> 對 <b>%2$s</b> 發出了%3$s！<br>理由：<br>%4$s<br><br>資訊：戰爭將在 <b>24 小時後</b>開始，屆時洗點規則將暫停。<br>更多資訊請參閱<a href="./rules?lang=en" target="_blank">[規則]</a>。
+al_diplo_withdraw: 條約請求已撤回。
+al_diplo_withdraw_confirm: '要撤回這份條約請求嗎？'
+al_diplo_withdraw_mes: 條約請求（%s）在聯盟 <b>%s</b> 和 <b>%s</b> 之間已被撤回。
+al_disolve_alliance: 解散聯盟
+al_dlte: 刪除
+al_estate: 在線
+al_find_alliances: 尋找聯盟
+al_find_no_alliances: 找不到聯盟。換個關鍵字試試。
+al_find_submit: 搜尋
+al_find_text: 搜尋
+al_founder_rank_text: 創辦人
+al_go_out_no: '否'
+al_go_out_yes: '是'
+al_has_accepted: '</b> 已接受你的申請！<br>訊息：<br>'
+al_has_declined: '</b> 已拒絕你的申請！<br>訊息：<br>'
+al_hi_the_alliance: 聯盟 <b>
+al_inside_section: 僅限成員
+al_inside_text: 內部簡介
+al_invalid_rank_name: 階級名稱只能包含字母、數字、空格、底線、連字號和句點。
+al_kick_player: '要把 %s 踢出聯盟嗎？'
+al_leave_alliance: 退出聯盟
+al_leave_ally: '要退出聯盟嗎？'
+al_leave_sucess: '你已退出聯盟 <b>%s</b>。'
+al_leaving: 玩家已退出聯盟
+al_leaving_msg: >-
+  玩家 <a href="#" data-action="dialog-playercard" data-id="%s" data-name="%s"><b>%s</b></a> 已退出聯盟！
+al_make_alliance: 建立聯盟
+al_make_ally_insufficient_points: '你的分數不夠，無法建立聯盟。<br>你至少需要 %s 分，還差 %s 分。'
+al_make_ally_name_required: 聯盟名稱（3-30 個字元）
+al_make_ally_tag_required: 聯盟標籤（3-8 個字元）
+al_make_submit: 建立
+al_manage_alliance: 管理聯盟
+al_manage_diplo: 外交
+al_manage_founder_rank: 領袖階級
+al_manage_image: 橫幅圖片
+al_manage_members: 成員
+al_manage_options: 選項
+al_manage_ranks: 階級
+al_manage_request_min_points: 最低分數
+al_manage_requests: 申請
+al_member: 名稱
+al_member_since: 加入時間
+al_memberlist_min: 分鐘
+al_memberlist_off: 離線
+al_memberlist_on: 在線
+al_message: 訊息
+al_name: 更改聯盟名稱
+al_name_required: 請輸入聯盟名稱。
+al_link_too_long: 連結太長了（最多 255 個字元）。
+al_name_tag_too_long: 標籤最多 8 個字元，名稱最多 30 個。
+al_new_apply: >-
+  你的聯盟收到了玩家 <a href="#" data-action="dialog-playercard" data-id="%s" data-name="%s"><b>%s</b></a> 的<a href="game/alliance/admin/applications">[一份申請]</a>。
+al_new_member_rank_text: 新成員
+al_new_requests: '%d 件待處理'
+al_newname_specialchar: 聯盟名稱和標籤只能包含字母、數字、空格、底線、連字號和句點。
+al_no_diplo: '-'
+al_no_ranks_defined: '還沒有階級。來建立第一個吧！'
+al_no_requests: 目前沒有申請。
+al_not_exists: 這個聯盟不存在。
+al_num: 編號
+al_ok: 確定
+al_outside_text: 公開簡介
+al_points: 分數
+al_position: 排名
+al_rank: 你的階級
+al_rank_desc:
+  ADMIN: 可以管理聯盟
+  DIPLOMATIC: 可以管理外交
+  EVENTS: 可以查看事件
+  KICK: 可以踢除成員
+  MANAGEAPPLY: 可以管理申請
+  MANAGEUSERS: 可以管理成員
+  MEMBERLIST: 可以查看成員名單
+  ONLINESTATE: 可以看到誰在線
+  RANKS: 可以管理階級
+  ROUNDMAIL: 可以發送群體訊息
+  SEEAPPLY: 可以查看申請
+  TRANSFER: 可以成為聯盟領袖
+al_rank_diplo: 外交官
+al_rank_name: 名稱
+al_receiver: 收件人
+al_reply_to_request: 回覆
+al_request: 申請
+al_request_confirmation_message: '申請已送出！<br> 一旦被接受或拒絕，你就會收到訊息。'
+al_request_date: 申請日期
+al_request_deleted: '你加入聯盟 <b>%s</b> 的申請已撤回。<br> 你現在可以送出新的申請，或是建立自己的聯盟。'
+al_request_from: '<b>%s</b> 的申請'
+al_request_last_onlinetime: 最後活動
+al_request_list: 申請清單
+al_request_register_time: 註冊時間
+al_request_text: 申請表單
+al_request_wait_message: '你加入 <b>%s</b> 的申請仍在等待處理。<br> 請等候回覆，或撤回後改申請別的聯盟。'
+al_requests: 申請
+al_requests_allowed: 開放
+al_requests_min_points: ' %s 分'
+al_requests_not_allowed: 關閉
+al_save: 儲存
+al_saved: 已儲存！
+al_send_circular_message: 發送群體訊息
+al_set_max_members: 最多成員數
+al_tag: 更改聯盟標籤
+al_tag_required: 請輸入聯盟標籤。
+al_texts: 文字
+al_the_alliance: 聯盟
+al_transfer_alliance: 轉讓聯盟
+al_transfer_submit: 轉讓
+al_transfer_to: 轉讓給
+al_user_list: 成員名單
+al_users_list: '成員（共 %d 位）'
+al_users_list_main: '主盟成員（共 %d 位）- %s'
+al_users_list_wing: '分盟成員（共 %d 位）- %s'
+al_view_diplo: 顯示外交
+al_view_stats: 顯示戰鬥統計
+al_web_site: 首頁
+al_web_text: 聯盟網站
+al_write_request: 申請加入聯盟 <b>%s</b>
+al_you_was_acceted: '你已被接受加入 '
+al_you_was_declined: '你被拒絕加入 '
+al_your_ally: 你的聯盟
+al_your_request_title: 你的申請
+banned_message: >-
+  你已被停權。<!--discord_url-->如果你覺得這是誤會，請到 Discord 聯絡我們：<a href="{discord_url}">{discord_url}</a><!--/discord_url-->
+bd_actual_production: '目前產量：'
+bd_available: '可用：'
+bd_build: 建造
+bd_build_next_level: '升級 '
+bd_build_ships: 建造
+bd_building_lab: 研究實驗室升級期間無法進行研究。
+bd_building_shipyard: 太空船廠（或奈米機器人工廠）升級期間無法建造艦船或防禦。
+bd_buildlist_full: 建造佇列已滿。
+bd_cancel: 取消
+bd_cancel_send: 取消建造
+bd_cancel_warning: '注意！<br>取消只會退還 60% 的成本。'
+bd_continue: 繼續
+bd_deploy: 部署
+bd_deployable: '修理完成！自動部署倒數：'
+bd_destroy_time: 時間長度
+bd_dismantle: 拆除
+bd_jump_gate_action: 跳躍
+bd_lvl: 等級
+bd_max_builds: '你的佇列滿了：最多 %d 筆訂單。'
+bd_max_ships: 最大
+bd_max_ships_long: 最多可建造的單位數
+bd_max_ships_repair: 最多可修復的單位數
+bd_maxlevel: 已達最高等級
+bd_more_engine: 多產出 <font class="colorPositive">%s</font> %s
+bd_need_engine: 多消耗 <font class="colorNegative">%s</font> %s
+bd_next_level: '下一級：'
+bd_no_lab: 這顆行星上沒有研究實驗室。你可以查看佇列，但不能更改。
+bd_no_lab_here: '這顆行星上沒有研究實驗室'
+bd_on_this_planet: '在這顆行星上'
+bd_no_more_fields: 這顆行星上沒有空的欄位了。
+bd_operating: '（建造中）'
+bd_paused: 已暫停
+bd_price_for_destroy: '拆除成本：'
+bd_protection_shield_only_one: 你只能建造一個護盾！
+bd_remaining: 缺少的資源
+bd_repair_rate: 修復率
+bd_repair_ships: 修理
+bd_repairdock_busy: 修理船塢正忙於另一項工作。
+bd_repairdock_deploy: '修理完成。艦船已重新服役！'
+bd_repairdock_empty: 這裡沒有可修復的殘骸場。
+bd_repairdock_required: 請先在這顆行星上建造修理船塢。
+bd_repairdock_time: 殘骸場剩餘時間
+bd_repairing: 修理進行中
+bd_requirements: 缺少需求
+bd_researclist_full: 研究佇列已滿。
+bd_shipyard_required: 請先建造太空船廠。
+bd_tech: 研究
+bd_tech_next_level: '研究 '
+bd_working: 忙碌中
+bd_wreck_count: 殘骸場中的殘骸
+blockDm: 封鎖私人訊息
+blockTrade: 封鎖交易
+bn_by: 由
+bn_exists: '共 '
+bn_from: 起始
+bn_no_players_banned: 目前沒有人被停權。
+bn_player: 玩家
+bn_players_banned: ' 位玩家被停權'
+bn_players_banned_list: 停權玩家名單
+bn_reason: 原因
+bn_until: 直到
+bn_writemail: '寫信給 %s'
+bs_acs_slot: 聯盟戰欄位
+bs_add_acs_slot: 新增聯盟戰欄位
+bs_atter: 進攻方
+bs_cancel: 重設
+bs_too_many_units: "單次模擬的單位太多了（最多 %s）。"
+bs_busy: "已經有一場模擬在執行，請等它完成。"
+bs_deffer: 防守方
+bs_derbis_raport: '回收殘骸所需：%s %s。'
+bs_load: 載入
+bs_load_invalid: 無效的分享碼
+bs_load_no_input: 沒有輸入分享碼
+bs_reset: 重設
+bs_send: 計算
+bs_share: 分享
+bs_share_code: 分享碼
+bs_share_copy_fail: 複製失敗
+bs_share_copy_prompt: '請手動複製分享碼：'
+bs_share_error: 無法產生分享碼
+bs_share_success: 分享字串已複製到剪貼簿
+bs_steal: '防守方的資源：'
+bs_steal_raport: '擄獲資源所需：%s %s 或 %s %s。'
+bs_swap: 交換雙方
+bs_techno: 科技
+bs_wait: 請等 5 秒再進行下一次模擬
+bu_accept: 接受
+bu_accepted_request_body: 哈囉 %s，<br>%s 接受了你的好友邀請！
+bu_accepted_request_title: '好友邀請已被接受！'
+bu_action: 操作
+bu_alliance: 聯盟
+bu_buddy_list: 好友名單
+bu_cancel_request: 取消邀請
+bu_cannot_request_yourself: 你不能向自己送出好友邀請
+bu_characters: 字元
+bu_connected: 已連線
+bu_coords: 座標
+bu_decline: 拒絕
+bu_delete: 刪除
+bu_disconnected: 離線
+bu_minutes: ' 分鐘'
+bu_my_requests: 我的邀請
+bu_new_request_body: '哈囉 %s，<br>%s 想跟你當朋友！'
+bu_new_request_title: 新的好友邀請
+bu_no_buddys: '你還沒有好友。從玩家的個人資料送出邀請吧！'
+bu_no_request: 沒有邀請。
+bu_online: 在線
+bu_partners: 夥伴
+bu_player: 玩家
+bu_player_not_exist: 這位玩家不存在。
+bu_rejected_request_body: '哈囉 %s，<br>%s 拒絕了你的好友邀請！'
+bu_rejected_request_title: '好友邀請被拒絕了！'
+bu_request_exists: '已經有針對這位玩家的好友邀請了！'
+bu_request_limit: '好友邀請太多了。請等幾分鐘再送出更多。'
+bu_request_message: 邀請訊息
+bu_request_send: 好友邀請已送出。
+bu_request_text: 邀請訊息
+bu_requests: 邀請
+bu_send: 送出
+bu_text: 內容
+build: 建造
+cff_acs_fleet: 聯盟戰中的艦隊
+cff_aproaching: '艦隊組成：'
+cff_mission_acs: '一支 %s 從 %s %s %s 抵達 %s %s %s。任務：%s'
+cff_mission_other_expo_0: '一支 %s 從 %s %s %s 抵達位置 %s。任務：%s'
+cff_mission_other_expo_2: '一支 %s 從 %s %s %s 正在位置 %s 遠征。任務：%s'
+cff_mission_other_recy_0: '一支 %s 從 %s %s %s 抵達 %s 的殘骸場。任務：%s'
+cff_mission_other_0: '一支 %s 從 %s %s %s 抵達 %s %s %s。任務：%s'
+cff_mission_other_1: '一支 %s 正從 %s %s %s 返航到 %s %s %s。任務：%s'
+cff_mission_other_2: '一支 %s 從 %s %s %s 正在 %s %s %s 的軌道上。任務：%s'
+cff_mission_other_expo_1: '一支 %s 正從位置 %s 返航到 %s %s %s。任務：%s'
+cff_mission_other_mip: '飛彈攻擊（%d）從 %s %s %s 發射到 %s %s %s。'
+cff_mission_other_recy_1: '一支 %s 正從 %s 的殘骸場返航到行星 %s %s %s。任務：%s'
+cff_mission_own_0: '你的 %s 從 %s %s %s 抵達 %s %s %s。任務：%s'
+cff_mission_own_1: '你的 %s 正從 %s %s %s 返航到 %s %s %s。任務：%s'
+cff_mission_own_2: '你的 %s 從 %s %s %s 正在 %s %s %s 的軌道上。任務：%s'
+cff_mission_own_expo_0: '你的 %s 從 %s %s %s 抵達位置 %s。任務：%s'
+cff_mission_own_expo_1: '你的 %s 正從位置 %s 返航到 %s %s %s。任務：%s'
+cff_mission_own_expo_2: '你的 %s 從 %s %s %s 正在位置 %s 遠征。任務：%s'
+cff_mission_own_mip: 飛彈攻擊（%d）從 %s %s %s 發射到 %s %s %s。
+cff_mission_own_recy_0: '你的 %s 從 %s %s %s 抵達 %s 的殘骸場。任務：%s'
+cff_mission_own_recy_1: >-
+  你的 %s 正從 %s 的殘骸場返航到行星 %s %s %s。任務：%s
+cff_mission_target_bad: '玩家 %s 從 %s %s %s 派出的敵對 %s 抵達 %s %s %s。任務：%s'
+cff_mission_target_good: '玩家 %s 從 %s %s %s 派出的友軍 %s 抵達 %s %s %s。任務：%s'
+cff_mission_target_mip: 玩家 %s 從 %s %s %s 對 %s %s %s 發動飛彈攻擊（%d）。
+cff_mission_target_stay: >-
+  玩家 %s 從 %s %s %s 派出的友軍 %s 正在 %s %s %s 的軌道上。任務：%s
+cff_no_fleet_data: 沒有艦隊資料
+cff_ships: ' 單位'
+colonyWarn: 在同一星系殖民超過 2 顆行星前先提醒我
+css_account_banned_expire: >-
+  你被停權到 %1$s！<br>如有疑問，請<a style="color: -webkit-link;" href="%2$s">聯絡我們（連結）</a>。
+css_account_banned_message: 你的帳號已被停權。
+css_account_banned_reason: '原因：%s'
+css_goto_homeside: <a href="./">前往首頁</a>
+custom_fleet: 自訂艦隊
+custom_fleet_confirm: 移除艦隊範本 %s？
+delete_confirm_gala: '要刪除本機儲存的銀河系資料嗎？'
+Description: 說明
+destroyed: 已摧毀
+dishonorable_fights: 不光榮的戰鬥
+donate: 贊助
+expedition: 遠征
+fa_action_not_allowed: 不允許這個動作
+fa_no_fleetroom: 載貨空間不夠裝燃料
+fa_no_more_slots: 沒有空的艦隊欄位
+fa_no_recyclers: 沒有可用的回收船
+fa_no_spios: 沒有可用的衛星
+fa_not_enough_fuel: 燃料不足
+fa_not_enough_probes: 沒有可用的衛星
+fa_not_spy_yourself: 你不能偵查自己
+fa_planet_not_exist: 行星不存在
+fa_sending: 派出
+fa_strong_player: 這位玩家太強了
+fa_vacation_mode: 這位玩家在假期模式
+fa_vacation_mode_current: 你正在假期模式
+fa_week_player: 這位玩家太弱了
+fcm_info: 資訊
+fcm_mainplanet: 母星
+fcm_moon: 月球
+fcm_planet: 行星
+fcm_universe: 宇宙
+fcp_colony: 殖民地
+fgf_time: '時間：'
+fgr_time: '修理時間：'
+first: 首次紀錄
+fl_a: (A)
+fl_acs: 聯盟戰
+fl_acs_change: 更改
+fl_acs_change_name: 輸入新名稱
+fl_acs_invitation_message: ' 已受邀參加聯盟戰。'
+fl_acs_invitation_title: 聯盟戰
+fl_acs_newname_alphanum: 聯盟戰名稱只能包含字母和數字
+fl_acs_title: 聯盟攻擊
+fl_add_to_attack: ' 已加入攻擊。'
+fl_admin_attack: 管理員不能被攻擊。
+fl_all_resources: 所有資源
+fl_already_invited: ' 已經被邀請過了。'
+fl_ammount: 艦船
+fl_arrival: 抵達
+fl_arrival_time: 抵達時間
+fl_arrival_target: "抵達目標"
+fl_return_home: "返航"
+fl_attack_confirm_buddy: |-
+  目標在你的好友名單上。
+  你確定要攻擊嗎？
+fl_attack_confirm_diplo: '你有一份條約（%s），對象是 %s。還是要攻擊嗎？'
+fl_attack_confirm_outlaw: '攻擊 %s 會讓你成為亡命之徒 7 天。'
+fl_bash_protection: 這樣會違反洗點規則。
+fl_daily_cap_reached: "已達到每日艦隊上限 %1$d。%2$d 小時 %3$d 分鐘後重置。"
+fl_daily_attack_cap_reached: "已達到每日攻擊上限 %1$d。%2$d 小時 %3$d 分鐘後重置。"
+fl_beginning: 出發地
+fl_blocked: ' 不接受邀請。'
+fl_bonus: 加成
+fl_bonus_attack: 武器
+fl_bonus_defensive: 裝甲
+fl_bonus_shield: 護盾
+fl_cargo_capacity: 載貨量
+fl_colonize_confirm: '你在這個星系已經有不只一顆行星了。擁擠的星系會吸引強大的玩家。還是要殖民嗎？'
+fl_continue: 繼續
+fl_debris_shortcut: (殘)
+fl_departure: 出發
+fl_destiny: 目的地
+fl_distance: 距離
+fl_dlte_shortcut: 刪除
+fl_dont_exist: ' 不存在。'
+fl_empty_target: '沒有可用的任務。目標存在嗎？'
+fl_error: 出了點問題，請再試一次。
+fl_error_empty_derbis: '這些座標沒有殘骸場！'
+fl_error_no_moon: 這些座標沒有月球。
+fl_error_not_avalible: 這些座標什麼都沒有。
+fl_error_same_planet: '出發地和目的地是同一顆行星！'
+fl_exchange: 交換
+fl_expedition_alert_message: '注意：遠征有風險。你可能會失去整支艦隊！'
+fl_expedition_tech_required: 你需要天體物理學 1 級才能開始遠征。
+fl_expeditions: 遠征
+fl_fleet: 艦隊
+fl_fleet_sended: '艦隊已派出！'
+fl_fleet_speed: 艦隊速度
+fl_fleets: 艦隊
+fl_flying_arrival: 抵達
+fl_flying_return: 返航
+fl_flying_time: 時間長度（單程）
+fl_from: 從
+fl_fuel_consumption: 重氫消耗
+fl_hold_confirm_outlaw: '駐守在 %s 會讓你成為亡命之徒 7 天。'
+fl_hold_max_fleets: 已經有太多艦隊前往這些座標，所以你的艦隊無法派出。
+fl_hold_max_user: 已達到防守者人數上限，所以你的艦隊無法派出。
+fl_hold_time: 駐守時間
+fl_hold_time_not_exists: 請選擇有效的駐守時間。
+fl_hours: 小時
+fl_in_vacation_player: 這位玩家在假期模式
+fl_info_detail: 詳情
+fl_invalid_mission: 這裡無法執行該任務。
+fl_invalid_target: 這個目標無效。
+fl_invite_members: 邀請成員
+fl_market_type: 市集類型
+fl_max: 最大
+fl_max_speed: 最高速度
+fl_members_invited: 已邀請
+fl_mission: 任務
+fl_modify_sac_name: 聯盟戰名稱
+fl_moon_shortcut: (月)
+fl_mt_fleet: 艦隊市集
+fl_mt_resources: 資源市集
+fl_my_planets: 我的行星
+fl_new_mission_title: '新任務：選擇艦隊'
+fl_no_colony: 沒有殖民地
+fl_no_expedition_slot: 沒有空的遠征欄位。
+fl_no_more_slots: 沒有空的欄位
+fl_no_noresource: '沒有裝載資源！'
+fl_no_noresource_exchange: 沒有輸入要交換的資源
+fl_no_probe_expos: '遠征不能只由間諜衛星組成！'
+fl_no_same_alliance: '目標玩家必須在你的聯盟或好友名單裡！'
+fl_no_ships: 沒有可用的艦船
+fl_no_shortcuts: 沒有捷徑
+fl_no_slots: 沒有可用的欄位
+fl_no_target: 沒有可用的目標行星
+fl_not_all_ship_avalible: 並非所有艦船都可用。
+fl_not_enough: '%s 不足。'
+fl_not_enough_deuterium: 重氫不足，無法完成這趟飛行。
+fl_not_enough_space: 載貨空間不足。
+fl_null: 無
+fl_number: 編號
+fl_objective: 結束於
+fl_only_planets_colonizable: 只有行星可以被殖民。
+fl_onway: 去程
+fl_order: 順序
+fl_own_planet_error: 出了點問題。請重新選擇你要派出艦隊的行星。
+fl_planet_shortcut: (行)
+fl_planets: 行星
+fl_player: '玩家 '
+fl_player_is_noob: 這位玩家在新手保護中。
+fl_player_is_strong: 這位玩家太強了。
+fl_r: (R)
+fl_remove_all_ships: 不選艦船
+fl_resources: '裝載資源'
+fl_resources_left: 剩餘容量
+fl_return_time: 返航時間
+fl_returning: 返航中
+fl_sac_of_fleet: 聯盟戰艦隊
+fl_select_all_ships: 全選艦船
+fl_selected_resources: 已選資源
+fl_send_back: 召回
+fl_send_fleet: 派出艦隊
+fl_ship_available: 可用艦船
+fl_ship_type: 艦船類型
+fl_shortcut: 捷徑
+fl_shortcut_add: 新增
+fl_shortcut_edition: 編輯捷徑
+fl_shortcut_name: 名稱
+fl_shortcut_save: 儲存捷徑
+fl_shortcut_saved: 捷徑已儲存！
+fl_simulate: 模擬
+fl_speed_title: '速度：'
+fl_spy_confirm_outlaw: '偵查 %s 會讓你成為亡命之徒 7 天。'
+fl_strong_player: 這位玩家太強了。
+fl_stronger_techs: 你的武器、裝甲或護盾科技太低了。
+fl_system_places: 特殊地點
+fl_target_exists: 目標行星
+fl_trade_no_resource_loaded: 你沒有裝載任何資源。
+fl_trade_same_resource: 你不能用 %s 換 %s。
+fl_trade_to_many_resources_loaded: 你只能賣一種資源。
+fl_transfer_alert_message: |-
+  警告！
+  你的艦隊將被轉讓給另一位玩家！
+fl_vacation_mode_active: 假期模式啟用中
+fl_visibility: 可見度
+fl_visibility_all: 所有人
+fl_visibility_alliance: 聯盟、條約夥伴和好友
+fl_visibility_no_enemies: 除了敵人以外的所有人
+fl_week_player: 這位玩家在新手保護中
+fleet_table_custom_empty_name: '請輸入艦隊名稱！'
+fleetPrio: 艦隊排列優先順序
+fm_add_filter: 新增艦船篩選
+fm_all: 全部
+fm_civil: 民用
+fm_engines: 引擎
+fm_imperial: 帝國
+fm_military: 軍事
+fm_mining: 採礦
+fm_other: 其他
+fm_recycler: 回收船
+fm_storage: 倉儲
+foreign_colors: 外來艦隊顏色
+found: '發現 '
+ft_absenden: 送出
+ft_charge: 商人費率
+ft_count: 數量
+ft_empty: 空
+ft_head: 商人艦隊
+ft_max: 最大
+ft_total: 總計
+general_colors: 一般顏色
+gl_actions: 操作
+gl_activity: (*)
+gl_activity_inactive: (%d 分鐘)
+gl_all_defenses: 所有防禦
+gl_alliance: 聯盟
+gl_alliance_page: 聯盟頁面
+gl_alliance_web_page: 聯盟網站
+gl_avaible_missiles: 可用飛彈
+gl_avaible_recyclers: 回收船
+gl_avaible_spyprobes: 間諜衛星
+gl_banned: 停權 / 停用
+gl_buddy_request: 好友邀請
+gl_colonizable: 可殖民
+gl_debris_field: 殘骸場
+gl_diameter: 直徑
+gl_features: 屬性
+gl_fleets: 艦隊欄位
+gl_galaxy: 銀河系
+gl_in_the_rank: '玩家 %s，排名 %d'
+gl_inactive_seven: 7 天不活躍
+gl_inactive_twentyeight: 28 天不活躍
+gl_legend: 圖例
+gl_member: '%d 位成員'
+gl_member_add: '%d 位成員'
+gl_missil_flytime: 命中倒數
+gl_missil_launch: 飛彈攻擊
+gl_missil_launch_action: 發射飛彈
+gl_missil_to_launch: '數量（可用 <b>%d</b> 枚）'
+gl_missile_attack: 飛彈攻擊
+gl_moon: 月球
+gl_no_deuterium_to_view_galaxy: '重氫不足，無法查看銀河系！'
+gl_no_spy_report: 這顆行星還沒有間諜報告。
+gl_not_colonizable: 無法殖民！
+gl_objective: 主要目標
+gl_out_space: 深太空
+gl_phalanx: 密集陣
+gl_planet: 行星
+gl_planet_destroyed: 行星已被摧毀
+gl_player: 玩家
+gl_player_estate: 玩家（狀態）
+gl_playercard: 玩家個人資料
+gl_populed_planets: '%d 顆有人居住的行星'
+gl_pos: 位置
+gl_resources: 資源
+gl_see_on_stats: 統計
+gl_short_ban: 停
+gl_short_inactive: i
+gl_short_long_inactive: I
+gl_short_newbie: 'N'
+gl_short_strong: S
+gl_short_vacation: 假
+gl_show: 顯示星系
+gl_show_spy_report: 間諜報告
+gl_solar_system: 星系
+gl_spy: 間諜
+gl_spy_report_fresh: 間諜報告（< %d 小時）
+gl_spy_report_none: 沒有間諜報告
+gl_spy_report_old: 間諜報告（> %d 小時）
+gl_spy_report_recent: 間諜報告（< %d 小時）
+gl_strong_player: 強勢玩家
+gl_sync: 儲存資料
+gl_sync_export_csv: 匯出 CSV
+gl_sync_export_json: 匯出 JSON
+gl_sync_import_json: 匯入 JSON
+gl_sync_reset: 重設資料
+gl_temperature: 溫度
+gl_to: 到
+gl_trade_space: 市集
+gl_vacation: 假期模式
+gl_week_player: 弱勢玩家
+honor_rank: 榮譽階級
+honor_rank_low_1: 強盜皇帝
+honor_rank_low_10: 強盜之王
+honor_rank_low_20: 強盜領主
+honor_rank_low_30: 強盜
+honor_rank_top_1: 神皇
+honor_rank_top_10: 大帝
+honor_rank_top_20: 皇帝
+honor_rank_top_30: 星主
+honorable_fights: 光榮的戰鬥
+honorpoints: 榮譽點數
+in_attack_pt: 攻擊力
+in_base_speed: 基礎速度
+in_capacity: 載貨量
+in_consumption: 燃料消耗
+in_destroy: 摧毀
+in_difference: 差異
+in_engine: 引擎
+in_jump_gate_already_used: '躍遷門充能中。準備就緒倒數：'
+in_jump_gate_doesnt_have_one: 你沒有其他躍遷門可以跳躍。
+in_jump_gate_done: '跳躍成功！躍遷門再次就緒倒數：%s'
+in_jump_gate_error_data: '無效的跳躍座標！'
+in_jump_gate_finish_moon: 目的地
+in_jump_gate_jump: 跳躍
+in_jump_gate_no_target: 沒有可用的跳躍目標。
+in_jump_gate_not_ready_target: '目的地的躍遷門仍在充能。準備就緒倒數 '
+in_jump_gate_select_ships: '躍遷門：選擇艦船'
+in_jump_gate_start_moon: 出發地
+in_jump_gate_wait_time: '下次可跳躍倒數：'
+in_level: 等級
+in_missilesamount: 可用
+in_missilestype: 飛彈類型
+in_prod_p_hour: 每小時
+in_rf_again: 快速射擊對象
+in_rf_explanation: >-
+  快速射擊：每個戰鬥回合，這個單位可能射擊多次。百分比顯示命中該類型目標後再開一槍的機率。
+in_rf_from: 被快速射擊來源
+in_shield_pt: 護盾強度
+in_storage: 倉儲
+in_struct_pt: 結構完整度
+kontakt: '嗨！<br>這個頁面列出經營、管理和開發這個專案的人。<br>有問題或疑難雜症嗎？來聯絡我們。<br><br><!--discord_url-->為了更好地和我們以及其他玩家交流，我們開了一個 Discord 伺服器。你可以在<a href="{discord_url}">這裡</a>或從選單找到它。<br>那裡有最新消息，還有宇宙中各聯盟最棒的迷因。<br>可以問遊戲機制的問題，也能分享你對遊戲未來的想法。<br><br><!--/discord_url-->當然，我們也會回答你的遊戲內問題。<br>請記得，我們是以興趣在玩這款遊戲，所以回覆可能要等幾天。<br>'
+lm_administration: 管理
+lm_alliance: 聯盟
+lm_banned: 停權名單
+lm_battlesim: 模擬器
+lm_buddylist: 好友
+lm_buildings: 建築
+lm_changelog: 更新日誌
+lm_dataPrivacy: 資料隱私
+lm_defenses: 防禦
+lm_empire: 帝國
+lm_faq: FAQ
+lm_fleet: 艦隊
+lm_fleettrader: 艦隊商人
+lm_galaxy: 銀河系
+lm_info: 資訊
+lm_logout: 登出
+lm_marketplace: 市集
+lm_messages: 訊息
+lm_notes: 筆記
+lm_options: 選項
+lm_overview: 總覽
+lm_playercard: 玩家個人資料
+lm_records: 紀錄
+lm_repairdock: 修理船塢
+lm_research: 研究
+lm_resources: 資源
+lm_rules: 規則
+lm_search: 搜尋
+lm_shipshard: 艦船庫
+lm_statistics: 統計
+lm_support: 客服
+lm_technology: 科技
+lm_topkb: 戰鬥大廳
+lo_continue: 點擊繼續。
+lo_logout: '你已登出。再見囉！'
+lo_notify: '<span id="seconds">5</span> 秒後重新導向'
+lo_redirect: 重新導向
+lo_title: 已登出
+loading: 載入中 ...
+lost: 損失
+lv_buildable: 可建造
+lv_buildings: 建築
+lv_coords: 座標
+lv_defenses: 防禦
+lv_fields: 欄位
+lv_highlight: '醒目標示：'
+lv_imperium_title: 帝國
+lv_name: 名稱
+lv_planet: 行星
+lv_prodPerHour: 每小時產量
+lv_resources: 資源
+lv_ships: 艦船
+lv_show: '顯示：'
+lv_storageFilled: 距離倉庫滿載的小時數
+lv_technology: 科技
+lv_total: 總計
+lv_unbuildable: 無法建造
+ma_add_missile_number: '請輸入飛彈數量！'
+ma_all: 全部
+ma_impulse_drive_required: 需要脈衝引擎
+ma_missiles_sended: ' 枚飛彈已發射。目標：'
+ma_no_missiles: 沒有飛彈
+ma_no_range: 目標超出你的飛彈射程。
+ma_own_planet: "你不能用飛彈攻擊自己的行星。"
+ma_not_send_other_galaxy: '你不能把飛彈發射到其他銀河系。'
+ma_planet_doesnt_exists: '那顆行星不存在。'
+ma_silo_level: '需要飛彈發射井 4 級！'
+ma_wrong_target: 錯誤的目標
+market_buyable_no_enemies: 沒有敵人
+market_buyable_no_tech: 太弱
+market_buyable_only_trade_partners: 僅限夥伴
+market_buyable_too_far: 太遠
+market_confirm_are_you_sure: 你確定嗎？
+market_fleet: 艦隊
+market_info_description: '左邊：出售的掛單 | 右邊：要價<br><br>&bull; 已接受的掛單無法取消 &bull;<br>&bull; 有些掛單因為灌資規則而無法接受 &bull;<br>&bull; 買下艦隊的買家要負擔燃料 &bull;'
+market_info_header: 市集
+market_info_no_return: '市集掛單無法取消！'
+market_msg_trade_bought: 你的艦隊正飛往 %s，載著 %s %s、%s %s、%s %s，花費 %s %s。
+market_msg_trade_from: 市集
+market_msg_trade_sold: 你的艦隊正飛往 %s，載著 %s %s、%s %s、%s %s。
+market_msg_trade_topic: 交易狀態
+market_p_buy: 買
+market_p_cost_amount: 數量
+market_p_cost_type: 成本類型
+market_p_end: 結束
+market_p_from_duration: 飛行自
+market_p_msg_more_ships_is_needed: 這筆掛單需要更多艦船。
+market_p_msg_not_found: 那筆掛單已經不見了。
+market_p_msg_own_offer: 你不能買自己的掛單。
+market_p_msg_purchase_failed: 購買沒有成功，請再試一次。
+market_p_msg_resources_error: 你的資源不夠。
+market_p_msg_too_far: 這筆掛單太遠了，行程會超過賣家允許的時間。
+market_p_msg_sent: 已派出 %s 艘小型運輸艦、%s 艘大型運輸艦
+market_p_msg_wrong_resource_type: 這筆掛單要求的資源無效。
+market_p_offer_type: 掛單類型
+market_p_ratio: 比例
+market_p_submit: 立刻購買！
+market_p_to_duration: 飛行至
+market_ship_as_first: '選擇交易用的艦船類型：'
+Messages: 訊息
+messagesPerPage: 每頁訊息數（3-50）
+mg_answer_to: 回覆給
+mg_blocked: 這位玩家不接受訊息。
+mg_characters: 字元
+mg_confirm: 確認
+mg_delete: 刪除訊息
+mg_delete_all: 刪除所有訊息
+mg_delete_marked: 刪除已標記的訊息
+mg_delete_type_all: 刪除這個類型的所有訊息
+mg_delete_unmarked: 刪除這個類型中未標記的訊息
+mg_deleted: 訊息已刪除。
+mg_empty_text: 請輸入內容
+mg_error: '找不到收件人！'
+mg_too_many_recipients: "你一次最多只能寫給 %d 位玩家。"
+mg_text_too_long: "訊息太長了（最多 %d 個字元）。"
+mg_rate_limited: "你發訊息太快了。請等幾分鐘。"
+mg_favorite: 標為最愛
+mg_favorite_filter_off: 顯示全部
+mg_favorite_filter_on: 只顯示最愛
+mg_forward: 轉寄訊息
+mg_grouping_off: 不分組顯示訊息
+mg_grouping_on: 分組顯示訊息
+mg_message: 訊息
+mg_message_send: '訊息已發送！'
+mg_min_3_chars: 至少輸入 3 個字元才能搜尋
+mg_new: 新
+mg_no_subject: 無主旨
+mg_no_user: 找不到玩家
+mg_overview: 訊息管理
+mg_open_all: '一律開啟「所有訊息」分類'
+mg_page: 頁
+mg_read_all: 全部標為已讀
+mg_read_marked: 把選取的訊息標為已讀
+mg_read_type_all: 把這個類型的所有訊息標為已讀
+mg_search: 搜尋
+mg_search_placeholder: 輸入搜尋字詞
+mg_send: 發送
+mg_send_new: 寫訊息
+mg_send_to: 發送給
+mg_subject: 主旨
+mg_remember_last_category: 記住上次的訊息分類
+mg_select_all: 全選
+mg_type:
+  '0': 間諜報告
+  '1': 玩家訊息
+  '2': 聯盟訊息
+  '3': 戰鬥報告
+  '4': 系統訊息
+  '5': 運輸
+  '6': 外來運輸
+  '7': 反間諜
+  '15': 遠征報告
+  '50': 遊戲訊息
+  '99': 建造
+  '100': 所有訊息
+  '998': 最愛
+  '999': 搜尋訊息
+negativ: 負面
+neutral: 中立
+neutral_fights: 中立戰鬥
+noob_interface: 新手介面已開啟。這是遊戲的簡化版本，讓你輕鬆快速上手，選單項目會隨著你完成教學逐步解鎖。你隨時可以在選項裡關閉它。
+nt_back: 返回
+nt_characters: 個字元
+nt_create_new_note: 建立新筆記
+nt_create_note: 建立筆記
+nt_date_note: 日期
+nt_dlte_note: 刪除
+nt_edit_note: 編輯筆記
+nt_important: 高
+nt_no_text: 沒有內容
+nt_limit_reached: '你已達到筆記數量上限（%1$d）。請先刪除舊的筆記。'
+nt_no_title: 沒有標題
+nt_normal: 普通
+nt_note: 筆記
+nt_notes: 筆記
+nt_priority: 優先順序
+nt_reset: 重設
+nt_save: 儲存
+nt_size_note: 大小
+nt_subject_note: 主旨
+nt_unimportant: 低
+nt_you_dont_have_notes: 你還沒有筆記
+op_activate_vacation_mode: 啟用假期模式
+op_activate_vacation_mode_confirm: '啟用後 48 小時內無法關閉假期模式。你確定嗎？'
+op_activate_vacation_mode_descrip: '假期模式在你長時間不在時保護你。只有在你沒有任何艦隊在移動時才能啟用。啟用後，它會保護你不受新的攻擊。不過已經開始的攻擊仍會繼續，而且駐守中的友軍艦隊會被送回去！這段期間資源生產、建築建造、太空船廠訂單和研究都會暫停，結束後恢復。假期模式在最初 48 小時內無法關閉！'
+op_active_build_messages: 啟用建造訊息
+op_active_spy_messages_mode: 啟用合併的間諜報告
+op_add_to_buddy_list: 送出好友邀請
+op_admin_discord_hook: 私人訊息的 Discord webhook
+op_admin_discord_id: 私人訊息通知用的 Discord 使用者 ID
+op_admin_planets_protection: 啟用管理員行星保護
+op_admin_title_options: 管理員選項
+op_block_pm: 封鎖私人訊息
+op_build_pages: 建築 / 研究
+op_cant_activate_vacation_mode: 你的艦隊還在移動時，無法開始假期模式。
+op_cant_deactivate_vacation_mode: 假期模式還不能結束。
+op_change_mail_exist: '電子信箱 %s 已經有人使用。'
+op_change_name_exist: '使用者名稱 %s 已經有人用了。'
+op_change_name_pro_week: '你每 7 天只能更改一次使用者名稱！'
+op_collapse_spy_reports: 預設以收合方式顯示間諜報告
+op_decimal_separator: 小數點符號
+op_dlte_account: 刪除帳號
+op_dlte_account_descrip: 你的帳號會在至少 7 天後被完全刪除。確切時間取決於刪除作業何時執行，所以可能要再多等幾天。在刪除尚未執行之前，也就是你還能登入帳號的時候，都可以取消刪除。
+op_email_adress: 電子信箱
+op_enable_planet_styles: 對有全像效果的行星顯示全像效果
+op_end_vacation_mode: 關閉假期模式
+op_galaxy_settings: 銀河系
+op_general_settings: 一般
+op_hangar_filters: 在太空船廠顯示額外的篩選
+op_hangar_group_filters: 太空船廠分組篩選
+op_hide_useless: 基礎研究達到最高實用等級後就隱藏
+op_lang: 語言
+op_max_fleets_messages: 艦隊訊息數量上限
+op_missile_attack: 飛彈攻擊
+op_missing_requirements_opacity: 把缺少需求的項目變暗
+op_missing_resources_opacity: 把買不起的項目變暗
+op_need_pass_mail: 請輸入密碼才能更改電子信箱。
+op_new_pass: 新密碼（至少 8 個字元）
+op_noob_interface: 新手介面
+op_not_vaild_mail: 這個電子信箱看起來無效。
+op_old_pass: 目前的密碼
+op_options_changed: 設定已儲存。
+op_options_deletion_activated: 帳號刪除已啟用！
+op_options_deletion_deactivated: 帳號刪除已取消！
+op_options_no_other_settings_changed: 沒有更改其他東西。
+op_options_vacation_activated: '假期模式已開啟。好好享受休息吧！'
+op_options_vacation_deactivated: '假期模式已關閉。歡迎回來！'
+op_repeat_new_pass: 新密碼（再輸入一次）
+op_save_changes: 儲存變更
+op_shortcut: 捷徑
+op_show: 檢視
+op_show_all_buildable_elements: 也顯示缺少需求的項目
+op_show_message_category: 直接跳到對應的訊息分類
+op_skin_example: 主題
+op_sort_abc: 依字母順序
+op_sort_down: 遞減
+op_sort_kind: 排序方式
+op_sort_koords: 座標
+op_sort_normal: 殖民順序
+op_sort_planets_by: 行星排序依據
+op_sort_up: 遞增
+op_spy: 間諜
+op_spy_probes_number: 每次任務的間諜衛星數
+op_spy_probes_number_descrip: 從銀河系檢視派出的衛星數量。
+op_spy_report: 間諜報告
+op_spy_report_fresh_time: 新鮮的間諜報告（綠點），最長
+op_spy_report_fresh_time_tooltip: >-
+  比指定小時數更新的間諜報告，在銀河系檢視中會顯示綠點。
+op_spy_report_recent_time: 近期的間諜報告（黃點），最長
+op_spy_report_recent_time_tooltip: >-
+  比指定小時數更新的間諜報告會顯示黃點；更舊的報告顯示紅點。
+op_spy_report_time_invalid: 間諜報告時間無效。兩個值都必須至少 1 小時，而且近期的值必須大於新鮮的值。
+op_stop_dlte_account: 取消帳號刪除
+op_timezone: 時區
+op_user_data: 使用者資料
+op_user_name_no_alphanumeric: '你的使用者名稱只能包含字母和數字！'
+op_username: 使用者名稱
+op_vacation_delete_mode: 危險區域
+op_vacation_mode_active_message: '假期模式在這之前無法關閉：'
+op_write_message: 寫訊息
+other: 其他
+ov_abandon_planet_not_possible: 有艦隊正飛往或飛離這個殖民地時，你無法刪除它。
+ov_admins_online: 在線管理員
+ov_aprox: 大約
+ov_checknews_hide: 隱藏消息
+ov_checknews_show: 顯示消息
+ov_closed: '這個宇宙目前已關閉！'
+ov_delete_planet: 刪除行星
+ov_developed_fields: 已使用欄位
+ov_diameter: 直徑
+ov_distance_unit: 公里
+ov_events: 事件
+ov_fields: 欄位
+ov_fleet: 艦隊
+ov_fleetbutton_hide: 隱藏
+ov_fleetbutton_show: 顯示
+ov_free: 空閒
+ov_have_new_message: 你有一則新訊息
+ov_have_new_messages: 你有 %d 則新訊息
+ov_queues: 佇列
+ov_max_developed_fields: 總欄位
+ov_moon: 月球
+ov_newname_done: 行星已改名！
+ov_newname_specialchar: '行星名稱只能包含數字、字母、空格、底線、連字號和句點！'
+ov_newname_too_long: '行星名稱最多 %d 個字元。'
+ov_news: 消息
+ov_news_all: '全部消息'
+tutorial_label: '教學'
+tutorial_step_of: '步驟 %1 / %2'
+ov_of: /
+ov_outlaw: '亡命之徒直到：'
+ov_place: 位置
+ov_planet: 行星
+ov_planet_abandoned: 行星已刪除。
+ov_planet_rename: 行星改名
+ov_planetmenu: 改名或刪除
+ov_planets: 行星和月球
+ov_points: 分數
+ov_position: 位置
+ov_principal_planet_cant_abanone: '你不能刪除自己的母星！'
+ov_rename_label: 新名稱
+ov_rules: 規則
+ov_rulesnotify: 請遵守
+ov_security_confirm: 你確定要摧毀 %s 嗎？
+ov_security_request: 安全提問
+ov_server_time: 伺服器時間
+ov_temp_unit: °C
+ov_temperature: 溫度
+ov_ticketbot: 客服機器人
+ov_to: 到
+ov_userrank_info: '%s（%s <a href="game/statistics?range=%d">%d</a> %s %s）'
+ov_wrong_name: '名稱錯誤！'
+ov_wrong_pass: '密碼錯誤！'
+own: 自己
+own_colors: 自己的顏色
+page_doesnt_exist: 找不到你要的頁面。
+pl_ally: 聯盟
+pl_buddy: 好友
+pl_builds: 建築
+pl_def: 防禦
+pl_dercrystal: 回收的晶體
+pl_dermetal: 回收的金屬
+pl_destroy: '%s 參與了'
+pl_destroy_real: '%s 親自參與了'
+pl_etc: '等等 '
+pl_fightdraw: 平手
+pl_fightlose: 敗
+pl_fights: 戰鬥
+pl_fightstats: 戰鬥統計
+pl_fightwon: 勝
+pl_fleet: 艦隊
+pl_fprocent: 百分比
+pl_homeplanet: 母星
+pl_message: 訊息
+pl_name: 使用者名稱
+pl_overview: 玩家個人資料
+pl_points: 分數
+pl_range: 排名
+pl_tech: 研究
+pl_total: 總計
+pl_totalfight: 總戰鬥數
+pl_unitslose: 損失的單位
+pl_unitsshot: 擊殺的單位
+PM: '[私訊]'
+positiv: 正面
+px_fleet_movement: 移動中的艦隊
+px_no_deuterium: 重氫不足。
+px_no_fleet: 目前沒有移動中的艦隊。
+px_out_of_range: 超出射程
+px_scan_position: 掃描位置
+ready: 就緒
+rebuild_proteciton_link: 在這裡可以提前停用它。
+rebuild_proteciton_mode: 你的帳號正處於重建保護中，可以讓你免於遭受攻擊。
+rec_count: 數量
+rec_last_update_on: '最後更新於 '
+rec_level: 等級
+rec_players: 玩家
+rec_time: 日期/時間
+recordsOptIn: 向所有玩家顯示你的紀錄
+repaired: 已修復
+rs_amount: 數量
+rs_basic_income: 基本產量
+rs_calculate: 儲存變更
+rs_daily: 每日產量
+rs_lvl: 等級
+rs_production_on_planet: '「%s」上生產的資源'
+rs_ramp_up: '全部設為 100%'
+rs_ress_bonus: 加成（來自研究）
+rs_ress_bonus_position: 加成（來自行星位置）
+rs_shut_down: '全部設為 0%'
+rs_storage_capacity: 儲存容量
+rs_sum: 每小時產量
+rs_weekly: 每週產量
+sh_alliance: 聯盟
+sh_alliance_name: 聯盟名稱
+sh_alliance_tag: 聯盟標籤
+sh_buddy_request: 好友邀請
+sh_coords: 位置
+sh_loading: （載入中 ...）
+sh_members: 成員
+sh_name: 名稱
+sh_planet: 行星
+sh_planet_name: 行星名稱
+sh_player_name: 玩家名稱
+sh_points: 分數
+sh_position: 排名
+sh_search: 搜尋
+sh_search_in_the_universe: 搜尋宇宙
+sh_tag: 標籤
+sh_write_message: 私人訊息
+spec_mail_inactive_title: '%s - 提醒'
+spytech_playercard:
+  level2: 間諜科技 2 級起可查看！
+  level4: 間諜科技 4 級起可查看！
+  level6: 間諜科技 6 級起可查看！
+st_alliance: 聯盟
+st_buildings: 建築
+st_defenses: 防禦
+st_fleets: 艦隊
+st_honor: 榮譽點數
+st_in_the_positions: 排名中
+st_members: 成員
+st_per: 每
+st_per_member: 每位成員
+st_player: 玩家
+st_points: 分數
+st_position: 排名
+st_researh: 研究
+st_show: 顯示
+st_statistics: 統計
+st_units: 單位
+st_updated: 更新於
+st_write_message: 私人訊息
+StaticTimer: 抵達時間
+stats:
+  '202': 小型運輸艦
+  '203': 大型運輸艦
+  '204': 輕型戰鬥機
+  '205': 重型戰鬥機
+  '206': 巡洋艦
+  '207': 戰列艦
+  '208': 殖民船
+  '209': 回收船
+  '210': 間諜衛星
+  '211': 轟炸機
+  '212': 太陽能衛星
+  '213': 毀滅者
+  '214': 死星
+  '215': 戰鬥巡洋艦
+  '216': 黑月
+  '217': 戰鬥運輸艦
+  '218': 化身
+  '219': 戰鬥回收船
+  '401': 飛彈發射器
+  '402': 輕型雷射砲塔
+  '403': 重型雷射砲塔
+  '404': 高斯砲
+  '405': 離子砲
+  '406': 電漿砲
+  '407': 小型護盾罩
+  '408': 大型護盾罩
+  '409': 大氣護盾
+  '410': 重力子砲
+  '411': 軌道防禦平台
+  '412': 地堡
+  '413': 泰坦雷射
+  '414': 誘餌
+  '502': 攔截飛彈
+  '503': 星際飛彈
+  '901': 金屬
+  '902': 晶體
+  '903': 重氫
+stb_activ: 詳細間諜報告（Scavengers Toolbox）已啟用
+stb_big_ress: 資源豐富（低於）
+stb_big_ress_tooltip: 如果行星上的資源少於這個值，間諜報告會標成淺綠色（良好）。資源多於這個值的間諜報告會顯示為淺藍色（最佳）。
+stb_big_time: 每秒資源豐富（低於）
+stb_big_time_tooltip: 每秒可能的最佳資源收益，四捨五入到小數點後兩位。低於這個值的比例算良好（淺綠），高於它則算最佳（淺藍）。
+stb_low_ress: 資源很少（低於）
+stb_low_ress_tooltip: 如果行星上的資源少於這個值，間諜報告會標成亮紅色（差）。
+stb_med_time: 每秒資源中等（低於）
+stb_med_time_tooltip: 每秒可能的最佳資源收益，四捨五入到小數點後兩位。低於這個值的比例算中等（淺橘）。
+stb_mid_ress: 資源中等（低於）
+stb_mid_ress_tooltip: 如果行星上的資源少於這個值，間諜報告會標成淺橘色（中等）。
+stb_small_time: 每秒資源很少（低於）
+stb_small_time_tooltip: 每秒可能的最佳資源收益，四捨五入到小數點後兩位。低於這個值的比例算差（淺紅）。
+stb_title: Scavengers Toolbox
+sys_back: 返回
+sys_buildlist: 建造佇列
+sys_buildlist_fail: 建造失敗
+sys_catchup: '成本與建造時間加成：%01.2f'
+sys_catchup_short: '加成：%01.2f'
+sys_catchup_tooltip: '追趕加成：縮短時間並降低成本，依據這個建築/研究的紀錄等級而定'
+sys_closed_game: '遊戲目前關閉：'
+sys_forward: 下一步
+sys_game_is_setup: '<h1>註冊完成！</h1><br><p>我們正在為你準備宇宙！</p><!--discord_url--><p>在這段時間，為了不錯過任何消息，快來加入我們的</p><h3><a href="{discord_url}" target="_blank">-> Discord <-</a></h3><!--/discord_url-->'
+sys_module_inactive: 這個模組未啟用
+sys_nomore_level: '你沒有可以拆除的 %s。'
+sys_notenough_money: '在 %s <a href="./game/buildings?cp=%d&amp;re=0">[%d:%d:%d]</a> 上的資源不足以建造 %s。<br>你有：%s %s、%s %s 和 %s %s。<br>需要：%s %s、%s %s 和 %s %s。'
+sys_refferal_from: 系統
+sys_refferal_text: 你招募的玩家 %s 已達到 %s 分。
+sys_refferal_title: 玩家獎勵 %s
+sys_techlist: 研究佇列
+team: 團隊
+teamRole: 職位
+ti_admin_close: 客服單已結案！
+ti_admin_open: 客服單已重新開啟！
+ti_answer: 回應
+ti_answers: 回覆
+ti_category: 分類
+ti_close: 客服單已結案
+ti_create: '客服單建立於 '
+ti_create_head: 建立客服單
+ti_create_info: "<p>建立客服單時，請盡可能詳細描述你的問題！</p>\r\n<p>詳細的描述能縮短解決時間，也能避免來回確認耗費時間。</p>\r\n<p>與帳號相關的問題，提供相關的帳號資料有助於分派客服單，並縮短處理時間。</p>"
+ti_date: 日期
+ti_error_closed: 這張客服單已經結案，所以無法回覆。
+ti_error_too_many_open: "你已經有 %d 張未結案的客服單。請等其中一張結案後再開新的。"
+ti_error_rate_limited: "你開客服單的速度太快了。請稍後再試。"
+ti_error_no_subject: 請輸入主旨。
+ti_from: 來自
+ti_header: 客服系統
+ti_id: 客服單
+ti_message: 訊息
+ti_msgtime: 訊息發佈時間
+ti_new: 新客服單
+ti_not_exist: '找不到客服單 #%d。'
+ti_open: 開啟客服單
+ti_overview: 返回
+ti_read: 要閱讀的客服單
+ti_responded: '客服單回覆於 '
+ti_status: 狀態
+ti_status_answer: 已回覆
+ti_status_closed: 已結案
+ti_status_open: 處理中
+ti_subject: 主旨
+ti_submit: 送出
+ti_username: 玩家
+tkb_all: 全部
+tkb_datum: 日期
+tkb_day: 日
+tkb_diplomacy: 外交
+tkb_exclude: 排除
+tkb_galaxy: 銀河系
+tkb_gewinner: <b>-勝方-</b>
+tkb_gratz: '全體團隊恭喜前 100 名 '
+tkb_legende: '<b>圖例：</b>'
+tkb_memorial: 紀念
+tkb_month: 月
+tkb_only: 僅
+tkb_owners: 參與的使用者
+tkb_platz: 排名
+tkb_self: 僅自己
+tkb_timeframe: 時間範圍
+tkb_top: 戰鬥大廳
+tkb_units: 單位
+tkb_verlierer: <b>-敗方-</b>
+tkb_week: 週
+tn_delete_mode: '你的帳號將於 %s 被刪除。'
+tn_vacation_mode: 你的帳號處於假期模式。
+tn_vacation_mode_kick: >-
+  <br><br>請注意：假期模式在 4 週不活躍後會自動關閉。
+tn_vacation_mode_until: 你的帳號處於假期模式，至少到 %s。
+tr_exchange_done: '交易完成！'
+tr_exchange_error: 資源數量無效或不足
+tt_lvl: '等級 '
+tt_lv_short: '等'
+tt_requirements: 需求
+tt_unlocks: '解鎖'
+tt_status_owned: '已建造'
+tt_status_available: '可用'
+tt_status_locked: '鎖定'
+tt_hint: '滑過或選取一項科技，可追溯它的需求（上方）和它能解鎖的東西（下方）。點擊可固定，按 Esc 清除。'
+tt_foreign: '此分類所需，但屬於其他分類'
+tt_none: '無'
+tt_graph: '科技樹'
+type_mission_1: 攻擊
+type_mission_1_foreign: 外來攻擊
+type_mission_1_own: 自己的攻擊
+type_mission_2: 聯盟攻擊
+type_mission_2_foreign: 外來聯盟攻擊艦隊
+type_mission_2_friend: 友軍聯盟攻擊艦隊
+type_mission_2_own: 自己的聯盟攻擊艦隊
+type_mission_3: 運輸
+type_mission_3_foreign: 外來運輸
+type_mission_3_own: 自己的運輸
+type_mission_4: 部署
+type_mission_4_foreign: 外來部署
+type_mission_4_own: 自己的部署
+type_mission_5: 駐守
+type_mission_5_foreign: 外來駐守
+type_mission_5_own: 自己的駐守
+type_mission_6: 間諜
+type_mission_6_foreign: 外來間諜
+type_mission_6_own: 自己的間諜
+type_mission_7: 殖民
+type_mission_7_foreign: 外來殖民
+type_mission_7_own: 自己的殖民
+type_mission_7_own_return: 自己的殖民返航
+type_mission_8: 回收
+type_mission_8_foreign: 外來回收
+type_mission_8_own: 自己的回收
+type_mission_9: 摧毀
+type_mission_9_foreign: 外來摧毀
+type_mission_9_own: 自己的摧毀
+type_mission_10: 飛彈攻擊
+type_mission_10_foreign: 外來飛彈攻擊
+type_mission_10_own: 自己的飛彈攻擊
+type_mission_15: 遠征
+type_mission_15_foreign: 外來遠征
+type_mission_15_own: 自己的遠征
+type_mission_16: 交易
+type_mission_16_foreign: 外來市集艦隊
+type_mission_16_own: 自己的市集艦隊
+type_mission_17: 轉讓
+type_mission_17_foreign: 外來轉讓
+type_mission_17_own: 自己的轉讓
+type_mission_20: 攻擊
+type_mission_21: 間諜
+type_mission_22: 回收
+type_mission_return_foreign: 外來返航
+type_mission_return_own: 自己的返航
+type_planet_1: 行星
+type_planet_2: 殘骸場
+type_planet_3: 月球
+type_planet_4: 海盜基地
+type_planet_short_1: 行
+type_planet_short_2: 殘
+type_planet_short_3: 月
+type_planet_short_4: 盜
+user_level_0: 玩家
+user_level_1: 版主
+user_level_2: 營運者
+user_level_3: 管理員
+whenbuildable: 可建造於
+write_message: 寫訊息
+fl_cargo_options: 貨物選項
+fl_cargo_preset: 預設
+fl_cargo_needed: 需要
+fl_cargo_select: 選擇
+fl_cargo_current_planet: 目前行星
+ui_skip_to_content: 跳到內容
+ui_watch: 關注
+ui_unwatch: 取消關注
+ui_message_tools: 搜尋、篩選和操作
+ui_menu: 選單
+ui_rank: 排名
+ui_queue: 佇列
+ui_queue_free: 空位
+ui_planet_prev: "上一顆行星"
+ui_planet_next: "下一顆行星"
+ui_queue_done: "全部完成於 %at%（%in% 後）"
+ui_full_in: "距離滿載"
+ui_energy_used: "已用能源"
+ui_points: 分數
+ui_close: 關閉
+ui_storage_full: "倉庫已滿：生產停止"
+ui_messages: 訊息
+ui_server_time: 伺服器時間
+ui_planet: 行星
+ui_nav_empire: 帝國
+ui_nav_universe: 宇宙
+ui_nav_community: 社群
+ui_nav_help: 說明
+ui_nav_personal: 個人
+ui_nav_rankings: '排名'
+ui_nav_sections: '分區'
+ui_user_menu: '帳號選單'
+gl_points: 分數
+mg_action: 操作
+mg_message_type: 訊息類型
+mg_to: 給
+tkb_unentschieden: '<b>-平手-</b>'
+source_code: 原始碼
+teamMemberName: 名稱
+teamMemberContact: 聯絡方式
+teamMemberAbout: 簡介
+teamEmpty: 還沒有新增任何團隊成員。
+
+lm_board: 討論區
+bd_depot_action: "補給艦隊"
+depot_title: "聯盟倉庫"
+depot_intro: "駐守在這顆行星上的友軍艦隊可以在這裡補給。每次補給讓它們的停留時間延長 1 到 %s 小時（你的倉庫等級），並消耗這顆行星的重氫。艦隊剩餘的停留時間永遠不會超過 %s 小時。"
+depot_deuterium_stock: "這顆行星上的重氫"
+depot_empty: "沒有友軍艦隊駐守在這顆行星上。"
+depot_col_owner: "玩家"
+depot_col_ships: "艦船"
+depot_col_stay_end: "停留結束"
+depot_col_hourly: "每小時成本"
+depot_col_supply: "補給"
+depot_hours: "%s 小時"
+depot_cost: "成本"
+depot_supply: "補給"
+depot_full: "已達最長停留時間"
+depot_done: "艦隊已補給：停留時間延長 %s 小時，花費 %s 重氫。"
+depot_err_not_owner: "這顆行星不是你的。"
+depot_err_no_depot: "這顆行星沒有聯盟倉庫。"
+depot_err_hours: "你一次可以補給艦隊 1 到 %s 小時（你的倉庫等級）。"
+depot_err_fleet: "這支艦隊已不再駐守在這顆行星上。"
+depot_err_max_stay: "艦隊剩餘的停留時間最多 %s 小時。請選擇更少的小時數。"
+depot_err_deuterium: "這顆行星上的重氫不足：需要 %s。"
+op_discord_hook_invalid: "無效的 Discord webhook。只允許 https://discord.com/api/webhooks/... 的網址。"
+fl_push_guard: "這次運輸被擋下了：目標玩家最近沒有送過資源給你，而且貨物價值超過上限。"
+rl_too_many_requests: "短時間內請求太多。請等 %d 秒再試。"
+lm_vote: "投票"
+vt_head: "為遊戲投票"
+vt_intro: "到下列網站投票，就能在你的母星上獲得獎勵。每個網站在冷卻時間結束後可以再次投票。"
+vt_site: "網站"
+vt_reward: "獎勵"
+vt_status: "狀態"
+vt_ready: "可投票"
+vt_wait: "%d 小時 %d 分鐘後可再投"
+vt_button: "投票"
+vt_none: "目前沒有投票網站。"
+vt_postback_hint: "獎勵會在網站確認你的投票後送達。"
+vt_notice_rewarded: "謝謝你投票！獎勵已加到你的母星。"
+vt_notice_pending: "謝謝你投票！獎勵會在網站確認你的投票後送達。"
+vt_notice_cooldown: "你必須等一下才能再次為這個網站投票。"
+mg_confirm_delete_one: "要刪除這則訊息嗎？"
+mg_confirm_delete_bulk: "真的要刪除這些訊息嗎？刪除後無法復原。"
+mg_quick_read_all: "全部標為已讀"
+mg_quick_delete_read: "刪除已讀"
+mg_quick_delete_older: "刪除 %d 天前的"
+mg_confirm_delete_read: "要刪除這個分類中所有已讀的訊息嗎？最愛會保留。"
+mg_confirm_delete_older: "要刪除這個分類中超過 %d 天的所有訊息嗎？最愛會保留。"
+mg_spy_again: "再次偵查"
+fl_change_target: "更改目標"
+mg_group_mark: "標為已讀"
+mg_group_delete: "刪除"
+mg_pick_category: "從上方挑一個分類來查看它的訊息。"
+mg_no_messages: "這裡沒有訊息。"
+mg_select_message: "選擇訊息"
+mg_search_player: "搜尋玩家"
+mg_remove_receiver: "移除收件人"
+mg_no_receiver: "請至少選擇一位收件人。"
+nt_confirm_delete: "要刪除已標記的筆記嗎？"
+nt_priority_legend: "顏色 = 優先順序：綠色低、黃色普通、紅色高"
+al_save_all_hint: "兩個儲存按鈕會一起儲存文字和選項。"
+al_dissolve_btn: "解散聯盟..."
+al_transfer_btn: "轉讓聯盟..."
+al_dissolve_hint: "這會永久刪除聯盟並移除所有成員。無法復原。"
+al_transfer_hint: "把領導權交給另一位成員。你會失去創辦人階級。"
+al_transfer_confirm: "要把聯盟轉讓給選定的成員嗎？你會失去領導權。"
+al_kick: "踢除"
+al_find_results: "結果"
+al_find_browse: "最大的聯盟"
+al_find_none_yet: "這個宇宙還沒有任何聯盟。"
+al_no_inside_text: "還沒有給成員看的文字。"
+bd_needs: '需要'
+bd_missing: '缺少'
+honorfights: "榮譽戰鬥"
+pl_block_head: "封鎖"
+pl_block_hint: "立即生效，沒有儲存按鈕。"
+st_my_rank: "跳到我的排名"
+st_legend_noob: "新手保護"
+rec_intro: "這個宇宙中每個建築和研究所達到的最高等級，與你自己的比較。"
+as_intro: "你自己活動的詳細計數（遠征、建造、損失、擊殺）。所有玩家的排名在統計頁面。"
+as_show_empty: "顯示空白列"
+op_sections: "跳到"
+op_save_hint: "變更在儲存後生效。"
+op_dlte_account_confirm: "真的要刪除你的帳號嗎？它會在至少 7 天後被完全移除；在那之前你都可以取消刪除。"
+ti_none: "你還沒有客服單。請先閱讀%s；如果沒有幫助，再建立客服單。"
+ti_faq_first: "請先查看 FAQ：許多問題在那裡都有解答。"
+team_contact_hint: "需要協助嗎？透過 %s 開一張客服單。"
+cl_hint: "遊戲軟體的技術變更，最新的在最上面。點擊項目可展開。"
+cl_empty: "沒有紀錄任何變更。"
+toc_contents: "目錄"
+sh_hint: "至少輸入兩個字元，然後按 Enter 或搜尋。"
+sh_search_type: "搜尋對象"
+sh_search_text: "搜尋內容"
+sh_no_players: "找不到。請檢查拼字，或試試更短的文字。"
+sh_no_alliances: "找不到聯盟。請檢查拼字，或試試更短的文字。"
+fl_no_ship_selected: "請至少選擇一艘艦船。"
+fl_recall_confirm: "要召回這支艦隊嗎？它現在就會掉頭，並在 %s 回到家。"
+fl_recall_return: "現在召回的話回到家的時間"
+fl_no_fleets: "沒有執行任務中的艦隊。"
+fl_quick_fleets: "快速艦隊"
+fl_quick_fleets_hint: "還沒有儲存任何東西。把艦船組合存在下方的「自訂艦隊」，它就會以一鍵捷徑的形式出現在這裡；你最後一次的任務也會顯示在這裡。"
+fl_load_hint: "灰色的數值是這顆行星的庫存。貨物按鈕會建議要用幾艘船來運；欄位留空表示不帶任何東西。"
+fl_load_clear: "清除"
+fl_cargo_options_hint: "紅色表示你沒有足夠的那種艦船。點艦船圖示，就能連同目標一起預先選好。"
+fl_summary: "派遣摘要"
+fl_coord_range: "座標無效。允許範圍：銀河系 1-%d、星系 1-%d、位置 1-%d。"
+fl_sending: "艦隊派出中..."
+ft_rate_info: '商人會保留艦船價值的 %s%%，其餘以資源付給你。'
+ft_per_ship: '每艘艦船的報酬'
+ft_receive: '你將收到'
+market_tab_resources: '資源市集'
+market_tab_fleets: '艦隊市集'
+market_ratio_label: '以此比例比較掛單'
+market_ratio_hint: '設定「比例」欄使用的匯率；所選的資源是基準。'
+market_no_offers: '目前沒有掛單。'
+gl_recycle_needs: "回收（需要回收船）"
+gl_keys_hint: "鍵盤：方向鍵或 A D 移動星系，W S 移動銀河系。"
+rs_ramp_up_confirm: '要把每個生產設施設成 100% 並儲存嗎？'
+rs_shut_down_confirm: '要把每個生產設施設成 0% 並儲存嗎？生產會停止。'
+rs_energy_deficit: '能源不足：在能源恢復平衡之前，礦場會低於設定的產能運轉。'
+ov_event_hostile: '敵對'
+ov_no_fleets: '沒有艦隊移動。'
+al_chart_x: "時間（幾小時前）"
+al_chart_y: "分數"
+as_sub_count: "遠征"
+as_sub_found: "發現"
+as_sub_lost: "損失"
+as_sub_first: "第一次"
+op_notifications: "通知"
+rs_full_in: '距離滿載'
+rs_full_now: '已滿'
+fl_prepared_gone: "這支艦隊已不再是準備好的狀態（已過期、被釋放或已派出）。請重新開始。"
+gl_legend_activity: "最近 15 分鐘內活躍，顯示為（幾分鐘前），最多到 60"
+st_rank_change: "自上次更新以來的排名變化"
+st_prev_range: "前 100 名"
+st_next_range: "後 100 名"
+op_unsaved_one: "1 項未儲存的變更"
+op_unsaved_many: "%d 項未儲存的變更"
+pl_note: "筆記"
+pl_galaxy_view: "在銀河系中顯示"
+shell_jump: "跳到…"
+shell_jump_tip: "跳到某個頁面、行星或座標"
+shell_switch_planet: "切換行星"
+shell_switch_to: "切換到 %s"
+shell_moon_of: "%s 的月球"
+shell_fields: "欄位"
+shell_slots_tip: "已使用 %1 / %2 個行星欄位"
+shell_shortcuts: "捷徑"
+shell_shortcuts_title: "鍵盤快速鍵"
+shell_attack_title: "敵對艦隊逼近中"
+shell_attack_arrives: "抵達倒數"
+shell_attack_in: "攻擊倒數"
+shell_attack_fleet: "艦隊"
+shell_attack_details: "詳情"
+shell_attack_hide: "隱藏警告"
+shell_tagline: "在瀏覽器裡玩的開源太空策略遊戲。"
+shell_footer: "頁尾"
+shell_footer_game: "遊戲"
+shell_footer_community: "社群"
+shell_footer_legal: "法律"
+shell_footer_credits: '建立在眾多開源專案的成果之上'
+shell_imprint: "版權頁資訊"
+ui_palette_placeholder: "頁面、行星、座標（例如 1:42:8）…"
+ui_palette_empty: "沒有符合的項目"
+ui_palette_pages: "頁面"
+ui_palette_planets: "行星"
+ui_palette_go: "前往"
+ui_palette_galaxy: "銀河系"
+ui_shortcuts_title: "鍵盤快速鍵"
+ui_shortcuts_palette: "跳到頁面、行星或座標"
+ui_shortcuts_go_overview: "總覽"
+ui_shortcuts_go_buildings: "建築"
+ui_shortcuts_go_galaxy: "銀河系"
+ui_shortcuts_planets: "上一顆 / 下一顆行星"
+ui_shortcuts_help: "這份說明"
+mg_not_delivered: "未送達（對方封鎖了訊息）：%s"
+al_already_member: "你已經是某個聯盟的成員了。請先退出，才能創立新的聯盟。"
+al_kicked: "已被移出聯盟"
+al_kicked_msg: "你已被移出聯盟 <b>%s</b>。"
+al_disbanded: "聯盟已解散"
+al_disbanded_msg: "聯盟 <b>%s</b> 已解散。你不再是成員。"
+al_disbanded_applicant_msg: "聯盟 <b>%s</b> 已解散，你的申請作廢。"
+al_disbanded_partner_msg: "聯盟 <b>%s</b> 已解散。與它簽訂的所有條約都已終止。"
+fa_no_debris: "沒有殘骸場可以回收。"
+fl_colonize_slot_taken: "目標位置已經有行星了。"
+fl_choose_destination: "選擇目的地"
+op_cant_activate_vacation_hostile: "有敵對艦隊正在前往你的行星時，你無法開始假期模式。"
+rec_staff_excluded: "團隊成員和被停權的玩家不會創下紀錄，所以你自己的等級可能更高。"
+rec_hidden_holder: "已隱藏"
+rec_hidden_holder_info: "紀錄保持者沒有在紀錄中顯示自己的名字。"
+rec_pending: "新紀錄 – 會在下次統計更新時計入。"
+rec_you: "你（尚未計入）"

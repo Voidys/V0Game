@@ -1,0 +1,8 @@
+Szia {USERNAME}!
+
+Még nem jelentkeztél be a(z) {GAMENAME} játékba {LASTDATE} óta. Ha továbbra is a közösségünk tagja szeretnél maradni, jelentkezz be a fiókadataiddal, különben a fiókodat töröljük.
+
+Ha elfelejtetted a jelszavad, menj ide: {HTTPPATH}, és kattints az „Elfelejtett jelszó” gombra. Pár percen belül e-mailt kapsz az új jelszavaddal.
+
+Üdvözlettel,
+a(z) {GAMENAME} csapata

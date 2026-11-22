@@ -1,0 +1,194 @@
+build_ships: 已建造艦船總數
+buttonLostPassword: 忘記密碼？
+buttonRegister: 註冊
+buttonScreenshot: 遊戲截圖
+civil: 民用
+colony: 殖民地
+deathstar: 死星
+destroyed_sats: 被摧毀的太陽能衛星
+disclamerLabelAddress: '遊戲網址：'
+disclamerLabelMail: '客服信箱：'
+disclamerLabelNotice: 更多資訊
+disclamerLabelPhone: '電話：'
+first_fights: 宇宙中的首批戰鬥
+forum: 討論區
+hof_empty: "還沒有名人堂資料。"
+login_error_1: >-
+  電子信箱或密碼錯誤！小提醒：密碼管理員常會自動填入你的使用者名稱，但登入要用電子信箱。
+login_error_2: >-
+  你的帳號已在其他裝置登入，或是你的 IP 位址變了。
+login_error_3: 你的工作階段已過期，請重新登入。
+login_error_4: '登入嘗試次數太多，請等 15 分鐘後再試。'
+loginButton: 登入
+loginEmail: 電子信箱
+loginHeader: 登入
+loginInfo: 登入即表示我接受%s。
+loginPassword: 密碼
+loginRememberMe: '保持登入 %d 天'
+loginServerDesc: >-
+  %s 是一款太空策略遊戲，數百名玩家<strong>同時</strong>在這裡爭奪第一。你只需要一個普通的瀏覽器就能開打。
+loginWelcome: 歡迎來到 %s
+Lowest_longterm_points: 分數最低的預先註冊帳號
+menu_banlist: 停權名單
+menu_battlehall: 戰鬥大廳
+menu_disclamer: 聯絡我們
+menu_news: 最新消息
+menu_rules: 規則
+military: 軍事
+news_does_not_exist: 目前沒有消息。
+news_from: '%s，作者 %s'
+overall: 總排名
+passwordBack: 返回
+passwordChangedMailSend: 你的新密碼已經在路上，很快就會收到電子郵件。
+passwordChangedMailTitle: '%s 的新密碼'
+passwordConfirmInfo: '點按鈕就會重設你的密碼，我們會把新密碼寄給你。'
+passwordConfirmSubmit: '寄新密碼給我'
+passwordErrorMailEmpty: 我們不認識這個電子信箱。
+passwordInfo: >-
+  忘記密碼了嗎？請輸入帳號的使用者名稱和電子信箱。如果都不記得了，請聯絡管理員。
+passwordMail: 電子信箱
+passwordNext: 下一步
+passwordSubmit: 送出
+passwordUsername: 使用者名稱
+passwordValidInValid: 無效的請求。
+passwordValidMailSend: 你很快會收到一封電子郵件，裡面有後續步驟。
+passwordValidMailTitle: '%s 的密碼重設'
+players: 玩家
+points_amount: 分數 / 數量
+powFailed: >-
+  自動機器人檢查失敗或已過期。請返回上一頁，稍等一下再重新送出表單。
+powNoCrypto: >-
+  你的瀏覽器無法執行自動機器人檢查（需要安全的 https 連線）。
+powVerifying: 正在檢查你的瀏覽器 …
+registerBack: 返回
+registerDataPrivacyDesc: 我同意%s
+registerEmail: 電子信箱
+registerEmailDesc: 請輸入你的電子信箱。
+registerEmailReplay: 再輸入一次電子信箱
+registerEmailReplayDesc: 再輸入一次電子信箱來確認。
+registerErrorDataPrivacy: 請先接受隱私權政策才能繼續。
+registerErrorMailEmpty: 請輸入電子信箱。
+registerErrorMailExist: 這個電子信箱已經註冊過了。
+registerErrorMailInvalid: 這看起來不像有效的電子信箱。
+registerErrorMailSame: 兩次輸入的電子信箱不一樣。
+registerErrorPasswordLength: 密碼至少要 %s 個字元。
+registerErrorPasswordSame: 兩次輸入的密碼不一樣。
+registerErrorRules: 請先接受規則才能繼續。
+registerErrorUniClosed: 這個宇宙已關閉註冊。
+registerErrorUsernameChar: 使用者名稱只能包含字母、數字、空格、_、- 和 .
+registerErrorUsernameEmpty: 請輸入使用者名稱。
+registerErrorUsernameExist: 這個使用者名稱已經有人用了。
+registerLanguage: 語言
+registerMailCompleteTitle: 歡迎來到 %s！
+registerMailVertifyTitle: '啟用你在 %s 的帳號'
+registerPassword: 密碼
+registerPasswordDesc: 密碼至少要 %s 個字元。
+registerPasswordReplay: 再輸入一次密碼
+registerPasswordReplayDesc: 再輸入一次相同的密碼。
+registerReferral: '推薦人：'
+registerRules: 規則
+registerRulesDesc: 我同意%s
+registerSendComplete: >-
+  謝謝你的註冊！去收信（垃圾郵件匣也要看）看看後續步驟吧。
+registerTimezone: 時區
+registerUsername: 使用者名稱
+registerUsernameDesc: >-
+  請用 3 到 25 個字元：字母、數字、空格、句點、連字號和底線。
+registerWelcomePMSenderName: 管理員
+registerWelcomePMSubject: 歡迎
+registerWelcomePMText: >-
+  歡迎來到 %s！先蓋一座太陽能發電廠，因為生產資源需要能源。打開左邊選單的建築，從太陽能發電廠開始蓋。<br>有了能源就能蓋礦場。繼續待在建築頁面，先蓋金屬礦，再蓋晶體礦。<br><br>要造艦船得先有太空船廠。左邊的科技選單會告訴你解鎖它需要什麼。<br>還有問題的話，可以看看 FAQ、Wiki，或是開一張客服單。<br><br>團隊祝你在宇宙裡玩得開心！
+siteTitleBanList: 停權名單
+siteTitleBattleHall: 戰鬥大廳
+siteTitleDataPrivacy: 隱私權政策
+siteTitleDisclamer: 聯絡我們
+siteTitleHOF: 名人堂
+siteTitleIndex: 首頁
+siteTitleLostPassword: 忘記密碼？
+siteTitleNews: 最新消息
+siteTitleRegister: 註冊
+siteTitleRules: 規則
+siteTitleScreens: 遊戲截圖
+spy: 間諜衛星
+st_buildings: 建築
+st_defenses: 防禦
+st_fleets: 艦隊
+st_points: 分數
+st_researh: 研究
+theme: 主題
+universe: 宇宙
+vertifyAdminMessage: 帳號「%s」已啟用。
+vertifyNoUserFound: 無效的請求。
+passwordErrorUsernameEmpty: 你沒有輸入使用者名稱！
+uni_closed: '（已關閉）'
+uni_reg_closed: '（已關閉註冊）'
+uni_reg_open: '（僅開放註冊）'
+home_menu: 選單
+home_meta_description: '%s – 帶著 2000 年代風味的太空策略瀏覽器遊戲：發展行星、打造艦隊、結盟稱霸。'
+home_started: 已經開打啦！
+home_starts_in: 倒數
+home_team: 團隊
+home_meme_alt: '來自 {game_name} 指揮甲板的迷因漫畫'
+home_meme_alt_deep_space_transit: "漫畫：兩名學員坐在穿梭機裡，一個看到小行星帶就癱軟，另一個看著閃閃發光的星雲咧嘴笑。「例行星區巡邏 vs. 發現一片沒人探索過、資源豐富的星雲。」"
+home_meme_alt_deuterium_joyride: "漫畫：一位疲憊的指揮官在觀測甲板上看著兩名新兵在外面飄來飄去，「看著新兵把重氫都浪費在外面兜風，而我還在等 12 小時的礦場升級。」"
+home_meme_alt_enemy_fleet: "漫畫：警報狂閃，一名學員抱頭驚慌，「1000 艘敵方驅逐艦逼近？！我還以為這個星區很安全！？」"
+home_meme_alt_fleet_decimated: "漫畫：一名驚魂未定的士兵直盯著前方，破碎的穹頂外艦船接連爆炸，「花了 20 小時刷資源，結果前三名玩家的艦隊跳進來，3 秒就全部拆光的時候。」"
+home_meme_alt_solo_scouting: "漫畫：上岡指揮官咧嘴笑，把機械手放在學員肩上，「別擔心，學員。最高指揮部對你單獨前往太空偵察的任務『完全』有信心。」"
+home_meme_alt_this_is_fine: "漫畫：一隻穿太空衣的狗平靜地坐在燃燒的指揮中樞裡說「沒事啦」，「別擔心，我的艦隊只是晚了 4 小時才回來而已。」"
+source_code: 原始碼
+news_back: 返回最新消息
+lightbox_close: "關閉"
+lightbox_prev: "上一張圖片"
+lightbox_next: "下一張圖片"
+news_pinned: 置頂
+news_read_more: 閱讀更多
+news_latest: 最新消息
+home_discord_online: "在線"
+home_discord_join: "加入我們的 Discord"
+news_all: 全部消息
+csrf_invalid: '安全性檢查失敗（你的工作階段可能已過期）。請重新整理頁面再試一次。'
+home_logged_in_head: "你的帳號"
+home_logged_in_as: "已登入為 %s"
+home_continue: "前往你的宇宙"
+home_account_lobby: "帳號大廳"
+rulesEmpty: "目前還沒有發佈任何規則。"
+loginLostPasswordOff: "忘記密碼？%s"
+loginContactTeam: "聯絡團隊。"
+home_step_build: "在你的行星上蓋礦場、做研究、建太空船廠。"
+home_step_fleet: "派出艦隊：探索、貿易、掠奪或防守。"
+home_step_alliance: "加入聯盟，一起衝排名。"
+home_hof_desc: "已結束回合的優勝者"
+home_battlehall_desc: "本回合最激烈的戰鬥"
+memorialFilter: "紀念戰鬥"
+toc_contents: "目錄"
+loginRememberHint: "共用電腦請不要勾選。"
+home_step_rules: "開始前先讀一下%s。"
+socialContinueWith: "使用 %s 繼續"
+socialOr: "或"
+socialErrorState: "無法驗證這次登入（請求已過期或無效）。請重新開始。"
+socialErrorProvider: "服務提供者沒有完成登入，請稍後再試。"
+socialErrorCancelled: "登入已取消。"
+socialErrorNoEmail: "服務提供者沒有提供已驗證的電子信箱。請改用電子信箱和密碼註冊，之後再到帳號設定裡連結這個服務。"
+socialErrorTaken: "這個服務帳號已經連結到另一個玩家帳號了。"
+socialErrorExpired: "這個步驟已過期，請重新開始登入。"
+socialLinkTitle: "連結你的帳號"
+socialLinkIntro: "已經有使用電子信箱 %s 的帳號了。要把它和你的 %s 登入連結起來，請輸入那個帳號的密碼一次。"
+socialLinkPassword: "現有帳號的密碼"
+socialLinkHelp: "這是為了確認帳號是你的。確認之後，你與服務提供者的登入才會連結起來。"
+socialLinkButton: "連結並登入"
+socialLinkWrong: "密碼不對。"
+socialCancel: "取消"
+socialCompleteTitle: "完成註冊"
+socialCompleteIntro: "你是第一次使用 %s（%s）登入。選好名字並接受規則就能建立帳號。不需要密碼，之後可以用忘記密碼功能設定一組。"
+socialConnectedTitle: "已連結的服務"
+socialConnectedIntro: "用這些服務登入，不必輸入密碼。"
+socialConnected: "已連結"
+socialConnectedAs: "已連結（%s）"
+socialNotConnected: "未連結"
+socialConnect: "連結"
+socialDisconnect: "解除連結"
+socialLinked: "這個服務已連結到你的帳號。"
+socialUnlinked: "這個服務已解除連結。"
+socialLastMethod: "這是你唯一的登入方式。請先設定密碼（在首頁用忘記密碼），再解除連結。"
+socialLastMethodHint: "最後一種登入方式：請先設定密碼，才能解除連結。"
+socialErrorUnavailable: "這種登入方式目前無法使用。"

@@ -1,0 +1,11 @@
+Ciao {USERNAME},
+
+l'indirizzo e-mail del tuo account è appena stato cambiato.
+La modifica diventerà definitiva tra qualche giorno.
+
+Se non sei stato tu, apri un ticket sul nostro Discord:
+{DISCORD}
+
+Un saluto,
+
+Il tuo team di {GAMENAME}

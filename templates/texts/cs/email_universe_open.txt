@@ -1,0 +1,16 @@
+Ahoj {USERNAME},
+
+je to tady – {UNINAME} otevřel své brány dne {OPENTIME}!
+Jsme rádi, že jsi tu, a přejeme ti spoustu zábavy a vzrušujících zážitků.
+
+Hru najdeš na {HTTPPATH}.
+Klidně se také zastav na našem Discordu:
+{DISCORD}
+
+Pokud jsi zapomněl heslo, stačí na stránce kliknout na „Zapomněl jsi heslo?“.
+Za chvíli ti přijde e-mail s novým heslem.
+
+Pokud máš s přihlášením nebo registrací dál problémy, ozvi se nám na Discordu.
+
+S pozdravem
+tým {GAMENAME}

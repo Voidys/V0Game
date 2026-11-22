@@ -1,0 +1,12 @@
+<div class="left">
+<h2>Információ a többuniverzumos támogatásról</h2>
+<p>A V0Game jól tudja kezelni a többuniverzumos működést, ehhez a webszervert a kért módon kell beállítanod.</p>
+<p>Hogy a szervered mit támogat, azt az „Információ” gombnál tudhatod meg. Ha nem vagy biztos benne, kérdezd meg a tárhelyszolgáltatód ismerőseit.</p>
+<h3>Apache</h3>
+<p>Ha Apache szervert használsz, a főkönyvtárban lévő .htaccess fájlból csak a 48-51. sort kell kivenned (az útvonalat eltávolítva).<br>
+Ezenkívül a mod_rewrite is szükséges.</p>
+<h3>nginx</h3>
+<p>Ha nginx szervert használsz, a vhost-konfigurációt közvetlenül a rewrite szabállyal kell kibővíteni:</p>
+<p><code>{NGINX-CODE}</code></p>
+<p>Egyszerűen illeszd be az alábbi kódrészletet a „server_name” sor alá.</p>
+</div>

@@ -1,0 +1,11 @@
+Ahoj {USERNAME},
+
+e-mailová adresa tvého účtu byla právě změněna.
+Změna se za pár dní stane trvalou.
+
+Pokud jsi to neudělal ty sám, založ ticket na našem Discordu:
+{DISCORD}
+
+S pozdravem
+
+tvůj tým {GAMENAME}

@@ -1,0 +1,12 @@
+Olá, {USERNAME}!
+
+Valeu por se cadastrar em {GAMENAME}!
+
+Ficamos felizes que você tenha escolhido fazer parte da nossa comunidade
+e esperamos que se divirta bastante!
+
+Dê também uma passada no nosso Discord:
+{DISCORD}
+
+Até logo,
+Equipe {GAMENAME}

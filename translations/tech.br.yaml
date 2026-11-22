@@ -1,0 +1,350 @@
+bonus:
+  Attack: Ataque
+  BuildTime: Tempo de construção
+  Defensive: Defesa
+  DefensiveTime: Tempo de construção de defesas
+  Energy: Produção de energia
+  Expedition: Expedições
+  FleetSlots: Slots de frota
+  FlyTime: Tempo de voo
+  GateCoolTime: Tempo de recarga do portal de salto
+  MoreFound: Achados em expedições
+  Planets: Planetas
+  ResearchTime: Tempo de pesquisa
+  Resource: Produção de recursos
+  ResourceStorage: Armazenamento de recursos
+  Shield: Escudo
+  ShipStorage: Armazenamento de naves
+  ShipTime: Tempo de construção de naves
+  SpyPower: Poder de espionagem
+longDescription:
+  '1': As minas de metal extraem o minério em que todo império, novo ou estabelecido, se apoia.
+  '2': O cristal é o ingrediente-chave dos circuitos eletrônicos e de certas ligas.
+  '3': O deutério abastece suas espaçonaves e é colhido no fundo do mar. É uma substância rara, por isso é relativamente cara.
+  '4': As plantas de energia solar transformam luz do sol em energia. Toda mina precisa de energia para funcionar.
+  '6': Por padrão, cada nível reduz o tempo de pesquisa em 8%.
+  '12': A Planta de Fusão produz energia fundindo deutério. Ela rende mais energia que uma Planta de Energia Solar, mas custa mais para construir. A produção cresce com a Tecnologia de Energia e com o nível da própria planta. A fórmula da produção de energia é:<br>Energia produzida = 30 x nível da Planta de Fusão x (1,05 + (0,01 * nível da Tecnologia de Energia))^nível da Planta de Fusão
+  '14': As fábricas de robôs fornecem robôs de construção que ajudam a erguer seus edifícios. Cada nível acelera as melhorias de edifícios.
+  '15': O máximo da robótica. Cada nível reduz pela metade o tempo de construção de edifícios, naves e defesas.
+  '21': Todas as naves e defesas são construídas no hangar do planeta.
+  '22': Armazena o excesso de Metal.
+  '23': Armazena o excesso de Cristal.
+  '24': Armazena o excesso de Deutério.
+  '31': Você precisa de um laboratório de pesquisas para pesquisar novas tecnologias. O nível do laboratório define a velocidade da pesquisa e quais tecnologias você pode liberar. A pesquisa roda no laboratório do planeta onde você a inicia, e o resultado vale para todos os seus planetas. Enquanto uma pesquisa está em andamento, nenhum laboratório de pesquisas pode ser melhorado.
+  '33': 'O Terraformador amplia a área utilizável do planeta. Cada nível dá 5 campos adicionais, mais um campo extra a cada nível par. Cada nível do Terraformador ocupa um campo.<br>Construí-lo exige energia, mas ela não é consumida: seu planeta só precisa produzir o bastante (1.000 no nível 1, dobrando a cada nível), mesmo que suas minas já estejam usando. Depois de construído, o Terraformador nunca pode ser demolido.'
+  '34': 'O Depósito da Aliança permite abastecer com deutério frotas amigas estacionadas no seu planeta e assim estender a permanência delas. Abra-o pela página do edifício: para cada frota estacionada, você escolhe entre 1 hora e tantas horas quanto o nível do depósito, e paga horas vezes o custo horário de permanência da frota, tirado do deutério do seu planeta. O custo horário de permanência é um décimo do consumo base de combustível somado das naves da frota, arredondado para cima. Uma frota pode ser abastecida várias vezes, mas nunca pode ter mais de 32 horas de permanência restantes. Só dá para abastecer frotas de outros jogadores que estejam em órbita no seu planeta nesse momento.'
+  '35': A doca de reparos pode consertar naves que foram destruídas em batalha e deixaram um campo de ruínas. Um reparo leva no máximo 12 horas e não pode terminar antes de 30 minutos depois do surgimento do campo de ruínas.<br>Quando o campo de ruínas aparece, você tem 3 dias para iniciar o reparo. Quando o reparo termina, você mesmo precisa recolocar as naves em serviço. Se não fizer isso, elas voltam ao serviço automaticamente depois de 3 dias.
+  '41': A lua não tem atmosfera, e uma lua recém-formada tem espaço para só um edifício, então comece pela Base Lunar. Cada nível dá 3 campos extras e ocupa um campo. Depois de construída, a Base Lunar nunca pode ser desmontada.
+  '42': 'O sensor permite observar movimentos de frota. Quanto maior o nível, maior o alcance do Phalanx: (nível do Phalanx)^2 - 1 sistemas por padrão, então o nível 1 cobre só o sistema da própria lua. Cada escaneamento custa 5.000 de deutério, que precisa estar na lua. Para escanear, abra a visão de galáxia a partir da lua e clique em um planeta no alcance. As luas em si não podem ser escaneadas com o Phalanx, porque não têm atmosfera.<br><br>O Phalanx mostra as frotas que partem do planeta escaneado ou voam até ele: quando chegam, quando uma permanência termina e quando as frotas do dono voltam para casa. Desdobramentos e mísseis nunca aparecem, nem voos de reciclagem ou de comércio com destino ao planeta.'
+  '43': 'Os portais de salto são enormes transmissores que enviam frotas grandes pelo universo sem perder tempo algum. Não gastam deutério, mas não dá para transferir recursos desse jeito. Os dois portais precisam estar prontos: depois de um salto, cada portal precisa de um tempo de recarga, que por padrão é de 60 minutos no nível 1 e diminui a cada nível, chegando a 10 minutos a partir do nível 15.'
+  '44': Os silos de mísseis guardam seus mísseis. Por padrão, cada nível adiciona 10 vagas. Um míssil Interceptador ocupa 1 vaga, um míssil Interplanetário ocupa 2.
+  '106': 'Esta tecnologia permite coletar informações sobre outros planetas e luas. Quando você envia sondas, sua Tecnologia de Espionagem é comparada com a do alvo: quanto maior o seu nível, mais informações no relatório e menor a chance de as sondas serem detectadas. Mais sondas revelam mais detalhes, mas aumentam o risco de detecção. Em certos níveis de Tecnologia de Espionagem você também descobre mais sobre frotas estrangeiras na sua tela de Visão Geral:<br><br><li>Nos níveis 0-1 você só vê que uma frota está se aproximando do seu planeta</li><li>Nos níveis 2-3 você vê quantas naves estão se aproximando</li><li>Nos níveis 4-7 você vê quais tipos de nave estão na frota</li><li>No nível 8+ você vê quantas naves de cada tipo estão na frota</li>'
+  '108': Computadores melhores permitem comandar mais frotas. Cada nível de Tecnologia de Computação aumenta em um o seu número máximo de frotas.
+  '109': A Tecnologia de Armas deixa os sistemas de armas mais eficazes. Cada nível aumenta o poder de ataque de todas as unidades em 10% do valor base.
+  '110': A Tecnologia de Escudo deixa os escudos de naves e estruturas defensivas mais eficazes. Cada nível aumenta a força dos escudos em 10% do valor base.
+  '111': Ligas especiais melhoram a blindagem de naves e estruturas defensivas. Cada nível aumenta a eficácia da blindagem em 10%.
+  '113': Dominar diferentes tipos de energia é a chave para muitas tecnologias novas. Cada nível da Tecnologia de Energia também aumenta a produção de energia da Planta de Fusão.
+  '114': Integrando a 4ª e a 5ª dimensões, você pode pesquisar um novo tipo de propulsor, mais econômico e eficiente.
+  '115': 'Desenvolver este propulsor deixa algumas naves mais rápidas, mas cada nível só soma 10% da velocidade base. Naves afetadas: Cargueiro Pequeno, Cargueiro Grande, Caça Ligeiro, Reciclador e Sonda de Espionagem (Cargueiro Pequeno e Reciclador passam a usar propulsores melhores depois).'
+  '117': 'O motor de impulsão funciona pelo princípio da reação. Desenvolvê-lo deixa algumas naves mais rápidas, mas cada nível só soma 20% da velocidade base: Bombardeiro, Cruzador, Caça Pesado e Nave de Colonização, além do Cargueiro Pequeno e do Reciclador quando passam a usar este propulsor. Os mísseis interplanetários também voam mais longe a cada nível.'
+  '118': 'O propulsor de hiperespaço dobra o espaço em volta da nave. Desenvolvê-lo deixa algumas naves mais rápidas, mas cada nível só soma 30% da velocidade base: Cruzador de Batalha, Nave de Batalha, Destruidor, Estrela da Morte, Lua Negra, Transportador de Batalha, Avatar e Reciclador de Batalha, além do Bombardeiro e do Reciclador quando passam a usar este propulsor. Exige Tecnologia de Hiperespaço (nível 3) e Laboratório de Pesquisas (nível 7).'
+  '120': A luz focada produz um feixe que causa dano a tudo o que atinge. Exige Laboratório de Pesquisas (nível 1) e Tecnologia de Energia (nível 2).
+  '121': Um feixe mortal de íons acelerados que causa dano enorme no impacto.
+  '122': Um desenvolvimento maior da tecnologia de íons que acelera plasma de alta energia, criado pelo superaquecimento de íons. Tem um efeito devastador no impacto.
+  '123': Pesquisadores de planetas diferentes se comunicam por esta rede. Cada nível permite que mais um laboratório se junte ao laboratório onde você inicia uma pesquisa. São escolhidos os laboratórios de nível mais alto, e um laboratório em rede precisa ser avançado o bastante para rodar aquela pesquisa sozinho. Os níveis deles são somados para calcular o tempo de pesquisa.
+  '124': 'A Astrofísica libera a colonização e as expedições ao espaço profundo. O limite de colônias, o tempo de permanência e as posições abaixo são as configurações padrão; o seu universo pode ser diferente.<br><br> <li>Limite de colônias</li> Nível 1-2 = 2 planetas<br> Nível 3-4 = 3 planetas<br> Nível 5-6 = 4 planetas<br> Nível 7-8 = 5 planetas<br> Nível 9-10 = 6 planetas<br> Nível 11-12 = 7 planetas<br> Nível 13-14 = 8 planetas<br> Nível 15-16 = 9 planetas<br> Nível 17-18 = 10 planetas<br> Nível 19-20 = 11 planetas<br> Nível 21+ = 12 planetas<br><br> <li>Vagas de expedição</li> Nível 1-3 = 1 expedição<br> Nível 4-8 = 2 expedições<br> Nível 9-15 = 3 expedições<br> Nível 16-24 = 4 expedições<br>(mais uma a cada novo quadrado perfeito: 25, 36, ...)<br><br> <li>Tempo de permanência da expedição</li> Nível = tempo máximo de permanência em horas<br><br> <li>Posições colonizáveis</li> Nível 1-3 = 4-12<br> Nível 4-5 = 3-13<br> Nível 6-7 = 2-14<br> Nível 8+ = 1-15'
+  '131': Aumenta a produção de Metal em 2% por nível.
+  '132': Aumenta a produção de Cristal em 2% por nível.
+  '133': Aumenta a produção de Deutério em 2% por nível.
+  '134': Reduz os custos de voo em 2% por nível.
+  '199': Disparar uma carga concentrada de partículas de gráviton cria um campo gravitacional artificial capaz de destruir naves e até luas. Exige Laboratório de Pesquisas (nível 12).
+  '202': O cargueiro pequeno é uma nave ágil que leva recursos rapidamente para outros planetas.<br>Ele voa com o motor de combustão até o seu Motor de Impulsão chegar ao nível 5. A partir daí passa para o motor de impulsão, que dobra a velocidade base dele.
+  '203': Este cargueiro carrega muito mais que o cargueiro pequeno e, em geral, é mais rápido graças a um propulsor melhor.
+  '204': A primeira nave de combate que todo imperador constrói. O caça ligeiro é ágil, mas vulnerável sozinho; em grande número, vira uma ameaça real para qualquer império. Os caças ligeiros são os primeiros a escoltar cargueiros pequenos e grandes até planetas hostis com defesa fraca.
+  '205': Este caça tem blindagem melhor e bate mais forte que o caça ligeiro.
+  '206': Os cruzadores têm quase o triplo da blindagem dos caças pesados e mais que o dobro do poder de fogo. Também são muito rápidos.
+  '207': As naves de batalha são a espinha dorsal de uma frota. Canhões pesados, alta velocidade e grandes porões de carga fazem delas oponentes para levar a sério.
+  '208': 'Esta nave bem blindada conquista novos planetas, algo que um império em crescimento precisa. Na nova colônia, a nave é desmontada e todo o material reciclável vai para o desenvolvimento do novo mundo. Quantos planetas você pode colonizar depende diretamente da Astrofísica: o primeiro nível e cada segundo nível depois dele permitem mais uma colônia (por padrão).'
+  '209': O reciclador colhe matéria-prima de campos de destroços. A capacidade de carga dele é de 20.000. Ele começa no motor de combustão, passa para o motor de impulsão quando o seu Motor de Impulsão chega ao nível 17, e para o propulsor de hiperespaço quando o seu Motor Propulsor de Hiperespaço chega ao nível 15.
+  '210': As sondas de espionagem são drones pequenos e ágeis que entregam dados sobre frotas e planetas a longas distâncias.
+  '211': O bombardeiro foi feito especialmente para destruir as defesas de um planeta.<br>Ele voa com o motor de impulsão e passa para o propulsor de hiperespaço quando o seu Motor Propulsor de Hiperespaço chega ao nível 8.
+  '212': Os satélites solares são plataformas simples de células solares em uma órbita alta e estacionária. Eles captam a luz do sol e a enviam por laser até a estação em solo.
+  '213': 'O destruidor é o rei das naves de guerra. Contra Lasers Pequenos, ele tem tiro rápido: depois de cada acerto, ganha outro disparo em 9 de cada 10 casos.'
+  '214': O poder de destruição da Estrela da Morte não tem rival, e ela pode destruir luas.
+  '215': O Cruzador de Batalha é especialista em interceptar frotas hostis.
+  '216': 'A sucessora da popular Estrela da Morte: muito mais rápida e resistente, com um porão de carga enorme, mas que bate um pouco menos forte.'
+  '217': Um desenvolvimento do cargueiro grande com capacidade de carga muito maior. Ele usa o propulsor de hiperespaço, então começa mais lento que o cargueiro grande, mas passa na frente conforme o seu Motor Propulsor de Hiperespaço sobe de nível.
+  '218': O pior cenário possível, embora bem lento.
+  '219': Um espaço de carga gigante e motores novos fazem com que ele voe mais rápido e colha mais dos campos de destroços.
+  '401': O Lançador de Mísseis é uma defesa simples, mas de bom custo-benefício. Depois de uma batalha, em média cerca de 70% das defesas destruídas são reconstruídas.
+  '402': Os lasers pequenos são armas simples de solo. Sistemas especiais de mira rastreiam o inimigo, e um laser de alta intensidade corta o casco do alvo. Depois de uma batalha, em média cerca de 70% das defesas destruídas são reconstruídas.
+  '403': O Laser Grande é uma versão melhorada e prática do Laser Pequeno. Depois de uma batalha, em média cerca de 70% das defesas destruídas são reconstruídas.
+  '404': O Canhão de Gauss dispara projéteis de metal de alta densidade a uma velocidade altíssima. Depois de uma batalha, em média cerca de 70% das defesas destruídas são reconstruídas.
+  '405': Um canhão de íons dispara feixes de íons (partículas com carga positiva ou negativa). Depois de uma batalha, em média cerca de 70% das defesas destruídas são reconstruídas.
+  '406': A Torre de Plasma usa uma grande célula de combustível de reator nuclear para alimentar um acelerador eletromagnético que dispara pulsos (toroides) de plasma. Depois de uma batalha, em média cerca de 70% das defesas destruídas são reconstruídas.
+  '407': O Pequeno Escudo Planetário envolve o planeta inteiro em um campo que absorve quantidades tremendas de energia. Só dá para construir um por planeta.
+  '408': O Grande Escudo Planetário é um desenvolvimento maior que precisa de bem mais energia para aguentar ataques. Só dá para construir um por planeta.
+  '409': A evolução da tecnologia de escudos planetários. Usa muito mais energia, mas aguenta mais ataques que qualquer outro escudo. Só dá para construir um por planeta.
+  '410': Depois de anos de pesquisa sobre gravidade, os cientistas desenvolveram um canhão de gráviton que gera um pequeno campo concentrado de gráviton e o dispara contra o inimigo.
+  '411': Uma plataforma de defesa imóvel, sem propulsão própria, mantida em órbita estável em volta do planeta pela gravidade. Iniciar esse processo exige quantidades enormes de energia. Só dá para construir uma por planeta.
+  '412': O Bunker é uma estrutura fortemente fortificada, feita para aguentar até os ataques mais poderosos. Dá proteção sem igual aos habitantes do planeta e à infraestrutura crítica, sendo a pedra fundamental da defesa planetária.
+  '413': O Laser Titã é uma arma colossal de poder destrutivo sem igual.
+  '414': A Isca é um sofisticado sistema defensivo criado para enganar e confundir forças inimigas. Disfarçada de Lançador de Mísseis, ela desencoraja ataques.
+  '502': Os mísseis Interceptadores destroem os mísseis Interplanetários que se aproximam. É preciso um míssil Interceptador para cada míssil Interplanetário.
+  '503': Os mísseis Interplanetários destroem as defesas do oponente, a não ser que mísseis Interceptadores os derrubem. As defesas destruídas desse jeito não são reconstruídas. Por padrão, o alcance deles (em sistemas solares) depende do nível do seu Motor de Impulsão:<br>Alcance = (5 x nível do Motor de Impulsão) - 1
+  '901': O metal é o principal recurso para edifícios e naves. É o recurso mais barato, mas também o que você mais precisa e, assim como o cristal, é o que menos energia exige para produzir. Quanto maiores as minas, mais fundo elas cavam na terra.
+  '902': O cristal é o principal recurso para circuitos eletrônicos e certas ligas. É produzido em minas subterrâneas, onde a matéria-prima já vira circuito na hora.
+  '903': O deutério é encontrado nos mares mais profundos e é um dos recursos mais raros do universo. É preciso chegar ao fundo do mar para obtê-lo, o que faz dele o recurso mais caro.
+  '911': A energia é necessária para produzir todos os recursos.
+  '229': Desenvolvida para quebrar o domínio dos Xer, a Víbora é a arma definitiva contra Caças Ligeiros, Caças Pesados e Cruzadores. Com canhões de tiro rápido e tecnologia avançada, ela muda o equilíbrio de poder no universo.
+  '230': 'Rápido. Preciso. Intocável. O Interceptor não foi feito para lutas justas: ele foi projetado para atacar rápido e forte, criando uma vantagem esmagadora num piscar de olhos.'
+  '231': O Beemote é o resultado de décadas de pesquisa de gráviton, transformado em uma plataforma de combate implacável. Diferente das Estrelas da Morte, ele não foi projetado para destruição planetária, e sim para máxima eficiência no campo de batalha. Ao abrir mão dos sistemas de alto consumo de energia necessários para destruir luas, o projeto ficou bem mais leve, com motores mais fortes, mais agilidade e mais poder de fogo. O canhão de gráviton compacto faz dele uma máquina de destruição móvel, capaz de aniquilar até frotas enormes sozinho.
+  '232': 'O Titã do Vazio representa o auge da tecnologia moderna de gráviton. Cada aspecto do projeto serve a um único propósito: a aniquilação rápida de luas inimigas. As torres de armas convencionais foram omitidas de propósito para reduzir a massa e abrir espaço para geradores de cristal colossais. Eles alimentam as bobinas de aceleração mais avançadas já construídas nas galáxias conhecidas, dando à nave um nível de mobilidade sem igual. A enorme necessidade de cristal faz de cada Titã do Vazio uma conquista industrial monumental e um símbolo de poder destrutivo ilimitado.'
+  '220': 'O Colosso de Aço é uma verdadeira fortaleza no espaço, protegido por barreiras inabaláveis e blindagem maciça. Até os ataques mais ferozes ricocheteiam enquanto ele segue em frente sem parar. Mas essa superioridade defensiva tem um preço: o armamento mal merece menção, e os motores lentos fazem dele um gigante vagaroso. Em vez de ataques-relâmpago ou manobras ágeis, esta nave conta com pura resistência. Quem quiser pará-lo precisa de muito fôlego, ou de um poder de fogo esmagador.'
+  '221': 'A Lâmina da Tempestade é um caça de primeira linha: incrivelmente rápido e armado sem piedade. Os oponentes mal a veem antes de ela atacar. A defesa é secundária, já que ela não precisa aguentar o que pode simplesmente deixar para trás. O foco dela são só as frotas de transportadores e recicladores, que são aniquiladas sem resistência. Com essa velocidade ofuscante, ela ataca quando quer e some antes de os reforços chegarem. Quem é alvo da Lâmina da Tempestade tem pouca chance de escapar.'
+  '222': O Cruzador Pesado é uma evolução reforçada do cruzador comum. Com escudos melhores e armamento poderoso, ele se sustenta contra inimigos desajeitados. Brilha quando usado junto com Colossos de Aço, Destruidores e Bombardeiros, onde o poder de fogo dele realmente se destaca. Porém, apesar da força, continua lento e pouco manobrável.
+  '223': O Drone de Escudo representa uma nova abordagem na defesa de frota, focada principalmente na proteção da tripulação. Tecnologias de escudo inovadoras, mas pesadas, reduziram bastante a velocidade de voo e a manobrabilidade. Apesar da pouca velocidade e agilidade, é muito eficaz na defesa. A estrutura ultrapassada foi levada ao limite para oferecer uma defesa quase impenetrável.
+  '224': O Transporte de Assalto Improvisado é uma nave de transporte não testada, com armamento mínimo, criada especificamente para incomodar vizinhos descuidados e despreparados. Esse veículo improvisado não foi feito para uso prolongado, mas para ataques rápidos e impulsivos que provocam reações imediatas. Uma briga de vizinhança é praticamente garantida assim que ele entra em ação. Com equipamento limitado e natureza imprevisível, vira uma ferramenta perigosa para escalar conflitos rapidinho.
+  '225': O Transportador Tempestade é uma verdadeira maravilha tecnológica, com o equilíbrio perfeito entre poder de combate, velocidade e capacidade de transporte. A habilidade de levar tropas e recursos rapidamente e ainda entregar um poder de fogo impressionante ao campo de batalha fez dele um elemento essencial de qualquer frota poderosa. Seja para unidades de assalto rápidas ou para apoiar operações de longo prazo, o Transportador Tempestade é peça-chave da guerra eficaz e item obrigatório em qualquer frota.
+  '226': O Transportador de Batalha Colossal representa o auge da engenharia. Apesar do design um pouco desajeitado e da velocidade de voo baixa que vem com ele, é o transportador de batalha mais blindado que qualquer frota já viu. O poder de fogo esmagador faz dele uma força imparável no campo de batalha. Esse gigante rompe linhas inimigas sem esforço e dá proteção máxima à tripulação. Ele encarna força e resistência, sendo um trunfo essencial para qualquer frota pesadamente armada.
+  '227': O Reciclador Otimizado é uma melhoria de ponta do reciclador comum. Equipado com um poderoso motor de impulsão, chega aos campos de destroços mais rápido e com menos custo, virando um trunfo essencial para qualquer frota avançada. O design otimizado reduz os custos de construção e aumenta a eficiência da recuperação de recursos. Disponível a partir do meio do jogo, dá uma vantagem estratégica para qualquer império em expansão.
+  '228': 'O Reciclador Ômega representa o auge da tecnologia de reciclagem, mas a um custo alto. O poderoso propulsor de hiperespaço permite chegar aos campos de destroços em tempo recorde e recuperar recursos mais rápido que qualquer outra nave. Porém, essa velocidade vem à custa da eficiência: os custos de construção e de combustível são imensos, o que o torna uma opção viável só para comandantes ricos no fim do jogo. Para quem prioriza velocidade em vez de custo, este é o Reciclador definitivo.'
+secureResources: Cada nível de um depósito protege 1% da produção diária daquele recurso contra saque durante os ataques, até o máximo de 10%.
+shortDescription:
+  '1': As minas de metal extraem o minério em que todo império, novo ou estabelecido, se apoia.
+  '2': O cristal é o ingrediente-chave dos circuitos eletrônicos e de certas ligas.
+  '3': O deutério abastece suas espaçonaves e é colhido no fundo do mar. É uma substância rara, por isso é relativamente cara.
+  '4': As plantas de energia solar transformam luz do sol em energia. Toda mina precisa de energia para funcionar.
+  '6': Por padrão, cada nível reduz o tempo de pesquisa em 8%.
+  '12': A Planta de Fusão funde combustível de deutério para produzir energia.
+  '14': As fábricas de robôs fornecem robôs de construção que ajudam a erguer seus edifícios. Cada nível acelera as melhorias de edifícios.
+  '15': O máximo da robótica. Cada nível reduz pela metade o tempo de construção de edifícios, naves e defesas.
+  '21': Todas as naves e defesas são construídas no hangar do planeta.
+  '22': Armazena o excesso de Metal.
+  '23': Armazena o excesso de Cristal.
+  '24': Armazena o excesso de Deutério.
+  '31': Você precisa de um laboratório de pesquisas para pesquisar novas tecnologias.
+  '33': 'O Terraformador amplia a área utilizável do planeta: 5 campos adicionais por nível, mais um extra a cada nível par. Cada nível ocupa um campo.'
+  '34': 'O Depósito da Aliança permite estender a permanência de frotas amigas estacionadas no seu planeta, em troca de deutério: por abastecimento, até tantas horas quanto o nível do depósito.'
+  '35': A doca de reparos restaura naves de um campo de ruínas.
+  '41': A lua não tem atmosfera, e uma lua recém-formada tem espaço para só um edifício, então comece pela Base Lunar.
+  '42': O sensor permite observar movimentos de frota. Quanto maior o nível, maior o alcance do Phalanx.
+  '43': Os portais de salto são enormes transmissores que enviam frotas grandes pelo universo sem perder tempo algum.
+  '44': Os silos de mísseis guardam seus mísseis.
+  '106': Esta tecnologia permite coletar informações sobre outros planetas e luas.
+  '108': Computadores melhores permitem comandar mais frotas. Cada nível de Tecnologia de Computação aumenta em um o seu número máximo de frotas.
+  '109': A Tecnologia de Armas deixa os sistemas de armas mais eficazes. Cada nível aumenta o poder de ataque de todas as unidades em 10% do valor base.
+  '110': A Tecnologia de Escudo deixa os escudos de naves e estruturas defensivas mais eficazes. Cada nível aumenta a força dos escudos em 10% do valor base.
+  '111': Ligas especiais melhoram a blindagem de naves e estruturas defensivas. Cada nível aumenta a eficácia da blindagem em 10%.
+  '113': Dominar diferentes tipos de energia é a chave para muitas tecnologias novas.
+  '114': Integrando a 4ª e a 5ª dimensões, você pode pesquisar um novo tipo de propulsor, mais econômico e eficiente.
+  '115': Desenvolver este propulsor deixa algumas naves mais rápidas, mas cada nível só soma 10% da velocidade base.
+  '117': O motor de impulsão funciona pelo princípio da reação. Desenvolvê-lo deixa algumas naves mais rápidas, mas cada nível só soma 20% da velocidade base.
+  '118': O propulsor de hiperespaço dobra o espaço em volta da nave. Desenvolvê-lo deixa algumas naves mais rápidas, mas cada nível só soma 30% da velocidade base.
+  '120': A luz focada produz um feixe que causa dano a tudo o que atinge.
+  '121': Um feixe mortal de íons acelerados que causa dano enorme no impacto.
+  '122': Um desenvolvimento maior da tecnologia de íons que acelera plasma de alta energia, criado pelo superaquecimento de íons. Tem um efeito devastador no impacto.
+  '123': Pesquisadores de planetas diferentes se comunicam por esta rede.
+  '124': Libera a colonização e as expedições ao espaço profundo. Planetas extras em níveis ímpares, vagas de expedição extras em níveis quadrados, permanências maiores em expedições e mais posições de planeta em um sistema.
+  '131': Aumenta a produção de Metal em 2% por nível.
+  '132': Aumenta a produção de Cristal em 2% por nível.
+  '133': Aumenta a produção de Deutério em 2% por nível.
+  '134': Reduz os custos de voo em 2% por nível.
+  '199': Disparar uma carga concentrada de partículas de gráviton cria um campo gravitacional artificial capaz de destruir naves e até luas.
+  '202': O cargueiro pequeno é uma nave ágil que leva recursos rapidamente para outros planetas.
+  '203': Este cargueiro carrega muito mais que o cargueiro pequeno e, em geral, é mais rápido graças a um propulsor melhor.
+  '204': A primeira nave de combate que todo imperador constrói. O caça ligeiro é ágil, mas vulnerável sozinho; em grande número, vira uma ameaça real para qualquer império. Os caças ligeiros são os primeiros a escoltar cargueiros pequenos e grandes até planetas hostis com defesa fraca.
+  '205': Este caça tem blindagem melhor e bate mais forte que o caça ligeiro.
+  '206': Os cruzadores têm quase o triplo da blindagem dos caças pesados e mais que o dobro do poder de fogo. Também são muito rápidos.
+  '207': As naves de batalha são a espinha dorsal de uma frota. Canhões pesados, alta velocidade e grandes porões de carga fazem delas oponentes para levar a sério.
+  '208': Dá para colonizar planetas vagos com esta nave.
+  '209': O reciclador colhe matéria-prima de campos de destroços.
+  '210': As sondas de espionagem são drones pequenos e ágeis que entregam dados sobre frotas e planetas a longas distâncias.
+  '211': O bombardeiro foi feito especialmente para destruir as defesas de um planeta.
+  '212': Os satélites solares são plataformas simples de células solares em uma órbita alta e estacionária. Eles captam a luz do sol e a enviam por laser até a estação em solo.
+  '213': O destruidor é o rei das naves de guerra.
+  '214': O poder de destruição da Estrela da Morte não tem rival, e ela pode destruir luas.
+  '215': O Cruzador de Batalha é especialista em interceptar frotas hostis.
+  '216': 'A sucessora da popular Estrela da Morte: muito mais rápida e resistente, com um porão de carga enorme, mas que bate um pouco menos forte.'
+  '217': Um desenvolvimento do cargueiro grande com capacidade de carga muito maior. Ele usa o propulsor de hiperespaço, então começa mais lento que o cargueiro grande, mas passa na frente conforme o seu Motor Propulsor de Hiperespaço sobe de nível.
+  '218': O pior cenário possível, embora bem lento.
+  '219': Um espaço de carga gigante e motores novos fazem com que ele voe mais rápido e colha mais dos campos de destroços.
+  '231': Uma Estrela da Morte menor e mais rápida, que não consegue destruir luas. O Beemote é mortal contra frotas.
+  '401': O Lançador de Mísseis é uma defesa simples, mas de bom custo-benefício.
+  '402': Os lasers pequenos são armas de defesa simples de solo. Sistemas especiais de mira rastreiam naves inimigas, e um laser de alta intensidade corta o casco do alvo.
+  '403': O Laser Grande é uma versão melhorada do Laser Pequeno.
+  '404': O Canhão de Gauss dispara projéteis de metal de alta densidade a uma velocidade altíssima.
+  '405': Um canhão de íons dispara feixes de íons (partículas com carga positiva ou negativa).
+  '406': A Torre de Plasma usa uma grande célula de combustível de reator nuclear para alimentar um acelerador eletromagnético que dispara pulsos (toroides) de plasma.
+  '407': O Pequeno Escudo Planetário envolve o planeta inteiro em um campo que absorve quantidades tremendas de energia.
+  '408': O Grande Escudo Planetário consegue absorver bem mais energia durante os ataques.
+  '409': A evolução da tecnologia de escudos planetários. Usa muito mais energia, mas aguenta mais ataques que qualquer outro escudo.
+  '410': Depois de anos de pesquisa sobre gravidade, os cientistas desenvolveram um canhão de gráviton que gera um pequeno campo concentrado de gráviton e o dispara contra o inimigo.
+  '411': Uma plataforma de defesa imóvel, sem propulsão própria, mantida em órbita estável em volta do planeta pela gravidade. Iniciar esse processo exige quantidades enormes de energia.
+  '412': Ele protege! Igual ao bloquinho de Lego em Kindergarten TD.
+  '413': O Laser Titã é um laser colossal.
+  '414': A Isca é um sofisticado sistema defensivo criado para enganar e confundir forças inimigas. Disfarçada de Lançador de Mísseis, ela desencoraja ataques.
+  '502': Os mísseis Interceptadores destroem os mísseis Interplanetários que se aproximam.
+  '503': Os mísseis Interplanetários destroem as defesas do oponente.
+  '901': O metal é o principal recurso para edifícios e naves. É o recurso mais barato, mas também o que você mais precisa.
+  '902': Os cristais são o principal recurso usado para construir circuitos eletrônicos e formar certas ligas.
+  '903': O deutério é encontrado nos mares mais profundos. É o recurso mais caro e também o que mais precisa de energia.
+  '911': A energia é necessária para produzir todos os recursos.
+  '229': Desenvolvida para quebrar o domínio dos Xer, a Víbora é a arma definitiva contra Caças Ligeiros, Caças Pesados e Cruzadores. Com canhões de tiro rápido e tecnologia avançada, ela muda o equilíbrio de poder no universo.
+  '230': 'Rápido. Preciso. Intocável. O Interceptor não foi feito para lutas justas: ele foi projetado para atacar rápido e forte, criando uma vantagem esmagadora num piscar de olhos.'
+  '232': Mais rápido, mais explosivo, sempre uma boa surpresa. O Titã do Vazio é o terror das luas.
+  '220': O Colosso de Aço aguenta qualquer ataque com escudos maciços e blindagem grossa, mas as armas e os motores deixam muito a desejar.
+  '221': 'A Lâmina da Tempestade é um caça veloz como um relâmpago, armado até os dentes. Defesa? Desnecessária: as presas dela são transportadores e recicladores indefesos.'
+  '222': Um cruzador lento, mas fortemente armado, com escudos e capacidade ofensiva reforçados.
+  '223': Um redesenho do caça ligeiro que prioriza a segurança da tripulação, ao custo de características de voo ruins.
+  '224': Uma nave de transporte não testada, com armamento mínimo, feita para incomodar vizinhos descuidados e provocar conflito imediato.
+  '225': Uma nave que combina poder de combate, velocidade e capacidade de transporte, indispensável para qualquer frota poderosa.
+  '226': Um transportador de batalha fortemente blindado, de design imponente e um pouco desajeitado, cujo poder de fogo esmagador derrota até os oponentes mais duros.
+  '227': Uma versão melhorada do reciclador clássico com motores de impulsão, permitindo missões de recuperação mais eficientes e com custo menor.
+  '228': Uma melhoria do Reciclador extremamente rápida, mas pouco eficiente, com propulsor de hiperespaço.
+shortNames:
+  '202': Cg. Pequeno
+  '203': Cg. Grande
+  '204': Caça Lig.
+  '205': Caça Pes.
+  '206': Cruzador
+  '207': N. Batalha
+  '208': N. Colonização
+  '209': Reciclador
+  '210': Sonda
+  '211': Bombardeiro
+  '212': Sat. Solar
+  '213': Destruidor
+  '214': E. da Morte
+  '215': Cruz. Batalha
+  '216': Lua Negra
+  '217': Transp. Batalha
+  '218': Avatar
+  '219': Recicl. Batalha
+  '401': Lanç. de Mísseis
+  '402': Laser Peq.
+  '403': Laser Gr.
+  '404': C. Gauss
+  '405': C. de Íons
+  '406': C. de Plasma
+  '407': Peq. Escudo
+  '408': Gr. Escudo
+  '409': Esc. Atmosférico
+  '410': C. Gravitação
+  '411': Plat. Orbital
+  '412': Bunker
+  '413': Laser Titã
+  '414': Isca
+  '229': Víbora
+  '230': Interceptor
+  '231': Beemote
+  '232': Titã do Vazio
+  '220': Colosso de Aço
+  '221': Lâmina da Tempestade
+  '222': Cruzador Pesado
+  '223': Drone de Escudo
+  '224': Transp. Assalto Improvisado
+  '225': Transp. Tempestade
+  '226': Transp. Batalha Colossal
+  '227': Recicl. Otimizado
+  '228': Recicl. Ômega
+spytechStatsDescription: Nos níveis 0 e 1, você só vê os pontos totais dos outros jogadores. A partir do nível 2, você vê também os pontos de edifícios; a partir do nível 4, os pontos de pesquisa. A partir do nível 6, você vê ainda os pontos de naves e de defesa, além das estatísticas de batalha.
+tech:
+  '0': Edifícios
+  '1': Mina de Metal
+  '2': Mina de Cristal
+  '3': Sintetizador de Deutério
+  '4': Planta de Energia Solar
+  '6': Universidade
+  '12': Planta de Fusão
+  '14': Fábrica de Robôs
+  '15': Fábrica de Nanites
+  '21': Hangar
+  '22': Depósito de Metal
+  '23': Depósito de Cristal
+  '24': Tanque de Deutério
+  '31': Laboratório de Pesquisas
+  '33': Terraformador
+  '34': Depósito da Aliança
+  '35': Doca de Reparos
+  '40': Edifícios Lunares
+  '41': Base Lunar
+  '42': Sensor Phalanx
+  '43': Portal de Salto Quântico
+  '44': Silo de Mísseis
+  '100': Pesquisas
+  '106': Tecnologia de Espionagem
+  '108': Tecnologia de Computação
+  '109': Tecnologia de Armas
+  '110': Tecnologia de Escudo
+  '111': Tecnologia de Blindagem
+  '113': Tecnologia de Energia
+  '114': Tecnologia de Hiperespaço
+  '115': Motor de Combustão
+  '117': Motor de Impulsão
+  '118': Motor Propulsor de Hiperespaço
+  '120': Tecnologia Laser
+  '121': Tecnologia de Íons
+  '122': Tecnologia de Plasma
+  '123': Rede Intergaláctica de Pesquisas
+  '124': Astrofísica
+  '131': Produção de Metal
+  '132': Produção de Cristal
+  '133': Produção de Deutério
+  '134': Eficiência de Combustível
+  '199': Pesquisa de Gravitação
+  '200': Naves
+  '202': Cargueiro Pequeno
+  '203': Cargueiro Grande
+  '204': Caça Ligeiro
+  '205': Caça Pesado
+  '206': Cruzador
+  '207': Nave de Batalha
+  '208': Nave de Colonização
+  '209': Reciclador
+  '210': Sonda de Espionagem
+  '211': Bombardeiro
+  '212': Satélite Solar
+  '213': Destruidor
+  '214': Estrela da Morte
+  '215': Cruzador de Batalha
+  '216': Lua Negra
+  '217': Transportador de Batalha
+  '218': Avatar
+  '219': Reciclador de Batalha
+  '400': Defesa Planetária
+  '401': Lançador de Mísseis
+  '402': Laser Pequeno
+  '403': Laser Grande
+  '404': Canhão de Gauss
+  '405': Canhão de Íons
+  '406': Canhão de Plasma
+  '407': Pequeno Escudo Planetário
+  '408': Grande Escudo Planetário
+  '409': Escudo Atmosférico
+  '410': Canhão de Gravitação
+  '411': Plataforma Orbital de Defesa
+  '412': Bunker
+  '413': Laser Titã
+  '414': Isca
+  '500': Mísseis
+  '502': Míssil Interceptador
+  '503': Míssil Interplanetário
+  '900': Recursos
+  '901': Metal
+  '902': Cristal
+  '903': Deutério
+  '911': Energia
+  '229': Víbora
+  '230': Interceptor
+  '231': Beemote
+  '232': Titã do Vazio
+  '220': Colosso de Aço
+  '221': Lâmina da Tempestade
+  '222': Cruzador Pesado
+  '223': Drone de Escudo
+  '224': Transporte de Assalto Improvisado
+  '225': Transportador Tempestade
+  '226': Transportador de Batalha Colossal
+  '227': Reciclador Otimizado
+  '228': Reciclador Ômega

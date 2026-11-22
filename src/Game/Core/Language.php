@@ -78,9 +78,7 @@ class Language implements ArrayAccess
                 continue;
             }
 
-            [$code]	= explode('-', strtolower($matches[1]));
-            // Filipino browsers send "fil"; the pack code is the two-letter "tl" (lang columns are varchar(2))
-            $code = $code === 'fil' ? 'tl' : $code;
+            $code = LanguageCatalog::packCodeForTag($matches[1]);
 
             if (in_array($code, $this->catalog()->getAllowedLangs())) {
                 $language	= $code;

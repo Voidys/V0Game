@@ -1,0 +1,1866 @@
+ac_account_data: Detaliile contului
+ac_act_time: Data ultimei activități
+ac_ali_idid: 'ID:'
+ac_alliance: Alianță
+ac_ally_ranking: Statisticile alianței
+ac_ally_web: Site-ul alianței
+ac_auth_level: Rang
+ac_banned: Banat?
+ac_checkip_title: Verificare IP
+ac_coords: Coordonate
+ac_diameter: Diametru
+ac_enter_user_id: Alege un jucător
+ac_ext_text: Text extern
+ac_fields: Câmpuri
+ac_filter_placeholder: Filtrează...
+ac_home_planet_coord: Coordonatele planetei-mamă
+ac_home_planet_id: ID-ul planetei-mamă
+ac_id_names_coords: ID, nume și coordonate
+ac_image: Logo-ul alianței
+ac_info_ally: Informații despre alianță
+ac_int_text: Text intern
+ac_last_ip: Ultimul IP
+ac_leader: Lider
+ac_leyend: '[ Legendă ]'
+ac_moon: Lună
+ac_name: Nume
+ac_name_ali: Nume complet
+ac_no_ally: Nicio alianță
+ac_no_img: Această alianță nu are logo
+ac_no_text_ext: Această alianță nu are text extern
+ac_no_text_int: Această alianță nu are text intern
+ac_no_text_sol: Această alianță nu are text de cerere
+ac_note_k: >-
+  <table><tr><th width=10%><font class="colorPositive">T+</font></th><th>Mai
+  mult de un trilion</th></tr><tr><th width=10%><font
+  class="colorPositive">T</font></th><th>Un trilion sau mai mult</th></tr><tr><th
+  width=10%><font class="colorPositive">B</font></th><th>Un miliard sau
+  mai mult</th></tr><tr><th width=10%><font
+  class="colorPositive">M</font></th><th>Un milion sau mai mult</th></tr><tr><th
+  width=10%><font class="colorPositive">K</font></th><th>O mie sau
+  mai mult</th></tr></table>
+ac_on_vacation: Vacanță?
+ac_points_count: Scor | Număr
+ac_ranking: Clasament
+ac_recent_destroyed_planets: Planete distruse recent
+ac_reg_ip: IP la înregistrare
+ac_register_ally_time: Întemeiată
+ac_register_time: Înregistrat
+ac_research: Cercetare
+ac_see_ranking: Vezi statisticile
+ac_select_id_num: Introdu manual ID-ul (opțional)
+ac_sol_text: Text de cerere
+ac_suspended_autor: Banat de
+ac_suspended_longer: Până la
+ac_suspended_reason: Motiv
+ac_suspended_time: Banat
+ac_suspended_title: Detaliile banului
+ac_swap_invalid: Selecție invalidă, alege doi utilizatori diferiți!
+ac_swap_no_entry: Nu s-a găsit nicio intrare de cont pentru unul sau ambii utilizatori.
+ac_swap_submit: Schimbă
+ac_swap_success: Conturile au fost schimbate cu succes.
+ac_swap_title: Schimbă conturile
+ac_swap_user_a: Utilizatorul A
+ac_swap_user_b: Utilizatorul B
+ac_tag: TAG
+ac_temperature: Temp.
+ac_time_destruyed: Data distrugerii
+ac_total_members: Număr de membri
+ac_total_points: 'Total:'
+ac_user_ranking: Statisticile jucătorului
+ac_user_system: Sistemul jucătorului
+ac_username_doesnt: Jucătorul nu există!
+ac_view_image: Deschide imaginea într-o fereastră nouă
+account_already_has_user: Acest cont are deja un jucător în acest univers
+accountID: ID cont
+ad_add_build_success: Clădiri adăugate cu succes!
+ad_add_defenses_success: Apărări adăugate cu succes!
+ad_add_not_exist: ID-ul nu există!
+ad_add_res_sucess: Resurse adăugate cu succes!
+ad_add_ships_sucess: Nave adăugate cu succes!
+ad_add_tech_success: Cercetări adăugate cu succes!
+ad_ally_change_id: Schimbă fondatorul
+ad_ally_delete: Șterge alianța
+ad_ally_delete_u: Șterge membrul
+ad_ally_name: Numele alianței
+ad_ally_not_exist: Alianța nu există!
+ad_ally_not_exist2: Membrul nu există!
+ad_ally_not_exist3: Utilizatorul nu este membru al acestei alianțe
+ad_ally_succes: Succes
+ad_ally_tag: TAG-ul alianței
+ad_ally_text1: Descrierea alianței
+ad_ally_text2: Text intern
+ad_ally_text3: Șablon de cerere
+ad_ally_title: Alianță
+ad_ally_user_id: (Introdu ID-ul utilizatorului)
+ad_authlevel_aa: '[Arată administratorii]'
+ad_authlevel_auth: Rang
+ad_authlevel_error_3: Nu poți schimba rangul creatorului jocului!
+ad_authlevel_insert_id: Introdu manual ID-ul (opțional)
+ad_authlevel_jj: '[Arată jucătorii]'
+ad_authlevel_mm: '[Arată moderatorii]'
+ad_authlevel_oo: '[Arată operatorii]'
+ad_authlevel_succes: Rang schimbat cu succes
+ad_authlevel_title: Ranguri
+ad_authlevel_tt: '[Arată tot]'
+ad_buildings: Clădiri
+ad_buildings_title: Clădiri
+ad_count: Număr
+ad_defenses: Apărări
+ad_defenses_title: Apărări
+ad_delete_build_success: Clădiri eliminate cu succes!
+ad_delete_defenses_success: Apărări eliminate cu succes!
+ad_delete_res_sucess: Resurse eliminate cu succes!
+ad_delete_ships_sucess: Nave eliminate cu succes!
+ad_delete_tech_success: Cercetări eliminate cu succes!
+ad_editor_alliances: Alianță
+ad_editor_buildings: Clădiri
+ad_editor_defenses: Apărări
+ad_editor_personal: Date personale
+ad_editor_planets: Planetă și lună
+ad_editor_researchs: Cercetare
+ad_editor_resources: Resurse
+ad_editor_ships: Nave
+ad_editor_title: Editor de cont
+ad_levels: Nivel
+ad_number: ID
+ad_personal_name: Nume de utilizator
+ad_personal_succes: Setări salvate
+ad_personal_title: Editează datele personale
+ad_personal_vacat: Mod vacanță
+ad_pla_change_p: Coordonatele planetei
+ad_pla_change_pp: Bifează ca să aplici schimbarea coordonatelor
+ad_pla_delete_b: Elimină toate clădirile
+ad_pla_delete_cb: Golește coada de construcție
+ad_pla_delete_d: Elimină toate apărările
+ad_pla_delete_hd: Golește coada de șantier naval și apărare
+ad_pla_delete_s: Elimină toate navele
+ad_pla_edit_diameter: Editează diametrul
+ad_pla_edit_fields: Editează câmpurile
+ad_pla_edit_name: Nume
+ad_pla_error_planets: Lunile nu își pot schimba proprietarul
+ad_pla_error_planets2: Planeta nu există
+ad_pla_error_planets3: Aceste coordonate sunt deja folosite!
+ad_pla_error_planets4: Nu poți atribui o lună unei planete care are deja una!
+ad_pla_error_planets5: Există deja o planetă la aceste coordonate
+ad_pla_error_planets6: Aceste coordonate sunt în afara limitelor universului
+ad_pla_succes: Modificări salvate cu succes
+ad_pla_title: Planete și luni
+ad_pla_title_l: Dacă există o lună, și coordonatele ei vor fi schimbate
+ad_research: Cercetare
+ad_research_title: Cercetare
+ad_ships: Nave
+ad_ships_title: Nave
+adm_absenden: Trimite
+adm_cp_index: Acasă
+adm_cp_title: Panou de administrare
+adm_email: E-mail
+adm_login: Conectare
+adm_password: Parolă
+adm_username: Nume de utilizator
+an_analyzed_list: Jucători analizați
+an_btn_disable: Dezactivează analiza și șterge datele
+an_btn_enable: Activează analiza
+an_timestamp: Marcaj de timp
+an_total_analyzed: Număr de jucători analizați
+an_user_list: Lista jucătorilor
+ap_aktivieren: Activează
+ap_datum: Data
+ap_del: Șterge
+ap_email: E-mail
+ap_entfernen: '?'
+ap_id: ID
+ap_ip: IP
+ap_nicht_aktivierte: utilizatori neactivați
+ap_nicht_aktivierte_user: Utilizatori neactivați
+ap_sicher: 'Sigur vrei să elimini '
+ap_status: Stare
+ap_username: Nume de utilizator
+bo_accountname: Numele contului
+bo_ban: Banează
+bo_ban_change: Schimbă
+bo_ban_player: Banează / debanează
+bo_banned: ' a fost banat.'
+bo_bbb_title_1: Sistem de ban
+bo_bbb_title_2: Banul expiră
+bo_bbb_title_3: Sistem de ban • <font color="red">Acest jucător este banat</font>
+bo_bbb_title_4: >-
+  Ca să scurtezi banul rămas, pune un minus în fața timpului, de ex. -5.<br>Dacă
+  jucătorul este banat permanent, introducerea unui timp pozitiv îl înlocuiește
+  cu acea durată.
+bo_bbb_title_5: Banat până la
+bo_bbb_title_6: Schimbă data
+bo_characters_1: Caractere rămase
+bo_characters_suus: Banat
+bo_order_banned: '[Sortează după ban]'
+bo_order_id: '[Sortează după ID]'
+bo_order_username: '[Sortează după nume]'
+bo_permanent: Ban permanent
+bo_reason: Motivul banului
+bo_select_title: Arată numele care încep cu
+bo_the_player: 'Jucătorul '
+bo_the_player2: 'Jucătorul '
+bo_total_accs: 'Total conturi: '
+bo_total_accs_banned: 'Conturi banate: '
+bo_total_banneds: 'Jucători banați: '
+bo_total_users: 'Total jucători: '
+bo_unban: Debanează
+bo_unban_player: Lista de banuri
+bo_unbanned: ' a fost debanat.'
+bo_username: Nume de utilizator
+bo_vacaations: Mod vacanță
+bo_vacation_mode: Mod vacanță
+buildings_title: Clădiri
+button_add: Adaugă
+button_cancel: Anulează
+button_delete: Șterge
+button_deselect: Șterge selecția
+button_filter: Filtrează
+button_reset: Resetează
+button_submit: Trimite
+button_test: Testează
+button_test_negative: Testul a eșuat
+button_test_positive: Test reușit
+cc_cache_clear: Cache golit
+cronjob_class: clasă
+cronjob_delete: Șterge
+cronjob_desc: >-
+  Setează orele la care ar trebui să ruleze acest cron job. Condițiile se
+  combină cu ȘI, deci jobul rulează doar când se potrivesc toate condițiile
+  selectate. Selectarea unor valori anume și la „Ziua săptămânii”, și la „Zi”
+  poate face jobul să ruleze neregulat; folosește „Toate” cel puțin pentru
+  unul dintre aceste câmpuri.<br>„Toate” are prioritate și suprascrie
+  celelalte valori din acea listă.
+cronjob_desc_class: Clasa de apelat. Pentru includes/classes/cronjobs/foo.class.php, introdu „foo”.
+cronjob_desc_name: Un nume la alegerea ta ca să identifici acest cron job.
+cronjob_dom: Zi
+cronjob_dow: Ziua săptămânii
+cronjob_edit: Editează
+cronjob_error_class: Nicio clasă specificată!
+cronjob_error_dom: Nicio zi selectată!
+cronjob_error_dow: Nicio zi a săptămânii selectată!
+cronjob_error_filenotfound: 'Fișierul specificat nu a fost găsit: '
+cronjob_error_hours: Nicio oră selectată!
+cronjob_error_min: Niciun minut selectat!
+cronjob_error_month: Nicio lună selectată!
+cronjob_error_name: Niciun nume introdus!
+cronjob_headline: ID cron job
+cronjob_hours: Oră
+cronjob_lastTime: Ultima rulare
+cronjob_min: Minut
+cronjob_month: Lună
+cronjob_name: Nume
+cronjob_new: Creează cron job
+cronjob_nextTime: Următoarea rulare
+cronjob_run: Rulează
+cronjob_selectall: Toate
+cronName_cleaner: Șterge datele vechi
+cronName_bots: "Boți"
+cronName_disposable_email_domains: "Actualizează domeniile de e-mail de unică folosință"
+cronName_fleets: "Evenimente de flotă"
+cronName_daily: Sarcini zilnice
+cronName_databasedump: Copie de rezervă a bazei de date
+cronName_inactive: Șterge inactivii
+cronName_pirates: Creează baze de pirați
+cronName_referral: Bonus de recomandare
+cronName_statistic: Statistici
+cronName_statisticjson: Exportă stats.json
+cronName_tracking: Trimite statistici globale ale serverului
+cs_time_between_updates: Timp între actualizări
+defenses_title: Apărări
+du_choose_tables: Alege tabelele
+du_not_tables_selected: Nu ai selectat niciun tabel pentru copia de rezervă!
+du_select_all_tables: Toate tabelele
+du_submit: Trimite
+du_success: 'Copia de rezervă a fost creată cu succes! Fișier: %s'
+email_reg: E-mail
+email2_reg: Confirmă e-mailul
+empty_account_field: Niciun ID de cont dat
+et_encript: Generează
+et_md5_encripter: Generator MD5
+et_pass: Parolă
+et_result: Rezultat
+exp_deck_cards: Cărți
+exp_deck_count_desc: Numărul de cărți de acest tip din pachet
+exp_deck_count_label: count
+exp_deck_edit: Editează configurația pachetului de cărți
+exp_deck_event_type: Tip de eveniment
+exp_deck_example: 'Exemplu:'
+exp_deck_format_help: >-
+  Configurația pachetului de cărți este un array JSON în care fiecare element
+  reprezintă un tip de carte cu următoarele proprietăți:
+exp_deck_format_instructions: Instrucțiuni de format
+exp_deck_percentage: Procent
+exp_deck_save_success: Configurația pachetului de cărți a fost salvată cu succes!
+exp_deck_size_desc: Mărimea evenimentului (Small, Medium, Big, None)
+exp_deck_size_label: size
+exp_deck_statistics: Statisticile pachetului de cărți curent
+exp_deck_total: Total
+exp_deck_type_desc: Tipul evenimentului (Res, Ships, Pirates, Aliens, BlackHole, Fast, Slow, Nothing)
+exp_deck_type_label: type
+exp_deck_warning: 'Atenție: JSON-ul invalid va fi respins'
+exp_ships_description: >-
+  Pentru fiecare navă activă, alege dacă expedițiile o pot găsi și ce nave o
+  pot găsi.
+exp_ships_findable: Se poate găsi
+exp_ships_found_by: Nave care găsesc
+exp_ships_select_finders: Alege navele care găsesc
+exp_ships_ship: Navă
+ff_arrivaltime: Sosire
+ff_del: Elimină
+ff_endtime: Întoarcere
+ff_fleetid: ID
+ff_holdtime: Menținere până la
+ff_lock: Blochează
+ff_mission: Misiune
+ff_no_fleets: Momentan nicio flotă nu este în zbor
+ff_sendFleetBack: Trimite înapoi
+ff_sendFleetsBack: Trimite înapoi toate atacurile
+ff_ships: Nave
+ff_startplanet: Planeta de origine
+ff_starttime: Start
+ff_startuser: Expeditor
+ff_targetplanet: Planeta de destinație
+ff_targetuser: Destinatar
+ff_unlock: Deblochează
+ga_definetarget: Definește țintele
+ga_homecoordinates: Doar planeta-mamă
+ga_no_inactives: Exclude jucătorii inactivi
+ga_planettypes: Tipuri de planete
+ga_selectplanettype: Selectează cel puțin un tip de planetă!
+ga_success: Succes!
+info_information: >-
+  Folosește aceste informații când raportezi un bug în <a href="%s"
+  target="tracker">GitHub issues</a>.<br>Cererile de suport fără aceste
+  informații nu vor fi procesate.
+input_id: ID
+input_id_account: ID cont
+input_id_ally: ID alianță
+input_id_p_m: ID planetă sau lună
+input_id_planet: ID planetă
+input_id_user: ID jucător
+lang_reg: Limbă
+log_admin: Administrator
+log_alliance: Alianțe editate
+log_cat: 'Alege o categorie:'
+log_disclamersettings: Notă legală
+log_element: Element
+log_id: ID
+log_info: Info
+log_log: Jurnal
+log_new: După
+log_no_data: Nu există date în jurnal!
+log_old: Înainte
+log_planet: Planete editate
+log_player: Jucători editați
+log_present: Cadouri distribuite
+log_settings: Setări editate
+log_ssettings: Configurația serverului
+log_statsettings: Setări de statistici
+log_target_alliance: Alianță modificată
+log_target_planet: Planetă modificată
+log_target_universe: Secțiune de setări modificată
+log_target_user: Jucător modificat
+log_time: Ora
+log_uni_short: Uni
+log_universe: Univers
+log_usettings: Configurația universului
+log_view: Vezi
+ma_all: Toți
+ma_characters: Caractere
+ma_message: Mesaj
+ma_message_sended: Mesajul tău a fost trimis!
+ma_mode: Trimite ca
+ma_modes:
+  - În joc
+  - E-mail
+  - În joc și e-mail
+ma_none: Noutăți globale
+ma_send_global_message: Trimite mesaj global
+ma_subject: Subiect
+ma_subject_needed: Este necesar un subiect!
+ma_no_recipients: 'Niciun destinatar nu se potrivește filtrului, nu a fost trimis niciun e-mail.'
+message_a: 'Starea mesajului:'
+message_t: 'Starea tichetului:'
+mip_known: Aprobat?
+ml_date: Data
+ml_date_range: Perioadă
+ml_deleted: Mesaj șters
+ml_id: '#ID'
+ml_message_list: Lista de mesaje
+ml_receiver: Destinatar
+ml_sender: Expeditor
+ml_subject: Subiect
+ml_type: Tipul mesajului
+ml_type_submit: Trimite
+mo_diameter: Diametru
+mo_fields_avaibles: Câmpuri
+mo_moon: Lună
+mo_moon_added: Lună adăugată cu succes!
+mo_moon_name: Numele lunii
+mo_moon_random: Aleatoriu
+mo_moon_unavaible: Această planetă are deja o lună!
+mo_planet_doesnt_exist: Jucătorul nu există!
+mod_active: Activ
+mod_change_active: Activează
+mod_change_deactive: Dezactivează
+mod_deactive: Inactiv
+mod_info: Module de joc
+mod_module: Module
+modul_0: Alianță
+modul_1: Misiune — Atac
+modul_2: Construcție — Clădiri
+modul_3: Construcție — Cercetare
+modul_4: Construcție — Flote
+modul_5: Construcție — Apărare
+modul_6: Listă de prieteni
+modul_9: Flotă
+modul_10: Flotă — Gestionar de evenimente
+modul_11: Galaxie
+modul_12: Hall of Fame
+modul_13: Negustor
+modul_14: Info
+modul_15: Imperiu
+modul_16: Mesaje
+modul_17: Notițe
+modul_19: Falangă
+modul_20: Cartea jucătorului
+modul_21: Listă de banuri
+modul_22: Recorduri
+modul_23: Resurse
+modul_24: Misiune — Spionaj
+modul_25: Statistici
+modul_26: Căutare
+modul_27: Tichete de suport
+modul_28: Arborele tehnologic
+modul_29: Misiune — Distrugere
+modul_30: Misiune — Expediție
+modul_32: Misiune — Reciclare
+modul_33: Misiune — Menținere
+modul_34: Misiune — Transport
+modul_35: Misiune — Colonizare
+modul_36: Misiune — Staționare
+modul_38: Negustor de fiare vechi
+modul_39: Simulator de bătălii
+modul_40: Misiune — Atac cu rachete
+modul_41: Scurtături de flotă
+modul_42: Misiune — ACS
+modul_43: Misiune — Comerț
+modul_44: Misiune — Transfer
+modul_45: Piață — Resurse
+modul_46: Piață — Flotă
+modul_47: Statistici dependente de tehnologia de spionaj
+modul_48: Doc de reparații
+modul_49: Resurse securizate
+modul_50: Scoatere din modul vacanță
+modul_51: Scoatere din prieteni și alianțe
+modul_52: Stats.json
+modul_53: Tutorial
+modul_54: Recompense de tutorial
+modul_55: Puncte de onoare
+modul_56: Baze de pirați
+mu_active_planets: 'Planete active'
+mu_clear_cache: 'Golește cache-ul'
+mu_connected: Online
+mu_cronjob: 'Cron joburi'
+mu_dump: 'Copie de rezervă a bazei de date'
+mu_flying_fleets: 'Flote în zbor'
+mu_game_info: Informații
+mu_general: General
+mu_giveaway: Cadouri
+mu_global_message: 'Mesaj global'
+mu_info_account_page: 'Info cont'
+mu_logs: 'Jurnal de admin'
+mu_manual_points_update: 'Actualizează punctele'
+mu_md5_encripter: Hash de parolă
+mu_mess_list: 'Lista de mesaje'
+mu_moderation_page: Permisiuni
+mu_module: Module
+mu_mpu_confirmation: Punctele se actualizează automat. Apasă OK ca să le actualizezi acum.
+mu_multiip_page: 'IP-uri multiple'
+mu_news: Noutăți
+mu_search_page: 'Căutare avansată'
+mu_support: 'Tichete de suport'
+mu_tools: Unelte
+mu_universe: Univers
+mu_users_settings: 'Jucători'
+mu_vaild_users: 'Utilizatori activi'
+new_account_success: 'Cont nou creat. ID: %d'
+new_add_account: Adaugă cont nou
+new_add_user: Adaugă jucător nou
+new_coord: Coordonate
+new_creator_coor: Coordonate
+new_creator_go_back: '[ Înapoi la meniu ]'
+new_creator_refresh: '[ Reîmprospătează ]'
+new_creator_title_a: Creează/șterge conturi
+new_creator_title_l: Creează/șterge luni
+new_creator_title_p: Creează/șterge planete
+new_creator_title_t: Creează utilizator de test
+new_creator_title_u: Creează/șterge utilizatori
+new_range: Rang
+new_title: Creează jucător nou
+new_title_acc: Creează un cont nou
+new_user_success: 'Jucător nou creat. ID: %d, Planetă: %d'
+nws_confirm: Sigur vrei să ștergi noutatea „%s”?
+nws_content: Conținut
+nws_create: Creează noutate
+nws_del: Șterge
+nws_from: De la
+nws_head_create: Creează noutate
+nws_head_edit: 'Editezi noutatea: %s'
+nws_news: Noutate
+nws_title: Titlu
+one_is_yes_0: 'Nu'
+one_is_yes_1: 'Da'
+online_users: Online
+ow_default_uri_missing: 'Linkurile din e-mailuri au nevoie de DEFAULT_URI (.env.local): până nu e setat, e-mailurile de înregistrare și de resetare a parolei nu se trimit.'
+ow_app_secret_weak: 'APP_SECRET este o valoare publică implicită sau prea scurtă: oricine ar putea falsifica cookie-uri de conectare. Setează o valoare aleatorie nouă în .env.local (de ex. php -r ''echo bin2hex(random_bytes(32));'') și golește var/cache.'
+ow_app_env_dev: 'Serverul rulează în modul de dezvoltare (APP_ENV nu este prod sau APP_DEBUG este pornit): detaliile erorilor sunt vizibile, iar jocul este mai lent. Setează APP_ENV=prod și APP_DEBUG=0 în .env.local.'
+ow_dir_not_writable: /%s nu poate fi scris!
+ow_file_detected: Fișierul %s a fost găsit. Din motive de securitate, șterge-l sau redenumește-l.
+ow_proyect_leader: "Fost amiral de flotă (liderul proiectului 2Moons)"
+ow_former_pr0game_crew: "Fosta echipă pr0game"
+ow_crew_dev: "Dezvoltare și urgențe"
+ow_crew_mod: "Moderare"
+ow_crew_community: "Comunitate"
+ow_pr0game_contributors: "Contribuitori de cod pr0game"
+ow_special_thanks: Mulțumiri speciale
+ow_translator: Traducători
+pass_reg: Parolă
+pass2_reg: Confirmă parola
+player: Jucător
+po_add_moon: Adaugă lună
+po_add_planet: Adaugă colonie
+po_colony: Colonie
+po_complete_all: Date invalide sau deja folosite!
+po_complete_all2: Coordonate invalide!
+po_complete_succes: Planetă creată cu succes
+po_fields_max: Câmpuri
+po_galaxy: Galaxie
+po_name_planet: Numele planetei
+po_planet: Planete
+po_system: Sistem
+qe_authattack: Protecție împotriva atacurilor de admin
+qe_build: Clădiri
+qe_change: Schimbă
+qe_coords: Coordonate
+qe_count: Disponibil
+qe_defensive: Apărări
+qe_edit_planet_sucess: Planeta %s [%d:%d:%d] a fost editată cu succes!
+qe_edit_player_sucess: 'Jucătorul %s (ID: %d) a fost editat cu succes!'
+qe_fields: Câmpuri
+qe_fleet: Flotă
+qe_hpcoords: Coordonatele planetei-mamă
+qe_id: ID
+qe_info: Info
+qe_level: Nivel
+qe_owner: Proprietar
+qe_password: Parolă
+qe_planetname: Planetă
+qe_reset: Resetează
+qe_resources: Resurse
+qe_send: Trimite
+qe_submit: Trimite
+qe_tech: Cercetare
+qe_temp: Temperatură
+qe_username: Nume de utilizator
+re_buildings_lu: Resetează clădirile lunii
+re_buildings_pl: Resetează clădirile
+re_buldings: Clădiri
+re_defenses: Resetează apărările
+re_defenses_and_ships: Nave și apărări
+re_general: General
+re_inve: Cercetare
+re_investigations: Resetează cercetările
+re_player_and_planets: Jucători și planete
+re_reset_all: Resetează întregul univers
+re_reset_allys: Resetează toate alianțele
+re_reset_banned: Resetează banurile
+re_reset_buddies: Resetează listele de prieteni
+re_reset_buldings: Resetează cozile de construcție
+re_reset_errors: Resetează lista de erori
+re_reset_excess: Setări resetate cu succes!
+re_reset_fleets: Resetează flotele în zbor
+re_reset_hangar: Resetează cozile de șantier naval și apărare
+re_reset_invest: Resetează cozile de cercetare
+re_reset_messages: Resetează toate mesajele
+re_reset_moons: Resetează toate lunile
+re_reset_notes: Resetează toate notițele
+re_reset_planets: Resetează planetele (șterge coloniile)
+re_reset_player: Resetează jucătorii (șterge pe toți)
+re_reset_rw: Resetează rapoartele de luptă
+re_reset_statpoints: Resetează statisticile
+re_reset_universe: Resetează universul
+re_reset_universe_confirmation: >-
+  Asta nu se poate anula. Asigură-te că ai o copie de rezervă a bazei de date
+  înainte să apeși OK.
+re_resources: Resurse
+re_resources_met_cry: Resetează toate resursele (metal/cristal/deuteriu)
+re_ships: Resetează flotele
+researchs_title: Cercetare
+resources_title: Resurse
+rp_done: Planetele au fost amestecate cu succes
+rp_explain: >-
+  După ce apeși Trimite, așteaptă până apare fereastra pop-up. Repoziționarea
+  poate dura câteva secunde.
+rp_header: 'Amestecă planetele'
+rp_planet_error: Există mai mult de o planetă per jucător!
+rp_rights_error: Nu ai drepturi de administrator!
+rp_universe_error: Universul nu este complet închis!
+sb_final_memory: 'Memorie folosită la final: %e KB / max. %m KB<br>'
+sb_sql_counts: 'Interogări SQL: %d'
+sb_start_memory: 'Memorie folosită la început: %i KB / max. %m KB<br>'
+sb_stats_update: Statisticile au fost actualizate în %s secunde<br>
+sb_stats_updated: Statisticile au fost actualizate.<br>Rezumat:<br>
+sb_top_memory: 'Memorie maximă: %p KB / max. %m KB <br>'
+se__before: Înapoi
+se__next: Înainte
+se_activity: Ultima activitate
+se_adm_attack: Protecție de admin
+se_adm_attack_info: Când este activată, administratorii și moderatorii se pot face de neatacat.
+se_all_planet_pictures: Toate imaginile de planete
+se_all_planet_pictures_info: Permite toate imaginile de planete la toate pozițiile.
+se_alliance_create_min_points: Puncte minime necesare ca să întemeiezi o alianță
+se_allys: Alianțe
+se_asc_desc: Crescător / descrescător
+se_attacks: Setări de atac
+se_auth: Rang
+se_authlevels: Administratori
+se_ban: Banat?
+se_ban_author: Banat de
+se_ban_limit: Până la
+se_ban_reason: Motiv
+se_ban_time: Banat
+se_bash_per_planet: Limita de bash per planetă
+se_bash_per_planet_info: >-
+  De câte ori poate un jucător ataca planeta altui jucător în 24 de ore
+  (numărat per planetă). 0 = dezactivat
+se_bash_count_missiles: Limitele de bash numără atacurile cu rachete
+se_bash_count_missiles_info: >-
+  Atacurile cu rachete interplanetare contează ca atacurile cu flote la limitele de bash (per jucător și per planetă). Dezactivat: rachetele nu sunt numărate.
+se_bash_per_user: Limita de bash per jucător
+se_bash_per_user_info: >-
+  De câte ori poate un jucător ataca alt jucător în 24 de ore (pe toate
+  planetele). 0 = dezactivat
+se_update_check: "Verificare de actualizări"
+se_update_check_info: "Întreabă GitHub (api.github.com) care este ultima versiune când se deschide panoul de administrare (cel mult o dată la 6 ore) și anunță versiunile noi. Nu trimite date despre serverul tău. Oprește-l ca să nu se facă nicio cerere externă."
+se_cookie_consent: "Notificare despre cookie-uri"
+se_cookie_consent_info: "Arată o notificare despre cookie-uri în partea de jos a zonei de conectare, a zonei de cont și a jocului până când vizitatorul alege („Acceptă toate” sau „Doar cele necesare”; stocat în cookie-ul cookie_consent timp de un an). Operatorul este responsabil pentru textele legale."
+se_block_planet_creation: Blochează
+se_board_enabled: Activează forumul comunității
+se_board_enabled_info: "Dezactivat: toate linkurile către forum sunt ascunse și paginile forumului nu sunt disponibile."
+se_building_speed: Viteza de construcție
+se_buildings: Setări de clădiri
+se_buildlist: Setări de coadă
+se_cascading_moon_chance: Șansă de lună în cascadă
+se_cascading_moon_chance_info: >-
+  Șansă suplimentară de lună adăugată după fiecare încercare eșuată de a crea
+  o lună la șansa maximă. Se aplică doar pentru prima lună a unui cont. 0 =
+  dezactivat
+se_catch_up: Mecanism de recuperare
+se_catch_up_info: >-
+  Reduce exponențial timpii de construcție și cercetare cu un factor de până
+  la 10, în funcție de diferența de puncte față de primul jucător. De la
+  aproximativ 90% din punctele liderului nu mai există bonus. La aproximativ
+  54% factorul este 2,5, la 27% este 5, iar la 11% este 7,5. Aceasta se
+  convertește într-un interval de la 1,0 până la 0,5.
+se_catchup_percent: Bonus maxim de recuperare în procente
+se_close_reason: Mesajul serverului închis
+se_colonisation_config: Setări de colonizare
+se_configuration_title: Configurația serverului
+se_confirm_planet: >-
+  Planeta selectată va fi resetată complet. Vrei să continui? Numele planetei:
+se_contrac: Restrânge
+se_cookie_advert: >-
+  Schimbarea numelui cookie-ului deconectează pe toată lumea.<br>Folosește un
+  nume diferit dacă rulezi mai multe universuri.
+se_cookie_name: Numele cookie-ului
+se_crystal_basic_income: Producție de bază de cristal
+se_crystal_start: Cristal de start
+se_crystal_start_info: Cristalul primit de jucătorii noi pe planeta-mamă.
+se_days: Zile
+se_debris_moon: Șterge resturile după lună
+se_debris_moon_info: Elimină câmpul de resturi după ce se creează o lună.
+se_debug: Mod de depanare
+se_debug_info: >-
+  Înregistrează interogările SQL și arată administratorilor o bară de stare cu
+  numărul de interogări și timpul de rulare.
+se_def_debris_percentage: Apărare în resturi
+se_def_debris_percentage_info: Procentul din apărările distruse care devin resturi după un atac.
+se_del_oldstuff: Șterge mesajele după
+se_del_oldstuff_info: Șterge mesajele și rapoartele de luptă după X zile.
+se_del_user_automatic: Șterge jucătorii inactivi după
+se_del_user_automatic_info: Șterge jucătorii care nu s-au conectat de X zile. (0 = dezactivat)
+se_del_user_manually: Șterge conturile cerute după
+se_del_user_manually_info: Șterge jucătorii care au cerut ștergerea contului după X zile.
+se_del_user_sendmail: Trimite reamintire după
+se_del_user_sendmail_info: Trimite un e-mail de reamintire după X zile fără conectare.
+se_delete_succes_p: Șters cu succes
+se_delete_not_found: 'Nu s-a șters nimic: jucătorul sau planeta nu există sau nu poate fi șters.'
+se_deuterium_basic_income: Producție de bază de deuteriu
+se_deuterium_cost_galaxy: Cost de deuteriu pentru galaxie
+se_deuterium_cost_galaxy_info: 'Costul în deuteriu per clic în galaxie (implicit: 10)'
+se_deuterium_start: Deuteriu de start
+se_deuterium_start_info: Deuteriul primit de jucătorii noi pe planeta-mamă.
+se_disclaimer: Setări de notă legală
+se_disclamer_address: Adresă
+se_disclamer_mail: Adresa de e-mail
+se_disclamer_notice: Mai multe informații
+se_disclamer_phone: Număr de telefon
+se_discord_exceptions_hook: Excepții și avertismente
+se_discord_hooks: Webhook-uri Discord
+se_discord_logs_hook: Jurnale
+se_discord_tickets_hook: Tichete
+se_dst: Ora de vară?
+se_dst_sel:
+  - 'Nu'
+  - 'Da'
+  - Automat
+se_email: E-mail
+se_end: Data de sfârșit
+se_end_time: Ora de sfârșit
+se_energy_basic_income: Producție de bază de energie
+se_energy_multiplier: Factor de energie
+se_expand: Extinde
+se_expedition_parameters: Setări de expediție
+se_expo_hold_multiplier: Viteza expediției
+se_expo_hold_multiplier_info: 'Viteza normală: 1'
+se_expo_ress_crys_chance: Șansa de cristal din expediții
+se_expo_ress_deut_chance: Șansa de deuteriu din expediții
+se_expo_ress_met_chance: Șansa de metal din expediții
+se_factor_university: Factorul universității
+se_factor_university_info: Procentul cu care fiecare nivel de universitate reduce timpul de cercetare
+se_fields: Câmpuri
+se_filter_title: Filtru
+se_fleet_debris_percentage: Flotă în resturi
+se_fleet_speed: Viteza flotelor
+se_fleet_speed_info: 'Viteza normală: 1'
+se_forum_url: Link către forum
+se_galaxy: Galaxie
+se_galaxy_distance_factor: Factorul de distanță între galaxii
+se_galaxy_distance_factor_info: 'Implicit: 20000, calcul: diferența de galaxii × factorul de distanță între galaxii'
+se_galaxy_parameters: Setări de galaxie
+se_galaxy_type: Tipul galaxiei
+se_galaxy_type_info: >-
+  <TABLE><tr><td>Galaxii liniare</td><td>Distanța până la sistemul 1 crește cu
+  fiecare sistem din galaxie.</td></tr><tr><td>Galaxii inel</td><td>Ultimul și
+  primul sistem al unei galaxii sunt conectate, deci distanța de la sistemele
+  îndepărtate la primul este redusă.</td></tr><tr><td>Galaxii sferă</td><td>Fiecare
+  sistem din aceeași galaxie este la aceeași distanță de celelalte.</td></tr></TABLE>
+se_default_theme: Temă implicită
+se_default_theme_info: Tema pentru conturile noi și vizitatori
+se_legal: Juridic și comunitate
+se_privacy_region: Regiunea de hosting (politica de confidențialitate)
+se_privacy_region_info: "Alege politica de confidențialitate implicită: versiunea GDPR (UE/SEE) sau versiunea generală. Paginile deja editate rămân neschimbate; operatorul este responsabil pentru textele legale."
+se_privacy_region_sel:
+  eu: UE / SEE - politică de confidențialitate GDPR
+  other: În afara UE - politică de confidențialitate generală
+se_rules_default: Folosește regulile implicite
+se_rules_default_info: "Dezactivat: pagina de reguli rămâne goală până îți scrii propriile reguli la Pagini. Regulile deja editate sunt păstrate."
+se_source_url: URL-ul codului sursă
+se_source_url_info: 'Depozitul public al codului pe care îl rulează acest server, legat ca „Cod sursă” în subsoluri (AGPL cere să oferi jucătorilor modificările tale). Gol ascunde linkul.'
+se_game_name: Numele jocului
+se_git_issues_link: Link către issue tracker
+se_git_issues_link_info: Pagina unde pot fi raportate buguri și probleme
+se_id_owner: ID proprietar
+se_inactives: Inactiv
+se_initial_fields: 'Câmpuri de start:'
+se_initial_temp: 'Temperatură de start:'
+se_input_a: A
+se_input_act_pla: ' planete active'
+se_input_activity: Activitate
+se_input_admm: ' administratori'
+se_input_allyy: ' alianțe'
+se_input_asc: Crescător
+se_input_authlevel: Rang
+se_input_connect: ' jucători online'
+se_input_d: D
+se_input_desc: Descrescător
+se_input_email: E-mail
+se_input_g: Galaxie
+se_input_have_moon: Lună?
+se_input_hay: 'Momentan '
+se_input_inact: ' jucători inactivi'
+se_input_inacti: Inactivitate
+se_input_ip: IP
+se_input_longer: Durată
+se_input_members: Membri
+se_input_members2: Membri
+se_input_moonn: ' luni'
+se_input_name: Nume
+se_input_p: Planetă
+se_input_planett: ' planete'
+se_input_prop: Proprietar
+se_input_register: Înregistrare
+se_input_s: Sistem
+se_input_submit: Caută
+se_input_susss: ' banați'
+se_input_time: Ora
+se_input_userss: ' jucători'
+se_input_vacatii: ' jucători în vacanță'
+se_intro: Cuvânt sau cuvânt-cheie
+se_iter_planet_creation: Iterativ (implicit)
+se_jumpgate_factor: Reîncărcarea porții de salt
+se_jumpgate_factor_info: Factorul cu care se împarte timpul de reîncărcare al porții de salt (implicit 1)
+se_lang: Limbă
+se_limit: Limită
+se_line_galaxy: Galaxii liniare (implicit)
+se_line_uni: Univers liniar (implicit)
+se_mail_active: Activează e-mailul
+se_mail_sel:
+  - PHP mail()
+  - Sendmail / Qmail
+  - SMTP Auth
+se_mail_use: 'Metoda de e-mail:'
+se_max_additional_planets: Planete suplimentare max. din astrofizică
+se_max_additional_planets_info: Planetele suplimentare pe care un jucător le poate coloniza prin astrofizică
+se_max_elements_build: Coadă de construcție max.
+se_max_elements_build_info: Numărul maxim de clădiri din coada de construcție
+se_max_elements_ships: Coadă de șantier naval max.
+se_max_elements_ships_info: Numărul maxim de comenzi din coada șantierului naval
+se_max_elements_tech: Coadă de cercetare max.
+se_max_elements_tech_info: Numărul maxim de elemente din coada de cercetare
+se_max_fleet_per_build: Unități max. per comandă
+se_max_fleet_per_build_info: Unități maxime per comandă de șantier naval
+se_max_fleets_per_acs: Flote max. per ACS
+se_max_fleets_per_acs_info: Numărul maxim de flote într-un ACS (implicit 16)
+se_max_galaxy: Galaxii max.
+se_max_galaxy_info: Numărul maxim de galaxii din univers
+se_max_initial_planets: Planete max. fără cercetare
+se_max_initial_planets_info: Numărul de planete pe care un jucător le poate coloniza de la început, fără astrofizică
+se_max_overflow: Depășirea depozitului
+se_max_overflow_info: Factor pentru câte resurse se mai pot produce cu depozitul plin
+se_max_participants_per_acs: Participanți max. per ACS
+se_max_participants_per_acs_info: Numărul maxim de participanți într-un ACS (implicit 5)
+se_max_planets: Planete max.
+se_max_planets_info: 'Numărul maxim de planete per sistem (implicit: 15)'
+se_max_player_planets: Planete max. per jucător
+se_max_player_planets_info: Număr maxim de colonii fără cercetare
+se_max_system: Sisteme max.
+se_max_system_info: Numărul maxim de sisteme per galaxie
+se_message_delete_days: Elimină definitiv mesajele șterse după X zile
+se_messages: Mesaje
+se_metal_basic_income: Producție de bază de metal
+se_metal_start: Metal de start
+se_metal_start_info: Metalul primit de jucătorii noi pe planeta-mamă.
+se_min_build_time: Timp minim de construcție
+se_min_build_time_info: >-
+  Timpul minim de construcție în secunde pentru clădiri, cercetări, nave și
+  apărări. Implicit este 1.<br>0 dezactivează minimul.<br>Dezactivarea lui
+  poate cauza buguri.
+se_missile_range_factor: Factorul razei rachetelor
+se_moon_chance: Șansă max. de lună
+se_moon_chance_info: Șansa maximă de formare a unei luni
+se_moon_factor: Factorul șansei de lună
+se_moon_factor_info: Multiplicator pentru șansa de formare a unei luni
+se_moon_size_factor: Factorul de mărime a lunii
+se_moon_size_factor_info: Multiplicator pentru mărimea lunii, 1 = implicit
+se_moons: Luni
+se_name: Nume
+se_news: Setări de noutăți
+se_no_data: Fără date
+se_noob_inactives: Aplică factorul de protecție a începătorilor jucătorilor inactivi
+se_noob_protection: Protecția începătorilor
+se_noob_protection_multi: Factorul protecției începătorilor
+se_noob_protection_multi_info: >-
+  Poți ataca doar jucători ale căror puncte sunt în limita punctelor tale ×
+  acest factor. Exemplu cu 18: dacă ai 1.000 de puncte, poți ataca jucători cu
+  mai puțin de 18.000 de puncte. Un jucător cu 20.000 de puncte poate ataca pe
+  oricine are până la 360.000 de puncte, deci un jucător cu 50.000 de puncte
+  este tot în raza lui.
+se_noob_protection_outlaw: Sistemul de haiduci
+se_noob_protection_outlaw_info: >-
+  Le lasă pe jucătorii mai slabi să-i atace pe cei mai puternici. Atacatorul
+  devine haiduc timp de 7 zile și pierde protecția începătorilor.
+se_noob_protection_time: Protecția începătorilor până la X puncte
+se_noob_protection_time_info: Jucătorii cu acest scor sau mai puțin rămân sub protecția începătorilor.
+se_normal_speed: 'Viteza normală: 1'
+se_order_list_now: Caută
+se_overview_news_frame: Activează noutățile
+se_overview_news_frame_info: Dacă este dezactivat, noutățile sunt ascunse în Prezentarea generală.
+se_overview_news_text: Noutăți
+se_overview_news_text_info: Maximum 255 de caractere. HTML este permis.
+se_pagees: Pagini
+se_per_hour: pe oră
+se_phalanx_range_factor: Factorul razei falangei
+se_piratebase: Baze de pirați
+se_piratebase_fleet_percentage_max: 'Flotă: maximum % din flota jucătorului'
+se_piratebase_fleet_percentage_min: 'Flotă: minimum % din flota jucătorului'
+se_piratebase_mainplanet_only: 'Resurse: doar planeta-mamă'
+se_piratebase_min_points: Puncte minime
+se_piratebase_min_points_info: Punctele minime de care are nevoie un jucător înainte să poată apărea o bază de pirați
+se_piratebase_ress_hours: 'Resurse: ore de producție'
+se_planet: Planetă
+se_planet_creation: Plasarea planetei-mamă
+se_planet_creation_info: >-
+  Planetele-mamă noi pot fi plasate iterativ prin sisteme și galaxii,
+  aleatoriu, în blocuri sau 50% aleatoriu și 50% în blocuri.<br>Plasarea
+  aleatorie umple galaxiile și sistemele uniform, la poziții aleatorii.<br>
+  Plasarea în blocuri alege un sistem care are deja una sau două planete. Dacă
+  nu există un astfel de sistem sau sunt mai puțin de 50 de jucători,
+  plasarea este aleatorie.
+se_planet_distance: Distanța min. între planete
+se_planet_distance_factor: Factorul distanței între planete
+se_planet_distance_factor_info: >-
+  Implicit: 5, calcul: diferența de planete × factorul distanței între planete
+  + distanța min. între planete
+se_planet_distance_info: >-
+  Implicit: 1000, calcul: diferența de planete × factorul distanței între
+  planete + distanța min. între planete
+se_planet_parameters: Setări de planetă
+se_planet_ressource_bonus: Bonus de resurse în funcție de poziție
+se_planet_ressource_bonus_info: Crește producția de resurse a planetei cu x%, în funcție de poziția ei.
+se_planet_size_factor: Factorul de mărime a planetei
+se_planet_size_factor_info: Multiplicator pentru mărimea planetei, 1 = implicit
+se_planets: Planete
+se_planets_act: Planete active
+se_planets_per_tech: Planete suplimentare per nivel de astrofizică
+se_planets_per_tech_info: Colonii suplimentare deblocate per nivel de astrofizică
+se_prepare_text: Textul de pregătire a serverului
+se_random_planet_creation: Aleatoriu
+se_rank:
+  - Jucător
+  - Moderator
+  - Operator
+  - Administrator
+se_pow_adaptive: Protecție anti-boți - dificultate adaptivă
+se_pow_adaptive_info: >-
+  Activat: adresele IP și rețelele suspecte (/24 sau /64) primesc un puzzle
+  mult mai greu (multe cereri, eșecuri sau înregistrări într-un timp scurt).
+  Dezactivat: fiecare vizitator primește puzzle-ul de bază și nu se citește
+  niciun contor.
+se_pow_elevated_factor: Protecție anti-boți - factor la risc ridicat
+se_pow_elevated_factor_info: Puzzle-ul devine de atâtea ori mai greu (implicit 20).
+se_pow_high_factor: Protecție anti-boți - factor la risc mare
+se_pow_high_factor_info: Puzzle-ul devine de atâtea ori mai greu (implicit 100).
+se_pow_max_cap: Protecție anti-boți - plafonul dificultății
+se_pow_max_cap_info: >-
+  Cel mai mare număr după aplicarea factorilor. 1500000 durează cam 25 de
+  secunde pe un smartphone lent.
+se_pow_sensitivity: Protecție anti-boți - sensibilitatea detectării riscului
+se_pow_sensitivity_info: >-
+  Procent din pragurile implicite (ridicat de la 5 cereri/10 min, 3
+  eșecuri/oră sau 2 înregistrări/24 h per IP; mare de la 20 / 10 / 5; rețelele
+  de trei ori mai multe). 200 = sunt necesare de două ori mai multe evenimente,
+  50 = jumătate.
+se_pow_max_number: Protecție anti-boți - dificultate (număr maxim)
+se_pow_max_number_info: >-
+  Browserul încearcă hash-uri până la acest număr, în medie jumătate dintre ele.
+  25000 durează mult sub o secundă. Mai mare înseamnă mai multă muncă pentru
+  boți.
+se_pow_min_seconds: Protecție anti-boți - timp minim înainte de trimitere (secunde)
+se_pow_min_seconds_info: >-
+  Formularele trimise mai repede decât atât după încărcare sunt refuzate. 0
+  dezactivează verificarea.
+se_proofofwork: Protecție anti-boți
+se_proofofwork_info: >-
+  Înregistrarea și parola uitată sunt protejate printr-un mic calcul pe care
+  browserul îl rezolvă singur, fără niciun terț.
+se_rebuild_protection: Protecția de reconstrucție
+se_rebuild_protection_info: >-
+  După pierderi grele, jucătorii primesc protecție de reconstrucție împotriva
+  atacurilor ulterioare după 6 ore, care durează 48 de ore de la atac. În
+  cadrul unui atac trebuie distruse 70% din flotă sau 80% din capacitatea de
+  transport, iar pierderea trebuie să fie de cel puțin puncte de protecție a
+  începătorilor × 1.000 în unități sau capacitate. Jucătorul poate încheia
+  modul mai devreme.
+se_redis_connection_url: URL de conexiune Redis
+se_redis_connection_url_info: redis[s]://[[username][:password]@][host][:port][/db-number]
+se_ref: Link de recomandare
+se_ref_active: Activează linkurile de recomandare
+se_ref_active_info: Linkurile de recomandare le lasă jucătorilor să-și invite prietenii. Jucătorii recrutați aduc un bonus.
+se_ref_bonus: Bonus de recomandare
+se_ref_bonus_info: Materia întunecată pe care o primește jucătorul care recomandă, per jucător recrutat.
+se_ref_max_referals: Recomandări maxime
+se_ref_max_referals_info: Numărul maxim de jucători pe care îi poate recruta un utilizator.
+se_ref_minpoints: Puncte minime pentru bonus
+se_ref_minpoints_info: >-
+  Jucătorul recrutat trebuie să atingă acest scor înainte ca cel care l-a
+  recomandat să primească bonusul.
+se_research_speed: Viteza cercetării
+se_resource_multiplier: Viteza producției de resurse
+se_resource_multiplier_info: 'Viteza normală: 1'
+se_ress_chance: Șansele resurselor
+se_ring_galaxy: Galaxii inel
+se_ring_uni: Univers inel
+se_save_parameters: Salvează
+se_se_fleet_debris_percentage_info: Procentul din flotele distruse care devin resturi după un atac
+se_search: Caută
+se_search_alliance_0: ID
+se_search_alliance_1: Nume
+se_search_alliance_2: TAG
+se_search_alliance_3: Lider
+se_search_alliance_4: Întemeiată
+se_search_alliance_5: Membri
+se_search_banned_0: ID
+se_search_banned_1: Nume
+se_search_banned_2: Banat de la
+se_search_banned_3: Banat până la
+se_search_banned_4: Motiv
+se_search_banned_5: Autor
+se_search_edit: Editează
+se_search_in: Pentru
+se_search_info: Caută
+se_search_order: Sortează
+se_search_planets_0: ID
+se_search_planets_1: Nume
+se_search_planets_2: Proprietar
+se_search_planets_3: Ultima activitate
+se_search_planets_4: Galaxie
+se_search_planets_5: Sistem
+se_search_planets_6: Planetă
+se_search_planets_7: Are lună?
+se_search_title: Căutare avansată
+se_search_users_0: ID
+se_search_users_1: Nume
+se_search_users_2: E-mail
+se_search_users_3: Ultima activitate
+se_search_users_4: Data înregistrării
+se_search_users_5: Ultimul IP
+se_search_users_6: Rang
+se_search_users_7: Banat?
+se_search_users_8: Vacanță?
+se_sendmail_inactive: Activează e-mailurile de reamintire
+se_server_naame: Numele jocului
+se_server_parameters: Setări de univers
+se_session_handler: Gestionar de sesiuni
+se_several_parameters: Alte setări
+se_shipyard_speed: Viteza șantierului naval
+se_silo_factor: Mărimea silozului de rachete
+se_silo_factor_info: Multiplicator pentru mărimea silozului de rachete
+se_smail_path: Calea către Sendmail / Qmail
+se_smtp: Setări SMTP
+se_smtp_host: 'Host SMTP:'
+se_smtp_host_info: Adresa serverului tău SMTP.
+se_smtp_info: Setările SMTP folosite pentru a trimite e-mailuri jucătorilor de pe serverul {game_name}.
+se_smtp_pass: 'Parolă SMTP:'
+se_smtp_port: 'Port SMTP:'
+se_smtp_port_info: Portul serverului SMTP. De obicei 25.
+se_smtp_sendmail: 'Expeditor SMTP:'
+se_smtp_sendmail_info: Adresa expeditorului. Nu trebuie să fie aceeași cu adresa de conectare.
+se_smtp_ssl: 'SMTP SSL/TLS:'
+se_smtp_ssl_info: Criptarea folosită între acest server și serverul de e-mail. Rareori necesară.
+se_smtp_ssl_sel:
+  - Niciuna
+  - SSL
+  - TLS
+se_smtp_user: 'Utilizator SMTP:'
+se_sphere_galaxy: Galaxii sferă
+se_sphere_uni: Univers sferă
+se_start: Data de început
+se_start_time: Ora de început
+se_stat: Atribuie 0 puncte administratorilor
+se_stat_level: De la rangul
+se_stat_sel:
+  - 'Nu'
+  - 'Da'
+  - Ascunde adminii
+se_stat_settings: Valoarea unui punct de statistici
+se_statistics: Statistici
+se_statsjson_delay: Întârzierea stats.json
+se_storage_multiplier: Multiplicator de depozitare a resurselor
+se_suspended: Banat
+se_system: Sistem
+se_system_distance: Distanța min. între sisteme
+se_system_distance_factor: Factorul distanței între sisteme
+se_system_distance_factor_info: >-
+  Implicit: 95, calcul: diferența de sisteme × factorul distanței între sisteme
+  + distanța min. între sisteme
+se_system_distance_info: >-
+  Implicit: 2700, calcul: diferența de sisteme × factorul distanței între
+  sisteme + distanța min. între sisteme
+se_tag: TAG
+se_temp: Grade
+se_time_of_page: Pagină creată
+se_timezone: Fusul orar al universului
+se_trade_allowed_ships: 'Nave permise:'
+se_trade_charge: 'Comisionul negustorului:'
+se_trader: Setări pentru negustorul de fiare vechi
+se_ttf_file: Font (TTF/OTF)
+se_ttf_file_info: >-
+  Fișierele de font găsite în public/styles/resource/fonts/ (pune fișiere noi
+  acolo). Dacă fișierul ales lipsește, se folosește DroidSansMono inclus.
+se_type_all: Căutare normală
+se_type_exact: Căutare exactă
+se_type_first: Începe cu
+se_type_last: Se termină cu
+se_type_typee: Tip
+se_uni_name: Numele universului
+se_uni_status: Starea universului
+se_uni_status_regclosed_gameclosed: Înregistrare și conectare închise (de ex. mentenanță)
+se_uni_status_regclosed_gameopen: Înregistrare închisă, conectare deschisă (de ex. universuri vechi)
+se_uni_status_regopen_gameclosed: Înregistrare deschisă, conectare închisă (de ex. universuri noi)
+se_uni_status_regopen_gameopen: Înregistrare și conectare deschise
+se_uni_type: Tipul universului
+se_uni_type_info: >-
+  <TABLE><tr><td>Univers liniar</td><td>Distanța până la galaxia 1 crește cu
+  fiecare galaxie.</td></tr><tr><td>Univers inel</td><td>Ultima și prima
+  galaxie sunt conectate, deci distanța de la galaxiile îndepărtate la prima
+  este redusă.</td></tr><tr><td>Univers sferă</td><td>Fiecare galaxie este la
+  aceeași distanță de celelalte.</td></tr></TABLE>
+se_user_settings: Setări de jucători
+se_user_valid: Validare prin e-mail
+se_user_valid_info: >-
+  Dacă este activată, jucătorii trebuie să-și activeze conturile prin e-mail.
+  SMTP trebuie configurat mai jos.
+se_users: Jucători
+se_vacat: Vacanță?
+se_vacations: Vacanță
+se_vmode_min_time: Timp minim de vacanță
+se_vmode_min_time_info: Timpul minim cât trebuie să stea un jucător în modul vacanță, în secunde
+se_wreckfield_cooldown: Pauza câmpului de epave
+se_wreckfield_min_percent: Procentul minim de unități de flotă distruse pentru un câmp de epave
+se_wreckfield_min_units: Unități minime distruse pentru un câmp de epave
+select_option: Alege...
+ships_title: Nave
+sp_answer_message: 'Un răspuns a fost postat la tichetul tău #%d!'
+sp_answer_message_title: 'Tichet de suport #%d'
+status: Stare
+subject: Subiect
+test_data_amount: Numărul de utilizatori de test
+test_data_stage:
+  - Început (Sondă de spionaj)
+  - Mijlocul jocului (Navă de luptă, 1 lună)
+  - Sfârșitul jocului (Crucișător de luptă, Falangă)
+  - Final de joc (Steaua morții, Poartă de salt)
+test_data_stage_label: Etapă
+test_data_success: Datele de test au fost create cu succes
+test_data_title: Creează date de utilizator de test
+text: Detalii
+time_days: Zile
+time_hours: Ore
+time_minutes: Minute
+time_seconds: Secunde
+ul_sure_you_want_dlte: Sigur vrei să elimini asta?
+uni_reg: Univers
+user_reg: Nume
+uvs_actions: Acțiuni
+uvs_back: Înapoi
+uvs_delete: Șterge
+uvs_id: ID univers
+uvs_inactive: Inactiv
+uvs_name: Nume
+uvs_new: Adaugă univers
+uvs_off: Închis
+uvs_on: Deschis
+uvs_open: Stare
+uvs_planets: Planete
+uvs_players: Jucători
+uvs_reload: Reîncarcă
+uvs_speeds: Factori de viteză (G/F/R/E)
+uvs_speeds_full: Factori de viteză (Joc/Flotă/Resurse/Expediție)
+vt_all: Toate fișierele
+vt_head: Verifică fișierele jocului
+vt_info: >-
+  Această listă arată fișierele care diferă de original.<br>Dacă nu ai
+  modificat jocul tu însuți, înlocuiește aceste fișiere cu originalele.
+adm_comments: Comentarii
+adm_analytics: Analiză
+ad_system: Sistem
+adm_menu_filter: Filtrează meniul …
+adm_menu_empty: Nu s-a găsit nicio intrare de meniu
+adm_menu_toggle: Meniu
+adm_back_to_game: Înapoi la joc
+adm_drop_rights: Deconectare
+adm_universe_switch: Univers
+adm_dash_attention: Necesită atenție
+adm_dash_all_good: Totul e în regulă – fără avertismente.
+adm_dash_online: Jucători online (15 min)
+adm_dash_players: Total jucători
+adm_dash_tickets: Tichete deschise
+adm_dash_fleets: Flote în zbor
+adm_dash_quick: Acces rapid
+adm_dash_system: Sistem
+adm_update_available: "Actualizare disponibilă"
+adm_update_released: "lansată"
+adm_update_you_run: "rulezi"
+adm_update_notes: "Note de lansare"
+adm_update_howto: "Cum actualizezi"
+adm_update_check_now: "Verifică acum"
+adm_update_check: "Verificare de actualizări"
+adm_update_up_to_date: "La zi"
+adm_dash_version: Versiune
+adm_dash_php: PHP
+adm_dash_uni_status: Starea universului
+adm_dash_credits: Mulțumiri
+adm_dash_project: Pagina proiectului
+adm_confirm: Ești sigur?
+adm_dash_cron_locked: 'Cronjob blocat (nu mai rulează): %s'
+adm_dash_cron_never: "Cron job-ul nu a rulat niciodată. Flotele, statisticile și alte joburi de fundal îl așteaptă."
+adm_dash_cron_stale: "Cron job-ul a rulat ultima dată pe %s (ar trebui să ruleze în fiecare minut). Flotele, statisticile și alte joburi de fundal îl așteaptă."
+adm_dash_cron_help: "Cum configurezi cron job-ul"
+adm_dash_next_cron: Următorul cronjob
+adm_dash_cron_count: cronjoburi active
+adm_unsaved_hint: Modificările au efect după ce salvezi.
+adm_sections: Secțiuni
+adm_skip: Sari la conținut
+adm_filter_page: Filtrează această pagină …
+adm_actions: Acțiuni
+adm_ac_no_destroyed: Nu au fost distruse planete recent.
+adm_ae_addremove_hint: Valorile sunt adăugate la cantitatea curentă (Adaugă) sau scăzute din ea (Șterge). O valoare de 0 lasă intrarea neschimbată.
+adm_ae_confirm_remove: Chiar scazi valorile introduse din cantitatea curentă?
+adm_ae_danger_zone: Zona periculoasă
+adm_ae_group_planet: Planetă / lună
+adm_ae_group_player: Jucător
+adm_ae_menu_hint: 'Alege ce editezi. Jucătorii se selectează după ID-ul jucătorului, planetele după ID-ul planetei sau al lunii.'
+adm_ae_wipe: Resetează planeta
+adm_ae_wipe_hint: 'Zonele bifate sunt șterse de pe planetă. Nu se poate anula.'
+adm_as_confirm: Chiar schimbi între ele conturile celor doi jucători selectați?
+adm_as_explain: 'Cei doi jucători selectați își schimbă conturile (datele de conectare). Starea jocului și planetele rămân la fiecare jucător, doar datele de conectare își schimbă proprietarul. Alege jucătorul A în stânga și jucătorul B în dreapta.'
+adm_ban_accounts: Conturi
+adm_ban_duration: Durată
+adm_ban_users: Jucători
+adm_continue: Continuă
+adm_coord_position: Poziție
+adm_cron_active: Activ
+adm_cron_click_disable: Apasă ca să dezactivezi
+adm_cron_click_enable: Apasă ca să activezi
+adm_cron_click_lock: Apasă ca să blochezi
+adm_cron_click_unlock: Apasă ca să deblochezi (rulare blocată)
+adm_cron_free: Liber
+adm_cron_hint: Apasă pe o insignă de stare ca să o comuți
+adm_cron_inactive: Inactiv
+adm_cron_locked: Blocat
+adm_cron_state: Stare
+adm_giveaway_confirm: Cantitățile sunt creditate tuturor planetelor potrivite din acest univers. Continui?
+adm_giveaway_hint: Cantitățile se adaugă la stocul curent al fiecărei planete potrivite. Câmpurile lăsate pe 0 rămân neschimbate.
+adm_reset_warning: 'Tot ce este bifat mai jos este șters sau resetat definitiv pentru acest univers. Nu există copie de rezervă și nici anulare.'
+adm_rights_edit: Editează permisiunile
+adm_rights_other: Altele
+adm_rights_page: Pagină
+adm_rights_pick: Alege jucătorul ale cărui permisiuni vrei să le editezi.
+adm_uni_close: Închide universul
+adm_uni_open: Deschide universul
+adm_edit: Editează
+adm_ma_recipients: Destinatari
+adm_ml_from: de la
+adm_ml_to: la
+ac_detailed_planet_moon_info: Detaliile planetei și lunii
+ad_max: (max. %d)
+adm_password_info: Introdu parola ca să-ți verifici identitatea!
+button_des_se: selectează/deselectează tot
+er_dlte_all: Șterge tot
+input_id_moon: ID lună
+input_text: 'Descriere:'
+mip_ip: IP
+adm_cfg_crystal_pct: Cristal %
+adm_cfg_deuterium_pct: Deuteriu %
+adm_cfg_fields_max: Câmpuri max
+adm_cfg_fields_min: Câmpuri min
+adm_cfg_metal_pct: Metal %
+adm_cfg_planet_props: Proprietățile planetelor pe poziții
+adm_cfg_planet_props_hint: Temperatură în °C, câmpuri, bonus de producție în %
+adm_cfg_temp_max: Temp. max
+adm_cfg_temp_min: Temp. min
+adm_comment_col: Comentariu
+adm_date_dd: zz
+adm_date_format: (zz.ll.aaaa)
+adm_date_mm: ll
+adm_date_yyyy: aaaa
+adm_exp_deck_err_card: 'Format de carte invalid: lipsește type, size sau count'
+adm_exp_deck_err_count: 'Număr de cărți invalid: nu trebuie să fie negativ'
+adm_exp_deck_err_empty: Pachetul trebuie să conțină cel puțin o carte
+adm_exp_deck_err_format: 'Format de pachet invalid: trebuie să fie un array'
+adm_exp_deck_err_json: Format JSON invalid
+adm_exp_ships_saved: Configurația navelor a fost salvată cu succes!
+adm_flight_distance: Distanță
+adm_flight_err_dist_missing: Completează complet toate valorile de distanță.
+adm_flight_err_format: Introdu în formatul galaxie:sistem:planetă.
+adm_flight_err_galaxy_over: 'Galaxia depășește max_galaxy.'
+adm_flight_err_max_missing: Completează complet max_galaxy, max_system și max_planets.
+adm_flight_err_min_one: Galaxia, sistemul și planeta trebuie să fie cel puțin 1.
+adm_flight_err_planet_over: 'Planeta depășește max_planets.'
+adm_flight_err_system_over: 'Sistemul depășește max_system.'
+adm_flight_fleet_speed: Viteza flotelor
+adm_flight_preview: Previzualizare a timpului de zbor
+adm_flight_preview_help: Timpul de zbor de la 1:1:1 la țintă cu viteza navei 45.000 și viteza flotelor 1; tipul universului, tipul galaxiei, valorile maxime, factorii de distanță și distanțele minime sunt aplicate în direct.
+adm_flight_ship_speed: Viteza navei
+adm_flight_time: Timp de zbor
+adm_info_col: Info
+adm_info_db_version: Versiune DB
+adm_info_errorlog: Jurnal de erori
+adm_info_game: Joc
+adm_info_game_address: Adresa jocului
+adm_info_game_version: Versiunea jocului
+adm_info_memory_limit: Limită de memorie
+adm_info_mysql_client: Client MySQL
+adm_info_mysql_server: Server MySQL
+adm_info_php_version: Versiune PHP
+adm_info_server: Server
+adm_info_server_info: Informații despre server
+adm_info_text: Ca text
+adm_info_timezone: Fus orar (PHP/config/utilizator)
+adm_loading: Se încarcă …
+adm_log_not_found: Negăsit în jurnal
+adm_mip_activity: Activitate
+adm_mip_show_allowed: Arată aprobate
+adm_mip_show_banned: Arată banate
+adm_ml_end_day: Ziua de sfârșit
+adm_ml_end_month: Luna de sfârșit
+adm_ml_end_year: Anul de sfârșit
+adm_ml_start_day: Ziua de început
+adm_ml_start_month: Luna de început
+adm_ml_start_year: Anul de început
+adm_pagination: Paginare
+adm_permission_error: 'Permisiune refuzată!'
+adm_ti_all: Toate
+adm_ti_debug_errors: Depanare/erori
+adm_ti_user_tickets: Tichetele utilizatorilor
+adm_group_community: Comunitate
+adm_nav_accounts: Conturi
+adm_nav_expeditions: Expediții
+adm_nav_messages: Mesaje
+adm_nav_moderation: Moderare
+adm_nav_players: Jucători
+adm_nav_settings: Setări
+adm_tab_bans: Banuri
+adm_tab_card_deck: Pachet de cărți
+adm_tab_create: Creează
+adm_tab_editor: Editor
+adm_tab_findable_ships: Nave de găsit
+adm_tab_moons: Luni
+adm_tab_planets: Planete
+adm_tab_players: Jucători
+adm_tab_server: Server
+adm_tab_swap: Schimb
+adm_tab_universe: Univers
+adm_maint_cache_text: Golește cache-urile jocului (limbi, șabloane, date de joc) și recalculează orele cron joburilor. Ajută când modificările de setări sau texte nu apar.
+adm_maint_log_head: "Jurnalul jocului"
+adm_maint_log_text: "Jurnalul de erori al jocului (var/log/game.log). Golirea golește fișierul; erorile noi se scriu din nou imediat."
+adm_migr_head: "Migrări ale bazei de date"
+adm_migr_text: "Aplică modificările bazei de date care vin cu o actualizare (de exemplu după despachetarea unei versiuni noi peste instalare)."
+adm_migr_current: "Revizia curentă a bazei de date"
+adm_migr_pending: "Migrări în așteptare"
+adm_migr_backup: "Creează mai întâi o copie de rezervă a bazei de date."
+adm_migr_revision: "Revizie"
+adm_migr_file: "Fișier"
+adm_migr_status: "Stare"
+adm_migr_ok: "Gata"
+adm_migr_failed: "Eșuat"
+adm_migr_skipped: "Interogare sărită"
+adm_migr_uptodate: "Baza de date este la zi."
+adm_migr_confirm: "Rulezi acum toate migrările în așteptare?"
+adm_migr_run: "Rulează migrările"
+adm_migr_result: "Rezultat"
+adm_migr_nothing: "Nu era nicio migrare în așteptare."
+adm_maint_log_size: "Mărime"
+adm_maint_log_changed: "Ultima modificare"
+adm_maint_log_missing: "Fișierul de jurnal nu există încă."
+adm_maint_log_clear: "Golește jurnalul jocului"
+adm_maint_log_confirm: "Golești var/log/game.log? Nu se poate anula."
+adm_maint_log_cleared: "Jurnalul jocului a fost golit."
+adm_maint_log_failed: "Jurnalul jocului nu a putut fi golit (fișierul nu poate fi scris)."
+adm_maint_points_text: Recalculează imediat punctele și clasamentul. Altfel asta rulează automat prin cron job-ul de statistici și poate dura un pic cu mulți jucători.
+adm_nav_maintenance: Mentenanță
+adm_nav_content: Conținut
+adm_tab_pages: Pagini
+adm_tab_team: Echipa
+nws_back: Înapoi la listă
+nws_view: Vezi
+nws_summary: Rezumat
+nws_summary_help: 'Teaser opțional pentru lista de noutăți (max. 300 de caractere). Gol = fragment din text.'
+nws_publish_date: Data publicării
+nws_publish_help: 'O dată din viitor programează noutatea: apare automat atunci.'
+nws_status: Stare
+nws_status_draft: Ciornă
+nws_status_published: Publicată
+nws_status_scheduled: Programată
+nws_pinned: Fixată
+nws_filter_all: Toate
+nws_filter_drafts: Ciorne
+nws_empty: Nicio noutate
+nws_saved: Noutate salvată.
+nws_deleted: Noutate ștearsă.
+nws_error_empty: Titlul și textul nu pot fi goale.
+cms_page_contacts: Contact
+cms_page_dataPrivacy: Confidențialitatea datelor
+cms_page_rules: Reguli
+cms_language: Limbă
+cms_status: Stare
+cms_status_default: Implicită
+cms_status_edited: Editată
+cms_last_edit: Ultima editare
+cms_title: Titlu
+cms_content: Conținut
+cms_save: Salvează pagina
+cms_view: Vezi pagina
+cms_reset: Resetează la implicit
+cms_reset_confirm: Ștergi versiunea editată și arăți din nou conținutul implicit?
+cms_saved: Pagină salvată.
+cms_reset_done: Pagina a fost resetată la conținutul implicit.
+team_name: Nume
+team_position: Poziție
+team_contact: Contact (de ex. Discord)
+team_description: Descriere
+team_add: Adaugă membru
+team_delete: Elimină
+team_move_up: Mută în sus
+team_move_down: Mută în jos
+team_save: Salvează echipa
+team_saved: Echipă salvată.
+team_empty: Încă nu există membri ai echipei.
+team_hint: Ordinea rândurilor este ordinea de pe pagina publică a echipei. Rândurile fără nume sunt eliminate la salvare.
+nws_image: Imagine
+nws_image_remove: Elimină imaginea
+nws_image_help: 'Opțional, o imagine per noutate (JPEG, PNG, GIF sau WebP, max. 8 MB). Convertită automat în WebP.'
+
+bot_action: "Acțiune"
+bot_actions_per_session: "Acțiuni per sesiune"
+bot_active: "Activ"
+bot_active_none: "Fără LLM (doar alternative locale)"
+bot_activity: "Activitate pe oră"
+bot_activity_info: "24 de valori separate prin virgulă de la 0 la 1 (șansa ca un bot offline să înceapă o sesiune, orele 0-23)"
+bot_alliance_chance: "Șansa de activitate în alianță per sesiune"
+bot_alliance_join_chance: "Șansa de a aplica la o alianță de boți (per tură)"
+bot_fleetsave_chance: "Șansa de fleetsave (sfârșit de sesiune, amenințări)"
+bot_saving_discipline: "Disciplină de economisire (economisește pentru scopul lui în loc de cumpărături ieftine)"
+bot_expedition_slots: "Sloturi de flotă ținute libere pentru expediții"
+bot_api_key: "Cheie API"
+bot_base_url: "URL de bază"
+bot_buddy_accept_chance: "Șansa de a accepta o cerere de prietenie"
+bot_cancel: "Anulează"
+bot_chat_style: "Indiciu de stil de chat"
+bot_raid_enabled: "Raiduri activate"
+bot_raid_chance: "Sesiuni care pleacă la raid"
+bot_scout_range: "Raza de recunoaștere (sisteme în jurul planetelor proprii)"
+bot_min_profit_ratio: "Raport minim de profit (pradă / combustibil + pierderi)"
+bot_relentless_minutes: "Serie de raiduri după o lovitură (minute, min - max)"
+bot_recall_check_chance: "Șansa unei re-spionări și a unei verificări de rechemare înainte de impact"
+bot_max_attacks_per_target: "Atacuri max. per țintă și zi"
+bot_attack_bots: "Atacă alți boți"
+bot_attack_humans: "Atacă jucători umani"
+bot_prefer_inactive: "Preferință pentru ținte inactive (0-100)"
+bot_check_interval: "Interval de verificare a conectării"
+bot_colonize_chance: "Șansa de colonizare per sesiune"
+bot_confirm_delete: "Chiar ștergi?"
+bot_confirm_restore: "Resetezi profilurile implicite la valorile lor originale?"
+bot_csrf_error: "Token de securitate invalid, reîncarcă pagina."
+bot_days_zero_off: "zile (0 = dezactivat)"
+bot_default: "implicit"
+bot_defaults_restored: "Profilurile implicite au fost restaurate."
+bot_delete: "Șterge"
+bot_deleted: "Șters."
+bot_description: "Descriere"
+bot_detail: "Detaliu"
+bot_disabled: "dezactivat"
+bot_duplicate: "Duplică"
+bot_edit: "Editează"
+bot_edit_profile: "Editează profilul"
+bot_enabled: "activat"
+bot_expedition_chance: "Șansa de expediție per sesiune"
+bot_failed: "Eșuat"
+bot_hours_every: "ore la fiecare"
+bot_invalid_url: "URL-ul de bază trebuie să înceapă cu http:// sau https://."
+bot_key: "Cheie"
+bot_key_keep: "lasă gol ca să o păstrezi"
+bot_key_not_set: "nesetată"
+bot_key_stored: "stocată"
+bot_last_action: "Ultima acțiune"
+bot_last_test: "Ultimul test"
+bot_list: "Boți"
+bot_llm_advice: "Permite LLM (nume și chat)"
+bot_log: "Acțiuni recente"
+bot_mistake_chance: "Șansa de greșeală"
+bot_mode: "Modul boților"
+bot_model: "Model"
+bot_name: "Nume"
+bot_name_required: "Introdu un nume."
+bot_new_profile: "Profil nou"
+bot_next_tick: "Următoarea verificare"
+bot_none: "Niciunul."
+bot_offline: "offline"
+bot_online: "online"
+bot_open_config: "Setările universului"
+bot_pattern_shift: "Tipar pe ture"
+bot_player: "Jucător"
+bot_points: "Puncte"
+bot_profile: "Profil"
+bot_profile_default_locked: "Profilurile implicite nu pot fi șterse."
+bot_profile_in_use: "Acest profil este încă folosit de boți."
+bot_profile_missing: "Profilul nu a fost găsit."
+bot_provider: "Furnizor"
+bot_providers_info: "LLM-ul este opțional și folosit doar pentru partea umană a boților: porecle, personaje, nume de planete și chat (răspunsuri la mesaje, alianțe, prieteni). Deciziile de joc se iau întotdeauna local. Fără un furnizor activ se folosesc generatoare de nume încorporate și mesaje pregătite. Lasă câmpul cheii gol ca să păstrezi cheia stocată."
+bot_randomness: "Aleatoriu"
+bot_reply_chance: "Șansa de răspuns (mesaje private)"
+bot_restore_defaults: "Restaurează valorile implicite"
+bot_saved: "Salvat."
+bot_session: "Sesiune"
+bot_session_minutes: "Durata sesiunii"
+bot_skill: "Abilitate"
+bot_skill_gain: "Câștig pe zi"
+bot_skill_max: "Max"
+bot_skill_start: "Start"
+bot_spawn: "Creează boți"
+bot_profile_mixed: "Mixt (toate profilurile)"
+bot_spawned: "%d bot(ți) creați."
+bot_summary: "Rezumat"
+bot_summary_actions: "acțiuni"
+bot_summary_mistakes: "greșeli"
+bot_summary_session: "sesiune"
+bot_tab_profiles: "Profiluri"
+bot_tab_providers: "Furnizori LLM"
+bot_test: "Testează conexiunea"
+bot_testing: "Se testează..."
+bot_time: "Ora"
+bot_universe: "Univers"
+bot_w_defense: "Apărare"
+bot_w_energy: "Energie"
+bot_w_facilities: "Instalații"
+bot_w_mines: "Mine"
+bot_w_research: "Cercetare"
+bot_w_ships: "Nave"
+bot_w_storage: "Depozitare"
+bot_weights: "Ponderi"
+adm_nav_bots: Boți
+adm_tab_bot_providers: Furnizori LLM
+adm_tab_bot_profiles: Profiluri
+adm_tab_bot_list: Boți
+se_bots: "Boți"
+se_bots_enabled: "Activează boții"
+se_bots_enabled_info: "Lasă boții de pe server să joace în acest univers. Sunt procesați de cron job o dată pe minut."
+se_bots_llm_daily_limit: "Apeluri LLM per bot și zi"
+se_bots_llm_daily_limit_info: "Numărul maxim de apeluri LLM pe care le poate face un bot pe zi. După aceea se folosesc alternativele locale."
+se_bots_llm_enabled: "Folosește LLM pentru nume și chat"
+se_bots_llm_enabled_info: "Activează porecle, personaje, nume de planete și chat (mesaje, alianțe, prieteni) generate de LLM folosind furnizorul activ. Deciziile de joc rămân mereu locale."
+se_bots_max_count: "Numărul maxim de boți"
+se_bots_max_count_info: "Limita superioară pentru boții creați în acest univers."
+se_bots_ticks_per_run: "Boți per rulare cron"
+se_bots_ticks_per_run_info: "Numărul maxim de boți procesați într-o rulare cron."
+se_bots_raids_enabled: "Boții jefuiesc alți jucători"
+se_bots_raids_enabled_info: "Lasă boții să facă recunoaștere, să spioneze și să atace jucători și alți boți din apropiere, după aceleași reguli ca jucătorii (limita de bash, protecție, vacanță). Dezactivat implicit."
+adm_info_summary_fail: "%s verificare/verificări eșuate, %s avertisment(e). Rezolvă mai întâi verificările eșuate."
+adm_info_summary_warn: "Nicio verificare eșuată, dar %s avertisment(e) merită o privire."
+adm_info_summary_ok: "Toate verificările de sănătate au trecut."
+adm_info_health: "Verificări de sănătate"
+adm_info_status_ok: "OK"
+adm_info_status_warn: "Avertisment"
+adm_info_status_fail: "Eșuat"
+adm_info_status_info: "Info"
+adm_info_chk_php: "Versiune PHP (8.4 sau mai nouă)"
+adm_info_chk_php_hint: "Jocul are nevoie de PHP 8.4 sau mai nou."
+adm_info_chk_ext_required: "Extensii PHP necesare"
+adm_info_chk_ext_required_hint: "Instalează extensiile lipsă, jocul nu va funcționa fără ele."
+adm_info_chk_ext_optional: "Extensii PHP opționale"
+adm_info_chk_ext_optional_hint: "Nu sunt necesare, dar activează funcții mai rapide sau suplimentare (vezi lista de extensii)."
+adm_info_chk_opcache: "OPcache"
+adm_info_chk_opcache_hint: "OPcache este oprit. Activează-l în producție, accelerează mult PHP."
+adm_info_chk_environment: "Mediu (APP_ENV / depanare)"
+adm_info_chk_environment_hint: "Rulează cu APP_ENV=prod și depanarea oprită pe un server public."
+adm_info_chk_display_errors: "display_errors"
+adm_info_chk_display_errors_hint: "Afișarea erorilor în pagini poate dezvălui detalii interne. Setează display_errors=Off pe serverele publice."
+adm_info_chk_writable: "Directoare cu drept de scriere"
+adm_info_chk_writable_hint: "Utilizatorul serverului web trebuie să poată scrie în aceste directoare (cache-uri, jurnale, sesiuni, încărcări)."
+adm_info_chk_install_tool: "Instrumentul de instalare"
+adm_info_chk_install_tool_hint: "var/ENABLE_INSTALL_TOOL există. Șterge-l când nu instalezi."
+adm_info_chk_migrations: "Migrări ale bazei de date"
+adm_info_chk_migrations_hint: "Există migrări în așteptare. Se aplică la următoarea cerere de joc; verifică jurnalul dacă rămân în așteptare."
+adm_info_chk_battle_engine: "Motorul de luptă"
+adm_info_chk_battle_engine_hint: "Motorul Rust nu poate fi folosit (bin/battlerust, bin/libbattlerust.so, proc_open). Bătăliile rulează pe motorul PHP, mai lent."
+adm_info_chk_cron: "Cron joburi"
+adm_info_chk_cron_hint: "Cron pare blocat sau nu rulează. Verifică dacă bin/console app:cron:run rulează în fiecare minut și deblochează joburile blocate la Cronjoburi."
+adm_info_chk_https: "HTTPS"
+adm_info_chk_https_hint: "Această cerere nu a folosit HTTPS. Parolele și sesiunile circulă necriptat."
+adm_info_chk_mail: "Livrarea e-mailurilor"
+adm_info_chk_mail_hint: "E-mailul este dezactivat sau incomplet (e-mailurile de activare și resetările de parolă nu vor ajunge). Vezi setările."
+adm_info_chk_session: "Gestionar de sesiuni"
+adm_info_chk_session_hint: "Verifică stocarea sesiunilor."
+adm_info_os: "Sistem de operare"
+adm_info_hostname: "Nume de host"
+adm_info_max_exec: "Timp maxim de execuție"
+adm_info_upload_max: "Limită de încărcare (upload_max_filesize)"
+adm_info_post_max: "Limită POST (post_max_size)"
+adm_info_realpath: "Cache realpath"
+adm_info_peak: "Memoria maximă a acestei cereri"
+adm_info_cpu: "Nuclee CPU"
+adm_info_load: "Încărcare medie (1 / 5 / 15 min)"
+adm_info_uptime: "Timp de funcționare a sistemului"
+adm_info_disk: "Disc (proiect)"
+adm_info_memory: "Memorie de sistem"
+adm_info_free_of: "%s liberi din %s (%s %% folosit)"
+adm_info_opcache_line: "%s din %s folosiți, rata de reușită %s %%, %s scripturi în cache"
+adm_info_extensions: "Extensii PHP"
+adm_info_extensions_hint: "Treci cu cursorul pentru scop. Roșu = necesară și lipsă, gri = opțională și lipsă."
+adm_info_required: "necesară"
+adm_info_ext_pdo_mysql: "Acces la baza de date (PDO MySQL)"
+adm_info_ext_intl: "Formatarea numerelor, datelor și limbilor"
+adm_info_ext_mbstring: "Gestionarea șirurilor multibyte"
+adm_info_ext_gd: "Procesarea imaginilor (avatare, imagini de noutăți)"
+adm_info_ext_curl: "Cereri HTTP (Discord, API-uri externe)"
+adm_info_ext_json: "Codificare și decodificare JSON"
+adm_info_ext_ctype: "Verificări de tip de caracter"
+adm_info_ext_opcache: "Păstrează în cache codul PHP compilat (viteză)"
+adm_info_ext_ffi: "Interfață pentru funcții externe (cod nativ)"
+adm_info_ext_ds: "Structuri de date rapide"
+adm_info_ext_redis: "Sesiuni și cache Redis"
+adm_info_ext_imap: "Acces la căsuța poștală (IMAP)"
+adm_info_database: "Baza de date"
+adm_info_db_schema: "Schemă"
+adm_info_db_size: "Mărime"
+adm_info_tables: "tabele"
+adm_info_pending: "Migrări în așteptare"
+adm_info_db_uptime: "Timp de funcționare MySQL"
+adm_info_threads: "Fire conectate"
+adm_info_max: "max"
+adm_info_qps: "Interogări pe secundă (medie)"
+adm_info_queries: "interogări"
+adm_info_slow: "Interogări lente"
+adm_info_buffer_pool: "Buffer pool InnoDB"
+adm_info_top_tables: "Cele mai mari tabele"
+adm_info_table: "Tabel"
+adm_info_rows: "rânduri"
+adm_info_data: "Date"
+adm_info_index: "Index"
+adm_info_game_stats: "Statisticile jocului"
+adm_info_universe: "Univers"
+adm_info_players: "Jucători"
+adm_info_accounts: "Conturi"
+adm_info_online: "Online"
+adm_info_planets: "Planete"
+adm_info_moons: "Luni"
+adm_info_fleets: "Flote în zbor"
+adm_info_acs: "Grupuri ACS"
+adm_info_alliances: "Alianțe"
+adm_info_messages: "Mesaje"
+adm_info_unread: "necitite"
+adm_info_activity: "Activitate și înregistrări"
+adm_info_active: "Jucători activi"
+adm_info_registrations: "Înregistrări noi"
+adm_info_banned: "Jucători banați"
+adm_info_vacation: "În modul vacanță"
+adm_info_bots: "Jucători boți"
+adm_info_points_avg: "Puncte medii"
+adm_info_points_top: "Puncte maxime"
+adm_info_last_stats: "Ultima actualizare a statisticilor"
+adm_info_market: "Oferte deschise pe piață"
+adm_info_reports: "Rapoarte de luptă stocate"
+adm_info_debris: "Câmpuri de resturi cu conținut (metal / cristal)"
+adm_info_resources: "Resurse stocate pe planete"
+adm_info_fleets_by_mission: "Flote după misiune"
+adm_info_mission: "Misiune"
+adm_info_no_fleets: "Nicio flotă în zbor."
+adm_info_reg_chart: "Înregistrări, ultimele 30 de zile"
+adm_info_no_registrations: "Nicio înregistrare în ultimele 30 de zile."
+adm_info_all_universes: "Toate universurile"
+adm_info_total: "Total"
+adm_info_logs: "Jurnale și cache-uri"
+adm_info_game_log: "Jurnalul jocului"
+adm_info_errors_24h: "Erori, ultimele 24 h"
+adm_info_warnings_24h: "Avertismente, ultimele 24 h"
+adm_info_scanned: "Scanat (sfârșitul fișierului)"
+adm_info_symfony_log: "Jurnal Symfony"
+adm_info_lines: "linii"
+adm_info_files: "fișiere"
+adm_info_last_errors: "Ultimele erori"
+adm_info_no_errors: "Nicio eroare în partea scanată a jurnalului."
+adm_info_time: "Ora serverului"
+adm_info_timezone_of: "Sursă"
+adm_info_zone: "Fus orar"
+adm_info_tz_php: "PHP"
+adm_info_tz_config: "Configurația jocului"
+adm_info_tz_user: "Contul tău"
+adm_login_throttled: 'Prea multe încercări. Încearcă din nou peste câteva minute.'
+se_community_links: "Linkuri de comunitate"
+se_discord_url: "URL de invitație Discord"
+se_discord_url_info: "Linkul de invitație al serverului tău de Discord (https://...). Afișat în meniu, pe pagina de conectare, în e-mailuri și texte. Gol îl ascunde."
+se_discord_widget_guild: "ID-ul serverului Discord (widget online)"
+se_discord_widget_guild_info: "ID-ul serverului tău de Discord (17-20 de cifre; Setările serverului → Widget, „Enable Server Widget” trebuie să fie activat). Arată pe pagina de start o casetă cu numărul de online, reîmprospătată la fiecare 5 minute. Gol o ascunde."
+se_wiki_url: "URL wiki"
+se_wiki_url_info: "URL-ul de bază al unui wiki extern, fără slash la final (https://...). Linkurile către wiki din FAQ, tutorial și reguli se construiesc din el. Gol le ascunde."
+se_donate_url: "URL pentru donații"
+se_donate_url_info: "Link pentru donații (https://...), afișat în meniu. Gol îl ascunde."
+se_userscripts_url: "URL userscripturi"
+se_userscripts_url_info: "Pagina care descrie userscripturile pentru jocul tău (https://...), legată în setări. Gol o ascunde."
+se_bots_alliances_enabled: "Boții întemeiază alianțe"
+se_bots_alliances_enabled_info: "Boții își întemeiază propriile alianțe și se alătură ocazional altora. Dezactivat: boții rămân lupi singuratici, nu aplică nicăieri și părăsesc alianțele în care sunt membri (alianțele întemeiate de un bot rămân)."
+se_bots_join_human_alliances: "Boții se pot alătura alianțelor jucătorilor"
+se_bots_join_human_alliances_info: "Boții pot aplica și la alianțe întemeiate de jucători umani. Dezactivat: boții se alătură doar alianțelor întemeiate de boți și părăsesc alianțele jucătorilor."
+se_bot_reply_delay_hours: "Întârzierea răspunsului (ore)"
+se_bot_reply_delay_hours_info: "Orele cât așteaptă cel mai vechi mesaj privat fără răspuns al unui jucător înainte ca un bot să răspundă la toate mesajele în așteptare ale acelui jucător printr-un singur răspuns. Este și intervalul minim dintre două mesaje inițiate de bot (reacții la atac, ironii la raid) către același jucător. 0 = fără întârziere."
+se_bot_chatter: "Boții discută"
+se_bot_chatter_info: "Activat: boții răspund la mesajele private. Dezactivat: mesajele sunt totuși citite și numărate, dar se trimit doar reacții de luptă (după ce au fost atacați sau când jefuiesc un jucător care le-a scris). Boții nu scriu niciodată primii jucătorilor."
+mu_hall_of_fame: "Hall of Fame"
+hof_head: "Hall of Fame (univers)"
+hof_view: "Vezi pagina publică"
+hof_status: "Stare"
+hof_has_data: "Date prezente"
+hof_entries: "Intrări în clasament"
+hof_updated: "Ultima actualizare"
+hof_no_data: "Nu există date de hall of fame pentru acest univers."
+hof_export: "Exportă JSON"
+hof_clear: "Șterge datele"
+hof_confirm_clear: "Ștergi datele de hall of fame ale acestui univers?"
+hof_import: "Importă JSON"
+hof_file: "Fișier JSON"
+hof_import_help: "Format: hall-of-fame, versiunea 1 (max. 1 MB). Înlocuiește datele existente ale acestui univers."
+hof_confirm_import: "Înlocuiești datele de hall of fame existente ale acestui univers?"
+hof_imported: "Hall of fame importat."
+hof_cleared: "Datele de hall of fame au fost șterse."
+hof_error_nofile: "Nu a fost încărcat niciun fișier valid."
+hof_error_invalid: "Import respins:"
+se_bash_war_exempt: "Războaiele ridică limita de bash"
+se_bash_war_exempt_info: "Atacurile dintre alianțe aflate în război (acceptat, mai vechi de o zi) nu contează la limitele de bash. Dezactivat: atacurile de război contează ca toate celelalte."
+se_honor_pair_cap: "Lupte onorabile per pereche (24 h)"
+se_honor_pair_cap_info: "Câte lupte onorabile între aceiași doi jucători (în oricare direcție) acordă onoare în 24 de ore. Luptele următoare contează ca neutre. 0 = nelimitat."
+se_market_push_tolerance: "Toleranța de push pe piață"
+se_market_push_tolerance_info: "Diferența de valoare acceptată a unui schimb pe piață, în procente (0-90), înainte să conteze ca pushing. Implicit 30."
+se_transport_push_check: "Protecție împotriva push-ului prin transport"
+se_transport_push_check_info: "Refuză transporturile, Menținerile și transferurile (încărcătură și nave) către alt jucător când, în ultimele 7 zile, valoarea trimisă lui o depășește pe cea trimisă de el înapoi cu mai mult decât limita de mai jos."
+se_transport_push_limit: "Limita de push prin transport"
+se_transport_push_limit_info: "Valoarea încărcăturii în unități de deuteriu (rapoarte de piață) peste care se aplică protecția. 0 = protecție oprită."
+se_depot_cost_real_consumption: "Costul depozitului după consumul real"
+se_depot_cost_real_consumption_info: "Depozitul de alianță taxează consumul real de combustibil al flotei (cu tehnologiile de propulsie și combustibil ale proprietarului) / 10 pe oră în loc de consumul de bază / 10."
+se_hours: Ore
+se_remember_me_days: '„Rămâi conectat” durează'
+se_remember_me_days_info: 'Zilele în care o conectare cu căsuța „rămâi conectat” bifată supraviețuiește repornirilor browserului și sesiunilor expirate. O schimbare de parolă o încheie. 0 dezactivează opțiunea.'
+se_session_lifetime: Sesiunea expiră după o inactivitate de
+se_session_lifetime_info: 'Orele fără nicio cerere după care un jucător este deconectat („sesiune expirată”).'
+abuse_menu: "Raport de abuzuri"
+abuse_days: "Zile"
+abuse_apply: "Aplică"
+abuse_weights: "Ponderi de valoare metal : cristal : deuteriu"
+abuse_none: "Nu s-a găsit nimic în această fereastră."
+abuse_from: "De la"
+abuse_to: "Către"
+abuse_count: "Număr"
+abuse_sent: "Trimis"
+abuse_back: "Returnat"
+abuse_net: "Valoare netă"
+abuse_linked: "Legat"
+abuse_last: "Ultimul"
+abuse_link_ip: "același IP"
+abuse_link_multi: "grup multiplu"
+abuse_link_multi_known: "grup multiplu (cunoscut)"
+abuse_link_subnet: "aceeași subrețea (mai slab)"
+abuse_thresholds: "Praguri: o pereche de transferuri este listată de la %s unități de metal într-o singură direcție, cu cel mult %s întorcându-se; perechile de piață de la %s schimburi, marcate peste o diferență de %s. Niciun rând nu înseamnă că nimic nu a atins aceste limite (sau că jurnalele nu conțin nimic), nu că nu s-a întâmplat nimic."
+abuse_transfers: "Transporturi și Menținere într-o singură direcție"
+abuse_transfers_info: "Transporturi, Menținere și transferuri de nave (nerechemate; navele numărate la costul de construcție) între doi jucători a căror încărcătură a valorat cel puțin %s unități de metal într-o singură direcție, în timp ce cel mult %s din acea valoare s-a întors. Sortate după valoarea netă; ponderile sunt rapoartele de piață stocate."
+abuse_trades: "Schimburi repetate pe piață"
+abuse_trades_info: "Schimburi de resurse între aceiași doi jucători, de cel puțin %s ori. Raport = valoarea dată de partea care a dat mai mult împărțită la cealaltă parte (1,00 = la referința pieței); peste o diferență de %s perechea este marcată."
+abuse_giver: "A dat mai mult"
+abuse_receiver: "A primit mai mult"
+abuse_ratio: "Raport"
+abuse_outlier: "aberant"
+abuse_protections: "Protecții de reconstrucție acordate"
+abuse_protections_info: "Jucători care au primit o protecție de reconstrucție în fereastră. Adversarii sunt cealaltă parte a raportului de luptă al acelei lupte; prada este valoarea câștigată de flotele lor în ea (resturile și valoarea distrusă nu sunt stocate)."
+abuse_protected: "Jucător protejat"
+abuse_granted: "Acordată"
+abuse_opponents: "Adversari"
+abuse_loot: "Prada adversarului"
+abuse_report: "Raport"
+abuse_recalls: "Rechemări la sosire sau după"
+abuse_recalls_info: "Flote de atac, ACS și distrugere care au fost rechemate când ora sosirii fusese deja atinsă (tiparul rechemare-după-sosire)."
+abuse_mission: "Misiune"
+abuse_arrival: "Sosire"
+abuse_recalled: "Rechemată"
+abuse_late: "După sosire"
+abuse_fought: "luptat"
+abuse_mission_1: "Atac"
+abuse_mission_2: "Atac ACS"
+abuse_mission_9: "Distrugere"
+abuse_missiles_skipped: "Lansările de rachete față de conținutul silozurilor nu fac parte din acest raport: tabelele nu conțin istoric de siloz cu care să compare."
+abuse_link_device: "același dispozitiv"
+abuse_graph: "Clustere de flux de valoare"
+abuse_graph_info: "Jucători legați prin flux de valoare în ultimele %s zile (fereastră fixă): transporturi, Menținere, transferuri de nave (la cost de construcție), schimburi pe piață (ambele părți) și prada atacurilor, însumate pe ambele direcții. Sunt conectate doar perechile cu cel puțin %s unități de metal mutate și %s fluxuri; sunt listate grupurile conectate de doi sau mai mulți (top %s după valoare). Net = valoarea celei mai unilaterale perechi din cluster (parte din valoarea ei totală). Indicatoarele de legătură arată dacă membrii împart un IP, dispozitiv sau grup multiplu cu alt membru. Rândurile sunt citite cu plafon per sursă."
+abuse_members: "Membri"
+abuse_value: "Valoare totală"
+abuse_flows: "Fluxuri"
+abuse_top_edge: "Cea mai unilaterală pereche"
+abuse_activity: "Activitate de lansare de flote (24 h)"
+abuse_activity_info: "Conturile cu cele mai multe lansări de flote în ultimele 24 de ore; vârf = lansările din cea mai aglomerată oră. Vârfuri ridicate constante pot indica joc automatizat."
+abuse_player: "Jucător"
+abuse_launches: "Lansări"
+abuse_peak: "Vârf / oră"
+adm_dash_unprotected: "Protecțiile anti-abuz sunt oprite în acest univers:"
+adm_dash_unprotected_push: "Protecția împotriva push-ului pentru transport, Menținere și transfer este oprită (transport_push_check / transport_push_limit)."
+adm_dash_unprotected_honor: "Plafonul de onoare per pereche este 0 (onoare nelimitată între aceiași doi jucători)."
+adm_dash_unprotected_bash: "Războaiele declarate ridică limita de bash (bash_war_exempt)."
+adm_dash_unprotected_depot: "Menținerile la depozit costă consumul de bază, mai ieftin (depot_cost_real_consumption oprit)."
+adm_dash_unprotected_market: "Toleranța de push pe piață este peste 10 % (market_push_tolerance)."
+modul_57: "Site-uri de vot"
+adm_nav_voting: "Site-uri de vot"
+vt_sites: "Site-uri de vot"
+vt_add: "Adaugă site"
+vt_create_head: "Site de vot nou"
+vt_edit_head: "Editează site-ul de vot"
+vt_back: "Înapoi"
+vt_name: "Nume"
+vt_vote_url: "URL de vot"
+vt_vote_url_help: "Linkul spre care sunt trimiși jucătorii. {token} (tokenul unic al acestui vot) și {userId} sunt înlocuite."
+vt_image_url: "URL imagine (opțional)"
+vt_image_url_help: "Banner sau logo afișat lângă site pe pagina jucătorului (https)."
+vt_cooldown: "Pauză (ore)"
+vt_cooldown_help: "O recompensă per jucător și site în această fereastră de timp, numărată de la ultima recompensă."
+vt_reward: "Recompensă"
+vt_res_901: "Metal"
+vt_res_902: "Cristal"
+vt_res_903: "Deuteriu"
+vt_verification: "Verificare"
+vt_verify_none: "Niciuna (recompensă la clic)"
+vt_verify_postback: "Postback (recompensă la callback-ul site-ului)"
+vt_verification_help: "Fără verificare, recompensa se plătește când jucătorul apasă butonul de vot (doar pauza). Cu postback, site-ul trebuie să apeleze URL-ul de callback."
+vt_sort: "Ordine de sortare"
+vt_active: "Activ"
+vt_enabled: "Activ"
+vt_disabled: "Inactiv"
+vt_enable: "Activează"
+vt_disable: "Dezactivează"
+vt_delete: "Șterge site-ul"
+vt_renew_secret: "Generează un secret nou"
+vt_renew_secret_help: "Invalidează vechiul URL de postback: actualizează-l la site-ul de vot."
+vt_postback: "Postback"
+vt_postback_url: "URL de callback"
+vt_secret: "Secret"
+vt_postback_help: "Introdu acest URL la site-ul de vot ca callback/postback. Înlocuiește {token} cu macro-ul site-ului pentru valoarea primită în URL-ul de vot. Sunt acceptate GET și POST; secretul poate fi trimis și ca antet X-Vote-Secret."
+vt_saved: "Salvat."
+vt_deleted: "Site de vot șters."
+vt_empty: "Încă nu există site-uri de vot."
+vt_confirm_delete: "Ștergi site-ul de vot „%s” și jurnalul lui?"
+vt_module_off: "Modulul „Site-uri de vot” este oprit, jucătorii nu văd pagina de vot."
+vt_error_name: "Numele este obligatoriu."
+vt_error_vote_url: "URL-ul de vot trebuie să fie o adresă http(s) validă."
+vt_error_image_url: "URL-ul imaginii trebuie să fie o adresă http(s) validă."
+vt_error_reward: "Cantitățile de recompensă trebuie să fie între 0 și 1.000.000.000."
+vt_clicks: "Clicuri"
+vt_verified: "Verificate"
+vt_rewarded: "Recompensate"
+vt_log: "Voturi recente"
+vt_log_time: "Ora"
+vt_log_player: "Jucător"
+vt_log_status: "Stare"
+vt_log_ip: "IP"
+vt_log_empty: "Încă nu există voturi."
+vt_status_rewarded: "Recompensat"
+vt_status_verified: "Verificat, fără recompensă"
+vt_status_pending: "Apăsat"
+adm_nav_social: "Conectare socială"
+se_social: "Conectare socială"
+se_social_info: "Lasă jucătorii să se conecteze sau să se înregistreze cu un cont existent de Discord, Facebook, GitHub sau Google (OAuth2). Toți furnizorii sunt opriți implicit. Creează o aplicație la furnizor, înregistrează acolo URL-ul de callback afișat mai jos și introdu aici ID-ul clientului și secretul."
+se_social_site_url_missing: "URL-ul de bază al jocului (DEFAULT_URI în .env.local) nu este setat, deci nu se poate construi niciun URL de callback, iar furnizorii rămân de nefolosit."
+se_social_incomplete: "Pornit, dar lipsește ID-ul clientului sau secretul clientului: butonul de conectare rămâne ascuns."
+se_social_enabled: "Activat"
+se_social_enabled_info: "Arată butonul de conectare pe pagina de start și pe pagina de înregistrare."
+se_social_client_id: "ID client"
+se_social_client_id_info: "ID-ul aplicației (clientului) la furnizor."
+se_social_client_secret: "Secret client"
+se_social_client_secret_info: "Nu se mai afișează niciodată. Lasă gol ca să păstrezi secretul stocat."
+se_social_callback: "URL de callback"
+se_social_callback_info: "Înregistrează exact această adresă ca URL de redirecționare / callback la furnizor."
+se_social_create_app: "Creează aplicația"
+se_social_discord_help: "Discord Developer Portal: New Application, apoi OAuth2: adaugă redirecționarea, copiază ID-ul clientului și secretul clientului."
+se_social_facebook_help: "Meta for Developers: creează o aplicație cu cazul de utilizare Facebook Login și adaugă URL-ul la valid OAuth redirect URIs. Adresa de e-mail de la Facebook nu este niciodată tratată ca verificată: jucătorii noi nu se pot înregistra prin ea, iar conturile existente nu sunt potrivite după e-mail; conectarea din setările contului funcționează."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, introdu URL-ul de callback ca authorization callback URL."
+se_social_google_help: "Google Cloud Console, APIs and Services, Credentials: creează un OAuth client ID de tip Web application și adaugă URL-ul de callback la authorized redirect URIs."
+se_social_scopes: "Domenii solicitate: %s"
+se_del_user_automatic_on: "Șterge automat jucătorii inactivi"
+se_del_user_automatic_on_info: "Comutator pentru ștergerea automată a jucătorilor inactivi obișnuiți (nu în modul vacanță, nu banați) după numărul de zile setat mai sus. Dezactivat: jucătorii inactivi nu sunt șterși niciodată automat."
+se_del_user_vacation_on: "Șterge automat jucătorii în modul vacanță"
+se_del_user_vacation_on_info: "Comutator pentru ștergerea automată a jucătorilor aflați în modul vacanță care nu s-au conectat de numărul de zile de mai jos. Dezactivat: jucătorii în modul vacanță nu sunt șterși niciodată automat."
+se_del_user_vacation: "Șterge jucătorii în modul vacanță după"
+se_del_user_vacation_info: "Zilele fără conectare după care un jucător în modul vacanță este șters. 0 = același număr de zile ca pentru jucătorii inactivi."
+se_del_user_banned_on: "Șterge automat jucătorii banați"
+se_del_user_banned_on_info: "Comutator pentru ștergerea automată a jucătorilor banați care nu s-au conectat de numărul de zile de mai jos. Dezactivat: jucătorii banați nu sunt șterși niciodată automat (banul lor rămâne)."
+se_del_user_banned: "Șterge jucătorii banați după"
+se_del_user_banned_info: "Zilele fără conectare după care un jucător banat este șters. 0 = același număr de zile ca pentru jucătorii inactivi."
+se_vmode_allow_incoming: "Modul vacanță cu flote ostile în drum"
+se_vmode_allow_incoming_info: "Activat: jucătorii pot intra în modul vacanță cât timp flote străine sunt în drum spre ei (atacul se întoarce din drum). Dezactivat: modul vacanță este refuzat cât timp flote străine cu misiune de atac, atac ACS, rachete, distrugere sau spionaj se îndreaptă spre una dintre planetele sau lunile jucătorului."
+rp_fleets_error: "Mai sunt flote de sau către jucători în zbor!"

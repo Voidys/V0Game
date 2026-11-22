@@ -1154,6 +1154,7 @@ ov_newname_specialchar: Planeetnamen mogen alleen cijfers, letters, spaties, und
 ov_newname_too_long: De planeetnaam mag maximaal %d tekens hebben.
 ov_news: Nieuws
 ov_news_all: 'Alle nieuws'
+tutorial_label: 'Tutorial'
 tutorial_step_of: 'Stap %1 van %2'
 ov_of: van
 ov_outlaw: 'Vogelvrij tot:'
@@ -1683,6 +1684,7 @@ shell_footer: Voettekst
 shell_footer_game: Spel
 shell_footer_community: Community
 shell_footer_legal: Juridisch
+shell_footer_credits: 'gebouwd op het werk van vele opensourceprojecten'
 shell_imprint: Colofon
 ui_palette_placeholder: Pagina's, planeten, coördinaten (bijv. 1:42:8)…
 ui_palette_empty: Geen resultaten

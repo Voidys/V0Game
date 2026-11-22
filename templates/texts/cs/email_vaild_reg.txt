@@ -1,0 +1,22 @@
+Ahoj {USERNAME},
+
+díky za registraci v {GAMENAME}.
+
+Než můžeme tvůj účet aktivovat, je potřeba ještě jeden krok.
+Tenhle krok je povinný, abys se stal registrovaným uživatelem.
+Odkaz níže stačí otevřít jen jednou, aby se ověřila tvoje totožnost.
+
+Pro dokončení registrace klikni na
+následující aktivační odkaz:
+
+{VERTIFYURL}
+
+Tvoje přihlašovací údaje:
+
+E-mail : {EMAIL}
+
+Pokud máš s automatickou registrací jakékoli potíže, založ ticket na našem Discordu:
+{DISCORD}
+
+Zdraví
+tým {GAMENAME}

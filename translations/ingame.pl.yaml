@@ -1154,6 +1154,7 @@ ov_newname_specialchar: Nazwy planet mogą zawierać tylko cyfry, litery, spacje
 ov_newname_too_long: Nazwa planety może mieć maksymalnie %d znaków.
 ov_news: Aktualności
 ov_news_all: 'Wszystkie aktualności'
+tutorial_label: 'Samouczek'
 tutorial_step_of: 'Krok %1 z %2'
 ov_of: z
 ov_outlaw: 'Banita do:'
@@ -1679,6 +1680,7 @@ shell_footer: Stopka
 shell_footer_game: Gra
 shell_footer_community: Społeczność
 shell_footer_legal: Informacje prawne
+shell_footer_credits: 'zbudowany na pracy wielu projektów open source'
 shell_imprint: Nota prawna
 ui_palette_placeholder: Strony, planety, współrzędne (np. 1:42:8)…
 ui_palette_empty: Brak wyników

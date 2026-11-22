@@ -12,7 +12,7 @@
     <summary id="tutorial-header" class="tut__head">
       <span class="tut__icon" aria-hidden="true">{{ icon(tutorial.fullfilled ? 'circle-check' : 'book-open') }}</span>
       <span class="tut__heading">
-        <span class="tut__step">Tutorial{% if tutorial.total %} · {{ LNG.tutorial_step_of|replace({'%1': tutorial.position, '%2': tutorial.total}) }}{% endif %}</span>
+        <span class="tut__step">{{ LNG.tutorial_label }}{% if tutorial.total %} · {{ LNG.tutorial_step_of|replace({'%1': tutorial.position, '%2': tutorial.total}) }}{% endif %}</span>
         <strong class="tut__title">{{ tutorial.title }}</strong>
       </span>
       {% if nextGoal %}

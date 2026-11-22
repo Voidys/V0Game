@@ -1154,6 +1154,7 @@ ov_newname_specialchar: ¡Los nombres de planeta solo pueden contener números, 
 ov_newname_too_long: El nombre del planeta puede tener como máximo %d caracteres.
 ov_news: Novedades
 ov_news_all: 'Todas las noticias'
+tutorial_label: 'Tutorial'
 tutorial_step_of: 'Paso %1 de %2'
 ov_of: de
 ov_outlaw: 'Forajido hasta:'
@@ -1679,6 +1680,7 @@ shell_footer: Pie de página
 shell_footer_game: Juego
 shell_footer_community: Comunidad
 shell_footer_legal: Legal
+shell_footer_credits: 'construido sobre el trabajo de muchos proyectos de código abierto'
 shell_imprint: Aviso legal
 ui_palette_placeholder: Páginas, planetas, coordenadas (p. ej. 1:42:8)…
 ui_palette_empty: Sin resultados

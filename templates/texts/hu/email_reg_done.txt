@@ -1,0 +1,12 @@
+Szia {USERNAME}!
+
+Köszönjük, hogy regisztráltál a(z) {GAMENAME} játékban!
+
+Örülünk, hogy úgy döntöttél, a közösségünk tagja leszel,
+és reméljük, jól fogod érezni magad!
+
+Nézz be a Discordunkra is:
+{DISCORD}
+
+Üdvözlettel,
+{GAMENAME} - csapat

@@ -2,6 +2,7 @@
 
 namespace App\Twig;
 
+use App\Game\Core\LanguageCatalog;
 use App\Game\Core\Singleton;
 use App\Game\Core\ThemeAssets;
 use App\Game\Core\ViewHelpers;
@@ -48,6 +49,14 @@ final class TemplateExtension extends AbstractExtension implements GlobalsInterf
         return ThemeAssets::resolve($theme, $path);
     }
 
+    /** BCP 47 tag of a language pack for <html lang> (pack `tag`, e.g. br => pt-BR, tw => zh-Hant-TW), else the pack code */
+    public function htmlLang(?string $lang): string
+    {
+        $tag = (new LanguageCatalog())->getPackConfig($lang)['tag'] ?? '';
+
+        return is_string($tag) && $tag !== '' ? $tag : (string) $lang;
+    }
+
     /** @return array<string, callable> game view helpers, as function and as filter */
     private function viewHelperCallables(): array
     {
@@ -60,7 +69,7 @@ final class TemplateExtension extends AbstractExtension implements GlobalsInterf
         ];
     }
 
-    /** @return list<TwigFunction> PHP passthroughs, game view helpers (pretty_number, ...), theme_asset, icon and php_date */
+    /** @return list<TwigFunction> PHP passthroughs, game view helpers (pretty_number, ...), theme_asset, icon, php_date and html_lang */
     public function getFunctions(): array
     {
         $functions = [];
@@ -73,6 +82,7 @@ final class TemplateExtension extends AbstractExtension implements GlobalsInterf
         $functions[] = new TwigFunction('theme_asset', $this->themeAsset(...));
         $functions[] = new TwigFunction('php_date', 'date');
         $functions[] = new TwigFunction('icon', $this->icon(...), ['is_safe' => ['all']]);
+        $functions[] = new TwigFunction('html_lang', $this->htmlLang(...));
 
         return $functions;
     }

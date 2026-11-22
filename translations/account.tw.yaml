@@ -1,0 +1,85 @@
+Active_players: 活躍玩家
+Back: 返回
+mail:
+  subject:
+    mail_changed: '你的 %s 帳號的電子信箱已變更'
+Other_universes: 其他宇宙
+Play: 開始遊戲
+Playername: 玩家名稱
+Register: 註冊
+Settings: 設定
+Sitting_end: 代管結束
+Sitting_request: 申請代管（尚未開放）
+uni_status_regclosed_gameclosed: 已關閉
+uni_status_regclosed_gameopen: 開放遊玩
+uni_status_regopen_gameclosed: 開放註冊
+uni_status_regopen_gameopen: 開放中
+Universe_end: 結束
+Universe_start: 開始
+Universe_status: '宇宙狀態：'
+Universes: 宇宙
+Your_universes: 你的宇宙
+
+board_create: 發新文章
+board_edit_post: 編輯文章
+board_sort: 排序
+board_sort_hot: 熱門
+board_sort_new: 最新
+board_sort_top: 最高分
+board_period_all: 全部時間
+board_period_week: 本週
+board_csort_best: 最佳
+board_flair: 標籤
+board_flair_all: 全部
+board_flair_general: 綜合
+board_flair_guide: 攻略
+board_flair_question: 提問
+board_flair_suggestion: 建議
+board_flair_bug: 錯誤回報
+board_flair_offtopic: 閒聊
+board_upvote: 推
+board_downvote: 噓
+board_pinned: 置頂
+board_locked: 已鎖定
+board_by: 作者
+board_comments: 留言
+board_empty: 還沒有文章，來當第一個吧。
+board_no_comments: 還沒有留言。
+board_title: 標題
+board_body: 內文
+board_publish: 發佈
+board_save: 儲存
+board_cancel: 取消
+board_edit: 編輯
+board_edited: 已編輯
+board_delete: 刪除
+board_deleted: "[已刪除]"
+board_deleted_user: "[已刪除]"
+board_confirm_delete: 真的要刪掉嗎？
+board_reply: 回覆
+board_collapse: 收合討論串
+board_add_comment: 寫留言
+board_comment_send: 留言
+board_mod_pin: 置頂
+board_mod_unpin: 取消置頂
+board_mod_lock: 鎖定
+board_mod_unlock: 解除鎖定
+board_not_found: 找不到這篇文章或留言。
+board_not_allowed: 你沒有權限這麼做。
+board_err_csrf: 無法驗證這個請求，請重新整理頁面再試一次。
+board_err_title: 請輸入標題。
+board_err_title_long: 標題最多 200 個字元。
+board_err_body: 請輸入內容（不可為空，也不能太長）。
+board_err_locked: 這篇文章已鎖定，無法再留言。
+board_err_rate_post: "請再等 %d 秒才能發下一篇文章。"
+board_err_rate_comment: "請再等 %d 秒才能發下一則留言。"
+board_ago_now: 剛剛
+board_ago_min: "%d 分鐘前"
+board_ago_hours: "%d 小時前"
+board_ago_days: "%d 天前"
+board_guest_hint: 登入後才能發文、留言和投票。
+board_guest_login: 登入
+board_guest_register: 註冊
+rl_board_err_self_vote: "你不能投自己的文章或留言。"
+rl_board_err_vote_cap: "今天的投票次數用完了，明天再來吧。"
+rl_board_err_write_cap: "今天的發文和留言次數用完了，明天再來吧。"

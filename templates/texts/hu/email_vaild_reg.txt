@@ -1,0 +1,23 @@
+Szia {USERNAME}!
+
+Köszönjük, hogy regisztráltál a(z) {GAMENAME} játékban!
+
+Mielőtt aktiválhatnánk a fiókodat, még egy lépés szükséges.
+Kérjük, vedd figyelembe, hogy ez a lépés kötelező ahhoz, hogy
+regisztrált felhasználó lehess. Az alábbi linkre csak egyszer kell
+kattintanod a személyazonosságod igazolásához.
+
+A regisztráció befejezéséhez kattints a
+következő aktiváló linkre:
+
+{VERTIFYURL}
+
+A bejelentkezési adataid:
+
+E-mail : {EMAIL}
+
+Ha problémád akadna az automatikus regisztrációval, nyiss egy jegyet a Discordunkon:
+{DISCORD}
+
+Üdvözlettel,
+a(z) {GAMENAME} csapata

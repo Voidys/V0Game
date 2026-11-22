@@ -1,6 +1,6 @@
 {# Document shell of the game area: head (styles, globals, modules) and the body block the layouts fill. #}
 <!DOCTYPE html>
-<html lang="{{ lang }}" data-dialog-ok="{{ LNG.dialog_ok }}" data-dialog-cancel="{{ LNG.dialog_cancel }}">
+<html lang="{{ html_lang(lang) }}" data-dialog-ok="{{ LNG.dialog_ok }}" data-dialog-cancel="{{ LNG.dialog_cancel }}">
 <head>
   <meta charset="utf-8">
   {# pages live at /game/<page>: relative URLs (assets, ./, game/...) keep resolving against the universe directory #}

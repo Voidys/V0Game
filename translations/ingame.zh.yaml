@@ -1156,6 +1156,7 @@ ov_newname_specialchar: 星球名称只能包含数字、字母、空格、下�
 ov_newname_too_long: 星球名称最多 %d 个字符。
 ov_news: 新闻
 ov_news_all: '全部新闻'
+tutorial_label: '教程'
 tutorial_step_of: '第 %1 步，共 %2 步'
 ov_of: /
 ov_outlaw: 法外之徒状态持续至：
@@ -1685,6 +1686,7 @@ shell_footer: 页脚
 shell_footer_game: 游戏
 shell_footer_community: 社区
 shell_footer_legal: 法律
+shell_footer_credits: '建立在众多开源项目的成果之上'
 shell_imprint: 版本说明
 ui_palette_placeholder: 页面、星球、坐标（例如 1:42:8）…
 ui_palette_empty: 无匹配项

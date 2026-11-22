@@ -1,0 +1,1856 @@
+ac_account_data: Údaje účtu
+ac_act_time: Datum poslední aktivity
+ac_ali_idid: 'ID:'
+ac_alliance: Aliance
+ac_ally_ranking: Statistiky aliance
+ac_ally_web: Web aliance
+ac_auth_level: Hodnost
+ac_banned: Zabanován?
+ac_checkip_title: Kontrola IP
+ac_coords: Souřadnice
+ac_diameter: Průměr
+ac_enter_user_id: Vyber hráče
+ac_ext_text: Externí text
+ac_fields: Pole
+ac_filter_placeholder: Filtr...
+ac_home_planet_coord: Souřadnice domovské planety
+ac_home_planet_id: ID domovské planety
+ac_id_names_coords: ID, jméno a souřadnice
+ac_image: Logo aliance
+ac_info_ally: Informace o alianci
+ac_int_text: Interní text
+ac_last_ip: Poslední IP
+ac_leader: Vůdce
+ac_leyend: '[ Legenda ]'
+ac_moon: Měsíc
+ac_name: Jméno
+ac_name_ali: Celý název
+ac_no_ally: Žádná aliance
+ac_no_img: Tato aliance nemá logo
+ac_no_text_ext: Tato aliance nemá externí text
+ac_no_text_int: Tato aliance nemá interní text
+ac_no_text_sol: Tato aliance nemá text přihlášky
+ac_note_k: >-
+  <table><tr><th width=10%><font class="colorPositive">T+</font></th><th>Více
+  než bilion</th></tr><tr><th width=10%><font
+  class="colorPositive">T</font></th><th>Bilion nebo víc</th></tr><tr><th
+  width=10%><font class="colorPositive">B</font></th><th>Miliarda nebo
+  víc</th></tr><tr><th width=10%><font
+  class="colorPositive">M</font></th><th>Milion nebo víc</th></tr><tr><th
+  width=10%><font class="colorPositive">K</font></th><th>Tisíc nebo
+  víc</th></tr></table>
+ac_on_vacation: Dovolená?
+ac_points_count: Skóre | Počet
+ac_ranking: Žebříček
+ac_recent_destroyed_planets: Nedávno zničené planety
+ac_reg_ip: IP při registraci
+ac_register_ally_time: Založena
+ac_register_time: Registrován
+ac_research: Výzkum
+ac_see_ranking: Zobrazit statistiky
+ac_select_id_num: Zadat ID ručně (nepovinné)
+ac_sol_text: Text přihlášky
+ac_suspended_autor: Zabanoval
+ac_suspended_longer: Do
+ac_suspended_reason: Důvod
+ac_suspended_time: Zabanován
+ac_suspended_title: Podrobnosti banu
+ac_swap_invalid: Neplatný výběr, vyber prosím dva různé uživatele!
+ac_swap_no_entry: Pro jednoho nebo oba uživatele nebyl nalezen záznam účtu.
+ac_swap_submit: Prohodit
+ac_swap_success: Účty byly úspěšně prohozeny.
+ac_swap_title: Prohodit účty
+ac_swap_user_a: Uživatel A
+ac_swap_user_b: Uživatel B
+ac_tag: ZNAČKA
+ac_temperature: Teplota
+ac_time_destruyed: Datum zničení
+ac_total_members: Počet členů
+ac_total_points: 'Celkem:'
+ac_user_ranking: Statistiky hráče
+ac_user_system: Systém hráče
+ac_username_doesnt: Hráč neexistuje!
+ac_view_image: Otevřít obrázek v novém okně
+account_already_has_user: Tento účet už v tomto vesmíru má hráče
+accountID: ID účtu
+ad_add_build_success: Budovy byly úspěšně přidány!
+ad_add_defenses_success: Obrana byla úspěšně přidána!
+ad_add_not_exist: ID neexistuje!
+ad_add_res_sucess: Suroviny byly úspěšně přidány!
+ad_add_ships_sucess: Lodě byly úspěšně přidány!
+ad_add_tech_success: Výzkum byl úspěšně přidán!
+ad_ally_change_id: Změnit zakladatele
+ad_ally_delete: Smazat alianci
+ad_ally_delete_u: Smazat člena
+ad_ally_name: Jméno aliance
+ad_ally_not_exist: Aliance neexistuje!
+ad_ally_not_exist2: Člen neexistuje!
+ad_ally_not_exist3: Uživatel není členem této aliance
+ad_ally_succes: Úspěch
+ad_ally_tag: Značka aliance
+ad_ally_text1: Popis aliance
+ad_ally_text2: Interní text
+ad_ally_text3: Šablona přihlášky
+ad_ally_title: Aliance
+ad_ally_user_id: (Zadej ID uživatele)
+ad_authlevel_aa: '[Zobrazit administrátory]'
+ad_authlevel_auth: Hodnost
+ad_authlevel_error_3: Hodnost tvůrce hry změnit nemůžeš!
+ad_authlevel_insert_id: Zadat ID ručně (nepovinné)
+ad_authlevel_jj: '[Zobrazit hráče]'
+ad_authlevel_mm: '[Zobrazit moderátory]'
+ad_authlevel_oo: '[Zobrazit operátory]'
+ad_authlevel_succes: Hodnost byla úspěšně změněna
+ad_authlevel_title: Hodnosti
+ad_authlevel_tt: '[Zobrazit všechny]'
+ad_buildings: Budovy
+ad_buildings_title: Budovy
+ad_count: Počet
+ad_defenses: Obrana
+ad_defenses_title: Obrana
+ad_delete_build_success: Budovy byly úspěšně odebrány!
+ad_delete_defenses_success: Obrana byla úspěšně odebrána!
+ad_delete_res_sucess: Suroviny byly úspěšně odebrány!
+ad_delete_ships_sucess: Lodě byly úspěšně odebrány!
+ad_delete_tech_success: Výzkum byl úspěšně odebrán!
+ad_editor_alliances: Aliance
+ad_editor_buildings: Budovy
+ad_editor_defenses: Obrana
+ad_editor_personal: Osobní údaje
+ad_editor_planets: Planeta a měsíc
+ad_editor_researchs: Výzkum
+ad_editor_resources: Suroviny
+ad_editor_ships: Lodě
+ad_editor_title: Editor účtu
+ad_levels: Úroveň
+ad_number: ID
+ad_personal_name: Uživatelské jméno
+ad_personal_succes: Nastavení uloženo
+ad_personal_title: Upravit osobní údaje
+ad_personal_vacat: Režim dovolené
+ad_pla_change_p: Souřadnice planety
+ad_pla_change_pp: Zaškrtni pro použití změny souřadnic
+ad_pla_delete_b: Odstranit všechny budovy
+ad_pla_delete_cb: Vymazat frontu staveb
+ad_pla_delete_d: Odstranit všechnu obranu
+ad_pla_delete_hd: Vymazat frontu loděnice a obrany
+ad_pla_delete_s: Odstranit všechny lodě
+ad_pla_edit_diameter: Upravit průměr
+ad_pla_edit_fields: Upravit pole
+ad_pla_edit_name: Jméno
+ad_pla_error_planets: Měsíce nemohou změnit majitele
+ad_pla_error_planets2: Planeta neexistuje
+ad_pla_error_planets3: Tyto souřadnice jsou už obsazené!
+ad_pla_error_planets4: Měsíc nelze přiřadit planetě, která už jeden má!
+ad_pla_error_planets5: Na těchto souřadnicích už planeta je
+ad_pla_error_planets6: Tyto souřadnice jsou mimo hranice vesmíru
+ad_pla_succes: Změny byly úspěšně uloženy
+ad_pla_title: Planety a měsíce
+ad_pla_title_l: Pokud měsíc existuje, změní se i jeho souřadnice
+ad_research: Výzkum
+ad_research_title: Výzkum
+ad_ships: Lodě
+ad_ships_title: Lodě
+adm_absenden: Odeslat
+adm_cp_index: Domů
+adm_cp_title: Administrační panel
+adm_email: E-mail
+adm_login: Přihlášení
+adm_password: Heslo
+adm_username: Uživatelské jméno
+an_analyzed_list: Analyzovaní hráči
+an_btn_disable: Vypnout analýzu a smazat data
+an_btn_enable: Zapnout analýzu
+an_timestamp: Časová značka
+an_total_analyzed: Počet analyzovaných hráčů
+an_user_list: Seznam hráčů
+ap_aktivieren: Aktivovat
+ap_datum: Datum
+ap_del: Smazat
+ap_email: E-mail
+ap_entfernen: '?'
+ap_id: ID
+ap_ip: IP
+ap_nicht_aktivierte: neaktivovaní uživatelé
+ap_nicht_aktivierte_user: Neaktivovaní uživatelé
+ap_sicher: 'Opravdu chceš odstranit '
+ap_status: Stav
+ap_username: Uživatelské jméno
+bo_accountname: Jméno účtu
+bo_ban: Ban
+bo_ban_change: Změnit
+bo_ban_player: Zabanovat / odbanovat
+bo_banned: ' dostal ban.'
+bo_bbb_title_1: Systém banů
+bo_bbb_title_2: Ban vyprší
+bo_bbb_title_3: Systém banů • <font color="red">Tento hráč je zabanovaný</font>
+bo_bbb_title_4: >-
+  Pro zkrácení zbývajícího banu dej před čas minus, např. -5.<br>Pokud je
+  hráč zabanován trvale, zadání kladného času ho nahradí touto
+  dobou.
+bo_bbb_title_5: Zabanován do
+bo_bbb_title_6: Změnit datum
+bo_characters_1: Zbývající znaky
+bo_characters_suus: Zabanován
+bo_order_banned: '[Řadit podle banu]'
+bo_order_id: '[Řadit podle ID]'
+bo_order_username: '[Řadit podle jména]'
+bo_permanent: Trvalý ban
+bo_reason: Důvod banu
+bo_select_title: Zobrazit jména začínající na
+bo_the_player: 'Hráč '
+bo_the_player2: 'Hráč '
+bo_total_accs: 'Účtů celkem: '
+bo_total_accs_banned: 'Zabanovaných účtů: '
+bo_total_banneds: 'Zabanovaných hráčů: '
+bo_total_users: 'Hráčů celkem: '
+bo_unban: Odbanovat
+bo_unban_player: Seznam banů
+bo_unbanned: ' byl odbanován.'
+bo_username: Uživatelské jméno
+bo_vacaations: Režim dovolené
+bo_vacation_mode: Režim dovolené
+buildings_title: Budovy
+button_add: Přidat
+button_cancel: Zrušit
+button_delete: Smazat
+button_deselect: Zrušit výběr
+button_filter: Filtrovat
+button_reset: Obnovit
+button_submit: Odeslat
+button_test: Test
+button_test_negative: Test selhal
+button_test_positive: Test proběhl úspěšně
+cc_cache_clear: Cache vymazána
+cronjob_class: třída
+cronjob_delete: Smazat
+cronjob_desc: >-
+  Nastav časy, kdy se má tato cron úloha spouštět. Podmínky se spojují
+  pomocí AND, takže úloha běží, jen když platí všechny zvolené podmínky.
+  Výběr konkrétních hodnot v „Den v týdnu“ i „Den“ může způsobit, že úloha
+  poběží nepravidelně; alespoň u jednoho z těchto polí použij „Vše“.<br>„Vše“
+  má přednost a přepíše ostatní hodnoty v daném seznamu.
+cronjob_desc_class: Třída, která se má zavolat. Pro includes/classes/cronjobs/foo.class.php zadej „foo“.
+cronjob_desc_name: Název dle tvé volby pro označení této cron úlohy.
+cronjob_dom: Den
+cronjob_dow: Den v týdnu
+cronjob_edit: Upravit
+cronjob_error_class: Není zadána třída!
+cronjob_error_dom: Nejsou vybrány žádné dny!
+cronjob_error_dow: Není vybrán žádný den v týdnu!
+cronjob_error_filenotfound: 'Zadaný soubor nebyl nalezen: '
+cronjob_error_hours: Nejsou vybrány žádné hodiny!
+cronjob_error_min: Nejsou vybrány žádné minuty!
+cronjob_error_month: Nejsou vybrány žádné měsíce!
+cronjob_error_name: Není zadán název!
+cronjob_headline: ID cron úlohy
+cronjob_hours: Hodina
+cronjob_lastTime: Poslední běh
+cronjob_min: Minuta
+cronjob_month: Měsíc
+cronjob_name: Název
+cronjob_new: Vytvořit cron úlohu
+cronjob_nextTime: Příští běh
+cronjob_run: Spustit
+cronjob_selectall: Vše
+cronName_cleaner: Mazání starých dat
+cronName_bots: "Boti"
+cronName_disposable_email_domains: "Aktualizace jednorázových e-mailových domén"
+cronName_fleets: "Události flotil"
+cronName_daily: Denní úlohy
+cronName_databasedump: Záloha databáze
+cronName_inactive: Mazání neaktivních
+cronName_pirates: Vytváření pirátských základen
+cronName_referral: Bonus za pozvání
+cronName_statistic: Statistiky
+cronName_statisticjson: Export stats.json
+cronName_tracking: Odesílání globálních statistik serveru
+cs_time_between_updates: Čas mezi aktualizacemi
+defenses_title: Obrana
+du_choose_tables: Vyber tabulky
+du_not_tables_selected: Nevybral jsi žádné tabulky k zálohování!
+du_select_all_tables: Všechny tabulky
+du_submit: Odeslat
+du_success: 'Záloha byla úspěšně vytvořena! Soubor: %s'
+email_reg: E-mail
+email2_reg: Potvrzení e-mailu
+empty_account_field: Nezadáno ID účtu
+et_encript: Vygenerovat
+et_md5_encripter: Generátor MD5
+et_pass: Heslo
+et_result: Výsledek
+exp_deck_cards: Karty
+exp_deck_count_desc: Počet karet tohoto typu v balíčku
+exp_deck_count_label: count
+exp_deck_edit: Upravit konfiguraci balíčku karet
+exp_deck_event_type: Typ události
+exp_deck_example: 'Příklad:'
+exp_deck_format_help: >-
+  Konfigurace balíčku karet je pole JSON, kde každá položka představuje typ
+  karty s následujícími vlastnostmi:
+exp_deck_format_instructions: Pokyny k formátu
+exp_deck_percentage: Procento
+exp_deck_save_success: Konfigurace balíčku karet byla úspěšně uložena!
+exp_deck_size_desc: Velikost události (Small, Medium, Big, None)
+exp_deck_size_label: size
+exp_deck_statistics: Aktuální statistiky balíčku karet
+exp_deck_total: Celkem
+exp_deck_type_desc: Typ události (Res, Ships, Pirates, Aliens, BlackHole, Fast, Slow, Nothing)
+exp_deck_type_label: type
+exp_deck_warning: 'Varování: Neplatný JSON bude odmítnut'
+exp_ships_description: >-
+  Pro každou aktivní loď vyber, zda ji mohou expedice najít a které lodě ji
+  mohou najít.
+exp_ships_findable: Lze najít
+exp_ships_found_by: Lodě nálezců
+exp_ships_select_finders: Vyber lodě nálezců
+exp_ships_ship: Loď
+ff_arrivaltime: Přílet
+ff_del: Odebrat
+ff_endtime: Návrat
+ff_fleetid: ID
+ff_holdtime: Držení do
+ff_lock: Zamknout
+ff_mission: Mise
+ff_no_fleets: Právě teď nejsou na cestě žádné flotily
+ff_sendFleetBack: Poslat zpět
+ff_sendFleetsBack: Poslat zpět všechny útoky
+ff_ships: Lodě
+ff_startplanet: Výchozí planeta
+ff_starttime: Start
+ff_startuser: Odesílatel
+ff_targetplanet: Cílová planeta
+ff_targetuser: Příjemce
+ff_unlock: Odemknout
+ga_definetarget: Definovat cíle
+ga_homecoordinates: Jen domovská planeta
+ga_no_inactives: Vyloučit neaktivní hráče
+ga_planettypes: Typy planet
+ga_selectplanettype: Vyber alespoň jeden typ planety!
+ga_success: Úspěch!
+info_information: >-
+  Tyto informace použij při hlášení chyby v <a href="%s"
+  target="tracker">GitHub issues</a>.<br>Žádosti o podporu bez těchto
+  informací nebudou vyřizovány.
+input_id: ID
+input_id_account: ID účtu
+input_id_ally: ID aliance
+input_id_p_m: ID planety nebo měsíce
+input_id_planet: ID planety
+input_id_user: ID hráče
+lang_reg: Jazyk
+log_admin: Administrátor
+log_alliance: Upravené aliance
+log_cat: 'Vyber kategorii:'
+log_disclamersettings: Právní upozornění
+log_element: Prvek
+log_id: ID
+log_info: Info
+log_log: Log
+log_new: Po
+log_no_data: V logu nejsou žádná data!
+log_old: Před
+log_planet: Upravené planety
+log_player: Upravení hráči
+log_present: Rozdané dárky
+log_settings: Upravená nastavení
+log_ssettings: Konfigurace serveru
+log_statsettings: Nastavení statistik
+log_target_alliance: Změněná aliance
+log_target_planet: Změněná planeta
+log_target_universe: Změněná sekce nastavení
+log_target_user: Změněný hráč
+log_time: Čas
+log_uni_short: Vesm.
+log_universe: Vesmír
+log_usettings: Konfigurace vesmíru
+log_view: Zobrazit
+ma_all: Vše
+ma_characters: Znaky
+ma_message: Zpráva
+ma_message_sended: Tvoje zpráva byla odeslána!
+ma_mode: Odeslat jako
+ma_modes:
+  - Ve hře
+  - E-mail
+  - Ve hře a e-mailem
+ma_none: Globální novinky
+ma_send_global_message: Odeslat globální zprávu
+ma_subject: Předmět
+ma_subject_needed: Předmět je povinný!
+ma_no_recipients: 'Filtru neodpovídají žádní příjemci, žádná pošta nebyla odeslána.'
+message_a: 'Stav zprávy:'
+message_t: 'Stav ticketu:'
+mip_known: Schváleno?
+ml_date: Datum
+ml_date_range: Období
+ml_deleted: Zpráva smazána
+ml_id: '#ID'
+ml_message_list: Seznam zpráv
+ml_receiver: Příjemce
+ml_sender: Odesílatel
+ml_subject: Předmět
+ml_type: Typ zprávy
+ml_type_submit: Odeslat
+mo_diameter: Průměr
+mo_fields_avaibles: Pole
+mo_moon: Měsíc
+mo_moon_added: Měsíc byl úspěšně přidán!
+mo_moon_name: Jméno měsíce
+mo_moon_random: Náhodně
+mo_moon_unavaible: Tato planeta už měsíc má!
+mo_planet_doesnt_exist: Hráč neexistuje!
+mod_active: Aktivní
+mod_change_active: Zapnout
+mod_change_deactive: Vypnout
+mod_deactive: Neaktivní
+mod_info: Herní moduly
+mod_module: Moduly
+modul_0: Aliance
+modul_1: Mise — Útok
+modul_2: Stavba — Budovy
+modul_3: Stavba — Výzkum
+modul_4: Stavba — Flotily
+modul_5: Stavba — Obrana
+modul_6: Seznam přátel
+modul_9: Flotila
+modul_10: Flotila — Zpracování událostí
+modul_11: Galaxie
+modul_12: Síň slávy
+modul_13: Obchodník
+modul_14: Info
+modul_15: Impérium
+modul_16: Zprávy
+modul_17: Poznámky
+modul_19: Falanga
+modul_20: Karta hráče
+modul_21: Seznam banů
+modul_22: Rekordy
+modul_23: Suroviny
+modul_24: Mise — Špionáž
+modul_25: Statistiky
+modul_26: Hledání
+modul_27: Tickety podpory
+modul_28: Strom technologií
+modul_29: Mise — Zničení
+modul_30: Mise — Expedice
+modul_32: Mise — Recyklace
+modul_33: Mise — Držení
+modul_34: Mise — Transport
+modul_35: Mise — Kolonizace
+modul_36: Mise — Rozmístění
+modul_38: Výkupce šrotu
+modul_39: Bojový simulátor
+modul_40: Mise — Raketový útok
+modul_41: Zkratky flotily
+modul_42: Mise — ACS
+modul_43: Mise — Obchod
+modul_44: Mise — Převod
+modul_45: Tržiště — Suroviny
+modul_46: Tržiště — Flotily
+modul_47: Statistiky závislé na špionážní technologii
+modul_48: Opravárenský dok
+modul_49: Ochrana surovin
+modul_50: Vyhazování z režimu dovolené
+modul_51: Vyhazování přátel a z aliancí
+modul_52: Stats.json
+modul_53: Tutoriál
+modul_54: Odměny za tutoriál
+modul_55: Čestné body
+modul_56: Pirátské základny
+mu_active_planets: 'Aktivní planety'
+mu_clear_cache: 'Vymazat cache'
+mu_connected: Online
+mu_cronjob: 'Cron úlohy'
+mu_dump: 'Záloha databáze'
+mu_flying_fleets: 'Flotily na cestě'
+mu_game_info: Informace
+mu_general: Obecné
+mu_giveaway: Rozdávání
+mu_global_message: 'Globální zpráva'
+mu_info_account_page: 'Info o účtu'
+mu_logs: 'Log administrátorů'
+mu_manual_points_update: 'Aktualizovat body'
+mu_md5_encripter: Hash hesla
+mu_mess_list: 'Seznam zpráv'
+mu_moderation_page: Oprávnění
+mu_module: Moduly
+mu_mpu_confirmation: Body se aktualizují automaticky. Kliknutím na OK je aktualizuješ hned.
+mu_multiip_page: 'Více IP'
+mu_news: Novinky
+mu_search_page: 'Rozšířené hledání'
+mu_support: 'Tickety podpory'
+mu_tools: Nástroje
+mu_universe: Vesmír
+mu_users_settings: 'Hráči'
+mu_vaild_users: 'Aktivní uživatelé'
+new_account_success: 'Nový účet vytvořen. ID: %d'
+new_add_account: Přidat nový účet
+new_add_user: Přidat nového hráče
+new_coord: Souřadnice
+new_creator_coor: Souřadnice
+new_creator_go_back: '[ Zpět do menu ]'
+new_creator_refresh: '[ Obnovit ]'
+new_creator_title_a: Vytvořit/smazat účty
+new_creator_title_l: Vytvořit/smazat měsíce
+new_creator_title_p: Vytvořit/smazat planety
+new_creator_title_t: Vytvořit testovacího uživatele
+new_creator_title_u: Vytvořit/smazat uživatele
+new_range: Pořadí
+new_title: Vytvořit nového hráče
+new_title_acc: Vytvořit nový účet
+new_user_success: 'Nový hráč vytvořen. ID: %d, planeta: %d'
+nws_confirm: Opravdu chceš smazat novinku „%s“?
+nws_content: Obsah
+nws_create: Vytvořit novinku
+nws_del: Smazat
+nws_from: Od
+nws_head_create: Vytvořit novinku
+nws_head_edit: 'Úprava novinky: %s'
+nws_news: Novinky
+nws_title: Nadpis
+one_is_yes_0: 'Ne'
+one_is_yes_1: 'Ano'
+online_users: Online
+ow_default_uri_missing: 'Odkazy v poště potřebují DEFAULT_URI (.env.local): dokud není nastaven, e-maily o registraci a obnovení hesla se neodesílají.'
+ow_app_secret_weak: 'APP_SECRET je veřejná výchozí hodnota nebo je příliš krátký: kdokoli by mohl padělat přihlašovací cookies. Nastav v .env.local novou náhodnou hodnotu (např. php -r ''echo bin2hex(random_bytes(32));'') a vymaž var/cache.'
+ow_app_env_dev: 'Server běží ve vývojovém režimu (APP_ENV není prod nebo je zapnuté APP_DEBUG): jsou vidět podrobnosti chyb a hra je pomalejší. Nastav v .env.local APP_ENV=prod a APP_DEBUG=0.'
+ow_dir_not_writable: /%s není zapisovatelný!
+ow_file_detected: Byl nalezen soubor %s. Z bezpečnostních důvodů ho smaž nebo přejmenuj.
+ow_proyect_leader: "Bývalý admirál flotily (vedoucí projektu 2Moons)"
+ow_former_pr0game_crew: "Bývalá posádka pr0game"
+ow_crew_dev: "Vývoj a záchranné akce"
+ow_crew_mod: "Moderace"
+ow_crew_community: "Komunita"
+ow_pr0game_contributors: "Přispěvatelé kódu pr0game"
+ow_special_thanks: Zvláštní poděkování
+ow_translator: Překladatelé
+pass_reg: Heslo
+pass2_reg: Potvrzení hesla
+player: Hráč
+po_add_moon: Přidat měsíc
+po_add_planet: Přidat kolonii
+po_colony: Kolonie
+po_complete_all: Neplatná data nebo už použito!
+po_complete_all2: Neplatné souřadnice!
+po_complete_succes: Planeta byla úspěšně vytvořena
+po_fields_max: Pole
+po_galaxy: Galaxie
+po_name_planet: Jméno planety
+po_planet: Planety
+po_system: Systém
+qe_authattack: Ochrana proti útokům na adminy
+qe_build: Budovy
+qe_change: Změnit
+qe_coords: Souřadnice
+qe_count: K dispozici
+qe_defensive: Obrana
+qe_edit_planet_sucess: Planeta %s [%d:%d:%d] byla úspěšně upravena!
+qe_edit_player_sucess: 'Hráč %s (ID: %d) byl úspěšně upraven!'
+qe_fields: Pole
+qe_fleet: Flotila
+qe_hpcoords: Domovské souřadnice
+qe_id: ID
+qe_info: Info
+qe_level: Úroveň
+qe_owner: Majitel
+qe_password: Heslo
+qe_planetname: Planeta
+qe_reset: Obnovit
+qe_resources: Suroviny
+qe_send: Odeslat
+qe_submit: Odeslat
+qe_tech: Výzkum
+qe_temp: Teplota
+qe_username: Uživatelské jméno
+re_buildings_lu: Obnovit budovy na měsících
+re_buildings_pl: Obnovit budovy
+re_buldings: Budovy
+re_defenses: Obnovit obranu
+re_defenses_and_ships: Lodě a obrana
+re_general: Obecné
+re_inve: Výzkum
+re_investigations: Obnovit výzkum
+re_player_and_planets: Hráči a planety
+re_reset_all: Obnovit celý vesmír
+re_reset_allys: Obnovit všechny aliance
+re_reset_banned: Obnovit bany
+re_reset_buddies: Obnovit seznamy přátel
+re_reset_buldings: Obnovit fronty staveb
+re_reset_errors: Obnovit seznam chyb
+re_reset_excess: Nastavení bylo úspěšně obnoveno!
+re_reset_fleets: Obnovit flotily na cestě
+re_reset_hangar: Obnovit fronty loděnice a obrany
+re_reset_invest: Obnovit fronty výzkumu
+re_reset_messages: Obnovit všechny zprávy
+re_reset_moons: Obnovit všechny měsíce
+re_reset_notes: Obnovit všechny poznámky
+re_reset_planets: Obnovit planety (smazat kolonie)
+re_reset_player: Obnovit hráče (smazat všechny)
+re_reset_rw: Obnovit bojové zprávy
+re_reset_statpoints: Obnovit statistiky
+re_reset_universe: Obnovit vesmír
+re_reset_universe_confirmation: >-
+  Nelze to vrátit. Než klikneš na OK, ujisti se, že máš zálohu databáze.
+re_resources: Suroviny
+re_resources_met_cry: Obnovit všechny suroviny (kov/krystal/deuterium)
+re_ships: Obnovit flotily
+researchs_title: Výzkum
+resources_title: Suroviny
+rp_done: Planety byly úspěšně přemíchány
+rp_explain: >-
+  Po kliknutí na Odeslat počkej, dokud se neobjeví vyskakovací okno.
+  Přeskupení může trvat několik sekund.
+rp_header: 'Přemíchání planet'
+rp_planet_error: Na jednoho hráče připadá víc než jedna planeta!
+rp_rights_error: Žádná administrátorská práva!
+rp_universe_error: Vesmír není zcela uzavřen!
+sb_final_memory: 'Použitá paměť na konci: %e KB / max. %m KB<br>'
+sb_sql_counts: 'SQL dotazů: %d'
+sb_start_memory: 'Použitá paměť na začátku: %i KB / max. %m KB<br>'
+sb_stats_update: Statistiky aktualizovány za %s sekund<br>
+sb_stats_updated: Statistiky aktualizovány.<br>Shrnutí:<br>
+sb_top_memory: 'Špičková paměť: %p KB / max. %m KB <br>'
+se__before: Předchozí
+se__next: Další
+se_activity: Poslední aktivita
+se_adm_attack: Ochrana adminů
+se_adm_attack_info: Když je zapnuto, mohou se administrátoři a moderátoři učinit nenapadnutelnými.
+se_all_planet_pictures: Všechny obrázky planet
+se_all_planet_pictures_info: Povolit všechny obrázky planet na všech pozicích.
+se_alliance_create_min_points: Minimální počet bodů k založení aliance
+se_allys: Aliance
+se_asc_desc: Vzestupně / sestupně
+se_attacks: Nastavení útoků
+se_auth: Hodnost
+se_authlevels: Administrátoři
+se_ban: Zabanován?
+se_ban_author: Zabanoval
+se_ban_limit: Do
+se_ban_reason: Důvod
+se_ban_time: Zabanován
+se_bash_per_planet: Limit útoků na planetu
+se_bash_per_planet_info: >-
+  Kolikrát může hráč za 24 hodin zaútočit na planetu jiného hráče (počítá se
+  na planetu). 0 = vypnuto
+se_bash_count_missiles: Limity útoků počítají raketové útoky
+se_bash_count_missiles_info: >-
+  Útoky meziplanetárními raketami se do limitů útoků (na hráče i na planetu) počítají jako útoky flotilou. Vypnuto: rakety se nepočítají.
+se_bash_per_user: Limit útoků na hráče
+se_bash_per_user_info: >-
+  Kolikrát může hráč za 24 hodin zaútočit na jiného hráče (napříč všemi
+  planetami). 0 = vypnuto
+se_update_check: "Kontrola aktualizací"
+se_update_check_info: "Při otevření administrační nástěnky se ptá GitHubu (api.github.com) na nejnovější vydání (nejvýše každých 6 hodin) a oznamuje nové verze. Neodesílá žádná data o tvém serveru. Vypni, aby se neprováděl žádný odchozí požadavek."
+se_cookie_consent: "Upozornění na cookies"
+se_cookie_consent_info: "Zobrazuje dole v přihlašovací oblasti, v oblasti účtu a ve hře upozornění na cookies, dokud návštěvník nevybere (\"Přijmout vše\" nebo \"Jen nezbytné\"; ukládá se do cookie cookie_consent na jeden rok). Za právní texty odpovídá provozovatel."
+se_block_planet_creation: Blokové
+se_board_enabled: Zapnout komunitní fórum
+se_board_enabled_info: "Vypnuto: všechny odkazy na fórum jsou skryté a jeho stránky nejsou dostupné."
+se_building_speed: Rychlost stavby
+se_buildings: Nastavení budov
+se_buildlist: Nastavení front
+se_cascading_moon_chance: Kaskádová šance na měsíc
+se_cascading_moon_chance_info: >-
+  Další šance na měsíc přidaná po každém neúspěšném pokusu o měsíc při
+  maximální šanci. Platí jen pro první měsíc na účtu. 0 = vypnuto
+se_catch_up: Mechanika dohánění
+se_catch_up_info: >-
+  Exponenciálně zkracuje dobu stavby a výzkumu až o faktor 10 podle bodového
+  odstupu od prvního hráče. Od zhruba 90% bodů vedoucího žádný bonus není.
+  Při zhruba 54% je faktor 2,5, při 27% je 5 a při 11% je 7,5. Přepočítává se
+  to na rozsah 1,0 až 0,5.
+se_catchup_percent: Maximální bonus za dohánění v procentech
+se_close_reason: Zpráva o zavřeném serveru
+se_colonisation_config: Nastavení kolonizace
+se_configuration_title: Konfigurace serveru
+se_confirm_planet: >-
+  Vybraná planeta bude zcela obnovena. Chceš pokračovat? Jméno planety:
+se_contrac: Sbalit
+se_cookie_advert: >-
+  Změna názvu cookie všechny odhlásí.<br>Pokud provozuješ několik vesmírů,
+  použij jiný název.
+se_cookie_name: Název cookie
+se_crystal_basic_income: Základní produkce krystalu
+se_crystal_start: Počáteční krystal
+se_crystal_start_info: Krystal, který noví hráči dostanou na domovské planetě.
+se_days: Dny
+se_debris_moon: Vyčistit trosky po měsíci
+se_debris_moon_info: Odstraní pole trosek po vytvoření měsíce.
+se_debug: Ladicí režim
+se_debug_info: >-
+  Loguje SQL dotazy a pro administrátory zobrazuje stavový řádek s počtem
+  dotazů a dobou běhu.
+se_def_debris_percentage: Obrana do trosek
+se_def_debris_percentage_info: Procento zničené obrany, které se po útoku změní na trosky.
+se_del_oldstuff: Smazat zprávy po
+se_del_oldstuff_info: Smazat zprávy a bojové zprávy po X dnech.
+se_del_user_automatic: Smazat neaktivní hráče po
+se_del_user_automatic_info: Smaže hráče, kteří se nepřihlásili X dnů. (0 = vypnuto)
+se_del_user_manually: Smazat požadované účty po
+se_del_user_manually_info: Smaže hráče, kteří požádali o smazání účtu, po X dnech.
+se_del_user_sendmail: Poslat připomínku po
+se_del_user_sendmail_info: Pošle připomínající e-mail po X dnech bez přihlášení.
+se_delete_succes_p: Úspěšně smazáno
+se_delete_not_found: 'Nic nebylo smazáno: hráč nebo planeta neexistuje nebo ji nelze smazat.'
+se_deuterium_basic_income: Základní produkce deuteria
+se_deuterium_cost_galaxy: Cena deuteria za galaxii
+se_deuterium_cost_galaxy_info: 'Cena deuteria za jedno kliknutí v galaxii (výchozí: 10)'
+se_deuterium_start: Počáteční deuterium
+se_deuterium_start_info: Deuterium, které noví hráči dostanou na domovské planetě.
+se_disclaimer: Nastavení právního upozornění
+se_disclamer_address: Adresa
+se_disclamer_mail: E-mailová adresa
+se_disclamer_notice: Další informace
+se_disclamer_phone: Telefonní číslo
+se_discord_exceptions_hook: Výjimky a varování
+se_discord_hooks: Discord Webhooky
+se_discord_logs_hook: Logy
+se_discord_tickets_hook: Tickety
+se_dst: Letní čas?
+se_dst_sel:
+  - 'Ne'
+  - 'Ano'
+  - Automaticky
+se_email: E-mail
+se_end: Datum konce
+se_end_time: Čas konce
+se_energy_basic_income: Základní produkce energie
+se_energy_multiplier: Faktor energie
+se_expand: Rozbalit
+se_expedition_parameters: Nastavení expedic
+se_expo_hold_multiplier: Rychlost expedic
+se_expo_hold_multiplier_info: 'Normální rychlost: 1'
+se_expo_ress_crys_chance: Šance na krystal z expedic
+se_expo_ress_deut_chance: Šance na deuterium z expedic
+se_expo_ress_met_chance: Šance na kov z expedic
+se_factor_university: Faktor univerzity
+se_factor_university_info: Procento, o které každá úroveň univerzity zkracuje dobu výzkumu
+se_fields: Pole
+se_filter_title: Filtr
+se_fleet_debris_percentage: Flotila do trosek
+se_fleet_speed: Rychlost flotil
+se_fleet_speed_info: 'Normální rychlost: 1'
+se_forum_url: Odkaz na fórum
+se_galaxy: Galaxie
+se_galaxy_distance_factor: Faktor vzdálenosti galaxií
+se_galaxy_distance_factor_info: 'Výchozí: 20000, výpočet: rozdíl galaxií × faktor vzdálenosti galaxií'
+se_galaxy_parameters: Nastavení galaxie
+se_galaxy_type: Typ galaxie
+se_galaxy_type_info: >-
+  <TABLE><tr><td>Lineární galaxie</td><td>Vzdálenost k systému 1 roste
+  s každým systémem v galaxii.</td></tr><tr><td>Prstencové galaxie</td><td>Poslední
+  a první systém galaxie jsou propojeny, takže vzdálenost od vzdálených
+  systémů k prvnímu se zkracuje.</td></tr><tr><td>Sférické galaxie</td><td>Každý
+  systém ve stejné galaxii je od ostatních stejně daleko.</td></tr></TABLE>
+se_default_theme: Výchozí motiv
+se_default_theme_info: Motiv pro nové účty a návštěvníky
+se_legal: Právní věci a komunita
+se_privacy_region: Oblast hostingu (zásady ochrany soukromí)
+se_privacy_region_info: "Vybírá výchozí zásady ochrany soukromí: verze GDPR (EU/EHP) nebo obecná verze. Už upravené stránky zůstanou beze změny; za právní texty odpovídá provozovatel."
+se_privacy_region_sel:
+  eu: EU / EHP - zásady ochrany soukromí podle GDPR
+  other: Mimo EU - obecné zásady ochrany soukromí
+se_rules_default: Použít výchozí pravidla
+se_rules_default_info: "Vypnuto: stránka s pravidly zůstane prázdná, dokud nenapíšeš vlastní pravidla v části Stránky. Už upravená pravidla se ponechají."
+se_source_url: URL zdrojového kódu
+se_source_url_info: 'Veřejný repozitář kódu, který tento server provozuje, odkazovaný jako „Zdrojový kód“ v zápatích (AGPL po tobě chce, abys hráčům nabídl své úpravy). Prázdné skryje odkaz.'
+se_game_name: Název hry
+se_git_issues_link: Odkaz na sledování chyb
+se_git_issues_link_info: Stránka, kde lze hlásit chyby a problémy
+se_id_owner: ID majitele
+se_inactives: Neaktivní
+se_initial_fields: 'Počáteční pole:'
+se_initial_temp: 'Počáteční teplota:'
+se_input_a: A
+se_input_act_pla: ' aktivních planet'
+se_input_activity: Aktivita
+se_input_admm: ' administrátorů'
+se_input_allyy: ' aliancí'
+se_input_asc: Vzestupně
+se_input_authlevel: Hodnost
+se_input_connect: ' hráčů online'
+se_input_d: D
+se_input_desc: Sestupně
+se_input_email: E-mail
+se_input_g: Galaxie
+se_input_have_moon: Měsíc?
+se_input_hay: 'Aktuálně '
+se_input_inact: ' neaktivních hráčů'
+se_input_inacti: Neaktivita
+se_input_ip: IP
+se_input_longer: Doba trvání
+se_input_members: Členové
+se_input_members2: Členové
+se_input_moonn: ' měsíců'
+se_input_name: Jméno
+se_input_p: Planeta
+se_input_planett: ' planet'
+se_input_prop: Majitel
+se_input_register: Registrace
+se_input_s: Systém
+se_input_submit: Hledat
+se_input_susss: ' zabanovaných'
+se_input_time: Čas
+se_input_userss: ' hráčů'
+se_input_vacatii: ' hráčů na dovolené'
+se_intro: Slovo nebo klíčové slovo
+se_iter_planet_creation: Iterativně (výchozí)
+se_jumpgate_factor: Dobíjení skokové brány
+se_jumpgate_factor_info: Faktor, kterým se dělí doba dobíjení skokové brány (výchozí 1)
+se_lang: Jazyk
+se_limit: Limit
+se_line_galaxy: Lineární galaxie (výchozí)
+se_line_uni: Lineární vesmír (výchozí)
+se_mail_active: Zapnout e-mail
+se_mail_sel:
+  - PHP mail()
+  - Sendmail / Qmail
+  - SMTP Auth
+se_mail_use: 'Metoda pošty:'
+se_max_additional_planets: Max. dalších planet z astrofyziky
+se_max_additional_planets_info: Další planety, které může hráč kolonizovat díky astrofyzice
+se_max_elements_build: Max. fronta staveb
+se_max_elements_build_info: Maximální počet budov ve frontě staveb
+se_max_elements_ships: Max. fronta loděnice
+se_max_elements_ships_info: Maximální počet zakázek ve frontě loděnice
+se_max_elements_tech: Max. fronta výzkumu
+se_max_elements_tech_info: Maximální počet položek ve frontě výzkumu
+se_max_fleet_per_build: Max. jednotek na zakázku
+se_max_fleet_per_build_info: Maximální počet jednotek na jednu zakázku v loděnici
+se_max_fleets_per_acs: Max. flotil na ACS
+se_max_fleets_per_acs_info: Maximální počet flotil v jednom ACS (výchozí 16)
+se_max_galaxy: Max. galaxií
+se_max_galaxy_info: Maximální počet galaxií ve vesmíru
+se_max_initial_planets: Max. planet bez výzkumu
+se_max_initial_planets_info: Počet planet, které může hráč kolonizovat od začátku, bez astrofyziky
+se_max_overflow: Přetečení skladu
+se_max_overflow_info: Faktor, kolik surovin se ještě může vyrábět při plném skladu
+se_max_participants_per_acs: Max. účastníků na ACS
+se_max_participants_per_acs_info: Maximální počet účastníků v jednom ACS (výchozí 5)
+se_max_planets: Max. planet
+se_max_planets_info: 'Maximum planet na systém (výchozí: 15)'
+se_max_player_planets: Max. planet na hráče
+se_max_player_planets_info: Maximum kolonií bez výzkumu
+se_max_system: Max. systémů
+se_max_system_info: Maximum systémů na galaxii
+se_message_delete_days: Vyčistit smazané zprávy po X dnech
+se_messages: Zprávy
+se_metal_basic_income: Základní produkce kovu
+se_metal_start: Počáteční kov
+se_metal_start_info: Kov, který noví hráči dostanou na domovské planetě.
+se_min_build_time: Minimální doba stavby
+se_min_build_time_info: >-
+  Minimální doba stavby v sekundách pro budovy, výzkum, lodě a obranu.
+  Výchozí je 1.<br>0 minimum vypne.<br>Vypnutí může způsobit
+  chyby.
+se_missile_range_factor: Faktor dosahu raket
+se_moon_chance: Max. šance na měsíc
+se_moon_chance_info: Maximální šance na vznik měsíce
+se_moon_factor: Faktor šance na měsíc
+se_moon_factor_info: Násobitel šance na vznik měsíce
+se_moon_size_factor: Faktor velikosti měsíce
+se_moon_size_factor_info: Násobitel velikosti měsíce, 1 = výchozí
+se_moons: Měsíce
+se_name: Jméno
+se_news: Nastavení novinek
+se_no_data: Žádná data
+se_noob_inactives: Použít faktor ochrany nováčků i na neaktivní hráče
+se_noob_protection: Ochrana nováčků
+se_noob_protection_multi: Faktor ochrany nováčků
+se_noob_protection_multi_info: >-
+  Útočit můžeš jen na hráče, jejichž body jsou v rozmezí tvých bodů × tento
+  faktor. Příklad s 18: když máš 1 000 bodů, můžeš útočit na hráče s méně než
+  18 000 body. Hráč s 20 000 body může útočit na kohokoli až do 360 000 bodů,
+  takže hráč s 50 000 body je pořád v jeho dosahu.
+se_noob_protection_outlaw: Systém psanců
+se_noob_protection_outlaw_info: >-
+  Umožňuje slabším hráčům útočit na silnější. Útočník se na 7 dní stane
+  psancem a ztrácí ochranu nováčků.
+se_noob_protection_time: Ochrana nováčků do X bodů
+se_noob_protection_time_info: Hráči s tímto skóre nebo nižším zůstávají pod ochranou nováčků.
+se_normal_speed: 'Normální rychlost: 1'
+se_order_list_now: Hledat
+se_overview_news_frame: Zapnout novinky
+se_overview_news_frame_info: Když je vypnuto, novinky se v Přehledu skryjí.
+se_overview_news_text: Novinky
+se_overview_news_text_info: Maximálně 255 znaků. HTML je povoleno.
+se_pagees: Stránky
+se_per_hour: za hodinu
+se_phalanx_range_factor: Faktor dosahu falangy
+se_piratebase: Pirátské základny
+se_piratebase_fleet_percentage_max: 'Flotila: maximální % flotily hráče'
+se_piratebase_fleet_percentage_min: 'Flotila: minimální % flotily hráče'
+se_piratebase_mainplanet_only: 'Suroviny: jen domovská planeta'
+se_piratebase_min_points: Minimální počet bodů
+se_piratebase_min_points_info: Minimální počet bodů, který hráč potřebuje, aby se mohla objevit pirátská základna
+se_piratebase_ress_hours: 'Suroviny: hodiny produkce'
+se_planet: Planeta
+se_planet_creation: Umístění domovské planety
+se_planet_creation_info: >-
+  Nové domovské planety lze umisťovat iterativně přes systémy a galaxie,
+  náhodně, po blocích, nebo z 50% náhodně a z 50% po blocích.<br>Náhodné
+  umístění rovnoměrně zaplňuje galaxie a systémy na náhodných pozicích.<br>Blokové
+  umístění vybere systém, který už má jednu nebo dvě planety. Pokud takový
+  systém neexistuje nebo je hráčů méně než 50, umístění je náhodné.
+se_planet_distance: Min. vzdálenost planet
+se_planet_distance_factor: Faktor vzdálenosti planet
+se_planet_distance_factor_info: >-
+  Výchozí: 5, výpočet: rozdíl planet × faktor vzdálenosti planet + min.
+  vzdálenost planet
+se_planet_distance_info: >-
+  Výchozí: 1000, výpočet: rozdíl planet × faktor vzdálenosti planet + min.
+  vzdálenost planet
+se_planet_parameters: Nastavení planet
+se_planet_ressource_bonus: Bonus surovin podle pozice
+se_planet_ressource_bonus_info: Zvyšuje produkci surovin na planetě o x%, podle její pozice.
+se_planet_size_factor: Faktor velikosti planet
+se_planet_size_factor_info: Násobitel velikosti planet, 1 = výchozí
+se_planets: Planety
+se_planets_act: Aktivní planety
+se_planets_per_tech: Další planety za úroveň astrofyziky
+se_planets_per_tech_info: Další kolonie odemčené za každou úroveň astrofyziky
+se_prepare_text: Text přípravy serveru
+se_random_planet_creation: Náhodně
+se_rank:
+  - Hráč
+  - Moderátor
+  - Operátor
+  - Administrátor
+se_pow_adaptive: Ochrana proti botům - adaptivní obtížnost
+se_pow_adaptive_info: >-
+  Zapnuto: podezřelé IP adresy a sítě (/24 nebo /64) dostanou mnohem těžší
+  hádanku (mnoho požadavků, selhání nebo registrací za krátkou dobu). Vypnuto:
+  každý návštěvník dostane základní hádanku a nečtou se žádná počítadla.
+se_pow_elevated_factor: Ochrana proti botům - faktor při zvýšeném riziku
+se_pow_elevated_factor_info: Hádanka se stane tolikrát těžší (výchozí 20).
+se_pow_high_factor: Ochrana proti botům - faktor při vysokém riziku
+se_pow_high_factor_info: Hádanka se stane tolikrát těžší (výchozí 100).
+se_pow_max_cap: Ochrana proti botům - strop obtížnosti
+se_pow_max_cap_info: >-
+  Nejvyšší číslo po použití faktorů. 1500000 trvá na pomalém smartphonu zhruba
+  25 sekund.
+se_pow_sensitivity: Ochrana proti botům - citlivost detekce rizika
+se_pow_sensitivity_info: >-
+  Procento výchozích prahů (zvýšené od 5 požadavků/10 min, 3 selhání/hodinu
+  nebo 2 registrací/24 h na IP; vysoké od 20 / 10 / 5; sítě třikrát tolik).
+  200 = potřeba dvakrát tolik událostí, 50 = polovina.
+se_pow_max_number: Ochrana proti botům - obtížnost (maximální číslo)
+se_pow_max_number_info: >-
+  Prohlížeč zkouší hashe až do tohoto čísla, v průměru polovinu z nich. 25000
+  trvá výrazně méně než sekundu. Víc znamená víc práce pro boty.
+se_pow_min_seconds: Ochrana proti botům - minimální čas před odesláním (sekundy)
+se_pow_min_seconds_info: >-
+  Formuláře odeslané rychleji než za tuto dobu po načtení se odmítnou. 0 kontrolu
+  vypíná.
+se_proofofwork: Ochrana proti botům
+se_proofofwork_info: >-
+  Registrace a zapomenuté heslo jsou chráněny malým výpočtem, který si prohlížeč
+  vyřeší sám, bez třetí strany.
+se_rebuild_protection: Ochrana obnovy
+se_rebuild_protection_info: >-
+  Po těžkých ztrátách hráči získají ochranu obnovy před dalšími útoky po
+  6 hodinách, trvající 48 hodin od útoku. V jednom útoku musí být zničeno
+  70% flotily nebo 80% přepravní kapacity a tato ztráta musí být alespoň
+  body ochrany nováčků × 1 000 v jednotkách nebo kapacitě. Hráč může režim
+  předčasně ukončit.
+se_redis_connection_url: Připojovací URL Redis
+se_redis_connection_url_info: redis[s]://[[username][:password]@][host][:port][/db-number]
+se_ref: Odkaz pro pozvání
+se_ref_active: Zapnout odkazy pro pozvání
+se_ref_active_info: Odkazy pro pozvání umožňují hráčům zvát přátele. Pozvaní hráči přinášejí bonus.
+se_ref_bonus: Bonus za pozvání
+se_ref_bonus_info: Temná hmota, kterou zvoucí hráč dostane za každého pozvaného hráče.
+se_ref_max_referals: Maximum pozvaných
+se_ref_max_referals_info: Maximální počet hráčů, které může jeden uživatel pozvat.
+se_ref_minpoints: Minimální body pro bonus
+se_ref_minpoints_info: >-
+  Pozvaný hráč musí dosáhnout tohoto skóre, než zvoucí hráč dostane
+  bonus.
+se_research_speed: Rychlost výzkumu
+se_resource_multiplier: Rychlost produkce surovin
+se_resource_multiplier_info: 'Normální rychlost: 1'
+se_ress_chance: Šance na suroviny
+se_ring_galaxy: Prstencové galaxie
+se_ring_uni: Prstencový vesmír
+se_save_parameters: Uložit
+se_se_fleet_debris_percentage_info: Procento zničených flotil, které se po útoku změní na trosky
+se_search: Hledat
+se_search_alliance_0: ID
+se_search_alliance_1: Jméno
+se_search_alliance_2: ZNAČKA
+se_search_alliance_3: Vůdce
+se_search_alliance_4: Založena
+se_search_alliance_5: Členové
+se_search_banned_0: ID
+se_search_banned_1: Jméno
+se_search_banned_2: Zabanován od
+se_search_banned_3: Zabanován do
+se_search_banned_4: Důvod
+se_search_banned_5: Autor
+se_search_edit: Upravit
+se_search_in: Pro
+se_search_info: Hledat
+se_search_order: Řadit
+se_search_planets_0: ID
+se_search_planets_1: Jméno
+se_search_planets_2: Majitel
+se_search_planets_3: Poslední aktivita
+se_search_planets_4: Galaxie
+se_search_planets_5: Systém
+se_search_planets_6: Planeta
+se_search_planets_7: Má měsíc?
+se_search_title: Rozšířené hledání
+se_search_users_0: ID
+se_search_users_1: Jméno
+se_search_users_2: E-mail
+se_search_users_3: Poslední aktivita
+se_search_users_4: Datum registrace
+se_search_users_5: Poslední IP
+se_search_users_6: Hodnost
+se_search_users_7: Zabanován?
+se_search_users_8: Dovolená?
+se_sendmail_inactive: Zapnout připomínající e-maily
+se_server_naame: Název hry
+se_server_parameters: Nastavení vesmíru
+se_session_handler: Správce relací
+se_several_parameters: Ostatní nastavení
+se_shipyard_speed: Rychlost loděnice
+se_silo_factor: Velikost raketového sila
+se_silo_factor_info: Násobitel velikosti raketového sila
+se_smail_path: Cesta k Sendmail / Qmail
+se_smtp: Nastavení SMTP
+se_smtp_host: 'Server SMTP:'
+se_smtp_host_info: Adresa tvého serveru SMTP.
+se_smtp_info: Nastavení SMTP používané k odesílání pošty ze serveru {game_name} hráčům.
+se_smtp_pass: 'Heslo SMTP:'
+se_smtp_port: 'Port SMTP:'
+se_smtp_port_info: Port serveru SMTP. Obvykle 25.
+se_smtp_sendmail: 'Odesílatel SMTP:'
+se_smtp_sendmail_info: Adresa odesílatele. Nemusí se shodovat s přihlašovací adresou.
+se_smtp_ssl: 'SMTP SSL/TLS:'
+se_smtp_ssl_info: Šifrování mezi tímto serverem a poštovním serverem. Vyžaduje se zřídka.
+se_smtp_ssl_sel:
+  - Žádné
+  - SSL
+  - TLS
+se_smtp_user: 'Uživatel SMTP:'
+se_sphere_galaxy: Sférické galaxie
+se_sphere_uni: Sférický vesmír
+se_start: Datum začátku
+se_start_time: Čas začátku
+se_stat: Přidělit administrátorům 0 bodů
+se_stat_level: Od hodnosti
+se_stat_sel:
+  - 'Ne'
+  - 'Ano'
+  - Skrýt adminy
+se_stat_settings: Hodnota 1 bodu statistik
+se_statistics: Statistiky
+se_statsjson_delay: Prodleva stats.json
+se_storage_multiplier: Násobitel skladování surovin
+se_suspended: Zabanován
+se_system: Systém
+se_system_distance: Min. vzdálenost systémů
+se_system_distance_factor: Faktor vzdálenosti systémů
+se_system_distance_factor_info: >-
+  Výchozí: 95, výpočet: rozdíl systémů × faktor vzdálenosti systémů + min.
+  vzdálenost systémů
+se_system_distance_info: >-
+  Výchozí: 2700, výpočet: rozdíl systémů × faktor vzdálenosti systémů + min.
+  vzdálenost systémů
+se_tag: ZNAČKA
+se_temp: Stupně
+se_time_of_page: Stránka vytvořena
+se_timezone: Časové pásmo vesmíru
+se_trade_allowed_ships: 'Povolené lodě:'
+se_trade_charge: 'Poplatek obchodníka:'
+se_trader: Nastavení výkupce šrotu
+se_ttf_file: Písmo (TTF/OTF)
+se_ttf_file_info: >-
+  Soubory písem nalezené v public/styles/resource/fonts/ (nové soubory dej
+  sem). Pokud zvolený soubor chybí, použije se přibalený DroidSansMono.
+se_type_all: Běžné hledání
+se_type_exact: Přesné hledání
+se_type_first: Začíná na
+se_type_last: Končí na
+se_type_typee: Typ
+se_uni_name: Název vesmíru
+se_uni_status: Stav vesmíru
+se_uni_status_regclosed_gameclosed: Registrace i přihlášení zavřené (např. údržba)
+se_uni_status_regclosed_gameopen: Registrace zavřená, přihlášení otevřené (např. staré vesmíry)
+se_uni_status_regopen_gameclosed: Registrace otevřená, přihlášení zavřené (např. nové vesmíry)
+se_uni_status_regopen_gameopen: Registrace i přihlášení otevřené
+se_uni_type: Typ vesmíru
+se_uni_type_info: >-
+  <TABLE><tr><td>Lineární vesmír</td><td>Vzdálenost ke galaxii 1 roste
+  s každou galaxií.</td></tr><tr><td>Prstencový vesmír</td><td>Poslední a první
+  galaxie jsou propojeny, takže vzdálenost od vzdálených galaxií k první se
+  zkracuje.</td></tr><tr><td>Sférický vesmír</td><td>Každá galaxie je od
+  ostatních stejně daleko.</td></tr></TABLE>
+se_user_settings: Nastavení hráčů
+se_user_valid: Ověření e-mailu
+se_user_valid_info: >-
+  Pokud je zapnuto, hráči musí své účty aktivovat e-mailem. Níže musí být
+  nastaveno SMTP.
+se_users: Hráči
+se_vacat: Dovolená?
+se_vacations: Dovolená
+se_vmode_min_time: Minimální doba dovolené
+se_vmode_min_time_info: Minimální doba, po kterou musí hráč zůstat v režimu dovolené, v sekundách
+se_wreckfield_cooldown: Odpočinek pole vraků
+se_wreckfield_min_percent: Minimální procento zničených jednotek flotily pro pole vraků
+se_wreckfield_min_units: Minimální počet zničených jednotek pro pole vraků
+select_option: Vyber...
+ships_title: Lodě
+sp_answer_message: 'Na tvůj ticket #%d byla přidána odpověď!'
+sp_answer_message_title: 'Ticket podpory #%d'
+status: Stav
+subject: Předmět
+test_data_amount: Počet testovacích uživatelů
+test_data_stage:
+  - Začátek (špionážní sonda)
+  - Střední fáze hry (bitevní loď, 1 měsíc)
+  - Pozdní fáze hry (bitevní křižník, falanga)
+  - Konec hry (Hvězda smrti, skoková brána)
+test_data_stage_label: Fáze
+test_data_success: Testovací data byla úspěšně vytvořena
+test_data_title: Vytvořit testovací uživatelská data
+text: Podrobnosti
+time_days: Dny
+time_hours: Hodiny
+time_minutes: Minuty
+time_seconds: Sekundy
+ul_sure_you_want_dlte: Opravdu to chceš odstranit?
+uni_reg: Vesmír
+user_reg: Jméno
+uvs_actions: Akce
+uvs_back: Zpět
+uvs_delete: Smazat
+uvs_id: ID vesmíru
+uvs_inactive: Neaktivní
+uvs_name: Jméno
+uvs_new: Přidat vesmír
+uvs_off: Zavřeno
+uvs_on: Otevřeno
+uvs_open: Stav
+uvs_planets: Planety
+uvs_players: Hráči
+uvs_reload: Znovu načíst
+uvs_speeds: Faktory rychlosti (H/F/S/E)
+uvs_speeds_full: Faktory rychlosti (hra/flotily/suroviny/expedice)
+vt_all: Všechny soubory
+vt_head: Ověření herních souborů
+vt_info: >-
+  Tento seznam ukazuje soubory, které se liší od originálu.<br>Pokud jsi hru
+  sám neměnil, nahraď tyto soubory originály.
+adm_comments: Komentáře
+adm_analytics: Analytika
+ad_system: Systém
+adm_menu_filter: Filtrovat menu …
+adm_menu_empty: Nenalezena žádná položka menu
+adm_menu_toggle: Menu
+adm_back_to_game: Zpět do hry
+adm_drop_rights: Odhlásit se
+adm_universe_switch: Vesmír
+adm_dash_attention: Vyžaduje pozornost
+adm_dash_all_good: Vše v pořádku – žádná varování.
+adm_dash_online: Hráči online (15 min)
+adm_dash_players: Hráčů celkem
+adm_dash_tickets: Otevřené tickety
+adm_dash_fleets: Flotily na cestě
+adm_dash_quick: Rychlý přístup
+adm_dash_system: Systém
+adm_update_available: "K dispozici je aktualizace"
+adm_update_released: "vydáno"
+adm_update_you_run: "používáš"
+adm_update_notes: "Poznámky k vydání"
+adm_update_howto: "Jak aktualizovat"
+adm_update_check_now: "Zkontrolovat teď"
+adm_update_check: "Kontrola aktualizací"
+adm_update_up_to_date: "Aktuální"
+adm_dash_version: Verze
+adm_dash_php: PHP
+adm_dash_uni_status: Stav vesmíru
+adm_dash_credits: Poděkování
+adm_dash_project: Domovská stránka projektu
+adm_confirm: Jsi si jistý?
+adm_dash_cron_locked: 'Cron úloha zamčená (už neběží): %s'
+adm_dash_cron_never: "Cron úloha ještě nikdy neběžela. Flotily, statistiky a další úlohy na pozadí na ni čekají."
+adm_dash_cron_stale: "Cron úloha naposledy běžela %s (měla by běžet každou minutu). Flotily, statistiky a další úlohy na pozadí na ni čekají."
+adm_dash_cron_help: "Jak nastavit cron úlohu"
+adm_dash_next_cron: Příští cron úloha
+adm_dash_cron_count: aktivních cron úloh
+adm_unsaved_hint: Změny se projeví po uložení.
+adm_sections: Sekce
+adm_skip: Přeskočit na obsah
+adm_filter_page: Filtrovat tuto stránku …
+adm_actions: Akce
+adm_ac_no_destroyed: V poslední době nebyly zničeny žádné planety.
+adm_ae_addremove_hint: Hodnoty se přičítají k aktuálnímu množství (Přidat) nebo se od něj odečítají (Smazat). Hodnota 0 nechá položku beze změny.
+adm_ae_confirm_remove: Opravdu odečíst zadané hodnoty od aktuálního množství?
+adm_ae_danger_zone: Nebezpečná zóna
+adm_ae_group_planet: Planeta / měsíc
+adm_ae_group_player: Hráč
+adm_ae_menu_hint: 'Vyber, co upravit. Hráči se vybírají podle ID hráče, planety podle ID planety nebo měsíce.'
+adm_ae_wipe: Obnovit planetu
+adm_ae_wipe_hint: 'Zaškrtnuté oblasti se na planetě vymažou. Nelze to vrátit.'
+adm_as_confirm: Opravdu prohodit účty obou vybraných hráčů?
+adm_as_explain: 'Dva vybraní hráči si prohodí účty (přihlašovací údaje). Stav hry a planety zůstávají u každého hráče, jen přihlašovací údaje změní majitele. Vyber vlevo hráče A a vpravo hráče B.'
+adm_ban_accounts: Účty
+adm_ban_duration: Doba trvání
+adm_ban_users: Hráči
+adm_continue: Pokračovat
+adm_coord_position: Pozice
+adm_cron_active: Aktivní
+adm_cron_click_disable: Kliknutím deaktivuješ
+adm_cron_click_enable: Kliknutím aktivuješ
+adm_cron_click_lock: Kliknutím zamkneš
+adm_cron_click_unlock: Kliknutím odemkneš (zaseknutý běh)
+adm_cron_free: Volná
+adm_cron_hint: Kliknutím na štítek stavu ho přepneš
+adm_cron_inactive: Neaktivní
+adm_cron_locked: Zamčená
+adm_cron_state: Stav
+adm_giveaway_confirm: Částky se připíšou na všechny odpovídající planety tohoto vesmíru. Pokračovat?
+adm_giveaway_hint: Částky se přičtou k aktuální zásobě každé odpovídající planety. Pole ponechaná na 0 zůstanou beze změny.
+adm_reset_warning: 'Všechno zaškrtnuté níže bude pro tento vesmír trvale smazáno nebo obnoveno. Není záloha ani návrat.'
+adm_rights_edit: Upravit oprávnění
+adm_rights_other: Ostatní
+adm_rights_page: Stránka
+adm_rights_pick: Vyber hráče, jehož oprávnění chceš upravit.
+adm_uni_close: Zavřít vesmír
+adm_uni_open: Otevřít vesmír
+adm_edit: Upravit
+adm_ma_recipients: Příjemci
+adm_ml_from: od
+adm_ml_to: do
+ac_detailed_planet_moon_info: Podrobnosti o planetě a měsíci
+ad_max: (max. %d)
+adm_password_info: Zadej své heslo pro ověření totožnosti!
+button_des_se: vybrat/zrušit výběr všech
+er_dlte_all: Smazat vše
+input_id_moon: ID měsíce
+input_text: 'Popis:'
+mip_ip: IP
+adm_cfg_crystal_pct: Krystal %
+adm_cfg_deuterium_pct: Deuterium %
+adm_cfg_fields_max: Max. polí
+adm_cfg_fields_min: Min. polí
+adm_cfg_metal_pct: Kov %
+adm_cfg_planet_props: Vlastnosti planet podle pozice
+adm_cfg_planet_props_hint: Teplota v °C, pole, bonus produkce v %
+adm_cfg_temp_max: Max. teplota
+adm_cfg_temp_min: Min. teplota
+adm_comment_col: Komentář
+adm_date_dd: dd
+adm_date_format: (dd.mm.yyyy)
+adm_date_mm: mm
+adm_date_yyyy: rrrr
+adm_exp_deck_err_card: 'Neplatný formát karty: chybí typ, velikost nebo počet'
+adm_exp_deck_err_count: 'Neplatný počet karet: nesmí být záporný'
+adm_exp_deck_err_empty: Balíček musí obsahovat alespoň jednu kartu
+adm_exp_deck_err_format: 'Neplatný formát balíčku: musí být pole'
+adm_exp_deck_err_json: Neplatný formát JSON
+adm_exp_ships_saved: Konfigurace lodí byla úspěšně uložena!
+adm_flight_distance: Vzdálenost
+adm_flight_err_dist_missing: Vyplň prosím všechny hodnoty vzdálenosti kompletně.
+adm_flight_err_format: Zadej prosím ve formátu galaxie:systém:planeta.
+adm_flight_err_galaxy_over: 'Galaxie překračuje max_galaxy.'
+adm_flight_err_max_missing: Vyplň prosím max_galaxy, max_system a max_planets kompletně.
+adm_flight_err_min_one: Galaxie, systém a planeta musí být alespoň 1.
+adm_flight_err_planet_over: 'Planeta překračuje max_planets.'
+adm_flight_err_system_over: 'Systém překračuje max_system.'
+adm_flight_fleet_speed: Rychlost flotil
+adm_flight_preview: Náhled doby letu
+adm_flight_preview_help: Doba letu z 1:1:1 k cíli s rychlostí lodí 45 000 a rychlostí flotil 1; typ vesmíru, typ galaxie, maximální hodnoty, faktory vzdálenosti a minimální vzdálenosti se uplatňují průběžně.
+adm_flight_ship_speed: Rychlost lodí
+adm_flight_time: Doba letu
+adm_info_col: Info
+adm_info_db_version: Verze DB
+adm_info_errorlog: Log chyb
+adm_info_game: Hra
+adm_info_game_address: Adresa hry
+adm_info_game_version: Verze hry
+adm_info_memory_limit: Limit paměti
+adm_info_mysql_client: Klient MySQL
+adm_info_mysql_server: Server MySQL
+adm_info_php_version: Verze PHP
+adm_info_server: Server
+adm_info_server_info: Info o serveru
+adm_info_text: Jako text
+adm_info_timezone: Časové pásmo (PHP/konfigurace/uživatel)
+adm_loading: Načítání …
+adm_log_not_found: V logu nenalezeno
+adm_mip_activity: Aktivita
+adm_mip_show_allowed: Zobrazit schválené
+adm_mip_show_banned: Zobrazit zabanované
+adm_ml_end_day: Den konce
+adm_ml_end_month: Měsíc konce
+adm_ml_end_year: Rok konce
+adm_ml_start_day: Den začátku
+adm_ml_start_month: Měsíc začátku
+adm_ml_start_year: Rok začátku
+adm_pagination: Stránkování
+adm_permission_error: 'Přístup odepřen!'
+adm_ti_all: Vše
+adm_ti_debug_errors: Ladění/chyby
+adm_ti_user_tickets: Tickety uživatelů
+adm_group_community: Komunita
+adm_nav_accounts: Účty
+adm_nav_expeditions: Expedice
+adm_nav_messages: Zprávy
+adm_nav_moderation: Moderace
+adm_nav_players: Hráči
+adm_nav_settings: Nastavení
+adm_tab_bans: Bany
+adm_tab_card_deck: Balíček karet
+adm_tab_create: Vytvořit
+adm_tab_editor: Editor
+adm_tab_findable_ships: Nalezitelné lodě
+adm_tab_moons: Měsíce
+adm_tab_planets: Planety
+adm_tab_players: Hráči
+adm_tab_server: Server
+adm_tab_swap: Prohodit
+adm_tab_universe: Vesmír
+adm_maint_cache_text: Vymaže herní cache (jazyky, šablony, herní data) a přepočítá časy cron úloh. Pomůže, když se změny nastavení nebo textů neprojeví.
+adm_maint_log_head: "Herní log"
+adm_maint_log_text: "Log chyb hry (var/log/game.log). Vymazání soubor vyprázdní; nové chyby se hned zapisují znovu."
+adm_migr_head: "Databázové migrace"
+adm_migr_text: "Aplikuje změny databáze, které přicházejí s aktualizací (například po rozbalení nového vydání přes instalaci)."
+adm_migr_current: "Aktuální revize databáze"
+adm_migr_pending: "Čekající migrace"
+adm_migr_backup: "Nejdřív vytvoř zálohu databáze."
+adm_migr_revision: "Revize"
+adm_migr_file: "Soubor"
+adm_migr_status: "Stav"
+adm_migr_ok: "Hotovo"
+adm_migr_failed: "Selhalo"
+adm_migr_skipped: "Přeskočený dotaz"
+adm_migr_uptodate: "Databáze je aktuální."
+adm_migr_confirm: "Spustit teď všechny čekající migrace?"
+adm_migr_run: "Spustit migrace"
+adm_migr_result: "Výsledek"
+adm_migr_nothing: "Žádné migrace nečekaly."
+adm_maint_log_size: "Velikost"
+adm_maint_log_changed: "Poslední změna"
+adm_maint_log_missing: "Soubor logu zatím neexistuje."
+adm_maint_log_clear: "Vymazat herní log"
+adm_maint_log_confirm: "Vyprázdnit var/log/game.log? Nelze to vrátit."
+adm_maint_log_cleared: "Herní log byl vymazán."
+adm_maint_log_failed: "Herní log se nepodařilo vymazat (soubor není zapisovatelný)."
+adm_maint_points_text: Okamžitě přepočítá body a žebříček. Jinak to běží automaticky přes cron úlohu statistik a při mnoha hráčích to může chvíli trvat.
+adm_nav_maintenance: Údržba
+adm_nav_content: Obsah
+adm_tab_pages: Stránky
+adm_tab_team: Tým
+nws_back: Zpět na seznam
+nws_view: Zobrazit
+nws_summary: Shrnutí
+nws_summary_help: 'Nepovinná ukázka pro seznam novinek (max. 300 znaků). Prázdné = úryvek textu.'
+nws_publish_date: Datum zveřejnění
+nws_publish_help: 'Datum v budoucnosti novinku naplánuje: v tu dobu se objeví automaticky.'
+nws_status: Stav
+nws_status_draft: Koncept
+nws_status_published: Zveřejněno
+nws_status_scheduled: Naplánováno
+nws_pinned: Připnuto
+nws_filter_all: Vše
+nws_filter_drafts: Koncepty
+nws_empty: Žádné novinky
+nws_saved: Novinka uložena.
+nws_deleted: Novinka smazána.
+nws_error_empty: Nadpis a text nesmí být prázdné.
+cms_page_contacts: Kontakty
+cms_page_dataPrivacy: Ochrana soukromí
+cms_page_rules: Pravidla
+cms_language: Jazyk
+cms_status: Stav
+cms_status_default: Výchozí
+cms_status_edited: Upraveno
+cms_last_edit: Poslední úprava
+cms_title: Nadpis
+cms_content: Obsah
+cms_save: Uložit stránku
+cms_view: Zobrazit stránku
+cms_reset: Obnovit výchozí
+cms_reset_confirm: Smazat upravenou verzi a znovu zobrazit výchozí obsah?
+cms_saved: Stránka uložena.
+cms_reset_done: Stránka obnovena na výchozí obsah.
+team_name: Jméno
+team_position: Pozice
+team_contact: Kontakt (např. Discord)
+team_description: Popis
+team_add: Přidat člena
+team_delete: Odebrat
+team_move_up: Posunout nahoru
+team_move_down: Posunout dolů
+team_save: Uložit tým
+team_saved: Tým uložen.
+team_empty: Zatím žádní členové týmu.
+team_hint: Pořadí řádků je pořadí na veřejné stránce týmu. Řádky bez jména se při uložení zahodí.
+nws_image: Obrázek
+nws_image_remove: Odebrat obrázek
+nws_image_help: 'Nepovinné, jeden obrázek na novinku (JPEG, PNG, GIF nebo WebP, max. 8 MB). Automaticky se převede na WebP.'
+
+bot_action: "Akce"
+bot_actions_per_session: "Akcí na relaci"
+bot_active: "Aktivní"
+bot_active_none: "Žádný LLM (jen lokální záložní řešení)"
+bot_activity: "Aktivita za hodinu"
+bot_activity_info: "24 hodnot oddělených čárkou od 0 do 1 (šance, že offline bot zahájí relaci, hodiny 0-23)"
+bot_alliance_chance: "Šance na aktivitu v alianci za relaci"
+bot_alliance_join_chance: "Šance na přihlášku do aliance botů (za tah)"
+bot_fleetsave_chance: "Šance na záchranu flotily (konec relace, hrozby)"
+bot_saving_discipline: "Spořivost (šetří na svůj cíl místo levných nákupů)"
+bot_expedition_slots: "Sloty flotily ponechané volné pro expedice"
+bot_api_key: "API klíč"
+bot_base_url: "Základní URL"
+bot_buddy_accept_chance: "Šance na přijetí žádosti o přátelství"
+bot_cancel: "Zrušit"
+bot_chat_style: "Nápověda ke stylu chatu"
+bot_raid_enabled: "Nájezdy zapnuty"
+bot_raid_chance: "Relace, které jdou na nájezd"
+bot_scout_range: "Dosah průzkumu (systémy kolem vlastních planet)"
+bot_min_profit_ratio: "Minimální poměr zisku (kořist / palivo + ztráty)"
+bot_relentless_minutes: "Série nájezdů po zásahu (minuty, min - max)"
+bot_recall_check_chance: "Šance na opětovnou špionáž a kontrolu odvolání před dopadem"
+bot_max_attacks_per_target: "Max. útoků na cíl a den"
+bot_attack_bots: "Útočit na další boty"
+bot_attack_humans: "Útočit na lidské hráče"
+bot_prefer_inactive: "Preference neaktivních cílů (0-100)"
+bot_check_interval: "Interval kontroly přihlášení"
+bot_colonize_chance: "Šance na kolonizaci za relaci"
+bot_confirm_delete: "Opravdu smazat?"
+bot_confirm_restore: "Obnovit výchozí profily na původní hodnoty?"
+bot_csrf_error: "Neplatný bezpečnostní token, načti stránku znovu."
+bot_days_zero_off: "dnů (0 = vypnuto)"
+bot_default: "výchozí"
+bot_defaults_restored: "Výchozí profily obnoveny."
+bot_delete: "Smazat"
+bot_deleted: "Smazáno."
+bot_description: "Popis"
+bot_detail: "Podrobnosti"
+bot_disabled: "vypnuto"
+bot_duplicate: "Duplikovat"
+bot_edit: "Upravit"
+bot_edit_profile: "Upravit profil"
+bot_enabled: "zapnuto"
+bot_expedition_chance: "Šance na expedici za relaci"
+bot_failed: "Selhalo"
+bot_hours_every: "hodin každých"
+bot_invalid_url: "Základní URL musí začínat http:// nebo https://."
+bot_key: "Klíč"
+bot_key_keep: "nech prázdné pro zachování"
+bot_key_not_set: "nenastaveno"
+bot_key_stored: "uloženo"
+bot_last_action: "Poslední akce"
+bot_last_test: "Poslední test"
+bot_list: "Boti"
+bot_llm_advice: "Povolit LLM (jména a chat)"
+bot_log: "Nedávné akce"
+bot_mistake_chance: "Šance na chybu"
+bot_mode: "Režim botů"
+bot_model: "Model"
+bot_name: "Jméno"
+bot_name_required: "Zadej prosím jméno."
+bot_new_profile: "Nový profil"
+bot_next_tick: "Další kontrola"
+bot_none: "Žádné."
+bot_offline: "offline"
+bot_online: "online"
+bot_open_config: "Nastavení vesmíru"
+bot_pattern_shift: "Vzorec směn"
+bot_player: "Hráč"
+bot_points: "Body"
+bot_profile: "Profil"
+bot_profile_default_locked: "Výchozí profily nelze smazat."
+bot_profile_in_use: "Tento profil stále používají boti."
+bot_profile_missing: "Profil nenalezen."
+bot_provider: "Poskytovatel"
+bot_providers_info: "LLM je nepovinný a používá se jen pro lidskou stránku botů: přezdívky, persony, jména planet a chat (odpovědi na zprávy, aliance, přátelé). Herní rozhodnutí se vždy dělají lokálně. Bez aktivního poskytovatele se používají vestavěné generátory jmen a připravené zprávy. Pro zachování uloženého klíče nech pole klíče prázdné."
+bot_randomness: "Náhodnost"
+bot_reply_chance: "Šance na odpověď (soukromé zprávy)"
+bot_restore_defaults: "Obnovit výchozí"
+bot_saved: "Uloženo."
+bot_session: "Relace"
+bot_session_minutes: "Délka relace"
+bot_skill: "Dovednost"
+bot_skill_gain: "Přírůstek za den"
+bot_skill_max: "Max"
+bot_skill_start: "Start"
+bot_spawn: "Vytvořit boty"
+bot_profile_mixed: "Smíšené (všechny profily)"
+bot_spawned: "Vytvořeno botů: %d."
+bot_summary: "Souhrn"
+bot_summary_actions: "akce"
+bot_summary_mistakes: "chyby"
+bot_summary_session: "relace"
+bot_tab_profiles: "Profily"
+bot_tab_providers: "Poskytovatelé LLM"
+bot_test: "Otestovat připojení"
+bot_testing: "Testování..."
+bot_time: "Čas"
+bot_universe: "Vesmír"
+bot_w_defense: "Obrana"
+bot_w_energy: "Energie"
+bot_w_facilities: "Zařízení"
+bot_w_mines: "Doly"
+bot_w_research: "Výzkum"
+bot_w_ships: "Lodě"
+bot_w_storage: "Sklady"
+bot_weights: "Váhy"
+adm_nav_bots: Boti
+adm_tab_bot_providers: Poskytovatelé LLM
+adm_tab_bot_profiles: Profily
+adm_tab_bot_list: Boti
+se_bots: "Boti"
+se_bots_enabled: "Zapnout boty"
+se_bots_enabled_info: "Umožní botům běžícím na serveru hrát v tomto vesmíru. Zpracovává je cron úloha jednou za minutu."
+se_bots_llm_daily_limit: "Volání LLM na bota a den"
+se_bots_llm_daily_limit_info: "Maximální počet volání LLM, které může jeden bot udělat za den. Poté se použijí lokální záložní řešení."
+se_bots_llm_enabled: "Použít LLM pro jména a chat"
+se_bots_llm_enabled_info: "Zapne přezdívky, persony, jména planet a chat (zprávy, aliance, přátelé) generované LLM pomocí aktivního poskytovatele. Herní rozhodnutí vždy zůstávají lokální."
+se_bots_max_count: "Maximální počet botů"
+se_bots_max_count_info: "Horní limit vytvořených botů v tomto vesmíru."
+se_bots_ticks_per_run: "Botů na běh cronu"
+se_bots_ticks_per_run_info: "Maximální počet botů zpracovaných v jednom běhu cronu."
+se_bots_raids_enabled: "Boti přepadají další hráče"
+se_bots_raids_enabled_info: "Umožní botům průzkum, špehování a útoky na hráče a další boty v okolí podle stejných pravidel jako hráči (limit útoků, ochrana, dovolená). Ve výchozím nastavení vypnuto."
+adm_info_summary_fail: "Neúspěšných kontrol: %s, varování: %s. Nejdřív oprav neúspěšné kontroly."
+adm_info_summary_warn: "Žádné neúspěšné kontroly, ale varování (%s) si zaslouží pozornost."
+adm_info_summary_ok: "Všechny kontroly stavu prošly."
+adm_info_health: "Kontroly stavu"
+adm_info_status_ok: "OK"
+adm_info_status_warn: "Varování"
+adm_info_status_fail: "Selhalo"
+adm_info_status_info: "Info"
+adm_info_chk_php: "Verze PHP (8.4 nebo novější)"
+adm_info_chk_php_hint: "Hra potřebuje PHP 8.4 nebo novější."
+adm_info_chk_ext_required: "Povinná rozšíření PHP"
+adm_info_chk_ext_required_hint: "Nainstaluj chybějící rozšíření, bez nich hra nebude fungovat."
+adm_info_chk_ext_optional: "Volitelná rozšíření PHP"
+adm_info_chk_ext_optional_hint: "Nejsou povinná, ale zapínají rychlejší nebo další funkce (viz seznam rozšíření)."
+adm_info_chk_opcache: "OPcache"
+adm_info_chk_opcache_hint: "OPcache je vypnutá. V produkci ji zapni, PHP výrazně zrychlí."
+adm_info_chk_environment: "Prostředí (APP_ENV / ladění)"
+adm_info_chk_environment_hint: "Na veřejném serveru provozuj s APP_ENV=prod a vypnutým laděním."
+adm_info_chk_display_errors: "display_errors"
+adm_info_chk_display_errors_hint: "Výpis chyb na stránkách může prozradit vnitřnosti. Na veřejných serverech nastav display_errors=Off."
+adm_info_chk_writable: "Zapisovatelné adresáře"
+adm_info_chk_writable_hint: "Uživatel webového serveru musí umět zapisovat do těchto adresářů (cache, logy, relace, nahrávané soubory)."
+adm_info_chk_install_tool: "Instalační nástroj"
+adm_info_chk_install_tool_hint: "Existuje var/ENABLE_INSTALL_TOOL. Smaž ho, když neinstaluješ."
+adm_info_chk_migrations: "Databázové migrace"
+adm_info_chk_migrations_hint: "Čekají migrace. Aplikují se při dalším požadavku na hru; pokud zůstanou čekat, zkontroluj log."
+adm_info_chk_battle_engine: "Bojový engine"
+adm_info_chk_battle_engine_hint: "Rust engine není použitelný (bin/battlerust, bin/libbattlerust.so, proc_open). Bitvy běží na pomalejším PHP enginu."
+adm_info_chk_cron: "Cron úlohy"
+adm_info_chk_cron_hint: "Cron vypadá zaseknutě nebo neběží. Zkontroluj, že bin/console app:cron:run běží každou minutu, a odemkni zaseknuté úlohy v Cron úlohách."
+adm_info_chk_https: "HTTPS"
+adm_info_chk_https_hint: "Tento požadavek nepoužil HTTPS. Hesla a relace putují nešifrovaně."
+adm_info_chk_mail: "Doručování pošty"
+adm_info_chk_mail_hint: "Pošta je vypnutá nebo neúplná (aktivační e-maily a obnovení hesel nedorazí). Viz nastavení."
+adm_info_chk_session: "Správce relací"
+adm_info_chk_session_hint: "Zkontroluj úložiště relací."
+adm_info_os: "Operační systém"
+adm_info_hostname: "Název hostitele"
+adm_info_max_exec: "Max. doba běhu"
+adm_info_upload_max: "Limit nahrávání (upload_max_filesize)"
+adm_info_post_max: "Limit POST (post_max_size)"
+adm_info_realpath: "Cache realpath"
+adm_info_peak: "Špičková paměť tohoto požadavku"
+adm_info_cpu: "Jádra CPU"
+adm_info_load: "Průměrné zatížení (1 / 5 / 15 min)"
+adm_info_uptime: "Doba běhu systému"
+adm_info_disk: "Disk (projekt)"
+adm_info_memory: "Systémová paměť"
+adm_info_free_of: "Volných %s z %s (využito %s %%)"
+adm_info_opcache_line: "Využito %s z %s, úspěšnost %s %%, ve cache %s skriptů"
+adm_info_extensions: "Rozšíření PHP"
+adm_info_extensions_hint: "Najetím zobrazíš účel. Červená = povinné a chybí, šedá = volitelné a chybí."
+adm_info_required: "povinné"
+adm_info_ext_pdo_mysql: "Přístup k databázi (PDO MySQL)"
+adm_info_ext_intl: "Formátování čísel, dat a jazyka"
+adm_info_ext_mbstring: "Práce s vícebajtovými řetězci"
+adm_info_ext_gd: "Zpracování obrázků (avatary, obrázky novinek)"
+adm_info_ext_curl: "Požadavky HTTP (Discord, externí API)"
+adm_info_ext_json: "Kódování a dekódování JSON"
+adm_info_ext_ctype: "Kontroly typů znaků"
+adm_info_ext_opcache: "Cachuje zkompilovaný kód PHP (rychlost)"
+adm_info_ext_ffi: "Rozhraní cizích funkcí (nativní kód)"
+adm_info_ext_ds: "Rychlé datové struktury"
+adm_info_ext_redis: "Relace a cache v Redis"
+adm_info_ext_imap: "Přístup do poštovní schránky (IMAP)"
+adm_info_database: "Databáze"
+adm_info_db_schema: "Schéma"
+adm_info_db_size: "Velikost"
+adm_info_tables: "tabulek"
+adm_info_pending: "Čekající migrace"
+adm_info_db_uptime: "Doba běhu MySQL"
+adm_info_threads: "Připojená vlákna"
+adm_info_max: "max"
+adm_info_qps: "Dotazů za sekundu (průměr)"
+adm_info_queries: "dotazů"
+adm_info_slow: "Pomalé dotazy"
+adm_info_buffer_pool: "InnoDB buffer pool"
+adm_info_top_tables: "Největší tabulky"
+adm_info_table: "Tabulka"
+adm_info_rows: "řádků"
+adm_info_data: "Data"
+adm_info_index: "Index"
+adm_info_game_stats: "Herní statistiky"
+adm_info_universe: "Vesmír"
+adm_info_players: "Hráči"
+adm_info_accounts: "Účty"
+adm_info_online: "Online"
+adm_info_planets: "Planety"
+adm_info_moons: "Měsíce"
+adm_info_fleets: "Flotily na cestě"
+adm_info_acs: "Skupiny ACS"
+adm_info_alliances: "Aliance"
+adm_info_messages: "Zprávy"
+adm_info_unread: "nepřečtených"
+adm_info_activity: "Aktivita a registrace"
+adm_info_active: "Aktivní hráči"
+adm_info_registrations: "Nové registrace"
+adm_info_banned: "Zabanovaní hráči"
+adm_info_vacation: "V režimu dovolené"
+adm_info_bots: "Hráči-boti"
+adm_info_points_avg: "Průměrné body"
+adm_info_points_top: "Nejvyšší body"
+adm_info_last_stats: "Poslední aktualizace statistik"
+adm_info_market: "Otevřené nabídky na tržišti"
+adm_info_reports: "Uložené bojové zprávy"
+adm_info_debris: "Pole trosek s obsahem (kov / krystal)"
+adm_info_resources: "Suroviny uložené na planetách"
+adm_info_fleets_by_mission: "Flotily podle mise"
+adm_info_mission: "Mise"
+adm_info_no_fleets: "Žádné flotily na cestě."
+adm_info_reg_chart: "Registrace, posledních 30 dnů"
+adm_info_no_registrations: "Za posledních 30 dnů žádné registrace."
+adm_info_all_universes: "Všechny vesmíry"
+adm_info_total: "Celkem"
+adm_info_logs: "Logy a cache"
+adm_info_game_log: "Herní log"
+adm_info_errors_24h: "Chyby, posledních 24 h"
+adm_info_warnings_24h: "Varování, posledních 24 h"
+adm_info_scanned: "Prohledáno (konec souboru)"
+adm_info_symfony_log: "Log Symfony"
+adm_info_lines: "řádků"
+adm_info_files: "souborů"
+adm_info_last_errors: "Nejnovější chyby"
+adm_info_no_errors: "V prohledané části logu nejsou žádné chyby."
+adm_info_time: "Čas serveru"
+adm_info_timezone_of: "Zdroj"
+adm_info_zone: "Časové pásmo"
+adm_info_tz_php: "PHP"
+adm_info_tz_config: "Konfigurace hry"
+adm_info_tz_user: "Tvůj účet"
+adm_login_throttled: 'Příliš mnoho pokusů. Zkus to prosím znovu za pár minut.'
+se_community_links: "Odkazy komunity"
+se_discord_url: "URL pozvánky na Discord"
+se_discord_url_info: "Pozvánka na tvůj server Discord (https://...). Zobrazuje se v menu, na přihlašovací stránce, v e-mailech a textech. Prázdné ji skryje."
+se_discord_widget_guild: "ID serveru Discord (widget online)"
+se_discord_widget_guild_info: "ID tvého serveru Discord (17-20 číslic; Nastavení serveru → Widget, musí být zapnuto „Povolit widget serveru“). Na úvodní stránce zobrazí box s počtem online, aktualizovaný každých 5 minut. Prázdné ho skryje."
+se_wiki_url: "URL wiki"
+se_wiki_url_info: "Základní URL externí wiki, bez koncového lomítka (https://...). Odkazy na wiki ve FAQ, tutoriálu a pravidlech se z ní skládají. Prázdné je skryje."
+se_donate_url: "URL pro dary"
+se_donate_url_info: "Odkaz na dary (https://...), zobrazený v menu. Prázdné ho skryje."
+se_userscripts_url: "URL userscriptů"
+se_userscripts_url_info: "Stránka popisující userscripty pro tvou hru (https://...), odkazovaná v nastavení. Prázdné ji skryje."
+se_bots_alliances_enabled: "Boti zakládají aliance"
+se_bots_alliances_enabled_info: "Boti zakládají vlastní aliance a občas vstupují do jiných. Vypnuto: boti zůstanou vlky samotáři, nikam se nehlásí a opouštějí aliance, jejichž jsou členy (aliance, které bot založil, zůstanou)."
+se_bots_join_human_alliances: "Boti smějí vstupovat do aliancí hráčů"
+se_bots_join_human_alliances_info: "Boti se smějí hlásit i do aliancí založených lidskými hráči. Vypnuto: boti vstupují jen do aliancí založených boty a opouštějí aliance hráčů."
+se_bot_reply_delay_hours: "Zpoždění odpovědi (hodiny)"
+se_bot_reply_delay_hours_info: "Hodiny, po které nejstarší nezodpovězená soukromá zpráva hráče čeká, než bot odpoví jednou odpovědí na všechny čekající zprávy daného hráče. Je to také minimální odstup mezi dvěma zprávami zahájenými botem (reakce na útok, posměšky při nájezdech) témuž hráči. 0 = žádné zpoždění."
+se_bot_chatter: "Boti si povídají"
+se_bot_chatter_info: "Zapnuto: boti odpovídají na soukromé zprávy. Vypnuto: zprávy se stále čtou a počítají, ale odesílají se jen bojové reakce (po napadení nebo při nájezdu na hráče, který jim napsal). Boti nikdy nepíšou hráčům první."
+mu_hall_of_fame: "Síň slávy"
+hof_head: "Síň slávy (vesmír)"
+hof_view: "Zobrazit veřejnou stránku"
+hof_status: "Stav"
+hof_has_data: "Data k dispozici"
+hof_entries: "Záznamy žebříčku"
+hof_updated: "Naposledy aktualizováno"
+hof_no_data: "Pro tento vesmír nejsou žádná data do Síně slávy."
+hof_export: "Exportovat JSON"
+hof_clear: "Vymazat data"
+hof_confirm_clear: "Smazat data Síně slávy tohoto vesmíru?"
+hof_import: "Importovat JSON"
+hof_file: "Soubor JSON"
+hof_import_help: "Formát: hall-of-fame, verze 1 (max. 1 MB). Nahradí stávající data tohoto vesmíru."
+hof_confirm_import: "Nahradit stávající data Síně slávy tohoto vesmíru?"
+hof_imported: "Síň slávy importována."
+hof_cleared: "Data Síně slávy smazána."
+hof_error_nofile: "Nebyl nahrán žádný platný soubor."
+hof_error_invalid: "Import odmítnut:"
+se_bash_war_exempt: "Války ruší limit útoků"
+se_bash_war_exempt_info: "Útoky mezi aliancemi ve válce (přijaté, starší než jeden den) se nepočítají do limitů útoků. Vypnuto: válečné útoky se počítají jako všechny ostatní."
+se_honor_pair_cap: "Čestné souboje na dvojici (24 h)"
+se_honor_pair_cap_info: "Kolik čestných soubojů mezi týmiž dvěma hráči (v obou směrech) udělí během 24 hodin čest. Další souboje se počítají jako neutrální. 0 = neomezeno."
+se_market_push_tolerance: "Tolerance pushingu na tržišti"
+se_market_push_tolerance_info: "Přijatelný rozdíl hodnoty obchodu na tržišti v procentech (0-90), než se počítá jako pushing. Výchozí 30."
+se_transport_push_check: "Ochrana proti pushingu v transportu"
+se_transport_push_check_info: "Odmítá transporty, držení a převody (náklad i lodě) jinému hráči, pokud za posledních 7 dní hodnota, kterou jsi mu poslal, převyšuje hodnotu, kterou poslal zpět, o víc než níže uvedený limit."
+se_transport_push_limit: "Limit pushingu v transportu"
+se_transport_push_limit_info: "Hodnota nákladu v jednotkách deuteria (tržní poměry), nad kterou se ochrana uplatní. 0 = ochrana vypnuta."
+se_depot_cost_real_consumption: "Cena skladu podle skutečné spotřeby"
+se_depot_cost_real_consumption_info: "Alianční sklad účtuje skutečnou spotřebu paliva flotily (s pohony a technologiemi paliva majitele) / 10 za hodinu místo základní spotřeby / 10."
+se_hours: Hodiny
+se_remember_me_days: '„Zůstat přihlášen“ trvá'
+se_remember_me_days_info: 'Dny, po které přihlášení se zaškrtnutým polem „zůstat přihlášen“ přežije restart prohlížeče a vypršení relace. Změna hesla ho ukončí. 0 volbu vypíná.'
+se_session_lifetime: Relace vyprší po neaktivitě
+se_session_lifetime_info: 'Hodiny bez jakéhokoli požadavku, po kterých se hráč odhlásí („relace vypršela“).'
+abuse_menu: "Hlášení zneužití"
+abuse_days: "Dny"
+abuse_apply: "Použít"
+abuse_weights: "Váhy hodnoty kov : krystal : deuterium"
+abuse_none: "V tomto okně nic nenalezeno."
+abuse_from: "Od"
+abuse_to: "Komu"
+abuse_count: "Počet"
+abuse_sent: "Odesláno"
+abuse_back: "Vráceno"
+abuse_net: "Čistá hodnota"
+abuse_linked: "Propojeno"
+abuse_last: "Naposledy"
+abuse_link_ip: "stejná IP"
+abuse_link_multi: "multi skupina"
+abuse_link_multi_known: "multi skupina (známá)"
+abuse_link_subnet: "stejná podsíť (slabší)"
+abuse_thresholds: "Prahy: dvojice s převodem se uvádí od %s jednotek kovu jedním směrem, přičemž se vrátí nejvýše %s; dvojice na tržišti od %s obchodů, označeno nad rozdílem %s. Žádné řádky znamenají, že těchto limitů nic nedosáhlo (nebo logy nic neobsahují), ne že se nic nestalo."
+abuse_transfers: "Jednostranné transporty a držení"
+abuse_transfers_info: "Transporty, držení a převody lodí (neodvolané; lodě se počítají za cenu stavby) mezi dvěma hráči, jejichž náklad měl hodnotu alespoň %s jednotek kovu jedním směrem, zatímco se vrátilo nejvýše %s této hodnoty. Řazeno podle čisté hodnoty; váhy jsou uložené tržní poměry."
+abuse_trades: "Opakované obchody na tržišti"
+abuse_trades_info: "Obchody se surovinami mezi týmiž dvěma hráči, alespoň %s krát. Poměr = hodnota, kterou dala strana, co dala víc, dělená druhou stranou (1,00 = na tržní referenci); nad rozdílem %s se dvojice označí."
+abuse_giver: "Dal víc"
+abuse_receiver: "Dostal víc"
+abuse_ratio: "Poměr"
+abuse_outlier: "odlehlá hodnota"
+abuse_protections: "Udělené ochrany obnovy"
+abuse_protections_info: "Hráči, kteří v daném okně získali ochranu obnovy. Protivníci jsou druhá strana bojové zprávy z daného souboje; kořist je hodnota, kterou jejich flotily v souboji získaly (trosky a zničená hodnota se neukládají)."
+abuse_protected: "Chráněný hráč"
+abuse_granted: "Uděleno"
+abuse_opponents: "Protivníci"
+abuse_loot: "Kořist protivníka"
+abuse_report: "Zpráva"
+abuse_recalls: "Odvolání při příletu nebo po něm"
+abuse_recalls_info: "Útočné flotily, flotily ACS a ničící flotily, které byly odvolány, když čas příletu už nastal (vzorec odvolání po příletu)."
+abuse_mission: "Mise"
+abuse_arrival: "Přílet"
+abuse_recalled: "Odvoláno"
+abuse_late: "Po příletu"
+abuse_fought: "bojovalo"
+abuse_mission_1: "Útok"
+abuse_mission_2: "Útok ACS"
+abuse_mission_9: "Zničení"
+abuse_missiles_skipped: "Vypuštění raket oproti obsahu sila nejsou součástí tohoto hlášení: tabulky neobsahují historii sil, se kterou by se dalo srovnávat."
+abuse_link_device: "stejné zařízení"
+abuse_graph: "Shluky toků hodnoty"
+abuse_graph_info: "Hráči propojení tokem hodnoty za posledních %s dnů (pevné okno): transporty, držení, převody lodí (za cenu stavby), obchody na tržišti (obě strany) a kořist z útoků, sečteno v obou směrech. Propojeny jsou jen dvojice s přesunutými alespoň %s jednotkami kovu a %s toky; uvedeny jsou propojené skupiny o dvou a více členech (nejlepších %s podle hodnoty). Čisté = hodnota nejjednostrannější dvojice shluku (podíl z jeho celkové hodnoty). Příznaky propojení ukazují, zda členové sdílejí IP, zařízení nebo multi skupinu s jiným členem. Řádky se čtou s omezením na zdroj."
+abuse_members: "Členové"
+abuse_value: "Celková hodnota"
+abuse_flows: "Toky"
+abuse_top_edge: "Nejjednostrannější dvojice"
+abuse_activity: "Aktivita odesílání flotil (24 h)"
+abuse_activity_info: "Účty s nejvíce odeslanými flotilami za posledních 24 hodin; špička = odeslání v nejvytíženější hodině. Trvale vysoké špičky mohou naznačovat skriptovanou hru."
+abuse_player: "Hráč"
+abuse_launches: "Odeslání"
+abuse_peak: "Špička / hodinu"
+adm_dash_unprotected: "Ochrany proti zneužití jsou v tomto vesmíru vypnuté:"
+adm_dash_unprotected_push: "Ochrana proti pushingu pro transport, držení a převod je vypnutá (transport_push_check / transport_push_limit)."
+adm_dash_unprotected_honor: "Limit čestných soubojů na dvojici je 0 (neomezená čest mezi týmiž dvěma hráči)."
+adm_dash_unprotected_bash: "Vyhlášené války ruší limit útoků (bash_war_exempt)."
+adm_dash_unprotected_depot: "Držení u skladu stojí levnou základní spotřebu (depot_cost_real_consumption vypnuto)."
+adm_dash_unprotected_market: "Tolerance pushingu na tržišti je nad 10 % (market_push_tolerance)."
+modul_57: "Weby pro hlasování"
+adm_nav_voting: "Weby pro hlasování"
+vt_sites: "Weby pro hlasování"
+vt_add: "Přidat web"
+vt_create_head: "Nový web pro hlasování"
+vt_edit_head: "Upravit web pro hlasování"
+vt_back: "Zpět"
+vt_name: "Jméno"
+vt_vote_url: "URL hlasování"
+vt_vote_url_help: "Odkaz, kam se hráči posílají. {token} (jednorázový token tohoto hlasu) a {userId} se nahradí."
+vt_image_url: "URL obrázku (nepovinné)"
+vt_image_url_help: "Banner nebo logo zobrazené vedle webu na stránce hráče (https)."
+vt_cooldown: "Odpočinek (hodiny)"
+vt_cooldown_help: "Jedna odměna na hráče a web v tomto časovém okně, počítáno od poslední odměny."
+vt_reward: "Odměna"
+vt_res_901: "Kov"
+vt_res_902: "Krystal"
+vt_res_903: "Deuterium"
+vt_verification: "Ověření"
+vt_verify_none: "Žádné (odměna při kliknutí)"
+vt_verify_postback: "Postback (odměna při zavolání webu)"
+vt_verification_help: "Bez ověření se odměna vyplatí, když hráč klikne na tlačítko hlasování (jen odpočinek). S postbackem musí web zavolat callback URL."
+vt_sort: "Pořadí řazení"
+vt_active: "Aktivní"
+vt_enabled: "Aktivní"
+vt_disabled: "Neaktivní"
+vt_enable: "Aktivovat"
+vt_disable: "Deaktivovat"
+vt_delete: "Smazat web"
+vt_renew_secret: "Vygenerovat nové tajemství"
+vt_renew_secret_help: "Zneplatní starou URL postbacku: aktualizuj ji na webu pro hlasování."
+vt_postback: "Postback"
+vt_postback_url: "Callback URL"
+vt_secret: "Tajemství"
+vt_postback_help: "Zadej tuto URL na webu pro hlasování jako callback/postback. Nahraď {token} makrem webu pro hodnotu, kterou dostal v URL hlasování. Přijímá se GET i POST; tajemství lze poslat také jako hlavičku X-Vote-Secret."
+vt_saved: "Uloženo."
+vt_deleted: "Web pro hlasování smazán."
+vt_empty: "Zatím žádné weby pro hlasování."
+vt_confirm_delete: "Smazat web pro hlasování „%s“ a jeho log?"
+vt_module_off: "Modul „Weby pro hlasování“ je vypnutý, hráči nevidí stránku hlasování."
+vt_error_name: "Jméno je povinné."
+vt_error_vote_url: "URL hlasování musí být platná adresa http(s)."
+vt_error_image_url: "URL obrázku musí být platná adresa http(s)."
+vt_error_reward: "Částky odměn musí být mezi 0 a 1 000 000 000."
+vt_clicks: "Kliknutí"
+vt_verified: "Ověřeno"
+vt_rewarded: "Odměněno"
+vt_log: "Nedávné hlasy"
+vt_log_time: "Čas"
+vt_log_player: "Hráč"
+vt_log_status: "Stav"
+vt_log_ip: "IP"
+vt_log_empty: "Zatím žádné hlasy."
+vt_status_rewarded: "Odměněno"
+vt_status_verified: "Ověřeno, bez odměny"
+vt_status_pending: "Kliknuto"
+adm_nav_social: "Přihlášení přes sociální sítě"
+se_social: "Přihlášení přes sociální sítě"
+se_social_info: "Umožní hráčům přihlásit se nebo zaregistrovat existujícím účtem Discord, Facebook, GitHub nebo Google (OAuth2). Všichni poskytovatelé jsou ve výchozím nastavení vypnutí. Vytvoř u poskytovatele aplikaci, zaregistruj tam níže zobrazenou callback URL a zde zadej client ID a tajemství."
+se_social_site_url_missing: "Základní URL hry (DEFAULT_URI v .env.local) není nastavena, takže nelze sestavit callback URL a poskytovatelé zůstanou nepoužitelní."
+se_social_incomplete: "Zapnuto, ale chybí client ID nebo client secret: tlačítko přihlášení zůstane skryté."
+se_social_enabled: "Zapnuto"
+se_social_enabled_info: "Zobrazí tlačítko přihlášení na úvodní stránce a na stránce registrace."
+se_social_client_id: "Client ID"
+se_social_client_id_info: "ID aplikace (client) u poskytovatele."
+se_social_client_secret: "Client secret"
+se_social_client_secret_info: "Už se nezobrazí. Nech prázdné pro zachování uloženého tajemství."
+se_social_callback: "Callback URL"
+se_social_callback_info: "Zaregistruj přesně tuto adresu jako redirect / callback URL u poskytovatele."
+se_social_create_app: "Vytvořit aplikaci"
+se_social_discord_help: "Discord Developer Portal: New Application, pak OAuth2: přidej redirect, zkopíruj client ID a client secret."
+se_social_facebook_help: "Meta for Developers: vytvoř aplikaci s případem použití Facebook Login a přidej URL do platných OAuth redirect URI. E-mailová adresa z Facebooku se nikdy nepovažuje za ověřenou: noví hráči se přes něj nemohou registrovat a existující účty se podle e-mailu nepárují; propojení z nastavení účtu funguje."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, zadej callback URL jako authorization callback URL."
+se_social_google_help: "Google Cloud Console, APIs and Services, Credentials: vytvoř OAuth client ID typu Web application a přidej callback URL do authorized redirect URIs."
+se_social_scopes: "Požadované scopes: %s"
+se_del_user_automatic_on: "Automaticky mazat neaktivní hráče"
+se_del_user_automatic_on_info: "Přepínač automatického mazání běžných neaktivních hráčů (ne v režimu dovolené, ne zabanovaných) po počtu dnů nastaveném výše. Vypnuto: neaktivní hráči se nikdy automaticky nemažou."
+se_del_user_vacation_on: "Automaticky mazat hráče v režimu dovolené"
+se_del_user_vacation_on_info: "Přepínač automatického mazání hráčů, kteří jsou v režimu dovolené a nepřihlásili se po počet dnů níže. Vypnuto: hráči v režimu dovolené se nikdy automaticky nemažou."
+se_del_user_vacation: "Smazat hráče v režimu dovolené po"
+se_del_user_vacation_info: "Dny bez přihlášení, po kterých se hráč v režimu dovolené smaže. 0 = stejný počet dnů jako u neaktivních hráčů."
+se_del_user_banned_on: "Automaticky mazat zabanované hráče"
+se_del_user_banned_on_info: "Přepínač automatického mazání zabanovaných hráčů, kteří se nepřihlásili po počet dnů níže. Vypnuto: zabanovaní hráči se nikdy automaticky nemažou (jejich ban zůstává)."
+se_del_user_banned: "Smazat zabanované hráče po"
+se_del_user_banned_info: "Dny bez přihlášení, po kterých se zabanovaný hráč smaže. 0 = stejný počet dnů jako u neaktivních hráčů."
+se_vmode_allow_incoming: "Režim dovolené s přilétajícími nepřátelskými flotilami"
+se_vmode_allow_incoming_info: "Zapnuto: hráči mohou vstoupit do režimu dovolené, zatímco k nim míří cizí flotily (útok se odrazí). Vypnuto: režim dovolené se odmítne, dokud k některé z planet nebo měsíců hráče míří cizí flotily s misí útoku, útoku ACS, rakety, zničení nebo špionáže."
+rp_fleets_error: "Stále jsou na cestě flotily hráčů nebo k hráčům!"

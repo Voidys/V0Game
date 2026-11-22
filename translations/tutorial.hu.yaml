@@ -1,0 +1,50 @@
+tutorial_buttons_claim: Jutalom felvétele
+tutorial_buttons_continue: Tovább
+tutorial_buttons_finalize: Bemutató befejezése
+tutorial_buttons_skip: Kihagyás
+tutorial_buttons_skipAll: Bemutató kihagyása
+tutorial_buttons_skipAll_confirm: Kihagyod a bemutató hátralévő részét? Később nem indíthatod újra.
+tutorial_goal:
+  mission:
+    '1': Támadj meg egy másik játékost
+    '6': Küldj Kémszondát egy másik játékosnak
+    '7': Gyarmatosíts egy új bolygót
+    '8': Hasznosíts újra egy törmelékmezőt
+    '15': Küldj expedíciós flottát
+  step6:
+    '1': Nevezd át a bolygódat
+    '2': Küldj barátkérelmet egy másik játékosnak
+    '3': Küldj szövetségi jelentkezést
+tutorial_goals_header: 'Célok:'
+tutorial_goals_ignore: (figyelmen kívül hagy)
+tutorial_rewards_header: 'Jutalmak:'
+tutorial_text:
+  step0: "Üdv a(z) {game_name} világában!<br><br>\r\nEz a rövid bemutató végigvezet az alapokon.<br>\r\nSokat linkelünk a wikire, mert nem minden fér bele egy bemutatóba. A bal oldali menüből bármikor megnyithatod.<br>\r\nA bemutatót bármikor kihagyhatod, de később nem indíthatod újra.<br><br>\r\nSok sikert, Imperátor!"
+  step1: "A célod: gyűjts annyi pontot, amennyit csak bírsz. Minden elköltött 1000 nyersanyag után egy pontot kapsz, a legjobb nyersanyagforrás pedig a saját bányáid.<br>\r\nKezdd az alapkészletekkel: Fémre és Kristályra van szükséged a bányákból, plusz Energiára a Naperőműből, hogy működjenek. Ha fogy az Energia, a bányáid 100% alatt termelnek.<br>\r\nEzeket az épületeket az <b>Épületek</b> menüben fejlesztheted. Kattints egy épület nevére, hogy lásd, mit ad a következő szint, és mennyi Energiát fog fogyasztani.<br><br>\r\nTöbbet szeretnél tudni? Nézd meg a <b>Wikit</b>: \r\n<a href=\"{wiki_url}/wiki/En/Rohstoffe\" target=\"_blank\">Nyersanyagok</a>"
+  step2: "Együtt jobb játszani. A legtöbb játékos a Discordunkon lóg, ahol választ kaphatsz a kérdéseidre, és társakat is találsz.<br>\r\nMég mindig elakadtál? Itt támogatási jegyet is nyithatsz."
+  step3: "Mások bolygóinak kifosztása is nyersanyagszerzés - és veled is megtörténhet. Építsd hát meg az első védelmedet!<br>\r\nMég egy kis védelem is megvédi a termelésedet éjszaka.<br><br>\r\nA számok önmagukban nem döntenek egy csatát; a támadó flotta összetétele is számít.<br>\r\nA támadóknak át kell jutniuk a védelmeden, mielőtt fosztogathatnának, és minden elküldött hajó csökkenti a hasznukat, és még több hajójukba kerülhet.<br>\r\nA védelmet a <b>Védelem</b> menüben építheted. Hajógyárra (ami Robotgyárat igényel) és némi Deutériumra van szükséged.<br><br>\r\nItt a wiki megfelelő cikke: \r\n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Védelmi létesítmények</a>"
+  step4: "Tartsd folyamatosan az utánpótlást: bővítsd a bányáidat!<br>\r\nAz épületek, hajók, védelmi rendszerek és kutatások idővel egyre drágábbak, így a termelésednek is együtt kell nőnie velük. Nyisd meg most az Épületeket, és fejleszd a bányáidat, valahányszor van rá nyersanyagod."
+  step5: "Építs magadnak egy Kis szállítót!<br>\r\nA Kis szállítók gyors, praktikus teherhordók.<br>\r\nImpulzushajtóművel hosszabb távon gyorsabbak a Nagy szállítónál.<br>\r\nHasználd őket nyersanyagok mozgatására a bolygóid között, kereskedésre más játékosokkal, vagy fosztogatásra.<br><br>\r\nTöbb a wikiben: \r\n<a href=\"{wiki_url}/wiki/En/Schiffe\" target=\"_blank\">Hajók</a>"
+  step6: "Adj nevet a bolygódnak, hogy ne tévedj el. Az Áttekintésben kattints a bolygó nevére a pontszám-kijelző fejlécében. Rajta, próbáld ki most!<br><br>\r\nBarátkérelmet is küldhetsz más játékosoknak. Ha elfogadják, könnyebben csevegtek, és látjátok egymás online állapotát. Ehhez nem kell közös szövetség. A barátok egymás bolygóin flottát is állomásoztathatnak, így szövetségen kívül is védhetitek egymást.<br><br>\r\nVagy lépj be egy szövetségbe, és játssz csapatban. Az állomásoztatáshoz már nincs szükség külön barátkérelemre. A szövetségen belül körlevelet küldhetsz, és a rangodtól függően látod a többi tag online állapotát és pontszámát."
+  step7: "Hogy megtudd, milyen nyersanyagai, épületei, kutatásai, hajói és védelmi rendszerei vannak egy másik játékosnak, ki kell kémkedned utána. Küldj Kémszondát egy játékosnak a Flotta menüből vagy a Galaxis nézetből.<br>\r\nNe feledd, hogy mások is kémkedhetnek utánad!"
+  step8: "Egy expedíció hozhat nyersanyagot, hajókat, különleges eseményeket vagy veszteséget. Kipróbáláshoz végy egy hajót, a célnak válaszd a 16. bolygópozíciót, a küldetésnek pedig az „Expedíció”-t a Flotta menüben.<br>\nMinden hajótípus növeli az expedíciós flottád méretét, egészen addig a határig, ahol eléri a maximális eseménynagyságot.<br><br>\nA wiki elmagyarázza, min változtathatsz a nyereség maximalizálásához: \n<a href=\"{wiki_url}/wiki/En/Expoanleitung\" target=\"_blank\">Expedíciók</a>"
+  step9: "Minél több bolygót gyarmatosítasz, annál gyorsabban fejlődsz: egyszerre több bolygón termelhetsz nyersanyagot és építhetsz hajókat. Vedd figyelembe, hogy egy naprendszer belső vagy külső szélét csak akkor telepítheted be, ha az Asztrofizika szinted elég magas. A Kolóniahajó Asztrofizika nélkül is megépíthető, de az első kolóniádhoz kell!<br><br>\r\nA saját rendszeredben vagy közvetlenül mellette gyarmatosítva rövidek maradnak a szállítási útvonalak. A hátránya: a játék későbbi szakaszában mások nem a bányáik miatt telepítenek kolóniát a rendszeredbe, hanem ideiglenes flottabázisnak - ez az úgynevezett portyázó kolónia.<br><br>\r\nTöbb a wikiben: \r\n<a href=\"{wiki_url}/wiki/En/Astrophysik\" target=\"_blank\">Asztrofizika</a>"
+  step10: "Gyorsabban kellenek a nyersanyagok? Támadj meg más játékosokat. Mérlegeld a költséget és a hasznot, hogy megérje a támadás, és a kémjelentéseket meg a harcszimulátort használd a tervezéshez.<br><br>\r\nVigyázz! Mások sokféleképpen követhetik a flottaküldetéseket.<br>\r\nA nehezen megszerzett flottád megóvása a játék egyik legfontosabb része.<br><br>\r\nMindenképp olvasd el ezeket a wiki-témákat: \r\n<a href=\"{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden\" target=\"_blank\">Flottamentés</a> - \r\n<a href=\"{wiki_url}/wiki/En/Sensorenphalanx\" target=\"_blank\">Szenzorfalanx</a>"
+  step10_u6: "Gyorsabban kellenek a nyersanyagok? Támadj meg más játékosokat. Mérlegeld a költséget és a hasznot, hogy megérje a támadás, és a kémjelentéseket meg a harcszimulátort használd a tervezéshez.<br><br>\nVigyázz! Mások sokféleképpen követhetik a flottaküldetéseket.<br>\nA nehezen megszerzett flottád megóvása a játék egyik legfontosabb része.<br><br>\nMindenképp olvasd el ezeket a wiki-témákat:\n<a href=\"{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden\" target=\"_blank\">Flottamentés</a>"
+  step11: "Ha flották semmisülnek meg, törmelékmezőt hagynak maguk után, amit betakaríthatsz. Ehhez Szemetesekre van szükséged, egyenként 20 000 rakománykapacitással. Egy nagy flotta kiirtása busás nyersanyagforrás lehet.<br><br>\r\nA Szemeteseket közvetlenül a Galaxis nézetből is elküldheted, ha egy törmelékmezőre kattintasz, a Flotta menü helyett."
+  step12: "Gratulálunk, végigcsináltad a bemutatót!<br><br>\r\nA játék még rengeteget tartogat.<br>\r\nPéldául nagyjából három játékstílus létezik, amelyek az igényelt időben is különböznek:<br>\r\n<ul>\r\n<li>Bányász: sok kolónián bővíti a bányákat, és főleg szállítókkal repül</li>\r\n<li>Flottás: a pontjai nagy részét harci hajókba teszi, alig van saját termelése, és más játékosok fosztogatásából él</li>\r\n<li>Vegyes: a kettő keveréke</li>\r\n</ul>\r\nA holdak később a játékban fontossá válnak, és mostanra már találkoznod kellett a Szenzorfalanxszal.<br><br>\r\nVannak még kérdéseid? Olvasd a wikit, vagy kérdezd a közösséget Discordon."
+  step12_u6: "Gratulálunk, végigcsináltad a bemutatót!<br><br>\nA játék még rengeteget tartogat.<br>\nPéldául nagyjából három játékstílus létezik, amelyek az igényelt időben is különböznek:<br>\n<ul>\n<li>Bányász: sok kolónián bővíti a bányákat, és főleg szállítókkal repül</li>\n<li>Flottás: a pontjai nagy részét harci hajókba teszi, alig van saját termelése, és más játékosok fosztogatásából él</li>\n<li>Vegyes: a kettő keveréke</li>\n</ul>\nVannak még kérdéseid? Olvasd a wikit, vagy kérdezd a közösséget Discordon."
+tutorial_title:
+  step0: "Üdv, Imperátor!"
+  step1: Ideje bányászni!
+  step2: Gyere, ismerkedj!
+  step3: "Ne hagyd védtelenül a bolygód!"
+  step4: "Gondolkodj előre!"
+  step5: Hajók, hajók kellenek!
+  step6: "Nevezd el a bolygód, és találj barátokat!"
+  step7: "Nézd meg, mid van a többieknek!"
+  step8: "Irány az ismeretlen!"
+  step9: "Egy bolygó sosem elég!"
+  step10: Unod a bányáid várakozását?
+  step11: "Ideje kivinni a szemetet!"
+  step12: "Megcsináltad!"

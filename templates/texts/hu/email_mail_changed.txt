@@ -1,0 +1,11 @@
+Szia {USERNAME}!
+
+A fiókod e-mail-címe épp most megváltozott.
+A változás pár nap múlva válik véglegessé.
+
+Ha ezt nem te csináltad, nyiss egy jegyet a Discordunkon:
+{DISCORD}
+
+Üdvözlettel,
+
+a(z) {GAMENAME} csapata

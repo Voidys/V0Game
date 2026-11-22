@@ -1,0 +1,96 @@
+tutorial_buttons_claim: Ridică recompensa
+tutorial_buttons_continue: Continuă
+tutorial_buttons_finalize: Finalizează tutorialul
+tutorial_buttons_skip: Sari peste
+tutorial_buttons_skipAll: Sari peste tutorial
+tutorial_buttons_skipAll_confirm: Sari peste restul tutorialului? Nu îl vei mai putea reporni.
+tutorial_goal:
+  mission:
+    '1': Atacă alt jucător
+    '6': Trimite o sondă de spionaj la alt jucător
+    '7': Colonizează o planetă nouă
+    '8': Reciclează un câmp de resturi
+    '15': Trimite o flotă în expediție
+  step6:
+    '1': Redenumește-ți planeta
+    '2': Trimite o cerere de prietenie altui jucător
+    '3': Trimite o cerere de aderare la o alianță
+tutorial_goals_header: 'Obiective:'
+tutorial_goals_ignore: (ignoră)
+tutorial_rewards_header: 'Recompense:'
+tutorial_text:
+  step0: "Bun venit la {game_name}!<br><br>\r\nAcest tutorial scurt te duce prin noțiunile de bază.<br>\r\nLegăm des către wiki-ul nostru, pentru că nu tot ce trebuie știut încape într-un tutorial. Îl poți deschide oricând din meniul din stânga.<br>\r\nPoți sări peste tutorial oricând vrei, dar nu îl vei mai putea reporni.<br><br>\r\nSucces, Imperator!"
+  step1: "Scopul tău: strânge cât mai multe puncte. Primești un punct pentru fiecare 1.000 de resurse pe care le cheltuiești, iar cea mai bună sursă de resurse sunt propriile tale mine.<br>\r\nÎncepe cu proviziile de bază: ai nevoie de Metal și Cristal din mine, plus Energie de la Centrala solară ca să le ții în funcțiune. Dacă Energia nu ajunge, minele tale produc sub 100%.<br>\r\nÎmbunătățește aceste clădiri din meniul <b>Clădiri</b>. Apasă pe numele unei clădiri ca să vezi ce îți oferă nivelul următor și câtă Energie va consuma.<br><br>\r\nVrei să afli mai multe? Aruncă o privire pe <b>Wiki</b>: \r\n<a href=\"{wiki_url}/wiki/En/Rohstoffe\" target=\"_blank\">Resurse</a>"
+  step2: "Jocul e mai distractiv împreună. Majoritatea jucătorilor stau pe Discord-ul nostru, unde primești răspunsuri și găsești oameni cu care să joci.<br>\r\nTot nu te descurci? Poți deschide aici și un tichet de suport."
+  step3: "Jefuirea planetelor altor jucători este o altă cale de a obține resurse - și ți se poate întâmpla și ție. Așa că construiește-ți prima apărare!<br>\r\nChiar și o apărare mică îți protejează producția peste noapte.<br><br>\r\nCifrele singure nu decid o luptă; contează și compoziția flotei atacatoare.<br>\r\nAtacatorii trebuie să treacă de apărarea ta înainte să poată jefui, iar fiecare navă pe care trebuie s-o trimită le taie din profit și îi poate costa mai multe nave.<br>\r\nConstruiește apărări din meniul <b>Apărare</b>. Ai nevoie de un Șantier naval (care la rândul lui cere o Fabrică de roboți) și de ceva Deuteriu.<br><br>\r\nIată articolul potrivit din wiki: \r\n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Instalații de apărare</a>"
+  step4: "Ține aprovizionarea în mișcare extinzându-ți minele!<br>\r\nClădirile, navele, apărările și cercetările se scumpesc în timp, așa că producția ta trebuie să crească odată cu ele. Deschide Clădiri acum și îmbunătățește-ți minele ori de câte ori ai resurse."
+  step5: "Construiește-ți un Transportor mic!<br>\r\nTransportoarele mici sunt rapide și practice.<br>\r\nCu Propulsia cu impuls sunt mai rapide decât Transportorul mare pe distanțe mai lungi.<br>\r\nFolosește-le ca să muți resurse între planetele tale, să faci comerț cu alți jucători sau să-i jefuiești.<br><br>\r\nMai multe în wiki: \r\n<a href=\"{wiki_url}/wiki/En/Schiffe\" target=\"_blank\">Nave</a>"
+  step6: "Dă-i planetei tale un nume ca s-o poți ține minte. În Prezentare generală, apasă pe numele planetei din antetul afișajului de puncte. Hai, încearcă acum.<br><br>\r\nPoți trimite și cereri de prietenie altor jucători. Când le acceptă, puteți vorbi mai ușor și vă vedeți starea online. Nu trebuie să fiți în aceeași alianță pentru asta. Prietenii își pot și staționa flote pe planetele celuilalt, așa că vă puteți apăra împreună și fără o alianță.<br><br>\r\nSau intră într-o alianță și joacă în echipă. Nu mai ai nevoie de cereri de prietenie separate ca să staționezi flote. În alianță poți trimite mesaje circulare și poți vedea starea online și scorul celorlalți membri, în funcție de rangul tău în alianță."
+  step7: "Ca să afli ce resurse, clădiri, cercetări, nave și apărări are alt jucător, trebuie să-l spionezi. Trimite o Sondă de spionaj unui jucător din meniul Flotă sau din vizualizarea Galaxiei.<br>\r\nReține că și alți jucători te pot spiona pe tine!"
+  step8: >-
+    O expediție poate aduce resurse, nave, evenimente speciale sau pierderi.
+    Ca s-o încerci, ia o navă, alege ca țintă poziția de planetă 16 și misiunea
+    „Expediție” în meniul Flotă.<br>
+
+    Fiecare tip de navă contribuie la mărimea flotei tale de expediție, până la
+    o limită la care se atinge mărimea maximă a evenimentului.<br><br>
+
+    Wiki-ul explică ce poți schimba ca să-ți maximizezi profitul: 
+
+    <a href="{wiki_url}/wiki/En/Expoanleitung"
+    target="_blank">Expediții</a>
+  step9: "Cu cât colonizezi mai multe planete, cu atât crești mai repede: poți produce resurse și construi nave pe mai multe planete deodată. Reține că poți coloniza marginea interioară sau exterioară a unui sistem doar dacă nivelul tău de Astrofizică este suficient de mare. Nava de colonizare în sine poate fi construită fără Astrofizică, dar prima ta colonie are nevoie de ea!<br><br>\r\nColonizarea în propriul sistem sau chiar alături menține rutele de transport scurte. Dezavantajul: mai târziu în joc, jucătorii pot pune o colonie în sistemul tău nu pentru mine, ci ca bază temporară de flotă - o așa-numită colonie de raid.<br><br>\r\nMai multe în wiki: \r\n<a href=\"{wiki_url}/wiki/En/Astrophysik\" target=\"_blank\">Astrofizică</a>"
+  step10: "Vrei resurse mai repede? Atacă alți jucători. Cântărește costul față de beneficiu ca atacul tău să merite și folosește rapoartele de spionaj și simulatorul de luptă ca să-l planifici.<br><br>\r\nAtenție! Alți jucători pot urmări multe misiuni de flotă în diverse feluri.<br>\r\nSă nu-ți pierzi flota câștigată cu greu este una dintre cele mai importante părți ale jocului.<br><br>\r\nAșa că citește neapărat aceste subiecte din wiki: \r\n<a href=\"{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden\" target=\"_blank\">Salvarea flotei</a> - \r\n<a href=\"{wiki_url}/wiki/En/Sensorenphalanx\" target=\"_blank\">Falanga senzorială</a>"
+  step10_u6: >-
+    Vrei resurse mai repede? Atacă alți jucători. Cântărește costul față de
+    beneficiu ca atacul tău să merite și folosește rapoartele de spionaj și
+    simulatorul de luptă ca să-l planifici.<br><br>
+
+    Atenție! Alți jucători pot urmări multe misiuni de flotă în diverse
+    feluri.<br>
+
+    Să nu-ți pierzi flota câștigată cu greu este una dintre cele mai importante
+    părți ale jocului.<br><br>
+
+    Așa că citește neapărat aceste subiecte din wiki:
+
+    <a
+    href="{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden"
+    target="_blank">Salvarea flotei</a>
+  step11: "Când flotele sunt distruse, lasă în urmă un câmp de resturi pe care îl poți recolta. Pentru asta ai nevoie de Reciclatoare, cu o capacitate de transport de 20.000 fiecare. Anihilarea unei flote mari poate fi o sursă profitabilă de resurse.<br><br>\r\nPoți trimite Reciclatoare direct din vizualizarea Galaxiei, apăsând pe un câmp de resturi, în loc să folosești meniul Flotă."
+  step12: "Felicitări, ai terminat tutorialul!<br><br>\r\nJocul are mult mai multe de oferit.<br>\r\nDe exemplu, există aproximativ trei stiluri de joc, care diferă și prin timpul pe care îl cer:<br>\r\n<ul>\r\n<li>Miner: extinde mine pe multe colonii și zboară mai ales cu transportoare</li>\r\n<li>Fleeter: pune cele mai multe puncte în nave de luptă, abia are producție proprie și trăiește din jefuirea altor jucători</li>\r\n<li>Comber: un amestec al ambelor</li>\r\n</ul>\r\nLunile devin importante mai târziu în joc, iar până acum ar trebui să fi făcut cunoștință cu Falanga senzorială.<br><br>\r\nMai ai întrebări? Citește wiki-ul sau întreabă comunitatea pe Discord."
+  step12_u6: >-
+    Felicitări, ai terminat tutorialul!<br><br>
+
+    Jocul are mult mai multe de oferit.<br>
+
+    De exemplu, există aproximativ trei stiluri de joc, care diferă și prin
+    timpul pe care îl cer:<br>
+
+    <ul>
+
+    <li>Miner: extinde mine pe multe colonii și zboară mai ales cu
+    transportoare</li>
+
+    <li>Fleeter: pune cele mai multe puncte în nave de luptă, abia are
+    producție proprie și trăiește din jefuirea altor jucători</li>
+
+    <li>Comber: un amestec al ambelor</li>
+
+    </ul>
+
+    Mai ai întrebări? Citește wiki-ul sau întreabă comunitatea pe Discord.
+tutorial_title:
+  step0: "Bun venit, Imperator!"
+  step1: E timpul să începi să minezi!
+  step2: Vino să cunoști oameni!
+  step3: "Nu-ți lăsa planeta neapărată!"
+  step4: "Gândește-te în față!"
+  step5: Nave, avem nevoie de nave!
+  step6: "Dă-i un nume planetei și găsește prieteni!"
+  step7: "Vezi ce au ceilalți!"
+  step8: "Spre necunoscut!"
+  step9: "O planetă nu e niciodată de ajuns!"
+  step10: Te-ai săturat să aștepți după mine?
+  step11: "E timpul să scoți gunoiul!"
+  step12: "Ai reușit!"

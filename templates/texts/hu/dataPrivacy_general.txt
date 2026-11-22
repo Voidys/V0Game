@@ -1,0 +1,79 @@
+<p>Ez az adatvédelmi nyilatkozat közérthetően elmagyarázza, hogy a(z) {game_name} milyen személyes adatokat gyűjt, mire használja őket, meddig őrzi meg, és kik láthatják.</p>
+
+<h2>Ki üzemelteti ezt a weboldalt</h2>
+<p>Ezt a weboldalt az üzemeltetője működteti. Az üzemeltető nevét és postai címét a <a href="{contacts_url}">kapcsolat oldalon</a> találod.<!--mail--> E-mailben a következő címen érhetsz el minket: {contact_mail}.<!--/mail--></p>
+
+<h2>A weboldal látogatása</h2>
+<p>Minden alkalommal, amikor megnyitsz egy oldalt, a webszerver automatikusan rögzíti:</p>
+<ul>
+<li>az IP-címedet,</li>
+<li>a kérés dátumát és időpontját,</li>
+<li>a kért címet és a hivatkozó oldalt,</li>
+<li>a böngészőt és az operációs rendszert (user agent),</li>
+<li>az állapotkódot és az átvitt adatmennyiséget.</li>
+</ul>
+<p>Ezeket az adatokat arra használjuk, hogy kiszolgáljuk a weboldalt, és stabilan és biztonságosan működtessük, például a támadások felismeréséhez és kivédéséhez. A szerver naplófájljait legkésőbb 7 nap után töröljük, kivéve, ha egy konkrét biztonsági incidens bizonyítékaként van rájuk szükség. Ebben az esetben az incidens lezárásáig megőrizzük őket.</p>
+
+<h2>Fiók- és játékosadatok</h2>
+<p>A játékhoz fiókra van szükséged. Amikor regisztrálsz és játszol, ezeket gyűjtjük:</p>
+<ul>
+<li>fióknév, e-mail-cím és jelszó (a jelszót csak sózott hash-ként tároljuk, soha nem egyszerű szövegként),</li>
+<li>nyelv, időzóna és megjelenítési beállítások,</li>
+<li>a regisztráció ideje, a regisztrációkori IP-cím, az utolsó bejelentkezés ideje és IP-címe, valamint a sikertelen bejelentkezési kísérletek,</li>
+<li>univerzumonként egy játékos: a játékosnév és olyan játékadatok, mint a bolygók, épületek, kutatások, flották, nyersanyagok, pontok, teljesítmények, csata- és kémjelentések.</li>
+</ul>
+<p>Ezekre az adatokra azért van szükségünk, hogy biztosítsuk a játékot, amelyre feliratkoztál. E-mail-cím és jelszó nélkül nem hozható létre fiók.</p>
+<p>A játék jellegéből adódóan egyes adatok láthatók más játékosok számára: a játékosnév, a bolygóid koordinátái, a szövetség, a pontok és a ranglisták (statisztika, hírességek csarnoka), valamint az általad közzétett tartalom (szövetségi szövegek<!--board-->, fórumbejegyzések<!--/board-->).</p>
+
+<h2>Kommunikáció a játékon belül</h2>
+<p>Amikor a kommunikációs funkciókat használod, a tartalmukat a feladóval, a címzettekkel és az idővel együtt tároljuk: privát és szövetségi üzenetek, barátkérelmek, jegyzetek, támogatási jegyek<!--board-->, valamint a fórumon írt bejegyzések, hozzászólások és szavazatok<!--/board-->. Ezt azért tesszük, hogy a funkciók működjenek. A moderátorok elolvashatják a támogatási jegyeket, és szabályszegés gyanúja esetén a jelentett tartalmat.<!--messages--> Az üzeneteket {message_days} nap után automatikusan töröljük.<!--/messages--></p>
+
+<h2>Tisztességes játék és védelem a visszaélések ellen</h2>
+<p>A játék tisztességességének megőrzéséhez és a szabályok betartatásához (például a többszörös fiókok és a fióktolás tilalma) ezeket használjuk:</p>
+<ul>
+<li>az aktív munkamenetek és bejelentkezések IP-címei, amelyeket a fiókok között összevetünk, hogy felismerjük az ugyanarról a kapcsolatról játszott több fiókot,</li>
+<li>munkamenet-bejegyzések (munkamenet-azonosító, IP-cím, utolsó aktivitás), amelyeket a munkamenet lejárta után törlünk,</li>
+<li>a játékcsapat jegyzetei egyes fiókokról, valamint a kitiltások nyilvántartása az indokkal és az időtartammal,</li>
+<li>ha egy fiókkal kapcsolatban konkrét szabályszegés-gyanú merül fel, az adott fiók által kért oldalak nyilvántartása az egyes kérések idejével. Ezt a nyilvántartást a vizsgálat befejezése után töröljük.</li>
+</ul>
+<p>Regisztrációkor az e-mail-címed domainjét összevetjük az eldobható e-mail-szolgáltatók nyilvános listájával. A listát a szerverünkre töltjük le, és a címedet sehová nem küldjük el. Az olyan intézkedésekről, mint a kitiltások, a játékcsapat tagjai döntenek, nem automatizált folyamat.</p>
+
+<h2>E-mailek</h2>
+<p>E-maileket küldünk arra a címre, amellyel regisztráltál, ha a fiókod működtetéséhez szükségesek: a fiókod aktiválása, a jelszavad visszaállítása, az e-mail-címed módosításának megerősítése, figyelmeztetések egy inaktív fiók törlése előtt, valamint fontos tudnivalók a játékról (például egy új univerzum indulása). Nem küldünk hírlevelet és reklámot.</p>
+
+<h2>Botvédelem</h2>
+<p>A regisztrációt és az elfelejtett jelszó űrlapot az automatizált visszaélések ellen egy apró számítás védi, amelyet a böngésződ magától megold, amikor megnyitod az űrlapot. Ezt a saját szerverünkön ellenőrizzük; semmilyen harmadik fél szolgáltatását nem keressük meg, és sem sütiket, sem követő azonosítókat nem használunk hozzá.</p>
+
+<h2>Sütik és helyi tárolás</h2>
+<p>Csak olyan sütiket és böngészőtárolást használunk, amelyekre szükség van az általad kért szolgáltatás nyújtásához:</p>
+<ul>
+<li><strong>2Moons</strong>: munkamenet-süti, amely bejelentkezve tart. Az utolsó aktivitásod után 12 órával, vagy kijelentkezéskor lejár.</li>
+<li><strong>v0_device</strong>: véletlenszerű eszközazonosító (2 év). Fiókonként csak a hash-ét tároljuk, az utolsó látogatás után 90 napig, hogy felismerjük az ugyanabból a böngészőből játszott több fiókot.</li>
+<li><strong>lang</strong>: megjegyzi a kiválasztott nyelvedet.</li>
+<li><strong>account</strong>: megjegyzi, hogy ezt a böngészőt használták bejelentkezéshez, így a kezdőlap a bejelentkezést mutathatja előbb. Nem tartalmaz személyes adatot.</li>
+<li>Helyi tárolás: a játékfelület megjelenítési beállításai (például az utoljára megnyitott üzenetkategória). A böngésződben maradnak, és nem küldjük el őket nekünk.</li>
+</ul>
+<p>Nem használunk követő, analitikai vagy reklámsütiket, és marketingcélú felhasználói profilokat sem készítünk.</p>
+
+<h2>Kik láthatják az adataidat</h2>
+<p>Az adataidat a játékcsapat tagjai (adminisztrátorok és moderátorok) kezelik, amennyire a feladataik megkövetelik. A technikai szolgáltatók a nevünkben és csak az utasításaink szerint dolgoznak: a szerverek tárhelyszolgáltatója és adott esetben az e-mail-kézbesítő szolgáltatás. A többi játékos azokat az adatokat látja, amelyeket a „Fiók- és játékosadatok” és a „Kommunikáció a játékon belül” alatt leírtunk. Hatóságoknak csak akkor adunk át adatokat, ha jogilag erre kötelezve vagyunk. Személyes adatokat nem adunk el.</p>
+<p>A külső szolgáltatásokra (például Discord vagy a wiki) mutató linkek csak oda visznek. Ott az adatok kezelése csak a link megnyitása után történik, az adott szolgáltató adatvédelmi nyilatkozata szerint.</p>
+
+<h2>Meddig őrizzük az adatokat</h2>
+<ul>
+<li>A fiókodat a fiókbeállításokban törölheted. {deletion_days} napos várakozási idő után eltávolítjuk, ami alatt megszakíthatod a törlést.</li>
+<!--inactive--><li>Azokat a játékosokat, akik {inactive_days} napig nem voltak aktívak, automatikusan töröljük. Ahol a játék figyelmeztető e-maileket küld, a törlés előtt kapsz egyet.</li>
+<!--/inactive--><li>A játékos nélküli fiókokat 30 nap aktivitás nélkül töröljük.</li>
+<li>A szerver naplófájljai: legfeljebb 7 napig, lásd: „A weboldal látogatása”.</li>
+<li>Azokat az adatokat, amelyeket jogi okokból meg kell őriznünk, vagy jogi igények kezeléséhez van szükségünk, csak addig tároljuk, amíg szükséges.</li>
+<li>Az adatbázis-mentések a mentés időpontjában meglévő adatokat tartalmazzák. Korlátozott ideig őrizzük őket, és körforgásban cseréljük.</li>
+</ul>
+
+<h2>A lehetőségeid</h2>
+<p>A fiókadataidat a fiókbeállításokban módosíthatod, és ott bármikor törölheted a fiókodat. Ha tudni szeretnéd, milyen adatokat tárolunk rólad, ki szeretnéd javíttatni vagy töröltetni őket, vagy bármilyen más kérdésed van az adataiddal kapcsolatban, vedd fel velünk a kapcsolatot a <a href="{contacts_url}">kapcsolat oldalon</a> megadott elérhetőségeken<!--mail--> vagy e-mailben a következő címen: {contact_mail}<!--/mail-->. Attól függően, hol élsz, a helyi adatvédelmi jog további jogokat adhat neked, és fordulhatsz a helyi adatvédelmi hatósághoz is.</p>
+
+<h2>Biztonság</h2>
+<p>A weboldal minden kapcsolata titkosított (TLS), a jelszavakat csak hash-ként tároljuk, és a személyes adatokhoz való hozzáférés a játékcsapat azon tagjaira korlátozódik, akiknek szükségük van rá. Nem hozunk rólad kizárólag automatizált adatkezelésen alapuló döntéseket.</p>
+
+<h2>Változások</h2>
+<p>Ezt az adatvédelmi nyilatkozatot akkor frissítjük, ha a weboldal vagy a jogi követelmények megváltoznak. Az ezen az oldalon közzétett változat érvényes.</p>

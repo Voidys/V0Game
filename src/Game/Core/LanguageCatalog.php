@@ -12,6 +12,24 @@ class LanguageCatalog
     private static array $allLanguages = [];
 
     /**
+     * Two-letter pack code for a browser language tag (pt-BR, zh_Hant_TW, fil, de-AT, ...): pack codes are two letters
+     * because the lang columns are varchar(2), so Filipino is "tl", Brazilian Portuguese "br" and Traditional Chinese
+     * (Taiwan, Hong Kong, Macau, Hant) "tw"; everything else is the primary subtag.
+     */
+    public static function packCodeForTag(string $tag): string
+    {
+        $tag = strtolower(str_replace('_', '-', trim($tag)));
+        [$code] = explode('-', $tag);
+
+        return match (true) {
+            $code === 'fil' => 'tl',
+            $tag === 'pt-br' => 'br',
+            $code === 'zh' && preg_match('/-(tw|hk|mo|hant)\b/', $tag) === 1 => 'tw',
+            default => $code,
+        };
+    }
+
+    /**
      * Languages the game offers.
      * @param bool $OnlyKey true: codes only; false: code => display name.
      * @return array<mixed>

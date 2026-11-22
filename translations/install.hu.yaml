@@ -1,0 +1,273 @@
+back: Vissza
+continue: Tovább
+continueUpgrade: Frissítés
+install_desc: >-
+  A telepítőeszköz engedélyezéséhez hozd létre a
+  „var/ENABLE_INSTALL_TOOL” fájlt.<br> A fájlnév kis- és nagybetűérzékeny, és
+  nincs fájlkiterjesztése.<br> A fájl lehet üres.
+
+  A telepítés befejezése után automatikusan törlődik, vagy ha egy óránál
+  régebbi.
+install_title: A telepítőeszköz zárolva van
+intro_install: Telepítés
+intro_lang: Nyelv
+intro_text: 'A V0Game egy nyílt forráskódú űrstratégiai játék a böngészőben: építsd ki a bolygóidat, kutass, küldj flottákat, és csapj össze több száz játékossal egyszerre.<br><br>Ez a varázsló lépésről lépésre felállít egy új telepítést: ellenőrzi a szervered, csatlakozik az adatbázishoz és létrehozza, felépíti a táblákat, megadhatod a játékod nevét, és létrehozza az adminisztrátort.'
+intro_upgrade_head: Már telepítetted a V0Game-et?
+intro_upgrade_text: >-
+  <p>Már telepítetted a V0Game-et, és csak frissítenél?</p><p>A meglévő
+  adatbázisodat itt frissítheted néhány kattintással!</p>
+intro_welcome: 'Üdv a V0Game-ben!'
+licence_accept: >-
+  Elfogadod a licencfeltételeket? A szoftvert csak akkor telepítheted, ha
+  elfogadod őket.
+licence_desc: >-
+  Olvasd el az alábbi licencfeltételeket. A görgetősávval megtekintheted a
+  teljes dokumentumot.
+licence_head: Licencfeltételek
+licence_need_accept: A telepítés folytatásához el kell fogadnod a licencfeltételeket.
+login: Bejelentkezés
+menu_install: Telepítés
+menu_upgrade: Frissítés
+reg_dir: Írható a(z) &raquo;%s&laquo; mappa?
+reg_file: Írható a(z) &raquo;%s&laquo; fájl?
+reg_not_found: Nem található
+reg_not_writable: Nem írható
+reg_writable: Írható
+req_desc: >-
+  A telepítés folytatása előtt a V0Game ellenőrzi a szervered konfigurációját és
+  a fájlokat, hogy biztosan telepíthető és használható legyen. Olvasd el
+  figyelmesen az eredményeket, és addig ne lépj tovább, amíg minden kötelező
+  teszt át nem ment.
+sql_close_reason: |-
+  Az univerzum beállítás alatt áll.
+  Kérlek, várj.
+sql_welcome: 'Üdv a V0Game-ben, verzió:'
+step1_head: Adatbázis-hozzáférés beállítása
+step1_mysql_dbname: Adatbázis neve
+step1_mysql_dbpass: Adatbázis jelszava
+step1_mysql_dbuser: Adatbázis felhasználóneve
+step1_mysql_migrationpass: Adatbázis-migrációs jelszó
+step1_mysql_migrationpass_info: >-
+  Ezt a jelszót fogja kérni a rendszer, ha a játék új verziójához adatbázis-módosítás
+  vagy frissítés szükséges.
+step1_mysql_port: Adatbázis portja
+step1_mysql_prefix: 'Táblaelőtag:'
+step2_conf_op_fail: A config.php nem írható!
+step2_config_exists: A config.php már létezik!
+step2_db_con_fail: Nem sikerült csatlakozni az adatbázishoz. A hiba részleteit lent találod.
+step2_db_done: Az adatbázis-kapcsolat sikeres!
+step2_db_no_dbname: Nem adtál meg adatbázisnevet.
+step2_db_too_long: A táblaelőtag legfeljebb 36 karakter hosszú lehet.
+step2_prefix_invalid: >-
+  A táblaelőtag csak betűket, számokat és aláhúzásjeleket tartalmazhat.
+step3_db_error: 'Nem sikerült létrehozni az adatbázistáblákat:'
+step3_head: Adatbázistáblák létrehozása
+step4_admin_mail: 'Kapcsolattartási e-mail:'
+step4_admin_name: 'Adminisztrátor felhasználóneve:'
+step4_admin_name_desc: Adj meg egy 3-20 karakteres felhasználónevet.
+step4_admin_pass: 'Adminisztrátor jelszava:'
+step4_desc: >-
+  A telepítővarázsló most létrehoz egy adminisztrátori fiókot. Add meg a
+  felhasználónevet, az e-mail-címet és a jelszót.
+step4_head: Adminisztrátor létrehozása
+step6_desc: 'Sikeresen telepítetted a V0Game-et.'
+step6_head: Gratulálunk!
+title_install: Telepítő
+upgrade_available: >-
+  Adatbázis-frissítések érhetők el. Az adatbázis a(z) %s revízión van, és
+  frissíthető a(z) %s revízióra.
+upgrade_back: Vissza
+upgrade_intro_welcome: Üdv az adatbázis-frissítőben!
+upgrade_message_admin: >-
+  Adminisztrátorok: az adatbázis-frissítés telepítéséhez add meg a migrációs
+  jelszót, és folytasd.
+upgrade_message_user: >-
+  Játékosok: kérlek, várj egy kicsit, aztán próbálj rákattintani a „Vissza a
+  játékhoz” gombra.
+upgrade_notavailable: A(z) %s revízió már a legfrissebb az adatbázisodhoz.
+upgrade_nothingtodo: Nincs teendő. Az adatbázis már a(z) %s revízión van.
+upgrade_return: Vissza a játékhoz
+upgrade_success: >-
+  Az adatbázis frissítése sikeres. Az adatbázis most a(z) %s revízión van.
+upgrade_title: Adatbázis-frissítés szükséges!
+ins_step_licence: 'Licenc'
+ins_step_requirements: 'Követelmények'
+ins_step_database: 'Adatbázis'
+ins_step_build: 'Táblák'
+ins_step_game: 'Játék'
+ins_step_admin: 'Adminisztrátor'
+ins_step_done: 'Kész'
+ins_recheck: 'Újraellenőrzés'
+ins_db_connection: 'Kapcsolat'
+ins_db_createdb: 'Az adatbázis létrehozása, ha még nem létezik'
+ins_db_connect: 'Csatlakozás és létrehozás'
+ins_db_no_host: 'Nem adtál meg adatbázis-kiszolgálót.'
+ins_db_name_invalid: 'Az adatbázis neve csak betűket, számjegyeket, _ és - karaktert tartalmazhat (legfeljebb 64 karakter).'
+ins_check_input: 'Bemenet ellenőrizve'
+ins_check_connect: 'Csatlakozva az adatbázis-kiszolgálóhoz'
+ins_check_database: 'Adatbázis: »%s«'
+ins_db_missing: 'nem létezik (jelöld be az „adatbázis létrehozása” opciót, vagy hozd létre magad)'
+ins_db_create_fail: 'nem sikerült létrehozni:'
+ins_db_created: 'létrehozva'
+ins_db_exists: 'létezik'
+ins_check_tables: 'Még nincsenek táblák a(z) »%s« előtaggal'
+ins_tables_exist: '%d tábla már létezik ezzel az előtaggal. Válassz másik előtagot vagy adatbázist.'
+ins_check_write: '%s kiírva'
+ins_build_desc: 'A telepítő most létrehozza a játéktáblákat, és feltölti őket az alapértékekkel, lépésről lépésre.'
+ins_task_tables: 'Táblák létrehozása'
+ins_task_migrations: 'Adatbázis-verzió regisztrálása'
+ins_task_config: 'Játékbeállítások kiírása'
+ins_task_universe: '1. univerzum felállítása'
+ins_build_start: 'Adatbázis felépítése'
+ins_back_database: 'Vissza az adatbázis-beállításokhoz'
+ins_game_name: 'Játék neve'
+ins_game_name_info: 'A címben, a fejlécben és az e-mailekben jelenik meg. Alapértelmezett: V0Game.'
+ins_default_theme: 'Alapértelmezett téma'
+ins_default_theme_info: 'Az új fiókok és a látogatók témája; a játékosok a beállításaikban válthatnak.'
+ins_game_name_invalid: 'Adj meg egy 1-64 karakteres játéknevet.'
+ins_theme_invalid: 'Ismeretlen téma.'
+ins_to_start: 'A kezdőlapra'
+ins_credits_head: 'Óriások vállán állva'
+ins_credits_text: 'A V0Game a nyílt forráskódú böngészőjátékok hosszú sorának folytatása. Tisztelet mindenkinek, aki előttünk megalkotta és életben tartotta:'
+ins_credits_thanks: 'Köszönet minden kódernek és karbantartónak, akik megalkották ezt a játékot, és az évek során életben tartották, a 2Moonstól és a SteemNovától a pr0game-ig.'
+ins_licence_note: 'Szabad szoftver a GNU AGPL v3 alatt'
+ins_task_images: 'Képek optimalizálása (WebP)'
+ins_db_help: 'A V0Game mindent egy MySQL vagy MariaDB adatbázisban tárol. Az alábbi értékeket a tárhelyszolgáltatód paneljéből kapod meg (keresd az „Adatbázisok” vagy „MySQL” menüpontot), vagy attól, aki a szervered üzemelteti. Ha te telepítetted a MySQL-t, általában az alapértékek működnek.'
+ins_db_host: 'Adatbázis-kiszolgáló'
+ins_db_host_info: 'Szinte mindig „localhost”. Egyes szolgáltatók olyan nevet adnak, mint „db1.example.com”.'
+ins_db_name_info: 'A játék adatbázisának neve. Előbb hozd létre a tárhelypanelben, vagy hagyd, hogy a telepítő létrehozza (lásd az alábbi dobozt).'
+ins_db_advanced: 'Haladó (port, táblaelőtag, migrációs jelszó) - általában nem szükséges'
+ins_db_prefix_info: 'Minden táblanév elé kerül. Csak akkor változtasd meg, ha egy adatbázison osztozol más szoftverrel.'
+ins_db_migrationpw_info: 'Védi a frissítési oldalt (install/?mode=upgrade) a későbbi játékfrissítésekhez. Hagyd üresen, és a telepítő generál egy erőset, amit egyszer megmutat az utolsó oldalon.'
+ins_db_migrationpw_placeholder: 'automatikusan generált'
+ins_migrationpw_invalid: 'A migrációs jelszó nem tartalmazhat idézőjelet, visszaperjelet, $ jelet vagy sortörést.'
+ins_err_technical: 'technikai részletek'
+ins_err_access_denied: 'Az adatbázis-kiszolgáló elutasította a felhasználónevet vagy a jelszót. Ellenőrizd mindkettőt elgépelések miatt (a kis- és nagybetű számít) a tárhelypanelben.'
+ins_err_unknown_db: 'Ez az adatbázis nem létezik a kiszolgálón. Ellenőrizd a nevet, vagy jelöld be lent az „Adatbázis létrehozása” opciót.'
+ins_err_no_privilege: 'Ez az adatbázis-felhasználó nem használhatja azt az adatbázist. Adj neki minden jogosultságot rá a tárhelypanelben.'
+ins_err_no_create: 'Ez a felhasználó nem hozhat létre adatbázisokat. Hozz létre egy üres adatbázist a tárhelypanelben, és vedd ki a pipát az „Adatbázis létrehozása” opcióból.'
+ins_err_socket: 'Az adatbázis-kiszolgáló socketje nem található. Próbáld a „127.0.0.1” hosztot a „localhost” helyett.'
+ins_err_unreachable: 'Az adatbázis-kiszolgáló („%s”) nem érhető el. Ellenőrizd a hosztnevet és a portot, és hogy fut-e az adatbázis-kiszolgáló. Sok szolgáltató csak a saját webszervereiről enged kapcsolatot, ezért a „localhost” általában helyes.'
+ins_game_desc: 'Nevezd el a játékodat, és válaszd ki, hogyan játszódjon. Itt minden később módosítható az adminisztrációban (Admin - Beállítások).'
+ins_group_general: 'Általános'
+ins_uni_name: 'Univerzum neve'
+ins_uni_name_info: 'A játékosoknak jelenik meg, amikor univerzumot választanak. Üres = „1. univerzum”.'
+ins_uni_name_invalid: 'Az univerzum neve legfeljebb 60 karakter lehet.'
+ins_language: 'Alapértelmezett nyelv'
+ins_language_info: 'Az új látogatók és az adminisztrátori fiókod nyelve.'
+ins_language_invalid: 'Ismeretlen nyelv.'
+ins_timezone: 'Időzóna'
+ins_timezone_info: 'A szerveredből előre kiválasztva. A megjelenített szerveridőhöz használjuk.'
+ins_timezone_invalid: 'Ismeretlen időzóna.'
+ins_group_speed: 'Játéksebesség'
+ins_speed_info: 'Milyen gyorsan haladnak az épületek, kutatások, hajók, flották és a termelés. A Klasszikus az eredeti tempó; a gyorsabb beállítások kis közösségeknek és rövid köröknek valók.'
+ins_speed_classic: 'Klasszikus'
+ins_speed_classic_info: 'az eredeti tempó, a körök hónapokig tartanak'
+ins_speed_fast: 'Gyors'
+ins_speed_fast_info: 'nagyjából háromszoros sebesség, a körök hetekig tartanak'
+ins_speed_blitz: 'Blitz'
+ins_speed_blitz_info: 'akár tízszeres sebesség, a körök napokig tartanak'
+ins_speed_detail: 'Építés/kutatás %bx, flották %fx, nyersanyagok %rx'
+ins_speed_invalid: 'Ismeretlen sebességbeállítás.'
+ins_group_players: 'Játékosok'
+ins_registration: 'Regisztráció'
+ins_registration_open: 'Nyitva - bárki feliratkozhat'
+ins_registration_closed: 'Zárva - csak te hozhatsz létre fiókokat'
+ins_registration_info: 'Válaszd a „zárva” opciót, amíg még a dolgokat állítod be. Később megnyithatod az Admin - Beállításokban.'
+ins_registration_invalid: 'Ismeretlen regisztrációs beállítás.'
+ins_bots: 'Számítógépes játékosok (botok)'
+ins_bots_info: '0-50. A botok különböző szokásokkal játszanak, mint a valódi játékosok, így az új univerzum nem üres. 0 = nincs bot.'
+ins_bots_invalid: 'A botok számának 0 és 50 között kell lennie.'
+ins_mail: 'E-mailek küldése (regisztráció, jelszó-visszaállítás)'
+ins_mail_info: 'Alapból ki van kapcsolva. Csak akkor kapcsold be, ha a szervered tud levelet küldeni; az SMTP-t később beállíthatod az Admin - Beállításokban.'
+ins_admin_mail_info: 'Jelszó-visszaállításhoz és kapcsolattartási címként használjuk.'
+ins_admin_mail_invalid: 'Adj meg érvényes e-mail-címet.'
+ins_admin_pass_confirm: 'Jelszó újra'
+ins_admin_pass_rules: 'A jelszónak legalább %d karakter hosszúnak kell lennie (legfeljebb 64). Néhány szavas mondatot könnyű megjegyezni, és nehéz kitalálni.'
+ins_admin_pass_short: 'A jelszónak legalább %d karakter hosszúnak kell lennie.'
+ins_admin_pass_long: 'A jelszó legfeljebb 64 karakter lehet.'
+ins_admin_pass_mismatch: 'A két jelszó nem egyezik.'
+ins_done_checklist: 'Az ellenőrzőlistád'
+ins_done_login: 'Jelentkezz be az adminisztrációba.'
+ins_done_login_info: 'Már be vagy jelentkezve mint „%s”. Legközelebb ezt használd:'
+ins_done_cron: 'Állítsd be a cron-feladatot (kötelező).'
+ins_done_cron_info: 'Enélkül a játékban semmi nem halad előre (flották, építési sorok, statisztikák). Add hozzá ezt a sort a webszerver-felhasználó crontabjához (crontab -e), vagy hozz létre vele cron-feladatot a tárhelypanelben:'
+ins_done_cron_help: "A cron-feladat beállítása (tárhelypanelben is)"
+ins_done_locked: 'A telepítőeszköz most zárolva van.'
+ins_done_locked_info: 'Senki nem futtathatja újra a varázslót. A későbbi frissítéshez kövesd a dokumentáció frissítési szakaszát.'
+ins_done_https: 'Használj HTTPS-t.'
+ins_done_https_info: 'Sima HTTP-n vagy: a jelszavak titkosítatlanul utaznak. Állíts be tanúsítványt (például Let''s Encrypt), mielőtt játékosokat hívsz.'
+ins_done_https_ok: 'Ezt az oldalt HTTPS-en keresztül szolgáltuk ki - remek.'
+ins_done_settings: 'Beállítások módosítása később.'
+ins_done_settings_info: 'Admin - Beállítások: játéknév, sebesség, regisztráció, e-mail (SMTP), botok és még sok más.'
+ins_done_bots: 'Botok.'
+ins_done_bots_info: '%d bot jött létre. A cron-feladat futásakor cselekszenek. Az adminisztrációban kezelheted őket.'
+ins_done_bots_failed: 'Az adminisztrátor létrejött, de a botokat nem sikerült létrehozni. Később hozzáadhatod őket az adminisztrációban.'
+ins_done_migrationpw: 'Írd fel a migrációs jelszavad (csak egyszer jelenik meg).'
+ins_done_migrationpw_info: 'A játékfrissítésekhez kell. A config/game.php fájlban is el van tárolva.'
+ins_done_docs: 'Dokumentáció:'
+ins_done_to_admin: 'Az adminisztrációba'
+ins_step_legal: 'Jogi'
+ins_legal_desc: 'Válaszd ki, hol van hosztolva a játék, és hogyan induljanak a jogi oldalak és a közösségi fórum. Mindez később módosítható az admin felületen (Beállítások, Oldalak).'
+ins_group_privacy: 'Hosztolási régió'
+ins_privacy_info: 'A régió dönti el, melyik adatvédelmi nyilatkozatot használjuk alapból.'
+ins_privacy_eu: 'EU / EGT - GDPR szerinti adatvédelmi nyilatkozat'
+ins_privacy_eu_info: 'Ezt válaszd, ha a játék az Európai Unióban vagy az Európai Gazdasági Térségben van hosztolva, vagy az ottani játékosokat célozza.'
+ins_privacy_other: 'EU-n kívül - általános adatvédelmi nyilatkozat'
+ins_privacy_other_info: 'Közérthető adatvédelmi nyilatkozat a GDPR-re való hivatkozások nélkül.'
+ins_group_rules: 'Szabályok'
+ins_rules_default: 'Alapértelmezett szabályok importálása'
+ins_rules_default_info: 'A szabályok oldala a szokásos játékszabályokkal indul, amelyeket utána szerkeszthetsz.'
+ins_rules_blank: 'Üresen indítás'
+ins_rules_blank_info: 'A szabályok oldala üres marad, amíg az admin felületen meg nem írod a saját szabályaidat.'
+ins_group_community: 'Közösség'
+ins_cookie_consent: "Sütihozzájárulási értesítés megjelenítése (GDPR)"
+ins_cookie_consent_info: "Értesítést mutat a látogatóknak a játék által használt sütikről. Az EU-ban működtetőknek ajánlott. Később módosítható a beállításokban."
+ins_board: 'A közösségi fórum engedélyezése'
+ins_board_info: 'Fórum a játékosaidnak. Ha ki van kapcsolva, a fórum összes hivatkozása rejtve van, és a fórumoldalak nem érhetők el.'
+ins_legal_note: 'A generált szövegek csak sablonok. Üzemeltetőként te felelsz a játékod jogi szövegeiért, és érdemes átnézned őket.'
+ins_legal_region_invalid: 'Válassz érvényes hosztolási régiót.'
+ins_legal_rules_invalid: 'Válaszd ki, hogyan induljanak a szabályok.'
+ins_step_mail: 'E-mail'
+ins_mail_desc: 'Opcionális. Válaszd ki, hogyan küldjön a játék e-maileket (regisztráció, jelszó-visszaállítás). Kihagyhatod ezt a lépést, és később beállíthatod az Admin - Beállításokban.'
+ins_mail_enable: 'E-mailek küldése'
+ins_mail_method: 'Módszer'
+ins_mail_method_php: 'PHP mail() függvény'
+ins_mail_method_smtp: 'SMTP-kiszolgáló'
+ins_mail_from: 'Feladó címe'
+ins_mail_host: 'SMTP-hoszt'
+ins_mail_port: 'SMTP-port'
+ins_mail_enc: 'Titkosítás'
+ins_mail_enc_none: 'Nincs'
+ins_mail_user: 'SMTP-felhasználó'
+ins_mail_pass: 'SMTP-jelszó'
+ins_mail_pass_info: 'Soha többé nem jelenik meg; tesztlevél után add meg újra.'
+ins_mail_save: 'Mentés és tovább'
+ins_mail_skip: 'Kihagyás (az e-mail kikapcsolva marad)'
+ins_mail_test_head: 'Tesztlevél küldése'
+ins_mail_test_to: 'Tesztlevél címzettje'
+ins_mail_test_send: 'Tesztlevél küldése'
+ins_mail_test_ok: 'Tesztlevél elküldve ide: %s.'
+ins_mail_test_fail: 'A tesztlevél sikertelen: %s'
+ins_mail_from_invalid: 'Adj meg érvényes feladói e-mail-címet.'
+ins_mail_host_required: 'Add meg az SMTP-hosztot.'
+ins_mail_port_invalid: 'Adj meg érvényes portot (1-65535).'
+ins_mail_test_invalid: 'Adj meg érvényes e-mail-címet a tesztlevélhez.'
+ins_mail_test_subject: 'V0Game tesztlevél'
+ins_mail_test_body: 'Ez egy tesztlevél a V0Game telepítőjéből. Az e-mail-beállításaid működnek.'
+ins_done_social: 'Közösségi bejelentkezés (opcionális).'
+ins_social_hint: 'A Discorddal, Google-lel, GitHubbal vagy Facebookkal való bejelentkezés később engedélyezhető az Admin - Közösségi bejelentkezés alatt.'
+ins_group_imprint: 'Impresszum (opcionális)'
+ins_imprint_info: 'Kapcsolattartási adatok az impresszum oldalhoz. Mindkettő üresen maradhat, és később módosítható az Admin - Beállítások alatt.'
+ins_imprint_eu_hint: 'Az EU-ban működtetőknek általában kell impresszum kapcsolattartási e-mail-címmel. Most kihagyhatod, de nyilvánosság elé lépés előtt töltsd ki.'
+ins_imprint_mail: 'Kapcsolattartási e-mail'
+ins_imprint_address: 'Impresszum címe'
+ins_imprint_mail_invalid: 'Adj meg érvényes kapcsolattartási e-mail-címet az impresszumhoz.'
+ins_more_settings: 'További beállítások'
+ins_update_check: 'Frissítések keresése'
+ins_update_check_info: 'Az admin vezérlőpult megkérdezi a frissítési kiszolgálót (GitHub) a legújabb kiadásról.'
+ins_discord_url: 'Discord meghívólink'
+ins_discord_url_info: 'Opcionális, például https://discord.gg/yourserver.'
+ins_discord_url_invalid: 'Adj meg érvényes, http:// vagy https:// kezdetű Discord-linket.'
+ins_mail_user_valid: 'E-mailes aktiválás megkövetelése'
+ins_mail_user_valid_info: 'Az új fióknak e-mailben meg kell erősítenie a címét, mielőtt játszhat. Csak bekapcsolt e-mail esetén érhető el.'

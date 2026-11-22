@@ -1,0 +1,575 @@
+faq_overview: FAQ
+faq_intro: "Odpovědi o herních mechanikách, pravidlech a menu. Hledej, nebo si vyber kategorii."
+faq_search_label: "Hledat ve FAQ"
+faq_search_placeholder: "Hledej otázky a odpovědi (stisk / zaostří pole)"
+faq_clear: "Smazat hledání"
+faq_results_one: "1 výsledek"
+faq_results_many: "{n} výsledků"
+faq_no_results: "Pro „{q}“ nic nenalezeno"
+faq_no_results_hint: "Zkontroluj překlepy, zkus méně nebo obecnější slova, nebo si prohlédni kategorie."
+faq_show_all: "Zobrazit všechny kategorie"
+faq_entries_one: "1 článek"
+faq_entries_many: "{n} článků"
+faq_contents: "V tomto článku"
+faq_prev: "Předchozí"
+faq_next: "Další"
+faq_back: "Zpět do FAQ"
+faq_copy_link: "Zkopírovat odkaz na tuto sekci"
+faq_link_copied: "Odkaz zkopírován"
+faq_to_top: "Zpět nahoru"
+questions:
+  '1':
+    category: "Začínáme"
+    icon: "rocket"
+    '1':
+      title: "Tvoje první kroky"
+      body: |-
+        <p>Začínáš s jednou planetou a trochou surovin (ve výchozím nastavení 500 kovu a 500 krystalů). Všechno ostatní se staví ze tří surovin, kovu, krystalu a deuteria, a z energie, která drží tvé doly v chodu.</p>
+        <h2 id="order">Rozumný začátek</h2>
+        <ol>
+        <li>Nejdřív <b>solární elektrárna</b>. Bez energie doly pořádně nefungují.</li>
+        <li>Pak <b>důl na kovy</b>, potom <b>důl na krystaly</b>. Kov je potřeba skoro na všechno; na začátku ho drž o pár úrovní před ostatními doly.</li>
+        <li><b>Syntetizér deuteria</b>. Deuterium je palivo pro flotilu a je potřeba pro několik důležitých budov a výzkumů.</li>
+        <li><b>Továrna na roboty</b> a <b>výzkumná laboratoř</b>, jakmile se stavba začne vléct nebo se odemknou první výzkumy.</li>
+        <li><b>Loděnice</b> pro pár malých transportérů a trochu obrany.</li>
+        </ol>
+        <h2 id="queues">Fronty</h2>
+        <p>Budovy, výzkum a loděnice mají každá svou frontu, takže můžeš stavět, zkoumat i vyrábět lodě současně. Ve výchozím nastavení se do front vejde 5 budov, 2 výzkumy a 10 zakázek v loděnici na planetu; vesmíry to mohou změnit.</p>
+        <h2 id="progress">Jak se měří pokrok</h2>
+        <p>Tvoje skóre vychází ze surovin, které investuješ, ve výchozím nastavení 1 bod za 1 000 jednotek surovin (viz <a href="game/faq/11/3">Statistiky a body</a>). <a href="game/faq/1/3">Tutoriál</a> tě provede prvními kroky a rozdává odměny.</p>
+    '2':
+      title: "Co kde najdeš"
+      body: |-
+        <p>Boční panel seskupuje všechny stránky. Ty nejdůležitější:</p>
+        <table class="faq-table">
+        <tr><th>Stránka</th><th>K čemu slouží</th></tr>
+        <tr><td>Přehled</td><td>Tvoje planety, běžící fronty a příchozí či odchozí flotily.</td></tr>
+        <tr><td>Suroviny</td><td>Produkce za hodinu, energetická bilance a procento produkce každé budovy.</td></tr>
+        <tr><td>Budovy, Výzkum, Hangár, Obrana</td><td>Stavba, výzkum, lodě a obrana. Každá stránka ukazuje ceny, dobu stavby a požadavky.</td></tr>
+        <tr><td>Technologie</td><td>Strom technologií s požadavky pro každou budovu, výzkum, loď i obranu.</td></tr>
+        <tr><td>Flotila, Galaxie</td><td>Posílej flotily; prohlížej systémy, špehuj, útoč, recykluj, vypouštěj rakety.</td></tr>
+        <tr><td>Aliance, Přátelé</td><td>Správa aliance a seznam přátel.</td></tr>
+        <tr><td>Tržiště, Obchodník s loděmi</td><td>Obchoduj se surovinami nebo loděmi s ostatními hráči; prodávej lodě za suroviny.</td></tr>
+        <tr><td>Simulátor</td><td>Vyzkoušej si boje, než pošleš flotilu.</td></tr>
+        <tr><td>Statistiky, Rekordy, Síň slávy</td><td>Žebříčky, rekordy vesmíru a největší bitvy.</td></tr>
+        <tr><td>Impérium</td><td>Všechny tvoje planety a měsíce v jedné tabulce.</td></tr>
+        <tr><td>Zprávy, Poznámky, Podpora</td><td>Hlášení a pošta, osobní poznámky, tickety pro tým.</td></tr>
+        <tr><td>Možnosti, Pravidla</td><td>Nastavení účtu, režim dovolené a pravidla tohoto vesmíru.</td></tr>
+        </table>
+        <p>Některé stránky existují, jen když vesmír zapne příslušný modul; pokud tady popsaná věc chybí, zeptej se v <a href="game/faq/11/4">Podpoře</a>.</p>
+    '3':
+      title: "Tutoriál a úspěchy"
+      body: |-
+        <p>Pokud má vesmír zapnutý tutoriál, provede tě krok za krokem okno s tutoriálem: postav první doly a obranu, pošli první transport, vyšpehuj hráče, recykluj trosky, kolonizuj, pošli expedici, přejmenuj planetu, pošli žádost o přátelství nebo přihlášku do aliance. Splněné cíle mohou vynést odměny; jednotlivé cíle i celý tutoriál můžeš přeskočit. <b>Rozhraní pro začátečníky</b> v Možnostech drží menu krátké, dokud tutoriál neprojdeš.</p>
+        <h2 id="achievements">Úspěchy</h2>
+        <p>Stránka Úspěchy uvádí dlouhodobé cíle (první měsíc, první nálezy z expedic, velké bitvy a další). Odemykají se samy, jak hraješ.</p>
+    '4':
+      title: "Další hráči, boti a pirátské základny"
+      body: |-
+        <p>Každý vesmír sdílíš s ostatními hráči. Podle nastavení vesmíru mohou hrát i <b>boti</b> provozovaní serverem. Boti se řídí stejnými pravidly jako hráči; pokud jsou zapnuté nájezdy botů, špehují a útočí v rámci stejných limitů (limit útoků, ochrana, režim dovolené).</p>
+        <h2 id="pirates">Pirátské základny</h2>
+        <p>Pokud vesmír zapne pirátské základny, objeví se jedna základna na každého aktivního hráče (online během posledních 7 dnů a nad minimálním skóre) v systému některé z jeho planet a každý týden se vymění. Základna drží část lodí daného hráče a pár hodin produkce; při nájezdu se bere všechno, ne jen polovina. Podíl a minimální skóre určuje nastavení vesmíru.</p>
+  '2':
+    category: "Ekonomika a budovy"
+    icon: "building-2"
+    '1':
+      title: "Suroviny a produkce"
+      body: |-
+        <p>Kov, krystal a deuterium produkují doly na každé planetě plus malý <b>základní příjem</b> za hodinu (ve výchozím nastavení 20 kovu a 10 krystalů). Každý důl potřebuje energii.</p>
+        <h2 id="percent">Procento produkce</h2>
+        <p>Na stránce Suroviny můžeš každému producentovi nastavit 0-100&nbsp;%. Nižší hodnoty spotřebují méně energie a deuteria (fúzní elektrárna deuterium spaluje) a vyrobí méně. Využij to k vyvážení energie.</p>
+        <h2 id="factors">Co mění produkci</h2>
+        <ul>
+        <li>Úroveň dolu (produkce roste rychleji než lineárně, stejně jako cena).</li>
+        <li>Teplota planety: syntetizér deuteria dává víc na chladnějších planetách; solární satelit víc na teplejších.</li>
+        <li>Výzkumy produkce (produkce kovu, krystalu, deuteria): každý +2&nbsp;% za úroveň.</li>
+        <li>Násobitel surovin ve vesmíru.</li>
+        </ul>
+        <h2 id="full">Plný sklad</h2>
+        <p>Produkce na planetě se pro danou surovinu zastaví, jakmile je sklad plný (ve výchozím nastavení přesně na kapacitě). Suroviny získané z nájezdu nebo expedice tě mohou dostat nad ni.</p>
+    '2':
+      title: "Energie"
+      body: |-
+        <p>Doly spotřebovávají energii; stránka Suroviny ukazuje vyrobenou a spotřebovanou energii. Pokud spotřeba převýší produkci, <b>každý producent se přiškrtí</b> na vyrobená / potřebná část své běžné produkce, takže nedostatek energie stojí kov, krystal i deuterium stejně.</p>
+        <h2 id="sources">Zdroje</h2>
+        <ul>
+        <li><b>Solární elektrárna</b>: levná, bez provozních nákladů. Postav ji jako první.</li>
+        <li><b>Fúzní elektrárna</b>: spaluje deuterium. Energie = 30 x úroveň x (1,05 + 0,01 x úroveň energetické technologie)^úroveň, takže energetická technologie ji zlepšuje.</li>
+        <li><b>Solární satelity</b>: stavějí se v hangáru, nepotřebují pole; energie závisí na teplotě planety. Dají se sestřelit, takže se v boji počítají jako lodě.</li>
+        </ul>
+    '3':
+      title: "Sklady a ochrana surovin"
+      body: |-
+        <p>Každá surovina má skladovou kapacitu (10 000 jednotek bez skladové budovy), která rychle roste s úrovní skladu kovu, skladu krystalů a nádrže na deuterium.</p>
+        <h2 id="stash">Ochrana před nájezdy</h2>
+        <p>Pokud vesmír používá skrýš surovin, každá úroveň skladu chrání před vyloupením 1&nbsp;% z denní produkce dané suroviny na planetě, nejvýše 10&nbsp;% (úroveň skladu 10). Kromě toho nájezd nikdy nevezme víc než polovinu suroviny, která na planetě je; viz <a href="game/faq/5/2">Kořist</a>.</p>
+        <p>Nejlepší ochrana je stále suroviny utratit, než se odhlásíš, nebo je mít ve frontě.</p>
+    '4':
+      title: "Stavba budov"
+      body: |-
+        <p>Každá úroveň stojí o pevný násobek víc než ta předchozí (například 1,5 x pro důl na kovy, 1,6 x pro důl na krystaly, 2 x pro většinu ostatních budov), takže skutečné ceny zkontroluješ na stránce Budovy.</p>
+        <h2 id="time">Doba stavby</h2>
+        <p>Při běžné rychlosti vesmíru: (cena v kovu + krystalu) / (2500 x (1 + úroveň továrny na roboty)) hodin, za každou úroveň továrny na nanoboty poloviční. Továrna na roboty pomáhá i na měsících. Lodě se staví za (kov + krystal) / (2500 x (1 + úroveň loděnice)) hodin, opět za každou úroveň nanobotů poloviční; výzkum je v <a href="game/faq/3/1">Výzkumu</a>. Nastavení rychlosti vesmíru škáluje všechno.</p>
+        <h2 id="cancel">Zrušení a demolice</h2>
+        <p>Zrušení budovy nebo výzkumu vrátí plnou cenu. Zrušení zakázky v loděnici vrátí 60&nbsp;%. Demolice budovy trvá mnohem kratší dobu než stavba (asi 36&nbsp;%).</p>
+        <h2 id="catchup">Dohánění</h2>
+        <p>Vesmíry mohou zapnout mechaniku dohánění: hráči, kteří jsou daleko za vedoucím, staví a zkoumají levněji a rychleji, až po nastavené maximum (ve výchozím nastavení 50&nbsp;%).</p>
+    '5':
+      title: "Pole planet a terraformer"
+      body: |-
+        <p>Každá planeta a měsíc má omezený počet polí; každá úroveň budovy na planetě zabírá jedno pole (výzkum a lodě ne).</p>
+        <ul>
+        <li><b>Terraformer</b> (jen planety): +5 polí za úroveň a +1 navíc na každé sudé úrovni; každá úroveň sama zabírá jedno pole. Potřebuje energii (nespotřebovává se) a nelze ho zbourat.</li>
+        <li><b>Měsíční základna</b> (jen měsíce): +3 pole za úroveň, sama také zabírá jedno pole. Viz <a href="game/faq/7/2">Budovy na měsíci</a>.</li>
+        </ul>
+    '6':
+      title: "Kolonie"
+      body: |-
+        <p>Volné planety kolonizuj <b>kolonizační lodí</b> (mise Kolonizace). Loď se spotřebuje a promění se v novou kolonii. Potřebuješ výzkum astrofyziky.</p>
+        <h2 id="limit">Kolik planet</h2>
+        <p>Celkový počet planet (včetně domovské) je ve výchozím nastavení 1 + úroveň astrofyziky / 2, zaokrouhleno nahoru, nejvýše 12 planet:</p>
+        <p>Úrovně 1-2 = 2 planety, 3-4 = 3, 5-6 = 4, 7-8 = 5, 9-10 = 6, 11-12 = 7, 13-14 = 8, 15-16 = 9, 17-18 = 10, 19-20 = 11, 21+ = 12.</p>
+        <h2 id="positions">Které pozice</h2>
+        <p>Vnější a vnitřní pozice vyžadují víc astrofyziky: pozice 4-12 od úrovně 1, pozice 3 a 13 od úrovně 4, pozice 2 a 14 od úrovně 6, pozice 1 a 15 od úrovně 8 (pro systém s 15 pozicemi).</p>
+  '3':
+    category: "Výzkum"
+    icon: "flask-conical"
+    '1':
+      title: "Výzkum a výzkumná laboratoř"
+      body: |-
+        <p>Výzkum probíhá ve <b>výzkumné laboratoři</b> a platí pro všechny tvoje planety. O tom, co můžeš zkoumat, rozhoduje úroveň laboratoře a seznam požadavků; ukazuje je stránka Technologie.</p>
+        <ul>
+        <li>Najednou běží jen jeden výzkum (fronta ve výchozím nastavení pojme 2). Dokud výzkum běží, nelze vylepšit žádnou výzkumnou laboratoř.</li>
+        <li>Doba výzkumu = (cena v kovu + krystalu) / (1000 x (1 + úroveň laboratoře)) hodin při běžné rychlosti. <b>Univerzita</b> ji zkracuje, ve výchozím nastavení o 8&nbsp;% za úroveň.</li>
+        <li><b>Mezigalaktická výzkumná síť</b> nechá pomáhat laboratoře tvých ostatních planet: každá úroveň přidá jednu další laboratoř (ty nejvyšší, které splňují požadavek na laboratoř daného výzkumu) a jejich úrovně se do výpočtu sčítají.</li>
+        <li>Zrušení běžícího výzkumu vrátí plnou cenu.</li>
+        </ul>
+    '2':
+      title: "Co technologie dělají"
+      body: |-
+        <h2 id="fleet">Flotila</h2>
+        <ul>
+        <li><b>Počítačová technologie</b>: +1 slot flotily za úroveň (začínáš s 1 slotem).</li>
+        <li><b>Spalovací / impulzní / hyperprostorový motor</b>: lodě s tímto pohonem létají o +10 / +20 / +30&nbsp;% základní rychlosti za úroveň. Některé lodě od určité úrovně pohon mění (například malý transportér s impulzním motorem). Úroveň impulzního motoru určuje také dolet raket.</li>
+        <li><b>Palivová účinnost</b>: -2&nbsp;% spotřeby paliva za úroveň.</li>
+        <li><b>Astrofyzika</b>: kolonie, expedice a kolonizovatelné pozice, viz <a href="game/faq/2/6">Kolonie</a> a <a href="game/faq/8/1">Expedice</a>.</li>
+        <li><b>Špionážní technologie</b>: lepší špionážní zprávy; rozhoduje také o tom, co vidíš o příchozích flotilách.</li>
+        </ul>
+        <h2 id="combat">Boj</h2>
+        <ul>
+        <li><b>Zbraňová, štítová a pancéřová technologie</b>: +10&nbsp;% útoku, štítů a pancíře za úroveň pro všechny tvoje jednotky.</li>
+        <li>Laserová, iontová a plazmová technologie odemykají zbraně; gravitonový výzkum je potřeba ke zničení měsíců.</li>
+        </ul>
+        <h2 id="economy">Ekonomika</h2>
+        <ul>
+        <li><b>Energetická technologie</b>: zvyšuje výkon fúzní elektrárny a otevírá mnoho technologií.</li>
+        <li><b>Produkce kovu / krystalu / deuteria</b>: +2&nbsp;% produkce za úroveň.</li>
+        </ul>
+  '4':
+    category: "Flotila a mise"
+    icon: "send"
+    '1':
+      title: "Odeslání flotily"
+      body: |-
+        <ol>
+        <li><b>Vyber lodě</b> na stránce Flotila (nebo pošli všechno z pohledu Galaxie).</li>
+        <li><b>Cíl a rychlost</b>: zadej souřadnice (galaxie:systém:pozice) a typ: planeta, pole trosek nebo měsíc. Rychlost je 10-100&nbsp;% po deseti; pomaleji je levnější a trvá to déle.</li>
+        <li><b>Mise a náklad</b>: vyber misi dostupnou pro daný cíl, případně nalož suroviny a potvrď. U Držení, Expedice a Obchodu také volíš, jak dlouho zůstat.</li>
+        </ol>
+        <p>Stránka před potvrzením ukáže dobu letu, čas příletu a palivo. Flotila potřebuje na planetě dost deuteria na zaplacení letu.</p>
+        <p>Najednou můžeš létat s nejvýše tolika flotilami, kolik máš <b>slotů flotily</b>: 1 + úroveň počítačové technologie. Expedice mají vlastní limit, viz <a href="game/faq/8/1">Expedice</a>.</p>
+    '2':
+      title: "Rychlost, doba letu a palivo"
+      body: |-
+        <ul>
+        <li>Flotila letí tak rychle jako její <b>nejpomalejší loď</b>.</li>
+        <li>Rychlost lodi = základní rychlost x (1 + 0,1 / 0,2 / 0,3 x úroveň pohonu) pro nejlepší pohon, který loď může použít; viz <a href="game/faq/3/2">technologie</a>.</li>
+        <li>Doba letu = (3500 / (rychlost&nbsp;% x 0,1) x druhá odmocnina z (vzdálenost x 10 / rychlost flotily) + 10) / rychlost flotil ve vesmíru. Minimum je 5 sekund.</li>
+        <li>Vzdálenost roste s počtem překonaných galaxií a systémů; stejná galaxie a systém je mnohem blíž než jiný systém.</li>
+        <li>Spotřeba paliva roste rychleji, než klesá doba letu: pomalejší let šetří deuterium. Každá úroveň palivové účinnosti snižuje spotřebu o 2&nbsp;%.</li>
+        </ul>
+        <p>Některé vesmíry jsou kruhové (systémy nebo galaxie se zacyklují). Stránka Flotila to už ve výpočtu zohledňuje.</p>
+    '3':
+      title: "Všechny mise přehledně"
+      body: |-
+        <table class="faq-table">
+        <tr><th>Mise</th><th>Cíl</th><th>Co se stane</th></tr>
+        <tr><td>Útok</td><td>planeta nebo měsíc jiného hráče</td><td>Bitva; přeživší se vrátí s kořistí. Viz <a href="game/faq/5/1">Boj</a>.</td></tr>
+        <tr><td>Útok aliance</td><td>totéž, jako skupina</td><td>Několik hráčů útočí společně, viz <a href="game/faq/9/3">ACS</a>.</td></tr>
+        <tr><td>Transport</td><td>jakákoli obsazená planeta</td><td>Doručí suroviny a vrátí se.</td></tr>
+        <tr><td>Rozmístění</td><td>tvoje vlastní planety nebo měsíce</td><td>Lodě a náklad tam zůstanou; bez zpáteční cesty.</td></tr>
+        <tr><td>Držení</td><td>planeta člena aliance nebo přítele</td><td>Flotila čeká a brání planetu, viz <a href="game/faq/9/4">Držení</a>.</td></tr>
+        <tr><td>Převod</td><td>planeta člena aliance nebo přítele</td><td>Daruje lodě a náklad; nevracejí se.</td></tr>
+        <tr><td>Špionáž</td><td>planeta nebo měsíc jiného hráče</td><td>Špehovat může jen flotila složená ze sond; viz <a href="game/faq/6/1">Špionáž</a>.</td></tr>
+        <tr><td>Kolonizace</td><td>volná pozice planety</td><td>Potřebuje kolonizační loď, viz <a href="game/faq/2/6">Kolonie</a>.</td></tr>
+        <tr><td>Recyklace</td><td>pole trosek</td><td>Potřebuje recyklátory, viz <a href="game/faq/4/4">Recyklace</a>.</td></tr>
+        <tr><td>Zničení</td><td>měsíc</td><td>Potřebuje Hvězdy smrti, viz <a href="game/faq/7/5">Ničení měsíců</a>.</td></tr>
+        <tr><td>Expedice</td><td>expediční pozice (16) systému</td><td>Losování události, viz <a href="game/faq/8/1">Expedice</a>.</td></tr>
+        <tr><td>Obchod</td><td>obchodní pozice (17) systému</td><td>Doručí zboží z obchodu na <a href="game/faq/4/6">tržišti</a>.</td></tr>
+        <tr><td>Raketový útok</td><td>planeta v dosahu raket</td><td>Rakety zasáhnou obranu, viz <a href="game/faq/5/5">Rakety</a>.</td></tr>
+        </table>
+        <p>To, zda se mise nabízí, závisí na cíli a na tom, které moduly má vesmír zapnuté. Nepřátelské mise proti hráčům v režimu dovolené se otočí zpět.</p>
+    '4':
+      title: "Pole trosek a recyklace"
+      body: |-
+        <p>Lodě zničené v bitvě zanechají na pozici cíle <b>pole trosek</b>. Ve výchozím nastavení drží 30&nbsp;% z ceny v kovu a krystalu všech zničených lodí obou stran a 0&nbsp;% za obranu; deuterium se v trosky nikdy nemění. Vesmíry mohou obě procenta změnit.</p>
+        <ul>
+        <li>K jeho sebrání pošli <b>recyklátory</b> (mise Recyklace, typ cíle pole trosek). Flotila naloží, kolik unese; kov a krystal se berou poměrně, zbytek zůstane v poli.</li>
+        <li>Pole trosek může sebrat kdokoli. Patří tomu, kdo tam dorazí první.</li>
+        <li>Sondy sestřelené při špehování také zanechají trosky.</li>
+        <li>Stránka recyklace a zpráva ti řeknou, kolik dalších recyklátorů bys potřeboval.</li>
+        </ul>
+    '5':
+      title: "Odvolání flotil"
+      body: |-
+        <p>Odchozí flotilu můžeš odvolat na stránce Flotila nebo v Přehledu. Otočí se a na návrat potřebuje stejně dlouho, jak už letěla.</p>
+        <ul>
+        <li><b>Odvolat nelze</b> flotilu, která už dorazila k cíli (příletu se řeší dřív, takže se bitvě nevyhneš), expediční flotily po příletu ani meziplanetární rakety.</li>
+        <li>Flotilu při Držení lze odvolat předčasně; pak potřebuje tak dlouho, jak trval let tam.</li>
+        <li>Pokud odvolá zakladatel útoku ACS, odvolá se celá skupina. Připojené flotily odvolají jen samy sebe.</li>
+        </ul>
+    '6':
+      title: "Obchodník s loděmi, tržiště a převody"
+      body: |-
+        <h2 id="dealer">Obchodník s loděmi</h2>
+        <p>Obchodník s loděmi od tebe kupuje lodě za jejich cenu v surovinách minus poplatek (ve výchozím nastavení 30&nbsp;%). Prodat lze jen nastavený seznam lodí (ve výchozím nastavení od malého transportéru po bitevní křižník, bez největších lodí). V režimu dovolené není dostupný.</p>
+        <h2 id="market">Tržiště</h2>
+        <p>Hráči nabízejí suroviny nebo lodě a určují jejich cenu v jiných surovinách. Obchody se doručují flotilami letícími na obchodní pozici systému nabídky (pozice 17 v systémech s 15 planetami, mise Obchod). Referenční ceny se odvozují z dokončených obchodů za posledních 7 dnů (drží se mezi 0,5 a 5).</p>
+        <h2 id="transfer">Převod</h2>
+        <p>Mise Převod daruje lodě a suroviny členovi aliance nebo příteli. Nic se nevrací.</p>
+        <p>Velké jednostranné dary se kontrolují, viz <a href="game/faq/10/5">Pushing a obchodní limity</a>.</p>
+  '5':
+    category: "Boj"
+    icon: "swords"
+    '1':
+      title: "Jak probíhá bitva"
+      body: |-
+        <p>Když útočící flotila dorazí k cíli, všechny útočící flotily (včetně účastníků ACS) bojují proti vlastní obraně a flotile planety a všem flotilám, které tam drží pozici. Kol je nejvýše <b>6</b>.</p>
+        <ul>
+        <li>V každém kole každá loď vystřelí jednou na náhodnou nepřátelskou loď (rychlá palba může přidat výstřely).</li>
+        <li>Štít pohltí výstřel jako první; výstřel slabší než 1&nbsp;% štítu cíle se odrazí. Štíty se po každém kole obnoví, poškození pancíře ne.</li>
+        <li>Pancíř lodi = (cena v kovu + krystalu) / 10. Lodě pod 70&nbsp;% pancíře mohou při dalším zásahu vybuchnout; čím poškozenější, tím pravděpodobněji.</li>
+        <li><b>Rychlá palba</b>: pokud je typ cíle v seznamu rychlé palby střelce s hodnotou N, střelec vystřelí znovu s pravděpodobností (N-1)/N. Ukazuje ji stránka Technologie.</li>
+        <li>Zbraňová, štítová a pancéřová technologie přidávají 10&nbsp;% za úroveň k útoku, štítům a pancíři.</li>
+        <li>Všechny výstřely kola se odehrají naráz; lodě s pancířem 0 se odstraní po skončení kola.</li>
+        </ul>
+        <h2 id="result">Výsledek</h2>
+        <p>Pokud jsou obránci vyhlazeni, vyhrává útočník a loupí. Pokud mají po 6 kolech lodě ještě obě strany, je bitva remíza a nikdo neloupí. Pokud jsou vyhlazeni útočníci, vyhrává obránce. Bojová zpráva se všemi koly se pošle všem stranám; každá zpráva má veřejný odkaz.</p>
+    '2':
+      title: "Kořist"
+      body: |-
+        <p>Loupí jen vítězný útočník. Volná nákladní kapacita přeživších útočících lodí (špionážní sondy se nepočítají) se plní v tomto pořadí:</p>
+        <ol>
+        <li>až 1/3 kapacity kovem,</li>
+        <li>polovina zbývající kapacity krystalem,</li>
+        <li>zbytek deuteriem,</li>
+        <li>místo, které stále zbývá, se doplní kovem (polovina) a krystalem.</li>
+        </ol>
+        <p>Z každé suroviny lze vzít nejvýše <b>polovinu zásoby planety</b>. Další limity: chráněná část ze <a href="game/faq/2/3">skladů</a> (pokud je zapnutá). Hráče se velmi špatnou čestnou pověstí lze vyloupit o víc než polovinu, viz <a href="game/faq/5/7">Čestné body</a>.</p>
+        <p>Výjimkou jsou pirátské základny: při nájezdu na ni se bere všechno, co kapacita dovolí.</p>
+    '3':
+      title: "Trosky, vraky a opravárenský dok"
+      body: |-
+        <h2 id="debris">Trosky</h2>
+        <p>Viz <a href="game/faq/4/4">Pole trosek a recyklace</a>: ve výchozím nastavení 30&nbsp;% kovu a krystalu ztracených lodí.</p>
+        <h2 id="wreck">Pole vraků</h2>
+        <p>Pokud má vesmír modul opravárenského doku, lodě ztracené <b>majitelem planety</b> (ne obrana) mohou zanechat <b>pole vraků</b>, ale jen pokud se najednou ztratilo hodně: ve výchozím nastavení alespoň 150 000 jednotek hodnoty a 75&nbsp;% flotily. Vrak drží tu část lodí, která se nezměnila v trosky.</p>
+        <h2 id="dock">Opravárenský dok</h2>
+        <p>Opravárenský dok (jen planety) umí opravit vrakové lodě: míra opravy je 24&nbsp;% + úroveň^1,5&nbsp;% vraků, nejvýše 100&nbsp;%. Oprava trvá tak dlouho, jak se loď staví, ale nejméně 30 minut od vzniku vraku a nejvýše 12 hodin. Zahaj ji do 3 dnů, pak opravené lodě uveď do služby na stránce Opravárenský dok; pokud zapomeneš, vrátí se do služby samy po 3 dnech. Vraky vyprší po 72 hodinách.</p>
+    '4':
+      title: "Obrana"
+      body: |-
+        <ul>
+        <li>Obranné jednotky bojují společně se všemi flotilami na planetě. Nikdy nelétají.</li>
+        <li>Po bitvě se <b>zničená obrana zčásti zdarma obnoví</b>: pokud se ztratilo víc než 10 jednotek typu, vrátí se jich 60-80&nbsp;% (náhodně); pokud 10 nebo méně, každá jednotka má 70&nbsp;% šanci.</li>
+        <li>Obrana, která se neobnoví, ve výchozím nastavení nezanechá trosky.</li>
+        <li>Rakety ničí obranu, která se <b>neobnoví</b>, viz <a href="game/faq/5/5">Rakety</a>.</li>
+        <li>Planetární štíty, atmosférický štít a orbitální obranná platforma lze postavit jen jednou na planetu.</li>
+        <li>Solární satelity na planetě bojují jako lodě a počítají se jako flotila, ne obrana.</li>
+        </ul>
+    '5':
+      title: "Rakety"
+      body: |-
+        <p>Potřebuješ <b>raketové silo</b>. Ve výchozím nastavení každá úroveň drží 10 slotů; antibalistická raketa zabírá 1 slot, meziplanetární raketa 2.</p>
+        <ul>
+        <li><b>Meziplanetární rakety</b> útočí na obranu planety ve stejné galaxii v dosahu. Spotřebují se, nelze je odvolat a škoda závisí na tvé zbraňové technologii.</li>
+        <li>Dosah = 5 x úroveň impulzního motoru - 1 systémů (násobitel vesmíru to může změnit). Doba letu = (30 + 60 x vzdálenost systémů) / rychlost flotil ve vesmíru sekund.</li>
+        <li>Zvol <b>hlavní cíl</b>: ten typ obrany se zasáhne první. Jinak jdou první raketomety.</li>
+        <li><b>Antibalistické rakety</b> sestřelují přilétající rakety jedna za jednu; obránce ztratí jednu antibalistickou raketu za každou zachycenou.</li>
+        <li>Zničená obrana se neobnovuje.</li>
+        <li>Raketové útoky se počítají do limitů útoků, pokud to vesmír nevypne.</li>
+        </ul>
+    '6':
+      title: "Simulátor a bojové zprávy"
+      body: |-
+        <p><b>Simulátor</b> provede boj s technologiemi a flotilami, které zadáš, a ukáže výsledek a ztráty. Špionážní zprávy do něj odkazují jedním kliknutím. Simulované boje mají stejná pravidla jako skutečné, ale kvůli náhodě (rychlá palba, výbuchy) se výsledky mohou od skutečné bitvy mírně lišit; pro odhad ho spusť několikrát.</p>
+        <p>Skutečné bojové zprávy se ukládají do tvých zpráv a mají veřejný odkaz, takže je můžeš sdílet. Síň slávy uvádí největší bitvy vesmíru.</p>
+    '7':
+      title: "Čestné body"
+      body: |-
+        <p>Pokud vesmír používá čestné body, férové souboje 1 na 1 dávají oběma hráčům čestné body, zatímco útok na zjevně slabšího hráče útočníka stojí body.</p>
+        <ul>
+        <li><b>Čestný</b> (oba získají): útočník nemá víc bodů než obránce a není vojensky víc než dvakrát silnější, nebo je obránce známý bandita.</li>
+        <li><b>Nečestný</b> (útočník ztrácí body): vojenské skóre útočníka je víc než dvojnásobek skóre obránce (a rozdíl je větší než 10 bodů), zatímco obránce má dobrou čestnou hodnost.</li>
+        <li>Souboje proti neaktivním hráčům, členům aliance a přátelům jsou neutrální. Ve výchozím nastavení mohou stejní dva hráči získat čest z nejvýše 3 soubojů za 24 hodin.</li>
+        </ul>
+        <h2 id="effects">Účinky</h2>
+        <ul>
+        <li>Vysoká čest (500 bodů a místo v nejlepších 30 / 20 / 10&nbsp;% vesmíru) snižuje spotřebu paliva na letech o 5 / 12 / 20&nbsp;%.</li>
+        <li>Velmi nízká čest (-500 bodů nebo hůř, nejhorších 30 / 20 / 10&nbsp;%) znamená, že útočníci smějí vyloupit až 60 / 80 / 100&nbsp;% tvých zásob místo poloviny. Viz <a href="game/faq/5/2">Kořist</a>.</li>
+        </ul>
+  '6':
+    category: "Špionáž"
+    icon: "scan-eye"
+    '1':
+      title: "Špehování sondami"
+      body: |-
+        <p>Misi Špionáž může použít jen flotila složená <b>jen ze špionážních sond</b>. Zprávu dostaneš do zpráv a cíl se dozví, že byla spatřena cizí flotila.</p>
+        <h2 id="level">Co zpráva ukazuje</h2>
+        <p>Suroviny jsou vidět vždy. Co uvidíš dál, závisí na počtu sond a úrovních špionážní technologie obou hráčů (tvé <i>s</i>, cíle <i>t</i>): sond potřebných pro flotily je n0 = (|s - t|)^2, záporně, pokud máš vyšší úroveň. Obrana potřebuje n0 + 1 sond, budovy n0 + 3 a výzkum n0 + 5. Pošli víc sond, než si myslíš, že potřebuješ.</p>
+        <h2 id="risk">Kontrašpionáž</h2>
+        <p>Cílová planeta může sondy sestřelit. Šance v&nbsp;% = 2^(t - s) x sondy x (lodě a obrana na planetě) x 0,0025, nejvýše 100. Planety bez lodí a obrany nestřílejí. Ztracené sondy zanechají trosky. Zpráva se doručí v každém případě.</p>
+        <p>Špionážní zpráva má odkaz do Simulátoru s předvyplněnými daty cíle.</p>
+    '2':
+      title: "Co vidíš o příchozích flotilách"
+      body: |-
+        <p>Tvoje vlastní úroveň špionážní technologie také rozhoduje, co Přehled ukazuje o cizích flotilách mířících k tobě:</p>
+        <ul>
+        <li>Úroveň 0-1: jen to, že se flotila blíží.</li>
+        <li>Úroveň 2-3: kolik je lodí.</li>
+        <li>Úroveň 4-7: jaké typy lodí.</li>
+        <li>Úroveň 8 a víc: kolik lodí od každého typu.</li>
+        </ul>
+        <p>Statistiky ostatních hráčů mohou také záviset na tvé špionážní technologii, pokud tento modul vesmír zapne.</p>
+  '7':
+    category: "Měsíce a falanga"
+    icon: "moon"
+    '1':
+      title: "Jak vznikají měsíce"
+      body: |-
+        <p>Měsíc může vzniknout po bitvě na <b>planetě</b>, která ještě žádný nemá. Šance je <b>1&nbsp;% na 100 000 jednotek trosek vzniklých v dané bitvě</b> (platí násobitel vesmíru), nejvýše maximum vesmíru (ve výchozím nastavení 20&nbsp;%). Měsíce nikdy nevznikají u měsíců.</p>
+        <ul>
+        <li>Počítají se jen trosky dané bitvy: ztracené lodě obou stran a obrana, pokud ji vesmír nechá vytvářet trosky.</li>
+        <li>Některé vesmíry při vzniku měsíce vyčistí pole trosek.</li>
+        <li>Vesmíry mohou přidat kaskádový bonus po opakovaných neúspěších při maximální šanci, dokud nevznikne první měsíc.</li>
+        <li>Měsíc patří majiteli cílové planety. Planeta může mít jen jeden měsíc.</li>
+        </ul>
+        <h2 id="size">Velikost</h2>
+        <p>Průměr = druhá odmocnina z (10-20 + 3 x šance v&nbsp;%) x 1 000 km, krát faktor velikosti vesmíru. Při šanci 20&nbsp;% to je zhruba mezi 8 370 a 8 940 km. Čerstvý měsíc má místo přesně na 1 pole.</p>
+    '2':
+      title: "Budovy na měsíci"
+      body: |-
+        <p>Na měsíci můžeš postavit továrnu na roboty, loděnici, tři skladové budovy a budovy jen pro měsíce:</p>
+        <h2 id="base">Měsíční základna</h2>
+        <p>Každá úroveň dává 3 pole a jedno zabírá. Nelze ji zbourat. Postav ji jako první.</p>
+        <h2 id="phalanx">Senzorová falanga</h2>
+        <p>Viz <a href="game/faq/7/3">Senzorová falanga</a>.</p>
+        <h2 id="gate">Skoková brána</h2>
+        <p>Viz <a href="game/faq/7/4">Skoková brána</a>.</p>
+        <p>Měsíce neprodukují suroviny a s málem polí na nich nelze mít všechno: naplánuj si rozpočet polí dřív, než začneš stavět.</p>
+    '3':
+      title: "Senzorová falanga"
+      body: |-
+        <p>Senzorová falanga na měsíci ukazuje pohyby flotil planety ve <b>stejné galaxii</b> v dosahu. Měsíce skenovat nelze.</p>
+        <ul>
+        <li><b>Dosah</b> = úroveň^2 - 1 systémů (úroveň 1 pokrývá jen vlastní systém), krát násobitel vesmíru.</li>
+        <li><b>Cena</b>: 5 000 deuteria za sken, odebírá se z měsíce.</li>
+        <li>Vidíš flotily, které z naskenované planety startují nebo na ni letí: přílety, konce držení a návraty. Rozmístění a rakety se neukazují.</li>
+        <li>Nefunguje v režimu dovolené ani proti hráčům, na které nemůžeš útočit kvůli ochraně.</li>
+        </ul>
+        <p>Otevři z měsíce pohled Galaxie a klikni na planetu v dosahu.</p>
+    '4':
+      title: "Skoková brána"
+      body: |-
+        <p>Skokové brány přesouvají lodě mezi dvěma tvými vlastními měsíci okamžitě a bez paliva. Suroviny přesouvat nelze.</p>
+        <ul>
+        <li>Obě brány musí být připravené. Po skoku potřebuje každá brána odpočinek: 60 minut na úrovni 1, s každou úrovní klesající až na 10 minut od úrovně 15 (násobitel vesmíru to může změnit).</li>
+        <li>Solární satelity skákat nemohou.</li>
+        </ul>
+    '5':
+      title: "Ničení měsíců"
+      body: |-
+        <p>Mise <b>Zničení</b> je proti měsícům dostupná, pokud flotila obsahuje <b>Hvězdy smrti</b>. K zničení dojde, až když útočník vyhraje bitvu.</p>
+        <ul>
+        <li><b>Šance na zničení měsíce</b> v&nbsp;% = (100 - druhá odmocnina z průměru měsíce) x druhá odmocnina z počtu Hvězd smrti, nejvýše 100. Větší měsíce se ničí hůř.</li>
+        <li><b>Riziko pro flotilu</b>: útočící flotila se ztratí se šancí (druhá odmocnina z průměru) / 2&nbsp;%, ať už se měsíc zničí, nebo ne.</li>
+        <li>Flotily umístěné na měsíci se při jeho zničení přesunou na planetu. Zničený měsíc nezanechá trosky.</li>
+        </ul>
+  '8':
+    category: "Expedice"
+    icon: "compass"
+    '1':
+      title: "Odeslání expedice"
+      body: |-
+        <p>Expedice míří na <b>pozici 16</b> (tu za poslední planetou, v systémech s 15 planetami) libovolného systému. Potřebují výzkum <b>astrofyziky</b>.</p>
+        <ul>
+        <li><b>Sloty</b>: dolů zaokrouhlená druhá odmocnina z úrovně astrofyziky (úroveň 1-3 = 1, 4-8 = 2, 9-15 = 3, 16-24 = 4, ...). Jsou oddělené od tvých běžných slotů flotily.</li>
+        <li><b>Pobyt</b>: nejvýše 1 hodina za úroveň astrofyziky (násobitel vesmíru to může změnit).</li>
+        <li>Flotila složená jen ze sond na expedici vyrazit nemůže.</li>
+        <li>Po příletu už expedici <b>nelze odvolat</b>. Událost se vyhodnotí na konci pobytu, pak flotila letí domů.</li>
+        <li>Výsledky expedic se hlásí do tvých zpráv a počítají se do Statistik.</li>
+        </ul>
+    '2':
+      title: "Co může expedice najít"
+      body: |-
+        <p>Každý hráč losuje karty událostí z osobního balíčku, který se zamíchá a doplní, když je prázdný, takže se časem frekvence vyrovnají. Výchozí balíček o 1 000 kartách (vesmír ho může změnit):</p>
+        <table class="faq-table">
+        <tr><th>Událost</th><th>Podíl</th><th>Podrobnosti</th></tr>
+        <tr><td>Suroviny</td><td>37&nbsp;%</td><td>Malý, střední nebo velký nález. Ve výchozím nastavení kov 50&nbsp;%, krystal 33&nbsp;%, deuterium 17&nbsp;% případů.</td></tr>
+        <tr><td>Lodě</td><td>26,4&nbsp;%</td><td>Lodě se přidají k tvé flotile; najít lze jen určité typy lodí.</td></tr>
+        <tr><td>Nic</td><td>19&nbsp;%</td><td>Flotila se vrátí s prázdnou.</td></tr>
+        <tr><td>Zpoždění</td><td>6,7&nbsp;%</td><td>Návrat trvá o 2, 3 nebo 5 hodin déle (malé, střední, velké).</td></tr>
+        <tr><td>Piráti</td><td>5,7&nbsp;%</td><td>Bojuješ s pirátskou flotilou.</td></tr>
+        <tr><td>Vetřelci</td><td>2,6&nbsp;%</td><td>Bojuješ s flotilou vetřelců.</td></tr>
+        <tr><td>Rychlejší návrat</td><td>2,3&nbsp;%</td><td>Zpáteční let je o 20, 30 nebo 50&nbsp;% kratší.</td></tr>
+        <tr><td>Černá díra</td><td>0,3&nbsp;%</td><td>Celá flotila je ztracena.</td></tr>
+        </table>
+        <h2 id="size">Kolik najdeš</h2>
+        <p>Nález surovin se škáluje s hodnotou tvé flotily (až po strop vesmíru) a je omezen nákladní kapacitou flotily: malé nálezy jsou 10-50 x, střední 50-100 x, velké 100-200 x jednotka hodnoty; nálezy krystalu se půlí, nálezy deuteria dělí třemi. Na velké nálezy vezmi nákladní lodě.</p>
+        <h2 id="depletion">Vyčerpané pozice</h2>
+        <p>Pokud na stejné souřadnice za posledních 24 hodin zamířilo mnoho expedic, může se karta změnit na „nic“: při více než 10 expedicích je šance 25&nbsp;%, při více než 25 50&nbsp;%, při více než 50 75&nbsp;%. Rozlož své expedice.</p>
+  '9':
+    category: "Aliance a ACS"
+    icon: "handshake"
+    '1':
+      title: "Založení a správa aliance"
+      body: |-
+        <p>Otevři <b>Alianci</b> v bočním panelu a vytvoř ji se značkou a jménem (písmena, číslice a mezery; obojí musí být nepoužité). Některé vesmíry vyžadují k založení aliance minimální skóre.</p>
+        <h2 id="manage">Správa</h2>
+        <ul>
+        <li><b>Hodnosti</b>: urči práva pro každou hodnost (přihlášky, vyhazování, hromadné zprávy, ...).</li>
+        <li><b>Členové</b>: přidělují se hodnosti, vyhazují členové, vidíš, kdy byli naposledy online.</li>
+        <li><b>Přihlášky</b>: otevři nebo zavři nábor, čti přihlášky a odpovídej na ně; text přihlášky je šablona pro uchazeče.</li>
+        <li><b>Texty</b>: externí text je veřejný, interní jen pro členy.</li>
+        <li><b>Hromadná zpráva</b> všem nebo vybraným hodnostem.</li>
+        <li><b>Diplomacie</b> s dalšími aliancemi, viz <a href="game/faq/9/2">Diplomacie</a>.</li>
+        <li>Alianci můžeš předat jinému členovi nebo ji rozpustit.</li>
+        </ul>
+    '2':
+      title: "Diplomacie aliancí"
+      body: |-
+        <p>Aliance si mohou navzájem navrhovat smlouvy; druhá strana je přijme nebo odmítne. Typy: Hlavní, Křídlo, Spojenectví, Obchodní smlouva, Pakt o neútočení, Válka, Tajné spojenectví a Mír.</p>
+        <p>Smlouvy zaznamenávají vztah mezi dvěma aliancemi. Útoky mezi aliancemi ve <b>válce</b> mohou být vyňaty z limitu útoků (nastavení vesmíru), jakmile byla válka přijata před více než dnem a útočník není s cílem spojen vazbou účtů.</p>
+    '3':
+      title: "Společný útok (ACS)"
+      body: |-
+        <h2 id="start">Založení skupiny</h2>
+        <p>Nejdřív pošli flotilu s misí <b>Útok</b>. Pak otevři stránku Flotila, u této flotily použij funkci ACS a pozvi další hráče. Každý pozvaný hráč pošle svou flotilu na stejné souřadnice s misí <b>Útok aliance</b>.</p>
+        <h2 id="rules">Pravidla</h2>
+        <ul>
+        <li>Skupina dorazí společně s nejpomalejší flotilou.</li>
+        <li>Připojující se flotila může skupinu zpozdit nejvýše o <b>30&nbsp;%</b> zbývajícího času.</li>
+        <li>Ve výchozím nastavení skupina přijme nejvýše 16 flotil od nejvýše 5 hráčů (nastavení vesmíru).</li>
+        <li>Kořist se dělí podle kapacity; do bitvy jdou všichni účastníci.</li>
+        </ul>
+        <p><b>Pozor:</b> pokud zakladatel odvolá, odvolá se celá skupina.</p>
+    '4':
+      title: "Obrana: Držení a aliancní sklad"
+      body: |-
+        <p>Pošli flotilu s misí <b>Držení</b> na planetu člena aliance nebo přítele. Čeká 1, 2, 4, 8, 12, 16 nebo 32 hodin, a pokud je mezitím planeta napadena, bojuje jako obránce. Ve špionážních zprávách se objeví, jako by byla součástí planety.</p>
+        <ul>
+        <li>Při startu žádné další náklady kromě paliva na let.</li>
+        <li>Počet držících flotil a hráčů na planetu omezují nastavení ACS vesmíru.</li>
+        <li>Držící flotilu můžeš kdykoli odvolat.</li>
+        </ul>
+        <h2 id="depot">Alianční sklad</h2>
+        <p>Majitel planety může držící flotily zásobovat deuteriem z aliančního skladu, aby mohly zůstat déle: 1 až (úroveň skladu) hodin za jedno zásobení. Hodinová cena je desetina součtu základní spotřeby paliva flotily, zaokrouhleno nahoru. Flotile nikdy nezbývá víc než 32 hodin pobytu.</p>
+    '5':
+      title: "Přátelé"
+      body: |-
+        <p>Přátelé si mohou posílat žádosti ze stránky Přátelé nebo z profilu hráče. Přátelé mohou používat Držení a Převod navzájem, nevztahují se na ně změny cti a vidí se v seznamu přátel.</p>
+        <p>Pokud to vesmír zapne, hráči, kteří jsou offline déle než 7 dnů (mimo režim dovolené), se automaticky odstraní ze seznamů přátel a z aliancí.</p>
+  '10':
+    category: "Ochrana a dovolená"
+    icon: "shield-check"
+    '1':
+      title: "Ochrana nováčků a psanci"
+      body: |-
+        <p>Ochrana se řídí <b>body</b>. Ve výchozím nastavení je hráč chráněn, když má 5 000 bodů nebo méně <b>a</b> druhý hráč má víc než pětinásobek jeho bodů. Obě čísla jsou nastavení vesmíru a celou ochranu lze vypnout.</p>
+        <ul>
+        <li>Týká se útoků, útoků aliance, ničení měsíců, držení, špehování, raketových útoků a skenů senzorové falangy.</li>
+        <li>Platí oběma směry: pokud jsi <i>ty</i> pod bodovým limitem a druhý hráč má víc než pětinásobek tvých bodů, ani ty na něj nemůžeš útočit (pokud vesmír nepoužívá systém psanců, viz níže).</li>
+        <li>Ochrana neplatí pro zabanované hráče a ve výchozím nastavení ani pro hráče, kteří byli offline 7 dnů.</li>
+        <li>Pohled Galaxie označuje chráněné hráče (N = slabý, S = silný).</li>
+        </ul>
+        <h2 id="outlaw">Psanci</h2>
+        <p>Pokud vesmír používá systém psanců, může slabý hráč přesto zaútočit na mnohem silnějšího. Stane se pak <b>psancem</b>: ochrana se na něj 2 dny (poprvé) nebo 7 dnů (pokaždé další) nevztahuje, takže silný hráč může oplatit úder.</p>
+    '2':
+      title: "Limit útoků"
+      body: |-
+        <p>Limit útoků (bash limit) brání opakovaným útokům na stejný cíl. Ve výchozím nastavení můžeš zaútočit na stejnou <b>planetu nejvýše 6krát za 24 hodin</b>; lze nastavit i limit na hráče (ve výchozím nastavení vypnutý). Raketové útoky se počítají, pokud to vesmír nevypne.</p>
+        <ul>
+        <li>Několik flotil jedné skupiny ACS se počítá jako jeden útok.</li>
+        <li>Špionáž jedinou sondou se nepočítá.</li>
+        <li>Neaktivní cíle (7 dnů) nejsou chráněné.</li>
+        <li>Pokud má vesmír „války ruší limit útoků“, nepočítají se ani útoky mezi aliancemi ve válce.</li>
+        </ul>
+    '3':
+      title: "Ochrana obnovy"
+      body: |-
+        <p>Ve výchozím nastavení vypnutá. Pokud ji vesmír zapne (vyžaduje ochranu nováčků), hráč, který v jednom souboji přijde o většinu majetku, získá <b>ochranu obnovy</b>: víc než 70&nbsp;% hodnoty své flotily a obrany, nebo víc než 80&nbsp;% své přepravní kapacity, a alespoň minimální hodnotu, která sleduje limit ochrany nováčků (nejvýše 5 000 000 jednotek).</p>
+        <ul>
+        <li>Začíná 3 hodiny po souboji (6 hodin pro hráče, kteří na něj zaútočili) a končí 48 hodin po souboji. Po tu dobu na něj nelze útočit.</li>
+        <li>Hráč ji může ukončit předčasně.</li>
+        <li>Spustí se nejvýše jednou za měsíc a ne, pokud jsou všichni protivníci s poraženým spojeni (stejná IP, zařízení nebo multi skupina, aliance, přítel).</li>
+        </ul>
+    '4':
+      title: "Režim dovolené"
+      body: |-
+        <p>Režim dovolené zmrazí tvůj účet, dokud jsi pryč. Zapneš ho v <b>Možnostech</b>.</p>
+        <ul>
+        <li>Nesmíš mít <b>žádné flotily</b> na cestě.</li>
+        <li>Produkce se zastaví na všech planetách; fronty se pozastaví a po tvém návratu pokračují. Flotily držící na tvých planetách se pošlou domů.</li>
+        <li>Nepřátelské mise proti tobě se otočí (útoky, špehování, rakety).</li>
+        <li>Odejít z něj můžeš až po minimální době (ve výchozím nastavení 48 hodin).</li>
+        <li>Po návratu se produkce na všech planetách obnoví na 100&nbsp;%. Po dobu tvé nepřítomnosti se nic neprodukuje.</li>
+        <li>Pokud to vesmír zapne, hráči v režimu dovolené, kteří byli offline 28 dnů, jsou z něj odstraněni.</li>
+        </ul>
+        <p>Dlouho neaktivní účty se mažou i tak, ať už jsou na dovolené, nebo ne, viz <a href="game/faq/11/2">Neaktivita a smazání účtu</a>.</p>
+    '5':
+      title: "Pushing a obchodní limity"
+      body: |-
+        <p>Pushing znamená krmit jiného hráče (často druhý účet) surovinami nebo loděmi. Je to proti pravidlům a kontroluje se automaticky.</p>
+        <ul>
+        <li>Ve výchozím nastavení se transport, držení nebo převod jinému hráči odmítne, pokud jsi mu za posledních 7 dnů poslal o víc než 100 000 (v ekvivalentu deuteria) víc hodnoty, než poslal zpět on.</li>
+        <li>Obchody na tržišti musí zůstat v toleranci pushingu vesmíru (nabízená a požadovaná hodnota musí být blízko sebe).</li>
+        <li>Účty se stejnou IP, zařízením nebo multi skupinou jsou propojené a posuzují se přísněji.</li>
+        </ul>
+        <p>Pravidla vesmíru najdeš na stránce Pravidla.</p>
+  '11':
+    category: "Účet a nastavení"
+    icon: "user-cog"
+    '1':
+      title: "Nastavení účtu"
+      body: |-
+        <p>Otevři <b>Možnosti</b> pro:</p>
+        <ul>
+        <li><b>Uživatelské údaje</b>: uživatelské jméno (jen písmena a číslice, lze měnit jednou za 7 dnů), e-mailovou adresu, nové heslo (alespoň 8 znaků; pro změny potřebuješ aktuální heslo), jazyk, časové pásmo a motiv.</li>
+        <li><b>Obecné</b>: řazení planet, ztlumení nedostupných položek, filtry loděnice, souhrnné špionážní zprávy, možnosti zpráv, blokování soukromých zpráv a <b>rozhraní pro začátečníky</b> (zjednodušené menu, které odemyká položky, jak postupuješ tutoriálem).</li>
+        <li><b>Galaxie a špehování</b>: kolik sond se posílá z pohledu Galaxie a jak stará smí špionážní zpráva být, aby platila jako čerstvá nebo nedávná.</li>
+        <li><a href="game/faq/10/4">Režim dovolené</a> a smazání účtu (&quot;Nebezpečná zóna&quot;).</li>
+        </ul>
+    '2':
+      title: "Neaktivita a smazání účtu"
+      body: |-
+        <ul>
+        <li>Po <b>7 dnech</b> bez přihlášení se hráč ukazuje jako neaktivní (i); po <b>28 dnech</b> jako dlouho neaktivní (I). Neaktivní hráče nechrání limit útoků a ve výchozím nastavení ani bodová ochrana.</li>
+        <li>Po <b>90 dnech</b> offline (nastavení vesmíru, 0 = nikdy) se účet automaticky smaže, spolu s planetami a flotilami.</li>
+        <li>Pokud o smazání požádáš sám v Možnostech, proběhne nejdřív za 7 dnů (nastavení vesmíru); mezitím ho můžeš zrušit.</li>
+        </ul>
+    '3':
+      title: "Statistiky a body"
+      body: |-
+        <p>Stránka Statistiky řadí hráče a aliance podle celkových bodů a podle budov, výzkumu, flotily a obrany. Aktualizují se podle plánu, ne živě.</p>
+        <ul>
+        <li>Body = investované suroviny děleno 1 000 (výchozí; nastavení vesmíru).</li>
+        <li>Body aliance se počítají jen z členů, kteří byli online během 7 dnů.</li>
+        <li>Rekordy ukazují nejvyšší úrovně budov a výzkumu ve vesmíru.</li>
+        <li>Pokud to vesmír zapne, některé statistiky jsou vidět jen s dostatečnou špionážní technologií.</li>
+        </ul>
+    '4':
+      title: "Další pomoc"
+      body: |-
+        <!--wiki_url--><h2 id="wiki">Wiki a komunita</h2><p><a href="{wiki_url}/wiki/En/Hauptseite" target="_blank">Úvod wiki</a>, <a href="{wiki_url}/wiki/En/Buildorder" target="_blank">pořadí stavby</a>, <a href="{wiki_url}/wiki/En/Saven" target="_blank">záchrana flotily</a>, <a href="{wiki_url}/wiki/En/Expoanleitung" target="_blank">expedice</a>.</p><!--/wiki_url-->
+        <h2 id="support">Podpora</h2>
+        <p>Otázky k účtu nebo chyby: otevři ticket na stránce <b>Podpora</b>. Než začneš přepadat, obchodovat nebo používat víc účtů, přečti si stránku <b>Pravidla</b>.</p>

@@ -1,0 +1,783 @@
+bonus:
+  Attack: Támadás
+  BuildTime: 'Építési idő'
+  Defensive: Védelem
+  DefensiveTime: 'Védelem építési ideje'
+  Energy: 'Energiatermelés'
+  Expedition: Expedíciók
+  FleetSlots: 'Flottahelyek'
+  FlyTime: 'Repülési idő'
+  GateCoolTime: Ugrókapu töltési ideje
+  MoreFound: 'Expedíciós zsákmány'
+  Planets: Bolygók
+  ResearchTime: Kutatási idő
+  Resource: 'Nyersanyagtermelés'
+  ResourceStorage: Nyersanyag-tárolókapacitás
+  Shield: Pajzs
+  ShipStorage: 'Hajók rakterülete'
+  ShipTime: 'Hajók építési ideje'
+  SpyPower: Kémkedési erő
+longDescription:
+  '1': >-
+    A fémbányák kitermelik azt az ércet, amelyre minden induló és kiforrott
+    birodalom épül.
+  '2': >-
+    A kristály az elektronikus áramkörök és bizonyos ötvözetek kulcsfontosságú
+    alapanyaga.
+  '3': >-
+    A deutérium hajtja az űrhajóidat, és a mélytengerből nyerik ki. Ritka
+    anyag, ezért viszonylag drága.
+  '4': >-
+    A naperőművek a napfényt energiává alakítják. Minden bányának energia kell
+    a működéshez.
+  '6': >-
+    Alapértelmezés szerint minden szint 8%-kal rövidíti a kutatási időt.
+  '12': >-
+    A fúziós erőmű deutérium egyesítésével termel energiát. Több energiát ad,
+    mint a Naperőmű, de drágább megépíteni. A teljesítmény az Energiatechnikával
+    és az erőmű saját szintjével nő. Az energiatermelés képlete:<br>
+    Termelt energia = 30 x Fúziós erőmű szintje x (1,05 + (0,01 * Energiatechnika
+    szintje))^Fúziós erőmű szintje
+  '14': >-
+    A robotgyárak építőrobotokat adnak, amelyek segítenek az épületek
+    felhúzásában. Minden szint gyorsítja az épületek fejlesztését.
+  '15': >-
+    A robotika csúcsa. Minden szint felezi az épületek, hajók és védelmi
+    rendszerek építési idejét.
+  '21': 'Minden hajó és védelmi rendszer a bolygói hajógyárban készül.'
+  '22': A felesleges Fémet tárolja.
+  '23': A felesleges Kristályt tárolja.
+  '24': 'A felesleges Deutériumot tárolja.'
+  '31': >-
+    Új technológiák kutatásához kutatólabor kell. A labor szintje szabja meg,
+    milyen gyorsan kutatsz, és mely technológiákat nyithatod meg. A kutatás
+    abban a laborban fut, ahol elindítod, az eredmény viszont az összes
+    bolygódra érvényes. Amíg egy kutatás folyik, egyetlen kutatólabor sem
+    fejleszthető.
+  '33': >-
+    A Terraformer megnöveli a bolygó használható területét. Minden szint 5 plusz
+    mezőt ad, és minden páros szinten még egyet. A Terraformer minden szintje
+    maga is elfoglal egy mezőt.<br>Az építéséhez energia kell, de az nem
+    fogy el: a bolygódnak csak elég energiát kell termelnie (az 1. szinthez
+    1000-et, majd szintenként duplázva), akkor is, ha a bányáid már használják.
+    Ha egyszer megépült, a Terraformert soha nem lehet lebontani.
+  '34': "A Szövetségi raktár lehetővé teszi, hogy deutériummal lásd el a bolygódon állomásozó baráti flottákat, és így meghosszabbítsd a tartózkodásukat. Az épület oldaláról nyisd meg: minden állomásozó flottához 1 órától a raktár szintjének megfelelő óraszámig választhatsz, és az órák számának és a flotta óránkénti állomásozási költségének szorzatát fizeted a bolygód deutériumából. Az óránkénti állomásozási költség a flotta hajói alap üzemanyag-fogyasztásának összegének egytizede, felfelé kerekítve. Egy flottát újra és újra el lehet látni, de soha nem lehet több, mint 32 óra hátralévő tartózkodása. Csak más játékosok olyan flottáit lehet ellátni, amelyek éppen a bolygód pályáján vannak."
+  '35': >-
+    A javítódokk megjavíthatja a csatában megsemmisült hajókat, amelyek
+    roncsmezőt hagytak maguk után. Egy javítás legfeljebb 12 óráig tart, és
+    legkorábban 30 perccel a roncsmező megjelenése után fejeződhet be.<br>Ha
+    megjelenik a roncsmező, 3 napod van a javítás elindítására. A javítás
+    végén a hajókat neked kell visszaállítanod szolgálatba. Ha nem teszed,
+    3 nap után maguktól visszaállnak.
+  '41': >-
+    A Holdon nincs légkör, és egy friss Holdon csak egyetlen épületnek van hely,
+    ezért a Holdbázissal kezdj. Minden szint 3 plusz mezőt ad, és maga is
+    elfoglal egy mezőt. Ha egyszer megépült, a Holdbázist soha nem lehet
+    lebontani.
+  '42': >-
+    A szenzorfalanx lehetővé teszi a flottamozgások megfigyelését. Minél
+    magasabb a szint, annál nagyobb a Falanx hatótávja: alapértelmezés szerint
+    (Falanx szintje)^2 - 1 rendszer, így az 1. szint csak a Hold saját
+    rendszerét fedi le. Egy letapogatás 5000 deutériumba kerül, aminek a Holdon
+    kell lennie. A letapogatáshoz nyisd meg a galaxisnézetet a Holdról, és
+    kattints egy hatótávon belüli bolygóra. Magukat a Holdakat nem lehet a
+    Falanxszal letapogatni, mert nincs légkörük.<br><br>A Falanx azokat a
+    flottákat mutatja, amelyek a letapogatott bolygóról indulnak vagy oda
+    tartanak: mikor érkeznek meg, mikor ér véget egy állomásozás, és mikor
+    térnek haza a tulajdonos flottái. Az állomásoztatásokat és a rakétákat soha
+    nem mutatja, és a bolygóra tartó hasznosító vagy kereskedelmi járatokat
+    sem.
+  '43': >-
+    Az ugrókapuk hatalmas adók, amelyek nagy flottákat küldenek át az
+    univerzumon időveszteség nélkül. Nem használnak deutériumot, de
+    nyersanyagot így nem lehet átvinni. Mindkét kapunak készen kell állnia:
+    ugrás után minden kapunak pihennie kell, ami alapértelmezés szerint az 1.
+    szinten 60 perc, és minden szinttel rövidül, a 15. szinttől 10 percre.
+  '44': >-
+    A rakétasilók tárolják a rakétáidat. Alapértelmezés szerint minden szint 10
+    helyet ad. Egy Elhárító rakéta 1 helyet foglal, egy Bolygóközi rakéta 2-t.
+  '106': >-
+    Ez a technológia információt gyűjt más bolygókról és holdakról. Amikor
+    szondákat küldesz, a Kémtechnikád összevetődik a célpontéval: minél
+    magasabb a szinted, annál több információ kerül a jelentésbe, és annál
+    kisebb az esélye, hogy lelepleződnek a szondáid. Több szonda több részletet
+    árul el, de nő a lelepleződés kockázata. A Kémtechnika bizonyos szintjein az
+    Áttekintés képernyőn az idegen flottákról is többet tudsz meg:<br><br><li>A
+    0-1. szinten csak azt látod, hogy egy flotta közeledik a bolygód felé</li><li>A
+    2-3. szinten látod, hány hajó közeledik</li><li>A 4-7. szinten látod, milyen
+    típusú hajók vannak a flottában</li><li>A 8. szinttől látod, hány hajó van
+    az egyes típusokból a flottában</li>
+  '108': >-
+    A jobb számítógépekkel több flottát irányíthatsz. A Számítógép-technika
+    minden szintje eggyel növeli a flottáid maximális számát.
+  '109': >-
+    A Fegyverrendszer hatékonyabbá teszi a fegyvereket. Minden szint az összes
+    egység fegyvererejét az alapérték 10%-ával növeli.
+  '110': >-
+    A Pajzstechnika hatékonyabbá teszi a hajók és védelmi építmények pajzsait.
+    Minden szint a pajzserősséget az alapérték 10%-ával növeli.
+  '111': >-
+    A különleges ötvözetek javítják a hajók és védelmi építmények páncélzatát.
+    Minden szint 10%-kal növeli a páncél hatékonyságát.
+  '113': >-
+    A különféle energiafajták uralása számos új technológia kulcsa. Az
+    Energiatechnika minden szintje a Fúziós erőmű energiatermelését is növeli.
+  '114': >-
+    A 4. és 5. dimenzió integrálásával olyan új hajtóművet kutathatsz ki, amely
+    takarékosabb és hatékonyabb.
+  '115': >-
+    Ennek a hajtóműnek a fejlesztése néhány hajót gyorsabbá tesz, de minden
+    szint csak az alapsebesség 10%-át adja hozzá. Érintett hajók: Kis szállító,
+    Nagy szállító, Könnyű harcos, Szemetes és Kémszonda (a Kis szállító és a
+    Szemetes később jobb hajtóműre vált).
+  '117': >-
+    Az impulzushajtómű a reakcióelven működik. További fejlesztése néhány
+    hajót gyorsabbá tesz, de minden szint csak az alapsebesség 20%-át adja
+    hozzá: Bombázó, Cirkáló, Nehéz harcos és Kolóniahajó, valamint a Kis szállító
+    és a Szemetes, miután erre a hajtóműre váltanak. A Bolygóközi rakéták is
+    messzebbre repülnek minden szinttel.
+  '118': >-
+    A hipertérhajtómű meghajlítja a teret a hajó körül. A fejlesztése néhány
+    hajót gyorsabbá tesz, de minden szint csak az alapsebesség 30%-át adja
+    hozzá: Csatacirkáló, Csatahajó, Romboló, Halálcsillag, Fekete Hold, Harci
+    szállító, Avatár és Harci szemetes, valamint a Bombázó és a Szemetes, miután
+    erre a hajtóműre váltanak. Hipertértechnikát (3. szint) és Kutatólabort
+    (7. szint) igényel.
+  '120': >-
+    A fókuszált fény olyan nyalábot hoz létre, amely kárt tesz mindenben, amit
+    eltalál. Kutatólabort (1. szint) és Energiatechnikát (2. szint) igényel.
+  '121': 'Gyorsított ionok halálos nyalábja, amely becsapódáskor óriási kárt okoz.'
+  '122': >-
+    Az iontechnológia továbbfejlesztése, amely nagy energiájú plazmát gyorsít,
+    amit az ionok túlhevítésével hoznak létre. Pusztító hatású becsapódáskor.
+  '123': >-
+    A különböző bolygókon dolgozó kutatók ezen a hálózaton tartják a kapcsolatot.
+    Minden szint még egy labort csatlakoztat ahhoz a laborhoz, ahol elindítod a
+    kutatást. A legmagasabb szintű laborokat választja ki, és a hálózatba kötött
+    labornak elég fejlettnek kell lennie ahhoz, hogy az adott kutatást önállóan
+    is el tudja végezni. A szintjeik összeadódnak a kutatási idő kiszámításához.
+  '124': >-
+    Az Asztrofizika kutatás megnyitja a gyarmatosítást és a mélyűri
+    expedíciókat. Az alábbi kolóniakorlát, tartózkodási idő és pozíciók az
+    alapbeállítások; az univerzumod eltérhet.<br><br> <li>Kolóniakorlát</li> 1-2.
+    szint = 2 bolygó<br> 3-4. szint = 3 bolygó<br> 5-6. szint = 4 bolygó<br>
+    7-8. szint = 5 bolygó<br> 9-10. szint = 6 bolygó<br> 11-12. szint = 7
+    bolygó<br> 13-14. szint = 8 bolygó<br> 15-16. szint = 9 bolygó<br> 17-18.
+    szint = 10 bolygó<br> 19-20. szint = 11 bolygó<br> 21+. szint = 12
+    bolygó<br><br> <li>Expedíciós helyek</li> 1-3. szint = 1 expedíció<br> 4-8.
+    szint = 2 expedíció<br> 9-15. szint = 3 expedíció<br> 16-24. szint = 4
+    expedíció<br>(minden további négyzetszámú szinten eggyel több: 25, 36,
+    ...)<br><br> <li>Expedíciós tartózkodási idő</li> Szint = max.
+    tartózkodási idő órában<br><br> <li>Gyarmatosítható pozíciók</li> 1-3. szint
+    = 4-12<br> 4-5. szint = 3-13<br> 6-7. szint = 2-14<br> 8+. szint = 1-15
+  '131': >-
+    Szintenként 2%-kal növeli a Fémtermelést.
+  '132': >-
+    Szintenként 2%-kal növeli a Kristálytermelést.
+  '133': >-
+    Szintenként 2%-kal növeli a Deutériumtermelést.
+  '134': >-
+    Szintenként 2%-kal csökkenti a repülési költségeket.
+  '199': >-
+    A gravitonrészecskék koncentrált töltetének kilövése mesterséges
+    gravitációs teret hoz létre, amely hajókat, sőt holdakat is elpusztíthat.
+    Kutatólabort (12. szint) igényel.
+  '202': >-
+    A Kis szállító fürge hajó, amely gyorsan viszi a nyersanyagot más
+    bolygókra.<br>Égésmotorral repül, amíg az Impulzushajtóműved el nem éri az
+    5. szintet. Onnantól impulzushajtóműre vált, ami duplázza az
+    alapsebességét.
+  '203': >-
+    Ez a teherhajó sokkal többet szállít, mint a Kis szállító, és a jobb
+    hajtóműnek köszönhetően általában gyorsabb is.
+  '204': >-
+    Az első harci hajó, amit minden császár megépít. A Könnyű harcos fürge, de
+    egyedül sebezhető; nagy számban viszont valódi fenyegetést jelent bármely
+    birodalomnak. A Könnyű harcosok kísérik elsőként a Kis és Nagy szállítókat
+    a gyengén védett ellenséges bolygókra.
+  '205': 'Ez a vadászgép jobb páncélzatú, és erősebben üt, mint a Könnyű harcos.'
+  '206': >-
+    A Cirkálók páncélzata majdnem háromszorosa a Nehéz harcosokénak, tűzereje
+    pedig több mint kétszeres. Nagyon gyorsak is.
+  '207': >-
+    A Csatahajók a flotta gerincét adják. A nehéz ágyúk, a nagy sebesség és a
+    nagy raktér komoly ellenféllé teszi őket.
+  '208': >-
+    Ez a jól páncélozott hajó új bolygókat hódít meg, amelyekre egy fejlődő
+    birodalomnak szüksége van a növekedéshez. Az új kolónián a hajót szétszerelik,
+    és minden újrahasznosítható anyag az új világ fejlesztésébe megy. Hány
+    bolygót gyarmatosíthatsz, az közvetlenül az Asztrofizika kutatástól függ: az
+    első szint és utána minden második szint újabb kolóniát enged
+    (alapértelmezés szerint).
+  '209': >-
+    A Szemetes nyersanyagot gyűjt a törmelékmezőkről. A rakománykapacitása
+    20 000. Égésmotorral indul, impulzushajtóműre vált, ha az Impulzushajtóműved
+    eléri a 17. szintet, és hipertérhajtóműre, ha a Hipertérhajtóműved eléri a
+    15. szintet.
+  '210': >-
+    A kémszondák kicsi, fürge drónok, amelyek nagy távolságból szállítanak
+    adatot flottákról és bolygókról.
+  '211': >-
+    A Bombázót kifejezetten a bolygók védelmének lerombolására építették.<br>
+    Impulzushajtóművel repül, és hipertérhajtóműre vált, ha a Hipertérhajtóműved
+    eléri a 8. szintet.
+  '212': >-
+    A napműholdak magas, állónyugvó pályán lévő napelemes egyszerű platformok.
+    Összegyűjtik a napfényt, és lézerrel sugározzák le a földi állomásra.
+  '213': >-
+    A Romboló a harcihajók királya. A Kis lézerágyúk ellen gyorstüze van: minden
+    találat után 10-ből 9 esetben újabb lövést kap.
+  '214': >-
+    A Halálcsillag pusztítóereje páratlan, és holdakat is képes elpusztítani.
+  '215': 'A Csatacirkáló az ellenséges flották elfogására specializálódott.'
+  '216': >-
+    A népszerű Halálcsillag utódja: sokkal gyorsabb és szívósabb, hatalmas
+    raktérrel, de valamivel gyengébben üt.
+  '217': >-
+    A Nagy szállító továbbfejlesztése, jóval nagyobb szállítókapacitással.
+    Hipertérhajtóművel megy, így lassabban indul, mint a Nagy szállító, de
+    ahogy a Hipertérhajtóműved szintet lép, elhúz mellette.
+  '218': 'A lehető legrosszabb forgatókönyv, igaz, nagyon lassú.'
+  '219': >-
+    A hatalmas raktér és az új hajtóművek gyorsabb repülést és több nyersanyag
+    begyűjtését teszik lehetővé a törmelékmezőkből.
+  '220': >-
+    Az Acélkolosszus igazi erőd az űrben, törhetetlen pajzsokkal és masszív
+    páncéllal védve. A legvadabb támadások is lepattannak róla, ahogy
+    megállíthatatlanul halad előre. De ennek a védelmi fölénynek ára van:
+    a fegyverzete alig említésre méltó, a lomha hajtóművei pedig lassú óriássá
+    teszik. Villámcsapások és fürge manőverek helyett a nyers állóképességre
+    épít. Aki meg akarja állítani, annak nagy kitartás kell – vagy elsöprő
+    tűzerő.
+  '221': >-
+    A Viharpenge csúcskategóriás vadász: hihetetlenül gyors és könyörtelenül
+    felfegyverzett. Az ellenfelek alig látják, mielőtt lecsap. A védelem
+    másodlagos – nem kell kibírnia azt, amit egyszerűen lehagyhat. Egyetlen
+    célpontja a szállítók és szemetesek, amelyeket ellenállás nélkül megsemmisít.
+    Vakító sebességével kedve szerint csap le, és eltűnik, mielőtt megérkezne az
+    erősítés. Akit a Viharpenge megcéloz, annak alig van esélye a menekülésre.
+  '222': >-
+    A Nehéz cirkáló a szokásos cirkáló megerősített evolúciója. A javított
+    pajzsokkal és erős fegyverzettel megállja a helyét a esetlen ellenfelekkel
+    szemben. Akkor ragyog igazán, ha Acélkolosszusok, Rombolók és Bombázók mellett
+    veted be, ahol a tűzereje valóban érvényesül. Az ereje ellenére azonban lassú
+    és kevésbé mozgékony marad.
+  '223': >-
+    A Pajzsdrón új megközelítés a flottavédelemben, elsősorban a legénység
+    védelmére összpontosítva. Az innovatív, de nehéz pajzstechnológiák jelentősen
+    csökkentették a repülési sebességet és a mozgékonyságot. A gyenge sebessége
+    és fürgesége ellenére nagyon hatékony védekezésben. A megvénült szerkezetet a
+    végsőkig feszegették, hogy szinte áthatolhatatlan védelmet nyújtson.
+  '224': >-
+    A Rögtönzött rohamszállító egy kipróbálatlan szállítóhajó minimális
+    fegyverzettel, kifejezetten arra készült, hogy felzavarja a gondatlan,
+    felkészületlen szomszédokat. Ez a barkácsolt jármű nem hosszú távú
+    használatra való, hanem gyors, hirtelen támadásokra, amelyek azonnali
+    reakciót váltanak ki. Egy szomszédvita gyakorlatilag garantált, amint
+    bevetik. A korlátozott felszerelésével és kiszámíthatatlan természetével
+    veszélyes eszköz a gyors konfliktus-eszkalációhoz.
+  '225': >-
+    A Viharszállító a technológia igazi csodája, amely tökéletes egyensúlyt
+    kínál a harci erő, a sebesség és a szállítókapacitás között. Képes gyorsan
+    csapatokat és nyersanyagot telepíteni, miközben lenyűgöző tűzerőt visz a
+    csatatérre, ezért minden erős flotta nélkülözhetetlen eleme lett. Legyen szó
+    gyors rohamegységekről vagy hosszú távú műveletek támogatásáról, a
+    Viharszállító a hatékony hadviselés kulcsa, és minden flottában
+    abszolút kötelező.
+  '226': >-
+    A Kolosszális harci szállító a mérnöki munka csúcsa. A kissé robusztus
+    kialakítása és az ebből adódó lassú repülési sebessége ellenére ez a
+    legnehezebben páncélozott harci szállító, amit valaha láttak bármelyik
+    flottában. Elsöprő tűzereje megállíthatatlan erővé teszi a csatatéren. Ez a
+    behemót könnyedén áttöri az ellenséges vonalakat, miközben maximális
+    védelmet nyújt a legénységének. Az erőt és a rugalmasságot testesíti meg,
+    így minden erősen felfegyverzett flotta nélkülözhetetlen értéke.
+  '227': >-
+    Az Optimalizált szemetes a hagyományos szemetes csúcstechnológiás
+    fejlesztése. Erős impulzushajtóművével gyorsabban és gazdaságosabban éri el
+    a törmelékmezőket, így minden fejlett flotta nélkülözhetetlen tagja. Az
+    optimalizált kialakítás csökkenti az építési költséget, miközben növeli a
+    nyersanyag-visszanyerés hatékonyságát. A játék közepétől elérhető, és
+    stratégiai előnyt ad minden terjeszkedő birodalomnak.
+  '228': >-
+    Az Omega szemetes az újrahasznosító technológia csúcsa – de magas áron.
+    Erős hipertérhajtóműve rekordidő alatt eljuttatja a törmelékmezőkhöz, és
+    bármelyik másik hajónál gyorsabban menti ki a nyersanyagokat. Ez a sebesség
+    azonban a hatékonyság rovására megy: az építési és üzemanyagköltsége
+    óriási, így csak gazdag parancsnokok számára életképes a játék végén. Akinek
+    a sebesség többet ér a költségnél, annak ez a legvégső Szemetes.
+  '229': >-
+    A Xer uralmának megtörésére fejlesztették ki: a Viperát a Könnyű harcosok,
+    Nehéz harcosok és Cirkálók ellen vetik be. A gyorstüzelő ágyúival és a fejlett
+    technológiájával az univerzumban eltolja az erőviszonyokat.
+  '230': >-
+    Gyors. Pontos. Érinthetetlen. Az Elfogó nem a tisztességes harcokra épült –
+    arra tervezték, hogy gyorsan és keményen csapjon le, szempillantás alatt
+    elsöprő előnyt teremtve.
+  '231': >-
+    A Behemót évtizedes gravitonkutatás eredménye, könyörtelen harci platformmá
+    alakítva. A Halálcsillagokkal ellentétben nem bolygórombolásra tervezték,
+    hanem a csatatéri hatékonyság maximumára. A holdrombolásához szükséges
+    energiaigényes rendszerek elhagyásával a szerkezetét jelentősen
+    könnyítették, így erősebb hajtóművek, nagyobb mozgékonyság és nagyobb tűzerő
+    fért bele. A kompakt gravitonágyújával mobil pusztítógép, amely egymaga képes
+    még hatalmas flottákat is megsemmisíteni.
+  '232': >-
+    Az Űrtitán a modern gravitontechnológia csúcsa. Kialakításának minden
+    eleme egyetlen célt szolgál: az ellenséges holdak gyors megsemmisítését.
+    A hagyományos fegyvertornyokat szándékosan kihagyták a tömeg csökkentésére,
+    hogy helyet adjanak a hatalmas kristálygenerátoroknak. Ezek hajtják az
+    ismert galaxisok legfejlettebb gyorsítótekercseit, páratlan mozgékonyságot
+    adva a hajónak. A hatalmas kristályigény minden Űrtitánt monumentális ipari
+    teljesítménnyé tesz – és a határtalan pusztítóerő szimbólumává.
+  '401': >-
+    A Rakétakilövő egyszerű, de költséghatékony védelem. Egy csata után a
+    megsemmisült védelmi rendszerek átlagosan mintegy 70%-át újjáépítik.
+  '402': >-
+    A kis lézerágyúk egyszerű földi fegyverek. Speciális célzórendszerek követik
+    az ellenséget, és egy nagy intenzitású lézer átvágja a célpont hajótestét.
+    Egy csata után a megsemmisült védelmi rendszerek átlagosan mintegy 70%-át
+    újjáépítik.
+  '403': >-
+    A Nagy lézerágyú a Kis lézerágyú praktikus, továbbfejlesztett változata. Egy
+    csata után a megsemmisült védelmi rendszerek átlagosan mintegy 70%-át
+    újjáépítik.
+  '404': >-
+    A Gauss-ágyú rendkívül nagy sebességgel lő nagy sűrűségű fémlövedékeket.
+    Egy csata után a megsemmisült védelmi rendszerek átlagosan mintegy 70%-át
+    újjáépítik.
+  '405': >-
+    Az ionágyú ionok (pozitív vagy negatív töltésű részecskék) nyalábjait lövi
+    ki. Egy csata után a megsemmisült védelmi rendszerek átlagosan mintegy
+    70%-át újjáépítik.
+  '406': >-
+    A Plazmatorony egy nagy atomreaktor-üzemanyagcellával hajt meg egy
+    elektromágneses gyorsítót, amely plazmaimpulzusokat (toroidokat) lő ki. Egy
+    csata után a megsemmisült védelmi rendszerek átlagosan mintegy 70%-át
+    újjáépítik.
+  '407': >-
+    A Kis pajzskupola az egész bolygót beburkolja egy olyan mezőbe, amely
+    óriási mennyiségű energiát nyel el. Bolygónként csak egy építhető.
+  '408': >-
+    A Nagy pajzskupola továbbfejlesztett változat, amelynek jóval több energia
+    kell a támadások kivédéséhez. Bolygónként csak egy építhető.
+  '409': >-
+    A pajzskupola-technológia evolúciója. Sokkal több energiát használ, de több
+    támadást bír ki, mint bármelyik másik pajzs. Bolygónként csak egy építhető.
+  '410': >-
+    Évekig tartó gravitációs kutatás után a tudósok kifejlesztettek egy
+    gravitonágyút, amely kicsi, koncentrált gravitonmezőt hoz létre, és az
+    ellenségre lövi.
+  '411': >-
+    Mozdíthatatlan védelmi platform saját hajtóerő nélkül, amelyet a gravitáció
+    tart stabil pályán a bolygó körül. Ennek a folyamatnak az elindítása óriási
+    mennyiségű energiát igényel. Bolygónként csak egy építhető.
+  '412': >-
+    A Bunker erősen megerősített építmény, amelyet a legerősebb támadások
+    kivédésére terveztek. Páratlan védelmet nyújt a bolygó lakóinak és
+    kritikus infrastruktúrájának, így a bolygóvédelem alapköve.
+  '413': >-
+    A Titán lézer páratlan pusztítóerejű, kolosszális fegyver.
+  '414': >-
+    A Csali kifinomult védelmi rendszer, amelyet az ellenséges erők félrevezetésére
+    és összezavarására terveztek. Azzal, hogy Rakétakilövőnek álcázza magát,
+    elriasztja a támadásokat.
+  '502': >-
+    Az Elhárító rakéták megsemmisítik a beérkező Bolygóközi rakétákat.
+    Bolygóközi rakétánként egy Elhárító rakéta kell.
+  '503': >-
+    A Bolygóközi rakéták lerombolják az ellenfél védelmét, hacsak Elhárító
+    rakéták le nem lövik őket. Az így megsemmisült védelmi rendszereket nem
+    építik újjá. Alapértelmezés szerint a hatótávjuk (naprendszerekben) az
+    Impulzushajtóműved szintjétől függ:<br>Hatótáv = (5 x Impulzushajtómű
+    szintje) - 1
+  '901': >-
+    A Fém az épületek és hajók fő nyersanyaga. Ez a legolcsóbb nyersanyag, de
+    a legtöbbre is ez kell, és a kristályhoz hasonlóan ennek a termeléséhez kell
+    a legkevesebb energia. Minél nagyobbak a bányák, annál mélyebbre ásnak a
+    földbe.
+  '902': >-
+    A Kristály az elektronikus áramkörök és bizonyos ötvözetek fő nyersanyaga.
+    Föld alatti bányákban termelik, ahol a nyersanyagból azonnal áramkörök
+    lesznek.
+  '903': >-
+    A Deutérium a legmélyebb tengerekben található, és az univerzum egyik
+    legritkább nyersanyaga. A tenger fenekéig kell lejutni érte, ezért ez a
+    legdrágább nyersanyag.
+  '911': 'Minden nyersanyag termeléséhez energia kell.'
+secureResources: >-
+  A raktárépületek minden szintje megvédi az adott nyersanyag napi termelésének
+  1%-át a fosztogatástól támadások során, legfeljebb 10%-ig.
+shortDescription:
+  '1': >-
+    A fémbányák kitermelik azt az ércet, amelyre minden induló és kiforrott
+    birodalom épül.
+  '2': >-
+    A kristály az elektronikus áramkörök és bizonyos ötvözetek kulcsfontosságú
+    alapanyaga.
+  '3': >-
+    A deutérium hajtja az űrhajóidat, és a mélytengerből nyerik ki. Ritka
+    anyag, ezért viszonylag drága.
+  '4': >-
+    A naperőművek a napfényt energiává alakítják. Minden bányának energia kell
+    a működéshez.
+  '6': >-
+    Alapértelmezés szerint minden szint 8%-kal rövidíti a kutatási időt.
+  '12': A Fúziós erőmű deutérium-üzemanyag egyesítésével termel energiát.
+  '14': >-
+    A robotgyárak építőrobotokat adnak, amelyek segítenek az épületek
+    felhúzásában. Minden szint gyorsítja az épületek fejlesztését.
+  '15': >-
+    A robotika csúcsa. Minden szint felezi az épületek, hajók és védelmi
+    rendszerek építési idejét.
+  '21': 'Minden hajó és védelmi rendszer a bolygói hajógyárban készül.'
+  '22': A felesleges Fémet tárolja.
+  '23': A felesleges Kristályt tárolja.
+  '24': 'A felesleges Deutériumot tárolja.'
+  '31': 'Új technológiák kutatásához kutatólabor kell.'
+  '33': >-
+    A Terraformer megnöveli a bolygó használható területét: szintenként 5 plusz
+    mezőt, és minden páros szinten még egyet. Minden szint maga is elfoglal egy
+    mezőt.
+  '34': "A Szövetségi raktár lehetővé teszi, hogy deutériumért meghosszabbítsd a bolygódon állomásozó baráti flották tartózkodását: ellátásonként legfeljebb a raktár szintjének megfelelő óraszámig."
+  '35': 'A javítódokk helyreállítja a roncsmezőből a hajókat.'
+  '41': >-
+    A Holdon nincs légkör, és egy friss Holdon csak egyetlen épületnek van hely,
+    ezért a Holdbázissal kezdj.
+  '42': >-
+    A szenzorfalanx lehetővé teszi a flottamozgások megfigyelését. Minél
+    magasabb a szint, annál nagyobb a Falanx hatótávja.
+  '43': >-
+    Az ugrókapuk hatalmas adók, amelyek nagy flottákat küldenek át az
+    univerzumon időveszteség nélkül.
+  '44': 'A rakétasilók tárolják a rakétáidat.'
+  '106': >-
+    Ez a technológia információt gyűjt más bolygókról és holdakról.
+  '108': >-
+    A jobb számítógépekkel több flottát irányíthatsz. A Számítógép-technika
+    minden szintje eggyel növeli a flottáid maximális számát.
+  '109': >-
+    A Fegyverrendszer hatékonyabbá teszi a fegyvereket. Minden szint az összes
+    egység fegyvererejét az alapérték 10%-ával növeli.
+  '110': >-
+    A Pajzstechnika hatékonyabbá teszi a hajók és védelmi építmények pajzsait.
+    Minden szint a pajzserősséget az alapérték 10%-ával növeli.
+  '111': >-
+    A különleges ötvözetek javítják a hajók és védelmi építmények páncélzatát.
+    Minden szint 10%-kal növeli a páncél hatékonyságát.
+  '113': >-
+    A különféle energiafajták uralása számos új technológia kulcsa.
+  '114': >-
+    A 4. és 5. dimenzió integrálásával olyan új hajtóművet kutathatsz ki, amely
+    takarékosabb és hatékonyabb.
+  '115': >-
+    Ennek a hajtóműnek a fejlesztése néhány hajót gyorsabbá tesz, de minden
+    szint csak az alapsebesség 10%-át adja hozzá.
+  '117': >-
+    Az impulzushajtómű a reakcióelven működik. További fejlesztése néhány
+    hajót gyorsabbá tesz, de minden szint csak az alapsebesség 20%-át adja
+    hozzá.
+  '118': >-
+    A hipertérhajtómű meghajlítja a teret a hajó körül. A fejlesztése néhány
+    hajót gyorsabbá tesz, de minden szint csak az alapsebesség 30%-át adja
+    hozzá.
+  '120': 'A fókuszált fény olyan nyalábot hoz létre, amely kárt tesz mindenben, amit eltalál.'
+  '121': 'Gyorsított ionok halálos nyalábja, amely becsapódáskor óriási kárt okoz.'
+  '122': >-
+    Az iontechnológia továbbfejlesztése, amely nagy energiájú plazmát gyorsít,
+    amit az ionok túlhevítésével hoznak létre. Pusztító hatású becsapódáskor.
+  '123': A különböző bolygókon dolgozó kutatók ezen a hálózaton tartják a kapcsolatot.
+  '124': >-
+    Megnyitja a gyarmatosítást és a mélyűri expedíciókat. Extra bolygók a
+    páratlan szinteken, extra expedíciós helyek a négyzetszámú szinteken,
+    hosszabb expedíciós tartózkodás és több bolygópozíció egy rendszerben.
+  '131': >-
+    Szintenként 2%-kal növeli a Fémtermelést.
+  '132': >-
+    Szintenként 2%-kal növeli a Kristálytermelést.
+  '133': >-
+    Szintenként 2%-kal növeli a Deutériumtermelést.
+  '134': >-
+    Szintenként 2%-kal csökkenti a repülési költségeket.
+  '199': >-
+    A gravitonrészecskék koncentrált töltetének kilövése mesterséges
+    gravitációs teret hoz létre, amely hajókat, sőt holdakat is elpusztíthat.
+  '202': >-
+    A Kis szállító fürge hajó, amely gyorsan viszi a nyersanyagot más
+    bolygókra.
+  '203': >-
+    Ez a teherhajó sokkal többet szállít, mint a Kis szállító, és a jobb
+    hajtóműnek köszönhetően általában gyorsabb is.
+  '204': >-
+    Az első harci hajó, amit minden császár megépít. A Könnyű harcos fürge, de
+    egyedül sebezhető; nagy számban viszont valódi fenyegetést jelent bármely
+    birodalomnak. A Könnyű harcosok kísérik elsőként a Kis és Nagy szállítókat
+    a gyengén védett ellenséges bolygókra.
+  '205': 'Ez a vadászgép jobb páncélzatú, és erősebben üt, mint a Könnyű harcos.'
+  '206': >-
+    A Cirkálók páncélzata majdnem háromszorosa a Nehéz harcosokénak, tűzereje
+    pedig több mint kétszeres. Nagyon gyorsak is.
+  '207': >-
+    A Csatahajók a flotta gerincét adják. A nehéz ágyúk, a nagy sebesség és a
+    nagy raktér komoly ellenféllé teszi őket.
+  '208': 'Ezzel a hajóval az üres bolygókat gyarmatosíthatod.'
+  '209': 'A Szemetes nyersanyagot gyűjt a törmelékmezőkről.'
+  '210': >-
+    A kémszondák kicsi, fürge drónok, amelyek nagy távolságból szállítanak
+    adatot flottákról és bolygókról.
+  '211': 'A Bombázót kifejezetten a bolygók védelmének lerombolására építették.'
+  '212': >-
+    A napműholdak magas, állónyugvó pályán lévő napelemes egyszerű platformok.
+    Összegyűjtik a napfényt, és lézerrel sugározzák le a földi állomásra.
+  '213': 'A Romboló a harcihajók királya.'
+  '214': >-
+    A Halálcsillag pusztítóereje páratlan, és holdakat is képes elpusztítani.
+  '215': 'A Csatacirkáló az ellenséges flották elfogására specializálódott.'
+  '216': >-
+    A népszerű Halálcsillag utódja: sokkal gyorsabb és szívósabb, hatalmas
+    raktérrel, de valamivel gyengébben üt.
+  '217': >-
+    A Nagy szállító továbbfejlesztése, jóval nagyobb szállítókapacitással.
+    Hipertérhajtóművel megy, így lassabban indul, mint a Nagy szállító, de
+    ahogy a Hipertérhajtóműved szintet lép, elhúz mellette.
+  '218': 'A lehető legrosszabb forgatókönyv, igaz, nagyon lassú.'
+  '219': >-
+    A hatalmas raktér és az új hajtóművek gyorsabb repülést és több nyersanyag
+    begyűjtését teszik lehetővé a törmelékmezőkből.
+  '220': >-
+    Az Acélkolosszus bármilyen támadást kibír masszív pajzsaival és vastag
+    páncéljával, de a fegyverei és a hajtóművei még hagynak kívánnivalót.
+  '221': >-
+    A Viharpenge villámgyors vadász, foggal-körömmel felfegyverezve. Védelem?
+    Felesleges – a zsákmánya védtelen szállítókból és szemetesekből áll.
+  '222': >-
+    Lassú, de erősen felfegyverzett cirkáló, megerősített pajzsokkal és
+    támadóképességgel.
+  '223': >-
+    A Könnyű harcos újratervezése, amely a legénység biztonságát helyezi előtérbe
+    a gyenge repülési tulajdonságok árán.
+  '224': >-
+    Kipróbálatlan szállítóhajó minimális fegyverzettel, amelyet arra szántak,
+    hogy felzavarja a gondatlan szomszédokat, és azonnali konfliktust szítson.
+  '225': >-
+    Olyan hajó, amely egyesíti a harci erőt, a sebességet és a szállítókapacitást,
+    így minden erős flottának nélkülözhetetlen.
+  '226': >-
+    Erősen páncélozott harci szállító impozáns, kissé robusztus kialakítással,
+    amelynek elsöprő tűzereje a legkeményebb ellenfeleket is legyőzi.
+  '227': >-
+    A klasszikus szemetes továbbfejlesztett változata impulzushajtóművekkel,
+    amely hatékonyabb mentési küldetéseket tesz lehetővé alacsonyabb
+    költségen.
+  '228': A Szemetes rendkívül gyors, de nem hatékony továbbfejlesztése hipertérhajtóművel.
+  '229': >-
+    A Xer uralmának megtörésére fejlesztették ki: a Viperát a Könnyű harcosok,
+    Nehéz harcosok és Cirkálók ellen vetik be. A gyorstüzelő ágyúival és a fejlett
+    technológiájával az univerzumban eltolja az erőviszonyokat.
+  '230': >-
+    Gyors. Pontos. Érinthetetlen. Az Elfogó nem a tisztességes harcokra épült –
+    arra tervezték, hogy gyorsan és keményen csapjon le, szempillantás alatt
+    elsöprő előnyt teremtve.
+  '231': >-
+    Kisebb, gyorsabb Halálcsillag, amely nem tud holdakat elpusztítani. A
+    Behemót halálos a flották ellen.
+  '232': >-
+    Gyorsabb, robbanékonyabb, mindig jó meglepetés.
+    Az Űrtitán a holdak réme.
+  '401': A Rakétakilövő egyszerű, de költséghatékony védelem.
+  '402': >-
+    A kis lézerágyúk egyszerű földi védelmi fegyverek. Speciális célzórendszerek
+    követik az ellenséges hajókat, és egy nagy intenzitású lézer átvágja a
+    célpont hajótestét.
+  '403': A Nagy lézerágyú a Kis lézerágyú továbbfejlesztett változata.
+  '404': >-
+    A Gauss-ágyú rendkívül nagy sebességgel lő nagy sűrűségű fémlövedékeket.
+  '405': >-
+    Az ionágyú ionok (pozitív vagy negatív töltésű részecskék) nyalábjait lövi
+    ki.
+  '406': >-
+    A Plazmatorony egy nagy atomreaktor-üzemanyagcellával hajt meg egy
+    elektromágneses gyorsítót, amely plazmaimpulzusokat (toroidokat) lő ki.
+  '407': >-
+    A Kis pajzskupola az egész bolygót beburkolja egy olyan mezőbe, amely
+    óriási mennyiségű energiát nyel el.
+  '408': >-
+    A Nagy pajzskupola jóval több energiát képes elnyelni a támadások során.
+  '409': >-
+    A pajzskupola-technológia evolúciója. Sokkal több energiát használ, de több
+    támadást bír ki, mint bármelyik másik pajzs.
+  '410': >-
+    Évekig tartó gravitációs kutatás után a tudósok kifejlesztettek egy
+    gravitonágyút, amely kicsi, koncentrált gravitonmezőt hoz létre, és az
+    ellenségre lövi.
+  '411': >-
+    Mozdíthatatlan védelmi platform saját hajtóerő nélkül, amelyet a gravitáció
+    tart stabil pályán a bolygó körül. Ennek a folyamatnak az elindítása óriási
+    mennyiségű energiát igényel.
+  '412': 'Véd! Mint a Lego-kocka a Kindergarten TD-ben.'
+  '413': 'A Titán lézer kolosszális lézer.'
+  '414': >-
+    A Csali kifinomult védelmi rendszer, amelyet az ellenséges erők félrevezetésére
+    és összezavarására terveztek. Azzal, hogy Rakétakilövőnek álcázza magát,
+    elriasztja a támadásokat.
+  '502': 'Az Elhárító rakéták megsemmisítik a beérkező Bolygóközi rakétákat.'
+  '503': 'A Bolygóközi rakéták lerombolják az ellenfél védelmét.'
+  '901': >-
+    A Fém az épületek és hajók fő nyersanyaga. Ez a legolcsóbb nyersanyag, de
+    a legtöbbre is ez kell.
+  '902': >-
+    A Kristály az elektronikus áramkörök és bizonyos ötvözetek építésének fő
+    nyersanyaga.
+  '903': >-
+    A Deutérium a legmélyebb tengerekben található. Ez a legdrágább
+    nyersanyag, és a termeléséhez kell a legtöbb energia is.
+  '911': 'Minden nyersanyag termeléséhez energia kell.'
+shortNames:
+  '202': Kis szállító
+  '203': Nagy szállító
+  '204': Könnyű harcos
+  '205': Nehéz harcos
+  '206': Cirkáló
+  '207': Csatahajó
+  '208': Kolóniahajó
+  '209': Szemetes
+  '210': Kémszonda
+  '211': Bombázó
+  '212': Napműhold
+  '213': Romboló
+  '214': Halálcsillag
+  '215': Csatacirkáló
+  '216': Fekete Hold
+  '217': Harci szállító
+  '218': Avatár
+  '219': Harci szemetes
+  '220': Acélkolosszus
+  '221': Viharpenge
+  '222': Nehéz cirkáló
+  '223': Pajzsdrón
+  '224': Rögtönzött rohamszállító
+  '225': Viharszállító
+  '226': Kolosszális harci szállító
+  '227': Optimalizált szemetes
+  '228': Omega szemetes
+  '229': Vipera
+  '230': Elfogó
+  '231': Behemót
+  '232': Űrtitán
+  '401': Rakétakilövő
+  '402': Kis lézerágyú
+  '403': Nagy lézerágyú
+  '404': Gauss-ágyú
+  '405': Ionágyú
+  '406': Plazmaágyú
+  '407': Kis pajzskupola
+  '408': Nagy pajzskupola
+  '409': Légköri pajzs
+  '410': 'Gravitonágyú'
+  '411': Orbitális védelmi platform
+  '412': Bunker
+  '413': Titán lézer
+  '414': Csali
+spytechStatsDescription: >-
+  A 0. és 1. szinten csak a többi játékos összpontszámát látod. A 2. szinttől
+  az épületpontjaikat is, a 4. szinttől a kutatási pontjaikat. A 6. szinttől a
+  hajó- és védelmi pontjaikat is látod, valamint a csatastatisztikáikat.
+tech:
+  '0': Épületek
+  '1': Fémbánya
+  '2': Kristálybánya
+  '3': Deutérium-szintetizáló
+  '4': 'Naperőmű'
+  '6': Egyetem
+  '12': Fúziós erőmű
+  '14': Robotgyár
+  '15': Nanitgyár
+  '21': Hajógyár
+  '22': Fémraktár
+  '23': Kristályraktár
+  '24': Deutériumtartály
+  '31': Kutatólabor
+  '33': Terraformer
+  '34': Szövetségi raktár
+  '35': 'Javítódokk'
+  '40': Holdépületek
+  '41': 'Holdbázis'
+  '42': Szenzorfalanx
+  '43': Ugrókapu
+  '44': Rakétasilo
+  '100': Kutatás
+  '106': Kémtechnika
+  '108': Számítógép-technika
+  '109': Fegyverrendszer
+  '110': Pajzstechnika
+  '111': Páncélozás
+  '113': Energiatechnika
+  '114': Hipertértechnika
+  '115': Égésmotor
+  '117': Impulzushajtómű
+  '118': Hipertérhajtómű
+  '120': Lézertechnika
+  '121': Ionizációs technika
+  '122': Plazmatechnika
+  '123': Intergalaktikus kutatóhálózat
+  '124': Asztrofizika
+  '131': Fémtermelés
+  '132': Kristálytermelés
+  '133': Deutériumtermelés
+  '134': Üzemanyag-hatékonyság
+  '199': Gravitonkutatás
+  '200': Hajók
+  '202': Kis szállító
+  '203': Nagy szállító
+  '204': Könnyű harcos
+  '205': Nehéz harcos
+  '206': Cirkáló
+  '207': Csatahajó
+  '208': Kolóniahajó
+  '209': Szemetes
+  '210': Kémszonda
+  '211': Bombázó
+  '212': Napműhold
+  '213': Romboló
+  '214': Halálcsillag
+  '215': Csatacirkáló
+  '216': Fekete Hold
+  '217': Harci szállító
+  '218': Avatár
+  '219': Harci szemetes
+  '220': Acélkolosszus
+  '221': Viharpenge
+  '222': Nehéz cirkáló
+  '223': Pajzsdrón
+  '224': Rögtönzött rohamszállító
+  '225': Viharszállító
+  '226': Kolosszális harci szállító
+  '227': Optimalizált szemetes
+  '228': Omega szemetes
+  '229': Vipera
+  '230': Elfogó
+  '231': Behemót
+  '232': Űrtitán
+  '400': Bolygóvédelem
+  '401': Rakétakilövő
+  '402': Kis lézerágyú
+  '403': Nagy lézerágyú
+  '404': Gauss-ágyú
+  '405': Ionágyú
+  '406': Plazmaágyú
+  '407': Kis pajzskupola
+  '408': Nagy pajzskupola
+  '409': Légköri pajzs
+  '410': 'Gravitonágyú'
+  '411': Orbitális védelmi platform
+  '412': Bunker
+  '413': Titán lézer
+  '414': Csali
+  '500': Rakéták
+  '502': Elhárító rakéta
+  '503': Bolygóközi rakéta
+  '900': Nyersanyagok
+  '901': Fém
+  '902': Kristály
+  '903': Deutérium
+  '911': Energia

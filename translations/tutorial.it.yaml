@@ -1,0 +1,97 @@
+tutorial_buttons_claim: Ritira il premio
+tutorial_buttons_continue: Continua
+tutorial_buttons_finalize: Completa il tutorial
+tutorial_buttons_skip: Salta
+tutorial_buttons_skipAll: Salta il tutorial
+tutorial_buttons_skipAll_confirm: Vuoi saltare il resto del tutorial? Non potrai più riavviarlo.
+tutorial_goal:
+  mission:
+    '1': Attacca un altro giocatore
+    '6': Invia una sonda spia a un altro giocatore
+    '7': Colonizza un nuovo pianeta
+    '8': Ricicla un campo di detriti
+    '15': Invia una flotta in spedizione
+  step6:
+    '1': Rinomina il tuo pianeta
+    '2': Invia una richiesta d'amicizia a un altro giocatore
+    '3': Invia una candidatura a un'alleanza
+tutorial_goals_header: 'Obiettivi:'
+tutorial_goals_ignore: (ignora)
+tutorial_rewards_header: 'Ricompense:'
+tutorial_text:
+  step0: "Benvenuto su {game_name}!<br><br>\r\nQuesto breve tutorial ti guida attraverso le basi.<br>\r\nRimandiamo spesso al nostro wiki, perché in un tutorial non entra tutto. Puoi aprirlo in qualsiasi momento dal menu a sinistra.<br>\r\nPuoi saltare il tutorial quando vuoi, ma poi non potrai più riavviarlo.<br><br>\r\nBuona fortuna, Imperatore!"
+  step1: "Il tuo obiettivo: fare più punti possibile. Ottieni un punto ogni 1.000 risorse spese, e la miglior fonte di risorse sono le tue miniere.<br>\r\nParti dalle scorte di base: ti servono Metallo e Cristallo dalle rispettive miniere, più Energia dalla centrale solare per tenerle in funzione. Se l'Energia scarseggia, le tue miniere producono meno del 100%.<br>\r\nPotenzia questi edifici nel menu <b>Costruzioni</b>. Clicca sul nome di un edificio per vedere cosa ti dà il livello successivo e quanta Energia consumerà.<br><br>\r\nVuoi saperne di più? Dai un'occhiata al <b>Wiki</b>: \r\n<a href=\"{wiki_url}/wiki/En/Rohstoffe\" target=\"_blank\">Risorse</a>"
+  step2: "Giocare è più bello in compagnia. La maggior parte dei giocatori si ritrova sul nostro Discord, dove puoi trovare risposte e gente con cui giocare.<br>\r\nSei ancora bloccato? Qui puoi anche aprire un ticket di supporto."
+  step3: "Razziare i pianeti degli altri giocatori è un altro modo per ottenere risorse, e può succedere anche a te. Quindi costruisci la tua prima difesa!<br>\r\nAnche una piccola difesa protegge la tua produzione durante la notte.<br><br>\r\nI numeri da soli non decidono uno scontro: conta anche la composizione della flotta attaccante.<br>\r\nGli attaccanti devono superare la tua difesa prima di poter saccheggiare, e ogni nave che devono mandare riduce il loro profitto e può costargli altre navi.<br>\r\nCostruisci le difese nel menu <b>Difesa</b>. Ti servono un Cantiere spaziale (che a sua volta richiede una Fabbrica di robot) e un po' di Deuterio.<br><br>\r\nEcco l'articolo corrispondente nel wiki: \r\n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Strutture di difesa</a>"
+  step4: "Tieni le scorte in movimento espandendo le tue miniere!<br>\r\nEdifici, navi, difese e ricerche diventano sempre più costosi con il tempo, quindi la tua produzione deve crescere di pari passo. Apri subito Costruzioni e potenzia le miniere ogni volta che hai le risorse."
+  step5: "Costruisciti un Cargo leggero!<br>\r\nI Cargo leggeri sono trasportatori veloci e pratici.<br>\r\nCon il Propulsore a impulso sono più veloci del Cargo pesante sulle lunghe distanze.<br>\r\nUsali per spostare risorse tra i tuoi pianeti, per commerciare con altri giocatori o per razziarli.<br><br>\r\nAltro nel wiki: \r\n<a href=\"{wiki_url}/wiki/En/Schiffe\" target=\"_blank\">Navi</a>"
+  step6: "Dai un nome al tuo pianeta per non perderti. Nella Panoramica, clicca sul nome del pianeta nell'intestazione del riquadro dei punti. Avanti, provaci ora.<br><br>\r\nPuoi anche inviare richieste d'amicizia ad altri giocatori. Quando accettano, potete chattare più facilmente e vedere a vicenda se siete online. Non serve far parte della stessa alleanza. Gli amici possono anche stazionare flotte sui pianeti l'uno dell'altro, così potete difendervi a vicenda anche senza alleanza.<br><br>\r\nOppure entra in un'alleanza e gioca in squadra. Non servono più richieste d'amicizia separate per stazionare le flotte. All'interno dell'alleanza puoi inviare messaggi circolari e vedere stato online e punteggio degli altri membri, in base al tuo rango nell'alleanza."
+  step7: "Per scoprire quali risorse, edifici, ricerche, navi e difese ha un altro giocatore, devi spiarlo. Invia una Sonda spia a un giocatore dal menu Flotta o dalla vista Galassia.<br>\r\nRicorda che anche gli altri giocatori possono spiare te!"
+  step8: >-
+    Una spedizione può portare risorse, navi, eventi speciali o perdite. Per
+    provarne una, prendi una nave, scegli come bersaglio la posizione 16 del
+    pianeta e la missione "Spedizione" nel menu Flotta.<br>
+
+    Ogni tipo di nave contribuisce alla dimensione della tua flotta in
+    spedizione, fino a un limite oltre il quale si raggiunge la dimensione
+    massima dell'evento.<br><br>
+
+    Il wiki spiega cosa puoi cambiare per massimizzare il tuo guadagno: 
+
+    <a href="{wiki_url}/wiki/En/Expoanleitung"
+    target="_blank">Spedizioni</a>
+  step9: "Più pianeti colonizzi, più in fretta cresci: puoi produrre risorse e costruire navi su più pianeti contemporaneamente. Nota che puoi insediarti sul bordo interno o esterno di un sistema solo se il tuo livello di Astrofisica è abbastanza alto. La Colonizzatrice si può costruire anche senza Astrofisica, ma la tua prima colonia ne ha bisogno!<br><br>\r\nColonizzare nel tuo sistema o subito accanto mantiene corte le rotte di trasporto. Il rovescio della medaglia: più avanti nel gioco, altri giocatori potrebbero piazzare una colonia nel tuo sistema non per le miniere ma come base di flotta temporanea, la cosiddetta colonia da raid.<br><br>\r\nAltro nel wiki: \r\n<a href=\"{wiki_url}/wiki/En/Astrophysik\" target=\"_blank\">Astrofisica</a>"
+  step10: "Vuoi le risorse più in fretta? Attacca altri giocatori. Pesa costi e benefici perché l'attacco sia redditizio e usa i rapporti di spionaggio e il simulatore di combattimento per pianificarlo.<br><br>\r\nAttenzione! Gli altri giocatori possono tracciare molte missioni di flotta in vari modi.<br>\r\nNon perdere la flotta guadagnata con fatica è una delle parti più importanti del gioco.<br><br>\r\nLeggiti quindi questi argomenti del wiki: \r\n<a href=\"{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden\" target=\"_blank\">Salvataggio flotta</a> - \r\n<a href=\"{wiki_url}/wiki/En/Sensorenphalanx\" target=\"_blank\">Falange dei sensori</a>"
+  step10_u6: >-
+    Vuoi le risorse più in fretta? Attacca altri giocatori. Pesa costi e
+    benefici perché l'attacco sia redditizio e usa i rapporti di spionaggio e il
+    simulatore di combattimento per pianificarlo.<br><br>
+
+    Attenzione! Gli altri giocatori possono tracciare molte missioni di flotta
+    in vari modi.<br>
+
+    Non perdere la flotta guadagnata con fatica è una delle parti più importanti
+    del gioco.<br><br>
+
+    Leggiti quindi questi argomenti del wiki:
+
+    <a
+    href="{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden"
+    target="_blank">Salvataggio flotta</a>
+  step11: "Quando le flotte vengono distrutte, lasciano un campo di detriti che puoi raccogliere. Per farlo ti servono Riciclatrici, con una capacità di carico di 20.000 ciascuna. Spazzare via una grande flotta può essere una fonte di risorse molto redditizia.<br><br>\r\nPuoi anche mandare le Riciclatrici direttamente dalla vista Galassia cliccando su un campo di detriti, invece di usare il menu Flotta."
+  step12: "Congratulazioni, hai completato il tutorial!<br><br>\r\nIl gioco ha ancora un sacco da offrire.<br>\r\nAd esempio, ci sono più o meno tre stili di gioco, che differiscono anche per il tempo richiesto:<br>\r\n<ul>\r\n<li>Minatore: espande le miniere su molte colonie e vola soprattutto con i trasportatori</li>\r\n<li>Flottista: mette la maggior parte dei punti nelle navi da guerra, ha a malapena una produzione propria e vive razziando altri giocatori</li>\r\n<li>Misto: un mix dei due</li>\r\n</ul>\r\nLe lune diventano importanti più avanti nel gioco, e a questo punto dovresti aver già incontrato la Falange dei sensori.<br><br>\r\nHai ancora domande? Leggi il wiki o chiedi alla community su Discord."
+  step12_u6: >-
+    Congratulazioni, hai completato il tutorial!<br><br>
+
+    Il gioco ha ancora un sacco da offrire.<br>
+
+    Ad esempio, ci sono più o meno tre stili di gioco, che differiscono anche
+    per il tempo richiesto:<br>
+
+    <ul>
+
+    <li>Minatore: espande le miniere su molte colonie e vola soprattutto con i
+    trasportatori</li>
+
+    <li>Flottista: mette la maggior parte dei punti nelle navi da guerra, ha a
+    malapena una produzione propria e vive razziando altri giocatori</li>
+
+    <li>Misto: un mix dei due</li>
+
+    </ul>
+
+    Hai ancora domande? Leggi il wiki o chiedi alla community su Discord.
+tutorial_title:
+  step0: "Benvenuto, Imperatore!"
+  step1: È ora di mettersi a estrarre!
+  step2: Vieni a conoscere gente!
+  step3: "Non lasciare il pianeta indifeso!"
+  step4: "Pensa in anticipo!"
+  step5: Navi, ci servono navi!
+  step6: "Dai un nome al pianeta e trova amici!"
+  step7: "Scopri cosa hanno gli altri!"
+  step8: "Verso l'ignoto!"
+  step9: "Un pianeta non basta mai!"
+  step10: Stufo di aspettare le tue miniere?
+  step11: "È ora di portare fuori la spazzatura!"
+  step12: "Ce l'hai fatta!"

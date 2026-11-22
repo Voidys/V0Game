@@ -1,0 +1,79 @@
+<p>Această politică de confidențialitate explică pe înțelesul tuturor ce date cu caracter personal colectează {game_name}, la ce sunt folosite, cât timp sunt păstrate și cine le poate vedea.</p>
+
+<h2>Cine administrează acest site</h2>
+<p>Acest site este administrat de operatorul său. Numele și adresa poștală a operatorului sunt afișate pe <a href="{contacts_url}">pagina de contact</a>.<!--mail--> Ne poți contacta prin e-mail la {contact_mail}.<!--/mail--></p>
+
+<h2>Vizitarea site-ului</h2>
+<p>De fiecare dată când deschizi o pagină, serverul web înregistrează automat:</p>
+<ul>
+<li>adresa ta IP,</li>
+<li>data și ora cererii,</li>
+<li>adresa solicitată și pagina de proveniență,</li>
+<li>browserul și sistemul de operare (user agent),</li>
+<li>codul de stare și cantitatea de date transferată.</li>
+</ul>
+<p>Folosim aceste date ca să livrăm site-ul și să îl menținem stabil și sigur, de exemplu ca să detectăm și să respingem atacuri. Fișierele de jurnal ale serverului se șterg după cel mult 7 zile, cu excepția cazului în care sunt necesare ca probă pentru un incident de securitate concret. În acest caz se păstrează până când incidentul este rezolvat.</p>
+
+<h2>Date de cont și de jucător</h2>
+<p>Ca să joci, ai nevoie de un cont. Când te înregistrezi și joci, colectăm:</p>
+<ul>
+<li>numele contului, adresa de e-mail și parola (stocată doar ca hash cu salt, niciodată în text clar),</li>
+<li>limba, fusul orar și setările de afișare,</li>
+<li>momentul înregistrării, adresa IP de la înregistrare, momentul și adresa IP ale ultimei conectări și încercările eșuate de conectare,</li>
+<li>un jucător per univers: numele jucătorului și datele de joc, precum planete, clădiri, cercetări, flote, resurse, puncte, realizări, rapoarte de luptă și de spionaj.</li>
+</ul>
+<p>Avem nevoie de aceste date ca să furnizăm jocul la care te-ai înscris. Fără o adresă de e-mail și o parolă nu se poate crea un cont.</p>
+<p>Natura jocului face ca unele date să fie vizibile pentru ceilalți jucători: numele jucătorului, coordonatele planetelor tale, alianța, punctele și clasamentele (statistici, hall of fame), precum și conținutul pe care alegi să îl publici (texte de alianță<!--board-->, postări pe forum<!--/board-->).</p>
+
+<h2>Comunicarea în joc</h2>
+<p>Când folosești funcțiile de comunicare, stocăm conținutul lor împreună cu expeditorul, destinatarii și momentul: mesaje private și de alianță, cereri de prietenie, notițe, tichete de suport<!--board-->, precum și postări, comentarii și voturi pe forum<!--/board-->. Facem asta ca funcțiile să poată funcționa. Moderatorii pot citi tichetele de suport și, dacă există suspiciunea unei încălcări a regulilor, conținutul raportat.<!--messages--> Mesajele se șterg automat după {message_days} zile.<!--/messages--></p>
+
+<h2>Joc corect și protecție împotriva abuzurilor</h2>
+<p>Ca să păstrăm jocul corect și să aplicăm regulile (de exemplu interdicția multiconturilor și a account pushing-ului), folosim:</p>
+<ul>
+<li>adresele IP ale sesiunilor și conectărilor active, comparate între conturi ca să detectăm mai multe conturi jucate de pe aceeași conexiune,</li>
+<li>înregistrările sesiunilor (ID de sesiune, adresă IP, ultima activitate), care se șterg după expirarea sesiunii,</li>
+<li>notițele echipei jocului despre conturi individuale și înregistrările banurilor, cu motivul și durata lor,</li>
+<li>dacă există o suspiciune concretă de încălcare a regulilor pentru un anumit cont, o evidență a paginilor solicitate de acel cont, cu ora fiecărei cereri. Această evidență se șterge după încheierea investigației.</li>
+</ul>
+<p>La înregistrare, verificăm domeniul adresei tale de e-mail într-o listă publică de furnizori de e-mail de unică folosință. Lista este descărcată pe serverul nostru, iar adresa ta nu este trimisă nicăieri. Măsuri precum banurile sunt decise de membri ai echipei jocului, nu printr-un proces automat.</p>
+
+<h2>E-mailuri</h2>
+<p>Trimitem e-mailuri la adresa cu care te-ai înregistrat atunci când sunt necesare pentru administrarea contului tău: activarea contului, resetarea parolei, confirmarea schimbării adresei de e-mail, avertizări înainte de ștergerea unui cont inactiv și anunțuri importante despre joc (de exemplu startul unui univers nou). Nu trimitem newslettere sau reclame.</p>
+
+<h2>Protecția împotriva boților</h2>
+<p>Înregistrarea și formularul de parolă pierdută sunt protejate împotriva abuzului automat printr-un mic calcul pe care browserul tău îl rezolvă singur când deschizi formularul. Verificarea se face pe propriul nostru server; nu este contactat niciun serviciu terț și nu se folosesc cookie-uri sau identificatori de urmărire pentru asta.</p>
+
+<h2>Cookie-uri și stocare locală</h2>
+<p>Folosim doar cookie-uri și stocare în browser care sunt necesare pentru a furniza serviciul pe care îl ceri:</p>
+<ul>
+<li><strong>2Moons</strong>: cookie de sesiune care te ține conectat. Expiră la 12 ore după ultima activitate sau când te deconectezi.</li>
+<li><strong>v0_device</strong>: ID aleatoriu al dispozitivului (2 ani). Pentru fiecare cont se stochează doar un hash al lui, timp de 90 de zile după ultima vizită, ca să detectăm mai multe conturi jucate din același browser.</li>
+<li><strong>lang</strong>: ține minte limba pe care ai ales-o.</li>
+<li><strong>account</strong>: ține minte că acest browser a fost folosit pentru conectare, ca pagina de start să poată afișa mai întâi conectarea. Nu conține date cu caracter personal.</li>
+<li>Stocare locală: preferințe de afișare ale interfeței jocului (de exemplu ultima categorie de mesaje deschisă). Rămân în browserul tău și nu ne sunt trimise.</li>
+</ul>
+<p>Nu folosim cookie-uri de urmărire, de analiză sau publicitare și nu creăm profiluri de utilizator în scopuri de marketing.</p>
+
+<h2>Cine îți poate vedea datele</h2>
+<p>Datele tale sunt gestionate de membri ai echipei jocului (administratori și moderatori) în măsura în care sarcinile lor o cer. Furnizorii tehnici de servicii lucrează în numele nostru și doar conform instrucțiunilor noastre: furnizorul de hosting al serverelor și, după caz, serviciul de livrare a e-mailurilor. Ceilalți jucători văd datele descrise la „Date de cont și de jucător” și „Comunicarea în joc”. Transmitem date autorităților doar dacă avem obligația legală. Nu vindem date cu caracter personal.</p>
+<p>Linkurile către servicii externe (de exemplu Discord sau wiki) te duc doar la acele servicii. Datele sunt gestionate acolo abia după ce deschizi linkul, conform politicii de confidențialitate a furnizorului respectiv.</p>
+
+<h2>Cât timp sunt păstrate datele</h2>
+<ul>
+<li>Îți poți șterge contul din setările contului. Acesta este eliminat după o perioadă de așteptare de {deletion_days} zile, în care poți anula ștergerea.</li>
+<!--inactive--><li>Jucătorii care nu au fost activi timp de {inactive_days} zile sunt șterși automat. Acolo unde jocul trimite e-mailuri de avertizare, primești unul înainte de ștergere.</li>
+<!--/inactive--><li>Conturile fără niciun jucător se șterg după 30 de zile fără activitate.</li>
+<li>Fișierele de jurnal ale serverului: cel mult 7 zile, vezi „Vizitarea site-ului”.</li>
+<li>Datele pe care trebuie să le păstrăm din motive legale sau de care avem nevoie pentru a gestiona pretenții legale sunt păstrate doar cât este necesar.</li>
+<li>Copiile de rezervă ale bazei de date conțin datele de la momentul copiei. Se păstrează un timp limitat și sunt înlocuite prin rotație.</li>
+</ul>
+
+<h2>Opțiunile tale</h2>
+<p>Îți poți modifica datele contului în setările contului și îți poți șterge contul acolo oricând. Dacă vrei să știi ce date avem despre tine, vrei să fie corectate sau șterse sau ai orice altă întrebare despre datele tale, contactează-ne folosind datele de pe <a href="{contacts_url}">pagina de contact</a><!--mail--> sau prin e-mail la {contact_mail}<!--/mail-->. În funcție de locul în care locuiești, poți avea drepturi suplimentare conform legislației locale privind protecția datelor și poți contacta autoritatea locală de protecție a datelor.</p>
+
+<h2>Securitate</h2>
+<p>Toate conexiunile către acest site sunt criptate (TLS), parolele sunt stocate doar ca hash-uri, iar accesul la datele cu caracter personal este limitat la membrii echipei jocului care au nevoie de el. Nu luăm decizii despre tine bazate exclusiv pe prelucrare automată.</p>
+
+<h2>Modificări</h2>
+<p>Actualizăm această politică de confidențialitate când se schimbă site-ul sau cerințele legale. Se aplică versiunea publicată pe această pagină.</p>

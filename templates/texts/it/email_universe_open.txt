@@ -1,0 +1,16 @@
+﻿Ciao {USERNAME},
+
+è arrivato il momento - {UNINAME} ha aperto i battenti il {OPENTIME}!
+Siamo felicissimi di averti qui e ti auguriamo tanto divertimento e tante avventure emozionanti.
+
+Puoi trovare il gioco su {HTTPPATH}.
+Passa a trovarci anche sul nostro Discord:
+{DISCORD}
+
+Se hai dimenticato la password, clicca semplicemente su “Password dimenticata” nella pagina.
+Poco dopo riceverai un'e-mail con una nuova password.
+
+Se continui ad avere problemi con il login o la registrazione, scrivici su Discord.
+
+Un saluto,
+il team di {GAMENAME}

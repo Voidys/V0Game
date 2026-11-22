@@ -1,0 +1,775 @@
+bonus:
+  Attack: Útok
+  BuildTime: 'Doba stavby'
+  Defensive: Obrana
+  DefensiveTime: 'Doba stavby obrany'
+  Energy: 'Produkce energie'
+  Expedition: Expedice
+  FleetSlots: 'Sloty flotily'
+  FlyTime: 'Doba letu'
+  GateCoolTime: Doba dobíjení skokové brány
+  MoreFound: 'Nálezy z expedic'
+  Planets: Planety
+  ResearchTime: Doba výzkumu
+  Resource: 'Produkce surovin'
+  ResourceStorage: Skladování surovin
+  Shield: Štít
+  ShipStorage: 'Skladování lodí'
+  ShipTime: 'Doba stavby lodí'
+  SpyPower: Špionážní síla
+longDescription:
+  '1': >-
+    Doly na kovy těží rudu, na které stojí každé vznikající i zavedené
+    impérium.
+  '2': >-
+    Krystal je klíčová surovina pro elektronické obvody a některé slitiny.
+  '3': >-
+    Deuterium pohání tvé kosmické lodě a získává se z hlubin moří. Je to
+    vzácná látka, a proto je poměrně drahé.
+  '4': >-
+    Solární elektrárny mění sluneční světlo na energii. Každý důl potřebuje
+    ke svému chodu energii.
+  '6': >-
+    Ve výchozím nastavení každá úroveň zkracuje dobu výzkumu o 8 %.
+  '12': >-
+    Fúzní elektrárna vyrábí energii slučováním deuteria. Dává víc energie než
+    solární elektrárna, ale víc stojí její stavba. Výkon roste s energetickou
+    technologií a s vlastní úrovní elektrárny. Vzorec pro výrobu energie:<br>
+    Vyrobená energie = 30 x úroveň fúzní elektrárny x (1,05 + (0,01 * úroveň
+    energetické technologie))^úroveň fúzní elektrárny
+  '14': >-
+    Továrny na roboty dodávají stavební roboty, které pomáhají stavět tvé
+    budovy. Každá úroveň urychluje vylepšování budov.
+  '15': >-
+    Robotika v dokonalosti. Každá úroveň zkracuje dobu stavby budov, lodí
+    a obrany na polovinu.
+  '21': 'Všechny lodě a obrana se staví v planetární loděnici.'
+  '22': Poskytuje sklad pro přebytečný kov.
+  '23': Poskytuje sklad pro přebytečný krystal.
+  '24': 'Poskytuje sklad pro přebytečné deuterium.'
+  '31': >-
+    K výzkumu nových technologií potřebuješ výzkumnou laboratoř. Úroveň
+    laboratoře určuje, jak rychle zkoumáš a které technologie můžeš odemknout.
+    Výzkum probíhá v laboratoři planety, na které ho zahájíš, a výsledek platí
+    pro všechny tvé planety. Dokud výzkum běží, nelze vylepšit žádnou výzkumnou
+    laboratoř.
+  '33': >-
+    Terraformer rozšiřuje využitelnou plochu planety. Každá úroveň ti dá
+    5 dalších polí a na každé sudé úrovni navíc jedno pole. Každá úroveň
+    terraformeru sama zabírá jedno pole.<br>Stavba vyžaduje energii, ale
+    energie se nespotřebovává: tvá planeta jí musí jen vyrábět dost (1 000 pro
+    úroveň 1, s každou úrovní dvojnásobek), i když ji už spotřebovávají tvé
+    doly. Jakmile je terraformer postaven, nelze ho nikdy zbourat.
+  '34': "Alianční sklad ti umožňuje zásobovat deuteriem přátelské flotily, které drží pozici na tvé planetě, a tak prodlužovat jejich pobyt. Otevřeš ho na stránce budov: u každé držící flotily zvolíš 1 hodinu až tolik hodin, kolik činí úroveň skladu, a zaplatíš hodiny krát hodinovou cenu držení flotily z deuteria své planety. Hodinová cena držení je desetina součtu základní spotřeby paliva lodí flotily, zaokrouhleno nahoru. Flotilu lze zásobovat opakovaně, ale nikdy jí nesmí zbývat víc než 32 hodin pobytu. Zásobovat lze jen flotily jiných hráčů, které jsou právě na oběžné dráze tvé planety."
+  '35': >-
+    Opravárenský dok umí opravit lodě, které byly zničeny v bitvě a zanechaly
+    pole vraků. Oprava trvá nejvýše 12 hodin a nemůže skončit dřív než 30 minut
+    po vzniku pole vraků.<br>Jakmile pole vraků vznikne, máš 3 dny na zahájení
+    opravy. Až je oprava hotová, musíš lodě sám uvést zpět do služby. Pokud
+    to neuděláš, vrátí se do služby automaticky po 3 dnech.
+  '41': >-
+    Měsíc nemá atmosféru a čerstvý měsíc má místo jen pro jednu budovu, takže
+    začni měsíční základnou. Každá úroveň dává 3 pole navíc a sama zabírá
+    jedno pole. Jakmile je měsíční základna postavena, nelze ji nikdy
+    zbourat.
+  '42': >-
+    Senzorová falanga ti umožňuje sledovat pohyby flotil. Čím vyšší úroveň, tím
+    větší dosah falangy: ve výchozím nastavení (úroveň falangy)^2 - 1 systémů,
+    takže úroveň 1 pokrývá jen vlastní systém měsíce. Jeden sken stojí
+    5 000 deuteria, které musí být na měsíci. Pro sken otevři z měsíce pohled
+    Galaxie a klikni na planetu v dosahu. Samotné měsíce falangou skenovat nelze,
+    protože nemají atmosféru.<br><br>Falanga ukazuje flotily, které startují
+    ze skenované planety nebo na ni letí: kdy dorazí, kdy skončí držení a kdy
+    se flotily majitele vrací domů. Rozmístění a rakety se neukazují nikdy,
+    stejně jako recyklační nebo obchodní lety mířící na planetu.
+  '43': >-
+    Skokové brány jsou obrovské vysílače, které posílají velké flotily přes
+    vesmír bez ztráty času. Nespotřebovávají deuterium, ale tímto způsobem
+    nelze přesouvat suroviny. Obě brány musí být připravené: po skoku potřebuje
+    každá brána odpočinek, který je ve výchozím nastavení 60 minut na úrovni 1
+    a s každou úrovní se zkracuje až na 10 minut od úrovně 15.
+  '44': >-
+    Raketová sila ukládají tvé rakety. Ve výchozím nastavení každá úroveň
+    přidává 10 slotů. Antibalistická raketa zabírá 1 slot, meziplanetární
+    raketa 2.
+  '106': >-
+    Tato technologie ti umožňuje získávat informace o dalších planetách
+    a měsících. Když pošleš sondy, tvá špionážní technologie se porovná
+    s technologií cíle: čím vyšší je tvoje úroveň, tím víc informací ve zprávě
+    a tím nižší šance na odhalení tvých sond. Víc sond odhalí víc podrobností,
+    ale zvýší riziko odhalení. Na určitých úrovních špionážní technologie se
+    také dozvíš víc o cizích flotilách na obrazovce Přehled:<br><br><li>Na
+    úrovni 0-1 uvidíš jen to, že se k tvé planetě blíží flotila</li><li>Na
+    úrovních 2-3 uvidíš, kolik lodí se blíží</li><li>Na úrovních 4-7 uvidíš,
+    jaké typy lodí flotila obsahuje</li><li>Na úrovni 8+ uvidíš, kolik lodí
+    od každého typu flotila obsahuje</li>
+  '108': >-
+    Lepší počítače ti umožňují velet víc flotilám. Každá úroveň počítačové
+    technologie zvyšuje maximální počet tvých flotil o jednu.
+  '109': >-
+    Zbraňová technologie zefektivňuje zbraňové systémy. Každá úroveň zvyšuje
+    sílu zbraní všech jednotek o 10 % základní hodnoty.
+  '110': >-
+    Štítová technologie zefektivňuje štíty lodí a obranných staveb. Každá
+    úroveň zvyšuje sílu štítů o 10 % základní hodnoty.
+  '111': >-
+    Speciální slitiny zlepšují pancíř lodí a obranných staveb. Každá úroveň
+    zvyšuje účinnost pancíře o 10 %.
+  '113': >-
+    Ovládnutí různých druhů energie je klíčem k mnoha novým technologiím.
+    Každá úroveň energetické technologie také zvyšuje energetický výkon fúzní
+    elektrárny.
+  '114': >-
+    Integrací 4. a 5. dimenze můžeš vyzkoumat nový druh pohonu, který je
+    úspornější a účinnější.
+  '115': >-
+    Vývoj tohoto pohonu zrychluje některé lodě, ale každá úroveň přidává jen
+    10 % základní rychlosti. Ovlivněné lodě: malý transportér, velký
+    transportér, lehký stíhač, recyklátor a špionážní sonda (malý transportér
+    a recyklátor později přejdou na lepší pohony).
+  '117': >-
+    Impulzní motor pracuje na reakčním principu. Jeho další vývoj zrychluje
+    některé lodě, ale každá úroveň přidává jen 20 % základní rychlosti:
+    bombardér, křižník, těžký stíhač a kolonizační loď, plus malý transportér
+    a recyklátor, jakmile na tento pohon přejdou. Meziplanetární rakety také
+    s každou úrovní létají dál.
+  '118': >-
+    Hyperprostorový motor ohýbá prostor kolem lodě. Jeho vývoj zrychluje některé
+    lodě, ale každá úroveň přidává jen 30 % základní rychlosti: bitevní
+    křižník, bitevní loď, ničitel, Hvězda smrti, Černý měsíc, bitevní
+    transportér, Avatar a bitevní recyklátor, plus bombardér a recyklátor,
+    jakmile na tento pohon přejdou. Vyžaduje hyperprostorovou technologii
+    (úroveň 3) a výzkumnou laboratoř (úroveň 7).
+  '120': >-
+    Soustředěné světlo vytváří paprsek, který poškodí vše, co zasáhne.
+    Vyžaduje výzkumnou laboratoř (úroveň 1) a energetickou technologii
+    (úroveň 2).
+  '121': 'Smrtící paprsek urychlených iontů, který při dopadu způsobí obrovské škody.'
+  '122': >-
+    Další vývoj iontové technologie, která urychluje vysokoenergetické
+    plazma vzniklé přehřátím iontů. Má ničivý účinek při dopadu.
+  '123': >-
+    Výzkumníci na různých planetách komunikují přes tuto síť. Každá úroveň
+    umožní připojit k laboratoři, kde zahájíš výzkum, jednu další laboratoř.
+    Vybírají se laboratoře s nejvyššími úrovněmi a propojená laboratoř musí být
+    dost pokročilá, aby daný výzkum zvládla sama. Jejich úrovně se sčítají pro
+    výpočet doby výzkumu.
+  '124': >-
+    Astrofyzika odemyká kolonizaci a expedice do hlubokého vesmíru. Limit
+    kolonií, doba držení a pozice níže jsou výchozí nastavení; tvůj vesmír se
+    může lišit.<br><br> <li>Limit kolonií</li> Úroveň 1-2 = 2 planety<br>
+    Úroveň 3-4 = 3 planety<br> Úroveň 5-6 = 4 planety<br> Úroveň 7-8 = 5
+    planet<br> Úroveň 9-10 = 6 planet<br> Úroveň 11-12 = 7 planet<br> Úroveň
+    13-14 = 8 planet<br> Úroveň 15-16 = 9 planet<br> Úroveň 17-18 = 10
+    planet<br> Úroveň 19-20 = 11 planet<br> Úroveň 21+ = 12 planet<br><br>
+    <li>Sloty expedic</li> Úroveň 1-3 = 1 expedice<br> Úroveň 4-8 = 2
+    expedice<br> Úroveň 9-15 = 3 expedice<br> Úroveň 16-24 = 4
+    expedice<br>(jedna navíc na každé další čtvercové úrovni: 25, 36, ...)<br><br>
+    <li>Doba držení expedice</li> Úroveň = maximální doba držení v hodinách<br><br>
+    <li>Kolonizovatelné pozice</li> Úroveň 1-3 = 4-12<br> Úroveň 4-5 = 3-13<br>
+    Úroveň 6-7 = 2-14<br> Úroveň 8+ = 1-15
+  '131': >-
+    Zvyšuje produkci kovu o 2 % za úroveň.
+  '132': >-
+    Zvyšuje produkci krystalu o 2 % za úroveň.
+  '133': >-
+    Zvyšuje produkci deuteria o 2 % za úroveň.
+  '134': >-
+    Snižuje náklady na lety o 2 % za úroveň.
+  '199': >-
+    Vypálení soustředěného náboje gravitonových částic vytvoří umělé
+    gravitační pole, které dokáže zničit lodě i měsíce. Vyžaduje výzkumnou
+    laboratoř (úroveň 12).
+  '202': >-
+    Malý transportér je hbitá loď, která rychle doveze suroviny na jiné
+    planety.<br>Létá na spalovací motor, dokud tvůj impulzní motor nedosáhne
+    úrovně 5. Od té chvíle přejde na impulzní pohon, který zdvojnásobí jeho
+    základní rychlost.
+  '203': >-
+    Tato nákladní loď unese mnohem víc než malý transportér a díky lepšímu
+    pohonu je obecně rychlejší.
+  '204': >-
+    První bojová loď, kterou staví každý císař. Lehký stíhač je hbitý, ale
+    sám zranitelný; ve velkém počtu se stává skutečnou hrozbou pro každé
+    impérium. Lehké stíhače jako první doprovázejí malé a velké transportéry
+    k nepřátelským planetám se slabou obranou.
+  '205': 'Tento stíhač má lepší pancíř a tvrdší zásah než lehký stíhač.'
+  '206': >-
+    Křižníky mají téměř třikrát silnější pancíř než těžké stíhače a víc než
+    dvojnásobnou palebnou sílu. Jsou také velmi rychlé.
+  '207': >-
+    Bitevní lodě jsou páteří flotily. Těžká děla, vysoká rychlost a velké
+    nákladní prostory z nich dělají soupeře, které je třeba brát vážně.
+  '208': >-
+    Tato dobře pancéřovaná loď dobývá nové planety, které vznikající impérium
+    potřebuje k růstu. Na nové kolonii se loď rozebere a všechen
+    recyklovatelný materiál jde do rozvoje nového světa. Kolik planet můžeš
+    kolonizovat, závisí přímo na astrofyzice: první úroveň a každá druhá
+    další umožňuje (ve výchozím nastavení) další kolonii.
+  '209': >-
+    Recyklátor sbírá suroviny z polí trosek. Jeho nákladní kapacita je 20 000.
+    Začíná na spalovací motor, na impulzní pohon přejde, jakmile tvůj impulzní
+    motor dosáhne úrovně 17, a na hyperprostorový pohon, jakmile tvůj
+    hyperprostorový motor dosáhne úrovně 15.
+  '210': >-
+    Špionážní sondy jsou malí, hbití drony, které na velké vzdálenosti
+    dodávají data o flotilách a planetách.
+  '211': >-
+    Bombardér byl postaven speciálně k ničení obrany planet.<br>Létá na
+    impulzní pohon a na hyperprostorový přejde, jakmile tvůj hyperprostorový
+    motor dosáhne úrovně 8.
+  '212': >-
+    Solární satelity jsou jednoduché plošiny ze solárních článků na vysoké,
+    stacionární oběžné dráze. Sbírají sluneční světlo a laserem ho vysílají
+    dolů na pozemní stanici.
+  '213': >-
+    Ničitel je králem válečných lodí. Proti lehkým laserovým věžím má rychlou
+    palbu: po každém zásahu dostane další výstřel v 9 případech z 10.
+  '214': >-
+    Ničivá síla Hvězdy smrti nemá obdoby a umí ničit měsíce.
+  '215': 'Bitevní křižník se specializuje na zachytávání nepřátelských flotil.'
+  '216': >-
+    Nástupce oblíbené Hvězdy smrti: mnohem rychlejší a odolnější, s obrovským
+    nákladním prostorem, ale zasahuje o něco slaběji.
+  '217': >-
+    Vývoj velkého transportéru s mnohem větší nosností. Jezdí na
+    hyperprostorový pohon, takže začíná pomaleji než velký transportér, ale
+    jak se tvůj hyperprostorový motor vylepšuje, předběhne ho.
+  '218': 'Absolutní nejhorší scénář, i když velmi pomalý.'
+  '219': >-
+    Obrovský nákladní prostor a nové motory ho nechají létat rychleji
+    a sbírat víc z polí trosek.
+  '220': >-
+    Ocelový kolos je pravá pevnost ve vesmíru, chráněná nepoddajnými bariérami
+    a masivním pancířem. Odrazí se od něj i ty nejzuřivější útoky, zatímco
+    neúprosně postupuje vpřed. Tahle obranná převaha má ale svou cenu: výzbroj
+    se sotva vyplatí zmiňovat a líné motory z něj dělají pomalého obra. Místo
+    bleskových úderů nebo hbitých manévrů se tahle loď spoléhá na čistou
+    odolnost. Kdo ji chce zastavit, musí mít velkou výdrž – nebo drtivou
+    palebnou sílu.
+  '221': >-
+    Bouřné ostří je špičkový stíhač: neuvěřitelně rychlý a nemilosrdně
+    vyzbrojený. Soupeři ho sotva uvidí, než udeří. Obrana je vedlejší
+    starost – nemusí vydržet to, čemu může jednoduše uletět. Zaměřuje se
+    výhradně na transportéry a recyklační flotily, které bez odporu smete.
+    Se svou závratnou rychlostí může útočit podle libosti a zmizet dřív, než
+    dorazí posily. Kdo se stane cílem Bouřného ostří, má malou šanci uniknout.
+  '222': >-
+    Těžký křižník je vyztužený vývoj běžného křižníku. S vylepšenými štíty
+    a mocnými zbraněmi obstojí proti neohrabaným nepřátelům. Vyniká
+    při nasazení po boku Ocelových kolosů, ničitelů a bombardérů, kde jeho
+    palebná síla opravdu zazáří. Přes svou sílu je ale pomalý a méně
+    obratný.
+  '223': >-
+    Štítový dron představuje nový přístup k obraně flotily, zaměřený hlavně
+    na ochranu posádky. Inovativní, ale těžké štítové technologie výrazně
+    snížily rychlost letu a obratnost. Navzdory špatné rychlosti a hbitosti je
+    v obraně vysoce účinný. Zastaralá konstrukce byla dohnána na doraz, aby
+    poskytla téměř neprostupnou obranu.
+  '224': >-
+    Improvizovaný útočný transportér je nevyzkoušená transportní loď
+    s minimální výzbrojí, vytvořená speciálně k provokaci nedbalých
+    a nepřipravených sousedů. Tohle provizorní vozidlo není určeno
+    k dlouhodobému použití, ale k rychlým, impulzivním útokům, které vyvolají
+    okamžitou reakci. Sousedská hádka je prakticky zaručena, jakmile se nasadí.
+    Se svým omezeným vybavením a nevyzpytatelnou povahou se stává
+    nebezpečným nástrojem rychlé eskalace konfliktu.
+  '225': >-
+    Bouřný transportér je skutečný zázrak techniky, který nabízí dokonalou
+    rovnováhu mezi bojovou silou, rychlostí a přepravní kapacitou. Jeho
+    schopnost rychle nasadit jednotky a suroviny a přitom dodat na bojiště
+    působivou palebnou sílu z něj udělala nezbytný prvek každé silné flotily.
+    Ať už pro rychlé útočné jednotky, nebo na podporu dlouhodobých operací,
+    Bouřný transportér je klíčem k účinnému válčení a je naprostou nutností
+    v každé flotile.
+  '226': >-
+    Kolosální bitevní transportér představuje vrchol inženýrství. Navzdory
+    mírně neohrabanému designu a z něj plynoucí pomalé rychlosti letu je to
+    nejtěžší pancéřovaný bitevní transportér, jaký kdy jakákoli flotila viděla.
+    Jeho drtivá palebná síla z něj dělá nezastavitelnou sílu na bojišti. Tenhle
+    obr dokáže bez námahy prorazit nepřátelské linie a přitom poskytuje
+    posádce maximální ochranu. Ztělesňuje sílu a odolnost a je nezbytným
+    přínosem pro každou těžce vyzbrojenou flotilu.
+  '227': >-
+    Optimalizovaný recyklátor je špičkové vylepšení standardního recyklátoru.
+    Vybaven mocným impulzním motorem dosahuje polí trosek rychleji a výhodněji,
+    takže je nezbytným přínosem pro každou pokročilou flotilu. Jeho
+    optimalizovaná konstrukce snižuje náklady na stavbu a zvyšuje účinnost
+    získávání surovin. Je k dispozici od střední fáze hry a poskytuje
+    strategickou výhodu každému rostoucímu impériu.
+  '228': >-
+    Omega recyklátor představuje vrchol recyklační technologie – ale za
+    vysokou cenu. Jeho mocný hyperprostorový pohon mu umožňuje dosáhnout polí
+    trosek v rekordním čase a zachraňovat suroviny rychleji než jakákoli jiná
+    loď. Tato rychlost ale jde na úkor efektivity: jeho náklady na stavbu
+    a palivo jsou obrovské, takže je to reálná volba jen pro bohaté velitele
+    v pozdní fázi hry. Pro ty, kdo dávají přednost rychlosti před cenou, je
+    to nejlepší recyklátor.
+  '229': >-
+    Zmije vznikla, aby zlomila nadvládu Xerů, a je konečnou zbraní proti
+    lehkým stíhačům, těžkým stíhačům a křižníkům. Se svými rychlopalnými děly
+    a pokročilou technologií mění rovnováhu sil ve vesmíru.
+  '230': >-
+    Rychlý. Přesný. Nedotknutelný. Interceptor není stavěn pro férové boje –
+    je navržen, aby udeřil rychle a tvrdě a během okamžiku vytvořil drtivou
+    výhodu.
+  '231': >-
+    Behemot je výsledkem desetiletí gravitonového výzkumu, přetvořeného
+    v neúnavnou bojovou platformu. Na rozdíl od Hvězd smrti nebyl navržen
+    k ničení planet, ale k maximální účinnosti na bojišti. Odložením
+    energeticky náročných systémů potřebných k ničení měsíců se jeho
+    konstrukce výrazně odlehčila, což umožnilo silnější motory, větší hbitost
+    a zvýšenou palebnou sílu. Jeho kompaktní gravitonové dělo z něj dělá
+    mobilní ničivý stroj, schopný sám zničit i masivní flotily.
+  '232': >-
+    Titán prázdnoty představuje vrchol moderní gravitonové technologie.
+    Každý aspekt jeho konstrukce slouží jedinému účelu: rychlému zničení
+    nepřátelských měsíců. Konvenční zbraňové věže byly záměrně vynechány,
+    aby se snížila hmotnost a uvolnilo místo pro kolosální generátory
+    krystalů. Ty napájejí nejpokročilejší urychlovací cívky, jaké byly kdy
+    ve známých galaxiích sestrojeny, a dávají plavidlu bezkonkurenční
+    pohyblivost. Obrovské nároky na krystaly dělají z každého Titána prázdnoty
+    monumentální průmyslový počin – a symbol nekonečné ničivé síly.
+  '401': >-
+    Raketomet je jednoduchá, ale nákladově efektivní obrana. Po bitvě se
+    v průměru obnoví asi 70 % zničené obrany.
+  '402': >-
+    Lehké lasery jsou jednoduché pozemní zbraně. Speciální zaměřovací systémy
+    sledují nepřítele a vysoce intenzivní laser prořízne trup cíle. Po bitvě
+    se v průměru obnoví asi 70 % zničené obrany.
+  '403': >-
+    Těžký laser je praktická, vylepšená verze lehkého laseru. Po bitvě se
+    v průměru obnoví asi 70 % zničené obrany.
+  '404': >-
+    Gaussův kanón vystřeluje kovové projektily vysoké hustoty extrémní
+    rychlostí. Po bitvě se v průměru obnoví asi 70 % zničené obrany.
+  '405': >-
+    Iontový kanón střílí paprsky iontů (kladně nebo záporně nabitých částic).
+    Po bitvě se v průměru obnoví asi 70 % zničené obrany.
+  '406': >-
+    Plazmová věž využívá velký palivový článek jaderného reaktoru k napájení
+    elektromagnetického urychlovače, který vystřeluje pulzy (toroidy) plazmatu.
+    Po bitvě se v průměru obnoví asi 70 % zničené obrany.
+  '407': >-
+    Malý planetární štít obklopí celou planetu polem, které pohlcuje ohromná
+    množství energie. Na jednu planetu lze postavit jen jeden.
+  '408': >-
+    Velký planetární štít je další vývoj, který k odolání útokům potřebuje
+    podstatně víc energie. Na jednu planetu lze postavit jen jeden.
+  '409': >-
+    Vývoj technologie planetárních štítů. Spotřebuje mnohem víc energie, ale
+    vydrží víc útoků než jakýkoli jiný štít. Na jednu planetu lze postavit jen
+    jeden.
+  '410': >-
+    Po letech výzkumu gravitace vědci vyvinuli gravitonové dělo, které
+    vytváří malé, soustředěné gravitonové pole a vystřeluje ho
+    na nepřítele.
+  '411': >-
+    Nehybná obranná platforma bez vlastního pohonu, držená na stabilní oběžné
+    dráze kolem planety gravitací. Zahájení tohoto procesu vyžaduje obrovská
+    množství energie. Na jednu planetu lze postavit jen jednu.
+  '412': >-
+    Bunkr je silně opevněná stavba navržená tak, aby vydržela i nejmocnější
+    útoky. Poskytuje nesrovnatelnou ochranu obyvatelům planety a kritické
+    infrastruktuře, což z něj dělá základní kámen planetární obrany.
+  '413': >-
+    Titanový laser je kolosální zbraň s nesrovnatelnou ničivou silou.
+  '414': >-
+    Návnada je sofistikovaný obranný systém určený k tomu, aby zmátl a zmýlil
+    nepřátelské síly. Maskováním za raketomet odrazuje od útoků.
+  '502': >-
+    Antibalistické rakety ničí přilétající meziplanetární rakety. Na každou
+    meziplanetární raketu je potřeba jedna antibalistická raketa.
+  '503': >-
+    Meziplanetární rakety ničí obranu soupeře, pokud je antibalistické rakety
+    nesestřelí. Takto zničená obrana se neobnovuje. Jejich dosah (v
+    slunečních soustavách) závisí ve výchozím nastavení na úrovni tvého
+    impulzního motoru:<br>Dosah = (5 x úroveň impulzního motoru) - 1
+  '901': >-
+    Kov je hlavní surovina pro budovy a lodě. Je to nejlevnější surovina,
+    ale také ta, kterou potřebuješ nejvíc, a stejně jako krystal si vyžaduje
+    k výrobě nejméně energie. Čím větší doly, tím hlouběji se zahrabávají
+    do země.
+  '902': >-
+    Krystal je hlavní surovina pro elektronické obvody a některé slitiny.
+    Vyrábí se v podzemních dolech, kde se surovina hned mění na obvody.
+  '903': >-
+    Deuterium se nachází v nejhlubších mořích a je jednou z nejvzácnějších
+    surovin ve vesmíru. K jeho získání musíš dosáhnout mořského dna, takže je
+    to nejdražší surovina.
+  '911': 'Energie je potřeba k výrobě každé suroviny.'
+secureResources: >-
+  Každá úroveň skladové budovy chrání před vyloupením při útocích 1 % denní
+  produkce dané suroviny, nejvýše 10 %.
+shortDescription:
+  '1': >-
+    Doly na kovy těží rudu, na které stojí každé vznikající i zavedené
+    impérium.
+  '2': >-
+    Krystal je klíčová surovina pro elektronické obvody a některé slitiny.
+  '3': >-
+    Deuterium pohání tvé kosmické lodě a získává se z hlubin moří. Je to
+    vzácná látka, a proto je poměrně drahé.
+  '4': >-
+    Solární elektrárny mění sluneční světlo na energii. Každý důl potřebuje
+    ke svému chodu energii.
+  '6': >-
+    Ve výchozím nastavení každá úroveň zkracuje dobu výzkumu o 8 %.
+  '12': Fúzní elektrárna slučuje deuteriové palivo a vyrábí energii.
+  '14': >-
+    Továrny na roboty dodávají stavební roboty, které pomáhají stavět tvé
+    budovy. Každá úroveň urychluje vylepšování budov.
+  '15': >-
+    Robotika v dokonalosti. Každá úroveň zkracuje dobu stavby budov, lodí
+    a obrany na polovinu.
+  '21': 'Všechny lodě a obrana se staví v planetární loděnici.'
+  '22': Poskytuje sklad pro přebytečný kov.
+  '23': Poskytuje sklad pro přebytečný krystal.
+  '24': 'Poskytuje sklad pro přebytečné deuterium.'
+  '31': 'K výzkumu nových technologií potřebuješ výzkumnou laboratoř.'
+  '33': >-
+    Terraformer rozšiřuje využitelnou plochu planety: 5 dalších polí
+    za úroveň a navíc jedno pole na každé sudé úrovni. Každá úroveň sama
+    zabírá jedno pole.
+  '34': "Alianční sklad ti umožňuje za deuterium prodlužovat pobyt přátelských flotil, které drží pozici na tvé planetě: při jednom zásobení až o tolik hodin, kolik činí úroveň skladu."
+  '35': 'Opravárenský dok obnovuje lodě z pole vraků.'
+  '41': >-
+    Měsíc nemá atmosféru a čerstvý měsíc má místo jen pro jednu budovu, takže
+    začni měsíční základnou.
+  '42': >-
+    Senzorová falanga ti umožňuje sledovat pohyby flotil. Čím vyšší úroveň, tím
+    větší dosah falangy.
+  '43': >-
+    Skokové brány jsou obrovské vysílače, které posílají velké flotily přes
+    vesmír bez ztráty času.
+  '44': 'Raketová sila ukládají tvé rakety.'
+  '106': >-
+    Tato technologie ti umožňuje získávat informace o dalších planetách
+    a měsících.
+  '108': >-
+    Lepší počítače ti umožňují velet víc flotilám. Každá úroveň počítačové
+    technologie zvyšuje maximální počet tvých flotil o jednu.
+  '109': >-
+    Zbraňová technologie zefektivňuje zbraňové systémy. Každá úroveň zvyšuje
+    sílu zbraní všech jednotek o 10 % základní hodnoty.
+  '110': >-
+    Štítová technologie zefektivňuje štíty lodí a obranných staveb. Každá
+    úroveň zvyšuje sílu štítů o 10 % základní hodnoty.
+  '111': >-
+    Speciální slitiny zlepšují pancíř lodí a obranných staveb. Každá úroveň
+    zvyšuje účinnost pancíře o 10 %.
+  '113': >-
+    Ovládnutí různých druhů energie je klíčem k mnoha novým technologiím.
+  '114': >-
+    Integrací 4. a 5. dimenze můžeš vyzkoumat nový druh pohonu, který je
+    úspornější a účinnější.
+  '115': >-
+    Vývoj tohoto pohonu zrychluje některé lodě, ale každá úroveň přidává jen
+    10 % základní rychlosti.
+  '117': >-
+    Impulzní motor pracuje na reakčním principu. Jeho další vývoj zrychluje
+    některé lodě, ale každá úroveň přidává jen 20 % základní rychlosti.
+  '118': >-
+    Hyperprostorový motor ohýbá prostor kolem lodě. Jeho vývoj zrychluje
+    některé lodě, ale každá úroveň přidává jen 30 % základní rychlosti.
+  '120': 'Soustředěné světlo vytváří paprsek, který poškodí vše, co zasáhne.'
+  '121': 'Smrtící paprsek urychlených iontů, který při dopadu způsobí obrovské škody.'
+  '122': >-
+    Další vývoj iontové technologie, která urychluje vysokoenergetické
+    plazma vzniklé přehřátím iontů. Má ničivý účinek při dopadu.
+  '123': Výzkumníci na různých planetách komunikují přes tuto síť.
+  '124': >-
+    Odemyká kolonizaci a expedice do hlubokého vesmíru. Další planety na lichých
+    úrovních, další sloty expedic na čtvercových úrovních, delší držení expedic
+    a víc pozic planet v systému.
+  '131': >-
+    Zvyšuje produkci kovu o 2 % za úroveň.
+  '132': >-
+    Zvyšuje produkci krystalu o 2 % za úroveň.
+  '133': >-
+    Zvyšuje produkci deuteria o 2 % za úroveň.
+  '134': >-
+    Snižuje náklady na lety o 2 % za úroveň.
+  '199': >-
+    Vypálení soustředěného náboje gravitonových částic vytvoří umělé
+    gravitační pole, které dokáže zničit lodě i měsíce.
+  '202': >-
+    Malý transportér je hbitá loď, která rychle doveze suroviny na jiné
+    planety.
+  '203': >-
+    Tato nákladní loď unese mnohem víc než malý transportér a díky lepšímu
+    pohonu je obecně rychlejší.
+  '204': >-
+    První bojová loď, kterou staví každý císař. Lehký stíhač je hbitý, ale
+    sám zranitelný; ve velkém počtu se stává skutečnou hrozbou pro každé
+    impérium. Lehké stíhače jako první doprovázejí malé a velké transportéry
+    k nepřátelským planetám se slabou obranou.
+  '205': 'Tento stíhač má lepší pancíř a tvrdší zásah než lehký stíhač.'
+  '206': >-
+    Křižníky mají téměř třikrát silnější pancíř než těžké stíhače a víc než
+    dvojnásobnou palebnou sílu. Jsou také velmi rychlé.
+  '207': >-
+    Bitevní lodě jsou páteří flotily. Těžká děla, vysoká rychlost a velké
+    nákladní prostory z nich dělají soupeře, které je třeba brát vážně.
+  '208': 'Touto lodí lze kolonizovat neobydlené planety.'
+  '209': 'Recyklátor sbírá suroviny z polí trosek.'
+  '210': >-
+    Špionážní sondy jsou malí, hbití drony, které na velké vzdálenosti
+    dodávají data o flotilách a planetách.
+  '211': 'Bombardér byl postaven speciálně k ničení obrany planet.'
+  '212': >-
+    Solární satelity jsou jednoduché plošiny ze solárních článků na vysoké,
+    stacionární oběžné dráze. Sbírají sluneční světlo a laserem ho vysílají
+    dolů na pozemní stanici.
+  '213': 'Ničitel je králem válečných lodí.'
+  '214': >-
+    Ničivá síla Hvězdy smrti nemá obdoby a umí ničit měsíce.
+  '215': 'Bitevní křižník se specializuje na zachytávání nepřátelských flotil.'
+  '216': >-
+    Nástupce oblíbené Hvězdy smrti: mnohem rychlejší a odolnější, s obrovským
+    nákladním prostorem, ale zasahuje o něco slaběji.
+  '217': >-
+    Vývoj velkého transportéru s mnohem větší nosností. Jezdí na
+    hyperprostorový pohon, takže začíná pomaleji než velký transportér, ale
+    jak se tvůj hyperprostorový motor vylepšuje, předběhne ho.
+  '218': 'Absolutní nejhorší scénář, i když velmi pomalý.'
+  '219': >-
+    Obrovský nákladní prostor a nové motory ho nechají létat rychleji
+    a sbírat víc z polí trosek.
+  '220': >-
+    Ocelový kolos vydrží jakýkoli útok díky masivním štítům a tlustému
+    pancíři, ale jeho zbraně a motory nechávají hodně přát.
+  '221': >-
+    Bouřné ostří je bleskově rychlý stíhač, ozbrojený až po zuby. Obrana?
+    Zbytečná – jeho kořistí jsou bezbranné transportéry a recyklátory.
+  '222': >-
+    Pomalý, ale těžce vyzbrojený křižník s vylepšenými štíty a útočnými
+    schopnostmi.
+  '223': >-
+    Přepracovaný lehký stíhač, který upřednostňuje bezpečí posádky za cenu
+    špatných letových vlastností.
+  '224': >-
+    Nevyzkoušená transportní loď s minimální výzbrojí, určená k provokaci
+    nedbalých sousedů a okamžitému vyvolání konfliktu.
+  '225': >-
+    Loď, která spojuje bojovou sílu, rychlost a přepravní kapacitu, takže je
+    nepostradatelná pro každou silnou flotilu.
+  '226': >-
+    Silně pancéřovaný bitevní transportér s impozantním, mírně neohrabaným
+    designem, jehož drtivá palebná síla porazí i ty nejtvrdší
+    soupeře.
+  '227': >-
+    Vylepšená verze klasického recyklátoru s impulzními motory, která umožňuje
+    efektivnější záchranné mise za nižší náklady.
+  '228': Extrémně rychlé, ale neefektivní vylepšení recyklátoru s hyperprostorovým pohonem.
+  '229': >-
+    Zmije vznikla, aby zlomila nadvládu Xerů, a je konečnou zbraní proti
+    lehkým stíhačům, těžkým stíhačům a křižníkům. Se svými rychlopalnými děly
+    a pokročilou technologií mění rovnováhu sil ve vesmíru.
+  '230': >-
+    Rychlý. Přesný. Nedotknutelný. Interceptor není stavěn pro férové boje –
+    je navržen, aby udeřil rychle a tvrdě a během okamžiku vytvořil drtivou
+    výhodu.
+  '231': >-
+    Menší, rychlejší Hvězda smrti, která neumí ničit měsíce. Behemot je
+    smrtící proti flotilám.
+  '232': >-
+    Rychlejší, výbušnější, vždycky dobré překvapení.
+    Titán prázdnoty je postrachem měsíců.
+  '401': Raketomet je jednoduchá, ale nákladově efektivní obrana.
+  '402': >-
+    Lehké lasery jsou jednoduché pozemní obranné zbraně. Speciální zaměřovací
+    systémy sledují nepřátelské lodě a vysoce intenzivní laser prořízne
+    trup cíle.
+  '403': Těžký laser je vylepšená verze lehkého laseru.
+  '404': >-
+    Gaussův kanón vystřeluje kovové projektily vysoké hustoty extrémní
+    rychlostí.
+  '405': >-
+    Iontový kanón střílí paprsky iontů (kladně nebo záporně nabitých
+    částic).
+  '406': >-
+    Plazmová věž využívá velký palivový článek jaderného reaktoru k napájení
+    elektromagnetického urychlovače, který vystřeluje pulzy (toroidy) plazmatu.
+  '407': >-
+    Malý planetární štít obklopí celou planetu polem, které pohlcuje ohromná
+    množství energie.
+  '408': >-
+    Velký planetární štít dokáže při útocích pohltit podstatně víc energie.
+  '409': >-
+    Vývoj technologie planetárních štítů. Spotřebuje mnohem víc energie, ale
+    vydrží víc útoků než jakýkoli jiný štít.
+  '410': >-
+    Po letech výzkumu gravitace vědci vyvinuli gravitonové dělo, které
+    vytváří malé, soustředěné gravitonové pole a vystřeluje ho
+    na nepřítele.
+  '411': >-
+    Nehybná obranná platforma bez vlastního pohonu, držená na stabilní oběžné
+    dráze kolem planety gravitací. Zahájení tohoto procesu vyžaduje obrovská
+    množství energie.
+  '412': 'Chrání! Jako lego kostka v Kindergarten TD.'
+  '413': 'Titanový laser je kolosální laser.'
+  '414': >-
+    Návnada je sofistikovaný obranný systém určený k tomu, aby zmátl a zmýlil
+    nepřátelské síly. Maskováním za raketomet odrazuje od útoků.
+  '502': 'Antibalistické rakety ničí přilétající meziplanetární rakety.'
+  '503': 'Meziplanetární rakety ničí obranu soupeře.'
+  '901': >-
+    Kov je hlavní surovina pro budovy a lodě. Je to nejlevnější surovina,
+    ale také ta, kterou potřebuješ nejvíc.
+  '902': >-
+    Krystaly jsou hlavní surovina používaná při stavbě elektronických obvodů
+    a při tvorbě některých slitin.
+  '903': >-
+    Deuterium se nachází v nejhlubších mořích. Je to nejdražší surovina
+    a také vyžaduje nejvíc energie.
+  '911': 'Energie je potřeba k výrobě každé suroviny.'
+shortNames:
+  '202': Malý transportér
+  '203': Velký transportér
+  '204': Lehký stíhač
+  '205': Těžký stíhač
+  '206': Křižník
+  '207': Bitevní loď
+  '208': Kolonizační loď
+  '209': Recyklátor
+  '210': Špionážní sonda
+  '211': Bombardér
+  '212': Solární satelit
+  '213': Ničitel
+  '214': Hvězda smrti
+  '215': Bitevní křižník
+  '216': Černý měsíc
+  '217': Bitevní transportér
+  '218': Avatar
+  '219': Bitevní recyklátor
+  '220': Ocelový kolos
+  '221': Bouřné ostří
+  '222': Těžký křižník
+  '223': Štítový dron
+  '224': Improvizovaný útočný transportér
+  '225': Bouřný transportér
+  '226': Kolosální bitevní transportér
+  '227': Optimalizovaný recyklátor
+  '228': Omega recyklátor
+  '229': Zmije
+  '230': Interceptor
+  '231': Behemot
+  '232': Titán prázdnoty
+  '401': Raketomet
+  '402': Lehká laserová věž
+  '403': Těžká laserová věž
+  '404': Gaussův kanón
+  '405': Iontový kanón
+  '406': Plazmový kanón
+  '407': Malý planetární štít
+  '408': Velký planetární štít
+  '409': Atmosférický štít
+  '410': 'Gravitonový kanón'
+  '411': Orbitální obranná platforma
+  '412': Bunkr
+  '413': Titanový laser
+  '414': Návnada
+spytechStatsDescription: >-
+  Na úrovních 0 a 1 vidíš jen celkové body ostatních hráčů. Od úrovně 2 vidíš
+  i jejich body za budovy; od úrovně 4 jejich body za výzkum. Od úrovně 6
+  vidíš také jejich body za lodě a obranu a jejich bojové statistiky.
+tech:
+  '0': Budovy
+  '1': Důl na kovy
+  '2': Důl na krystaly
+  '3': Syntetizér deuteria
+  '4': 'Solární elektrárna'
+  '6': Univerzita
+  '12': Fúzní elektrárna
+  '14': Továrna na roboty
+  '15': Továrna na nanoboty
+  '21': Loděnice
+  '22': Sklad kovu
+  '23': Sklad krystalů
+  '24': Nádrž na deuterium
+  '31': Výzkumná laboratoř
+  '33': Terraformer
+  '34': Alianční sklad
+  '35': 'Opravárenský dok'
+  '40': Budovy na měsíci
+  '41': 'Měsíční základna'
+  '42': Senzorová falanga
+  '43': Skoková brána
+  '44': Raketové silo
+  '100': Výzkum
+  '106': Špionážní technologie
+  '108': Počítačová technologie
+  '109': Zbraňová technologie
+  '110': Štítová technologie
+  '111': Pancéřová technologie
+  '113': Energetická technologie
+  '114': Hyperprostorová technologie
+  '115': Spalovací motor
+  '117': Impulzní motor
+  '118': Hyperprostorový motor
+  '120': Laserová technologie
+  '121': Iontová technologie
+  '122': Plazmová technologie
+  '123': Mezigalaktická výzkumná síť
+  '124': Astrofyzika
+  '131': Produkce kovu
+  '132': Produkce krystalu
+  '133': Produkce deuteria
+  '134': Palivová účinnost
+  '199': Gravitonový výzkum
+  '200': Lodě
+  '202': Malý transportér
+  '203': Velký transportér
+  '204': Lehký stíhač
+  '205': Těžký stíhač
+  '206': Křižník
+  '207': Bitevní loď
+  '208': Kolonizační loď
+  '209': Recyklátor
+  '210': Špionážní sonda
+  '211': Bombardér
+  '212': Solární satelit
+  '213': Ničitel
+  '214': Hvězda smrti
+  '215': Bitevní křižník
+  '216': Černý měsíc
+  '217': Bitevní transportér
+  '218': Avatar
+  '219': Bitevní recyklátor
+  '220': Ocelový kolos
+  '221': Bouřné ostří
+  '222': Těžký křižník
+  '223': Štítový dron
+  '224': Improvizovaný útočný transportér
+  '225': Bouřný transportér
+  '226': Kolosální bitevní transportér
+  '227': Optimalizovaný recyklátor
+  '228': Omega recyklátor
+  '229': Zmije
+  '230': Interceptor
+  '231': Behemot
+  '232': Titán prázdnoty
+  '400': Planetární obrana
+  '401': Raketomet
+  '402': Lehká laserová věž
+  '403': Těžká laserová věž
+  '404': Gaussův kanón
+  '405': Iontový kanón
+  '406': Plazmový kanón
+  '407': Malý planetární štít
+  '408': Velký planetární štít
+  '409': Atmosférický štít
+  '410': 'Gravitonový kanón'
+  '411': Orbitální obranná platforma
+  '412': Bunkr
+  '413': Titanový laser
+  '414': Návnada
+  '500': Rakety
+  '502': Antibalistická raketa
+  '503': Meziplanetární rakety
+  '900': Suroviny
+  '901': Kov
+  '902': Krystal
+  '903': Deuterium
+  '911': Energie

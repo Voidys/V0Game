@@ -1160,6 +1160,7 @@ ov_newname_specialchar: Gezegen adları yalnızca harf, rakam, boşluk, alt çiz
 ov_newname_too_long: Gezegen adı en fazla %d karakter olabilir.
 ov_news: Duyurular
 ov_news_all: 'Tüm haberler'
+tutorial_label: 'Eğitim'
 tutorial_step_of: 'Adım %1 / %2'
 ov_of: /
 ov_outlaw: 'Şu tarihe kadar kanun kaçağı:'
@@ -1689,6 +1690,7 @@ shell_footer: Alt bilgi
 shell_footer_game: Oyun
 shell_footer_community: Topluluk
 shell_footer_legal: Hukuki
+shell_footer_credits: 'birçok açık kaynak projesinin emeği üzerine kurulu'
 shell_imprint: Künye
 ui_palette_placeholder: Sayfalar, gezegenler, koordinatlar (örn. 1:42:8)…
 ui_palette_empty: Eşleşme yok

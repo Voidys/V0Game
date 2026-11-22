@@ -1,0 +1,340 @@
+and: 和
+battle_stats_damage_done: 造成傷害
+battle_stats_damage_dead: 溢出傷害
+battle_stats_shield_hit: 護盾命中
+battle_stats_ship_destroyed: 擊毀艦船
+battle_stats_shield_bounced: 偏導傷害
+battle_stats_rapid_fire_done: 快速射擊
+battle_stats_explosion_triggered: 爆炸
+battle_stats_stunned_done: 癱瘓
+battle_stats_target: 目標
+battle_stats_total: 合計
+battle_stats_total_all_targets: 合計（所有目標）
+battle_stats_total_all_fleets: 合計（所有艦隊）
+damage: 點傷害。
+debree_field_1: '這些座標現在有：'
+debree_field_2: ' 的殘骸。'
+fcp_colony: 殖民地
+fl_expocap_explain: >-
+  這是值得派出的遠征點數上限。超過這個上限的部分不會增加你的獎勵，但仍然可能損失。
+fl_send_back: 返航
+fl_simulate: 模擬
+fleet_attack_1: 進攻艦隊以火力
+fleet_attack_2: 轟擊防守方。防守方的護盾吸收了
+fleet_defs_1: 防守艦隊以火力
+fleet_defs_2: 轟擊進攻方。進攻方的護盾吸收了
+spy_best_planet: 最佳行星
+spy_best_resources_per_second: 每秒最佳資源
+spy_energy: 能源
+spy_hazard_potential: 危險係數
+spy_large_transporter: 大型運輸艦
+spy_market_value: 市場價值
+spy_necessary_recycler: 所需回收船
+spy_necessary_transporters: 所需艦船
+spy_potential_recycling: 可回收量
+spy_potential_resources: 可掠奪資源
+spy_small_transporter: 小型運輸艦
+spy_summary: 摘要
+spy_total_resources: 資源總計
+sys_adress_planet: '[%s:%s:%s]'
+sys_and: 和
+sys_attack_attacker_pos: 進攻方
+sys_attack_defender_pos: 防守方
+sys_attack_round: 回合
+cr_start: "出發艦隊"
+cr_rounds: "回合"
+cr_debris: "殘骸場"
+cr_loot: "戰利品"
+cr_losses: "損失"
+cr_moon: "月球機率"
+cr_lost_round: "本回合損失"
+cr_lost_total: "累計損失"
+cr_stats: "戰鬥統計"
+sys_attack_title: '以下艦隊在此對決：'
+sys_attacker_lostunits: '進攻方的損失：'
+sys_attacker_won: 進攻方贏得了這場戰鬥！
+sys_both_won: '這場戰鬥以平手收場！'
+sys_colo_allisok: >-
+  你的艦隊抵達了座標 %s。拓荒者已經開始殖民這顆新行星。
+sys_colo_badpos: >-
+  你的艦隊抵達了座標 %s。那裡無法殖民，拓荒者只好失望地返航。
+sys_colo_maxcolo: >-
+  你的艦隊抵達了座標 %s。無法殖民：你最多只能擁有 %d 顆行星。
+sys_colo_mess_from: 殖民
+sys_colo_mess_report: 殖民報告
+sys_colo_notech: >-
+  你的艦隊抵達了座標 %s。拓荒者發現他們的裝備不適應這裡的氣候，必須改良。他們失望地返航了。
+sys_colo_notfree: >-
+  你的艦隊抵達了座標 %s。很不巧，拓荒者發現這顆行星已經有人住了！他們士氣盡失，返航回家。
+sys_debris: 殘骸場
+sys_def_rebuild: '部分防禦可以修復：'
+sys_defender_lostunits: '防守方的損失：'
+sys_defender_won: 防守方贏得了這場戰鬥！
+sys_destroyed: 已摧毀
+sys_destruc_echec: >-
+  地震撼動了行星，但出了差錯：死星爆炸並碎成千萬片，衝擊波把整支艦隊都帶走了。
+sys_destruc_lune: '摧毀月球的機率：%d%%'
+sys_destruc_mess1: '死星朝月球射出了驚人的能量。'
+sys_destruc_null: >-
+  死星在開火前沒能完全充能。<br>月球沒有被摧毀。
+sys_destruc_reussi: >-
+  死星的光束擊中月球，把它撕成了碎片。<br>整顆月球被摧毀了！
+sys_destruc_rip: '艦隊自毀的機率：%d%%'
+sys_destruc_stop: '防守方成功擋下了摧毀月球的行動。'
+sys_destruc_title: '以下艦隊為了摧毀月球而對決：'
+sys_expe_attack_1_1_1: 一名走投無路的太空海盜企圖劫持我們的遠征艦隊。
+sys_expe_attack_1_1_2: >-
+  一群原始野蠻人駕著太空船攻擊了我們。至少他們的船破爛得嚇人。如果他們的火力真的有威脅，我們就得認真還擊了。
+sys_expe_attack_1_1_3: >-
+  我們截獲了幾段醉醺醺的海盜的無線電通訊。看來我們就要被攻擊了。
+sys_expe_attack_1_1_4: >-
+  我們得跟一些海盜打一場，幸好我們人數比他們多。
+sys_expe_attack_1_1_5: >-
+  艦隊回報，一位叫莫亞·提卡爾的人和他的船員要求我們的艦隊無條件投降。如果他們是認真的，就會發現我們很會自衛。
+sys_expe_attack_1_2_1: 你的遠征艦隊意外遭遇了一群太空海盜。
+sys_expe_attack_1_2_2: >-
+  我們飛進了一群星際海盜的埋伏！可惜，這場仗躲不掉。
+sys_expe_attack_1_2_3: >-
+  另一支遠征艦隊的求救訊號，原來是一群狡猾海盜設下的陷阱。一場戰鬥無法避免。
+sys_expe_attack_1_3_1: >-
+  截獲的訊號不是來自未知的外星人，而是一座秘密海盜基地！海盜們對我們闖進他們的星區很不高興。
+sys_expe_attack_1_3_2: 遠征艦隊回報，與身分不明的海盜船展開激烈戰鬥！
+sys_expe_attack_1_3_3: >-
+  我們剛收到遠征指揮官的緊急訊息：「他們衝著我們來了！他們從超空間跳出來，幸好只是海盜，我們還有機會，打吧！」
+sys_expe_attack_2_1_1: 你的遠征艦隊和一個未知種族有了不太友善的第一次接觸。
+sys_expe_attack_2_1_2: 一些奇怪的船艦不經警告就攻擊了遠征艦隊！
+sys_expe_attack_2_1_3: 我們的遠征隊被一小群身分不明的太空船攻擊了！
+sys_expe_attack_2_1_4: >-
+  遠征艦隊回報與未知船艦接觸。無線電訊息無法解碼，但那些奇怪的船似乎正在為武器充能。
+sys_expe_attack_2_2_1: 一個未知種族正在攻擊我們的遠征隊！
+sys_expe_attack_2_2_2: >-
+  你的遠征艦隊顯然闖入了一個先前未知、但極具攻擊性的外星種族的領地。
+sys_expe_attack_2_2_3: >-
+  我們和遠征艦隊的聯繫突然中斷。最後得知的消息是，艦隊正遭受猛烈砲火。攻擊者的身分無法確認。
+sys_expe_attack_2_3_1: >-
+  你的遠征隊撞上了一支外星入侵艦隊，並回報發生大規模戰鬥！
+sys_expe_attack_2_3_2: >-
+  一大群來歷不明的晶體船艦，正與我們的遠征艦隊直接對撞。我們得做好最壞的打算。
+sys_expe_attack_2_3_3: >-
+  我們在正確念出外星種族的方言時遇到了一點困難。我們的外交官不小心喊成了「開火！」而不是「和平！」
+sys_expe_attackname_1: 海盜
+sys_expe_attackname_2: 外星人
+sys_expe_back_home: 你的艦隊已從 %3$s 的遠征返回 %1$s %2$s。
+sys_expe_back_home_ress: 帶回了 %s %s、%s %s 和 %s %s。
+sys_expe_back_home_ships_flound: '發現了以下艦船：'
+sys_expe_back_home_ships_lost: '以下艦船損失了：'
+sys_expe_depleted_max_1: >-
+  通訊官的航行日誌：如果哪天覺得不安全，我們隨時可以和附近飛來飛去的其他遠征隊合流。
+sys_expe_depleted_max_2: >-
+  通訊官的航行日誌：照這樣下去，我們得設置導航浮標來應付這麼多的交通了。
+sys_expe_depleted_max_3: >-
+  通訊官的航行日誌：也許在這裡開一間紀念品店，比再派一支遠征隊更有用。
+sys_expe_depleted_med_1: >-
+  通訊官的航行日誌：我們在這一帶發現好幾支遠征艦隊的痕跡。我們準備回家了。
+sys_expe_depleted_med_2: >-
+  通訊官的航行日誌：我們和這個星區的幾支其他遠征隊建立了友好的無線電聯繫。
+sys_expe_depleted_med_3: >-
+  通訊官的航行日誌：我們和同星區另一支遠征艦隊的船員一起慶祝遠征結束。他們也沒有什麼新發現可以報告。
+sys_expe_depleted_min_1: >-
+  通訊官的航行日誌：看來人類以前就來過銀河系的這一帶了。
+sys_expe_depleted_min_2: >-
+  通訊官的航行日誌：我們發現了舊太空船的殘骸。我們不是第一批來這裡的人。
+sys_expe_depleted_min_3: >-
+  通訊官的航行日誌：我們差點和另一支遠征艦隊撞上。我從沒想過這種鳥不生蛋的地方還有別人。
+sys_expe_depleted_not_1: >-
+  通訊官的航行日誌：看來宇宙的這一塊還沒有人探索過。
+sys_expe_depleted_not_2: >-
+  通訊官的航行日誌：成為第一批穿越未探索星區的人，感覺太棒了。
+sys_expe_feqeuence_few: 過去 24 小時內超過 10 次遠征
+sys_expe_feqeuence_many: 過去 24 小時內超過 50 次遠征
+sys_expe_feqeuence_medium: 過去 24 小時內超過 25 次遠征
+sys_expe_found_goods: '開採到 %s %s。'
+sys_expe_found_ress_1_1: >-
+  你的遠征隊發現了一小片小行星群，從中開採到了一些資源。
+sys_expe_found_ress_1_2: >-
+  在一顆偏遠的小行星上，發現了幾處容易開採的資源田，並成功提煉出原料。
+sys_expe_found_ress_1_3: >-
+  你的遠征隊撞見了很久以前一場戰鬥留下的老舊太空船殘骸。部分零件被回收再利用了。
+sys_expe_found_ress_1_4: >-
+  遠征隊發現了一顆被輻射污染、大氣劇毒的行星。不過掃描顯示這顆行星蘊藏大量原料。他們派出自動無人機，盡可能多地開採資源。
+sys_expe_found_ress_2_1: >-
+  你的遠征隊發現了一支古老的貨運船隊，貨物裝得滿滿的，卻空無一人。取得了一些資源。
+sys_expe_found_ress_2_2: >-
+  你的遠征隊在一顆自帶大氣層的小衛星上發現了豐富的原料礦藏。船員們正在開採這筆寶藏。
+sys_expe_found_ress_2_3: >-
+  我們遇到一小隊民用船隻，他們急需食物和藥品。作為交換，我們拿到了相當可觀的實用資源。
+sys_expe_found_ress_3_1: >-
+  你的遠征艦隊回報發現了一艘巨大的外星船骸。雖然他們拿那些科技沒轍，但整艘船可以拆成零件，換到珍貴的原料。
+sys_expe_found_ress_3_2: >-
+  一顆未知行星周圍的小行星帶蘊藏著大量原料。遠征艦隊把儲藏室都塞滿了！
+sys_expe_found_ress_logbook_1: >-
+  大副的航行日誌：我們把每一寸空間都用上了，還是帶不走所有發現的資源。
+sys_expe_found_ress_logbook_2: >-
+  大副的航行日誌：要是再多幾艘貨船就好了！現在我們得丟下一堆資源。
+sys_expe_found_ress_logbook_3: >-
+  大副的航行日誌：我們已經把不需要的東西全丟了，還是騰不出足夠的空間來裝所有發現的資源。
+sys_expe_found_ress_logbook_4: >-
+  大副的航行日誌：連餐廳和所有休息室都改成儲藏室了，我們還是運不走所有發現的資源。
+sys_expe_found_ships_1_1: >-
+  我們發現了前一支遠征隊的殘骸！我們的技術人員正在檢查，看能不能讓其中一些殘骸重新運作。
+sys_expe_found_ships_1_2: >-
+  我們發現了一座廢棄的海盜基地。機庫裡還停著一些舊船。我們的技術人員正在檢查哪些船還能用。
+sys_expe_found_ships_1_3: >-
+  我們的遠征隊發現一顆幾乎被戰爭徹底摧毀的行星。軌道上漂浮著各種船骸。技術人員嘗試修復其中幾艘。也許我們能更了解這裡到底發生過什麼事。
+sys_expe_found_ships_1_4: >-
+  遠征隊偶然發現一座似乎已被遺棄了一輩子的古老星際基地。堡壘的機庫裡找到幾艘船。技術人員成功讓其中幾艘重新飛起來。
+sys_expe_found_ships_2_1: >-
+  我們發現了一支艦隊的殘骸。遠征隊的技術人員立刻登上那些部分完好的船，並修好了其中幾艘。
+sys_expe_found_ships_2_2: >-
+  我們的遠征隊發現了一座古老的自動化船廠，裡面還有幾艘船處於生產階段。恢復船廠的能源供應之後，我們的技術人員著手完成它們的建造。
+sys_expe_found_ships_3_1: >-
+  我們發現了一座巨大的船艦墳場。遠征隊的幾名技術人員成功讓一兩艘船重新運作了。
+sys_expe_found_ships_3_2: >-
+  我們發現了一顆留有文明遺跡的行星。從外太空還看到另一座依然完好的巨型艦船基地。我們的一些技術人員和飛行員已經登陸地表，確認能不能取回幾艘船。
+sys_expe_found_ships_logbook_1: >-
+  輪機長的航行日誌：如果多帶幾艘船來，要把那些美人帶回家就輕而易舉了！
+sys_expe_found_ships_logbook_2: >-
+  輪機長的航行日誌：可惜我們沒有足夠的容量，把這趟任務發現的所有船都帶回去。
+sys_expe_found_ships_logbook_3: >-
+  輪機長的航行日誌：可惜我們沒有足夠的容量，把發現的所有船都帶回去。
+sys_expe_found_ships_nothing: 沒有發現任何艦船。
+sys_expe_lost_fleet_1: >-
+  遠征隊只留下了這段無線電訊息：滋滋嗶 天啊！...喀嗞嗞嗞那個滋嗶嗶看到嗞嗞嗞 對 從怎麼 喀嗞嗞嗞嗞嗞嗞...
+sys_expe_lost_fleet_2: >-
+  我們最後收到的遠征隊資料，是一組好得不可思議的黑洞張開的特寫。
+sys_expe_lost_fleet_3: >-
+  其中一艘指揮艦上的核反應爐破裂，引發連鎖反應，在一場壯觀的爆炸中摧毀了整支遠征隊。
+sys_expe_lost_fleet_4: >-
+  遠征艦隊在超空間跳躍後沒有回來。我們的科學家還在苦思究竟發生了什麼事，但艦隊看來是永遠失蹤了。
+sys_expe_nothing_1: >-
+  這次遠征沒帶回什麼令人興奮的東西，只有幾隻來自未知沼澤行星的好奇小動物。
+sys_expe_nothing_2: >-
+  你的遠征隊拍到了超新星的美麗照片。不過這趟遠征並沒有帶來什麼新發現。但它很有機會拿下今年的宇宙最佳照片大賽。
+sys_expe_nothing_3: >-
+  一個奇怪的電腦病毒在離開太陽系不久後讓導航失靈。結果整支遠征艦隊一路都在繞圈圈。不用說，這次遠征沒什麼成果。
+sys_expe_nothing_4: >-
+  一種純能量生命體讓所有遠征成員盯著螢幕上催眠般的符號好幾天。等大部分人終於清醒時，遠征隊已經因重氫不足而被迫取消。
+sys_expe_nothing_5: >-
+  嗯，至少我們現在知道，第五級紅色異常不只會對船艦系統造成混亂，還會讓船員大規模產生幻覺。可惜這趟遠征沒有其他發現。
+sys_expe_nothing_6: >-
+  儘管一開始對這個星區的掃描看起來很有希望，我們還是空手而歸。
+sys_expe_nothing_7: >-
+  也許不該在這顆偏遠行星上幫船長慶生。一場可怕的出血熱把大部分船員送進醫務室，人手嚴重不足，導致遠征失敗。
+sys_expe_nothing_8: >-
+  你的遠征隊除了廣闊的太空虛無，什麼也沒發現。連一顆小行星、輻射、粒子，或任何能讓這趟遠征稍微有趣一點的東西都沒有。
+sys_expe_nothing_9: >-
+  指揮艦的反應爐故障，差點毀掉整支遠征隊。幸好技術人員能力超群，阻止了最糟的情況。不過修理花了太多時間，遠征隊什麼成果都沒有就回來了。
+sys_expe_report: 遠征報告
+sys_expe_report_msg: '%s %s 的艦隊在 %s 的遠征報告：'
+sys_expe_time_fast_1: >-
+  推進系統能量線圈出現了一個未預期的回饋迴路，加速了遠征隊的返航，比預期更早抵達。不過初步報告指出，他們沒有其他可以報告的東西。
+sys_expe_time_fast_2: >-
+  有點大膽的新任指揮官利用一個不穩定的蟲洞縮短返航路程，而且成功了！不過遠征本身沒有帶來新的發現。
+sys_expe_time_fast_3: >-
+  你的遠征隊回報在探索的星區沒有發現異常。不過艦隊在返航途中遇到太陽風，大幅加快了航程。你的遠征隊會比預期早一點回到家。
+sys_expe_time_slow_1: >-
+  領航員的嚴重失誤，讓艦隊完全降落在錯誤的地方。結果返航花了長得多的時間。
+sys_expe_time_slow_2: >-
+  不明原因讓艦隊的跳躍完全出錯。他們差點掉進一顆恆星的核心！還好降落在一個已知的星系，但返航會比原本計畫的更久。
+sys_expe_time_slow_3: >-
+  新的導航模組似乎還有一些臭蟲。遠征艦隊不只飛到完全錯誤的方向，還把重氫全部耗光了！遠征隊只好失望地靠備用電力返航。
+sys_expe_time_slow_4: >-
+  你的遠征隊進入了粒子風暴增強的星區。這讓儲能系統過載，導致所有船艦的主系統失靈。你的技師們成功阻止了最糟的狀況，但遠征隊會嚴重延遲才能返航。
+sys_expe_time_slow_5: >-
+  你的遠征艦隊旗艦和一艘毫無預警直接跳進艦隊的外星船撞上了。那艘外星船爆炸，旗艦受損嚴重。等最嚴重的損傷修好之後，你的艦船就會開始返航，因為遠征隊在現在的狀態下無法繼續。
+sys_expe_time_slow_6: >-
+  一顆紅巨星的恆星風扭曲了遠征隊的跳躍，讓導航系統把返航路程完全算錯。結果遠征隊發現自己身處陌生恆星之間的茫茫虛空。
+sys_fleet_return: 你的艦隊返回 %s %s %s，並帶回 %s %s、%s %s 和 %s %s。%s
+sys_fleet_won: >-
+  你的艦隊已從 %s %s 的攻擊返回 %s %s。你奪得了 %s %s、%s %s 和 %s %s。
+sys_gain: 收益
+sys_honorpoints_changed: '榮譽點數：'
+sys_irak_def: '%d 枚飛彈被攔截了。'
+sys_irak_mess: 來自 %s 的星際飛彈（%d 枚）已擊中 %s <br><br>
+sys_irak_no_att: 所有飛彈都被攔截了。
+sys_irak_no_def: 這顆行星沒有防禦。
+sys_irak_subject: 飛彈命中
+sys_lost: 損失
+sys_mess_attack_cancel: |-
+  %s %s 的戰鬥被取消了。
+  伺服器無法計算結果。
+sys_mess_attack_report: 攻擊報告
+sys_mess_fleetback: 艦隊返航
+sys_mess_piratebase_gone: '你的艦隊抵達了 %s，但海盜基地已經不在了。艦隊正在返航。'
+sys_mess_spy_activity: 反間諜報告
+sys_mess_spy_control: 中央情報局
+sys_mess_spy_destroyed: 你的間諜衛星被摧毀了！
+sys_mess_spy_ennemyfleet_1: 來自行星 %s 的敵方間諜衛星，被發現在 %s 附近。
+sys_mess_spy_ennemyfleet_3: 來自月球 %s 的敵方間諜衛星，被發現在 %s 附近。
+sys_mess_spy_link: '<a href="game/galaxy/%3$s/%4$s">%1$s (%2$s) [%3$s:%4$s:%5$s]</a>'
+sys_mess_spy_lostproba: '間諜衛星被發現的機率：%d%%'
+sys_mess_spy_qg: 間諜部門
+sys_mess_spy_repair_order: 修理船塢目前正在修復艦船。
+sys_mess_spy_report: 情報報告
+sys_mess_spy_report_details_1: '行星 %1$s (%2$s) [%3$s:%4$s:%5$s] 在 %6$s 的間諜報告'
+sys_mess_spy_report_details_3: '月球 %1$s (%2$s) [%3$s:%4$s:%5$s] 在 %6$s 的間諜報告'
+sys_mess_spy_report_details_4: '%1$s (%2$s) [%3$s:%4$s:%5$s] 在 %6$s 的間諜報告'
+sys_mess_tower: 艦隊指揮部
+sys_mess_transport: 運輸
+sys_moonbuilt: >-
+  大量游離的金屬和晶體互相吸引，在行星周圍形成了一顆衛星！
+sys_moonproba: '月球機率：'
+sys_raport_amount_error: >-
+  沒有選擇艦船或防禦，或是數量多到無法模擬。
+sys_raport_lost_contact: >-
+  與進攻艦隊失去聯繫（它在第一回合就被擊落了）。
+sys_raport_not_found: '無效的戰鬥報告編號'
+sys_recy_gotten: >-
+  你的回收船在座標 %1$s 從總共 %4$s %6$s 和 %5$s %7$s 中，收集了 %2$s %6$s 和 %3$s %7$s。
+sys_recy_mess: 你的回收艦隊帶著 %s %s、%s %s 和 %s %s，返回了 %s %s。
+sys_recy_report: '回收報告'
+sys_ship_armour: 裝甲
+sys_ship_count: 數量
+sys_ship_repaired: 已修復
+sys_ship_shield: 護盾
+sys_ship_type: 類型
+sys_ship_weapon: 火力
+sys_spy_fleet: 艦隊
+sys_stat_mess: >-
+  你從 %s %s 出發的艦隊抵達了 %s %s %s，並送達 %s %s、%s %s 和 %s %s。%s
+sys_stat_mess_stay: 駐紮艦隊
+sys_stealed_ressources: 他們搶走了
+sys_trade_mess_arr_success: >-
+  你的商隊艦隊已準備好返回 %1$s %2$s（返程飛行：%5$s）。<form action="game/fleet/recall" method="post"><input name="fleetID" value="%3$s" type="hidden"><input value="%4$s" type="submit"></form>
+sys_trade_mess_back: 你的商隊艦隊空手返回了 %s %s。
+sys_trade_mess_back_success: >-
+  你的商隊艦隊成功返回 %4$s %5$s，帶回 %1$s 金屬、%2$s 晶體和 %3$s 重氫。
+sys_tran_mess_back: 你的艦隊已返回 %s %s。
+sys_tran_mess_owner: >-
+  你從 %s %s 出發的艦隊已抵達 %s %s %s，並送達 %s %s、%s %s 和 %s %s。
+sys_tran_mess_user: 一支來自 %s %s 的和平艦隊抵達 %s %s，並送達 %s %s、%s %s 和 %s %s。
+sys_units: 單位
+sys_wreckfield: >-
+  防守方一部分被摧毀的艦船，會在行星軌道上形成一個為期數天的殘骸場。
+sys_wreckfield_added: '新增到殘骸場：'
+type_mission_1: 攻擊
+type_mission_2: 聯盟攻擊
+type_mission_3: 運輸
+type_mission_4: 部署
+type_mission_5: 駐守
+type_mission_6: 間諜
+type_mission_7: 殖民
+type_mission_8: 回收
+type_mission_9: 摧毀
+type_mission_15: 遠征
+type_mission_16: 交易
+type_mission_17: 轉讓
+type_planet_1: 行星
+type_planet_2: 殘骸
+type_planet_3: 月球
+type_planet_4: 海盜基地
+type_planet_short_1: 行
+type_planet_short_2: 殘
+type_planet_short_3: 月
+depot_msg_subject: "艦隊補給完成"
+depot_msg_text: "你在 %s 的艦隊獲得了 %s 的補給：停留時間延長 %s 小時。"
+cr_actions: "報告操作"
+cr_attack_again: "再次攻擊"
+cr_simulate: "模擬"
+sys_expe_factor: "係數 %s"
+sys_irak_vacation: "飛彈已損失：目標玩家處於假期模式。"

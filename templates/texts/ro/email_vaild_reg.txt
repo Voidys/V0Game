@@ -1,0 +1,23 @@
+Salut {USERNAME},
+
+Mulțumim că te-ai înregistrat pe {GAMENAME}!
+
+Înainte să îți putem activa contul, mai e nevoie de un pas.
+Reține că acest pas este obligatoriu ca să devii utilizator 
+înregistrat. Trebuie să apeși linkul de mai jos o singură dată 
+ca să-ți confirmi identitatea.
+
+Ca să-ți finalizezi înregistrarea, apasă pe 
+următorul link de activare:
+
+{VERTIFYURL}
+
+Datele tale de conectare:
+
+E-mail : {EMAIL}
+
+Dacă întâmpini probleme cu înregistrarea automată, deschide un tichet pe Discord-ul nostru: 
+{DISCORD}
+
+Cu drag,
+Echipa {GAMENAME}

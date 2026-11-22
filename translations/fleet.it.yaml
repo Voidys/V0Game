@@ -1,0 +1,494 @@
+and: e
+battle_stats_damage_done: Danni inflitti
+battle_stats_damage_dead: Danni in eccesso
+battle_stats_shield_hit: Colpi sugli scudi
+battle_stats_ship_destroyed: Navi distrutte
+battle_stats_shield_bounced: Danni respinti
+battle_stats_rapid_fire_done: Fuoco rapido
+battle_stats_explosion_triggered: Esplosioni
+battle_stats_stunned_done: Neutralizzate
+battle_stats_target: Bersaglio
+battle_stats_total: Totale
+battle_stats_total_all_targets: Totale (tutti i bersagli)
+battle_stats_total_all_fleets: Totale (tutte le flotte)
+damage: punti danno.
+debree_field_1: 'A queste coordinate ora si trovano:'
+debree_field_2: ' di detriti.'
+fcp_colony: Colonia
+fl_expocap_explain: >-
+  Questa è la quantità massima di punti spedizione che vale la pena inviare.
+  Quello che supera il limite non aumenta le tue ricompense, ma può comunque
+  andare perso.
+fl_send_back: Richiama
+fl_simulate: Simula
+fleet_attack_1: La flotta attaccante spara con una potenza di
+fleet_attack_2: al difensore. Gli scudi del difensore assorbono
+fleet_defs_1: La flotta difensora spara con una potenza di
+fleet_defs_2: all'attaccante. Gli scudi dell'attaccante assorbono
+spy_best_planet: Pianeta migliore
+spy_best_resources_per_second: Migliori risorse al secondo
+spy_energy: Energia
+spy_hazard_potential: Potenziale di rischio
+spy_large_transporter: Cargo pesante
+spy_market_value: Valore di mercato
+spy_necessary_recycler: Riciclatrici necessarie
+spy_necessary_transporters: Navi necessarie
+spy_potential_recycling: Potenziale di riciclo
+spy_potential_resources: Risorse potenziali
+spy_small_transporter: Cargo leggero
+spy_summary: Riepilogo
+spy_total_resources: Risorse totali
+sys_adress_planet: '[%s:%s:%s]'
+sys_and: e
+sys_attack_attacker_pos: Attaccante
+sys_attack_defender_pos: Difensore
+sys_attack_round: Round
+cr_start: "Flotte iniziali"
+cr_rounds: "Round"
+cr_debris: "Campo di detriti"
+cr_loot: "Bottino"
+cr_losses: "Perdite"
+cr_moon: "Probabilità di luna"
+cr_lost_round: "Perse in questo round"
+cr_lost_total: "Perse in totale"
+cr_stats: "Statistiche di battaglia"
+sys_attack_title: 'Le seguenti flotte si affrontano a: '
+sys_attacker_lostunits: 'Le perdite dell''attaccante:'
+sys_attacker_won: L'attaccante ha vinto la battaglia!
+sys_both_won: 'Lo scontro finisce in pareggio! '
+sys_colo_allisok: >-
+  La tua flotta è arrivata alle coordinate %s. I coloni hanno iniziato a
+  colonizzare il nuovo pianeta.
+sys_colo_badpos: >-
+  La tua flotta è arrivata alle coordinate %s. Lì non è possibile insediarsi,
+  quindi i coloni sono tornati a casa delusi.
+sys_colo_maxcolo: >-
+  La tua flotta è arrivata alle coordinate %s. Insediarsi non è possibile: puoi
+  avere al massimo %d pianeti.
+sys_colo_mess_from: Colonizzazione
+sys_colo_mess_report: Rapporto di colonizzazione
+sys_colo_notech: >-
+  La tua flotta è arrivata alle coordinate %s. I coloni hanno scoperto che il
+  loro equipaggiamento non era adatto al clima e va migliorato. Delusi, sono
+  tornati a casa.
+sys_colo_notfree: >-
+  La tua flotta è arrivata alle coordinate %s. Purtroppo i coloni hanno scoperto
+  che il pianeta è già abitato! Completamente demoralizzati, sono tornati a
+  casa.
+sys_debris: Campo di detriti
+sys_def_rebuild: 'Alcune difese sono state riparate:'
+sys_defender_lostunits: 'Le perdite del difensore:'
+sys_defender_won: Il difensore ha vinto la battaglia!
+sys_destroyed: Distrutto
+sys_destruc_echec: >-
+  Dei terremoti hanno scosso il pianeta, ma qualcosa è andato storto: le Morti
+  Nere sono esplose e si sono disintegrate in mille pezzi, e le onde d'urto
+  hanno spazzato via l'intera flotta.
+sys_destruc_lune: 'Probabilità di distruggere la luna: %d%%'
+sys_destruc_mess1: 'Le Morti Nere hanno scagliato la loro tremenda energia contro la luna.'
+sys_destruc_null: >-
+  Le Morti Nere non sono riuscite a caricarsi completamente prima di fare
+  fuoco.<br> La luna non è stata distrutta.
+sys_destruc_reussi: >-
+  I raggi delle Morti Nere hanno raggiunto la luna e l'hanno fatta a pezzi.
+  <br>L'intera luna è stata distrutta!
+sys_destruc_rip: 'Probabilità che la flotta si autodistrugga: %d%%'
+sys_destruc_stop: 'Il difensore è riuscito a bloccare la distruzione della luna.'
+sys_destruc_title: 'Le seguenti flotte si affrontano per una distruzione lunare:'
+sys_expe_attack_1_1_1: Un pirata spaziale disperato ha tentato di impadronirsi della nostra flotta in spedizione.
+sys_expe_attack_1_1_2: >-
+  Dei barbari primitivi ci hanno attaccato con delle astronavi. Almeno le loro
+  navi erano in condizioni orribili. Se la loro potenza di fuoco fosse stata una
+  minaccia seria, saremmo stati costretti a rispondere con la nostra.
+sys_expe_attack_1_1_3: >-
+  Abbiamo intercettato un paio di messaggi radio di alcuni pirati ubriachi
+  fradici. A quanto pare stiamo per essere attaccati.
+sys_expe_attack_1_1_4: >-
+  Abbiamo dovuto combattere dei pirati, ma per fortuna eravamo in superiorità
+  numerica.
+sys_expe_attack_1_1_5: >-
+  La nostra flotta riferisce che un certo Moa Tikarr e il suo equipaggio hanno
+  chiesto la resa incondizionata della nostra flotta. Se dicono sul serio,
+  scopriranno che sappiamo difenderci benissimo.
+sys_expe_attack_1_2_1: La tua flotta in spedizione ha fatto un incontro imprevisto con dei pirati spaziali.
+sys_expe_attack_1_2_2: >-
+  Siamo caduti in un'imboscata di pirati stellari! Purtroppo lo scontro era inevitabile.
+sys_expe_attack_1_2_3: >-
+  La richiesta di aiuto di un'altra flotta in spedizione si è rivelata una
+  trappola di pirati astuti. La battaglia era inevitabile.
+sys_expe_attack_1_3_1: >-
+  I segnali intercettati non provenivano da alieni sconosciuti, ma da una base
+  pirata segreta! I pirati non hanno gradito molto la nostra presenza nel loro
+  settore.
+sys_expe_attack_1_3_2: La flotta in spedizione segnala scontri violenti con navi pirata non identificate!
+sys_expe_attack_1_3_3: >-
+  Abbiamo appena ricevuto un messaggio urgente dal comandante della
+  spedizione: "Ci stanno venendo addosso! Sono usciti dall'iperspazio, per
+  fortuna sono solo pirati, quindi abbiamo una possibilità, combatteremo!"
+sys_expe_attack_2_1_1: La tua flotta in spedizione ha avuto un primo contatto poco accogliente con una specie sconosciuta.
+sys_expe_attack_2_1_2: Delle strane navi hanno attaccato la flotta in spedizione senza preavviso!
+sys_expe_attack_2_1_3: La nostra spedizione è stata attaccata da un piccolo gruppo di veicoli spaziali non identificati!
+sys_expe_attack_2_1_4: >-
+  La flotta in spedizione segnala il contatto con navi sconosciute. I messaggi
+  radio non si riescono a decifrare, ma le strane navi sembrano stare caricando
+  le armi.
+sys_expe_attack_2_2_1: Una specie sconosciuta attacca la nostra spedizione!
+sys_expe_attack_2_2_2: >-
+  La tua flotta in spedizione ha evidentemente violato il territorio di una
+  razza aliena finora sconosciuta ma estremamente aggressiva.
+sys_expe_attack_2_2_3: >-
+  Il collegamento con la nostra flotta in spedizione è stato interrotto
+  bruscamente. Le ultime notizie dicevano che la flotta era sotto un fuoco
+  pesante. Gli attaccanti non sono stati identificati.
+sys_expe_attack_2_3_1: >-
+  La tua spedizione si è imbattuta in una flotta d'invasione aliena e segnala battaglie massicce!
+sys_expe_attack_2_3_2: >-
+  Un grande gruppo di navi cristalline di origine ignota è in rotta di
+  collisione diretta con la nostra flotta in spedizione. Dobbiamo prepararci al
+  peggio.
+sys_expe_attack_2_3_3: >-
+  Abbiamo avuto qualche difficoltà a pronunciare correttamente il dialetto
+  della razza aliena. Il nostro diplomatico ha gridato per sbaglio 'Fuoco!'
+  invece di 'Pace!'
+sys_expe_attackname_1: Pirati
+sys_expe_attackname_2: Alieni
+sys_expe_back_home: La tua flotta è tornata su %1$s %2$s dalla spedizione a %3$s.
+sys_expe_back_home_ress: Porta con sé %s %s, %s %s e %s %s.
+sys_expe_back_home_ships_flound: 'Sono state trovate le seguenti navi:'
+sys_expe_back_home_ships_lost: 'Sono andate perse le seguenti navi:'
+sys_expe_depleted_max_1: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Se mai ci sentissimo
+  in pericolo, possiamo sempre unire le forze con le altre spedizioni che
+  volano da queste parti.
+sys_expe_depleted_max_2: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Di questo passo
+  dovremo installare delle boe di navigazione per gestire tutto questo traffico.
+sys_expe_depleted_max_3: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Forse sarebbe più
+  utile aprire qui un negozio di souvenir che mandare un'altra spedizione.
+sys_expe_depleted_med_1: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Abbiamo trovato tracce
+  di diverse flotte in spedizione in zona. Stiamo tornando a casa.
+sys_expe_depleted_med_2: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Abbiamo stabilito un
+  contatto radio amichevole con altre spedizioni in questo settore.
+sys_expe_depleted_med_3: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Abbiamo festeggiato la
+  fine della spedizione con l'equipaggio di un'altra flotta in spedizione che
+  viaggiava nello stesso settore. Neanche loro hanno niente di nuovo da
+  segnalare.
+sys_expe_depleted_min_1: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Sembra che degli
+  umani siano già stati in questa parte della galassia.
+sys_expe_depleted_min_2: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Abbiamo trovato
+  rottami di vecchie astronavi. Non siamo i primi ad arrivare qui.
+sys_expe_depleted_min_3: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Abbiamo rischiato di
+  scontrarci con un'altra flotta in spedizione. Non avrei mai pensato che ci
+  fosse qualcun altro quaggiù.
+sys_expe_depleted_not_1: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: Sembra che questa
+  parte dell'universo non sia ancora stata esplorata.
+sys_expe_depleted_not_2: >-
+  Dal diario di bordo dell'ufficiale alle comunicazioni: È fantastico essere i
+  primi a viaggiare in un settore inesplorato.
+sys_expe_feqeuence_few: Più di 10 spedizioni nelle ultime 24 ore
+sys_expe_feqeuence_many: Più di 50 spedizioni nelle ultime 24 ore
+sys_expe_feqeuence_medium: Più di 25 spedizioni nelle ultime 24 ore
+sys_expe_found_goods: '%s %s sono stati estratti.'
+sys_expe_found_ress_1_1: >-
+  La tua spedizione ha scoperto un piccolo ammasso di asteroidi da cui è stato
+  possibile estrarre un po' di risorse.
+sys_expe_found_ress_1_2: >-
+  Su un planetoide remoto sono stati trovati diversi campi di risorse facili
+  da raggiungere e le materie prime sono state estratte con successo.
+sys_expe_found_ress_1_3: >-
+  La tua spedizione si è imbattuta in relitti antichissimi di astronavi
+  risalenti a una battaglia di tanto tempo fa. Alcuni componenti sono stati
+  recuperati e riciclati.
+sys_expe_found_ress_1_4: >-
+  La spedizione ha scoperto un pianeta contaminato dalle radiazioni con
+  un'atmosfera altamente velenosa. Tuttavia, le scansioni hanno mostrato che
+  questo pianeta contiene molte materie prime. Sono stati usati droni
+  automatici per cercare di estrarre quante più risorse possibile.
+sys_expe_found_ress_2_1: >-
+  La tua spedizione ha trovato un antico convoglio di cargo, completamente
+  carico ma deserto. È stato possibile ricavarne un po' di risorse. 
+sys_expe_found_ress_2_2: >-
+  La tua spedizione ha trovato grandi giacimenti di materie prime su una
+  piccola luna con un'atmosfera propria. L'equipaggio sta estraendo questo
+  tesoro proprio ora.
+sys_expe_found_ress_2_3: >-
+  Abbiamo incontrato un piccolo convoglio di navi civili che aveva urgente
+  bisogno di cibo e medicinali. In cambio abbiamo ricevuto una buona quantità
+  di risorse utili.
+sys_expe_found_ress_3_1: >-
+  La tua flotta in spedizione riferisce la scoperta di un enorme relitto
+  alieno. Anche se non sono riusciti a far niente con la tecnologia, la nave
+  è stata smontata nei suoi singoli pezzi, ricavandone preziose materie prime.
+sys_expe_found_ress_3_2: >-
+  La fascia di asteroidi attorno a un pianeta sconosciuto conteneva enormi
+  quantità di materie prime. La flotta in spedizione ha riempito le stive!
+sys_expe_found_ress_logbook_1: >-
+  Dal diario di bordo del primo ufficiale: Abbiamo usato fino all'ultimo
+  centimetro di spazio libero, ma non siamo riusciti comunque a portare via
+  tutte le risorse trovate.
+sys_expe_found_ress_logbook_2: >-
+  Dal diario di bordo del primo ufficiale: Se solo avessimo qualche cargo in
+  più! Ora dobbiamo lasciare indietro un sacco di risorse.
+sys_expe_found_ress_logbook_3: >-
+  Dal diario di bordo del primo ufficiale: Abbiamo già buttato via tutto quello
+  che non ci serve più, ma ancora non riusciamo a fare abbastanza spazio per
+  tutte le risorse trovate.
+sys_expe_found_ress_logbook_4: >-
+  Dal diario di bordo del primo ufficiale: Anche dopo aver trasformato la mensa
+  e tutte le sale relax in magazzini, non siamo riusciti a trasportare tutte le
+  risorse trovate.
+sys_expe_found_ships_1_1: >-
+  Abbiamo scoperto i resti di una spedizione precedente! I nostri tecnici
+  stanno verificando se riescono a rimettere in funzione qualcuno dei relitti.
+sys_expe_found_ships_1_2: >-
+  Abbiamo trovato una base pirata deserta. Alcune vecchie navi sono ancora
+  nell'hangar. I nostri tecnici stanno verificando se qualcuna è ancora
+  utilizzabile.
+sys_expe_found_ships_1_3: >-
+  La nostra spedizione ha trovato un pianeta quasi completamente distrutto
+  dalle guerre. In orbita vagavano vari relitti di navi. I tecnici hanno
+  provato a ripararne qualcuno. Forse potremo scoprire di più su ciò che è
+  successo qui.
+sys_expe_found_ships_1_4: >-
+  La spedizione si è imbattuta in una vecchia base stellare che sembra
+  abbandonata da un'eternità. Nell'hangar della fortezza sono state trovate un
+  paio di navi. I tecnici sono riusciti a far volare di nuovo alcune di
+  esse.
+sys_expe_found_ships_2_1: >-
+  Abbiamo trovato i resti di un'armata. I tecnici della spedizione sono saliti
+  subito sulle navi parzialmente intatte e sono riusciti a ripararne alcune.
+sys_expe_found_ships_2_2: >-
+  La nostra spedizione ha scoperto un vecchio cantiere automatico con alcune
+  navi ancora in fase di produzione. Dopo aver ripristinato l'alimentazione
+  del cantiere, i nostri tecnici si sono messi al lavoro per completarne la
+  costruzione.
+sys_expe_found_ships_3_1: >-
+  Abbiamo trovato un gigantesco cimitero di navi. Alcuni tecnici della
+  spedizione sono riusciti a rimettere in funzione un paio di navi.
+sys_expe_found_ships_3_2: >-
+  Abbiamo scoperto un pianeta con i resti di una civiltà. Dallo spazio è stata
+  avvistata un'altra gigantesca stazione di navi ancora intatta. Alcuni dei
+  nostri tecnici e piloti sono scesi in superficie per stabilire se si possa
+  recuperare qualcuna delle navi.
+sys_expe_found_ships_logbook_1: >-
+  Dal diario di bordo dell'ufficiale di macchina: Se ci fossimo portati dietro
+  qualche nave in più, sarebbe stato facile portare a casa un po' di quelle
+  bellezze!
+sys_expe_found_ships_logbook_2: >-
+  Dal diario di bordo dell'ufficiale di macchina: Purtroppo non avevamo la
+  capacità di riportare indietro tutte le navi scoperte in questa missione.
+sys_expe_found_ships_logbook_3: >-
+  Dal diario di bordo dell'ufficiale di macchina: Purtroppo non abbiamo
+  abbastanza capacità per riportare con noi tutte le navi che abbiamo trovato.
+sys_expe_found_ships_nothing: Non è stata trovata nessuna nave.
+sys_expe_lost_fleet_1: >-
+  Tutto ciò che resta della spedizione è il seguente messaggio radio: Zzzrrt
+  oh Dio!...Krrrzzzzt il zrrrtrzt vede krgzzzz sì da come Krzzzzzzzztzzzz...
+sys_expe_lost_fleet_2: >-
+  L'ultima cosa che abbiamo ricevuto dalla spedizione sono stati dei primi
+  piani incredibilmente belli di un buco nero che si apriva.
+sys_expe_lost_fleet_3: >-
+  Una falla nucleare su una delle navi di comando ha provocato una reazione a
+  catena che ha distrutto l'intera spedizione in un'esplosione spettacolare.
+sys_expe_lost_fleet_4: >-
+  La flotta in spedizione non è tornata dal suo salto iperspaziale. I nostri
+  scienziati si stanno ancora scervellando su cosa possa essere successo, ma
+  la flotta sembra persa per sempre.
+sys_expe_nothing_1: >-
+  Questa spedizione non riporta nulla di emozionante, a parte qualche curioso
+  animaletto di un pianeta paludoso sconosciuto.
+sys_expe_nothing_2: >-
+  La tua spedizione ha scattato delle bellissime foto di una supernova. Però
+  non ha portato davvero nuove conoscenze. In compenso ha buone possibilità di
+  vincere quest'anno il premio per la Miglior Immagine dell'Universo.
+sys_expe_nothing_3: >-
+  Uno strano virus informatico ha paralizzato la navigazione poco dopo aver
+  lasciato il sistema solare. Così l'intera flotta in spedizione ha volato in
+  cerchio tutto il tempo. Inutile dire che la spedizione non ha avuto un
+  grande successo.
+sys_expe_nothing_4: >-
+  Una forma di vita di pura energia ha fatto fissare a tutti i membri della
+  spedizione dei simboli ipnotici sui loro schermi per giorni. Quando la
+  maggior parte è tornata finalmente lucida, la spedizione ha dovuto essere
+  annullata per mancanza di deuterio.
+sys_expe_nothing_5: >-
+  Beh, almeno ora sappiamo che le anomalie rosse di Classe 5 non solo hanno
+  effetti caotici sui sistemi della nave, ma possono anche scatenare
+  allucinazioni di massa nell'equipaggio. Purtroppo in questa spedizione non è
+  stato scoperto nient'altro.
+sys_expe_nothing_6: >-
+  Nonostante le scansioni inizialmente promettenti di questo settore, purtroppo
+  siamo tornati a mani vuote.
+sys_expe_nothing_7: >-
+  Forse il compleanno del capitano non andava festeggiato su questo pianeta
+  remoto. Una brutta febbre emorragica ha mandato in infermeria la maggior
+  parte dell'equipaggio, e la grave carenza di personale ha fatto fallire la
+  spedizione.
+sys_expe_nothing_8: >-
+  La tua spedizione non ha trovato altro che il vuoto sconfinato dello spazio.
+  Non c'era nemmeno un asteroidino, o radiazioni, o particelle, o qualsiasi
+  altra cosa che rendesse questa spedizione almeno un po' emozionante.
+sys_expe_nothing_9: >-
+  Un guasto al reattore della nave di comando ha quasi distrutto l'intera
+  spedizione. Per fortuna i tecnici erano più che capaci e hanno evitato il
+  peggio. La riparazione, però, ha richiesto così tanto tempo che la
+  spedizione è tornata senza aver ottenuto niente.
+sys_expe_report: Rapporto di spedizione
+sys_expe_report_msg: 'Rapporto di spedizione della flotta di %s %s a %s:'
+sys_expe_time_fast_1: >-
+  Un feedback imprevisto nelle bobine energetiche del sistema di propulsione ha
+  accelerato il ritorno della spedizione, che arriva prima del previsto. I
+  primi rapporti indicano però che non ha nient'altro da segnalare.
+sys_expe_time_fast_2: >-
+  Il nuovo comandante, un po' temerario, ha usato un wormhole instabile per
+  accorciare il viaggio di ritorno - con successo! Però la spedizione in sé non
+  ha portato nuove conoscenze.
+sys_expe_time_fast_3: >-
+  La tua spedizione non ha segnalato anomalie nel settore esplorato. Tuttavia,
+  durante il volo di ritorno la flotta ha incontrato un vento solare che ha
+  accelerato notevolmente il viaggio. La tua spedizione tornerà a casa un po'
+  prima del previsto.
+sys_expe_time_slow_1: >-
+  Un grave errore del navigatore ha fatto atterrare la flotta nel posto
+  completamente sbagliato. Il viaggio di ritorno è quindi durato molto di più.
+sys_expe_time_slow_2: >-
+  Per ragioni ancora ignote, il salto della flotta è andato completamente
+  storto. Sono quasi finiti nel cuore di una stella! Per fortuna sono atterrati
+  in un sistema conosciuto, ma il viaggio di ritorno durerà più di quanto
+  previsto in origine.
+sys_expe_time_slow_3: >-
+  Il nuovo modulo di navigazione sembra ancora afflitto da qualche bug. Non
+  solo la flotta in spedizione è andata nella direzione completamente
+  sbagliata, ma ha anche consumato tutto il suo deuterio! Delusa, la
+  spedizione sta ora tornando a casa con l'energia di riserva.
+sys_expe_time_slow_4: >-
+  La tua spedizione è entrata in un settore con tempeste di particelle
+  intensificate. Questo ha sovraccaricato i sistemi di accumulo energetico,
+  facendo saltare i sistemi principali di tutte le navi. I tuoi meccanici sono
+  riusciti a evitare il peggio, ma la spedizione ora tornerà con un ritardo
+  considerevole.
+sys_expe_time_slow_5: >-
+  La nave ammiraglia della tua flotta in spedizione si è scontrata con un
+  vascello alieno saltato direttamente nella flotta senza preavviso. La nave
+  aliena è esplosa e i danni all'ammiraglia sono stati ingenti. Quando le
+  riparazioni più gravi saranno completate, le tue navi inizieranno il viaggio
+  di ritorno, perché la spedizione non può proseguire nelle condizioni attuali.
+sys_expe_time_slow_6: >-
+  Il vento stellare di una gigante rossa ha distorto il salto della
+  spedizione, facendo sbagliare completamente al sistema di navigazione il
+  calcolo del viaggio di ritorno. Di conseguenza la spedizione si trova nel
+  vuoto sconfinato tra stelle sconosciute.
+sys_fleet_return: La tua flotta ritorna su %s %s %s e consegna %s %s, %s %s e %s %s. %s
+sys_fleet_won: >-
+  La tua flotta è tornata da un attacco a %s %s verso %s %s. Hai catturato %s %s, %s %s e %s %s.
+sys_gain: Profitto
+sys_honorpoints_changed: 'Punti onore:'
+sys_irak_def: '%d missili sono stati intercettati.'
+sys_irak_mess: Dei missili interplanetari (%d) da %s hanno colpito %s <br><br>
+sys_irak_no_att: Tutti i missili sono stati intercettati.
+sys_irak_no_def: Il pianeta non ha difese.
+sys_irak_subject: Impatto di missili
+sys_lost: Perdite
+sys_mess_attack_cancel: |-
+  La battaglia a %s %s è stata annullata.
+  Il server non è riuscito a calcolarla.
+sys_mess_attack_report: Rapporto di attacco
+sys_mess_fleetback: Ritorno della flotta
+sys_mess_piratebase_gone: 'La tua flotta è arrivata a %s, ma la base pirata non c''è più. La flotta sta tornando a casa.'
+sys_mess_spy_activity: Rapporto di controspionaggio
+sys_mess_spy_control: Intelligence centrale
+sys_mess_spy_destroyed: Le tue sonde spia sono state distrutte!
+sys_mess_spy_ennemyfleet_1: Delle sonde spia nemiche dal pianeta %s sono state avvistate vicino a %s.
+sys_mess_spy_ennemyfleet_3: Delle sonde spia nemiche dalla luna %s sono state avvistate vicino a %s.
+sys_mess_spy_link: >-
+  <a href="game/galaxy/%3$s/%4$s">%1$s (%2$s)
+  [%3$s:%4$s:%5$s]</a>
+sys_mess_spy_lostproba: 'La probabilità che le sonde spia fossero individuate era: %d%%'
+sys_mess_spy_qg: Reparto spionaggio
+sys_mess_spy_repair_order: Al momento nel bacino di riparazione si stanno ripristinando delle navi.
+sys_mess_spy_report: Rapporto di intelligence
+sys_mess_spy_report_details_1: Rapporto di spionaggio dal pianeta %1$s (%2$s) [%3$s:%4$s:%5$s] del %6$s
+sys_mess_spy_report_details_3: Rapporto di spionaggio dalla luna %1$s (%2$s) [%3$s:%4$s:%5$s] del %6$s
+sys_mess_spy_report_details_4: Rapporto di spionaggio da %1$s (%2$s) [%3$s:%4$s:%5$s] del %6$s
+sys_mess_tower: Comando flotte
+sys_mess_transport: Trasporto
+sys_moonbuilt: >-
+  Le enormi quantità di metallo e cristallo liberi si attraggono e formano un
+  satellite attorno al pianeta!
+sys_moonproba: 'Probabilità di luna: '
+sys_raport_amount_error: >-
+  Nessuna nave o difesa selezionata, oppure troppe per la simulazione.
+sys_raport_lost_contact: >-
+  Il contatto con la flotta attaccante è andato perso (è stata abbattuta nel
+  primo round).
+sys_raport_not_found: 'ID del rapporto di combattimento non valido'
+sys_recy_gotten: >-
+  Le tue riciclatrici hanno raccolto %2$s %6$s e %3$s %7$s da un totale di %4$s
+  %6$s e %5$s %7$s alle coordinate %1$s.
+sys_recy_mess: La tua flotta di riciclatrici è tornata su %s %s con %s %s, %s %s e %s %s.
+sys_recy_report: 'Rapporto di riciclaggio'
+sys_ship_armour: Corazza
+sys_ship_count: Quantità
+sys_ship_repaired: Riparate
+sys_ship_shield: Scudi
+sys_ship_type: Tipo
+sys_ship_weapon: Potenza di fuoco
+sys_spy_fleet: Flotta
+sys_stat_mess: >-
+  La tua flotta da %s %s è arrivata a %s %s %s e ha consegnato %s %s, %s %s e
+  %s %s. %s
+sys_stat_mess_stay: Flotta stazionata
+sys_stealed_ressources: Saccheggiano
+sys_trade_mess_arr_success: >-
+  La tua flotta mercantile è pronta a tornare su %1$s %2$s (volo di ritorno: %5$s). <form
+  action="game/fleet/recall"
+  method="post"><input name="fleetID" value="%3$s" type="hidden"><input
+  value="%4$s" type="submit"></form>
+sys_trade_mess_back: La tua flotta mercantile è tornata su %s %s senza successo.
+sys_trade_mess_back_success: >-
+  La tua flotta mercantile è tornata con successo su %4$s %5$s con
+  %1$s di metallo, %2$s di cristallo e %3$s di deuterio.
+sys_tran_mess_back: La tua flotta è tornata su %s %s.
+sys_tran_mess_owner: >-
+  La tua flotta da %s %s è arrivata a %s %s %s e ha consegnato %s %s, %s %s
+  e %s %s.
+sys_tran_mess_user: Una flotta pacifica da %s %s è arrivata a %s %s e ha consegnato %s %s, %s %s e %s %s.
+sys_units: unità
+sys_wreckfield: >-
+  Alcune delle navi distrutte del difensore formano per qualche giorno un
+  campo di rottami nell'orbita del pianeta.
+sys_wreckfield_added: 'Aggiunti al campo di rottami:'
+type_mission_1: Attacco
+type_mission_2: Attacco federale
+type_mission_3: Trasporto
+type_mission_4: Stazionamento
+type_mission_5: Mantenimento
+type_mission_6: Spionaggio
+type_mission_7: Colonizzazione
+type_mission_8: Ricicla
+type_mission_9: Distruzione
+type_mission_15: Spedizione
+type_mission_16: Commercio
+type_mission_17: Trasferimento
+type_planet_1: Pianeta
+type_planet_2: Detriti
+type_planet_3: Luna
+type_planet_4: Base pirata
+type_planet_short_1: P
+type_planet_short_2: D
+type_planet_short_3: L
+depot_msg_subject: "Flotta rifornita"
+depot_msg_text: "La tua flotta a %s è stata rifornita da %s: permanenza estesa di %s h."
+cr_actions: "Azioni del rapporto"
+cr_attack_again: "Attacca di nuovo"
+cr_simulate: "Simula"
+sys_expe_factor: "Fattore %s"
+sys_irak_vacation: "I missili sono andati persi: il giocatore bersaglio è in modalità vacanza."

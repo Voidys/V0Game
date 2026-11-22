@@ -1,0 +1,8 @@
+Ahoj {USERNAME},
+
+od {LASTDATE} ses v {GAMENAME} nepřihlásil. Pokud chceš zůstat členem naší komunity, přihlas se svými údaji, jinak tvůj účet smažeme.
+
+Pokud jsi zapomněl heslo, jdi na {HTTPPATH} a klikni na „Zapomněl jsi heslo?“. Během pár minut ti přijde e-mail s novým heslem.
+
+Zdraví
+tým {GAMENAME}

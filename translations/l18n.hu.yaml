@@ -1,0 +1,78 @@
+dir: ltr
+js_tdformat: '[M] [D] [d] [H]:[i]:[s]'
+months:
+  - jan.
+  - febr.
+  - márc.
+  - ápr.
+  - máj.
+  - jún.
+  - júl.
+  - aug.
+  - szept.
+  - okt.
+  - nov.
+  - dec.
+php_tdformat: 'Y. M j., H:i:s'
+short_day: n
+short_hour: ó
+short_minute: p
+short_second: mp
+timezones:
+  '-1': '[UTC - 1] Azori-szigeteki idő, Zöld-foki idő, kelet-grönlandi idő'
+  '-2': '[UTC - 2] Fernando de Noronha-i idő, Déli-Georgia és Déli-Sandwich-szigetek ideje'
+  '-3': '[UTC - 3] amazóniai zónaidő, közép-grönlandi idő'
+  '-3.5': '[UTC - 3:30] Új-fundlandi zónaidő'
+  '-4': '[UTC - 4] atlanti zónaidő'
+  '-4.5': '[UTC - 4:30] venezuelai zónaidő'
+  '-5': '[UTC - 5] keleti zónaidő'
+  '-6': '[UTC - 6] középső zónaidő'
+  '-7': '[UTC - 7] hegyvidéki zónaidő'
+  '-8': '[UTC - 8] csendes-óceáni zónaidő'
+  '-9': '[UTC - 9] alaszkai zónaidő, Gambier-szigeteki idő'
+  '-9.5': '[UTC - 9:30] Marquises-szigeteki idő'
+  '-10': '[UTC - 10] hawaii-aleuta zónaidő, Cook-szigeteki idő'
+  '-11': '[UTC - 11] niuei idő, szamoai zónaidő'
+  '-12': '[UTC - 12] Baker-szigeti idő'
+  '0': '[UTC] nyugat-európai idő, greenwichi középidő'
+  '1': '[UTC + 1] közép-európai idő, nyugat-afrikai idő'
+  '2': '[UTC + 2] kelet-európai idő, közép-afrikai idő'
+  '3': '[UTC + 3] moszkvai zónaidő, kelet-afrikai idő'
+  '3.5': '[UTC + 3:30] iráni zónaidő'
+  '4': '[UTC + 4] Perzsa-öböl menti zónaidő, szamarai zónaidő'
+  '4.5': '[UTC + 4:30] afganisztáni idő'
+  '5': '[UTC + 5] pakisztáni zónaidő, jekatyerinburgi zónaidő'
+  '5.5': '[UTC + 5:30] indiai zónaidő, srí lankai idő'
+  '5.75': '[UTC + 5:45] nepáli idő'
+  '6': '[UTC + 6] bangladesi idő, butáni idő, novoszibirszki zónaidő'
+  '6.5': '[UTC + 6:30] Kókusz-szigeteki idő, mianmari idő'
+  '7': '[UTC + 7] indokínai idő, krasznojarszki zónaidő'
+  '8': '[UTC + 8] kínai zónaidő, nyugat-ausztráliai zónaidő, irkutszki zónaidő'
+  '8.75': '[UTC + 8:45] délkelet-nyugat-ausztráliai zónaidő'
+  '9': '[UTC + 9] japán zónaidő, koreai zónaidő, csitai zónaidő'
+  '9.5': '[UTC + 9:30] közép-ausztráliai zónaidő'
+  '10': '[UTC + 10] kelet-ausztráliai zónaidő, vlagyivosztoki zónaidő'
+  '10.5': '[UTC + 10:30] Lord Howe-szigeti zónaidő'
+  '11': '[UTC + 11] Salamon-szigeteki idő, magadani zónaidő'
+  '11.5': '[UTC + 11:30] Norfolk-szigeti idő'
+  '12': '[UTC + 12] új-zélandi idő, fidzsi idő, kamcsatkai zónaidő'
+  '12.75': '[UTC + 12:45] Chatham-szigeteki idő'
+  '13': '[UTC + 13] tongai idő, Phoenix-szigeteki idő'
+  '14': '[UTC + 14] Line-szigeteki idő'
+week_day:
+  - V
+  - H
+  - K
+  - Sze
+  - Cs
+  - P
+  - Szo
+php_dateformat: 'Y. M d.'
+lang_group_fun: "Vicces nyelvek"
+dialog_ok: "OK"
+dialog_cancel: "Mégse"
+cookie_notice_title: "Sütik"
+cookie_notice_text: "Ez az oldal csak technikailag szükséges sütiket használ (bejelentkezési munkamenet, nyelv, a \"maradjak bejelentkezve\" opció, ha kéred, eszközhivatkozás). Az opcionális sütiket csak a beleegyezéseddel használjuk."
+cookie_notice_privacy: "Adatvédelmi nyilatkozat"
+cookie_notice_necessary: "Csak a szükségesek"
+cookie_notice_all: "Mindet elfogadom"

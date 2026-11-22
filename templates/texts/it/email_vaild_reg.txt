@@ -1,0 +1,23 @@
+Ciao {USERNAME},
+
+grazie per esserti registrato su {GAMENAME}!
+
+Prima di poter attivare il tuo account serve ancora un passaggio.
+Tieni presente che questo passaggio è obbligatorio per diventare un 
+utente registrato. Devi cliccare il link qui sotto una sola volta per 
+verificare la tua identità.
+
+Per completare la registrazione clicca sul 
+seguente link di attivazione:
+
+{VERTIFYURL}
+
+I tuoi dati di accesso:
+
+E-mail : {EMAIL}
+
+Se hai problemi con la registrazione automatica, apri un ticket sul nostro Discord: 
+{DISCORD}
+
+Un saluto,
+il team di {GAMENAME}

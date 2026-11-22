@@ -1,0 +1,575 @@
+faq_overview: GYIK
+faq_intro: "Válaszok a játékmechanikáról, a szabályokról és a menükről. Keress, vagy válassz egy kategóriát."
+faq_search_label: "Keresés a GYIK-ben"
+faq_search_placeholder: "Keresés a kérdések és válaszok között (a / gombbal fókuszálhatsz)"
+faq_clear: "Keresés törlése"
+faq_results_one: "1 találat"
+faq_results_many: "{n} találat"
+faq_no_results: "Nincs találat erre: „{q}”"
+faq_no_results_hint: "Ellenőrizd a helyesírást, próbálj kevesebb vagy általánosabb szót, vagy böngéssz a kategóriák között."
+faq_show_all: "Összes kategória mutatása"
+faq_entries_one: "1 cikk"
+faq_entries_many: "{n} cikk"
+faq_contents: "Ebben a cikkben"
+faq_prev: "Előző"
+faq_next: "Következő"
+faq_back: "Vissza a GYIK-hez"
+faq_copy_link: "A szakasz linkjének másolása"
+faq_link_copied: "Link kimásolva"
+faq_to_top: "Vissza az elejére"
+questions:
+  '1':
+    category: "Első lépések"
+    icon: "rocket"
+    '1':
+      title: "Az első lépéseid"
+      body: |-
+        <p>Egy bolygóval és némi nyersanyaggal indulsz (alapból 500 fém és 500 kristály). Minden más három nyersanyagból épül fel: fémből, kristályból és deutériumból, meg az energiából, amitől a bányáid működnek.</p>
+        <h2 id="order">Egy észszerű nyitás</h2>
+        <ol>
+        <li>Először a <b>Naperőmű</b>. Energia nélkül a bányák nem működnek rendesen.</li>
+        <li>Utána a <b>Fémbánya</b>, majd a <b>Kristálybánya</b>. Fémre szinte mindenhez szükség van; az elején tartsd néhány szinttel a többi bánya előtt.</li>
+        <li><b>Deutérium-szintetizáló</b>. A deutérium a flották üzemanyaga, és több fontos épülethez és kutatáshoz kell.</li>
+        <li><b>Robotgyár</b> és <b>Kutatólabor</b>, amint lassúvá válik az építés, vagy elérhetővé válnak az első kutatások.</li>
+        <li><b>Hajógyár</b> néhány Kis szállítóhoz és némi védelemhez.</li>
+        </ol>
+        <h2 id="queues">Sorok</h2>
+        <p>Az épületeknek, a kutatásnak és a hajógyárnak külön sora van, így egyszerre építhetsz, kutathatsz és gyárthatsz hajókat. Alapból a sorok bolygónként 5 épületet, 2 kutatást és 10 hajógyári rendelést tartalmaznak; az univerzumok ezt módosíthatják.</p>
+        <h2 id="progress">Hogyan mérjük a haladást</h2>
+        <p>A pontszámod a befektetett nyersanyagokból jön, alapból 1000 nyersanyagegységenként 1 pont (lásd: <a href="game/faq/11/3">Statisztika és pontok</a>). A <a href="game/faq/1/3">bemutató</a> végigvezet az első lépéseken, és jutalmakat is oszt.</p>
+    '2':
+      title: "Mi hol található"
+      body: |-
+        <p>Az oldalpanel minden oldalt csoportosít. A legfontosabbak:</p>
+        <table class="faq-table">
+        <tr><th>Oldal</th><th>Mire való</th></tr>
+        <tr><td>Áttekintés</td><td>A bolygóid, a futó sorok, valamint a bejövő és kimenő flották.</td></tr>
+        <tr><td>Nyersanyagok</td><td>Óránkénti termelés, energiamérleg és az egyes épületek termelési százaléka.</td></tr>
+        <tr><td>Épületek, Kutatás, Hangár, Védelem</td><td>Építés, kutatás, hajók és védelem. Mindegyik mutatja a költségeket, az építési időt és a követelményeket.</td></tr>
+        <tr><td>Technológiák</td><td>A technológiai fa minden épület, kutatás, hajó és védelmi rendszer követelményeivel.</td></tr>
+        <tr><td>Flotta, Galaxis</td><td>Flották küldése; rendszerek böngészése, kémkedés, támadás, hasznosítás, rakéták kilövése.</td></tr>
+        <tr><td>Szövetség, Barátok</td><td>Szövetségkezelés és barátlista.</td></tr>
+        <tr><td>Piactér, Flottakereskedő</td><td>Nyersanyag vagy hajók cseréje más játékosokkal; hajók eladása nyersanyagért.</td></tr>
+        <tr><td>Szimulátor</td><td>Csaták kipróbálása, mielőtt flottát küldesz.</td></tr>
+        <tr><td>Statisztika, Rekordok, Hírességek csarnoka</td><td>Ranglisták, univerzumrekordok és a legnagyobb csaták.</td></tr>
+        <tr><td>Birodalom</td><td>Az összes bolygód és holdad egy táblázatban.</td></tr>
+        <tr><td>Üzenetek, Jegyzetek, Támogatás</td><td>Jelentések és levelek, személyes jegyzetek, jegyek a csapatnak.</td></tr>
+        <tr><td>Beállítások, Szabályok</td><td>Fiókbeállítások, nyaralás mód és az univerzum szabályai.</td></tr>
+        </table>
+        <p>Egyes oldalak csak akkor léteznek, ha az univerzum engedélyezi a megfelelő modult; ha valami hiányzik, amit itt leírunk, kérdezd a <a href="game/faq/11/4">Támogatásnál</a>.</p>
+    '3':
+      title: "Bemutató és teljesítmények"
+      body: |-
+        <p>Ha az univerzumban be van kapcsolva a bemutató, egy bemutatódoboz lépésről lépésre vezet: építsd meg az első bányáidat és védelmedet, küldj egy első szállítást, kémkedj egy játékos után, hasznosíts újra törmeléket, gyarmatosíts, küldj expedíciót, nevezz át egy bolygót, küldj barátkérelmet vagy szövetségi jelentkezést. A teljesített célok jutalmat adhatnak; kihagyhatsz egyes célokat vagy az egész bemutatót. A Beállításokban a <b>kezdő felület</b> rövidre fogja a menüt, amíg végig nem csinálod a bemutatót.</p>
+        <h2 id="achievements">Teljesítmények</h2>
+        <p>A Teljesítmények oldal hosszú távú célokat sorol fel (első Hold, első expedíciós leletek, nagy csaták és még több). Játék közben maguktól feloldódnak.</p>
+    '4':
+      title: "Más játékosok, botok és kalózbázisok"
+      body: |-
+        <p>Minden univerzumon osztozol más játékosokkal. Az univerzum beállításaitól függően szerver által vezérelt <b>botok</b> is játszhatnak. A botok ugyanazokat a szabályokat követik, mint a játékosok; ha a botrajtaütések engedélyezve vannak, ugyanazokkal a korlátokkal derítenek fel, kémkednek és támadnak (bash-limit, védelem, nyaralás mód).</p>
+        <h2 id="pirates">Kalózbázisok</h2>
+        <p>Ha az univerzum engedélyezi a kalózbázisokat, aktív játékosonként egy bázis (az elmúlt 7 napban online volt, és egy minimális pontszám felett van) jelenik meg a játékos egyik bolygójának rendszerében, és hetente lecserélődik. A bázis a játékos hajóinak egy részét és néhány órányi termelést tartalmaz; kifosztásakor az összes nyersanyagot elviszed, nem csak a felét. A részarányt és a minimális pontszámot az univerzum beállításai határozzák meg.</p>
+  '2':
+    category: "Gazdaság és épületek"
+    icon: "building-2"
+    '1':
+      title: "Nyersanyagok és termelés"
+      body: |-
+        <p>A fémet, kristályt és deutériumot a bolygónkénti bányák termelik, plusz egy kis <b>alapjövedelem</b> óránként (alapból 20 fém és 10 kristály). Minden bányának energia kell.</p>
+        <h2 id="percent">Termelési százalék</h2>
+        <p>A Nyersanyagok oldalon minden termelőt 0-100&nbsp;%-ra állíthatsz. Az alacsonyabb beállítás kevesebb energiát és deutériumot használ (a Fúziós erőmű deutériumot éget), és kevesebbet termel. Ezzel kiegyenlítheted az energiát.</p>
+        <h2 id="factors">Mi változtatja a termelést</h2>
+        <ul>
+        <li>A bánya szintje (a termelés lineárisnál gyorsabban nő, és a költség is).</li>
+        <li>A bolygó hőmérséklete: a Deutérium-szintetizáló hidegebb bolygókon többet ad; a Napműhold melegebbeken termel többet.</li>
+        <li>A termelési kutatások (Fém-, Kristály-, Deutériumtermelés): szintenként +2&nbsp;%.</li>
+        <li>Az univerzum nyersanyag-szorzója.</li>
+        </ul>
+        <h2 id="full">Tele raktár</h2>
+        <p>A bolygón a termelés leáll egy nyersanyagnál, ha a raktára megtelt (alapból pontosan a kapacitásnál). A fosztogatásból vagy expedícióból gyűjtött nyersanyagok átlökhetnek ezen a határon.</p>
+    '2':
+      title: "Energia"
+      body: |-
+        <p>A bányák energiát fogyasztanak; a Nyersanyagok oldal mutatja a termelt és felhasznált energiát. Ha a fogyasztás meghaladja a termelést, <b>minden termelő vissza van fogva</b> a termelt / szükséges arányra a normál teljesítményéhez képest, így az energiahiány fémből, kristályból és deutériumból is egyaránt levesz.</p>
+        <h2 id="sources">Források</h2>
+        <ul>
+        <li><b>Naperőmű</b>: olcsó, nincs üzemeltetési költsége. Ezt építsd először.</li>
+        <li><b>Fúziós erőmű</b>: deutériumot éget. Energia = 30 x szint x (1,05 + 0,01 x Energiatechnika szintje)^szint, így az Energiatechnika javítja.</li>
+        <li><b>Napműholdak</b>: a Hangárban épülnek, mezőt nem igényelnek; az energiájuk a bolygó hőmérsékletétől függ. Lelőhetők, ezért a harcban hajónak számítanak.</li>
+        </ul>
+    '3':
+      title: "Raktározás és a nyersanyagok védelme"
+      body: |-
+        <p>Minden nyersanyagnak van tárolókapacitása (10 000 egység raktárépület nélkül), amely gyorsan nő a Fémraktár, Kristályraktár és Deutériumtartály szintjével.</p>
+        <h2 id="stash">Védelem a fosztogatás ellen</h2>
+        <p>Ha az univerzum használja a nyersanyag-rejtekhelyet, a raktár minden szintje megvédi az adott nyersanyag bolygón termelt napi mennyiségének 1&nbsp;%-át a fosztogatástól, legfeljebb 10&nbsp;%-ig (10. raktárszint). Ezen kívül egy támadás soha nem vihet el többet, mint a bolygón lévő nyersanyag fele; lásd: <a href="game/faq/5/2">Zsákmány</a>.</p>
+        <p>A legjobb védelem még mindig az, ha kijelentkezés előtt elköltöd a nyersanyagot, vagy sorban tartod.</p>
+    '4':
+      title: "Épületek építése"
+      body: |-
+        <p>Minden szint egy rögzített szorzóval kerül többe az előzőnél (például 1,5-szeres a Fémbányánál, 1,6-szoros a Kristálybányánál, 2-szeres a legtöbb más épületnél), így az Épületek oldalon nézheted meg a valódi árakat.</p>
+        <h2 id="time">Építési idő</h2>
+        <p>Normál univerzumsebességnél: (fém + kristály költség) / (2500 x (1 + Robotgyár szintje)) óra, a Nanitgyár minden szintjével felezve. A Robotgyár a holdakon is segít. A hajók építési ideje (fém + kristály) / (2500 x (1 + Hajógyár szintje)) óra, ugyancsak nanitszintenként felezve; a kutatásról lásd: <a href="game/faq/3/1">Kutatás</a>. Az univerzum sebességbeállításai mindezt skálázzák.</p>
+        <h2 id="cancel">Megszakítás és bontás</h2>
+        <p>Egy épület vagy kutatás megszakítása visszatéríti a teljes költséget. Egy hajógyári rendelés megszakítása 60&nbsp;%-ot térít vissza. Egy épület lebontása sokkal kevesebb időt vesz igénybe, mint az építése (kb. 36&nbsp;%).</p>
+        <h2 id="catchup">Felzárkózás</h2>
+        <p>Az univerzumok bekapcsolhatnak egy felzárkózási mechanikát: a vezetőhöz képest messze lemaradt játékosok olcsóbban és gyorsabban építenek és kutatnak, a beállított maximumig (alapból 50&nbsp;%).</p>
+    '5':
+      title: "Bolygómezők és a Terraformer"
+      body: |-
+        <p>Minden bolygónak és Holdnak korlátozott számú mezője van; a bolygón minden épületszint egy mezőt használ (a kutatás és a hajók nem).</p>
+        <ul>
+        <li><b>Terraformer</b> (csak bolygókon): szintenként +5 mező, és minden páros szinten még +1; minden szint maga is egy mezőt használ. Energia kell hozzá (nem fogy el), és nem bontható le.</li>
+        <li><b>Holdbázis</b> (csak holdakon): szintenként +3 mező, ugyancsak egy mezőt használva. Lásd: <a href="game/faq/7/2">Holdépületek</a>.</li>
+        </ul>
+    '6':
+      title: "Kolóniák"
+      body: |-
+        <p>Szabad bolygókat egy <b>Kolóniahajóval</b> gyarmatosíthatsz (Gyarmatosítás küldetés). A hajó elfogy, és az új kolóniává válik. Az Asztrofizika kutatásra van szükséged.</p>
+        <h2 id="limit">Hány bolygó</h2>
+        <p>Alapból a bolygók teljes száma (az anyabolygóval együtt) 1 + Asztrofizika szintje / 2, felfelé kerekítve, legfeljebb 12 bolygó:</p>
+        <p>1-2. szint = 2 bolygó, 3-4 = 3, 5-6 = 4, 7-8 = 5, 9-10 = 6, 11-12 = 7, 13-14 = 8, 15-16 = 9, 17-18 = 10, 19-20 = 11, 21+ = 12.</p>
+        <h2 id="positions">Mely pozíciók</h2>
+        <p>A külső és belső pozíciókhoz több Asztrofizika kell: a 4-12. pozíció az 1. szinttől, a 3. és 13. a 4. szinttől, a 2. és 14. a 6. szinttől, az 1. és 15. a 8. szinttől (15 pozíciós rendszernél).</p>
+  '3':
+    category: "Kutatás"
+    icon: "flask-conical"
+    '1':
+      title: "Kutatás és a Kutatólabor"
+      body: |-
+        <p>A kutatás a <b>Kutatólaborban</b> folyik, és az összes bolygódra érvényes. A labor szintje és a követelmények listája dönti el, mit kutathatsz; a Technológiák oldal megmutatja őket.</p>
+        <ul>
+        <li>Egyszerre csak egy kutatás fut (a sor alapból 2-t tart). Amíg egy kutatás folyik, egyetlen Kutatólabor sem fejleszthető.</li>
+        <li>Kutatási idő = (fém + kristály költség) / (1000 x (1 + labor szintje)) óra normál sebességnél. Az <b>Egyetem</b> rövidíti, alapból szintenként 8&nbsp;%-kal.</li>
+        <li>Az <b>Intergalaktikus kutatóhálózat</b> lehetővé teszi, hogy a többi bolygód laborjai segítsenek: minden szint még egy labort ad hozzá (a legmagasabbakat, amelyek megfelelnek a kutatás saját laborkövetelményének), és a szintjeik összeadódnak a számításhoz.</li>
+        <li>Egy futó kutatás megszakítása visszatéríti a teljes költséget.</li>
+        </ul>
+    '2':
+      title: "Mit csinálnak a technológiák"
+      body: |-
+        <h2 id="fleet">Flotta</h2>
+        <ul>
+        <li><b>Számítógép-technika</b>: szintenként +1 flottahely (1 hellyel indulsz).</li>
+        <li><b>Égésmotor / Impulzushajtómű / Hipertérhajtómű</b>: az adott hajtóművet használó hajók szintenként az alapsebesség +10 / +20 / +30&nbsp;%-ával repülnek gyorsabban. Egyes hajók egy bizonyos szinten hajtóművet váltanak (például a Kis szállító az Impulzushajtóművel). Az Impulzus szintje a rakéták hatótávját is meghatározza.</li>
+        <li><b>Üzemanyag-hatékonyság</b>: szintenként -2&nbsp;% üzemanyag-fogyasztás.</li>
+        <li><b>Asztrofizika</b>: kolóniák, expedíciók és gyarmatosítható pozíciók, lásd: <a href="game/faq/2/6">Kolóniák</a> és <a href="game/faq/8/1">Expedíciók</a>.</li>
+        <li><b>Kémtechnika</b>: jobb kémjelentések; azt is meghatározza, mit látsz a beérkező flottákról.</li>
+        </ul>
+        <h2 id="combat">Harc</h2>
+        <ul>
+        <li><b>Fegyverrendszer, Pajzstechnika és Páncélozás</b>: szintenként +10&nbsp;% támadás, pajzs és páncél az összes egységednek.</li>
+        <li>A Lézertechnika, Ionizációs technika és Plazmatechnika fegyvereket nyit meg; a Gravitonkutatás a holdrombolásához kell.</li>
+        </ul>
+        <h2 id="economy">Gazdaság</h2>
+        <ul>
+        <li><b>Energiatechnika</b>: növeli a Fúziós erőmű teljesítményét, és sok technológiát megnyit.</li>
+        <li><b>Fém- / Kristály- / Deutériumtermelés</b>: szintenként +2&nbsp;% termelés.</li>
+        </ul>
+  '4':
+    category: "Flotta és küldetések"
+    icon: "send"
+    '1':
+      title: "Flotta küldése"
+      body: |-
+        <ol>
+        <li><b>Hajók kiválasztása</b> a Flotta oldalon (vagy mindent elküldhetsz a Galaxis nézetből).</li>
+        <li><b>Célpont és sebesség</b>: add meg a koordinátákat (galaxis:rendszer:pozíció) és a típust: bolygó, törmelékmező vagy Hold. A sebesség 10-100&nbsp;% között, 10-es lépésekben állítható; a lassabb olcsóbb, de tovább tart.</li>
+        <li><b>Küldetés és rakomány</b>: válassz egy, az adott célponthoz elérhető küldetést, ha kell, rakj fel nyersanyagot, és erősítsd meg. Tartózkodásnál, Expedíciónál és Kereskedésnél azt is megadod, mennyi ideig maradjon.</li>
+        </ol>
+        <p>Az oldal a megerősítés előtt megmutatja a repülési időt, az érkezési időt és az üzemanyagot. A flottának elég deutériumra van szüksége a bolygón a repülés kifizetéséhez.</p>
+        <p>Egyszerre legfeljebb annyi flottát repülhetsz, ahány <b>flottahelyed</b> van: 1 + Számítógép-technika szintje. Az expedícióknak saját korlátjuk van, lásd: <a href="game/faq/8/1">Expedíciók</a>.</p>
+    '2':
+      title: "Sebesség, repülési idő és üzemanyag"
+      body: |-
+        <ul>
+        <li>A flotta olyan gyorsan repül, mint a <b>leglassabb hajója</b>.</li>
+        <li>Hajósebesség = alapsebesség x (1 + 0,1 / 0,2 / 0,3 x hajtómű szintje) a hajó által használható legjobb hajtóműre; lásd: <a href="game/faq/3/2">technológiák</a>.</li>
+        <li>Repülési idő = (3500 / (sebesség&nbsp;% x 0,1) x négyzetgyök(távolság x 10 / flottasebesség) + 10) / univerzum flottasebessége. A minimum 5 másodperc.</li>
+        <li>A távolság a keresztezett galaxisok és rendszerek számával nő; ugyanabban a galaxisban és rendszerben jóval rövidebb, mint egy másik rendszerbe.</li>
+        <li>Az üzemanyag-felhasználás gyorsabban nő, mint ahogy a repülési idő csökken: a lassabb repülés deutériumot takarít meg. Az Üzemanyag-hatékonyság minden szintje 2&nbsp;%-kal csökkenti a fogyasztást.</li>
+        </ul>
+        <p>Egyes univerzumok körkörösek (a rendszerek vagy galaxisok körbeérnek). A Flotta oldal ezt már beleszámítja.</p>
+    '3':
+      title: "Az összes küldetés egy pillantásra"
+      body: |-
+        <table class="faq-table">
+        <tr><th>Küldetés</th><th>Célpont</th><th>Mi történik</th></tr>
+        <tr><td>Támadás</td><td>más játékos bolygója vagy Holdja</td><td>Csata; a túlélők zsákmánnyal térnek vissza. Lásd: <a href="game/faq/5/1">Harc</a>.</td></tr>
+        <tr><td>Szövetségi támadás</td><td>ugyanaz, csoportként</td><td>Több játékos támad együtt, lásd: <a href="game/faq/9/3">ACS</a>.</td></tr>
+        <tr><td>Szállítás</td><td>bármely lakott bolygó</td><td>Leszállítja a nyersanyagot, és visszatér.</td></tr>
+        <tr><td>Állomásoztatás</td><td>a saját bolygóid vagy holdjaid</td><td>A hajók és a rakomány ott marad; nincs visszaút.</td></tr>
+        <tr><td>Tartózkodás</td><td>szövetségi tag vagy barát bolygója</td><td>A flotta vár, és védi a bolygót, lásd: <a href="game/faq/9/4">Tartózkodás</a>.</td></tr>
+        <tr><td>Átvitel</td><td>szövetségi tag vagy barát bolygója</td><td>Odaadja a hajókat és a rakományt; nem jönnek vissza.</td></tr>
+        <tr><td>Kémkedés</td><td>más játékos bolygója vagy Holdja</td><td>Csak szondákból álló flotta kémkedhet; lásd: <a href="game/faq/6/1">Kémkedés</a>.</td></tr>
+        <tr><td>Gyarmatosítás</td><td>szabad bolygópozíció</td><td>Kolóniahajó kell hozzá, lásd: <a href="game/faq/2/6">Kolóniák</a>.</td></tr>
+        <tr><td>Hasznosítás</td><td>törmelékmező</td><td>Szemetesek kellenek hozzá, lásd: <a href="game/faq/4/4">Hasznosítás</a>.</td></tr>
+        <tr><td>Pusztítás</td><td>egy Hold</td><td>Halálcsillagok kellenek hozzá, lásd: <a href="game/faq/7/5">Holdrombolás</a>.</td></tr>
+        <tr><td>Expedíció</td><td>egy rendszer expedíciós pozíciója (16)</td><td>Eseménysorsolás, lásd: <a href="game/faq/8/1">Expedíciók</a>.</td></tr>
+        <tr><td>Kereskedés</td><td>egy rendszer kereskedési pozíciója (17)</td><td>Egy <a href="game/faq/4/6">piactéri</a> ügylet árut szállítja le.</td></tr>
+        <tr><td>Rakétatámadás</td><td>hatótávon belüli bolygó</td><td>A rakéták a védelmet találják el, lásd: <a href="game/faq/5/5">Rakéták</a>.</td></tr>
+        </table>
+        <p>Hogy egy küldetés elérhető-e, a célponttól és attól függ, mely modulokat engedélyezte az univerzum. A nyaralás módban lévő játékosok elleni ellenséges küldetések visszafordulnak.</p>
+    '4':
+      title: "Törmelékmezők és hasznosítás"
+      body: |-
+        <p>A csatában megsemmisült hajók <b>törmelékmezőt</b> hagynak a célpont pozícióján. Alapból mindkét oldalon az összes megsemmisült hajó fém- és kristályköltségének 30&nbsp;%-át tartalmazza, a védelemnél pedig 0&nbsp;%; a deutérium soha nem lesz törmelék. Az univerzumok mindkét százalékot módosíthatják.</p>
+        <ul>
+        <li>Küldj <b>Szemeteseket</b> (Hasznosítás küldetés, a célpont típusa törmelékmező) a begyűjtéséhez. A flotta annyit rak fel, amennyit elbír; a fémet és kristályt arányosan veszi, a többi a mezőben marad.</li>
+        <li>Bárki begyűjthet egy törmelékmezőt. Azé, aki előbb odaér.</li>
+        <li>A kémkedés közben lelőtt szondák is hagynak törmeléket.</li>
+        <li>A hasznosító oldal és a jelentés megmondja, hány további Szemetesre lenne szükséged.</li>
+        </ul>
+    '5':
+      title: "Flották visszahívása"
+      body: |-
+        <p>Egy kimenő flottát visszahívhatsz a Flotta oldalon vagy az Áttekintésben. Megfordul, és annyi ideig tart a visszaút, ahány ideje már repül.</p>
+        <ul>
+        <li><b>Nem hívhatsz vissza</b> flottát, miután elérte a célját (az érkezés előbb lezajlik, így nem tudod kikerülni a csatát), az expedíciós flottákat érkezés után, és a bolygóközi rakétákat sem.</li>
+        <li>A tartózkodó flotta korán visszahívható; ekkor annyi ideig tart, amennyi az oda vezető útja volt.</li>
+        <li>Ha egy ACS-támadás alapítója visszahív, az egész csoport visszahívódik. A csatlakozó flották csak magukat hívják vissza.</li>
+        </ul>
+    '6':
+      title: "Flottakereskedő, Piactér és átvitelek"
+      body: |-
+        <h2 id="dealer">Flottakereskedő</h2>
+        <p>A Flottakereskedő a nyersanyagköltségükből levont díj fejében vásárol tőled hajókat (alapból 30&nbsp;%). Csak egy beállított hajólista adható el (alapból a Kis szállítótól a Csatacirkálóig, a legnagyobb hajók nélkül). Nyaralás módban nem elérhető.</p>
+        <h2 id="market">Piactér</h2>
+        <p>A játékosok nyersanyagot vagy hajókat kínálnak, és más nyersanyagokban szabják meg az árat. Az ügyleteket az ajánlat rendszerének kereskedési pozíciójára repülő flották szállítják le (a 17. pozíció a 15 bolygós rendszerekben, Kereskedés küldetés). A referenciaárakat az elmúlt 7 nap lezárt ügyleteiből vezetjük le (0,5 és 5 között tartva).</p>
+        <h2 id="transfer">Átvitel</h2>
+        <p>Az Átvitel küldetés hajókat és nyersanyagot ad egy szövetségi tagnak vagy barátnak. Semmi nem jön vissza.</p>
+        <p>A nagy egyoldalú ajándékokat ellenőrizzük, lásd: <a href="game/faq/10/5">Tolás és kereskedelmi korlátok</a>.</p>
+  '5':
+    category: "Harc"
+    icon: "swords"
+    '1':
+      title: "Hogyan működik egy csata"
+      body: |-
+        <p>Amikor egy támadó flotta eléri a célját, az összes támadó flotta (az ACS-résztvevőket is beleértve) a bolygó saját védelmével és flottájával, valamint az ott tartózkodó összes flottával harcol. Legfeljebb <b>6 forduló</b> van.</p>
+        <ul>
+        <li>Minden fordulóban minden hajó egyszer lő egy véletlenszerű ellenséges hajóra (a gyorstűz további lövéseket adhat).</li>
+        <li>A pajzs előbb elnyeli a lövést; az a lövés, amely gyengébb a célpont pajzsának 1&nbsp;%-ánál, lepattan. A pajzsok minden forduló után helyreállnak, a páncélsérülések nem.</li>
+        <li>Egy hajó páncélja = (fém + kristály költség) / 10. A páncéljuk 70&nbsp;%-a alá kerülő hajók felrobbanhatnak a következő találatnál; minél sérültebbek, annál valószínűbb.</li>
+        <li><b>Gyorstűz</b>: ha a célpont típusa szerepel a lövő gyorstűz-listáján N értékkel, a lövő (N-1)/N valószínűséggel újra lő. A Technológiák oldalon látható.</li>
+        <li>A Fegyverrendszer, a Pajzstechnika és a Páncélozás szintenként 10&nbsp;%-ot ad a támadáshoz, a pajzshoz és a páncélhoz.</li>
+        <li>Egy forduló minden lövése egyszerre dördül el; a 0 páncélra jutó hajókat a forduló után eltávolítjuk.</li>
+        </ul>
+        <h2 id="result">Eredmény</h2>
+        <p>Ha a védők megsemmisülnek, a támadó nyer, és fosztogat. Ha 6 forduló után mindkét oldalnak vannak hajói, a csata döntetlen, és senki nem fosztogat. Ha a támadók megsemmisülnek, a védő nyer. A csatajelentés, minden fordulóval együtt, minden félnek elküldésre kerül; minden jelentésnek van nyilvános linkje.</p>
+    '2':
+      title: "Zsákmány"
+      body: |-
+        <p>Csak a győztes támadó fosztogat. A túlélő támadó hajók szabad rakománykapacitását (a kémszondák nem számítanak) ebben a sorrendben töltjük fel:</p>
+        <ol>
+        <li>a kapacitás legfeljebb 1/3-át fémmel,</li>
+        <li>a maradék kapacitás felét kristállyal,</li>
+        <li>a többit deutériummal,</li>
+        <li>a még megmaradt helyet újra fémmel (fele) és kristállyal töltjük.</li>
+        </ol>
+        <p>Minden nyersanyagból legfeljebb a <b>bolygó készletének fele</b> vihető el. További korlátok: a <a href="game/faq/2/3">raktárak</a> védett része (ha engedélyezett). A nagyon rossz becsületű játékosok a felénél többet is veszíthetnek, lásd: <a href="game/faq/5/7">Becsületpontok</a>.</p>
+        <p>A kalózbázisok kivételek: kifosztásuk mindent elvisz, amit a kapacitás enged.</p>
+    '3':
+      title: "Törmelék, roncsok és a javítódokk"
+      body: |-
+        <h2 id="debris">Törmelék</h2>
+        <p>Lásd: <a href="game/faq/4/4">Törmelékmezők és hasznosítás</a>: alapból az elveszett hajók fémének és kristályának 30&nbsp;%-a.</p>
+        <h2 id="wreck">Roncsmező</h2>
+        <p>Ha az univerzumban van javítódokk modul, a <b>bolygó tulajdonosa</b> által elvesztett hajók (nem a védelem) <b>roncsmezőt</b> hagyhatnak, de csak akkor, ha egyszerre sokat veszített: alapból legalább 150 000 egységnyi értéket és a flotta 75&nbsp;%-át. A roncsmező a hajóknak azt a részét tartalmazza, amely nem lett törmelék.</p>
+        <h2 id="dock">Javítódokk</h2>
+        <p>A javítódokk (csak bolygókon) megjavíthatja a roncsolt hajókat: a javítási arány a roncsok 24&nbsp;% + szint^1,5&nbsp;%-a, legfeljebb 100&nbsp;%. A javítási megbízás a hajók építési ideje alatt készül el, de legalább 30 perccel a roncsmező megjelenése után, és legfeljebb 12 óra alatt. 3 napon belül indítsd el, majd a javítódokk oldalán állítsd szolgálatba a megjavított hajókat; ha elfelejted, 3 nap után maguktól szolgálatba állnak. A roncsmezők 72 óra után lejárnak.</p>
+    '4':
+      title: "Védelem"
+      body: |-
+        <ul>
+        <li>A védelmi egységek a bolygón lévő összes flottával együtt harcolnak. Soha nem repülnek.</li>
+        <li>Egy csata után a <b>megsemmisült védelem egy részét ingyen újjáépítik</b>: ha egy típusból több mint 10 egység veszett el, 60-80&nbsp;%-a visszajön (véletlenszerűen); ha 10 vagy kevesebb, minden egységnek 70&nbsp;% esélye van.</li>
+        <li>Az újjá nem épített védelem alapból nem hagy törmeléket.</li>
+        <li>A rakéták olyan védelmet semmisítenek meg, amelyet <b>nem</b> építenek újjá, lásd: <a href="game/faq/5/5">Rakéták</a>.</li>
+        <li>A pajzskupolák, a Légköri pajzs és az Orbitális védelmi platform bolygónként csak egyszer építhetők.</li>
+        <li>A bolygón lévő Napműholdak hajóként harcolnak, és flottának számítanak, nem védelemnek.</li>
+        </ul>
+    '5':
+      title: "Rakéták"
+      body: |-
+        <p>Szükséged van egy <b>Rakétasilóra</b>. Alapból minden szint 10 helyet tart; egy Elhárító rakéta 1 helyet foglal, egy Bolygóközi rakéta 2-t.</p>
+        <ul>
+        <li>A <b>Bolygóközi rakéták</b> egy ugyanabban a galaxisban lévő, hatótávon belüli bolygó védelmét támadják. Elfogynak, nem hívhatók vissza, és a sebzés a Fegyverrendszeredtől függ.</li>
+        <li>Hatótáv = 5 x Impulzushajtómű szintje - 1 rendszer (egy univerzumtényező módosíthatja). Repülési idő = (30 + 60 x rendszertávolság) / univerzum flottasebessége másodperc.</li>
+        <li>Válassz egy <b>elsődleges célpontot</b>: az a védelmi típus kapja először a találatot. Különben a Rakétakilövők mennek előre.</li>
+        <li>Az <b>Elhárító rakéták</b> egy az egyben lelövik a beérkező rakétákat; a védő elfogott rakétánként egy Elhárítót veszít.</li>
+        <li>A megsemmisült védelmet nem építik újra.</li>
+        <li>A rakétatámadások beleszámítanak a bash-limitekbe, hacsak az univerzum ezt ki nem kapcsolja.</li>
+        </ul>
+    '6':
+      title: "Szimulátor és csatajelentések"
+      body: |-
+        <p>A <b>Szimulátor</b> lefuttat egy csatát az általad megadott technológiákkal és flottákkal, és megmutatja az eredményt és a veszteségeket. A kémjelentésekből egy kattintással ide lehet ugrani. A szimulált csaták szabályai megegyeznek a valódiakéval, de a véletlenszerűség (gyorstűz, robbanások) miatt az eredmények kissé eltérhetnek a valódi csatától; futtasd le többször, hogy becslést kapj.</p>
+        <p>A valódi csatajelentések az üzeneteidben tárolódnak, és nyilvános linkjük van, így megoszthatod őket. A Hírességek csarnoka felsorolja az univerzum legnagyobb csatáit.</p>
+    '7':
+      title: "Becsületpontok"
+      body: |-
+        <p>Ha az univerzum használ becsületpontokat, a tisztességes 1 az 1 elleni csaták mindkét játékosnak becsületpontot adnak, míg egy egyértelműen gyengébb játékos megtámadása pontokba kerül a támadónak.</p>
+        <ul>
+        <li><b>Becsületes</b> (mindketten nyernek): a támadónak nincs több pontja, mint a védőnek, és katonailag nem több mint kétszer olyan erős, vagy a védő ismert bandita.</li>
+        <li><b>Becstelen</b> (a támadó pontot veszít): a támadó katonai pontszáma több mint kétszerese a védőének (és a különbség több mint 10 pont), miközben a védőnek jó a becsületrangja.</li>
+        <li>Az inaktív játékosok, a szövetségi tagok és a barátok elleni csaták semlegesek. Alapból ugyanaz a két játékos 24 óra alatt legfeljebb 3 csatából szerezhet becsületet.</li>
+        </ul>
+        <h2 id="effects">Hatások</h2>
+        <ul>
+        <li>A magas becsület (500 pont és hely az univerzum legjobb 30 / 20 / 10&nbsp;%-ában) 5 / 12 / 20&nbsp;%-kal csökkenti a repülési üzemanyagodat.</li>
+        <li>A nagyon alacsony becsület (-500 pont vagy rosszabb, a legrosszabb 30 / 20 / 10&nbsp;%) azt jelenti, hogy a támadók a készleted fele helyett akár 60 / 80 / 100&nbsp;%-át is elvihetik. Lásd: <a href="game/faq/5/2">Zsákmány</a>.</li>
+        </ul>
+  '6':
+    category: "Kémkedés"
+    icon: "scan-eye"
+    '1':
+      title: "Kémkedés szondákkal"
+      body: |-
+        <p>A Kémkedés küldetést csak <b>kizárólag Kémszondákból álló</b> flotta használhatja. Jelentést kapsz az üzeneteidben, a célpont pedig értesül róla, hogy idegen flottát láttak.</p>
+        <h2 id="level">Mit mutat a jelentés</h2>
+        <p>A nyersanyagok mindig láthatók. Hogy mit látsz még, az a szondák számától és mindkét játékos Kémtechnika-szintjétől függ (a tiéd <i>s</i>, a célpontodé <i>t</i>): a flottákhoz szükséges szondák száma n0 = (|s - t|)^2, negatív, ha neked van magasabb szinted. A védelemhez n0 + 1 szonda kell, az épületekhez n0 + 3, a kutatáshoz n0 + 5. Küldj több szondát, mint amennyire szükségesnek hiszed.</p>
+        <h2 id="risk">Kémelhárítás</h2>
+        <p>A célbolygó lelőheti a szondákat. Az esély %-ban = 2^(t - s) x szondák x (a bolygón lévő hajók és védelem) x 0,0025, legfeljebb 100. A hajók és védelem nélküli bolygók soha nem lőnek. Az elveszett szondák törmeléket hagynak. A jelentés minden esetben megérkezik.</p>
+        <p>A kémjelentésben van egy link a Szimulátorhoz, a célpont adataival előre kitöltve.</p>
+    '2':
+      title: "Mit látsz a beérkező flottákról"
+      body: |-
+        <p>A saját Kémtechnika-szinted azt is meghatározza, mit mutat az Áttekintés a feléd tartó idegen flottákról:</p>
+        <ul>
+        <li>0-1. szint: csak azt, hogy egy flotta közeledik.</li>
+        <li>2-3. szint: hány hajó.</li>
+        <li>4-7. szint: milyen hajótípusok.</li>
+        <li>8. szinttől: típusonként hány darab.</li>
+        </ul>
+        <p>A többi játékos statisztikái is függhetnek a Kémtechnikádtól, ha az univerzum engedélyezi ezt a modult.</p>
+  '7':
+    category: "Holdak és falanx"
+    icon: "moon"
+    '1':
+      title: "Hogyan jönnek létre a holdak"
+      body: |-
+        <p>Egy <b>bolygón</b> lezajlott csata után létrejöhet egy Hold, ha még nincs neki. Az esély <b>az adott csatában keletkezett 100 000 egységnyi törmelékenként 1&nbsp;%</b> (az univerzum tényezője érvényes), legfeljebb az univerzum maximuma (alapból 20&nbsp;%). Holdakon soha nem jön létre Hold.</p>
+        <ul>
+        <li>Csak az adott csata törmeléke számít: mindkét oldal elveszett hajói, és a védelem, ha az univerzum engedi, hogy a védelem törmeléket hagyjon.</li>
+        <li>Egyes univerzumokban a törmelékmező törlődik, amikor Hold jön létre.</li>
+        <li>Az univerzumok lépcsőzetes bónuszt adhatnak a maximális esélynél ismételt kudarcok után, amíg meg nem lesz az első Hold.</li>
+        <li>A Hold a célbolygó tulajdonosáé. Egy bolygónak csak egy Holdja lehet.</li>
+        </ul>
+        <h2 id="size">Méret</h2>
+        <p>Átmérő = négyzetgyök(10-20 + 3 x esély %-ban) x 1000 km, szorozva az univerzum méretezési tényezőjével. 20&nbsp;% esélynél ez nagyjából 8370 és 8940 km között van. Egy friss Holdon pontosan 1 mezőnek van hely.</p>
+    '2':
+      title: "Holdépületek"
+      body: |-
+        <p>Egy Holdon építhetsz Robotgyárat, Hajógyárat, a három raktárépületet, valamint a csak holdakra szóló épületeket:</p>
+        <h2 id="base">Holdbázis</h2>
+        <p>Minden szint 3 mezőt ad, és egyet használ. Nem bontható le. Ezt építsd először.</p>
+        <h2 id="phalanx">Szenzorfalanx</h2>
+        <p>Lásd: <a href="game/faq/7/3">Szenzorfalanx</a>.</p>
+        <h2 id="gate">Ugrókapu</h2>
+        <p>Lásd: <a href="game/faq/7/4">Ugrókapu</a>.</p>
+        <p>A holdak nem termelnek nyersanyagot, és kevés mezőjük miatt nem fér rájuk minden: építés előtt tervezd meg a mezőkeretet.</p>
+    '3':
+      title: "Szenzorfalanx"
+      body: |-
+        <p>A Holdon lévő Szenzorfalanx megmutatja egy <b>ugyanabban a galaxisban</b> lévő, hatótávon belüli bolygó flottamozgásait. A holdakat nem lehet letapogatni.</p>
+        <ul>
+        <li><b>Hatótáv</b> = szint^2 - 1 rendszer (az 1. szint csak a saját rendszert fedi), szorozva az univerzum tényezőjével.</li>
+        <li><b>Költség</b>: letapogatásonként 5000 deutérium, a Holdról levonva.</li>
+        <li>Látod azokat a flottákat, amelyek a letapogatott bolygóról indulnak vagy oda tartanak: érkezések, tartózkodások végei és visszatérések. Az állomásoztatásokat és a rakétákat nem mutatja.</li>
+        <li>Nyaralás módban nem működik, és olyan játékosok ellen sem, akiket védelem miatt nem támadhatsz.</li>
+        </ul>
+        <p>Nyisd meg a Galaxis nézetet a Holdról, és kattints egy hatótávon belüli bolygóra.</p>
+    '4':
+      title: "Ugrókapu"
+      body: |-
+        <p>Az ugrókapuk azonnal és üzemanyag nélkül mozgatnak hajókat két saját Holdad között. Nyersanyagot nem lehet mozgatni.</p>
+        <ul>
+        <li>Mindkét kapunak készen kell állnia. Ugrás után minden kapunak pihennie kell: 60 perc az 1. szinten, minden szinttel csökkenve a 15. szinttől 10 percre (egy univerzumtényező módosíthatja).</li>
+        <li>A Napműholdak nem tudnak ugrani.</li>
+        </ul>
+    '5':
+      title: "Holdak elpusztítása"
+      body: |-
+        <p>A <b>Pusztítás</b> küldetés holdak ellen elérhető, ha a flotta <b>Halálcsillagokat</b> tartalmaz. A pusztítás csak azután történik meg, hogy a támadó megnyerte a csatát.</p>
+        <ul>
+        <li><b>Holdpusztítási esély</b> %-ban = (100 - a Hold átmérőjének négyzetgyöke) x a Halálcsillagok számának négyzetgyöke, legfeljebb 100. A nagyobb holdakat nehezebb elpusztítani.</li>
+        <li><b>A flotta kockázata</b>: a támadó flotta (az átmérő négyzetgyöke) / 2&nbsp;% eséllyel elvész, akár megsemmisül a Hold, akár nem.</li>
+        <li>A Holdon állomásozó flották a Hold elpusztulásakor a bolygóra kerülnek. Az elpusztult Hold nem hagy törmeléket.</li>
+        </ul>
+  '8':
+    category: "Expedíciók"
+    icon: "compass"
+    '1':
+      title: "Expedíció küldése"
+      body: |-
+        <p>Az expedíciók bármely rendszer <b>16. pozíciójára</b> mennek (az utolsó bolygó mögöttire, a 15 bolygós rendszerekben). Az <b>Asztrofizika</b> kutatás kell hozzájuk.</p>
+        <ul>
+        <li><b>Helyek</b>: az Asztrofizika szintjének lefelé kerekített négyzetgyöke (1-3. szint = 1, 4-8 = 2, 9-15 = 3, 16-24 = 4, ...). Ezek elkülönülnek a normál flottahelyeidtől.</li>
+        <li><b>Tartózkodás</b>: Asztrofizika-szintenként legfeljebb 1 óra (egy univerzumtényező módosíthatja).</li>
+        <li>A kizárólag szondákból álló flotta nem mehet expedícióra.</li>
+        <li>Az érkezés után az expedíció <b>nem hívható vissza</b>. Az esemény a tartózkodás végén dől el, aztán a flotta hazarepül.</li>
+        <li>Az expedíciók eredményeit az üzeneteidben jelentjük, és beleszámítanak a Statisztikádba.</li>
+        </ul>
+    '2':
+      title: "Mit találhat egy expedíció"
+      body: |-
+        <p>Minden játékos egy személyes pakliból húz eseménykártyákat, amelyet megkevernek és újratöltenek, ha kiürül, így idővel az arányok egyeznek. Az alapértelmezett 1000 lapos pakli (az univerzum módosíthatja):</p>
+        <table class="faq-table">
+        <tr><th>Esemény</th><th>Arány</th><th>Részletek</th></tr>
+        <tr><td>Nyersanyag</td><td>37&nbsp;%</td><td>Kis, közepes vagy nagy lelet. Alapból az esetek 50&nbsp;%-ában fém, 33&nbsp;%-ában kristály, 17&nbsp;%-ában deutérium.</td></tr>
+        <tr><td>Hajók</td><td>26,4&nbsp;%</td><td>Hajók csatlakoznak a flottádhoz; csak bizonyos hajótípusok találhatók.</td></tr>
+        <tr><td>Semmi</td><td>19&nbsp;%</td><td>A flotta üres kézzel tér vissza.</td></tr>
+        <tr><td>Késés</td><td>6,7&nbsp;%</td><td>A visszaút 2, 3 vagy 5 órával tovább tart (kicsi, közepes, nagy).</td></tr>
+        <tr><td>Kalózok</td><td>5,7&nbsp;%</td><td>Kalózflotta ellen harcolsz.</td></tr>
+        <tr><td>Idegenek</td><td>2,6&nbsp;%</td><td>Idegen flotta ellen harcolsz.</td></tr>
+        <tr><td>Gyorsabb visszatérés</td><td>2,3&nbsp;%</td><td>A visszaút 20, 30 vagy 50&nbsp;%-kal rövidebb.</td></tr>
+        <tr><td>Fekete lyuk</td><td>0,3&nbsp;%</td><td>Az egész flotta elvész.</td></tr>
+        </table>
+        <h2 id="size">Mennyit találsz</h2>
+        <p>A nyersanyaglelet a flottád értékével skálázódik (az univerzum korlátjáig), és a flotta rakománykapacitása korlátozza: a kis leletek az értékegység 10-50-szeresei, a közepesek 50-100-szorosai, a nagyok 100-200-szorosai; a kristályleletek felezve, a deutériumleletek harmadolva vannak. Nagy leletekhez vigyél szállítóhajókat.</p>
+        <h2 id="depletion">Kimerült pozíciók</h2>
+        <p>Ha az elmúlt 24 órában sok expedíció ment ugyanazokra a koordinátákra, a kártya „semmi” lehet: több mint 10 expedíciónál 25&nbsp;% az esély, több mint 25-nél 50&nbsp;%, több mint 50-nél 75&nbsp;%. Oszd szét az expedícióidat.</p>
+  '9':
+    category: "Szövetségek és ACS"
+    icon: "handshake"
+    '1':
+      title: "Szövetség alapítása és kezelése"
+      body: |-
+        <p>Nyisd meg a <b>Szövetség</b> menüpontot az oldalpanelen, és hozz létre egyet egy címkével és egy névvel (betűk, számok és szóközök; mindkettő szabad kell legyen). Egyes univerzumokban minimális pontszám kell a szövetség alapításához.</p>
+        <h2 id="manage">Kezelés</h2>
+        <ul>
+        <li><b>Rangok</b>: rangonként jogokat határozhatsz meg (jelentkezések, kirúgás, tömeges üzenetek, ...).</li>
+        <li><b>Tagok</b>: rangok kiosztása, tagok kirúgása, annak megtekintése, mikor voltak utoljára online.</li>
+        <li><b>Jelentkezések</b>: a toborzás megnyitása vagy lezárása, jelentkezések elolvasása és megválaszolása; a jelentkezési szöveg sablon a jelentkezőknek.</li>
+        <li><b>Szövegek</b>: a külső szöveg nyilvános, a belső csak a tagoknak szól.</li>
+        <li><b>Körlevél</b> mindenkinek vagy kiválasztott rangoknak.</li>
+        <li><b>Diplomácia</b> más szövetségekkel, lásd: <a href="game/faq/9/2">Diplomácia</a>.</li>
+        <li>A szövetséget átadhatod egy másik tagnak, vagy feloszlathatod.</li>
+        </ul>
+    '2':
+      title: "Szövetségi diplomácia"
+      body: |-
+        <p>A szövetségek paktumokat ajánlhatnak egymásnak; a másik fél elfogadja vagy elutasítja őket. Típusok: Fő, Szárny, Szövetség, Kereskedelmi paktum, Megnemtámadási egyezmény, Háború, Titkos szövetség és Béke.</p>
+        <p>A paktumok két szövetség viszonyát rögzítik. A <b>háborúban</b> álló szövetségek közötti támadások mentesülhetnek a bash-limit alól (univerzumbeállítás), ha a háborút több mint egy napja elfogadták, és a támadót nem köti össze a célponttal fiókkapcsolat.</p>
+    '3':
+      title: "Közös támadás (ACS)"
+      body: |-
+        <h2 id="start">Csoport indítása</h2>
+        <p>Először küldj egy flottát <b>Támadás</b> küldetéssel. Aztán nyisd meg a Flotta oldalt, használd az ACS funkciót azon a flottán, és hívj meg más játékosokat. Minden meghívott játékos elküldi a saját flottáját ugyanazokra a koordinátákra a <b>Szövetségi támadás</b> küldetéssel.</p>
+        <h2 id="rules">Szabályok</h2>
+        <ul>
+        <li>A csoport a leglassabb flottával együtt érkezik meg.</li>
+        <li>Egy csatlakozó flotta legfeljebb a hátralévő idő <b>30&nbsp;%</b>-ával késleltetheti a csoportot.</li>
+        <li>Alapból egy csoport legfeljebb 5 játékos legfeljebb 16 flottáját fogadja (univerzumbeállítások).</li>
+        <li>A zsákmány kapacitás szerint oszlik el; minden résztvevő részt vesz a csatában.</li>
+        </ul>
+        <p><b>Vigyázat:</b> ha az alapító visszahív, az egész csoport visszahívódik.</p>
+    '4':
+      title: "Védekezés: Tartózkodás és a Szövetségi raktár"
+      body: |-
+        <p>Küldj egy flottát <b>Tartózkodás</b> küldetéssel egy szövetségi tag vagy barát bolygójára. 1, 2, 4, 8, 12, 16 vagy 32 órát vár, és ha közben megtámadják a bolygót, védőként harcol. A kémjelentéseken úgy jelenik meg, mintha a bolygó része lenne.</p>
+        <ul>
+        <li>Az indításkor a repülési üzemanyagon túl nincs többletköltség.</li>
+        <li>A tartózkodó flották és játékosok számát bolygónként az univerzum ACS-beállításai korlátozzák.</li>
+        <li>Egy tartózkodó flottát bármikor visszahívhatsz.</li>
+        </ul>
+        <h2 id="depot">Szövetségi raktár</h2>
+        <p>A bolygó tulajdonosa a Szövetségi raktárból deutériummal láthatja el a tartózkodó flottákat, hogy tovább maradhassanak: ellátásonként 1-től (raktár szintje) óráig. Az óránkénti költség a flotta hajói alap üzemanyag-fogyasztásának összegének egytizede, felfelé kerekítve. Egy flottának soha nincs több mint 32 óra hátralévő tartózkodása.</p>
+    '5':
+      title: "Barátok"
+      body: |-
+        <p>A barátok (buddyk) kérelmeket küldhetnek egymásnak a Barátok oldalról vagy a játékosprofilból. A barátok használhatják egymásra a Tartózkodást és az Átvitelt, mentesek a becsületváltozások alól, és látják egymást a barátlistán.</p>
+        <p>Ha az univerzum engedélyezi, a 7 napnál tovább offline maradó játékosokat (nyaralás módon kívül) automatikusan eltávolítjuk a barátlistákról és a szövetségekből.</p>
+  '10':
+    category: "Védelem és nyaralás"
+    icon: "shield-check"
+    '1':
+      title: "Újoncvédelem és törvényen kívüliek"
+      body: |-
+        <p>A védelem a <b>pontokon</b> alapul. Alapból egy játékos védett, ha 5000 vagy kevesebb pontja van, <b>és</b> a másik játékosnak több mint 5-szöröse a pontja. Mindkét szám univerzumbeállítás, és az egész védelem kikapcsolható.</p>
+        <ul>
+        <li>Kiterjed a támadásokra, szövetségi támadásokra, holdrombolásra, tartózkodásra, kémkedésre, rakétatámadásokra és a Szenzorfalanx-letapogatásokra.</li>
+        <li>Mindkét irányban működik: ha <i>te</i> a pontlimit alatt vagy, és a másik játékosnak több mint 5-szöröse a pontja, te sem támadhatod őt (hacsak az univerzum nem használja a törvényenkívüli-rendszert, lásd lent).</li>
+        <li>A védelem nem vonatkozik a kitiltott játékosokra, és alapból azokra sem, akik 7 napig offline voltak.</li>
+        <li>A galaxisnézet jelöli a védett játékosokat (Ú = gyenge, E = erős).</li>
+        </ul>
+        <h2 id="outlaw">Törvényen kívüliek</h2>
+        <p>Ha az univerzum használja a törvényenkívüli-rendszert, egy gyenge játékos mégis megtámadhat egy sokkal erősebbet. Ekkor <b>törvényen kívülivé</b> válik: a védelem 2 napig (először) vagy 7 napig (minden további alkalommal) nem vonatkozik rá, így az erős játékos visszaüthet.</p>
+    '2':
+      title: "Bash-limit"
+      body: |-
+        <p>A bash-limit megakadályozza ugyanannak a célpontnak az ismételt támadását. Alapból ugyanazt a <b>bolygót 24 óra alatt legfeljebb 6-szor</b> támadhatod; játékosonkénti limit is beállítható (alapból ki van kapcsolva). A rakétatámadások beleszámítanak, hacsak az univerzum ezt ki nem kapcsolja.</p>
+        <ul>
+        <li>Egy ACS-csoport több flottája egy támadásnak számít.</li>
+        <li>Az egy szondás kémkedés nem számít.</li>
+        <li>Az inaktív célpontok (7 nap) nem védettek.</li>
+        <li>Ha az univerzumban „a háború feloldja a bash-limitet” szabály él, a háborúban álló szövetségek közötti támadások sem számítanak.</li>
+        </ul>
+    '3':
+      title: "Újjáépítési védelem"
+      body: |-
+        <p>Alapból ki van kapcsolva. Ha az univerzum engedélyezi (az újoncvédelem kell hozzá), az a játékos, aki egyetlen csatában elveszíti a vagyona nagy részét, <b>újjáépítési védelmet</b> kap: a flottája és védelme értékének több mint 70&nbsp;%-át, vagy a szállítókapacitásának több mint 80&nbsp;%-át, és legalább egy, az újoncvédelem határát követő minimális értéket (legfeljebb 5 000 000 egység).</p>
+        <ul>
+        <li>A csata után 3 órával kezdődik (6 órával a támadó játékosoknak), és a csata után 48 órával ér véget. Ez idő alatt nem támadható.</li>
+        <li>A játékos korán befejezheti.</li>
+        <li>Legfeljebb havonta egyszer aktiválódik, és nem akkor, ha az összes ellenfél kapcsolódik a veszteshez (azonos IP, eszköz vagy multi-csoport, szövetség, barát).</li>
+        </ul>
+    '4':
+      title: "Nyaralás mód"
+      body: |-
+        <p>A nyaralás mód befagyasztja a fiókodat, amíg távol vagy. A <b>Beállításokban</b> kapcsolhatod be.</p>
+        <ul>
+        <li>Nem lehet <b>repülő flottád</b>.</li>
+        <li>A termelés minden bolygón leáll; a soraid szünetelnek, és visszatérésedkor folytatódnak. A bolygóidon tartózkodó flották hazamennek.</li>
+        <li>Az ellened irányuló ellenséges küldetések visszafordulnak (támadások, kémkedés, rakéták).</li>
+        <li>Csak a minimális idő után (alapból 48 óra) léphetsz ki.</li>
+        <li>Visszatérésedkor a termelés minden bolygón 100&nbsp;%-on indul újra. Amíg távol vagy, semmi nem termelődik.</li>
+        <li>Ha az univerzum engedélyezi, a nyaralás módban lévő, 28 napig offline játékosokat kivesszük belőle.</li>
+        </ul>
+        <p>A hosszan inaktív fiókokat nyaralástól függetlenül is töröljük, lásd: <a href="game/faq/11/2">Inaktivitás és fiók törlése</a>.</p>
+    '5':
+      title: "Tolás és kereskedelmi korlátok"
+      body: |-
+        <p>A tolás azt jelenti, hogy nyersanyagot vagy hajókat táplálsz egy másik játékosba (gyakran egy második fiókba). Szabályellenes, és automatikusan ellenőrizzük.</p>
+        <ul>
+        <li>Alapból egy másik játékosnak küldött szállítás, tartózkodás vagy átvitel megtagadásra kerül, ha az elmúlt 7 napban több mint 100 000-rel (deutérium-egyenértékben) nagyobb értéket küldtél neki, mint amennyit ő visszaküldött.</li>
+        <li>A piactéri ügyleteknek az univerzum tolási toleranciáján belül kell maradniuk (a kínált és a kért értéknek közel kell lennie).</li>
+        <li>Az azonos IP-jű, eszközű vagy multi-csoportú fiókok összekapcsoltnak számítanak, és szigorúbban kezeljük őket.</li>
+        </ul>
+        <p>Az univerzum szabályai a Szabályok oldalon vannak.</p>
+  '11':
+    category: "Fiók és beállítások"
+    icon: "user-cog"
+    '1':
+      title: "Fiókbeállítások"
+      body: |-
+        <p>A <b>Beállításokban</b> állíthatod:</p>
+        <ul>
+        <li><b>Felhasználói adatok</b>: felhasználónév (csak betűk és számok, 7 naponta egyszer módosítható), e-mail-cím, új jelszó (legalább 8 karakter; a módosításokhoz a jelenlegi jelszavad kell), nyelv, időzóna és téma.</li>
+        <li><b>Általános</b>: a bolygók rendezése, a megfizethetetlen tételek elhalványítása, hajógyári szűrők, összevont kémjelentések, üzenetbeállítások, privát üzenetek tiltása és a <b>kezdő felület</b> (egyszerűsített menü, amely a bemutató haladtával oldja fel a menüpontokat).</li>
+        <li><b>Galaxis és kémkedés</b>: hány szondát küldjön a Galaxis nézet, és mennyire lehet régi egy kémjelentés, hogy friss vagy közelmúltbeli legyen.</li>
+        <li><a href="game/faq/10/4">Nyaralás mód</a> és a fiók törlése (&quot;Veszélyzóna&quot;).</li>
+        </ul>
+    '2':
+      title: "Inaktivitás és fiók törlése"
+      body: |-
+        <ul>
+        <li><b>7 nap</b> bejelentkezés nélkül után a játékos inaktívként (i), <b>28 nap</b> után hosszan inaktívként (I) jelenik meg. Az inaktív játékosokra nem vonatkozik a bash-limit, és alapból a pontalapú védelem sem.</li>
+        <li><b>90 nap</b> offline után (univerzumbeállítás, 0 = soha) a fiók automatikusan törlődik, a bolygóival és flottáival együtt.</li>
+        <li>Ha te magad kéred a törlést a Beállításokban, legalább 7 nap után történik meg (univerzumbeállítás); közben megszakíthatod.</li>
+        </ul>
+    '3':
+      title: "Statisztika és pontok"
+      body: |-
+        <p>A Statisztika oldal összpontszám, valamint épületek, kutatás, flotta és védelem szerint rangsorolja a játékosokat és szövetségeket. Ütemezetten frissülnek, nem élőben.</p>
+        <ul>
+        <li>Pontok = a befektetett nyersanyag osztva 1000-rel (alapérték; univerzumbeállítás).</li>
+        <li>A szövetségi pontok csak azokat a tagokat számítják, akik 7 napon belül online voltak.</li>
+        <li>A Rekordok az univerzum legmagasabb épület- és kutatásszintjeit mutatják.</li>
+        <li>Ha az univerzum engedélyezi, egyes statisztikák csak elég Kémtechnikával láthatók.</li>
+        </ul>
+    '4':
+      title: "További segítség"
+      body: |-
+        <!--wiki_url--><h2 id="wiki">Wiki és közösség</h2><p><a href="{wiki_url}/wiki/En/Hauptseite" target="_blank">Wiki főoldal</a>, <a href="{wiki_url}/wiki/En/Buildorder" target="_blank">építési sorrendek</a>, <a href="{wiki_url}/wiki/En/Saven" target="_blank">flottamentés</a>, <a href="{wiki_url}/wiki/En/Expoanleitung" target="_blank">expedíciók</a>.</p><!--/wiki_url-->
+        <h2 id="support">Támogatás</h2>
+        <p>Kérdések a fiókodról vagy hibák: nyiss egy jegyet a <b>Támogatás</b> oldalon. Olvasd el a <b>Szabályok</b> oldalt, mielőtt fosztogatsz, kereskedsz vagy több fiókot használsz.</p>

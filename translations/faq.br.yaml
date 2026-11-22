@@ -1,0 +1,575 @@
+faq_overview: FAQ
+faq_intro: "Respostas sobre mecânicas do jogo, regras e menus. Pesquise ou escolha uma categoria."
+faq_search_label: "Pesquisar no FAQ"
+faq_search_placeholder: "Pesquise perguntas e respostas (aperte / para focar)"
+faq_clear: "Limpar pesquisa"
+faq_results_one: "1 resultado"
+faq_results_many: "{n} resultados"
+faq_no_results: "Nada encontrado para “{q}”"
+faq_no_results_hint: "Confira a grafia, tente menos palavras ou palavras mais gerais, ou navegue pelas categorias."
+faq_show_all: "Mostrar todas as categorias"
+faq_entries_one: "1 artigo"
+faq_entries_many: "{n} artigos"
+faq_contents: "Neste artigo"
+faq_prev: "Anterior"
+faq_next: "Próximo"
+faq_back: "Voltar ao FAQ"
+faq_copy_link: "Copiar link desta seção"
+faq_link_copied: "Link copiado"
+faq_to_top: "Voltar ao topo"
+questions:
+  '1':
+    category: "Primeiros passos"
+    icon: "rocket"
+    '1':
+      title: "Seus primeiros passos"
+      body: |-
+        <p>Você começa com um planeta e alguns recursos (500 de metal e 500 de cristal por padrão). Tudo o mais é construído a partir de três recursos, metal, cristal e deutério, e da energia que mantém suas minas funcionando.</p>
+        <h2 id="order">Uma abertura sensata</h2>
+        <ol>
+        <li><b>Planta de Energia Solar</b> primeiro. As minas não funcionam direito sem energia.</li>
+        <li><b>Mina de Metal</b> em seguida, depois a <b>Mina de Cristal</b>. O metal é necessário para quase tudo; no começo, mantenha-o alguns níveis à frente das outras minas.</li>
+        <li><b>Sintetizador de Deutério</b>. O deutério é combustível de frota e é necessário para vários edifícios e pesquisas importantes.</li>
+        <li><b>Fábrica de Robôs</b> e <b>Laboratório de Pesquisas</b> assim que a construção ficar lenta ou as primeiras pesquisas ficarem disponíveis.</li>
+        <li><b>Hangar</b> para alguns Cargueiros Pequenos e um pouco de defesa.</li>
+        </ol>
+        <h2 id="queues">Filas</h2>
+        <p>Edifícios, pesquisas e hangar têm cada um a sua própria fila, então você pode construir, pesquisar e produzir naves ao mesmo tempo. Por padrão, as filas comportam 5 edifícios, 2 pesquisas e 10 ordens de hangar por planeta; os universos podem mudar isso.</p>
+        <h2 id="progress">Como o progresso é medido</h2>
+        <p>Sua pontuação vem dos recursos que você investe, por padrão 1 ponto a cada 1.000 unidades de recurso (veja <a href="game/faq/11/3">Estatísticas e pontos</a>). O <a href="game/faq/1/3">tutorial</a> guia você pelos primeiros passos e distribui recompensas.</p>
+    '2':
+      title: "Onde achar o quê"
+      body: |-
+        <p>O painel lateral agrupa todas as páginas. As mais importantes:</p>
+        <table class="faq-table">
+        <tr><th>Página</th><th>Para que serve</th></tr>
+        <tr><td>Visão Geral</td><td>Seus planetas, filas em andamento e frotas chegando ou saindo.</td></tr>
+        <tr><td>Recursos</td><td>Produção por hora, balanço de energia e porcentagem de produção de cada edifício.</td></tr>
+        <tr><td>Edifícios, Pesquisa, Hangar, Defesas</td><td>Construção, pesquisa, naves e defesa. Cada uma mostra custos, tempo de construção e requisitos.</td></tr>
+        <tr><td>Tecnologias</td><td>A árvore tecnológica com os requisitos de todo edifício, pesquisa, nave e defesa.</td></tr>
+        <tr><td>Frota, Galáxia</td><td>Envie frotas; navegue pelos sistemas, espione, ataque, recicle, lance mísseis.</td></tr>
+        <tr><td>Aliança, Amigos</td><td>Gerenciamento da aliança e lista de amigos.</td></tr>
+        <tr><td>Mercado, Comerciante de Frotas</td><td>Negocie recursos ou naves com outros jogadores; venda naves por recursos.</td></tr>
+        <tr><td>Simulador</td><td>Teste lutas antes de enviar uma frota.</td></tr>
+        <tr><td>Estatísticas, Recordes, Hall da Fama</td><td>Rankings, recordes do universo e as maiores batalhas.</td></tr>
+        <tr><td>Império</td><td>Todos os seus planetas e luas em uma tabela só.</td></tr>
+        <tr><td>Mensagens, Notas, Suporte</td><td>Relatórios e correio, anotações pessoais, tickets para a equipe.</td></tr>
+        <tr><td>Opções, Regras</td><td>Configurações da conta, modo de férias e as regras deste universo.</td></tr>
+        </table>
+        <p>Algumas páginas só existem quando o universo ativa o módulo correspondente; se algo descrito aqui estiver faltando, pergunte no <a href="game/faq/11/4">Suporte</a>.</p>
+    '3':
+      title: "Tutorial e conquistas"
+      body: |-
+        <p>Se o universo tem o tutorial ativado, uma caixa de tutorial guia você passo a passo: construa suas primeiras minas e defesa, envie um primeiro transporte, espione um jogador, recicle destroços, colonize, envie uma expedição, renomeie um planeta, mande um pedido de amizade ou uma candidatura a uma aliança. Objetivos cumpridos podem render recompensas; você pode pular objetivos avulsos, ou o tutorial inteiro. A <b>interface de iniciante</b> em Opções mantém o menu curto até você concluir o tutorial.</p>
+        <h2 id="achievements">Conquistas</h2>
+        <p>A página de Conquistas lista metas de longo prazo (primeira lua, primeiros achados em expedições, grandes batalhas e mais). Elas são desbloqueadas sozinhas enquanto você joga.</p>
+    '4':
+      title: "Outros jogadores, bots e bases piratas"
+      body: |-
+        <p>Todo universo é compartilhado com outros jogadores. Dependendo das configurações do universo, <b>bots</b> rodados pelo servidor podem jogar junto. Os bots seguem as mesmas regras dos jogadores; se os saques de bots estiverem ativados, eles fazem reconhecimento, espionam e atacam dentro dos mesmos limites (limite de bash, proteção, modo de férias).</p>
+        <h2 id="pirates">Bases piratas</h2>
+        <p>Se o universo ativa bases piratas, uma base por jogador ativo (online nos últimos 7 dias e acima de uma pontuação mínima) aparece em um sistema de um dos planetas do jogador e é substituída toda semana. Uma base guarda uma parte das naves desse jogador e algumas horas de produção; saquear uma leva todos os recursos, não só metade. As configurações do universo definem a parte e a pontuação mínima.</p>
+  '2':
+    category: "Economia e edifícios"
+    icon: "building-2"
+    '1':
+      title: "Recursos e produção"
+      body: |-
+        <p>Metal, cristal e deutério são produzidos pelas minas de cada planeta, mais uma pequena <b>renda básica</b> por hora (por padrão, 20 de metal e 10 de cristal). Toda mina precisa de energia.</p>
+        <h2 id="percent">Porcentagem de produção</h2>
+        <p>Na página de Recursos, você pode ajustar cada produtor de 0 a 100&nbsp;%. Ajustes menores gastam menos energia e deutério (a Planta de Fusão queima deutério) e produzem menos. Use isso para equilibrar a energia.</p>
+        <h2 id="factors">O que muda a produção</h2>
+        <ul>
+        <li>O nível da mina (a produção cresce mais rápido que o linear, e o custo também).</li>
+        <li>Temperatura do planeta: a produção do Sintetizador de Deutério é maior em planetas mais frios; um Satélite Solar rende mais em planetas mais quentes.</li>
+        <li>As pesquisas de produção (Produção de Metal, Cristal e Deutério): +2&nbsp;% por nível cada.</li>
+        <li>O multiplicador de recursos do universo.</li>
+        </ul>
+        <h2 id="full">Depósito cheio</h2>
+        <p>A produção de um recurso em um planeta para quando o depósito dele enche (por padrão, exatamente na capacidade). Recursos que você traz de um saque ou expedição podem passar disso.</p>
+    '2':
+      title: "Energia"
+      body: |-
+        <p>As minas consomem energia; a página de Recursos mostra a energia produzida e a usada. Se o consumo passar da produção, <b>todos os produtores são reduzidos</b> a produzida / necessária da produção normal, então um déficit de energia custa metal, cristal e deutério por igual.</p>
+        <h2 id="sources">Fontes</h2>
+        <ul>
+        <li><b>Planta de Energia Solar</b>: barata, sem custo de operação. Construa primeiro.</li>
+        <li><b>Planta de Fusão</b>: queima deutério. Energia = 30 x nível x (1,05 + 0,01 x nível da Tecnologia de Energia)^nível, então a Tecnologia de Energia a deixa melhor.</li>
+        <li><b>Satélites Solares</b>: construídos no Hangar, não ocupam campos; a energia depende da temperatura do planeta. Eles podem ser abatidos, então contam como naves em combate.</li>
+        </ul>
+    '3':
+      title: "Depósitos e proteção de recursos"
+      body: |-
+        <p>Cada recurso tem uma capacidade de armazenamento (10.000 unidades sem edifício de depósito) que cresce rápido com o nível do Depósito de Metal, do Depósito de Cristal e do Tanque de Deutério.</p>
+        <h2 id="stash">Proteção contra saques</h2>
+        <p>Se o universo usa o esconderijo de recursos, cada nível de depósito protege 1&nbsp;% da produção diária daquele recurso no planeta contra saque, até 10&nbsp;% (depósito no nível 10). Além disso, um saque nunca pode levar mais da metade de um recurso presente no planeta; veja <a href="game/faq/5/2">Saque</a>.</p>
+        <p>A melhor proteção continua sendo gastar os recursos antes de sair do jogo, ou deixá-los em uma fila.</p>
+    '4':
+      title: "Construindo edifícios"
+      body: |-
+        <p>Cada nível custa um fator fixo a mais que o anterior (por exemplo, 1,5 x para a Mina de Metal, 1,6 x para a Mina de Cristal, 2 x para a maioria dos outros edifícios), então a página de Edifícios é o lugar para conferir os preços reais.</p>
+        <h2 id="time">Tempo de construção</h2>
+        <p>Na velocidade normal do universo: (custo de metal + cristal) / (2500 x (1 + nível da Fábrica de Robôs)) horas, reduzido pela metade a cada nível da Fábrica de Nanites. A Fábrica de Robôs também ajuda nas luas. As naves são construídas em (metal + cristal) / (2500 x (1 + nível do Hangar)) horas, de novo reduzido pela metade a cada nível de Nanites; a pesquisa está em <a href="game/faq/3/1">Pesquisa</a>. As configurações de velocidade do universo escalam tudo isso.</p>
+        <h2 id="cancel">Cancelar e demolir</h2>
+        <p>Cancelar um edifício ou uma pesquisa devolve o custo inteiro. Cancelar uma ordem de hangar devolve 60&nbsp;%. Demolir um edifício leva bem menos tempo que construí-lo (cerca de 36&nbsp;%).</p>
+        <h2 id="catchup">Recuperação</h2>
+        <p>Os universos podem ativar uma mecânica de recuperação: jogadores muito atrás do líder constroem e pesquisam mais barato e mais rápido, até o máximo configurado (por padrão, 50&nbsp;%).</p>
+    '5':
+      title: "Campos do planeta e o Terraformador"
+      body: |-
+        <p>Todo planeta e lua tem um número limitado de campos; cada nível de edifício em um planeta usa um campo (pesquisas e naves, não).</p>
+        <ul>
+        <li><b>Terraformador</b> (só em planetas): +5 campos por nível, e +1 a mais a cada nível par; cada nível ocupa um campo. Ele precisa de energia (que não é consumida) e não pode ser demolido.</li>
+        <li><b>Base Lunar</b> (só em luas): +3 campos por nível, também ocupando um campo. Veja <a href="game/faq/7/2">Edifícios lunares</a>.</li>
+        </ul>
+    '6':
+      title: "Colônias"
+      body: |-
+        <p>Colonize planetas livres com uma <b>Nave de Colonização</b> (missão Colonizar). A nave é consumida e vira a nova colônia. Você precisa da pesquisa Astrofísica.</p>
+        <h2 id="limit">Quantos planetas</h2>
+        <p>Por padrão, o total de planetas (planeta-mãe incluído) é 1 + nível da Astrofísica / 2, arredondado para cima, com máximo de 12 planetas:</p>
+        <p>Níveis 1-2 = 2 planetas, 3-4 = 3, 5-6 = 4, 7-8 = 5, 9-10 = 6, 11-12 = 7, 13-14 = 8, 15-16 = 9, 17-18 = 10, 19-20 = 11, 21+ = 12.</p>
+        <h2 id="positions">Quais posições</h2>
+        <p>As posições externas e internas exigem mais Astrofísica: posições 4-12 a partir do nível 1, posições 3 e 13 a partir do nível 4, posições 2 e 14 a partir do nível 6, posições 1 e 15 a partir do nível 8 (para um sistema de 15 posições).</p>
+  '3':
+    category: "Pesquisa"
+    icon: "flask-conical"
+    '1':
+      title: "Pesquisa e o Laboratório de Pesquisas"
+      body: |-
+        <p>A pesquisa é feita no <b>Laboratório de Pesquisas</b> e vale para todos os seus planetas. O nível do laboratório e uma lista de requisitos decidem o que você pode pesquisar; a página de Tecnologias mostra isso.</p>
+        <ul>
+        <li>Só uma pesquisa roda por vez (a fila comporta 2 por padrão). Enquanto uma pesquisa está rodando, nenhum Laboratório de Pesquisas pode ser melhorado.</li>
+        <li>Tempo de pesquisa = (custo de metal + cristal) / (1000 x (1 + nível do laboratório)) horas na velocidade normal. Uma <b>Universidade</b> reduz esse tempo, por padrão 8&nbsp;% por nível.</li>
+        <li>A <b>Rede Intergaláctica de Pesquisas</b> deixa os laboratórios dos seus outros planetas ajudarem: cada nível soma mais um laboratório (os mais altos que atendam ao requisito de laboratório da própria pesquisa), e os níveis deles são somados no cálculo.</li>
+        <li>Cancelar uma pesquisa em andamento devolve o custo inteiro.</li>
+        </ul>
+    '2':
+      title: "O que as tecnologias fazem"
+      body: |-
+        <h2 id="fleet">Frota</h2>
+        <ul>
+        <li><b>Tecnologia de Computação</b>: +1 slot de frota por nível (você começa com 1 slot).</li>
+        <li><b>Motor de Combustão / Impulsão / Propulsor de Hiperespaço</b>: as naves que usam esse propulsor voam +10 / +20 / +30&nbsp;% da velocidade base por nível. Algumas naves trocam de propulsor em certo nível (por exemplo, o Cargueiro Pequeno com o Motor de Impulsão). O nível de impulsão também define o alcance dos mísseis.</li>
+        <li><b>Eficiência de Combustível</b>: -2&nbsp;% de consumo de combustível por nível.</li>
+        <li><b>Astrofísica</b>: colônias, expedições e posições colonizáveis, veja <a href="game/faq/2/6">Colônias</a> e <a href="game/faq/8/1">Expedições</a>.</li>
+        <li><b>Tecnologia de Espionagem</b>: relatórios de espionagem melhores; também decide o que você vê sobre frotas se aproximando.</li>
+        </ul>
+        <h2 id="combat">Combate</h2>
+        <ul>
+        <li><b>Tecnologia de Armas, de Escudo e de Blindagem</b>: +10&nbsp;% de ataque, escudo e blindagem por nível para todas as suas unidades.</li>
+        <li>As Tecnologias Laser, de Íons e de Plasma liberam armas; a Pesquisa de Gravitação é necessária para destruir luas.</li>
+        </ul>
+        <h2 id="economy">Economia</h2>
+        <ul>
+        <li><b>Tecnologia de Energia</b>: aumenta a produção da Planta de Fusão e abre muitas tecnologias.</li>
+        <li><b>Produção de Metal / Cristal / Deutério</b>: +2&nbsp;% de produção por nível.</li>
+        </ul>
+  '4':
+    category: "Frota e missões"
+    icon: "send"
+    '1':
+      title: "Enviando uma frota"
+      body: |-
+        <ol>
+        <li><b>Selecione as naves</b> na página de Frota (ou envie tudo pela visão de Galáxia).</li>
+        <li><b>Alvo e velocidade</b>: digite as coordenadas (galáxia:sistema:posição) e o tipo: planeta, campo de destroços ou lua. A velocidade vai de 10 a 100&nbsp;% em passos de 10; mais devagar é mais barato e demora mais.</li>
+        <li><b>Missão e carga</b>: escolha uma missão disponível para aquele alvo, carregue recursos se precisar e confirme. Para Manter Posição, Expedição e Comércio, você também escolhe por quanto tempo ficar.</li>
+        </ol>
+        <p>A página mostra o tempo de voo, o horário de chegada e o combustível antes de você confirmar. A frota precisa de deutério suficiente no planeta para pagar o voo.</p>
+        <p>Você pode voar com no máximo tantas frotas ao mesmo tempo quantos <b>slots de frota</b> tiver: 1 + nível da Tecnologia de Computação. As expedições têm limite próprio, veja <a href="game/faq/8/1">Expedições</a>.</p>
+    '2':
+      title: "Velocidade, tempo de voo e combustível"
+      body: |-
+        <ul>
+        <li>Uma frota voa tão rápido quanto a sua <b>nave mais lenta</b>.</li>
+        <li>Velocidade da nave = velocidade base x (1 + 0,1 / 0,2 / 0,3 x nível do propulsor) para o melhor propulsor que a nave puder usar; veja as <a href="game/faq/3/2">tecnologias</a>.</li>
+        <li>Tempo de voo = (3500 / (velocidade&nbsp;% x 0,1) x raiz quadrada de (distância x 10 / velocidade da frota) + 10) / velocidade de frota do universo. O mínimo é 5 segundos.</li>
+        <li>A distância cresce com o número de galáxias e sistemas atravessados; a mesma galáxia e o mesmo sistema ficam bem mais perto que outro sistema.</li>
+        <li>O gasto de combustível sobe mais rápido do que o tempo de voo cai: voar mais devagar economiza deutério. Cada nível de Eficiência de Combustível reduz o consumo em 2&nbsp;%.</li>
+        </ul>
+        <p>Alguns universos são circulares (sistemas ou galáxias dão a volta). A página de Frota já leva isso em conta no cálculo.</p>
+    '3':
+      title: "Todas as missões num relance"
+      body: |-
+        <table class="faq-table">
+        <tr><th>Missão</th><th>Alvo</th><th>O que acontece</th></tr>
+        <tr><td>Ataque</td><td>planeta ou lua de outro jogador</td><td>Batalha; os sobreviventes voltam com o saque. Veja <a href="game/faq/5/1">Combate</a>.</td></tr>
+        <tr><td>Ataque de Aliança</td><td>o mesmo, em grupo</td><td>Vários jogadores atacam juntos, veja <a href="game/faq/9/3">ACS</a>.</td></tr>
+        <tr><td>Transporte</td><td>qualquer planeta ocupado</td><td>Entrega recursos e volta.</td></tr>
+        <tr><td>Estacionar</td><td>seus próprios planetas ou luas</td><td>Naves e carga ficam lá; sem voo de volta.</td></tr>
+        <tr><td>Manter Posição</td><td>planeta de um membro da aliança ou amigo</td><td>A frota espera e defende o planeta, veja <a href="game/faq/9/4">Manter Posição</a>.</td></tr>
+        <tr><td>Transferência</td><td>planeta de um membro da aliança ou amigo</td><td>Dá naves e carga de presente; elas não voltam.</td></tr>
+        <tr><td>Espionagem</td><td>planeta ou lua de outro jogador</td><td>Só uma frota feita de sondas pode espionar; veja <a href="game/faq/6/1">Espionagem</a>.</td></tr>
+        <tr><td>Colonizar</td><td>posição de planeta livre</td><td>Precisa de uma Nave de Colonização, veja <a href="game/faq/2/6">Colônias</a>.</td></tr>
+        <tr><td>Reciclar</td><td>campo de destroços</td><td>Precisa de Recicladores, veja <a href="game/faq/4/4">Reciclagem</a>.</td></tr>
+        <tr><td>Destruir</td><td>uma lua</td><td>Precisa de Estrelas da Morte, veja <a href="game/faq/7/5">Destruição de luas</a>.</td></tr>
+        <tr><td>Expedição</td><td>posição de expedição (16) de um sistema</td><td>Sorteio de evento, veja <a href="game/faq/8/1">Expedições</a>.</td></tr>
+        <tr><td>Comércio</td><td>posição de comércio (17) de um sistema</td><td>Entrega as mercadorias de uma negociação do <a href="game/faq/4/6">mercado</a>.</td></tr>
+        <tr><td>Ataque de mísseis</td><td>planeta no alcance dos mísseis</td><td>Os mísseis atingem a defesa, veja <a href="game/faq/5/5">Mísseis</a>.</td></tr>
+        </table>
+        <p>Se uma missão é oferecida depende do alvo e de quais módulos o universo ativou. Missões hostis contra jogadores em modo de férias dão meia-volta.</p>
+    '4':
+      title: "Campos de destroços e reciclagem"
+      body: |-
+        <p>Naves destruídas em batalha deixam um <b>campo de destroços</b> na posição do alvo. Por padrão, ele guarda 30&nbsp;% do custo em metal e cristal de todas as naves destruídas dos dois lados, e 0&nbsp;% para defesa; o deutério nunca vira destroços. Os universos podem mudar as duas porcentagens.</p>
+        <ul>
+        <li>Envie <b>Recicladores</b> (missão Reciclar, tipo de alvo campo de destroços) para coletar. Uma frota carrega o quanto aguentar; metal e cristal são retirados proporcionalmente, e o resto fica no campo.</li>
+        <li>Qualquer um pode coletar um campo de destroços. Ele é de quem chegar primeiro.</li>
+        <li>Sondas abatidas durante uma espionagem também deixam destroços.</li>
+        <li>A página de reciclagem e o relatório dizem quantos Recicladores a mais você precisaria.</li>
+        </ul>
+    '5':
+      title: "Chamando as frotas de volta"
+      body: |-
+        <p>Você pode chamar de volta uma frota em ida pela página de Frota ou pela Visão Geral. Ela dá meia-volta e leva tanto tempo para voltar quanto já passou voando.</p>
+        <ul>
+        <li>Você <b>não pode chamar de volta</b> uma frota que já chegou ao alvo (a chegada é resolvida primeiro, então não dá para escapar de uma batalha), frotas de expedição depois da chegada, nem mísseis interplanetários.</li>
+        <li>Uma frota em Manter Posição pode ser chamada de volta antes da hora; aí ela leva tanto tempo quanto o voo de ida levou.</li>
+        <li>Se o fundador de um ataque ACS chama de volta, o grupo inteiro volta. As frotas que entraram depois só chamam de volta a si mesmas.</li>
+        </ul>
+    '6':
+      title: "Comerciante de Frotas, Mercado e transferências"
+      body: |-
+        <h2 id="dealer">Comerciante de Frotas</h2>
+        <p>O Comerciante de Frotas compra naves de você pelo custo em recursos menos uma taxa (por padrão, 30&nbsp;%). Só uma lista configurada de naves pode ser vendida (por padrão, do Cargueiro Pequeno até o Cruzador de Batalha, sem as maiores naves). Ele fica indisponível no modo de férias.</p>
+        <h2 id="market">Mercado</h2>
+        <p>Os jogadores oferecem recursos ou naves e definem o preço em outros recursos. As negociações são entregues por frotas que voam até a posição de comércio do sistema da oferta (posição 17 em sistemas com 15 planetas, missão Comércio). Os preços de referência vêm das negociações concluídas nos últimos 7 dias (mantidos entre 0,5 e 5).</p>
+        <h2 id="transfer">Transferência</h2>
+        <p>A missão Transferência dá naves e recursos a um membro da aliança ou a um amigo. Nada volta.</p>
+        <p>Presentes grandes e unilaterais são verificados, veja <a href="game/faq/10/5">Pushing e limites de troca</a>.</p>
+  '5':
+    category: "Combate"
+    icon: "swords"
+    '1':
+      title: "Como funciona uma batalha"
+      body: |-
+        <p>Quando uma frota atacante chega ao alvo, todas as frotas atacantes (inclusive participantes de ACS) lutam contra a defesa e a frota do próprio planeta, mais todas as frotas estacionadas ali. São no máximo <b>6 rodadas</b>.</p>
+        <ul>
+        <li>Em cada rodada, cada nave atira uma vez em uma nave inimiga aleatória (o tiro rápido pode adicionar disparos).</li>
+        <li>Um escudo absorve um tiro primeiro; um tiro mais fraco que 1&nbsp;% do escudo do alvo ricocheteia. Os escudos são restaurados depois de cada rodada, o dano na blindagem não.</li>
+        <li>Blindagem de uma nave = (custo de metal + cristal) / 10. Naves abaixo de 70&nbsp;% da blindagem podem explodir no próximo acerto; quanto mais danificadas, mais provável.</li>
+        <li><b>Tiro rápido</b>: se o tipo do alvo está na lista de tiro rápido do atirador com valor N, o atirador dispara de novo com probabilidade (N-1)/N. Isso aparece na página de Tecnologias.</li>
+        <li>As Tecnologias de Armas, de Escudo e de Blindagem somam 10&nbsp;% por nível ao ataque, ao escudo e à blindagem.</li>
+        <li>Todos os tiros de uma rodada são disparados de uma vez; as naves que chegam a 0 de blindagem são removidas depois da rodada.</li>
+        </ul>
+        <h2 id="result">Resultado</h2>
+        <p>Se os defensores são eliminados, o atacante vence e saqueia. Se os dois lados ainda têm naves depois de 6 rodadas, a batalha termina empatada e ninguém saqueia. Se os atacantes são eliminados, o defensor vence. O relatório de combate, com todas as rodadas, é enviado a todas as partes; cada relatório tem um link público.</p>
+    '2':
+      title: "Saque"
+      body: |-
+        <p>Só um atacante vencedor saqueia. A capacidade de carga livre das naves atacantes sobreviventes (sondas de espionagem não contam) é preenchida nesta ordem:</p>
+        <ol>
+        <li>até 1/3 da capacidade com metal,</li>
+        <li>metade da capacidade restante com cristal,</li>
+        <li>o resto com deutério,</li>
+        <li>qualquer espaço que ainda sobrar é preenchido de novo com metal (metade) e cristal.</li>
+        </ol>
+        <p>Para cada recurso, no máximo <b>metade do estoque do planeta</b> pode ser levada. Outros limites: a parte protegida pelo <a href="game/faq/2/3">depósito</a> (se ativada). Jogadores com um histórico de honra muito ruim podem ser saqueados em mais da metade, veja <a href="game/faq/5/7">Pontos de honra</a>.</p>
+        <p>As bases piratas são a exceção: saquear uma leva tudo o que a capacidade permitir.</p>
+    '3':
+      title: "Destroços, ruínas e a Doca de Reparos"
+      body: |-
+        <h2 id="debris">Destroços</h2>
+        <p>Veja <a href="game/faq/4/4">Campos de destroços e reciclagem</a>: 30&nbsp;% do metal e do cristal das naves perdidas, por padrão.</p>
+        <h2 id="wreck">Campo de ruínas</h2>
+        <p>Se o universo tem o módulo Doca de Reparos, naves perdidas pelo <b>dono do planeta</b> (não a defesa) podem deixar um <b>campo de ruínas</b>, mas só se muito for perdido de uma vez: por padrão, pelo menos 150.000 unidades de valor e 75&nbsp;% da frota. As ruínas guardam a parte das naves que não virou destroços.</p>
+        <h2 id="dock">Doca de Reparos</h2>
+        <p>Uma Doca de Reparos (só em planetas) pode reparar naves em ruínas: a taxa de reparo é 24&nbsp;% + nível^1,5&nbsp;% das ruínas, no máximo 100&nbsp;%. A ordem de reparo leva o tempo de construção das naves, mas pelo menos 30 minutos depois do surgimento das ruínas e no máximo 12 horas. Comece dentro de 3 dias, depois coloque as naves reparadas em serviço na página da Doca de Reparos; se você esquecer, elas voltam ao serviço automaticamente depois de 3 dias. As ruínas expiram depois de 72 horas.</p>
+    '4':
+      title: "Defesa"
+      body: |-
+        <ul>
+        <li>As unidades de defesa lutam junto com todas as frotas no planeta. Elas nunca voam.</li>
+        <li>Depois de uma batalha, <b>a defesa destruída é parcialmente reconstruída de graça</b>: se mais de 10 unidades de um tipo foram perdidas, 60-80&nbsp;% delas voltam (aleatório); se 10 ou menos, cada unidade tem 70&nbsp;% de chance de voltar.</li>
+        <li>A defesa que não é reconstruída não deixa destroços por padrão.</li>
+        <li>Os mísseis destroem defesa que <b>não</b> é reconstruída, veja <a href="game/faq/5/5">Mísseis</a>.</li>
+        <li>Os Escudos Planetários, o Escudo Atmosférico e a Plataforma Orbital de Defesa só podem ser construídos uma vez por planeta.</li>
+        <li>Os Satélites Solares no planeta lutam como naves e contam como frota, não como defesa.</li>
+        </ul>
+    '5':
+      title: "Mísseis"
+      body: |-
+        <p>Você precisa de um <b>Silo de Mísseis</b>. Por padrão, cada nível comporta 10 vagas; um Míssil Interceptador ocupa 1 vaga, um Míssil Interplanetário ocupa 2.</p>
+        <ul>
+        <li>Os <b>Mísseis Interplanetários</b> atacam a defesa de um planeta na mesma galáxia dentro do alcance. Eles são consumidos, não podem ser chamados de volta, e o dano depende da sua Tecnologia de Armas.</li>
+        <li>Alcance = 5 x nível do Motor de Impulsão - 1 sistemas (um fator do universo pode mudar isso). Tempo de voo = (30 + 60 x distância em sistemas) / velocidade de frota do universo segundos.</li>
+        <li>Escolha um <b>alvo primário</b>: esse tipo de defesa é atingido primeiro. Senão, os Lançadores de Mísseis vão primeiro.</li>
+        <li>Os <b>Mísseis Interceptadores</b> derrubam mísseis que se aproximam um a um; o defensor perde um Interceptador por míssil interceptado.</li>
+        <li>A defesa destruída não é reconstruída.</li>
+        <li>Os ataques de mísseis contam para os limites de bash, a não ser que o universo desligue isso.</li>
+        </ul>
+    '6':
+      title: "Simulador e relatórios de combate"
+      body: |-
+        <p>O <b>Simulador</b> roda uma luta com as tecnologias e frotas que você digitar e mostra o resultado e as perdas. Os relatórios de espionagem levam a ele com um clique. As lutas simuladas têm as mesmas regras das reais, mas a aleatoriedade (tiro rápido, explosões) faz os resultados poderem diferir um pouco da batalha real; rode várias vezes para ter uma estimativa.</p>
+        <p>Os relatórios de combate reais ficam guardados nas suas mensagens e têm um link público, para você poder compartilhá-los. O Hall da Fama lista as maiores batalhas do universo.</p>
+    '7':
+      title: "Pontos de honra"
+      body: |-
+        <p>Se o universo usa pontos de honra, lutas justas de 1 contra 1 dão pontos de honra aos dois jogadores, enquanto atacar um jogador claramente mais fraco custa pontos ao atacante.</p>
+        <ul>
+        <li><b>Honrada</b> (os dois ganham): o atacante não tem mais pontos que o defensor e não é mais que o dobro mais forte militarmente, ou o defensor é um bandido conhecido.</li>
+        <li><b>Desonrosa</b> (o atacante perde pontos): a pontuação militar do atacante é mais que o dobro da do defensor (e a diferença é de mais de 10 pontos) enquanto o defensor tem uma boa posição de honra.</li>
+        <li>Lutas contra jogadores inativos, membros da aliança e amigos são neutras. Por padrão, os mesmos dois jogadores podem ganhar honra de no máximo 3 lutas em 24 horas.</li>
+        </ul>
+        <h2 id="effects">Efeitos</h2>
+        <ul>
+        <li>Honra alta (500 pontos e uma posição no top 30 / 20 / 10&nbsp;% do universo) reduz o combustível dos seus voos em 5 / 12 / 20&nbsp;%.</li>
+        <li>Honra muito baixa (-500 pontos ou pior, últimos 30 / 20 / 10&nbsp;%) significa que atacantes podem saquear até 60 / 80 / 100&nbsp;% do seu estoque em vez de metade. Veja <a href="game/faq/5/2">Saque</a>.</li>
+        </ul>
+  '6':
+    category: "Espionagem"
+    icon: "scan-eye"
+    '1':
+      title: "Espionando com sondas"
+      body: |-
+        <p>Só uma frota feita <b>apenas de Sondas de Espionagem</b> pode usar a missão Espionagem. Você recebe um relatório nas suas mensagens e o alvo é avisado de que uma frota estrangeira foi vista.</p>
+        <h2 id="level">O que o relatório mostra</h2>
+        <p>Os recursos sempre são visíveis. O que mais você vê depende do número de sondas e dos níveis de Tecnologia de Espionagem dos dois jogadores (o seu <i>s</i>, o do alvo <i>t</i>): as sondas necessárias para frotas são n0 = (|s - t|)^2, negativo se o seu nível for maior. Defesa precisa de n0 + 1 sondas, edifícios n0 + 3 e pesquisa n0 + 5. Envie mais sondas do que você acha que precisa.</p>
+        <h2 id="risk">Contraespionagem</h2>
+        <p>O planeta-alvo pode abater as sondas. Chance em&nbsp;% = 2^(t - s) x sondas x (naves e defesa no planeta) x 0,0025, no máximo 100. Planetas sem naves ou defesa nunca atiram. As sondas perdidas deixam destroços. O relatório é entregue de qualquer jeito.</p>
+        <p>Um relatório de espionagem tem um link para o Simulador com os dados do alvo já preenchidos.</p>
+    '2':
+      title: "O que você vê das frotas que se aproximam"
+      body: |-
+        <p>O seu próprio nível de Tecnologia de Espionagem também decide o que a Visão Geral mostra sobre frotas estrangeiras indo na sua direção:</p>
+        <ul>
+        <li>Nível 0-1: só que uma frota se aproxima.</li>
+        <li>Nível 2-3: quantas naves.</li>
+        <li>Nível 4-7: quais tipos de nave.</li>
+        <li>Nível 8 e acima: quantas de cada tipo.</li>
+        </ul>
+        <p>As estatísticas de outros jogadores também podem depender da sua Tecnologia de Espionagem se o universo ativar esse módulo.</p>
+  '7':
+    category: "Luas e phalanx"
+    icon: "moon"
+    '1':
+      title: "Como as luas são criadas"
+      body: |-
+        <p>Uma lua pode se formar depois de uma batalha em um <b>planeta</b> que ainda não tenha uma. A chance é de <b>1&nbsp;% para cada 100.000 unidades de destroços criadas naquela batalha</b> (vale o fator do universo), no máximo o limite do universo (20&nbsp;% por padrão). Luas nunca se formam em luas.</p>
+        <ul>
+        <li>Só os destroços daquela batalha contam: naves perdidas dos dois lados, e defesa se o universo deixar a defesa gerar destroços.</li>
+        <li>Alguns universos limpam o campo de destroços quando uma lua se forma.</li>
+        <li>Os universos podem adicionar um bônus em cascata depois de falhas repetidas na chance máxima, até a primeira lua existir.</li>
+        <li>A lua pertence ao dono do planeta-alvo. Um planeta só pode ter uma lua.</li>
+        </ul>
+        <h2 id="size">Tamanho</h2>
+        <p>Diâmetro = raiz quadrada de (10-20 + 3 x chance em&nbsp;%) x 1.000 km, vezes o fator de tamanho do universo. Com 20&nbsp;% de chance, isso fica entre cerca de 8.370 e 8.940 km. Uma lua recém-formada tem espaço para exatamente 1 campo.</p>
+    '2':
+      title: "Edifícios lunares"
+      body: |-
+        <p>Em uma lua você pode construir Fábrica de Robôs, Hangar, os três edifícios de depósito e os edifícios exclusivos de lua:</p>
+        <h2 id="base">Base Lunar</h2>
+        <p>Cada nível dá 3 campos e ocupa um. Ela não pode ser demolida. Construa primeiro.</p>
+        <h2 id="phalanx">Sensor Phalanx</h2>
+        <p>Veja <a href="game/faq/7/3">Sensor Phalanx</a>.</p>
+        <h2 id="gate">Portal de Salto Quântico</h2>
+        <p>Veja <a href="game/faq/7/4">Portal de Salto Quântico</a>.</p>
+        <p>As luas não produzem recursos e, com poucos campos, não comportam tudo: planeje o orçamento de campos antes de construir.</p>
+    '3':
+      title: "Sensor Phalanx"
+      body: |-
+        <p>Um Sensor Phalanx em uma lua mostra os movimentos de frota de um planeta na <b>mesma galáxia</b> dentro do alcance. As luas não podem ser escaneadas.</p>
+        <ul>
+        <li><b>Alcance</b> = nível^2 - 1 sistemas (o nível 1 cobre só o próprio sistema), vezes o fator do universo.</li>
+        <li><b>Custo</b>: 5.000 de deutério por escaneamento, tirados da lua.</li>
+        <li>Você vê as frotas que partem do planeta escaneado ou voam até ele: chegadas, fins de permanência e retornos. Estacionamentos e mísseis não aparecem.</li>
+        <li>Não funciona no modo de férias, nem contra jogadores que você não pode atacar por causa de proteção.</li>
+        </ul>
+        <p>Abra a visão de Galáxia a partir da lua e clique em um planeta no alcance.</p>
+    '4':
+      title: "Portal de Salto Quântico"
+      body: |-
+        <p>Os Portais de Salto Quântico movem naves entre duas das suas próprias luas instantaneamente e sem combustível. Recursos não podem ser movidos.</p>
+        <ul>
+        <li>Os dois portais precisam estar prontos. Depois de um salto, cada portal precisa de um tempo de recarga: 60 minutos no nível 1, caindo a cada nível até 10 minutos a partir do nível 15 (um fator do universo pode mudar isso).</li>
+        <li>Satélites Solares não podem saltar.</li>
+        </ul>
+    '5':
+      title: "Destruindo luas"
+      body: |-
+        <p>A missão <b>Destruir</b> está disponível contra luas se a frota tiver <b>Estrelas da Morte</b>. A destruição só acontece depois que o atacante vence a batalha.</p>
+        <ul>
+        <li><b>Chance de destruir a lua</b> em&nbsp;% = (100 - raiz quadrada do diâmetro da lua) x raiz quadrada do número de Estrelas da Morte, no máximo 100. Luas maiores são mais difíceis de destruir.</li>
+        <li><b>Risco para a frota</b>: a frota atacante é perdida com uma chance de (raiz quadrada do diâmetro) / 2&nbsp;%, a lua sendo destruída ou não.</li>
+        <li>As frotas estacionadas na lua são movidas para o planeta quando a lua é destruída. Uma lua destruída não deixa destroços.</li>
+        </ul>
+  '8':
+    category: "Expedições"
+    icon: "compass"
+    '1':
+      title: "Enviando uma expedição"
+      body: |-
+        <p>As expedições vão para a <b>posição 16</b> (a que fica depois do último planeta, em sistemas com 15 planetas) de qualquer sistema. Elas precisam da pesquisa <b>Astrofísica</b>.</p>
+        <ul>
+        <li><b>Slots</b>: raiz quadrada do nível da Astrofísica arredondada para baixo (nível 1-3 = 1, 4-8 = 2, 9-15 = 3, 16-24 = 4, ...). Eles são separados dos seus slots de frota normais.</li>
+        <li><b>Permanência</b>: 1 hora por nível da Astrofísica, no máximo (um fator do universo pode mudar isso).</li>
+        <li>Uma frota que consiste só de sondas não pode ir em expedição.</li>
+        <li>Depois que chega, uma expedição <b>não pode ser chamada de volta</b>. O evento é resolvido quando a permanência termina, e então a frota voa para casa.</li>
+        <li>Os resultados das expedições são informados nas suas mensagens e contados nas suas Estatísticas.</li>
+        </ul>
+    '2':
+      title: "O que uma expedição pode encontrar"
+      body: |-
+        <p>Cada jogador tira cartas de evento de um baralho pessoal que é embaralhado e reabastecido quando esvazia, então com o tempo as frequências batem. O baralho padrão de 1.000 cartas (o universo pode mudá-lo):</p>
+        <table class="faq-table">
+        <tr><th>Evento</th><th>Parte</th><th>Detalhes</th></tr>
+        <tr><td>Recursos</td><td>37&nbsp;%</td><td>Achado pequeno, médio ou grande. Metal 50&nbsp;%, cristal 33&nbsp;%, deutério 17&nbsp;% das vezes por padrão.</td></tr>
+        <tr><td>Naves</td><td>26,4&nbsp;%</td><td>Naves se juntam à sua frota; só certos tipos de nave podem ser encontrados.</td></tr>
+        <tr><td>Nada</td><td>19&nbsp;%</td><td>A frota volta de mãos vazias.</td></tr>
+        <tr><td>Atraso</td><td>6,7&nbsp;%</td><td>A volta leva 2, 3 ou 5 horas a mais (pequeno, médio, grande).</td></tr>
+        <tr><td>Piratas</td><td>5,7&nbsp;%</td><td>Você luta contra uma frota pirata.</td></tr>
+        <tr><td>Alienígenas</td><td>2,6&nbsp;%</td><td>Você luta contra uma frota alienígena.</td></tr>
+        <tr><td>Volta mais rápida</td><td>2,3&nbsp;%</td><td>O voo de volta fica 20, 30 ou 50&nbsp;% mais curto.</td></tr>
+        <tr><td>Buraco negro</td><td>0,3&nbsp;%</td><td>A frota inteira é perdida.</td></tr>
+        </table>
+        <h2 id="size">Quanto você acha</h2>
+        <p>Um achado de recursos escala com o valor da sua frota (até um teto do universo) e é limitado pela capacidade de carga da frota: achados pequenos valem 10-50 x, médios 50-100 x, grandes 100-200 x uma unidade de valor; achados de cristal são pela metade, achados de deutério divididos por três. Leve cargueiros para achados grandes.</p>
+        <h2 id="depletion">Posições esgotadas</h2>
+        <p>Se muitas expedições foram para as mesmas coordenadas nas últimas 24 horas, a carta pode virar "nada": mais de 10 expedições dão 25&nbsp;% de chance, mais de 25 dão 50&nbsp;%, mais de 50 dão 75&nbsp;%. Espalhe as suas expedições.</p>
+  '9':
+    category: "Alianças e ACS"
+    icon: "handshake"
+    '1':
+      title: "Fundando e gerenciando uma aliança"
+      body: |-
+        <p>Abra <b>Aliança</b> no painel lateral e crie uma com uma tag e um nome (letras, números e espaços; os dois precisam estar livres). Alguns universos exigem uma pontuação mínima para fundar uma aliança.</p>
+        <h2 id="manage">Gerenciamento</h2>
+        <ul>
+        <li><b>Cargos</b>: defina os direitos de cada cargo (candidaturas, expulsar, mensagens em massa, ...).</li>
+        <li><b>Membros</b>: atribua cargos, expulse membros, veja quando os membros ficaram online pela última vez.</li>
+        <li><b>Candidaturas</b>: abra ou feche o recrutamento, leia e responda candidaturas; o texto da candidatura é um modelo para os candidatos.</li>
+        <li><b>Textos</b>: o texto externo é público, o interno só para membros.</li>
+        <li><b>Mensagem circular</b> para todos ou para cargos selecionados.</li>
+        <li><b>Diplomacia</b> com outras alianças, veja <a href="game/faq/9/2">Diplomacia</a>.</li>
+        <li>Você pode passar a aliança para outro membro ou dissolvê-la.</li>
+        </ul>
+    '2':
+      title: "Diplomacia entre alianças"
+      body: |-
+        <p>As alianças podem propor pactos umas às outras; o outro lado aceita ou recusa. Tipos: Principal, Ala, Aliança, Pacto Comercial, Pacto de Não Agressão, Guerra, Aliança Secreta e Paz.</p>
+        <p>Os pactos registram a relação entre duas alianças. Ataques entre alianças em <b>guerra</b> podem ficar isentos do limite de bash (configuração do universo) quando a guerra foi aceita há mais de um dia e o atacante não está ligado ao alvo por um vínculo de conta.</p>
+    '3':
+      title: "Atacando juntos (ACS)"
+      body: |-
+        <h2 id="start">Começando um grupo</h2>
+        <p>Primeiro envie uma frota com a missão <b>Ataque</b>. Depois abra a página de Frota, use a função ACS nessa frota e convide outros jogadores. Cada jogador convidado envia a própria frota para as mesmas coordenadas com a missão <b>Ataque de Aliança</b>.</p>
+        <h2 id="rules">Regras</h2>
+        <ul>
+        <li>O grupo chega junto com a frota mais lenta.</li>
+        <li>Uma frota que entra depois pode atrasar o grupo em no máximo <b>30&nbsp;%</b> do tempo restante.</li>
+        <li>Por padrão, um grupo aceita no máximo 16 frotas de no máximo 5 jogadores (configurações do universo).</li>
+        <li>O saque é dividido por capacidade; todos os participantes entram na batalha.</li>
+        </ul>
+        <p><b>Cuidado:</b> se o fundador chama de volta, o grupo inteiro volta.</p>
+    '4':
+      title: "Defendendo: Manter Posição e o Depósito da Aliança"
+      body: |-
+        <p>Envie uma frota com a missão <b>Manter Posição</b> para um planeta de um membro da aliança ou de um amigo. Ela espera por 1, 2, 4, 8, 12, 16 ou 32 horas e, se o planeta for atacado nesse meio-tempo, luta como defensora. Ela aparece nos relatórios de espionagem como se fizesse parte do planeta.</p>
+        <ul>
+        <li>Não há custo extra no lançamento além do combustível do voo.</li>
+        <li>O número de frotas e jogadores mantendo posição por planeta é limitado pelas configurações de ACS do universo.</li>
+        <li>Você pode chamar de volta uma frota em Manter Posição a qualquer momento.</li>
+        </ul>
+        <h2 id="depot">Depósito da Aliança</h2>
+        <p>O dono do planeta pode abastecer as frotas em Manter Posição com deutério do Depósito da Aliança, para elas ficarem mais tempo: de 1 a (nível do depósito) horas por abastecimento. O custo por hora é um décimo do consumo base de combustível somado da frota, arredondado para cima. Uma frota nunca tem mais de 32 horas de permanência restantes.</p>
+    '5':
+      title: "Amigos"
+      body: |-
+        <p>Os amigos podem mandar pedidos um ao outro pela página de Amigos ou pelo perfil do jogador. Amigos podem usar Manter Posição e Transferência entre si, ficam isentos de mudanças de honra e se veem na lista de amigos.</p>
+        <p>Se o universo ativar, jogadores que ficam offline por mais de 7 dias (fora do modo de férias) são removidos das listas de amigos e das alianças automaticamente.</p>
+  '10':
+    category: "Proteção e férias"
+    icon: "shield-check"
+    '1':
+      title: "Proteção de novatos e foras da lei"
+      body: |-
+        <p>A proteção se baseia em <b>pontos</b>. Por padrão, um jogador é protegido quando tem 5.000 pontos ou menos <b>e</b> o outro jogador tem mais de 5 vezes os pontos dele. Os dois números são configurações do universo, e a proteção inteira pode ser desligada.</p>
+        <ul>
+        <li>Ela cobre ataques, Ataques de Aliança, destruição de luas, Manter Posição, espionagem, ataques de mísseis e escaneamentos do Sensor Phalanx.</li>
+        <li>Funciona nos dois sentidos: se <i>você</i> está abaixo do limite de pontos e o outro jogador tem mais de 5 vezes os seus pontos, você também não pode atacá-lo (a não ser que o universo use o sistema de foras da lei, veja abaixo).</li>
+        <li>A proteção não vale para jogadores banidos e, por padrão, nem para jogadores que ficaram offline por 7 dias.</li>
+        <li>A visão de Galáxia marca os jogadores protegidos (N = fraco, S = forte).</li>
+        </ul>
+        <h2 id="outlaw">Foras da lei</h2>
+        <p>Se o universo usa o sistema de foras da lei, um jogador fraco pode atacar um muito mais forte mesmo assim. Ele então vira um <b>fora da lei</b>: a proteção deixa de valer para ele por 2 dias (na primeira vez) ou 7 dias (em cada vez seguinte), para o jogador forte poder revidar.</p>
+    '2':
+      title: "Limite de bash"
+      body: |-
+        <p>O limite de bash impede ataques repetidos ao mesmo alvo. Por padrão, você pode atacar o mesmo <b>planeta no máximo 6 vezes em 24 horas</b>; também dá para definir um limite por jogador (desligado por padrão). Os ataques de mísseis contam, a não ser que o universo desligue isso.</p>
+        <ul>
+        <li>Várias frotas de um mesmo grupo ACS contam como um ataque.</li>
+        <li>Espionagem com uma única sonda não conta.</li>
+        <li>Alvos inativos (7 dias) não são protegidos.</li>
+        <li>Se o universo tem "guerras suspendem o limite de bash", ataques entre alianças em guerra também não contam.</li>
+        </ul>
+    '3':
+      title: "Proteção de reconstrução"
+      body: |-
+        <p>Desligada por padrão. Se o universo a ativa (ela precisa da proteção de novatos), um jogador que perde a maior parte do que tem em uma luta recebe <b>proteção de reconstrução</b>: mais de 70&nbsp;% do valor da frota e da defesa dele, ou mais de 80&nbsp;% da capacidade de transporte, e pelo menos um valor mínimo que segue o limite da proteção de novatos (no máximo 5.000.000 de unidades).</p>
+        <ul>
+        <li>Ela começa 3 horas depois da luta (6 horas para os jogadores que o atacaram) e termina 48 horas depois da luta. Nesse período ele não pode ser atacado.</li>
+        <li>O jogador pode encerrá-la antes.</li>
+        <li>Ela dispara no máximo uma vez por mês e não dispara se todos os oponentes estão ligados ao perdedor (mesmo IP, dispositivo ou grupo de multicontas, aliança, amigo).</li>
+        </ul>
+    '4':
+      title: "Modo de férias"
+      body: |-
+        <p>O modo de férias congela a sua conta enquanto você está fora. Ative em <b>Opções</b>.</p>
+        <ul>
+        <li>Você precisa ter <b>nenhuma frota</b> voando.</li>
+        <li>A produção para em todos os planetas; suas filas pausam e continuam quando você volta. As frotas mantendo posição nos seus planetas são mandadas para casa.</li>
+        <li>As missões hostis contra você dão meia-volta (ataques, espionagem, mísseis).</li>
+        <li>Você só pode sair depois do tempo mínimo (48 horas por padrão).</li>
+        <li>Quando você volta, a produção recomeça em 100&nbsp;% em todos os planetas. Nada é produzido enquanto você está fora.</li>
+        <li>Se o universo ativar, jogadores em modo de férias que ficaram offline por 28 dias são removidos dele.</li>
+        </ul>
+        <p>Contas inativas por muito tempo continuam sendo excluídas, de férias ou não, veja <a href="game/faq/11/2">Inatividade e exclusão de conta</a>.</p>
+    '5':
+      title: "Pushing e limites de troca"
+      body: |-
+        <p>Pushing é alimentar outro jogador (muitas vezes uma segunda conta) com recursos ou naves. É contra as regras e é verificado automaticamente.</p>
+        <ul>
+        <li>Por padrão, um transporte, manter posição ou transferência para outro jogador é recusado se, nos últimos 7 dias, você enviou a esse jogador mais valor do que ele devolveu em mais de 100.000 (em equivalente de deutério).</li>
+        <li>As negociações do mercado precisam ficar dentro da tolerância de push do universo (o valor oferecido e o pedido precisam ser próximos).</li>
+        <li>Contas com o mesmo IP, dispositivo ou grupo de multicontas são vinculadas e tratadas com mais rigor.</li>
+        </ul>
+        <p>As regras do universo estão na página de Regras.</p>
+  '11':
+    category: "Conta e configurações"
+    icon: "user-cog"
+    '1':
+      title: "Configurações da conta"
+      body: |-
+        <p>Abra <b>Opções</b> para:</p>
+        <ul>
+        <li><b>Dados do usuário</b>: nome de usuário (só letras e números, pode ser mudado uma vez a cada 7 dias), e-mail, senha nova (pelo menos 8 caracteres; você precisa da senha atual para fazer mudanças), idioma, fuso horário e tema.</li>
+        <li><b>Geral</b>: ordenação dos planetas, esmaecimento de itens que você não pode pagar, filtros do hangar, relatórios de espionagem resumidos, opções de mensagens, bloqueio de mensagens privadas e a <b>interface de iniciante</b> (um menu simplificado que libera itens conforme você avança no tutorial).</li>
+        <li><b>Galáxia e espionagem</b>: quantas sondas são enviadas pela visão de Galáxia e quão velho um relatório de espionagem pode ser para contar como recente.</li>
+        <li><a href="game/faq/10/4">Modo de férias</a> e a exclusão da conta (&quot;Zona de Perigo&quot;).</li>
+        </ul>
+    '2':
+      title: "Inatividade e exclusão de conta"
+      body: |-
+        <ul>
+        <li>Depois de <b>7 dias</b> sem login, um jogador aparece como inativo (i); depois de <b>28 dias</b>, como inativo de longa data (I). Jogadores inativos não são cobertos pelo limite de bash e, por padrão, nem pela proteção baseada em pontos.</li>
+        <li>Depois de <b>90 dias</b> offline (configuração do universo, 0 = nunca), a conta é excluída automaticamente, junto com os planetas e frotas.</li>
+        <li>Se você mesmo pede a exclusão em Opções, ela acontece depois de pelo menos 7 dias (configuração do universo); você pode cancelá-la nesse meio-tempo.</li>
+        </ul>
+    '3':
+      title: "Estatísticas e pontos"
+      body: |-
+        <p>A página de Estatísticas classifica jogadores e alianças por pontos totais e por edifícios, pesquisa, frota e defesa. Elas são atualizadas em intervalos, não ao vivo.</p>
+        <ul>
+        <li>Pontos = recursos investidos divididos por 1.000 (padrão; configuração do universo).</li>
+        <li>Os pontos da aliança só contam membros que ficaram online nos últimos 7 dias.</li>
+        <li>Os recordes mostram os maiores níveis de edifícios e pesquisas do universo.</li>
+        <li>Se o universo ativar, algumas estatísticas só ficam visíveis com Tecnologia de Espionagem suficiente.</li>
+        </ul>
+    '4':
+      title: "Mais ajuda"
+      body: |-
+        <!--wiki_url--><h2 id="wiki">Wiki e comunidade</h2><p><a href="{wiki_url}/wiki/En/Hauptseite" target="_blank">Página inicial da wiki</a>, <a href="{wiki_url}/wiki/En/Buildorder" target="_blank">ordens de construção</a>, <a href="{wiki_url}/wiki/En/Saven" target="_blank">salvamento de frota</a>, <a href="{wiki_url}/wiki/En/Expoanleitung" target="_blank">expedições</a>.</p><!--/wiki_url-->
+        <h2 id="support">Suporte</h2>
+        <p>Dúvidas sobre a sua conta ou bugs: abra um ticket na página de <b>Suporte</b>. Leia a página de <b>Regras</b> antes de saquear, negociar ou usar várias contas.</p>

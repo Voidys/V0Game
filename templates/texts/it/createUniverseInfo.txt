@@ -1,0 +1,12 @@
+<div class="left">
+<h2>Informazioni sul supporto multi-universo</h2>
+<p>V0Game supporta bene il multi-universo, ma devi configurare il server web secondo quanto richiesto.</p>
+<p>Che cosa può supportare il tuo server lo scopri con il pulsante "Informazioni". Se non sei sicuro, la cosa migliore è chiedere agli amici della tua società di hosting.</p>
+<h3>Apache</h3>
+<p>Se usi un server Apache, devi togliere solo le righe 48-51 nel file .htaccess nella cartella principale (rimuovi la route).<br>
+Inoltre serve mod_rewrite.</p>
+<h3>nginx</h3>
+<p>Se usi un server nginx, la configurazione del vhost va ampliata direttamente con la regola di rewrite:</p>
+<p><code>{NGINX-CODE}</code></p>
+<p>Incolla semplicemente il frammento di codice qui sotto la riga con "server_name".</p>
+</div>

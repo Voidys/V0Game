@@ -1,0 +1,21 @@
+Olá, {USERNAME}!
+
+Valeu por se cadastrar em {GAMENAME}!
+
+Antes de ativar a sua conta, falta mais um passo. Ele é obrigatório
+para você virar um usuário cadastrado: basta clicar uma única vez no
+link abaixo para confirmar a sua identidade.
+
+Para concluir o cadastro, clique no link de ativação a seguir:
+
+{VERTIFYURL}
+
+Seus dados de acesso:
+
+E-mail: {EMAIL}
+
+Se der algum problema no cadastro automático, abra um ticket no nosso Discord:
+{DISCORD}
+
+Até logo,
+Equipe {GAMENAME}

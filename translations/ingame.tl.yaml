@@ -1154,6 +1154,7 @@ ov_newname_specialchar: Numero, titik, espasyo, underscore, gitling at tuldok la
 ov_newname_too_long: Hanggang %d character lang ang pangalan ng planeta.
 ov_news: Balita
 ov_news_all: 'Lahat ng balita'
+tutorial_label: 'Tutorial'
 tutorial_step_of: 'Hakbang %1 ng %2'
 ov_of: ng
 ov_outlaw: 'Outlaw hanggang:'
@@ -1679,6 +1680,7 @@ shell_footer: Footer
 shell_footer_game: Laro
 shell_footer_community: Komunidad
 shell_footer_legal: Legal
+shell_footer_credits: 'binuo mula sa gawa ng maraming open-source na proyekto'
 shell_imprint: Imprint
 ui_palette_placeholder: Mga pahina, planeta, coordinates (hal. 1:42:8)…
 ui_palette_empty: Walang tugma

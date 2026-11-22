@@ -1160,6 +1160,7 @@ ov_newname_specialchar: ชื่อดาวเคราะห์ใช้ไ�
 ov_newname_too_long: ชื่อดาวเคราะห์ยาวได้สูงสุด %d ตัวอักษร
 ov_news: ข่าวสาร
 ov_news_all: 'ข่าวทั้งหมด'
+tutorial_label: 'บทแนะนำ'
 tutorial_step_of: 'ขั้นตอน %1 จาก %2'
 ov_of: จาก
 ov_outlaw: 'ผู้นอกกฎหมายจนถึง:'
@@ -1689,6 +1690,7 @@ shell_footer: ส่วนท้าย
 shell_footer_game: เกม
 shell_footer_community: ชุมชน
 shell_footer_legal: กฎหมาย
+shell_footer_credits: 'สร้างขึ้นจากผลงานของโปรเจกต์โอเพนซอร์สมากมาย'
 shell_imprint: ข้อมูลผู้ให้บริการ
 ui_palette_placeholder: หน้า ดาวเคราะห์ พิกัด (เช่น 1:42:8)…
 ui_palette_empty: ไม่พบผลลัพธ์

@@ -485,6 +485,8 @@ kbd {
   border-block-start: 1px solid var(--theme-line);
   font-size: var(--fs-xs);
 }
+.footer-base a { color: var(--theme-muted); text-decoration: none; transition: color var(--t-fast) var(--ease); }
+.footer-base a:hover { color: var(--theme-text); }
 
 /* ------------------------------------------------------------------------------------ responsive */
 

@@ -33,6 +33,6 @@
   </nav>
 </div>
 <div class="footer-base">
-  <span class="muted">© {{ 'now'|date('Y') }} V0Game · based on pr0game and 2Moons · AGPL-3.0</span>
-  <span class="mono muted">{{ game_name }} v{{ version }}</span>
+  <span class="muted">© {{ 'now'|date('Y') }} V0Game · {{ LNG.shell_footer_credits }} · AGPL-3.0</span>
+  {% if sourceUrl %}<a class="mono muted" href="{{ sourceUrl|e('html_attr') }}" target="_blank" rel="noopener">v{{ version }}</a>{% else %}<span class="mono muted">v{{ version }}</span>{% endif %}
 </div>

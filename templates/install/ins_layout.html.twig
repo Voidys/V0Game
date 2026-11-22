@@ -6,7 +6,7 @@
 {% set steps = {1: LNG.ins_step_licence, 2: LNG.ins_step_requirements, 3: LNG.ins_step_database, 5: LNG.ins_step_build, 6: LNG.ins_step_game, 7: LNG.ins_step_legal, 8: LNG.ins_step_mail, 9: LNG.ins_step_admin, 10: LNG.ins_step_done} %}
 {% set activeStep = (currentStep|default(0)) == 4 ? 3 : currentStep|default(0) %}
 <!doctype html>
-<html lang="{{ lang }}">
+<html lang="{{ html_lang(lang) }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

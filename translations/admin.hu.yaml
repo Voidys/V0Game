@@ -1,0 +1,1860 @@
+ac_account_data: Fiókadatok
+ac_act_time: Utolsó aktivitás dátuma
+ac_ali_idid: 'Azonosító:'
+ac_alliance: Szövetség
+ac_ally_ranking: Szövetségi statisztika
+ac_ally_web: Szövetség weboldala
+ac_auth_level: Rang
+ac_banned: Kitiltva?
+ac_checkip_title: IP-ellenőrzés
+ac_coords: Koordináták
+ac_diameter: Átmérő
+ac_enter_user_id: Válassz egy játékost
+ac_ext_text: Külső szöveg
+ac_fields: Mezők
+ac_filter_placeholder: Szűrés...
+ac_home_planet_coord: Anyabolygó koordinátái
+ac_home_planet_id: Anyabolygó azonosítója
+ac_id_names_coords: Azonosító, név és koordináták
+ac_image: Szövetségi logó
+ac_info_ally: Szövetségi információk
+ac_int_text: Belső szöveg
+ac_last_ip: Utolsó IP
+ac_leader: Vezető
+ac_leyend: '[ Jelmagyarázat ]'
+ac_moon: Hold
+ac_name: Név
+ac_name_ali: Teljes név
+ac_no_ally: Nincs szövetség
+ac_no_img: Ennek a szövetségnek nincs logója
+ac_no_text_ext: Ennek a szövetségnek nincs külső szövege
+ac_no_text_int: Ennek a szövetségnek nincs belső szövege
+ac_no_text_sol: Ennek a szövetségnek nincs jelentkezési szövege
+ac_note_k: >-
+  <table><tr><th width=10%><font class="colorPositive">T+</font></th><th>Több
+  mint egy billió</th></tr><tr><th width=10%><font
+  class="colorPositive">T</font></th><th>Egy billió vagy több</th></tr><tr><th
+  width=10%><font class="colorPositive">B</font></th><th>Egy milliárd vagy
+  több</th></tr><tr><th width=10%><font
+  class="colorPositive">M</font></th><th>Egy millió vagy több</th></tr><tr><th
+  width=10%><font class="colorPositive">K</font></th><th>Ezer vagy
+  több</th></tr></table>
+ac_on_vacation: Nyaralás?
+ac_points_count: Pontszám | Darabszám
+ac_ranking: Rangsor
+ac_recent_destroyed_planets: Nemrég elpusztított bolygók
+ac_reg_ip: Regisztrációs IP
+ac_register_ally_time: Alapítva
+ac_register_time: Regisztrált
+ac_research: Kutatás
+ac_see_ranking: Statisztika megtekintése
+ac_select_id_num: Azonosító kézi megadása (opcionális)
+ac_sol_text: Jelentkezési szöveg
+ac_suspended_autor: Kitiltotta
+ac_suspended_longer: Eddig
+ac_suspended_reason: Indok
+ac_suspended_time: Kitiltva
+ac_suspended_title: A kitiltás részletei
+ac_swap_invalid: Érvénytelen kijelölés, két különböző felhasználót válassz!
+ac_swap_no_entry: Az egyik vagy mindkét felhasználóhoz nem található fiókbejegyzés.
+ac_swap_submit: Csere
+ac_swap_success: A fiókok cseréje sikerült.
+ac_swap_title: Fiókok cseréje
+ac_swap_user_a: A felhasználó
+ac_swap_user_b: B felhasználó
+ac_tag: CÍMKE
+ac_temperature: Hőm.
+ac_time_destruyed: A pusztulás dátuma
+ac_total_members: Tagok száma
+ac_total_points: 'Összesen:'
+ac_user_ranking: Játékosstatisztika
+ac_user_system: Játékos rendszere
+ac_username_doesnt: A játékos nem létezik!
+ac_view_image: Kép megnyitása új ablakban
+account_already_has_user: Ennek a fióknak már van játékosa ebben az univerzumban
+accountID: Fiókazonosító
+ad_add_build_success: Az épületek hozzáadása sikerült!
+ad_add_defenses_success: A védelmi rendszerek hozzáadása sikerült!
+ad_add_not_exist: Az azonosító nem létezik!
+ad_add_res_sucess: A nyersanyagok hozzáadása sikerült!
+ad_add_ships_sucess: A hajók hozzáadása sikerült!
+ad_add_tech_success: A kutatások hozzáadása sikerült!
+ad_ally_change_id: Alapító módosítása
+ad_ally_delete: Szövetség törlése
+ad_ally_delete_u: Tag törlése
+ad_ally_name: Szövetség neve
+ad_ally_not_exist: A szövetség nem létezik!
+ad_ally_not_exist2: A tag nem létezik!
+ad_ally_not_exist3: A felhasználó nem tagja ennek a szövetségnek
+ad_ally_succes: Siker
+ad_ally_tag: Szövetség címkéje
+ad_ally_text1: Szövetség leírása
+ad_ally_text2: Belső szöveg
+ad_ally_text3: Jelentkezési sablon
+ad_ally_title: Szövetség
+ad_ally_user_id: (Add meg a felhasználó azonosítóját)
+ad_authlevel_aa: '[Adminisztrátorok mutatása]'
+ad_authlevel_auth: Rang
+ad_authlevel_error_3: A játék létrehozójának rangját nem módosíthatod!
+ad_authlevel_insert_id: Azonosító kézi megadása (opcionális)
+ad_authlevel_jj: '[Játékosok mutatása]'
+ad_authlevel_mm: '[Moderátorok mutatása]'
+ad_authlevel_oo: '[Üzemeltetők mutatása]'
+ad_authlevel_succes: A rang módosítása sikerült
+ad_authlevel_title: Rangok
+ad_authlevel_tt: '[Mind mutatása]'
+ad_buildings: Épületek
+ad_buildings_title: Épületek
+ad_count: Szám
+ad_defenses: Védelem
+ad_defenses_title: Védelem
+ad_delete_build_success: Az épületek eltávolítása sikerült!
+ad_delete_defenses_success: A védelmi rendszerek eltávolítása sikerült!
+ad_delete_res_sucess: A nyersanyagok eltávolítása sikerült!
+ad_delete_ships_sucess: A hajók eltávolítása sikerült!
+ad_delete_tech_success: A kutatások eltávolítása sikerült!
+ad_editor_alliances: Szövetség
+ad_editor_buildings: Épületek
+ad_editor_defenses: Védelem
+ad_editor_personal: Személyes adatok
+ad_editor_planets: Bolygó és Hold
+ad_editor_researchs: Kutatás
+ad_editor_resources: Nyersanyagok
+ad_editor_ships: Hajók
+ad_editor_title: Fiókszerkesztő
+ad_levels: Szint
+ad_number: Azonosító
+ad_personal_name: Felhasználónév
+ad_personal_succes: Beállítások elmentve
+ad_personal_title: Személyes adatok szerkesztése
+ad_personal_vacat: Nyaralás mód
+ad_pla_change_p: Bolygó koordinátái
+ad_pla_change_pp: Jelöld be a koordinátaváltoztatás alkalmazásához
+ad_pla_delete_b: Összes épület eltávolítása
+ad_pla_delete_cb: Építési sor törlése
+ad_pla_delete_d: Összes védelmi rendszer eltávolítása
+ad_pla_delete_hd: Hajógyári és védelmi sor törlése
+ad_pla_delete_s: Összes hajó eltávolítása
+ad_pla_edit_diameter: Átmérő szerkesztése
+ad_pla_edit_fields: Mezők szerkesztése
+ad_pla_edit_name: Név
+ad_pla_error_planets: A holdak nem cserélhetnek tulajdonost
+ad_pla_error_planets2: A bolygó nem létezik
+ad_pla_error_planets3: Ezek a koordináták már foglaltak!
+ad_pla_error_planets4: Nem rendelhetsz Holdat olyan bolygóhoz, amelynek már van!
+ad_pla_error_planets5: Ezeken a koordinátákon már van bolygó
+ad_pla_error_planets6: Ezek a koordináták az univerzum határain kívül esnek
+ad_pla_succes: A módosítások sikeresen elmentve
+ad_pla_title: Bolygók és holdak
+ad_pla_title_l: Ha létezik Hold, a koordinátái is módosulnak
+ad_research: Kutatás
+ad_research_title: Kutatás
+ad_ships: Hajók
+ad_ships_title: Hajók
+adm_absenden: Küldés
+adm_cp_index: Kezdőlap
+adm_cp_title: Adminisztrációs panel
+adm_email: E-mail
+adm_login: Bejelentkezés
+adm_password: Jelszó
+adm_username: Felhasználónév
+an_analyzed_list: Elemzett játékosok
+an_btn_disable: Elemzés kikapcsolása és az adatok törlése
+an_btn_enable: Elemzés bekapcsolása
+an_timestamp: Időbélyeg
+an_total_analyzed: Elemzett játékosok száma
+an_user_list: Játékoslista
+ap_aktivieren: Aktiválás
+ap_datum: Dátum
+ap_del: Törlés
+ap_email: E-mail
+ap_entfernen: '?'
+ap_id: Azonosító
+ap_ip: IP
+ap_nicht_aktivierte: nem aktivált felhasználó
+ap_nicht_aktivierte_user: Nem aktivált felhasználók
+ap_sicher: 'Biztosan el akarod távolítani: '
+ap_status: Állapot
+ap_username: Felhasználónév
+bo_accountname: Fióknév
+bo_ban: Kitiltás
+bo_ban_change: Módosítás
+bo_ban_player: Kitiltás / feloldás
+bo_banned: ' ki lett tiltva.'
+bo_bbb_title_1: Kitiltási rendszer
+bo_bbb_title_2: A kitiltás lejár
+bo_bbb_title_3: Kitiltási rendszer • <font color="red">Ez a játékos ki van tiltva</font>
+bo_bbb_title_4: >-
+  A hátralévő kitiltás lerövidítéséhez tegyél mínuszjelet az idő elé, pl. -5.<br>Ha a
+  játékos véglegesen ki van tiltva, pozitív idő megadása ezzel az
+  időtartammal váltja fel.
+bo_bbb_title_5: Kitiltva eddig
+bo_bbb_title_6: Dátum módosítása
+bo_characters_1: Hátralévő karakterek
+bo_characters_suus: Kitiltva
+bo_order_banned: '[Rendezés kitiltás szerint]'
+bo_order_id: '[Rendezés azonosító szerint]'
+bo_order_username: '[Rendezés név szerint]'
+bo_permanent: Végleges kitiltás
+bo_reason: Kitiltás indoka
+bo_select_title: Ezzel kezdődő nevek mutatása
+bo_the_player: 'Játékos '
+bo_the_player2: 'Játékos '
+bo_total_accs: 'Összes fiók: '
+bo_total_accs_banned: 'Kitiltott fiókok: '
+bo_total_banneds: 'Kitiltott játékosok: '
+bo_total_users: 'Összes játékos: '
+bo_unban: Feloldás
+bo_unban_player: Tiltólista
+bo_unbanned: ' kitiltása fel lett oldva.'
+bo_username: Felhasználónév
+bo_vacaations: Nyaralás mód
+bo_vacation_mode: Nyaralás mód
+buildings_title: Épületek
+button_add: Hozzáadás
+button_cancel: Mégse
+button_delete: Törlés
+button_deselect: Kijelölés törlése
+button_filter: Szűrés
+button_reset: Visszaállítás
+button_submit: Küldés
+button_test: Teszt
+button_test_negative: A teszt sikertelen
+button_test_positive: A teszt sikeres
+cc_cache_clear: Gyorsítótár törölve
+cronjob_class: osztály
+cronjob_delete: Törlés
+cronjob_desc: >-
+  Add meg, mikor fusson ez a cron-feladat. A feltételek ÉS kapcsolatban állnak,
+  így a feladat csak akkor fut, ha az összes kijelölt feltétel teljesül. Ha a
+  „A hét napja” és a „Nap” mezőben is konkrét értékeket jelölsz ki, a feladat
+  szabálytalanul futhat; legalább az egyik mezőnél használd a „Mind” opciót.<br>A
+  „Mind” elsőbbséget élvez, és felülírja a lista többi értékét.
+cronjob_desc_class: 'A hívandó osztály. Az includes/classes/cronjobs/foo.class.php fájlhoz add meg: „foo”.'
+cronjob_desc_name: Tetszőleges név a cron-feladat azonosításához.
+cronjob_dom: Nap
+cronjob_dow: A hét napja
+cronjob_edit: Szerkesztés
+cronjob_error_class: Nincs osztály megadva!
+cronjob_error_dom: Nincs nap kijelölve!
+cronjob_error_dow: Nincs a hét napja kijelölve!
+cronjob_error_filenotfound: 'A megadott fájl nem található: '
+cronjob_error_hours: Nincs óra kijelölve!
+cronjob_error_min: Nincs perc kijelölve!
+cronjob_error_month: Nincs hónap kijelölve!
+cronjob_error_name: Nincs név megadva!
+cronjob_headline: Cron-feladat azonosítója
+cronjob_hours: Óra
+cronjob_lastTime: Utolsó futás
+cronjob_min: Perc
+cronjob_month: Hónap
+cronjob_name: Név
+cronjob_new: Cron-feladat létrehozása
+cronjob_nextTime: Következő futás
+cronjob_run: Futtatás
+cronjob_selectall: Mind
+cronName_cleaner: Régi adatok törlése
+cronName_bots: "Botok"
+cronName_disposable_email_domains: "Eldobható e-mail-domainek frissítése"
+cronName_fleets: "Flottaesemények"
+cronName_daily: Napi feladatok
+cronName_databasedump: Adatbázis-mentés
+cronName_inactive: Inaktívak törlése
+cronName_pirates: Kalózbázisok létrehozása
+cronName_referral: Ajánlói bónusz
+cronName_statistic: Statisztika
+cronName_statisticjson: A stats.json exportálása
+cronName_tracking: Globális szerverstatisztika küldése
+cs_time_between_updates: Frissítések közötti idő
+defenses_title: Védelem
+du_choose_tables: Táblák kiválasztása
+du_not_tables_selected: Nem választottál ki egyetlen mentendő táblát sem!
+du_select_all_tables: Minden tábla
+du_submit: Küldés
+du_success: 'A mentés sikeresen elkészült! Fájl: %s'
+email_reg: E-mail
+email2_reg: E-mail megerősítése
+empty_account_field: Nincs fiókazonosító megadva
+et_encript: Generálás
+et_md5_encripter: MD5-generátor
+et_pass: Jelszó
+et_result: Eredmény
+exp_deck_cards: Kártyák
+exp_deck_count_desc: Az ilyen típusú kártyák száma a pakliban
+exp_deck_count_label: count
+exp_deck_edit: Kártyapakli-konfiguráció szerkesztése
+exp_deck_event_type: Esemény típusa
+exp_deck_example: 'Példa:'
+exp_deck_format_help: >-
+  A kártyapakli-konfiguráció egy JSON-tömb, amelynek minden eleme egy kártyatípust
+  jelent a következő tulajdonságokkal:
+exp_deck_format_instructions: Formátum-útmutató
+exp_deck_percentage: Százalék
+exp_deck_save_success: A kártyapakli-konfiguráció sikeresen elmentve!
+exp_deck_size_desc: Esemény mérete (Small, Medium, Big, None)
+exp_deck_size_label: size
+exp_deck_statistics: A jelenlegi kártyapakli statisztikái
+exp_deck_total: Összesen
+exp_deck_type_desc: Esemény típusa (Res, Ships, Pirates, Aliens, BlackHole, Fast, Slow, Nothing)
+exp_deck_type_label: type
+exp_deck_warning: 'Figyelem: az érvénytelen JSON-t elutasítjuk'
+exp_ships_description: >-
+  Minden aktív hajónál válaszd ki, hogy megtalálhatják-e az expedíciók, és hogy
+  mely hajók találhatják meg.
+exp_ships_findable: Megtalálható
+exp_ships_found_by: Megtaláló hajók
+exp_ships_select_finders: Megtaláló hajók kiválasztása
+exp_ships_ship: Hajó
+ff_arrivaltime: Érkezés
+ff_del: Eltávolítás
+ff_endtime: Visszatérés
+ff_fleetid: Azonosító
+ff_holdtime: Tartózkodás eddig
+ff_lock: Zárolás
+ff_mission: Küldetés
+ff_no_fleets: Jelenleg nincs repülő flotta
+ff_sendFleetBack: Visszaküldés
+ff_sendFleetsBack: Minden támadás visszaküldése
+ff_ships: Hajók
+ff_startplanet: Kiinduló bolygó
+ff_starttime: Indulás
+ff_startuser: Feladó
+ff_targetplanet: Célbolygó
+ff_targetuser: Címzett
+ff_unlock: Feloldás
+ga_definetarget: Célpontok meghatározása
+ga_homecoordinates: Csak az anyabolygó
+ga_no_inactives: Inaktív játékosok kizárása
+ga_planettypes: Bolygótípusok
+ga_selectplanettype: Válassz ki legalább egy bolygótípust!
+ga_success: Siker!
+info_information: >-
+  Ezeket az információkat használd, amikor hibát jelentesz a <a href="%s"
+  target="tracker">GitHub issue-k</a> között.<br>Az ezen információk nélküli
+  támogatási kéréseket nem dolgozzuk fel.
+input_id: Azonosító
+input_id_account: Fiókazonosító
+input_id_ally: Szövetség azonosítója
+input_id_p_m: Bolygó vagy Hold azonosítója
+input_id_planet: Bolygó azonosítója
+input_id_user: Játékos azonosítója
+lang_reg: Nyelv
+log_admin: Adminisztrátor
+log_alliance: Szerkesztett szövetségek
+log_cat: 'Válassz kategóriát:'
+log_disclamersettings: Jogi nyilatkozat
+log_element: Elem
+log_id: Azonosító
+log_info: Infó
+log_log: Napló
+log_new: Utána
+log_no_data: Nincs adat a naplóban!
+log_old: Előtte
+log_planet: Szerkesztett bolygók
+log_player: Szerkesztett játékosok
+log_present: Kiosztott ajándékok
+log_settings: Szerkesztett beállítások
+log_ssettings: Szerverkonfiguráció
+log_statsettings: Statisztikabeállítások
+log_target_alliance: Módosított szövetség
+log_target_planet: Módosított bolygó
+log_target_universe: Módosított beállításszakasz
+log_target_user: Módosított játékos
+log_time: Idő
+log_uni_short: Uni
+log_universe: Univerzum
+log_usettings: Univerzumkonfiguráció
+log_view: Megtekintés
+ma_all: Mind
+ma_characters: Karakterek
+ma_message: Üzenet
+ma_message_sended: Az üzeneted elküldve!
+ma_mode: Küldés módja
+ma_modes:
+  - Játékon belül
+  - E-mail
+  - Játékon belül és e-mail
+ma_none: Globális hírek
+ma_send_global_message: Globális üzenet küldése
+ma_subject: Tárgy
+ma_subject_needed: A tárgy kötelező!
+ma_no_recipients: 'Egy címzett sem felel meg a szűrőnek, levelet nem küldtünk.'
+message_a: 'Üzenet állapota:'
+message_t: 'Jegy állapota:'
+mip_known: Jóváhagyva?
+ml_date: Dátum
+ml_date_range: Időszak
+ml_deleted: Üzenet törölve
+ml_id: '#azonosító'
+ml_message_list: Üzenetlista
+ml_receiver: Címzett
+ml_sender: Feladó
+ml_subject: Tárgy
+ml_type: Üzenet típusa
+ml_type_submit: Küldés
+mo_diameter: Átmérő
+mo_fields_avaibles: Mezők
+mo_moon: Hold
+mo_moon_added: A Hold sikeresen hozzáadva!
+mo_moon_name: Hold neve
+mo_moon_random: Véletlen
+mo_moon_unavaible: Ennek a bolygónak már van Holdja!
+mo_planet_doesnt_exist: A játékos nem létezik!
+mod_active: Aktív
+mod_change_active: Bekapcsolás
+mod_change_deactive: Kikapcsolás
+mod_deactive: Inaktív
+mod_info: Játékmodulok
+mod_module: Modulok
+modul_0: Szövetség
+modul_1: Küldetés — Támadás
+modul_2: Építés — Épületek
+modul_3: Építés — Kutatás
+modul_4: Építés — Flották
+modul_5: Építés — Védelem
+modul_6: Barátlista
+modul_9: Flotta
+modul_10: Flotta — Eseménykezelő
+modul_11: Galaxis
+modul_12: Hírességek csarnoka
+modul_13: Kereskedő
+modul_14: Infó
+modul_15: Birodalom
+modul_16: Üzenetek
+modul_17: Jegyzetek
+modul_19: Falanx
+modul_20: Játékoskártya
+modul_21: Tiltólista
+modul_22: Rekordok
+modul_23: Nyersanyagok
+modul_24: Küldetés — Kémkedés
+modul_25: Statisztika
+modul_26: Keresés
+modul_27: Támogatási jegyek
+modul_28: Technológiai fa
+modul_29: Küldetés — Pusztítás
+modul_30: Küldetés — Expedíció
+modul_32: Küldetés — Hasznosítás
+modul_33: Küldetés — Tartózkodás
+modul_34: Küldetés — Szállítás
+modul_35: Küldetés — Gyarmatosítás
+modul_36: Küldetés — Állomásoztatás
+modul_38: Ócskavas-kereskedő
+modul_39: Csataszimulátor
+modul_40: Küldetés — Rakétatámadás
+modul_41: Flotta-gyorsgombok
+modul_42: Küldetés — ACS
+modul_43: Küldetés — Kereskedés
+modul_44: Küldetés — Átvitel
+modul_45: Piac — Nyersanyagok
+modul_46: Piac — Flotta
+modul_47: Kémtechnikától függő statisztikák
+modul_48: Javítódokk
+modul_49: Nyersanyagok védelme
+modul_50: Nyaralás mód kirúgás
+modul_51: Barát- és szövetségi kirúgás
+modul_52: Stats.json
+modul_53: Bemutató
+modul_54: Bemutató jutalmai
+modul_55: Becsületpontok
+modul_56: Kalózbázisok
+mu_active_planets: 'Aktív bolygók'
+mu_clear_cache: 'Gyorsítótár törlése'
+mu_connected: Online
+mu_cronjob: 'Cron-feladatok'
+mu_dump: 'Adatbázis-mentés'
+mu_flying_fleets: 'Repülő flották'
+mu_game_info: Információ
+mu_general: Általános
+mu_giveaway: Ajándékozás
+mu_global_message: 'Globális üzenet'
+mu_info_account_page: 'Fiókinfó'
+mu_logs: 'Admin napló'
+mu_manual_points_update: 'Pontok frissítése'
+mu_md5_encripter: Jelszó-hash
+mu_mess_list: 'Üzenetlista'
+mu_moderation_page: Jogosultságok
+mu_module: Modulok
+mu_mpu_confirmation: A pontok automatikusan frissülnek. Kattints az OK-ra a mostani frissítéshez.
+mu_multiip_page: 'Többszörös IP-k'
+mu_news: Hírek
+mu_search_page: 'Összetett keresés'
+mu_support: 'Támogatási jegyek'
+mu_tools: Eszközök
+mu_universe: Univerzum
+mu_users_settings: 'Játékosok'
+mu_vaild_users: 'Aktív felhasználók'
+new_account_success: 'Új fiók létrehozva. Azonosító: %d'
+new_add_account: Új fiók hozzáadása
+new_add_user: Új játékos hozzáadása
+new_coord: Koordináták
+new_creator_coor: Koordináták
+new_creator_go_back: '[ Vissza a menübe ]'
+new_creator_refresh: '[ Frissítés ]'
+new_creator_title_a: Fiókok létrehozása/törlése
+new_creator_title_l: Holdak létrehozása/törlése
+new_creator_title_p: Bolygók létrehozása/törlése
+new_creator_title_t: Tesztfelhasználó létrehozása
+new_creator_title_u: Felhasználók létrehozása/törlése
+new_range: Rang
+new_title: Új játékos létrehozása
+new_title_acc: Új fiók létrehozása
+new_user_success: 'Új játékos létrehozva. Azonosító: %d, bolygó: %d'
+nws_confirm: Biztosan törölni akarod a(z) „%s” hírt?
+nws_content: Tartalom
+nws_create: Hír létrehozása
+nws_del: Törlés
+nws_from: Feladó
+nws_head_create: Hír létrehozása
+nws_head_edit: 'Hír szerkesztése: %s'
+nws_news: Hírek
+nws_title: Cím
+one_is_yes_0: 'Nem'
+one_is_yes_1: 'Igen'
+online_users: Online
+ow_default_uri_missing: 'A levélhivatkozásokhoz DEFAULT_URI kell (.env.local): amíg nincs beállítva, a regisztrációs és jelszó-visszaállítási leveleket nem küldjük el.'
+ow_app_secret_weak: 'Az APP_SECRET nyilvános alapérték vagy túl rövid: bárki hamisíthat bejelentkezési sütiket. Állíts be egy új véletlen értéket a .env.local fájlban (pl. php -r ''echo bin2hex(random_bytes(32));''), és töröld a var/cache-t.'
+ow_app_env_dev: 'A szerver fejlesztői módban fut (az APP_ENV nem prod, vagy az APP_DEBUG be van kapcsolva): a hibák részletei láthatók, és a játék lassabb. Állítsd be az APP_ENV=prod és APP_DEBUG=0 értéket a .env.local fájlban.'
+ow_dir_not_writable: A(z) /%s nem írható!
+ow_file_detected: A(z) %s fájlt megtaláltuk. Biztonsági okból töröld vagy nevezd át.
+ow_proyect_leader: "Volt flottaparancsnok (a 2Moons projekt vezetője)"
+ow_former_pr0game_crew: "A pr0game egykori csapata"
+ow_crew_dev: "Fejlesztés és vészhelyzetek"
+ow_crew_mod: "Moderáció"
+ow_crew_community: "Közösség"
+ow_pr0game_contributors: "A pr0game kódjának közreműködői"
+ow_special_thanks: Külön köszönet
+ow_translator: Fordítók
+pass_reg: Jelszó
+pass2_reg: Jelszó megerősítése
+player: Játékos
+po_add_moon: Hold hozzáadása
+po_add_planet: Kolónia hozzáadása
+po_colony: Kolónia
+po_complete_all: Érvénytelen adatok, vagy már használatban vannak!
+po_complete_all2: Érvénytelen koordináták!
+po_complete_succes: A bolygó sikeresen létrehozva
+po_fields_max: Mezők
+po_galaxy: Galaxis
+po_name_planet: Bolygó neve
+po_planet: Bolygók
+po_system: Rendszer
+qe_authattack: Admin támadásvédelem
+qe_build: Épületek
+qe_change: Módosítás
+qe_coords: Koordináták
+qe_count: Elérhető
+qe_defensive: Védelem
+qe_edit_planet_sucess: A(z) %s [%d:%d:%d] bolygó szerkesztése sikerült!
+qe_edit_player_sucess: 'A(z) %s játékos (azonosító: %d) szerkesztése sikerült!'
+qe_fields: Mezők
+qe_fleet: Flotta
+qe_hpcoords: Anyabolygó koordinátái
+qe_id: Azonosító
+qe_info: Infó
+qe_level: Szint
+qe_owner: Tulajdonos
+qe_password: Jelszó
+qe_planetname: Bolygó
+qe_reset: Visszaállítás
+qe_resources: Nyersanyagok
+qe_send: Küldés
+qe_submit: Küldés
+qe_tech: Kutatás
+qe_temp: Hőmérséklet
+qe_username: Felhasználónév
+re_buildings_lu: Holdépületek visszaállítása
+re_buildings_pl: Épületek visszaállítása
+re_buldings: Épületek
+re_defenses: Védelem visszaállítása
+re_defenses_and_ships: Hajók és védelem
+re_general: Általános
+re_inve: Kutatás
+re_investigations: Kutatás visszaállítása
+re_player_and_planets: Játékosok és bolygók
+re_reset_all: Az egész univerzum visszaállítása
+re_reset_allys: Minden szövetség visszaállítása
+re_reset_banned: Kitiltások visszaállítása
+re_reset_buddies: Barátlisták visszaállítása
+re_reset_buldings: Építési sorok visszaállítása
+re_reset_errors: Hibalista visszaállítása
+re_reset_excess: A beállítások sikeresen visszaállítva!
+re_reset_fleets: Repülő flották visszaállítása
+re_reset_hangar: Hajógyári és védelmi sorok visszaállítása
+re_reset_invest: Kutatási sorok visszaállítása
+re_reset_messages: Minden üzenet visszaállítása
+re_reset_moons: Minden Hold visszaállítása
+re_reset_notes: Minden jegyzet visszaállítása
+re_reset_planets: Bolygók visszaállítása (kolóniák törlése)
+re_reset_player: Játékosok visszaállítása (mind törlése)
+re_reset_rw: Csatajelentések visszaállítása
+re_reset_statpoints: Statisztika visszaállítása
+re_reset_universe: Univerzum visszaállítása
+re_reset_universe_confirmation: >-
+  Ez nem vonható vissza. Az OK-ra kattintás előtt győződj meg róla, hogy van
+  adatbázis-mentésed.
+re_resources: Nyersanyagok
+re_resources_met_cry: Minden nyersanyag visszaállítása (fém/kristály/deutérium)
+re_ships: Flották visszaállítása
+researchs_title: Kutatás
+resources_title: Nyersanyagok
+rp_done: A bolygók sikeresen újrakeverve
+rp_explain: >-
+  A Küldés gombra kattintás után várj, amíg megjelenik a felugró ablak. Az
+  áthelyezés több másodpercig is eltarthat.
+rp_header: 'Bolygók újrakeverése'
+rp_planet_error: Játékosonként egynél több bolygó van!
+rp_rights_error: Nincs adminisztrátori jogosultság!
+rp_universe_error: Az univerzum nincs teljesen lezárva!
+sb_final_memory: 'Felhasznált memória a végén: %e KB / max. %m KB<br>'
+sb_sql_counts: 'SQL-lekérdezések: %d'
+sb_start_memory: 'Felhasznált memória az elején: %i KB / max. %m KB<br>'
+sb_stats_update: A statisztika frissítve %s másodperc alatt<br>
+sb_stats_updated: A statisztika frissítve.<br>Összegzés:<br>
+sb_top_memory: 'Csúcsmemória: %p KB / max. %m KB <br>'
+se__before: Előző
+se__next: Következő
+se_activity: Utolsó aktivitás
+se_adm_attack: Admin védelem
+se_adm_attack_info: Ha be van kapcsolva, az adminisztrátorok és moderátorok megtámadhatatlanná tehetik magukat.
+se_all_planet_pictures: Minden bolygókép
+se_all_planet_pictures_info: Minden bolygókép engedélyezése minden pozíción.
+se_alliance_create_min_points: Szövetség alapításához szükséges minimális pontszám
+se_allys: Szövetségek
+se_asc_desc: Növekvő / csökkenő
+se_attacks: Támadásbeállítások
+se_auth: Rang
+se_authlevels: Adminisztrátorok
+se_ban: Kitiltva?
+se_ban_author: Kitiltotta
+se_ban_limit: Eddig
+se_ban_reason: Indok
+se_ban_time: Kitiltva
+se_bash_per_planet: Bash-limit bolygónként
+se_bash_per_planet_info: >-
+  Hányszor támadhat meg egy játékos egy másik játékos bolygóját 24 óra alatt
+  (bolygónként számolva). 0 = ki
+se_bash_count_missiles: A bash-limitek a rakétatámadásokat is számolják
+se_bash_count_missiles_info: >-
+  A bolygóközi rakétatámadások a flottatámadásokhoz hasonlóan beleszámítanak a bash-limitekbe (játékosonként és bolygónként). Ki: a rakéták nem számítanak.
+se_bash_per_user: Bash-limit játékosonként
+se_bash_per_user_info: >-
+  Hányszor támadhat meg egy játékos egy másik játékost 24 óra alatt (az összes
+  bolygón együtt). 0 = ki
+se_update_check: "Frissítésellenőrzés"
+se_update_check_info: "Az admin vezérlőpult megnyitásakor (legfeljebb 6 óránként) megkérdezi a GitHubot (api.github.com) a legújabb kiadásról, és jelzi az új verziókat. Nem küld adatot a szerveredről. Kapcsold ki, ha nem akarsz kimenő kérést."
+se_cookie_consent: "Sütiértesítés"
+se_cookie_consent_info: "Értesítést mutat a sütikről a bejelentkezési felület, a fiókfelület és a játék alján, amíg a látogató nem választ („Mindet elfogadom” vagy „Csak a szükségesek”; a cookie_consent sütiben tárolva egy évig). A jogi szövegekért az üzemeltető felel."
+se_block_planet_creation: Tiltás
+se_board_enabled: Közösségi fórum engedélyezése
+se_board_enabled_info: "Ki: a fórum összes hivatkozása rejtve van, és a fórumoldalak nem érhetők el."
+se_building_speed: Építési sebesség
+se_buildings: Építési beállítások
+se_buildlist: Sorbeállítások
+se_cascading_moon_chance: Lépcsőzetes holdesély
+se_cascading_moon_chance_info: >-
+  Extra holdesély, amely a maximális esélynél minden sikertelen holdkísérlet
+  után hozzáadódik. Csak egy fiók első Holdjára érvényes. 0 = ki
+se_catch_up: Felzárkózási mechanika
+se_catch_up_info: >-
+  Exponenciálisan, akár 10-szeres tényezőig csökkenti az építési és kutatási
+  időket az első játékostól való pontkülönbség függvényében. A vezető
+  pontjainak kb. 90%-ától nincs bónusz. Kb. 54%-nál a tényező 2,5, 27%-nál 5,
+  11%-nál pedig 7,5. Ezt 1,0-tól 0,5-ig terjedő tartományra számítjuk át.
+se_catchup_percent: Maximális felzárkózási bónusz százalékban
+se_close_reason: A zárt szerver üzenete
+se_colonisation_config: Gyarmatosítási beállítások
+se_configuration_title: Szerverkonfiguráció
+se_confirm_planet: >-
+  A kiválasztott bolygó teljesen visszaáll. Folytatod? Bolygó neve:
+se_contrac: Összecsukás
+se_cookie_advert: >-
+  A sütinév módosítása mindenkit kijelentkeztet.<br>Használj másik nevet, ha
+  több univerzumot üzemeltetsz.
+se_cookie_name: Sütinév
+se_crystal_basic_income: Alap kristálytermelés
+se_crystal_start: Kezdő kristály
+se_crystal_start_info: Az új játékosok anyabolygójára kerülő kristály.
+se_days: Nap
+se_debris_moon: Törmelék törlése Hold után
+se_debris_moon_info: Eltávolítja a törmelékmezőt, miután létrejött egy Hold.
+se_debug: Hibakereső mód
+se_debug_info: >-
+  Naplózza az SQL-lekérdezéseket, és az adminisztrátoroknak állapotsávot mutat
+  a lekérdezések számával és a futási idővel.
+se_def_debris_percentage: Védelem törmelékbe
+se_def_debris_percentage_info: A megsemmisült védelmi rendszerek hány százaléka lesz törmelék egy támadás után.
+se_del_oldstuff: Üzenetek törlése ennyi után
+se_del_oldstuff_info: Üzenetek és csatajelentések törlése X nap után.
+se_del_user_automatic: Inaktív játékosok törlése ennyi után
+se_del_user_automatic_info: Törli azokat a játékosokat, akik X napja nem jelentkeztek be. (0 = kikapcsolva)
+se_del_user_manually: Kért fiókok törlése ennyi után
+se_del_user_manually_info: Törli azokat a játékosokat, akik fióktörlést kértek, X nap után.
+se_del_user_sendmail: Emlékeztető küldése ennyi után
+se_del_user_sendmail_info: Emlékeztető e-mailt küld X nap bejelentkezés nélkül után.
+se_delete_succes_p: Sikeresen törölve
+se_delete_not_found: 'Nem törlődött semmi: a játékos vagy bolygó nem létezik, vagy nem törölhető.'
+se_deuterium_basic_income: Alap deutériumtermelés
+se_deuterium_cost_galaxy: Galaxis deutériumköltsége
+se_deuterium_cost_galaxy_info: 'Deutériumköltség galaxiskattintásonként (alapérték: 10)'
+se_deuterium_start: Kezdő deutérium
+se_deuterium_start_info: Az új játékosok anyabolygójára kerülő deutérium.
+se_disclaimer: Jogi nyilatkozat beállításai
+se_disclamer_address: Cím
+se_disclamer_mail: E-mail-cím
+se_disclamer_notice: További információ
+se_disclamer_phone: Telefonszám
+se_discord_exceptions_hook: Kivételek és figyelmeztetések
+se_discord_hooks: Discord webhookok
+se_discord_logs_hook: Naplók
+se_discord_tickets_hook: Jegyek
+se_dst: Nyári időszámítás?
+se_dst_sel:
+  - 'Nem'
+  - 'Igen'
+  - Automatikus
+se_email: E-mail
+se_end: Befejezés dátuma
+se_end_time: Befejezés ideje
+se_energy_basic_income: Alap energiatermelés
+se_energy_multiplier: Energiatényező
+se_expand: Kibontás
+se_expedition_parameters: Expedíciós beállítások
+se_expo_hold_multiplier: Expedíció sebessége
+se_expo_hold_multiplier_info: 'Normál sebesség: 1'
+se_expo_ress_crys_chance: Kristály esélye az expedíciókból
+se_expo_ress_deut_chance: Deutérium esélye az expedíciókból
+se_expo_ress_met_chance: Fém esélye az expedíciókból
+se_factor_university: Egyetemi tényező
+se_factor_university_info: Hány százalékkal csökkenti az Egyetem minden szintje a kutatási időt
+se_fields: Mezők
+se_filter_title: Szűrő
+se_fleet_debris_percentage: Flotta törmelékbe
+se_fleet_speed: Flottasebesség
+se_fleet_speed_info: 'Normál sebesség: 1'
+se_forum_url: Fórum linkje
+se_galaxy: Galaxis
+se_galaxy_distance_factor: Galaxistávolság-tényező
+se_galaxy_distance_factor_info: 'Alapérték: 20000, számítás: galaxiskülönbség × galaxistávolság-tényező'
+se_galaxy_parameters: Galaxisbeállítások
+se_galaxy_type: Galaxistípus
+se_galaxy_type_info: >-
+  <TABLE><tr><td>Lineáris galaxisok</td><td>Az 1. rendszertől való távolság a
+  galaxis minden rendszerével nő.</td></tr><tr><td>Gyűrű alakú galaxisok</td><td>A
+  galaxis utolsó és első rendszere össze van kötve, így a távoli rendszerektől az
+  elsőig a távolság csökken.</td></tr><tr><td>Gömb alakú galaxisok</td><td>Ugyanabban
+  a galaxisban minden rendszer egyformán távol van a többitől.</td></tr></TABLE>
+se_default_theme: Alapértelmezett téma
+se_default_theme_info: Az új fiókok és a látogatók témája
+se_legal: Jogi és közösségi
+se_privacy_region: Hosztolási régió (adatvédelmi nyilatkozat)
+se_privacy_region_info: "Kiválasztja az alapértelmezett adatvédelmi nyilatkozatot: GDPR-változat (EU/EGT) vagy általános változat. A már szerkesztett oldalak változatlanok maradnak; a jogi szövegekért az üzemeltető felel."
+se_privacy_region_sel:
+  eu: EU / EGT - GDPR szerinti adatvédelmi nyilatkozat
+  other: EU-n kívül - általános adatvédelmi nyilatkozat
+se_rules_default: Alapértelmezett szabályok használata
+se_rules_default_info: "Ki: a szabályok oldala üres marad, amíg az Oldalak alatt meg nem írod a saját szabályaidat. A már szerkesztett szabályok megmaradnak."
+se_source_url: Forráskód URL-je
+se_source_url_info: 'Az ezen a szerveren futó kód nyilvános tárolója, a láblécekben „Forráskód” néven linkelve (az AGPL megköveteli, hogy felajánld a módosításaidat a játékosoknak). Üresen hagyva elrejti a linket.'
+se_game_name: Játék neve
+se_git_issues_link: Link a hibakövetőhöz
+se_git_issues_link_info: Az oldal, ahol hibák és problémák jelenthetők
+se_id_owner: Tulajdonos azonosítója
+se_inactives: Inaktív
+se_initial_fields: 'Kezdő mezők:'
+se_initial_temp: 'Kezdő hőmérséklet:'
+se_input_a: A
+se_input_act_pla: ' aktív bolygó'
+se_input_activity: Aktivitás
+se_input_admm: ' adminisztrátor'
+se_input_allyy: ' szövetség'
+se_input_asc: Növekvő
+se_input_authlevel: Rang
+se_input_connect: ' játékos online'
+se_input_d: D
+se_input_desc: Csökkenő
+se_input_email: E-mail
+se_input_g: Galaxis
+se_input_have_moon: Hold?
+se_input_hay: 'Jelenleg '
+se_input_inact: ' inaktív játékos'
+se_input_inacti: Inaktivitás
+se_input_ip: IP
+se_input_longer: Időtartam
+se_input_members: Tagok
+se_input_members2: Tagok
+se_input_moonn: ' Hold'
+se_input_name: Név
+se_input_p: Bolygó
+se_input_planett: ' bolygó'
+se_input_prop: Tulajdonos
+se_input_register: Regisztráció
+se_input_s: Rendszer
+se_input_submit: Keresés
+se_input_susss: ' kitiltott'
+se_input_time: Idő
+se_input_userss: ' játékos'
+se_input_vacatii: ' nyaraló játékos'
+se_intro: Szó vagy kulcsszó
+se_iter_planet_creation: Iteratív (alapértelmezett)
+se_jumpgate_factor: Ugrókapu újratöltése
+se_jumpgate_factor_info: Az a tényező, amellyel az ugrókapu újratöltési idejét osztjuk (alapérték 1)
+se_lang: Nyelv
+se_limit: Korlát
+se_line_galaxy: Lineáris galaxisok (alapértelmezett)
+se_line_uni: Lineáris univerzum (alapértelmezett)
+se_mail_active: E-mail engedélyezése
+se_mail_sel:
+  - PHP mail()
+  - Sendmail / Qmail
+  - SMTP Auth
+se_mail_use: 'Levélküldési módszer:'
+se_max_additional_planets: Max. extra bolygó az asztrofizikából
+se_max_additional_planets_info: Az asztrofizikával gyarmatosítható további bolygók száma
+se_max_elements_build: Max. építési sor
+se_max_elements_build_info: Az építési sorban lévő épületek maximális száma
+se_max_elements_ships: Max. hajógyári sor
+se_max_elements_ships_info: A hajógyári sorban lévő megbízások maximális száma
+se_max_elements_tech: Max. kutatási sor
+se_max_elements_tech_info: A kutatási sorban lévő tételek maximális száma
+se_max_fleet_per_build: Max. egység megbízásonként
+se_max_fleet_per_build_info: Maximális egységszám hajógyári megbízásonként
+se_max_fleets_per_acs: Max. flotta ACS-enként
+se_max_fleets_per_acs_info: Maximális flottaszám egy ACS-ben (alapérték 16)
+se_max_galaxy: Max. galaxis
+se_max_galaxy_info: A galaxisok maximális száma az univerzumban
+se_max_initial_planets: Max. bolygó kutatás nélkül
+se_max_initial_planets_info: Az elejétől, asztrofizika nélkül gyarmatosítható bolygók száma
+se_max_overflow: Raktártúlcsordulás
+se_max_overflow_info: Tényező arra, mennyi nyersanyag termelődhet még tele raktár mellett
+se_max_participants_per_acs: Max. résztvevő ACS-enként
+se_max_participants_per_acs_info: Maximális résztvevőszám egy ACS-ben (alapérték 5)
+se_max_planets: Max. bolygó
+se_max_planets_info: 'Maximális bolygószám rendszerenként (alapérték: 15)'
+se_max_player_planets: Max. bolygó játékosonként
+se_max_player_planets_info: Maximális kolóniaszám kutatás nélkül
+se_max_system: Max. rendszer
+se_max_system_info: Maximális rendszerszám galaxisonként
+se_message_delete_days: Törölt üzenetek végleges eltávolítása X nap után
+se_messages: Üzenetek
+se_metal_basic_income: Alap fémtermelés
+se_metal_start: Kezdő fém
+se_metal_start_info: Az új játékosok anyabolygójára kerülő fém.
+se_min_build_time: Minimális építési idő
+se_min_build_time_info: >-
+  Az épületek, kutatások, hajók és védelmi rendszerek minimális építési ideje
+  másodpercben. Alapérték: 1.<br>A 0 kikapcsolja a minimumot.<br>Ennek
+  kikapcsolása hibákat okozhat.
+se_missile_range_factor: Rakéták hatótáv-tényezője
+se_moon_chance: Max. holdesély
+se_moon_chance_info: A Hold keletkezésének maximális esélye
+se_moon_factor: Holdesély-tényező
+se_moon_factor_info: A Hold keletkezési esélyének szorzója
+se_moon_size_factor: Holdméret-tényező
+se_moon_size_factor_info: A Hold méretének szorzója, 1 = alapérték
+se_moons: Holdak
+se_name: Név
+se_news: Hírbeállítások
+se_no_data: Nincs adat
+se_noob_inactives: Újoncvédelmi tényező alkalmazása az inaktív játékosokra
+se_noob_protection: Újoncvédelem
+se_noob_protection_multi: Újoncvédelmi tényező
+se_noob_protection_multi_info: >-
+  Csak olyan játékosokat támadhatsz, akiknek a pontszáma a te pontjaid × ez a
+  tényező határán belül van. Példa 18-cal: ha 1000 pontod van, megtámadhatod a
+  18 000 pontnál kevesebbel rendelkező játékosokat. Egy 20 000 pontos játékos
+  bárkit megtámadhat 360 000 pontig, így egy 50 000 pontos játékos is a
+  hatókörébe esik.
+se_noob_protection_outlaw: Törvényenkívüli-rendszer
+se_noob_protection_outlaw_info: >-
+  Lehetővé teszi, hogy a gyengébb játékosok erősebbeket támadjanak. A támadó 7
+  napra törvényen kívülivé válik, és elveszíti az újoncvédelmet.
+se_noob_protection_time: Újoncvédelem X pontig
+se_noob_protection_time_info: Az ezen a pontszámon vagy alatta lévő játékosok újoncvédelem alatt maradnak.
+se_normal_speed: 'Normál sebesség: 1'
+se_order_list_now: Keresés
+se_overview_news_frame: Hírek engedélyezése
+se_overview_news_frame_info: Ha ki van kapcsolva, az Áttekintésen elrejtjük a híreket.
+se_overview_news_text: Hírek
+se_overview_news_text_info: Legfeljebb 255 karakter. A HTML engedélyezett.
+se_pagees: Oldalak
+se_per_hour: óránként
+se_phalanx_range_factor: Falanx hatótáv-tényezője
+se_piratebase: Kalózbázisok
+se_piratebase_fleet_percentage_max: 'Flotta: a játékos flottájának maximális százaléka'
+se_piratebase_fleet_percentage_min: 'Flotta: a játékos flottájának minimális százaléka'
+se_piratebase_mainplanet_only: 'Nyersanyagok: csak az anyabolygó'
+se_piratebase_min_points: Minimális pontszám
+se_piratebase_min_points_info: A minimális pontszám, amelyre a játékosnak szüksége van, mielőtt kalózbázis jelenhet meg
+se_piratebase_ress_hours: 'Nyersanyagok: termelési órák'
+se_planet: Bolygó
+se_planet_creation: Anyabolygó elhelyezése
+se_planet_creation_info: >-
+  Az új anyabolygók elhelyezhetők iteratívan a rendszereken és galaxisokon át,
+  véletlenszerűen, blokkokban, vagy 50% véletlenszerűen és 50% blokkban.<br>A
+  véletlenszerű elhelyezés egyenletesen, véletlen pozíciókon tölti fel a
+  galaxisokat és rendszereket.<br>A blokkos elhelyezés olyan rendszert választ,
+  amelyben már van egy vagy két bolygó. Ha nincs ilyen rendszer, vagy 50-nél
+  kevesebb a játékos, az elhelyezés véletlenszerű.
+se_planet_distance: Min. bolygótávolság
+se_planet_distance_factor: Bolygótávolság-tényező
+se_planet_distance_factor_info: >-
+  Alapérték: '5, számítás: bolygókülönbség × bolygótávolság-tényező + min.'
+  bolygótávolság
+se_planet_distance_info: >-
+  Alapérték: '1000, számítás: bolygókülönbség × bolygótávolság-tényező + min.'
+  bolygótávolság
+se_planet_parameters: Bolygóbeállítások
+se_planet_ressource_bonus: Pozícióalapú nyersanyagbónusz
+se_planet_ressource_bonus_info: A pozíciójától függően x%-kal növeli a nyersanyagtermelést a bolygón.
+se_planet_size_factor: Bolygóméret-tényező
+se_planet_size_factor_info: A bolygó méretének szorzója, 1 = alapérték
+se_planets: Bolygók
+se_planets_act: Aktív bolygók
+se_planets_per_tech: Extra bolygók asztrofizika-szintenként
+se_planets_per_tech_info: Asztrofizika-szintenként feloldott extra kolóniák
+se_prepare_text: Szerver-előkészítési szöveg
+se_random_planet_creation: Véletlen
+se_rank:
+  - Játékos
+  - Moderátor
+  - Üzemeltető
+  - Adminisztrátor
+se_pow_adaptive: Botvédelem - adaptív nehézség
+se_pow_adaptive_info: >-
+  Be: a gyanús IP-címek és hálózatok (/24 vagy /64) sokkal nehezebb feladványt
+  kapnak (sok kérés, hiba vagy regisztráció rövid időn belül). Ki: minden
+  látogató az alapfeladványt kapja, és nem olvasunk számlálókat.
+se_pow_elevated_factor: Botvédelem - tényező emelkedett kockázatnál
+se_pow_elevated_factor_info: A feladvány ennyiszer nehezebb lesz (alapérték 20).
+se_pow_high_factor: Botvédelem - tényező magas kockázatnál
+se_pow_high_factor_info: A feladvány ennyiszer nehezebb lesz (alapérték 100).
+se_pow_max_cap: Botvédelem - nehézségi plafon
+se_pow_max_cap_info: >-
+  A tényezők alkalmazása utáni legmagasabb szám. Az 1500000 egy lassú
+  okostelefonon nagyjából 25 másodpercig tart.
+se_pow_sensitivity: Botvédelem - kockázatészlelés érzékenysége
+se_pow_sensitivity_info: >-
+  Az alapküszöbök százaléka (emelkedett: IP-nként 10 percen belül 5 kéréstől,
+  óránként 3 hibától vagy 24 órán belül 2 regisztrációtól; magas: 20 / 10 / 5-től;
+  hálózatoknál háromszor annyi). 200 = kétszer annyi esemény kell, 50 = fele annyi.
+se_pow_max_number: Botvédelem - nehézség (maximális szám)
+se_pow_max_number_info: >-
+  A böngésző eddig a számig próbál hasheket, átlagosan a felét. A 25000 jóval
+  egy másodperc alatt van. Minél magasabb, annál több munka a botoknak.
+se_pow_min_seconds: Botvédelem - minimális idő a beküldés előtt (másodperc)
+se_pow_min_seconds_info: >-
+  Az ennél gyorsabban, betöltés után beküldött űrlapokat elutasítjuk. A 0
+  kikapcsolja az ellenőrzést.
+se_proofofwork: Botvédelem
+se_proofofwork_info: >-
+  A regisztrációt és az elfelejtett jelszót egy apró számítás védi, amelyet a
+  böngésző magától megold, harmadik fél nélkül.
+se_rebuild_protection: Újjáépítési védelem
+se_rebuild_protection_info: >-
+  Nagy veszteségek után a játékosok 6 óra múlva újjáépítési védelmet kapnak a
+  további támadások ellen, amely a támadástól számított 48 óráig tart. Egyetlen
+  támadásban a flotta 70%-ának vagy a szállítókapacitás 80%-ának meg kell
+  semmisülnie, és ennek a veszteségnek legalább az újoncvédelmi pontok × 1000
+  egységnek vagy kapacitásnak kell lennie. A játékos korán befejezheti a módot.
+se_redis_connection_url: Redis-kapcsolat URL-je
+se_redis_connection_url_info: redis[s]://[[username][:password]@][host][:port][/db-number]
+se_ref: Ajánlói link
+se_ref_active: Ajánlói linkek engedélyezése
+se_ref_active_info: Az ajánlói linkekkel a játékosok barátokat hívhatnak meg. A toborzott játékosok bónuszt adnak.
+se_ref_bonus: Ajánlói bónusz
+se_ref_bonus_info: A toborzó játékos által toborzott játékosonként kapott Sötét anyag.
+se_ref_max_referals: Maximális ajánlások
+se_ref_max_referals_info: Egy felhasználó által toborozható játékosok maximális száma.
+se_ref_minpoints: Minimális pontszám a bónuszhoz
+se_ref_minpoints_info: >-
+  A toborzott játékosnak el kell érnie ezt a pontszámot, mielőtt a toborzó
+  megkapja a bónuszt.
+se_research_speed: Kutatási sebesség
+se_resource_multiplier: Nyersanyagtermelési sebesség
+se_resource_multiplier_info: 'Normál sebesség: 1'
+se_ress_chance: Nyersanyag-esélyek
+se_ring_galaxy: Gyűrű alakú galaxisok
+se_ring_uni: Gyűrű alakú univerzum
+se_save_parameters: Mentés
+se_se_fleet_debris_percentage_info: A megsemmisült flották hány százaléka lesz törmelék egy támadás után
+se_search: Keresés
+se_search_alliance_0: Azonosító
+se_search_alliance_1: Név
+se_search_alliance_2: CÍMKE
+se_search_alliance_3: Vezető
+se_search_alliance_4: Alapítva
+se_search_alliance_5: Tagok
+se_search_banned_0: Azonosító
+se_search_banned_1: Név
+se_search_banned_2: Kitiltva ettől
+se_search_banned_3: Kitiltva eddig
+se_search_banned_4: Indok
+se_search_banned_5: Kitiltó
+se_search_edit: Szerkesztés
+se_search_in: Erre
+se_search_info: Keresés
+se_search_order: Rendezés
+se_search_planets_0: Azonosító
+se_search_planets_1: Név
+se_search_planets_2: Tulajdonos
+se_search_planets_3: Utolsó aktivitás
+se_search_planets_4: Galaxis
+se_search_planets_5: Rendszer
+se_search_planets_6: Bolygó
+se_search_planets_7: Van Holdja?
+se_search_title: Összetett keresés
+se_search_users_0: Azonosító
+se_search_users_1: Név
+se_search_users_2: E-mail
+se_search_users_3: Utolsó aktivitás
+se_search_users_4: Regisztráció dátuma
+se_search_users_5: Utolsó IP
+se_search_users_6: Rang
+se_search_users_7: Kitiltva?
+se_search_users_8: Nyaralás?
+se_sendmail_inactive: Emlékeztető e-mailek engedélyezése
+se_server_naame: Játék neve
+se_server_parameters: Univerzumbeállítások
+se_session_handler: Munkamenet-kezelő
+se_several_parameters: Egyéb beállítások
+se_shipyard_speed: Hajógyár sebessége
+se_silo_factor: Rakétasilo mérete
+se_silo_factor_info: A rakétasilo méretének szorzója
+se_smail_path: A Sendmail / Qmail elérési útja
+se_smtp: SMTP-beállítások
+se_smtp_host: 'SMTP-hoszt:'
+se_smtp_host_info: Az SMTP-kiszolgálód címe.
+se_smtp_info: A {game_name} szerverről a játékosoknak küldött levelekhez használt SMTP-beállítások.
+se_smtp_pass: 'SMTP-jelszó:'
+se_smtp_port: 'SMTP-port:'
+se_smtp_port_info: Az SMTP-kiszolgáló portja. Általában 25.
+se_smtp_sendmail: 'SMTP-feladó:'
+se_smtp_sendmail_info: Feladó címe. Nem kell egyeznie a bejelentkezési címmel.
+se_smtp_ssl: 'SMTP SSL/TLS:'
+se_smtp_ssl_info: Az e szerver és a levelezőszerver közötti titkosítás. Ritkán szükséges.
+se_smtp_ssl_sel:
+  - Nincs
+  - SSL
+  - TLS
+se_smtp_user: 'SMTP-felhasználónév:'
+se_sphere_galaxy: Gömb alakú galaxisok
+se_sphere_uni: Gömb alakú univerzum
+se_start: Kezdés dátuma
+se_start_time: Kezdés ideje
+se_stat: 0 pont hozzárendelése az adminisztrátorokhoz
+se_stat_level: Ettől a rangtól
+se_stat_sel:
+  - 'Nem'
+  - 'Igen'
+  - Adminok elrejtése
+se_stat_settings: 1 statisztikai pont értéke
+se_statistics: Statisztika
+se_statsjson_delay: stats.json késleltetése
+se_storage_multiplier: Nyersanyag-tárolókapacitás szorzója
+se_suspended: Kitiltva
+se_system: Rendszer
+se_system_distance: Min. rendszertávolság
+se_system_distance_factor: Rendszertávolság-tényező
+se_system_distance_factor_info: >-
+  Alapérték: '95, számítás: rendszerkülönbség × rendszertávolság-tényező + min.'
+  rendszertávolság
+se_system_distance_info: >-
+  Alapérték: '2700, számítás: rendszerkülönbség × rendszertávolság-tényező + min.'
+  rendszertávolság
+se_tag: CÍMKE
+se_temp: Fok
+se_time_of_page: Oldal létrehozva
+se_timezone: Az univerzum időzónája
+se_trade_allowed_ships: 'Engedélyezett hajók:'
+se_trade_charge: 'Kereskedői díj:'
+se_trader: Ócskavas-kereskedő beállításai
+se_ttf_file: Betűtípus (TTF/OTF)
+se_ttf_file_info: >-
+  A public/styles/resource/fonts/ mappában található betűtípusfájlok (új
+  fájlokat oda tegyél). Ha a választott fájl hiányzik, a mellékelt
+  DroidSansMono kerül használatra.
+se_type_all: Normál keresés
+se_type_exact: Pontos keresés
+se_type_first: Ezzel kezdődik
+se_type_last: Ezzel végződik
+se_type_typee: Típus
+se_uni_name: Univerzum neve
+se_uni_status: Univerzum állapota
+se_uni_status_regclosed_gameclosed: Regisztráció és bejelentkezés zárva (pl. karbantartás)
+se_uni_status_regclosed_gameopen: Regisztráció zárva, bejelentkezés nyitva (pl. régi univerzumok)
+se_uni_status_regopen_gameclosed: Regisztráció nyitva, bejelentkezés zárva (pl. új univerzumok)
+se_uni_status_regopen_gameopen: Regisztráció és bejelentkezés nyitva
+se_uni_type: Univerzumtípus
+se_uni_type_info: >-
+  <TABLE><tr><td>Lineáris univerzum</td><td>Az 1. galaxistól való távolság
+  minden galaxissal nő.</td></tr><tr><td>Gyűrű alakú univerzum</td><td>Az
+  utolsó és az első galaxis össze van kötve, így a távoli galaxisoktól az
+  elsőig a távolság csökken.</td></tr><tr><td>Gömb alakú univerzum</td><td>Minden
+  galaxis egyformán távol van a többitől.</td></tr></TABLE>
+se_user_settings: Játékosbeállítások
+se_user_valid: E-mailes érvényesítés
+se_user_valid_info: >-
+  Ha be van kapcsolva, a játékosoknak e-mailben kell aktiválniuk a fiókjukat.
+  Az SMTP-t lent be kell állítani.
+se_users: Játékosok
+se_vacat: Nyaralás?
+se_vacations: Nyaralás
+se_vmode_min_time: Minimális nyaralási idő
+se_vmode_min_time_info: Az az idő, amennyit egy játékosnak legalább nyaralás módban kell maradnia, másodpercben
+se_wreckfield_cooldown: Roncsmező várakozási ideje
+se_wreckfield_min_percent: A flotta egységeinek minimális megsemmisült százaléka a roncsmezőhöz
+se_wreckfield_min_units: Minimális megsemmisült egységszám a roncsmezőhöz
+select_option: Válassz...
+ships_title: Hajók
+sp_answer_message: 'Válasz érkezett a(z) #%d jegyedre!'
+sp_answer_message_title: 'Támogatási jegy #%d'
+status: Állapot
+subject: Tárgy
+test_data_amount: Tesztfelhasználók száma
+test_data_stage:
+  - Kezdet (Kémszonda)
+  - Játék közepe (Csatahajó, 1 Hold)
+  - Késői játék (Csatacirkáló, Falanx)
+  - Végjáték (Halálcsillag, Ugrókapu)
+test_data_stage_label: Szakasz
+test_data_success: A tesztadatok sikeresen létrehozva
+test_data_title: Tesztfelhasználói adatok létrehozása
+text: Részletek
+time_days: Nap
+time_hours: Óra
+time_minutes: Perc
+time_seconds: Másodperc
+ul_sure_you_want_dlte: Biztosan el akarod távolítani ezt?
+uni_reg: Univerzum
+user_reg: Név
+uvs_actions: Műveletek
+uvs_back: Vissza
+uvs_delete: Törlés
+uvs_id: Univerzum azonosítója
+uvs_inactive: Inaktív
+uvs_name: Név
+uvs_new: Univerzum hozzáadása
+uvs_off: Zárva
+uvs_on: Nyitva
+uvs_open: Állapot
+uvs_planets: Bolygók
+uvs_players: Játékosok
+uvs_reload: Újratöltés
+uvs_speeds: Sebességtényezők (J/F/N/E)
+uvs_speeds_full: Sebességtényezők (Játék/Flotta/Nyersanyag/Expedíció)
+vt_all: Minden fájl
+vt_head: Játékfájlok ellenőrzése
+vt_info: >-
+  Ez a lista az eredetitől eltérő fájlokat mutatja.<br>Ha nem te módosítottad a
+  játékot, cseréld ki ezeket a fájlokat az eredetiekre.
+adm_comments: Megjegyzések
+adm_analytics: Analitika
+ad_system: Rendszer
+adm_menu_filter: Menü szűrése …
+adm_menu_empty: Nem található menüpont
+adm_menu_toggle: Menü
+adm_back_to_game: Vissza a játékhoz
+adm_drop_rights: Kijelentkezés
+adm_universe_switch: Univerzum
+adm_dash_attention: Figyelmet igényel
+adm_dash_all_good: Minden rendben – nincs figyelmeztetés.
+adm_dash_online: Online játékosok (15 perc)
+adm_dash_players: Összes játékos
+adm_dash_tickets: Nyitott jegyek
+adm_dash_fleets: Repülő flották
+adm_dash_quick: Gyors elérés
+adm_dash_system: Rendszer
+adm_update_available: "Frissítés érhető el"
+adm_update_released: "megjelent"
+adm_update_you_run: "te ezt futtatod:"
+adm_update_notes: "Kiadási jegyzetek"
+adm_update_howto: "Hogyan frissíts"
+adm_update_check_now: "Ellenőrzés most"
+adm_update_check: "Frissítésellenőrzés"
+adm_update_up_to_date: "Naprakész"
+adm_dash_version: Verzió
+adm_dash_php: PHP
+adm_dash_uni_status: Univerzum állapota
+adm_dash_credits: Köszönetnyilvánítás
+adm_dash_project: A projekt honlapja
+adm_confirm: Biztos vagy benne?
+adm_dash_cron_locked: 'Cron-feladat zárolva (már nem fut): %s'
+adm_dash_cron_never: "A cron-feladat még soha nem futott. A flották, statisztikák és más háttérfeladatok rá várnak."
+adm_dash_cron_stale: "A cron-feladat utoljára ekkor futott: %s (percenként kellene futnia). A flották, statisztikák és más háttérfeladatok rá várnak."
+adm_dash_cron_help: "Hogyan állítsd be a cron-feladatot"
+adm_dash_next_cron: Következő cron-feladat
+adm_dash_cron_count: aktív cron-feladat
+adm_unsaved_hint: A módosítások mentés után lépnek életbe.
+adm_sections: Szakaszok
+adm_skip: Ugrás a tartalomra
+adm_filter_page: Az oldal szűrése …
+adm_actions: Műveletek
+adm_ac_no_destroyed: Nemrég nem pusztult el bolygó.
+adm_ae_addremove_hint: Az értékek hozzáadódnak a jelenlegi mennyiséghez (Hozzáadás), vagy levonódnak belőle (Törlés). A 0 érték változatlanul hagyja a bejegyzést.
+adm_ae_confirm_remove: Tényleg levonod a megadott értékeket a jelenlegi mennyiségből?
+adm_ae_danger_zone: Veszélyzóna
+adm_ae_group_planet: Bolygó / Hold
+adm_ae_group_player: Játékos
+adm_ae_menu_hint: 'Válaszd ki, mit szerkesztesz. A játékosokat játékosazonosító, a bolygókat bolygó- vagy Hold-azonosító alapján választod ki.'
+adm_ae_wipe: Bolygó visszaállítása
+adm_ae_wipe_hint: 'A bejelölt területek törlődnek a bolygóról. Ez nem vonható vissza.'
+adm_as_confirm: Tényleg kicseréled a két kiválasztott játékos fiókját?
+adm_as_explain: 'A két kiválasztott játékos kicseréli a fiókját (bejelentkezési adatokat). A játékállapot és a bolygók az adott játékosnál maradnak, csak a bejelentkezési adatok cserélnek gazdát. Válaszd ki a bal oldalon az A játékost, a jobb oldalon a B játékost.'
+adm_ban_accounts: Fiókok
+adm_ban_duration: Időtartam
+adm_ban_users: Játékosok
+adm_continue: Tovább
+adm_coord_position: Pozíció
+adm_cron_active: Aktív
+adm_cron_click_disable: Kattints a kikapcsoláshoz
+adm_cron_click_enable: Kattints a bekapcsoláshoz
+adm_cron_click_lock: Kattints a zároláshoz
+adm_cron_click_unlock: Kattints a feloldáshoz (elakadt futás)
+adm_cron_free: Szabad
+adm_cron_hint: Kattints egy állapotjelvényre a váltáshoz
+adm_cron_inactive: Inaktív
+adm_cron_locked: Zárolt
+adm_cron_state: Állapot
+adm_giveaway_confirm: Az összegek jóváíródnak az univerzum minden megfelelő bolygóján. Folytatod?
+adm_giveaway_hint: Az összegek hozzáadódnak minden megfelelő bolygó jelenlegi készletéhez. A 0-n hagyott mezők változatlanok maradnak.
+adm_reset_warning: 'Minden, ami lent be van jelölve, véglegesen törlődik vagy visszaáll ebben az univerzumban. Nincs mentés és nincs visszavonás.'
+adm_rights_edit: Jogosultságok szerkesztése
+adm_rights_other: Egyéb
+adm_rights_page: Oldal
+adm_rights_pick: Válaszd ki azt a játékost, akinek a jogosultságait szerkeszteni szeretnéd.
+adm_uni_close: Univerzum lezárása
+adm_uni_open: Univerzum megnyitása
+adm_edit: Szerkesztés
+adm_ma_recipients: Címzettek
+adm_ml_from: ettől
+adm_ml_to: eddig
+ac_detailed_planet_moon_info: Bolygó- és Hold-részletek
+ad_max: (max. %d)
+adm_password_info: Add meg a jelszavad a személyazonosságod igazolásához!
+button_des_se: összes kijelölése/kijelölés törlése
+er_dlte_all: Összes törlése
+input_id_moon: Hold azonosítója
+input_text: 'Leírás:'
+mip_ip: IP
+adm_cfg_crystal_pct: Kristály %
+adm_cfg_deuterium_pct: Deutérium %
+adm_cfg_fields_max: Mezők max.
+adm_cfg_fields_min: Mezők min.
+adm_cfg_metal_pct: Fém %
+adm_cfg_planet_props: Bolygótulajdonságok pozíciónként
+adm_cfg_planet_props_hint: Hőmérséklet °C-ban, mezők, termelési bónusz %-ban
+adm_cfg_temp_max: Hőm. max.
+adm_cfg_temp_min: Hőm. min.
+adm_comment_col: Megjegyzés
+adm_date_dd: nn
+adm_date_format: (nn.hh.éééé)
+adm_date_mm: hh
+adm_date_yyyy: éééé
+adm_exp_deck_err_card: 'Érvénytelen kártyaformátum: hiányzik a type, size vagy count'
+adm_exp_deck_err_count: 'Érvénytelen kártyaszám: nem lehet negatív'
+adm_exp_deck_err_empty: A paklinak legalább egy kártyát tartalmaznia kell
+adm_exp_deck_err_format: 'Érvénytelen paklformátum: tömbnek kell lennie'
+adm_exp_deck_err_json: Érvénytelen JSON-formátum
+adm_exp_ships_saved: A hajókonfiguráció sikeresen elmentve!
+adm_flight_distance: Távolság
+adm_flight_err_dist_missing: Tölts ki minden távolságértéket teljesen.
+adm_flight_err_format: Add meg a galaxis:rendszer:bolygó formátumban.
+adm_flight_err_galaxy_over: 'A galaxis meghaladja a max_galaxy értéket.'
+adm_flight_err_max_missing: Töltsd ki teljesen a max_galaxy, max_system és max_planets mezőt.
+adm_flight_err_min_one: A galaxisnak, a rendszernek és a bolygónak legalább 1-nek kell lennie.
+adm_flight_err_planet_over: 'A bolygó meghaladja a max_planets értéket.'
+adm_flight_err_system_over: 'A rendszer meghaladja a max_system értéket.'
+adm_flight_fleet_speed: Flottasebesség
+adm_flight_preview: Repülési idő előnézete
+adm_flight_preview_help: Repülési idő az 1:1:1-ről a célpontra 45 000-es hajósebességgel és 1-es flottasebességgel; az univerzumtípust, a galaxistípust, a maximális értékeket, a távolságtényezőket és a minimális távolságokat élőben alkalmazzuk.
+adm_flight_ship_speed: Hajósebesség
+adm_flight_time: Repülési idő
+adm_info_col: Infó
+adm_info_db_version: Adatbázis-verzió
+adm_info_errorlog: Hibanapló
+adm_info_game: Játék
+adm_info_game_address: Játék címe
+adm_info_game_version: Játékverzió
+adm_info_memory_limit: Memóriakorlát
+adm_info_mysql_client: MySQL-kliens
+adm_info_mysql_server: MySQL-szerver
+adm_info_php_version: PHP-verzió
+adm_info_server: Szerver
+adm_info_server_info: Szerverinfó
+adm_info_text: Szövegként
+adm_info_timezone: Időzóna (PHP/konfiguráció/felhasználó)
+adm_loading: Betöltés …
+adm_log_not_found: Nem található a naplóban
+adm_mip_activity: Aktivitás
+adm_mip_show_allowed: Jóváhagyottak mutatása
+adm_mip_show_banned: Kitiltottak mutatása
+adm_ml_end_day: Befejezés napja
+adm_ml_end_month: Befejezés hónapja
+adm_ml_end_year: Befejezés éve
+adm_ml_start_day: Kezdés napja
+adm_ml_start_month: Kezdés hónapja
+adm_ml_start_year: Kezdés éve
+adm_pagination: Lapozás
+adm_permission_error: 'Hozzáférés megtagadva!'
+adm_ti_all: Mind
+adm_ti_debug_errors: Hibakeresés/hibák
+adm_ti_user_tickets: Felhasználói jegyek
+adm_group_community: Közösség
+adm_nav_accounts: Fiókok
+adm_nav_expeditions: Expedíciók
+adm_nav_messages: Üzenetek
+adm_nav_moderation: Moderáció
+adm_nav_players: Játékosok
+adm_nav_settings: Beállítások
+adm_tab_bans: Kitiltások
+adm_tab_card_deck: Kártyapakli
+adm_tab_create: Létrehozás
+adm_tab_editor: Szerkesztő
+adm_tab_findable_ships: Megtalálható hajók
+adm_tab_moons: Holdak
+adm_tab_planets: Bolygók
+adm_tab_players: Játékosok
+adm_tab_server: Szerver
+adm_tab_swap: Csere
+adm_tab_universe: Univerzum
+adm_maint_cache_text: Törli a játék gyorsítótárait (nyelvek, sablonok, játékadatok), és újraszámolja a cron-feladatok időpontjait. Segít, ha a beállítások vagy szövegek módosításai nem látszanak.
+adm_maint_log_head: "Játéknapló"
+adm_maint_log_text: "A játék hibanaplója (var/log/game.log). A törlés kiüríti a fájlt; az új hibák azonnal újra beíródnak."
+adm_migr_head: "Adatbázis-migrációk"
+adm_migr_text: "Alkalmazza a frissítéssel járó adatbázis-módosításokat (például miután egy új kiadást kicsomagoltál a telepítés fölé)."
+adm_migr_current: "Jelenlegi adatbázis-revízió"
+adm_migr_pending: "Függőben lévő migrációk"
+adm_migr_backup: "Előbb készíts adatbázis-mentést."
+adm_migr_revision: "Revízió"
+adm_migr_file: "Fájl"
+adm_migr_status: "Állapot"
+adm_migr_ok: "Kész"
+adm_migr_failed: "Sikertelen"
+adm_migr_skipped: "Kihagyott lekérdezés"
+adm_migr_uptodate: "Az adatbázis naprakész."
+adm_migr_confirm: "Lefuttatod most az összes függő migrációt?"
+adm_migr_run: "Migrációk futtatása"
+adm_migr_result: "Eredmény"
+adm_migr_nothing: "Nem volt függő migráció."
+adm_maint_log_size: "Méret"
+adm_maint_log_changed: "Utolsó módosítás"
+adm_maint_log_missing: "A naplófájl még nem létezik."
+adm_maint_log_clear: "Játéknapló törlése"
+adm_maint_log_confirm: "Kiüríted a var/log/game.log fájlt? Ez nem vonható vissza."
+adm_maint_log_cleared: "A játéknapló törölve."
+adm_maint_log_failed: "A játéknaplót nem sikerült törölni (a fájl nem írható)."
+adm_maint_points_text: Azonnal újraszámolja a pontokat és a ranglistát. Egyébként ez automatikusan a statisztikai cron-feladaton keresztül fut, és sok játékosnál eltarthat egy ideig.
+adm_nav_maintenance: Karbantartás
+adm_nav_content: Tartalom
+adm_tab_pages: Oldalak
+adm_tab_team: Csapat
+nws_back: Vissza a listához
+nws_view: Megtekintés
+nws_summary: Összefoglaló
+nws_summary_help: 'Opcionális felvezető a hírlistához (max. 300 karakter). Üresen a szöveg részlete jelenik meg.'
+nws_publish_date: Közzététel dátuma
+nws_publish_help: 'A jövőbeli dátum időzíti a hírt: akkor automatikusan megjelenik.'
+nws_status: Állapot
+nws_status_draft: Vázlat
+nws_status_published: Közzétéve
+nws_status_scheduled: Időzítve
+nws_pinned: Kitűzve
+nws_filter_all: Mind
+nws_filter_drafts: Vázlatok
+nws_empty: Nincsenek hírek
+nws_saved: Hír elmentve.
+nws_deleted: Hír törölve.
+nws_error_empty: A cím és a szöveg nem lehet üres.
+cms_page_contacts: Kapcsolat
+cms_page_dataPrivacy: Adatvédelem
+cms_page_rules: Szabályok
+cms_language: Nyelv
+cms_status: Állapot
+cms_status_default: Alapértelmezett
+cms_status_edited: Szerkesztve
+cms_last_edit: Utolsó szerkesztés
+cms_title: Cím
+cms_content: Tartalom
+cms_save: Oldal mentése
+cms_view: Oldal megtekintése
+cms_reset: Visszaállítás az alapértelmezettre
+cms_reset_confirm: Törlöd a szerkesztett változatot, és újra az alapértelmezett tartalmat mutatod?
+cms_saved: Oldal elmentve.
+cms_reset_done: Az oldal visszaállt az alapértelmezett tartalomra.
+team_name: Név
+team_position: Pozíció
+team_contact: Kapcsolat (pl. Discord)
+team_description: Leírás
+team_add: Tag hozzáadása
+team_delete: Eltávolítás
+team_move_up: Feljebb
+team_move_down: Lejjebb
+team_save: Csapat mentése
+team_saved: Csapat elmentve.
+team_empty: Még nincsenek csapattagok.
+team_hint: A sorok sorrendje a nyilvános csapatoldalon is ez lesz. A név nélküli sorokat mentéskor elhagyjuk.
+nws_image: Kép
+nws_image_remove: Kép eltávolítása
+nws_image_help: 'Opcionális, hírenként egy kép (JPEG, PNG, GIF vagy WebP, max. 8 MB). Automatikusan WebP-re alakítjuk.'
+
+bot_action: "Művelet"
+bot_actions_per_session: "Műveletek munkamenetenként"
+bot_active: "Aktív"
+bot_active_none: "Nincs LLM (csak helyi tartalékok)"
+bot_activity: "Aktivitás óránként"
+bot_activity_info: "24 vesszővel elválasztott érték 0 és 1 között (az esély, hogy egy offline bot munkamenetet indít, 0-23. óra)"
+bot_alliance_chance: "Szövetségi aktivitás esélye munkamenetenként"
+bot_alliance_join_chance: "Esély a botszövetségbe való jelentkezésre (körönként)"
+bot_fleetsave_chance: "Flottamentés esélye (munkamenet vége, fenyegetések)"
+bot_saving_discipline: "Takarékossági fegyelem (a céljára gyűjt az olcsó vásárlások helyett)"
+bot_expedition_slots: "Expedíciókra szabadon tartott flottahelyek"
+bot_api_key: "API-kulcs"
+bot_base_url: "Alap-URL"
+bot_buddy_accept_chance: "Barátkérelem elfogadásának esélye"
+bot_cancel: "Mégse"
+bot_chat_style: "Csevegőstílus-tipp"
+bot_raid_enabled: "Rajtaütések engedélyezve"
+bot_raid_chance: "Rajtaütésre induló munkamenetek"
+bot_scout_range: "Felderítési hatótáv (rendszerek a saját bolygók körül)"
+bot_min_profit_ratio: "Minimális haszonarány (zsákmány / üzemanyag + veszteségek)"
+bot_relentless_minutes: "Rajtaütéssorozat találat után (perc, min - max)"
+bot_recall_check_chance: "Újrakémkedés és visszahívás-ellenőrzés esélye a becsapódás előtt"
+bot_max_attacks_per_target: "Max. támadás célpontonként és naponta"
+bot_attack_bots: "Más botok támadása"
+bot_attack_humans: "Emberi játékosok támadása"
+bot_prefer_inactive: "Az inaktív célpontok előnyben részesítése (0-100)"
+bot_check_interval: "Bejelentkezés-ellenőrzési időköz"
+bot_colonize_chance: "Gyarmatosítás esélye munkamenetenként"
+bot_confirm_delete: "Tényleg törlöd?"
+bot_confirm_restore: "Visszaállítod az alapprofilokat az eredeti értékekre?"
+bot_csrf_error: "Érvénytelen biztonsági token, töltsd újra az oldalt."
+bot_days_zero_off: "nap (0 = ki)"
+bot_default: "alapértelmezett"
+bot_defaults_restored: "Az alapprofilok visszaállítva."
+bot_delete: "Törlés"
+bot_deleted: "Törölve."
+bot_description: "Leírás"
+bot_detail: "Részlet"
+bot_disabled: "kikapcsolva"
+bot_duplicate: "Duplikálás"
+bot_edit: "Szerkesztés"
+bot_edit_profile: "Profil szerkesztése"
+bot_enabled: "bekapcsolva"
+bot_expedition_chance: "Expedíció esélye munkamenetenként"
+bot_failed: "Sikertelen"
+bot_hours_every: "óra, ennyiként:"
+bot_invalid_url: "Az alap-URL-nek http:// vagy https:// előtaggal kell kezdődnie."
+bot_key: "Kulcs"
+bot_key_keep: "hagyd üresen a megtartáshoz"
+bot_key_not_set: "nincs beállítva"
+bot_key_stored: "tárolva"
+bot_last_action: "Utolsó művelet"
+bot_last_test: "Utolsó teszt"
+bot_list: "Botok"
+bot_llm_advice: "LLM engedélyezése (nevek és csevegés)"
+bot_log: "Legutóbbi műveletek"
+bot_mistake_chance: "Hibázás esélye"
+bot_mode: "Botmód"
+bot_model: "Modell"
+bot_name: "Név"
+bot_name_required: "Add meg a nevet."
+bot_new_profile: "Új profil"
+bot_next_tick: "Következő ellenőrzés"
+bot_none: "Nincs."
+bot_offline: "offline"
+bot_online: "online"
+bot_open_config: "Univerzumbeállítások"
+bot_pattern_shift: "Műszakminta"
+bot_player: "Játékos"
+bot_points: "Pontok"
+bot_profile: "Profil"
+bot_profile_default_locked: "Az alapprofilokat nem lehet törölni."
+bot_profile_in_use: "Ezt a profilt még használják botok."
+bot_profile_missing: "A profil nem található."
+bot_provider: "Szolgáltató"
+bot_providers_info: "Az LLM opcionális, és csak a botok emberi oldalához használjuk: becenevek, személyiségek, bolygónevek és csevegés (válaszok üzenetekre, szövetségekre, barátokra). A játékmeneti döntések mindig helyben születnek. Aktív szolgáltató nélkül a beépített névgenerátorokat és előre gyártott üzeneteket használjuk. Hagyd üresen a kulcsmezőt a tárolt kulcs megtartásához."
+bot_randomness: "Véletlenszerűség"
+bot_reply_chance: "Válaszolás esélye (privát üzenetek)"
+bot_restore_defaults: "Alapértékek visszaállítása"
+bot_saved: "Elmentve."
+bot_session: "Munkamenet"
+bot_session_minutes: "Munkamenet hossza"
+bot_skill: "Képesség"
+bot_skill_gain: "Növekedés naponta"
+bot_skill_max: "Max."
+bot_skill_start: "Kezdő"
+bot_spawn: "Botok létrehozása"
+bot_profile_mixed: "Vegyes (minden profil)"
+bot_spawned: "%d bot létrehozva."
+bot_summary: "Összegzés"
+bot_summary_actions: "művelet"
+bot_summary_mistakes: "hiba"
+bot_summary_session: "munkamenet"
+bot_tab_profiles: "Profilok"
+bot_tab_providers: "LLM-szolgáltatók"
+bot_test: "Kapcsolat tesztelése"
+bot_testing: "Tesztelés..."
+bot_time: "Idő"
+bot_universe: "Univerzum"
+bot_w_defense: "Védelem"
+bot_w_energy: "Energia"
+bot_w_facilities: "Létesítmények"
+bot_w_mines: "Bányák"
+bot_w_research: "Kutatás"
+bot_w_ships: "Hajók"
+bot_w_storage: "Raktárak"
+bot_weights: "Súlyok"
+adm_nav_bots: Botok
+adm_tab_bot_providers: LLM-szolgáltatók
+adm_tab_bot_profiles: Profilok
+adm_tab_bot_list: Botok
+se_bots: "Botok"
+se_bots_enabled: "Botok engedélyezése"
+se_bots_enabled_info: "Lehetővé teszi, hogy szerveroldali botok játsszanak ebben az univerzumban. A cron-feladat percenként egyszer dolgozza fel őket."
+se_bots_llm_daily_limit: "LLM-hívások botonként és naponta"
+se_bots_llm_daily_limit_info: "Egy bot által naponta indítható LLM-hívások maximális száma. Utána helyi tartalékokat használunk."
+se_bots_llm_enabled: "LLM használata nevekhez és csevegéshez"
+se_bots_llm_enabled_info: "Az aktív szolgáltatóval LLM által generált beceneveket, személyiségeket, bolygóneveket és csevegést (üzenetek, szövetségek, barátok) engedélyez. A játékmeneti döntések mindig helyben maradnak."
+se_bots_max_count: "A botok maximális száma"
+se_bots_max_count_info: "A létrehozott botok felső korlátja ebben az univerzumban."
+se_bots_ticks_per_run: "Botok cron-futásonként"
+se_bots_ticks_per_run_info: "Egy cron-futásban feldolgozott botok maximális száma."
+se_bots_raids_enabled: "A botok fosztogatnak más játékosokat"
+se_bots_raids_enabled_info: "Lehetővé teszi, hogy a botok felderítsék, kémleljék és megtámadják a közelben lévő játékosokat és más botokat, a játékosokkal azonos szabályok szerint (bash-limit, védelem, nyaralás). Alapból ki van kapcsolva."
+adm_info_summary_fail: "%s ellenőrzés sikertelen, %s figyelmeztetés. Előbb a sikertelen ellenőrzéseket javítsd."
+adm_info_summary_warn: "Nincs sikertelen ellenőrzés, de %s figyelmeztetésre rá kell nézni."
+adm_info_summary_ok: "Minden egészségellenőrzés sikeres."
+adm_info_health: "Egészségellenőrzések"
+adm_info_status_ok: "OK"
+adm_info_status_warn: "Figyelmeztetés"
+adm_info_status_fail: "Sikertelen"
+adm_info_status_info: "Infó"
+adm_info_chk_php: "PHP-verzió (8.4 vagy újabb)"
+adm_info_chk_php_hint: "A játékhoz PHP 8.4 vagy újabb kell."
+adm_info_chk_ext_required: "Kötelező PHP-bővítmények"
+adm_info_chk_ext_required_hint: "Telepítsd a hiányzó bővítményeket, nélkülük a játék nem működik."
+adm_info_chk_ext_optional: "Opcionális PHP-bővítmények"
+adm_info_chk_ext_optional_hint: "Nem kötelezők, de gyorsabb vagy további funkciókat tesznek lehetővé (lásd a bővítménylistát)."
+adm_info_chk_opcache: "OPcache"
+adm_info_chk_opcache_hint: "Az OPcache ki van kapcsolva. Éles üzemben kapcsold be, sokat gyorsít a PHP-n."
+adm_info_chk_environment: "Környezet (APP_ENV / hibakeresés)"
+adm_info_chk_environment_hint: "Nyilvános szerveren APP_ENV=prod és kikapcsolt hibakeresés mellett futtasd."
+adm_info_chk_display_errors: "display_errors"
+adm_info_chk_display_errors_hint: "Az oldalakon megjelenő hibakimenet belső részleteket szivárogtathat ki. Nyilvános szervereken állítsd display_errors=Off értékre."
+adm_info_chk_writable: "Írható könyvtárak"
+adm_info_chk_writable_hint: "A webszerver felhasználójának írnia kell tudnia ezekbe a könyvtárakba (gyorsítótárak, naplók, munkamenetek, feltöltések)."
+adm_info_chk_install_tool: "Telepítőeszköz"
+adm_info_chk_install_tool_hint: "A var/ENABLE_INSTALL_TOOL létezik. Töröld, ha nem telepítesz."
+adm_info_chk_migrations: "Adatbázis-migrációk"
+adm_info_chk_migrations_hint: "Migrációk várakoznak. A következő játékkérésnél lefutnak; ha függőben maradnak, nézd meg a naplót."
+adm_info_chk_battle_engine: "Csatamotor"
+adm_info_chk_battle_engine_hint: "A Rust-motor nem használható (bin/battlerust, bin/libbattlerust.so, proc_open). A csaták a lassabb PHP-motoron futnak."
+adm_info_chk_cron: "Cron-feladatok"
+adm_info_chk_cron_hint: "A cron elakadtnak tűnik, vagy nem fut. Ellenőrizd, hogy a bin/console app:cron:run percenként fut-e, és oldd fel az elakadt feladatokat a Cron-feladatok alatt."
+adm_info_chk_https: "HTTPS"
+adm_info_chk_https_hint: "Ez a kérés nem HTTPS-en ment. A jelszavak és munkamenetek titkosítatlanul utaznak."
+adm_info_chk_mail: "Levélkézbesítés"
+adm_info_chk_mail_hint: "A levélküldés ki van kapcsolva vagy hiányos (az aktiváló és jelszó-visszaállító levelek nem érkeznek meg). Lásd a beállításokat."
+adm_info_chk_session: "Munkamenet-kezelő"
+adm_info_chk_session_hint: "Ellenőrizd a munkamenet-tárolást."
+adm_info_os: "Operációs rendszer"
+adm_info_hostname: "Hosztnév"
+adm_info_max_exec: "Maximális futási idő"
+adm_info_upload_max: "Feltöltési korlát (upload_max_filesize)"
+adm_info_post_max: "POST-korlát (post_max_size)"
+adm_info_realpath: "Realpath-gyorsítótár"
+adm_info_peak: "Ennek a kérésnek a csúcsmemóriája"
+adm_info_cpu: "CPU-magok"
+adm_info_load: "Terhelési átlag (1 / 5 / 15 perc)"
+adm_info_uptime: "Rendszer üzemideje"
+adm_info_disk: "Lemez (projekt)"
+adm_info_memory: "Rendszermemória"
+adm_info_free_of: "%s szabad %s-ból (%s %% használt)"
+adm_info_opcache_line: "%s használt %s-ból, találati arány %s %%, %s gyorsítótárazott szkript"
+adm_info_extensions: "PHP-bővítmények"
+adm_info_extensions_hint: "Vidd rá az egeret a célhoz. Piros = kötelező és hiányzik, szürke = opcionális és hiányzik."
+adm_info_required: "kötelező"
+adm_info_ext_pdo_mysql: "Adatbázis-hozzáférés (PDO MySQL)"
+adm_info_ext_intl: "Szám-, dátum- és nyelvformázás"
+adm_info_ext_mbstring: "Többbájtos karakterláncok kezelése"
+adm_info_ext_gd: "Képfeldolgozás (avatarok, hírképek)"
+adm_info_ext_curl: "HTTP-kérések (Discord, külső API-k)"
+adm_info_ext_json: "JSON kódolása és dekódolása"
+adm_info_ext_ctype: "Karaktertípus-ellenőrzések"
+adm_info_ext_opcache: "A lefordított PHP-kód gyorsítótárazása (sebesség)"
+adm_info_ext_ffi: "Idegen függvények felülete (natív kód)"
+adm_info_ext_ds: "Gyors adatstruktúrák"
+adm_info_ext_redis: "Redis-munkamenetek és gyorsítótár"
+adm_info_ext_imap: "Postafiók-hozzáférés (IMAP)"
+adm_info_database: "Adatbázis"
+adm_info_db_schema: "Séma"
+adm_info_db_size: "Méret"
+adm_info_tables: "tábla"
+adm_info_pending: "Függőben lévő migrációk"
+adm_info_db_uptime: "MySQL üzemideje"
+adm_info_threads: "Csatlakozott szálak"
+adm_info_max: "max"
+adm_info_qps: "Lekérdezések másodpercenként (átlag)"
+adm_info_queries: "lekérdezés"
+adm_info_slow: "Lassú lekérdezések"
+adm_info_buffer_pool: "InnoDB-pufferkészlet"
+adm_info_top_tables: "Legnagyobb táblák"
+adm_info_table: "Tábla"
+adm_info_rows: "sor"
+adm_info_data: "Adat"
+adm_info_index: "Index"
+adm_info_game_stats: "Játékstatisztika"
+adm_info_universe: "Univerzum"
+adm_info_players: "Játékosok"
+adm_info_accounts: "Fiókok"
+adm_info_online: "Online"
+adm_info_planets: "Bolygók"
+adm_info_moons: "Holdak"
+adm_info_fleets: "Repülő flották"
+adm_info_acs: "ACS-csoportok"
+adm_info_alliances: "Szövetségek"
+adm_info_messages: "Üzenetek"
+adm_info_unread: "olvasatlan"
+adm_info_activity: "Aktivitás és regisztrációk"
+adm_info_active: "Aktív játékosok"
+adm_info_registrations: "Új regisztrációk"
+adm_info_banned: "Kitiltott játékosok"
+adm_info_vacation: "Nyaralás módban"
+adm_info_bots: "Botjátékosok"
+adm_info_points_avg: "Átlagos pontszám"
+adm_info_points_top: "Legmagasabb pontszám"
+adm_info_last_stats: "Utolsó statisztikafrissítés"
+adm_info_market: "Nyitott piactéri ajánlatok"
+adm_info_reports: "Tárolt csatajelentések"
+adm_info_debris: "Tartalommal bíró törmelékmezők (fém / kristály)"
+adm_info_resources: "A bolygókon tárolt nyersanyagok"
+adm_info_fleets_by_mission: "Flották küldetés szerint"
+adm_info_mission: "Küldetés"
+adm_info_no_fleets: "Nincs repülő flotta."
+adm_info_reg_chart: "Regisztrációk, elmúlt 30 nap"
+adm_info_no_registrations: "Nincs regisztráció az elmúlt 30 napban."
+adm_info_all_universes: "Minden univerzum"
+adm_info_total: "Összesen"
+adm_info_logs: "Naplók és gyorsítótárak"
+adm_info_game_log: "Játéknapló"
+adm_info_errors_24h: "Hibák, elmúlt 24 óra"
+adm_info_warnings_24h: "Figyelmeztetések, elmúlt 24 óra"
+adm_info_scanned: "Átvizsgálva (a fájl vége)"
+adm_info_symfony_log: "Symfony-napló"
+adm_info_lines: "sor"
+adm_info_files: "fájl"
+adm_info_last_errors: "Legutóbbi hibák"
+adm_info_no_errors: "Nincs hiba a napló átvizsgált részében."
+adm_info_time: "Szerveridő"
+adm_info_timezone_of: "Forrás"
+adm_info_zone: "Időzóna"
+adm_info_tz_php: "PHP"
+adm_info_tz_config: "Játékkonfiguráció"
+adm_info_tz_user: "A fiókod"
+adm_login_throttled: 'Túl sok próbálkozás. Próbáld újra néhány perc múlva.'
+se_community_links: "Közösségi linkek"
+se_discord_url: "Discord meghívó URL-je"
+se_discord_url_info: "A Discord-szervered meghívólinkje (https://...). A menüben, a bejelentkezési oldalon, a levelekben és a szövegekben jelenik meg. Üresen elrejti."
+se_discord_widget_guild: "Discord-szerver azonosítója (online widget)"
+se_discord_widget_guild_info: "A Discord-szervered azonosítója (17-20 számjegy; Szerverbeállítások → Widget, a „Szerverwidget engedélyezése” legyen bekapcsolva). A kezdőlapon egy dobozt mutat az online létszámmal, 5 percenként frissítve. Üresen elrejti."
+se_wiki_url: "Wiki URL-je"
+se_wiki_url_info: "Egy külső wiki alap-URL-je, záró perjel nélkül (https://...). A GYIK, a bemutató és a szabályok wiki-linkjei ebből épülnek fel. Üresen elrejti őket."
+se_donate_url: "Adományozási URL"
+se_donate_url_info: "Link az adományokhoz (https://...), a menüben jelenik meg. Üresen elrejti."
+se_userscripts_url: "Userscriptek URL-je"
+se_userscripts_url_info: "A játékodhoz készült userscripteket bemutató oldal (https://...), a beállításokban linkelve. Üresen elrejti."
+se_bots_alliances_enabled: "A botok szövetségeket alkotnak"
+se_bots_alliances_enabled_info: "A botok saját szövetségeket alapítanak, és időnként csatlakoznak másokhoz. Ki: a botok magányos farkasok maradnak, sehová nem jelentkeznek, és kilépnek azokból a szövetségekből, amelyeknek tagjai (a bot alapította szövetségek megmaradnak)."
+se_bots_join_human_alliances: "A botok csatlakozhatnak a játékosszövetségekhez"
+se_bots_join_human_alliances_info: "A botok jelentkezhetnek emberi játékosok által alapított szövetségekbe is. Ki: a botok csak botok által alapított szövetségekhez csatlakoznak, és elhagyják a játékosszövetségeket."
+se_bot_reply_delay_hours: "Válaszkésleltetés (óra)"
+se_bot_reply_delay_hours_info: "Ennyi órát vár egy játékos legrégebbi megválaszolatlan privát üzenete, mielőtt egy bot egyetlen válaszban megválaszolja a játékos összes függő üzenetét. Ez a minimális időköz két, ugyanannak a játékosnak szóló, botkezdeményezésű üzenet (támadási reakciók, rajtaütéses gúnyolódások) között is. 0 = nincs késleltetés."
+se_bot_chatter: "A botok csevegnek"
+se_bot_chatter_info: "Be: a botok válaszolnak a privát üzenetekre. Ki: az üzeneteket továbbra is elolvassák és megszámolják, de csak harci reakciókat (támadás után, vagy egy nekik író játékos fosztogatásakor) küldenek. A botok soha nem írnak elsőként a játékosoknak."
+mu_hall_of_fame: "Hírességek csarnoka"
+hof_head: "Hírességek csarnoka (univerzum)"
+hof_view: "Nyilvános oldal megtekintése"
+hof_status: "Állapot"
+hof_has_data: "Van adat"
+hof_entries: "Ranglistabejegyzések"
+hof_updated: "Utoljára frissítve"
+hof_no_data: "Ehhez az univerzumhoz nincs hírességek csarnoka-adat."
+hof_export: "JSON exportálása"
+hof_clear: "Adatok törlése"
+hof_confirm_clear: "Törlöd ennek az univerzumnak a hírességek csarnoka-adatait?"
+hof_import: "JSON importálása"
+hof_file: "JSON-fájl"
+hof_import_help: "Formátum: hall-of-fame, 1. verzió (max. 1 MB). Felülírja az univerzum meglévő adatait."
+hof_confirm_import: "Lecseréled ennek az univerzumnak a meglévő hírességek csarnoka-adatait?"
+hof_imported: "A hírességek csarnoka importálva."
+hof_cleared: "A hírességek csarnoka adatai törölve."
+hof_error_nofile: "Nem töltöttek fel érvényes fájlt."
+hof_error_invalid: "Az importálást elutasítottuk:"
+se_bash_war_exempt: "A háború feloldja a bash-limitet"
+se_bash_war_exempt_info: "A háborúban álló szövetségek (elfogadott, egy napnál régebbi) közötti támadások nem számítanak bele a bash-limitekbe. Ki: a háborús támadások mint az összes többi, számítanak."
+se_honor_pair_cap: "Becsületes csaták páronként (24 óra)"
+se_honor_pair_cap_info: "Hány becsületes csata ugyanazon két játékos között (bármelyik irányban) ad becsületet 24 órán belül. A további csaták semlegesnek számítanak. 0 = korlátlan."
+se_market_push_tolerance: "Piactéri tolási tolerancia"
+se_market_push_tolerance_info: "Egy piactéri ügylet elfogadott értékkülönbsége százalékban (0-90), mielőtt tolásnak számítana. Alapérték 30."
+se_transport_push_check: "Szállítási tolásvédelem"
+se_transport_push_check_info: "Megtagadja a másik játékosnak szóló szállításokat, tartózkodásokat és átviteleket (rakomány és hajók), ha az elmúlt 7 napban a neki küldött érték a lent megadott korlátnál nagyobb mértékben meghaladja a tőle visszakapott értéket."
+se_transport_push_limit: "Szállítási tolási korlát"
+se_transport_push_limit_info: "A rakomány értéke deutériumegységben (piaci arányok), amely fölött a védelem érvényesül. 0 = védelem ki."
+se_depot_cost_real_consumption: "Raktárköltség valós fogyasztás szerint"
+se_depot_cost_real_consumption_info: "A Szövetségi raktár a flotta tényleges üzemanyag-fogyasztását (a tulajdonos hajtómű- és üzemanyag-technológiáival) / 10-et számítja óránként az alapfogyasztás / 10 helyett."
+se_hours: Óra
+se_remember_me_days: 'A „maradjak bejelentkezve” tartama'
+se_remember_me_days_info: 'Hány napig él túl a böngésző újraindításán és a lejárt munkameneteken a „maradjak bejelentkezve” jelölőnégyzettel végzett bejelentkezés. A jelszóváltoztatás megszünteti. A 0 kikapcsolja az opciót.'
+se_session_lifetime: A munkamenet lejár ennyi inaktivitás után
+se_session_lifetime_info: 'Hány óra kérés nélkül után jelentkeztetik ki a játékost („a munkamenet lejárt”).'
+abuse_menu: "Visszaélés-jelentés"
+abuse_days: "Napok"
+abuse_apply: "Alkalmaz"
+abuse_weights: "Értéksúlyok fém : kristály : deutérium"
+abuse_none: "Ebben az időszakban nincs találat."
+abuse_from: "Innen"
+abuse_to: "Ide"
+abuse_count: "Darab"
+abuse_sent: "Elküldve"
+abuse_back: "Visszaküldve"
+abuse_net: "Nettó érték"
+abuse_linked: "Összekapcsolva"
+abuse_last: "Utolsó"
+abuse_link_ip: "azonos IP"
+abuse_link_multi: "multi-csoport"
+abuse_link_multi_known: "multi-csoport (ismert)"
+abuse_link_subnet: "azonos alhálózat (gyengébb)"
+abuse_thresholds: "Küszöbök: egy átviteli pár akkor kerül a listára, ha egy irányban legalább %s fémegységet küldtek, és legfeljebb %s jött vissza; a piactéri párok %s ügylettől, %s különbség felett jelölve. Az üres sorok azt jelentik, hogy semmi nem érte el ezeket a határokat (vagy a naplók üresek), nem azt, hogy nem történt semmi."
+abuse_transfers: "Egyoldalú szállítások és tartózkodások"
+abuse_transfers_info: "Két játékos közötti szállítások, tartózkodások és hajóátvitelek (nem visszahívottak; a hajókat építési költségükön számoljuk), amelyek rakománya egy irányban legalább %s fémegységet ért, miközben ennek az értéknek legfeljebb %s jött vissza. Nettó érték szerint rendezve; a súlyok a tárolt piaci arányok."
+abuse_trades: "Ismétlődő piactéri ügyletek"
+abuse_trades_info: "Ugyanazon két játékos közötti nyersanyag-ügyletek, legalább %s alkalommal. Arány = a többet adó fél által adott érték osztva a másik féléval (1,00 = a piaci referencián); %s különbség felett a pár jelölve."
+abuse_giver: "Többet adott"
+abuse_receiver: "Többet kapott"
+abuse_ratio: "Arány"
+abuse_outlier: "kiugró"
+abuse_protections: "Újjáépítési védelem odaítélései"
+abuse_protections_info: "Azok a játékosok, akik az időszakban újjáépítési védelmet kaptak. Az ellenfelek az adott csata csatajelentésének másik oldala; a zsákmány az az érték, amelyet a flottáik szereztek benne (a törmeléket és a megsemmisített értéket nem tároljuk)."
+abuse_protected: "Védett játékos"
+abuse_granted: "Odaítélve"
+abuse_opponents: "Ellenfelek"
+abuse_loot: "Az ellenfél zsákmánya"
+abuse_report: "Jelentés"
+abuse_recalls: "Visszahívások az érkezéskor vagy után"
+abuse_recalls_info: "Támadó, ACS- és pusztító flották, amelyeket akkor hívtak vissza, amikor az érkezési idő már elérkezett (visszahívás-érkezés-után minta)."
+abuse_mission: "Küldetés"
+abuse_arrival: "Érkezés"
+abuse_recalled: "Visszahívva"
+abuse_late: "Érkezés után"
+abuse_fought: "harcolt"
+abuse_mission_1: "Támadás"
+abuse_mission_2: "ACS-támadás"
+abuse_mission_9: "Pusztítás"
+abuse_missiles_skipped: "A rakétakilövések és a siló tartalma nem része ennek a jelentésnek: a táblák nem tartalmaznak siló-előzményeket az összehasonlításhoz."
+abuse_link_device: "azonos eszköz"
+abuse_graph: "Értékáramlási klaszterek"
+abuse_graph_info: "Az elmúlt %s napban értékáramlás által összekapcsolt játékosok (fix időszak): szállítások, tartózkodások, hajóátvitelek (építési költségen), piactéri ügyletek (mindkét oldal) és támadási zsákmány, mindkét irányban összegezve. Csak azok a párok kapcsolódnak, amelyek között legalább %s fémegységet mozgattak, és %s áramlás volt; a két vagy több tagú összekapcsolt csoportokat listázzuk (a legjobb %s érték szerint). Nettó = a klaszter legegyoldalúbb párjának értéke (az összértékének részaránya). A kapcsolatjelzők megmutatják, hogy a tagok osztoznak-e IP-n, eszközön vagy multi-csoporton egy másik taggal. A sorokat forrásonként korlátozva olvassuk."
+abuse_members: "Tagok"
+abuse_value: "Összérték"
+abuse_flows: "Áramlások"
+abuse_top_edge: "Legegyoldalúbb pár"
+abuse_activity: "Flottaindítási aktivitás (24 óra)"
+abuse_activity_info: "A legtöbb flottaindítással rendelkező fiókok az elmúlt 24 órában; csúcs = indítások a legforgalmasabb órában. A tartósan magas csúcsok szkriptelt játékra utalhatnak."
+abuse_player: "Játékos"
+abuse_launches: "Indítások"
+abuse_peak: "Csúcs / óra"
+adm_dash_unprotected: "A visszaélés elleni védelmek ki vannak kapcsolva ebben az univerzumban:"
+adm_dash_unprotected_push: "A szállítás, tartózkodás és átvitel tolásvédelme ki van kapcsolva (transport_push_check / transport_push_limit)."
+adm_dash_unprotected_honor: "A becsületpár-korlát 0 (korlátlan becsület ugyanazon két játékos között)."
+adm_dash_unprotected_bash: "A kihirdetett háborúk feloldják a bash-limitet (bash_war_exempt)."
+adm_dash_unprotected_depot: "A raktári tartózkodás az olcsó alapfogyasztásba kerül (a depot_cost_real_consumption ki van kapcsolva)."
+adm_dash_unprotected_market: "A piactéri tolási tolerancia 10 % fölött van (market_push_tolerance)."
+modul_57: "Szavazóoldalak"
+adm_nav_voting: "Szavazóoldalak"
+vt_sites: "Szavazóoldalak"
+vt_add: "Oldal hozzáadása"
+vt_create_head: "Új szavazóoldal"
+vt_edit_head: "Szavazóoldal szerkesztése"
+vt_back: "Vissza"
+vt_name: "Név"
+vt_vote_url: "Szavazási URL"
+vt_vote_url_help: "A link, amelyre a játékosokat küldjük. A {token} (az adott szavazat egyszeri tokenje) és a {userId} helyettesítésre kerül."
+vt_image_url: "Kép URL-je (opcionális)"
+vt_image_url_help: "A játékosoldalon az oldal mellett mutatott banner vagy logó (https)."
+vt_cooldown: "Várakozási idő (óra)"
+vt_cooldown_help: "Játékosonként és oldalanként egy jutalom ebben az időablakban, az utolsó jutalomtól számítva."
+vt_reward: "Jutalom"
+vt_res_901: "Fém"
+vt_res_902: "Kristály"
+vt_res_903: "Deutérium"
+vt_verification: "Ellenőrzés"
+vt_verify_none: "Nincs (jutalom kattintásra)"
+vt_verify_postback: "Postback (jutalom az oldal visszahívására)"
+vt_verification_help: "Ellenőrzés nélkül a jutalmat a szavazógombra kattintáskor fizetjük ki (csak várakozási idővel). Postbacknél az oldalnak meg kell hívnia a callback URL-t."
+vt_sort: "Rendezési sorrend"
+vt_active: "Aktív"
+vt_enabled: "Aktív"
+vt_disabled: "Inaktív"
+vt_enable: "Aktiválás"
+vt_disable: "Deaktiválás"
+vt_delete: "Oldal törlése"
+vt_renew_secret: "Új titok generálása"
+vt_renew_secret_help: "Érvényteleníti a régi postback URL-t: frissítsd a szavazóoldalon."
+vt_postback: "Postback"
+vt_postback_url: "Callback URL"
+vt_secret: "Titok"
+vt_postback_help: "Add meg ezt az URL-t a szavazóoldalon callback/postback címként. A {token} helyére az oldal makróját írd, amely a szavazási URL-ben kapott értéket jelöli. A GET és a POST is elfogadott; a titkot X-Vote-Secret fejlécként is el lehet küldeni."
+vt_saved: "Elmentve."
+vt_deleted: "A szavazóoldal törölve."
+vt_empty: "Még nincsenek szavazóoldalak."
+vt_confirm_delete: "Törlöd a(z) „%s” szavazóoldalt és a naplóját?"
+vt_module_off: "A „Szavazóoldalak” modul ki van kapcsolva, a játékosok nem látnak szavazóoldalt."
+vt_error_name: "A név kötelező."
+vt_error_vote_url: "A szavazási URL-nek érvényes http(s)-címnek kell lennie."
+vt_error_image_url: "A kép URL-jének érvényes http(s)-címnek kell lennie."
+vt_error_reward: "A jutalom összegének 0 és 1 000 000 000 között kell lennie."
+vt_clicks: "Kattintások"
+vt_verified: "Ellenőrzött"
+vt_rewarded: "Jutalmazott"
+vt_log: "Legutóbbi szavazatok"
+vt_log_time: "Idő"
+vt_log_player: "Játékos"
+vt_log_status: "Állapot"
+vt_log_ip: "IP"
+vt_log_empty: "Még nincsenek szavazatok."
+vt_status_rewarded: "Jutalmazva"
+vt_status_verified: "Ellenőrizve, jutalom nélkül"
+vt_status_pending: "Kattintva"
+adm_nav_social: "Közösségi bejelentkezés"
+se_social: "Közösségi bejelentkezés"
+se_social_info: "Lehetővé teszi, hogy a játékosok egy meglévő Discord-, Facebook-, GitHub- vagy Google-fiókkal jelentkezzenek be vagy regisztráljanak (OAuth2). Minden szolgáltató alapból ki van kapcsolva. Hozz létre egy alkalmazást a szolgáltatónál, regisztráld ott az alább látható callback URL-t, és add meg itt a kliensazonosítót és a titkot."
+se_social_site_url_missing: "A játék alap-URL-je (DEFAULT_URI a .env.local fájlban) nincs beállítva, így nem építhető callback URL, és a szolgáltatók használhatatlanok maradnak."
+se_social_incomplete: "Bekapcsolva, de hiányzik a kliensazonosító vagy a klienstitok: a bejelentkezési gomb rejtve marad."
+se_social_enabled: "Engedélyezve"
+se_social_enabled_info: "Megjeleníti a bejelentkezési gombot a kezdőlapon és a regisztrációs oldalon."
+se_social_client_id: "Kliensazonosító"
+se_social_client_id_info: "Az alkalmazás (kliens) azonosítója a szolgáltatónál."
+se_social_client_secret: "Klienstitok"
+se_social_client_secret_info: "Soha többé nem jelenik meg. Hagyd üresen a tárolt titok megtartásához."
+se_social_callback: "Callback URL"
+se_social_callback_info: "Pontosan ezt a címet regisztráld átirányítási / callback URL-ként a szolgáltatónál."
+se_social_create_app: "Az alkalmazás létrehozása"
+se_social_discord_help: "Discord Developer Portal: New Application, majd OAuth2: add hozzá az átirányítást, másold ki a kliensazonosítót és a kliens titkát."
+se_social_facebook_help: "Meta for Developers: hozz létre egy alkalmazást a Facebook Login használati esettel, és add hozzá az URL-t az érvényes OAuth-átirányítási URI-k alatt. A Facebook e-mail-címét soha nem tekintjük ellenőrzöttnek: új játékosok nem regisztrálhatnak vele, a meglévő fiókokat nem párosítjuk e-mail alapján; a fiókbeállításokból való összekapcsolás működik."
+se_social_github_help: "GitHub Settings, Developer settings, OAuth Apps: New OAuth App, add meg a callback URL-t az authorization callback URL-ként."
+se_social_google_help: "Google Cloud Console, APIs and Services, Credentials: hozz létre egy Web application típusú OAuth-kliensazonosítót, és add hozzá a callback URL-t az authorized redirect URIs alatt."
+se_social_scopes: "Kért hatókörök: %s"
+se_del_user_automatic_on: "Inaktív játékosok automatikus törlése"
+se_del_user_automatic_on_info: "Kapcsoló a normál inaktív játékosok (nem nyaralás módban lévők, nem kitiltottak) automatikus törléséhez a fent beállított napszám után. Ki: az inaktív játékosokat soha nem töröljük automatikusan."
+se_del_user_vacation_on: "Nyaralás módban lévő játékosok automatikus törlése"
+se_del_user_vacation_on_info: "Kapcsoló azoknak a játékosoknak az automatikus törléséhez, akik nyaralás módban vannak, és a lent megadott napszámig nem jelentkeztek be. Ki: a nyaralás módban lévő játékosokat soha nem töröljük automatikusan."
+se_del_user_vacation: "Nyaralás módban lévő játékosok törlése ennyi után"
+se_del_user_vacation_info: "Bejelentkezés nélküli napok, amelyek után egy nyaralás módban lévő játékost törlünk. 0 = ugyanannyi nap, mint az inaktív játékosoknál."
+se_del_user_banned_on: "Kitiltott játékosok automatikus törlése"
+se_del_user_banned_on_info: "Kapcsoló azoknak a kitiltott játékosoknak az automatikus törléséhez, akik a lent megadott napszámig nem jelentkeztek be. Ki: a kitiltott játékosokat soha nem töröljük automatikusan (a kitiltásuk megmarad)."
+se_del_user_banned: "Kitiltott játékosok törlése ennyi után"
+se_del_user_banned_info: "Bejelentkezés nélküli napok, amelyek után egy kitiltott játékost törlünk. 0 = ugyanannyi nap, mint az inaktív játékosoknál."
+se_vmode_allow_incoming: "Nyaralás mód beérkező ellenséges flottákkal"
+se_vmode_allow_incoming_info: "Be: a játékosok nyaralás módba léphetnek, miközben idegen flották tartanak feléjük (a támadás lepattan). Ki: a nyaralás módot megtagadjuk, amíg támadó, ACS-támadó, rakéta-, pusztító vagy kémküldetésű idegen flották tartanak a játékos egyik bolygója vagy Holdja felé."
+rp_fleets_error: "Még repülnek játékosok flottái vagy hozzájuk tartó flották!"

@@ -1,0 +1,82 @@
+dir: ltr
+js_tdformat: '[M] [D] [d] [H]:[i]:[s]'
+months:
+  - Ian
+  - Feb
+  - Mar
+  - Apr
+  - Mai
+  - Iun
+  - Iul
+  - Aug
+  - Sep
+  - Oct
+  - Noi
+  - Dec
+php_tdformat: 'j M Y, H:i:s'
+short_day: z
+short_hour: h
+short_minute: m
+short_second: s
+timezones:
+  '-1': '[UTC - 1] Ora standard Azore, Ora Capului Verde, Ora Groenlandei de Est'
+  '-2': >-
+    [UTC - 2] Ora Fernando de Noronha, Ora Georgiei de Sud și a Insulelor
+    Sandwich de Sud
+  '-3': '[UTC - 3] Ora standard Amazon, Ora Groenlandei Centrale'
+  '-3.5': '[UTC - 3:30] Ora standard Newfoundland'
+  '-4': '[UTC - 4] Ora standard Atlantic'
+  '-4.5': '[UTC - 4:30] Ora standard Venezuela'
+  '-5': '[UTC - 5] Ora standard de Est'
+  '-6': '[UTC - 6] Ora standard Centrală'
+  '-7': '[UTC - 7] Ora standard Munților Stâncoși'
+  '-8': '[UTC - 8] Ora standard Pacific'
+  '-9': '[UTC - 9] Ora standard Alaska, Ora Insulei Gambier'
+  '-9.5': '[UTC - 9:30] Ora Insulelor Marchize'
+  '-10': '[UTC - 10] Ora standard Hawaii-Aleutine, Ora Insulelor Cook'
+  '-11': '[UTC - 11] Ora Niue, Ora standard Samoa'
+  '-12': '[UTC - 12] Ora Insulei Baker'
+  '0': '[UTC] Ora Europei de Vest, Ora medie Greenwich'
+  '1': '[UTC + 1] Ora Europei Centrale, Ora Africii de Vest'
+  '2': '[UTC + 2] Ora Europei de Est, Ora Africii Centrale'
+  '3': '[UTC + 3] Ora standard Moscova, Ora Africii de Est'
+  '3.5': '[UTC + 3:30] Ora standard Iran'
+  '4': '[UTC + 4] Ora standard Golf, Ora standard Samara'
+  '4.5': '[UTC + 4:30] Ora Afganistan'
+  '5': '[UTC + 5] Ora standard Pakistan, Ora standard Ekaterinburg'
+  '5.5': '[UTC + 5:30] Ora standard India, Ora Sri Lanka'
+  '5.75': '[UTC + 5:45] Ora Nepal'
+  '6': '[UTC + 6] Ora Bangladesh, Ora Bhutan, Ora standard Novosibirsk'
+  '6.5': '[UTC + 6:30] Ora Insulelor Cocos, Ora Myanmar'
+  '7': '[UTC + 7] Ora Indochina, Ora standard Krasnoiarsk'
+  '8': >-
+    [UTC + 8] Ora standard China, Ora standard Australia de Vest, Ora standard
+    Irkutsk
+  '8.75': '[UTC + 8:45] Ora standard Australia de Sud-Vest'
+  '9': '[UTC + 9] Ora standard Japonia, Ora standard Coreea, Ora standard Chita'
+  '9.5': '[UTC + 9:30] Ora standard Australia Centrală'
+  '10': '[UTC + 10] Ora standard Australia de Est, Ora standard Vladivostok'
+  '10.5': '[UTC + 10:30] Ora standard Lord Howe'
+  '11': '[UTC + 11] Ora Insulelor Solomon, Ora standard Magadan'
+  '11.5': '[UTC + 11:30] Ora Insulei Norfolk'
+  '12': '[UTC + 12] Ora Noii Zeelande, Ora Fiji, Ora standard Kamciatka'
+  '12.75': '[UTC + 12:45] Ora Insulelor Chatham'
+  '13': '[UTC + 13] Ora Tonga, Ora Insulelor Phoenix'
+  '14': '[UTC + 14] Ora Insulelor Line'
+week_day:
+  - Dum
+  - Lun
+  - Mar
+  - Mie
+  - Joi
+  - Vin
+  - Sâm
+php_dateformat: d.m.Y
+lang_group_fun: "Limbi haioase"
+dialog_ok: "OK"
+dialog_cancel: "Anulează"
+cookie_notice_title: "Cookie-uri"
+cookie_notice_text: "Acest site folosește doar cookie-uri necesare tehnic (sesiunea de conectare, limba, „rămâi conectat”, dacă îl alegi, legătura cu dispozitivul). Cookie-urile opționale se folosesc doar cu acordul tău."
+cookie_notice_privacy: "Politica de confidențialitate"
+cookie_notice_necessary: "Doar cele necesare"
+cookie_notice_all: "Acceptă toate"

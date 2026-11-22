@@ -1,0 +1,78 @@
+dir: ltr
+js_tdformat: '[M] [D] [d] [H]:[i]:[s]'
+months:
+- Jan
+- Fev
+- Mar
+- Abr
+- Mai
+- Jun
+- Jul
+- Ago
+- Set
+- Out
+- Nov
+- Dez
+php_tdformat: d/m/Y, H:i:s
+short_day: d
+short_hour: h
+short_minute: m
+short_second: s
+timezones:
+  '-1': '[UTC - 1] Horário Padrão dos Açores, Horário de Cabo Verde, Horário da Groenlândia Oriental'
+  '-2': '[UTC - 2] Horário de Fernando de Noronha, Horário da Geórgia do Sul e Ilhas Sandwich do Sul'
+  '-3': '[UTC - 3] Horário de Brasília, Horário da Groenlândia Central'
+  '-3.5': '[UTC - 3:30] Horário Padrão da Terra Nova'
+  '-4': '[UTC - 4] Horário Padrão do Atlântico, Horário da Amazônia'
+  '-4.5': '[UTC - 4:30] Horário Padrão da Venezuela'
+  '-5': '[UTC - 5] Horário Padrão do Leste, Horário do Acre'
+  '-6': '[UTC - 6] Horário Padrão Central'
+  '-7': '[UTC - 7] Horário Padrão das Montanhas'
+  '-8': '[UTC - 8] Horário Padrão do Pacífico'
+  '-9': '[UTC - 9] Horário Padrão do Alasca, Horário da Ilha Gambier'
+  '-9.5': '[UTC - 9:30] Horário das Ilhas Marquesas'
+  '-10': '[UTC - 10] Horário Padrão do Havaí-Aleutas, Horário das Ilhas Cook'
+  '-11': '[UTC - 11] Horário de Niue, Horário Padrão de Samoa'
+  '-12': '[UTC - 12] Horário da Ilha Baker'
+  '0': '[UTC] Horário da Europa Ocidental, Horário do Meridiano de Greenwich'
+  '1': '[UTC + 1] Horário da Europa Central, Horário da África Ocidental'
+  '2': '[UTC + 2] Horário da Europa Oriental, Horário da África Central'
+  '3': '[UTC + 3] Horário Padrão de Moscou, Horário da África Oriental'
+  '3.5': '[UTC + 3:30] Horário Padrão do Irã'
+  '4': '[UTC + 4] Horário Padrão do Golfo, Horário Padrão de Samara'
+  '4.5': '[UTC + 4:30] Horário do Afeganistão'
+  '5': '[UTC + 5] Horário Padrão do Paquistão, Horário Padrão de Ecaterimburgo'
+  '5.5': '[UTC + 5:30] Horário Padrão da Índia, Horário do Sri Lanka'
+  '5.75': '[UTC + 5:45] Horário do Nepal'
+  '6': '[UTC + 6] Horário de Bangladesh, Horário do Butão, Horário Padrão de Novosibirsk'
+  '6.5': '[UTC + 6:30] Horário das Ilhas Cocos, Horário de Mianmar'
+  '7': '[UTC + 7] Horário da Indochina, Horário Padrão de Krasnoyarsk'
+  '8': '[UTC + 8] Horário Padrão da China, Horário Padrão da Austrália Ocidental, Horário Padrão de Irkutsk'
+  '8.75': '[UTC + 8:45] Horário Padrão do Sudeste da Austrália Ocidental'
+  '9': '[UTC + 9] Horário Padrão do Japão, Horário Padrão da Coreia, Horário Padrão de Chita'
+  '9.5': '[UTC + 9:30] Horário Padrão da Austrália Central'
+  '10': '[UTC + 10] Horário Padrão da Austrália Oriental, Horário Padrão de Vladivostok'
+  '10.5': '[UTC + 10:30] Horário Padrão de Lord Howe'
+  '11': '[UTC + 11] Horário das Ilhas Salomão, Horário Padrão de Magadan'
+  '11.5': '[UTC + 11:30] Horário da Ilha Norfolk'
+  '12': '[UTC + 12] Horário da Nova Zelândia, Horário de Fiji, Horário Padrão de Kamchatka'
+  '12.75': '[UTC + 12:45] Horário das Ilhas Chatham'
+  '13': '[UTC + 13] Horário de Tonga, Horário das Ilhas Fênix'
+  '14': '[UTC + 14] Horário das Ilhas da Linha'
+week_day:
+- Dom
+- Seg
+- Ter
+- Qua
+- Qui
+- Sex
+- Sáb
+php_dateformat: d/m/Y
+lang_group_fun: Idiomas divertidos
+dialog_ok: OK
+dialog_cancel: Cancelar
+cookie_notice_title: Cookies
+cookie_notice_text: Este site usa apenas cookies tecnicamente necessários (sessão de login, idioma, "manter conectado" se você escolher, vínculo do dispositivo). Cookies opcionais só são usados com o seu consentimento.
+cookie_notice_privacy: Política de privacidade
+cookie_notice_necessary: Apenas necessários
+cookie_notice_all: Aceitar todos

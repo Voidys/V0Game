@@ -1,0 +1,270 @@
+back: Zpět
+continue: Pokračovat
+continueUpgrade: Aktualizovat
+install_desc: >-
+  Pro zapnutí instalačního nástroje vytvoř soubor
+  „var/ENABLE_INSTALL_TOOL“.<br> V názvu souboru záleží na velikosti písmen a
+  nemá žádnou příponu.<br> Soubor může být prázdný.
+
+  Po dokončení instalace se smaže automaticky, stejně jako když je starší než
+  jedna hodina.
+install_title: Instalační nástroj je zamčený
+intro_install: Instalovat
+intro_lang: Jazyk
+intro_text: 'V0Game je open-source vesmírná strategická hra v prohlížeči: rozvíjej své planety, zkoumej, posílej flotily a měř síly se stovkami hráčů najednou.<br><br>Tento průvodce nastaví novou instalaci krok za krokem: zkontroluje tvůj server, připojí se k databázi a vytvoří ji, postaví tabulky, nechá tě pojmenovat hru a vytvoří administrátora.'
+intro_upgrade_head: Už máš V0Game nainstalovaný?
+intro_upgrade_text: >-
+  <p>Už máš V0Game nainstalovaný a chceš ho jen aktualizovat?</p><p>Svou
+  stávající databázi tu aktualizuješ na pár kliknutí!</p>
+intro_welcome: 'Vítej ve V0Game!'
+licence_accept: >-
+  Přijímáš licenční podmínky? Software můžeš nainstalovat, jen když je
+  přijmeš.
+licence_desc: >-
+  Přečti si prosím licenční podmínky níže. Celý dokument zobrazíš posuvníkem.
+licence_head: Licenční podmínky
+licence_need_accept: Abys mohl pokračovat v instalaci, musíš přijmout licenční podmínky.
+login: Přihlášení
+menu_install: Instalace
+menu_upgrade: Aktualizace
+reg_dir: Je složka &raquo;%s&laquo; zapisovatelná?
+reg_file: Je soubor &raquo;%s&laquo; zapisovatelný?
+reg_not_found: Nenalezeno
+reg_not_writable: Nezapisovatelné
+reg_writable: Zapisovatelné
+req_desc: >-
+  Než instalace bude pokračovat, V0Game zkontroluje konfiguraci a soubory tvého
+  serveru, aby zjistil, jestli se dá nainstalovat a používat. Pozorně si
+  přečti výsledky a nepokračuj, dokud neprojdou všechny povinné testy.
+sql_close_reason: |-
+  Vesmír se právě připravuje.
+  Chvíli prosím vydrž.
+sql_welcome: Vítej ve V0Game v
+step1_head: Nastavení přístupu k databázi
+step1_mysql_dbname: Název databáze
+step1_mysql_dbpass: Heslo k databázi
+step1_mysql_dbuser: Uživatelské jméno k databázi
+step1_mysql_migrationpass: Migrační heslo databáze
+step1_mysql_migrationpass_info: >-
+  Toto heslo se bude chtít, když nová verze hry vyžaduje změny nebo aktualizaci
+  databáze.
+step1_mysql_port: Port databáze
+step1_mysql_prefix: 'Prefix tabulek:'
+step2_conf_op_fail: Do config.php nejde zapisovat!
+step2_config_exists: config.php už existuje!
+step2_db_con_fail: K databázi se nepodařilo připojit. Podrobnosti chyby najdeš níže.
+step2_db_done: Připojení k databázi proběhlo úspěšně!
+step2_db_no_dbname: Není zadán název databáze.
+step2_db_too_long: Prefix tabulek nesmí být delší než 36 znaků.
+step2_prefix_invalid: >-
+  Prefix tabulek smí obsahovat jen písmena, číslice a podtržítka.
+step3_db_error: 'Vytvoření databázových tabulek se nezdařilo:'
+step3_head: Vytvoření databázových tabulek
+step4_admin_mail: 'Kontaktní e-mail:'
+step4_admin_name: 'Uživatelské jméno administrátora:'
+step4_admin_name_desc: Zadej uživatelské jméno o 3 až 20 znacích.
+step4_admin_pass: 'Heslo administrátora:'
+step4_desc: >-
+  Instalační průvodce teď vytvoří účet administrátora. Zadej prosím
+  uživatelské jméno, e-mailovou adresu a heslo.
+step4_head: Vytvoření administrátora
+step6_desc: 'V0Game se ti úspěšně nainstaloval.'
+step6_head: Gratulujeme!
+title_install: Instalátor
+upgrade_available: >-
+  K dispozici jsou aktualizace databáze. Databáze je na revizi %s a lze ji
+  aktualizovat na revizi %s.
+upgrade_back: Zpět
+upgrade_intro_welcome: Vítej v aktualizátoru databáze!
+upgrade_message_admin: >-
+  Administrátoři: Pro instalaci aktualizace databáze zadejte migrační heslo
+  a pokračujte.
+upgrade_message_user: >-
+  Hráči: Chvíli počkejte a pak zkuste kliknout na „Zpět do hry“.
+upgrade_notavailable: Revize %s je pro tvou databázi už nejnovější.
+upgrade_nothingtodo: Není co dělat. Databáze už je na revizi %s.
+upgrade_return: Zpět do hry
+upgrade_success: >-
+  Aktualizace databáze proběhla úspěšně. Databáze je nyní na revizi %s.
+upgrade_title: Je nutná aktualizace databáze!
+ins_step_licence: 'Licence'
+ins_step_requirements: 'Požadavky'
+ins_step_database: 'Databáze'
+ins_step_build: 'Tabulky'
+ins_step_game: 'Hra'
+ins_step_admin: 'Administrátor'
+ins_step_done: 'Hotovo'
+ins_recheck: 'Zkontrolovat znovu'
+ins_db_connection: 'Připojení'
+ins_db_createdb: 'Vytvořit databázi, pokud ještě neexistuje'
+ins_db_connect: 'Připojit a vytvořit'
+ins_db_no_host: 'Není zadán databázový server.'
+ins_db_name_invalid: 'Název databáze smí obsahovat jen písmena, číslice, _ a - (max. 64 znaků).'
+ins_check_input: 'Vstup zkontrolován'
+ins_check_connect: 'Připojeno k databázovému serveru'
+ins_check_database: 'Databáze »%s«'
+ins_db_missing: 'neexistuje (zaškrtni „vytvořit databázi“ nebo ji vytvoř sám)'
+ins_db_create_fail: 'se nepodařilo vytvořit:'
+ins_db_created: 'vytvořena'
+ins_db_exists: 'existuje'
+ins_check_tables: 'Zatím žádné tabulky s prefixem »%s«'
+ins_tables_exist: 'Tabulky s tímto prefixem už existují (%d). Zvol jiný prefix nebo databázi.'
+ins_check_write: '%s zapsáno'
+ins_build_desc: 'Instalátor teď vytvoří herní tabulky a naplní je výchozími hodnotami, krok za krokem.'
+ins_task_tables: 'Vytvořit tabulky'
+ins_task_migrations: 'Zaregistrovat verzi databáze'
+ins_task_config: 'Zapsat nastavení hry'
+ins_task_universe: 'Založit vesmír 1'
+ins_build_start: 'Postavit databázi'
+ins_back_database: 'Zpět k nastavení databáze'
+ins_game_name: 'Název hry'
+ins_game_name_info: 'Zobrazuje se v titulku, záhlaví a e-mailech. Výchozí: V0Game.'
+ins_default_theme: 'Výchozí motiv'
+ins_default_theme_info: 'Motiv pro nové účty a návštěvníky; hráči ho mohou přepnout v nastavení.'
+ins_game_name_invalid: 'Zadej název hry o 1 až 64 znacích.'
+ins_theme_invalid: 'Neznámý motiv.'
+ins_to_start: 'Na úvodní stránku'
+ins_credits_head: 'Na ramenou obrů'
+ins_credits_text: 'V0Game pokračuje v dlouhé řadě open-source her v prohlížeči. Respekt všem, kdo je před námi budovali a udrželi při životě:'
+ins_credits_thanks: 'Díky všem programátorům a správcům, kteří tuhle hru vybudovali a po všechny ty roky udržovali naživu, od 2Moons a SteemNova až po pr0game.'
+ins_licence_note: 'Svobodný software pod licencí GNU AGPL v3'
+ins_task_images: 'Optimalizovat obrázky (WebP)'
+ins_db_help: 'V0Game ukládá všechno do databáze MySQL nebo MariaDB. Hodnoty níže najdeš v administraci hostingu (hledej „Databáze“ nebo „MySQL“), nebo je znají lidé, kteří ti server nastavili. Pokud sis MySQL nainstaloval sám, obvykle stačí výchozí hodnoty.'
+ins_db_host: 'Databázový server'
+ins_db_host_info: 'Skoro vždy „localhost“. Někteří hostingy dávají název typu „db1.example.com“.'
+ins_db_name_info: 'Název databáze pro hru. Vytvoř ji nejdřív v administraci hostingu, nebo ji nech vytvořit instalátor (viz rámeček níže).'
+ins_db_advanced: 'Pokročilé (port, prefix tabulek, migrační heslo) - normálně není potřeba'
+ins_db_prefix_info: 'Přidává se před název každé tabulky. Změň ho jen tehdy, když sdílíš jednu databázi s jiným softwarem.'
+ins_db_migrationpw_info: 'Chrání stránku aktualizace (install/?mode=upgrade) pro pozdější aktualizace hry. Nech prázdné a instalátor vygeneruje silné heslo a jednou ti ho ukáže na poslední stránce.'
+ins_db_migrationpw_placeholder: 'vygeneruje se automaticky'
+ins_migrationpw_invalid: 'Migrační heslo nesmí obsahovat uvozovky, zpětná lomítka, $ ani zalomení řádků.'
+ins_err_technical: 'technické podrobnosti'
+ins_err_access_denied: 'Databázový server odmítl uživatelské jméno nebo heslo. Zkontroluj obojí v administraci hostingu, jestli v nich není překlep (na velikosti písmen záleží).'
+ins_err_unknown_db: 'Tahle databáze na serveru neexistuje. Zkontroluj název, nebo níže zaškrtni „Vytvořit databázi“.'
+ins_err_no_privilege: 'Tenhle databázový uživatel nesmí tuto databázi používat. Dej mu v administraci hostingu na ni všechna oprávnění.'
+ins_err_no_create: 'Tenhle uživatel nesmí vytvářet databáze. Vytvoř prázdnou databázi v administraci hostingu a zruš zaškrtnutí „Vytvořit databázi“.'
+ins_err_socket: 'Socket databázového serveru nebyl nalezen. Zkus místo „localhost“ server „127.0.0.1“.'
+ins_err_unreachable: 'Databázový server „%s“ není dostupný. Zkontroluj název serveru a port a zda databázový server běží. Mnoho hostingů povoluje spojení jen z vlastních webových serverů, takže „localhost“ bývá správně.'
+ins_game_desc: 'Pojmenuj svou hru a vyber, jak se bude hrát. Všechno tady můžeš později změnit v administraci (Admin - Nastavení).'
+ins_group_general: 'Obecné'
+ins_uni_name: 'Název vesmíru'
+ins_uni_name_info: 'Zobrazuje se hráčům při výběru vesmíru. Prázdné = „Vesmír 1“.'
+ins_uni_name_invalid: 'Název vesmíru může mít nejvýše 60 znaků.'
+ins_language: 'Výchozí jazyk'
+ins_language_info: 'Jazyk pro nové návštěvníky a tvůj administrátorský účet.'
+ins_language_invalid: 'Neznámý jazyk.'
+ins_timezone: 'Časové pásmo'
+ins_timezone_info: 'Předvybráno podle tvého serveru. Používá se pro zobrazený čas serveru.'
+ins_timezone_invalid: 'Neznámé časové pásmo.'
+ins_group_speed: 'Rychlost hry'
+ins_speed_info: 'Jak rychle jdou budovy, výzkum, lodě, flotily a produkce. Klasická je původní tempo; rychlejší předvolby se hodí pro malé komunity a krátká kola.'
+ins_speed_classic: 'Klasická'
+ins_speed_classic_info: 'původní tempo, kola trvají měsíce'
+ins_speed_fast: 'Rychlá'
+ins_speed_fast_info: 'zhruba třikrát rychlejší, kola trvají týdny'
+ins_speed_blitz: 'Blitz'
+ins_speed_blitz_info: 'až desetkrát rychlejší, kola trvají dny'
+ins_speed_detail: 'Stavba/výzkum %bx, flotily %fx, suroviny %rx'
+ins_speed_invalid: 'Neznámá předvolba rychlosti.'
+ins_group_players: 'Hráči'
+ins_registration: 'Registrace'
+ins_registration_open: 'Otevřená - zaregistrovat se může každý'
+ins_registration_closed: 'Zavřená - účty můžeš vytvářet jen ty'
+ins_registration_info: 'Dokud vše ještě nastavuješ, zvol „zavřená“. Později ji můžeš otevřít v Admin - Nastavení.'
+ins_registration_invalid: 'Neznámé nastavení registrace.'
+ins_bots: 'Počítačoví hráči (boti)'
+ins_bots_info: '0 až 50. Boti hrají jako skuteční hráči s různými zvyky, takže nový vesmír není prázdný. 0 = žádní boti.'
+ins_bots_invalid: 'Počet botů musí být mezi 0 a 50.'
+ins_mail: 'Odesílat e-maily (registrace, obnovení hesla)'
+ins_mail_info: 'Ve výchozím stavu vypnuto. Zapni jen tehdy, když tvůj server umí posílat poštu; SMTP můžeš nastavit později v Admin - Nastavení.'
+ins_admin_mail_info: 'Používá se pro obnovení hesla a jako kontaktní adresa.'
+ins_admin_mail_invalid: 'Zadej platnou e-mailovou adresu.'
+ins_admin_pass_confirm: 'Heslo znovu'
+ins_admin_pass_rules: 'Heslo musí mít alespoň %d znaků (nejvýše 64). Věta o pár slovech se snadno pamatuje a těžko hádá.'
+ins_admin_pass_short: 'Heslo musí mít alespoň %d znaků.'
+ins_admin_pass_long: 'Heslo smí mít nejvýše 64 znaků.'
+ins_admin_pass_mismatch: 'Obě hesla se neshodují.'
+ins_done_checklist: 'Tvůj kontrolní seznam'
+ins_done_login: 'Přihlas se do administrace.'
+ins_done_login_info: 'Už jsi přihlášen jako „%s“. Příště použij:'
+ins_done_cron: 'Nastav cron úlohu (povinné).'
+ins_done_cron_info: 'Bez ní se ve hře nic neposune (flotily, stavební fronty, statistiky). Přidej tento řádek do crontabu uživatele webového serveru (crontab -e) nebo s ním vytvoř cron úlohu v administraci hostingu:'
+ins_done_cron_help: "Jak nastavit cron úlohu (i v administraci hostingu)"
+ins_done_locked: 'Instalační nástroj je nyní zamčený.'
+ins_done_locked_info: 'Nikdo už nemůže průvodce spustit znovu. Pro pozdější aktualizace se řiď sekcí o aktualizaci v dokumentaci.'
+ins_done_https: 'Používej HTTPS.'
+ins_done_https_info: 'Jsi na prostém HTTP: hesla putují nešifrovaně. Než pozveš hráče, nastav certifikát (třeba Let''s Encrypt).'
+ins_done_https_ok: 'Tahle stránka byla doručena přes HTTPS - skvělé.'
+ins_done_settings: 'Nastavení změníš později.'
+ins_done_settings_info: 'Admin - Nastavení: název hry, rychlost, registrace, e-mail (SMTP), boti a mnohem víc.'
+ins_done_bots: 'Boti.'
+ins_done_bots_info: 'Vytvořeno botů: %d. Jednají, když běží cron úloha. Spravuješ je v administraci.'
+ins_done_bots_failed: 'Administrátor byl vytvořen, ale boty se vytvořit nepodařilo. Můžeš je přidat později v administraci.'
+ins_done_migrationpw: 'Poznamenej si své migrační heslo (zobrazí se jen jednou).'
+ins_done_migrationpw_info: 'Budeš ho potřebovat pro aktualizace hry. Je také uloženo v config/game.php.'
+ins_done_docs: 'Dokumentace:'
+ins_done_to_admin: 'Do administrace'
+ins_step_legal: 'Právní věci'
+ins_legal_desc: 'Vyber, kde je hra hostovaná a jak začnou právní stránky a komunitní fórum. Všechno tohle můžeš později změnit v administraci (Nastavení, Stránky).'
+ins_group_privacy: 'Oblast hostingu'
+ins_privacy_info: 'Oblast určuje, jaké zásady ochrany soukromí se použijí jako výchozí.'
+ins_privacy_eu: 'EU / EHP - zásady ochrany soukromí podle GDPR'
+ins_privacy_eu_info: 'Vyber tuto možnost, pokud je hra hostovaná v Evropské unii nebo Evropském hospodářském prostoru, nebo míří na tamní hráče.'
+ins_privacy_other: 'Mimo EU - obecné zásady ochrany soukromí'
+ins_privacy_other_info: 'Srozumitelné zásady ochrany soukromí bez odkazů na GDPR.'
+ins_group_rules: 'Pravidla'
+ins_rules_default: 'Importovat výchozí pravidla'
+ins_rules_default_info: 'Stránka s pravidly začne standardními pravidly hry, která pak můžeš upravit.'
+ins_rules_blank: 'Začít prázdnou'
+ins_rules_blank_info: 'Stránka s pravidly zůstane prázdná, dokud v administraci nenapíšeš vlastní pravidla.'
+ins_group_community: 'Komunita'
+ins_cookie_consent: "Zobrazit upozornění na souhlas s cookies (GDPR)"
+ins_cookie_consent_info: "Ukáže návštěvníkům upozornění na cookies, které hra používá. Doporučeno pro provozovatele cílící na EU. Lze později změnit v nastavení."
+ins_board: 'Zapnout komunitní fórum'
+ins_board_info: 'Fórum pro tvé hráče. Když je vypnuté, všechny odkazy na fórum jsou skryté a jeho stránky nejsou dostupné.'
+ins_legal_note: 'Vygenerované texty jsou jen šablony. Jako provozovatel odpovídáš za právní texty své hry a měl bys je zkontrolovat.'
+ins_legal_region_invalid: 'Vyber prosím platnou oblast hostingu.'
+ins_legal_rules_invalid: 'Vyber prosím, jak mají pravidla začít.'
+ins_step_mail: 'E-mail'
+ins_mail_desc: 'Nepovinné. Vyber, jak hra posílá e-maily (registrace, obnovení hesla). Tento krok můžeš přeskočit a nastavit později v Admin - Nastavení.'
+ins_mail_enable: 'Odesílat e-maily'
+ins_mail_method: 'Metoda'
+ins_mail_method_php: 'Funkce PHP mail()'
+ins_mail_method_smtp: 'Server SMTP'
+ins_mail_from: 'Adresa odesílatele'
+ins_mail_host: 'Server SMTP'
+ins_mail_port: 'Port SMTP'
+ins_mail_enc: 'Šifrování'
+ins_mail_enc_none: 'Žádné'
+ins_mail_user: 'Uživatel SMTP'
+ins_mail_pass: 'Heslo SMTP'
+ins_mail_pass_info: 'Už se nezobrazí; po zkušebním e-mailu ho zadej znovu.'
+ins_mail_save: 'Uložit a pokračovat'
+ins_mail_skip: 'Přeskočit (pošta zůstane vypnutá)'
+ins_mail_test_head: 'Poslat zkušební e-mail'
+ins_mail_test_to: 'Poslat zkušební e-mail na'
+ins_mail_test_send: 'Poslat zkušební e-mail'
+ins_mail_test_ok: 'Zkušební e-mail odeslán na %s.'
+ins_mail_test_fail: 'Zkušební e-mail selhal: %s'
+ins_mail_from_invalid: 'Zadej prosím platnou e-mailovou adresu odesílatele.'
+ins_mail_host_required: 'Zadej prosím server SMTP.'
+ins_mail_port_invalid: 'Zadej prosím platný port (1-65535).'
+ins_mail_test_invalid: 'Zadej prosím platnou e-mailovou adresu pro zkušební e-mail.'
+ins_mail_test_subject: 'Zkušební e-mail V0Game'
+ins_mail_test_body: 'Tohle je zkušební e-mail z instalátoru V0Game. Tvoje nastavení pošty funguje.'
+ins_done_social: 'Přihlášení přes sociální sítě (nepovinné).'
+ins_social_hint: 'Přihlášení přes Discord, Google, GitHub nebo Facebook lze zapnout později v Admin - Přihlášení přes sociální sítě.'
+ins_group_imprint: 'Impressum (nepovinné)'
+ins_imprint_info: 'Kontaktní údaje pro stránku impressa. Obojí může zůstat prázdné a lze později změnit v Admin - Nastavení.'
+ins_imprint_eu_hint: 'Provozovatelé v EU obvykle potřebují impressum s kontaktní e-mailovou adresou. Teď ho můžeš přeskočit, ale před spuštěním pro veřejnost ho vyplň.'
+ins_imprint_mail: 'Kontaktní e-mail'
+ins_imprint_address: 'Adresa v impressu'
+ins_imprint_mail_invalid: 'Zadej prosím platnou kontaktní e-mailovou adresu pro impressum.'
+ins_more_settings: 'Další nastavení'
+ins_update_check: 'Kontrolovat aktualizace'
+ins_update_check_info: 'Nástěnka administrace se ptá aktualizačního serveru (GitHub) na nejnovější vydání.'
+ins_discord_url: 'Pozvánka na Discord'
+ins_discord_url_info: 'Nepovinné, například https://discord.gg/yourserver.'
+ins_discord_url_invalid: 'Zadej prosím platný odkaz na Discord začínající http:// nebo https://.'
+ins_mail_user_valid: 'Vyžadovat aktivaci e-mailem'
+ins_mail_user_valid_info: 'Nové účty musí před hraním potvrdit svou adresu e-mailem. K dispozici jen při zapnutém e-mailu.'

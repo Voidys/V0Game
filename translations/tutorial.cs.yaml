@@ -1,0 +1,95 @@
+tutorial_buttons_claim: Vyzvednout odměnu
+tutorial_buttons_continue: Pokračovat
+tutorial_buttons_finalize: Dokončit tutoriál
+tutorial_buttons_skip: Přeskočit
+tutorial_buttons_skipAll: Přeskočit tutoriál
+tutorial_buttons_skipAll_confirm: Přeskočit zbytek tutoriálu? Už ho nepůjde spustit znovu.
+tutorial_goal:
+  mission:
+    '1': Zaútoč na jiného hráče
+    '6': Pošli špionážní sondu k jinému hráči
+    '7': Kolonizuj novou planetu
+    '8': Recykluj pole trosek
+    '15': Pošli expediční flotilu
+  step6:
+    '1': Přejmenuj svou planetu
+    '2': Pošli jinému hráči žádost o přátelství
+    '3': Pošli přihlášku do aliance
+tutorial_goals_header: 'Cíle:'
+tutorial_goals_ignore: (ignorovat)
+tutorial_rewards_header: 'Odměny:'
+tutorial_text:
+  step0: "Vítej v {game_name}!<br><br>\r\nTenhle krátký tutoriál tě provede základy.<br>\r\nHodně odkazujeme na naši wiki, protože se všechno do tutoriálu nevejde. Otevřeš ji kdykoli z menu vlevo.<br>\r\nTutoriál můžeš přeskočit, kdy chceš, ale později ho už znovu spustit nepůjde.<br><br>\r\nHodně štěstí, imperátore!"
+  step1: "Tvůj cíl: nasbírat co nejvíc bodů. Jeden bod dostaneš za každých 1 000 utracených surovin a nejlepším zdrojem surovin jsou tvoje vlastní doly.<br>\r\nZačni se základními zásobami: potřebuješ kov a krystal z jejich dolů a energii ze solární elektrárny, aby doly vůbec běžely. Když energie nestačí, doly produkují pod 100 %.<br>\r\nTyto budovy vylepšuješ v menu <b>Budovy</b>. Klikni na název budovy a uvidíš, co ti přinese další úroveň a kolik energie spotřebuje.<br><br>\r\nChceš vědět víc? Mrkni do <b>Wiki</b>: \r\n<a href=\"{wiki_url}/wiki/En/Rohstoffe\" target=\"_blank\">Suroviny</a>"
+  step2: "Společně se hraje líp. Většina hráčů se schází na našem Discordu, kde dostaneš odpovědi a najdeš lidi na hraní.<br>\r\nPořád si nevíš rady? Tady můžeš taky otevřít ticket podpory."
+  step3: "Přepadání planet jiných hráčů je další způsob, jak získat suroviny - a může potkat i tebe. Postav si proto první obranu!<br>\r\nI malá obrana ochrání tvou produkci přes noc.<br><br>\r\nO souboji nerozhodují jen čísla, záleží i na složení útočící flotily.<br>\r\nÚtočníci se musí prorazit tvou obranou, než něco vyberou, a každá loď, kterou musí vyslat, snižuje jejich zisk a může je stát další lodě.<br>\r\nObranu stavíš v menu <b>Obrana</b>. Potřebuješ loděnici (ta zase továrnu na roboty) a trochu deuteria.<br><br>\r\nTady je odpovídající článek ve wiki: \r\n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Obranná zařízení</a>"
+  step4: "Dbej na to, aby zásoby stále proudily, a rozšiřuj své doly!<br>\r\nBudovy, lodě, obrana i výzkum časem zdražují, takže tvá produkce musí růst s nimi. Otevři teď Budovy a vylepšuj doly, kdykoli na to budeš mít suroviny."
+  step5: "Postav si Malý transportér!<br>\r\nMalé transportéry jsou rychlé a šikovné.<br>\r\nS impulzním motorem jsou na delší vzdálenosti rychlejší než Velký transportér.<br>\r\nPoužiješ je k přesunu surovin mezi planetami, k obchodu s ostatními hráči nebo k jejich přepadání.<br><br>\r\nVíc ve wiki: \r\n<a href=\"{wiki_url}/wiki/En/Schiffe\" target=\"_blank\">Lodě</a>"
+  step6: "Dej své planetě jméno, ať se v nich vyznáš. V Přehledu klikni na název planety v záhlaví bodovaného panelu. Jen do toho, zkus to hned.<br><br>\r\nMůžeš také posílat žádosti o přátelství ostatním hráčům. Jakmile je přijmou, snáz si popovídáte a uvidíte, kdo je online. Společná aliance k tomu není potřeba. Přátelé si také mohou navzájem držet flotily na planetách, takže se můžete bránit společně i bez aliance.<br><br>\r\nNebo vstup do aliance a hraj v týmu. Na držení flotil už pak žádosti o přátelství nepotřebuješ. V alianci můžeš rozesílat hromadné zprávy a podle hodnosti v alianci vidět, kdo je online, a skóre ostatních členů."
+  step7: "Abys zjistil, jaké suroviny, budovy, výzkumy, lodě a obranu má jiný hráč, musíš ho vyšpehovat. Pošli špionážní sondu hráči z menu Flotila nebo z přehledu Galaxie.<br>\r\nPamatuj, že i ostatní mohou špehovat tebe!"
+  step8: >-
+    Expedice může přinést suroviny, lodě, zvláštní události nebo ztráty. Chceš-li
+    nějakou zkusit, vezmi loď, jako cíl zvol pozici planety 16 a v menu Flotila
+    misi „Expedice“.<br>
+
+    Každý typ lodě zvětšuje velikost tvé expediční flotily až po hranici, kde je
+    dosažena maximální velikost události.<br><br>
+
+    Wiki vysvětluje, co můžeš změnit, abys z toho vytěžil co nejvíc: 
+
+    <a href="{wiki_url}/wiki/En/Expoanleitung"
+    target="_blank">Expedice</a>
+  step9: "Čím víc planet kolonizuješ, tím rychleji rosteš: suroviny můžeš těžit a lodě stavět na několika planetách najednou. Pozor, vnitřní nebo vnější okraj systému můžeš osídlit, jen když máš dost vysokou úroveň astrofyziky. Kolonizační loď samotnou postavíš i bez astrofyziky, ale pro první kolonii ji potřebuješ!<br><br>\r\nKolonizace ve vlastním systému nebo hned vedle drží transportní trasy krátké. Nevýhoda: později ve hře může někdo umístit kolonii ve tvém systému ne kvůli dolům, ale jako dočasnou základnu pro flotilu - takzvanou raid kolonii.<br><br>\r\nVíc ve wiki: \r\n<a href=\"{wiki_url}/wiki/En/Astrophysik\" target=\"_blank\">Astrofyzika</a>"
+  step10: "Chceš suroviny rychleji? Napadej ostatní hráče. Zvaž náklady a přínos, aby se ti útok vyplatil, a plánuj ho pomocí špionážních zpráv a bojového simulátoru.<br><br>\r\nPozor! Ostatní hráči mohou mnoho letů flotil sledovat různými způsoby.<br>\r\nNepřijít o těžce nabytou flotilu patří k nejdůležitějším věcem ve hře.<br><br>\r\nPřečti si proto určitě tato témata ve wiki: \r\n<a href=\"{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden\" target=\"_blank\">Záchrana flotily</a> - \r\n<a href=\"{wiki_url}/wiki/En/Sensorenphalanx\" target=\"_blank\">Senzorová falanga</a>"
+  step10_u6: >-
+    Chceš suroviny rychleji? Napadej ostatní hráče. Zvaž náklady a přínos, aby
+    se ti útok vyplatil, a plánuj ho pomocí špionážních zpráv a bojového
+    simulátoru.<br><br>
+
+    Pozor! Ostatní hráči mohou mnoho letů flotil sledovat různými způsoby.<br>
+
+    Nepřijít o těžce nabytou flotilu patří k nejdůležitějším věcem ve
+    hře.<br><br>
+
+    Přečti si proto určitě tato témata ve wiki:
+
+    <a
+    href="{wiki_url}/wiki/En/Slippys_progame_flottensicherung_leitfaden"
+    target="_blank">Záchrana flotily</a>
+  step11: "Když jsou flotily zničeny, zanechají pole trosek, které můžeš sklidit. K tomu potřebuješ recyklátory s nosností 20 000 každý. Rozprášení velké flotily může být výnosným zdrojem surovin.<br><br>\r\nRecyklátory můžeš poslat rovnou z přehledu Galaxie kliknutím na pole trosek, místo abys používal menu Flotila."
+  step12: "Gratulujeme, tutoriál máš za sebou!<br><br>\r\nHra toho nabízí mnohem víc.<br>\r\nExistují například zhruba tři herní styly, které se liší i časovou náročností:<br>\r\n<ul>\r\n<li>Horník: rozšiřuje doly na mnoha koloniích a létá hlavně s transportéry</li>\r\n<li>Flotilář: většinu bodů dává do válečných lodí, sám téměř nic neprodukuje a živí se přepadáváním jiných hráčů</li>\r\n<li>Kombinér: mix obojího</li>\r\n</ul>\r\nMěsíce nabývají na významu později ve hře a senzorovou falangu bys už měl znát.<br><br>\r\nPořád máš otázky? Přečti si wiki nebo se zeptej komunity na Discordu."
+  step12_u6: >-
+    Gratulujeme, tutoriál máš za sebou!<br><br>
+
+    Hra toho nabízí mnohem víc.<br>
+
+    Existují například zhruba tři herní styly, které se liší i časovou
+    náročností:<br>
+
+    <ul>
+
+    <li>Horník: rozšiřuje doly na mnoha koloniích a létá hlavně s
+    transportéry</li>
+
+    <li>Flotilář: většinu bodů dává do válečných lodí, sám téměř nic neprodukuje
+    a živí se přepadáváním jiných hráčů</li>
+
+    <li>Kombinér: mix obojího</li>
+
+    </ul>
+
+    Pořád máš otázky? Přečti si wiki nebo se zeptej komunity na Discordu.
+tutorial_title:
+  step0: "Vítej, imperátore!"
+  step1: Čas začít těžit!
+  step2: Pojď poznat lidi!
+  step3: "Nenechávej planetu bez obrany!"
+  step4: "Mysli dopředu!"
+  step5: Lodě, potřebujeme lodě!
+  step6: "Pojmenuj planetu a najdi přátele!"
+  step7: "Zjisti, co mají ostatní!"
+  step8: "Do neznáma!"
+  step9: "Jedna planeta nikdy nestačí!"
+  step10: Omrzelo tě čekání na doly?
+  step11: "Čas vynést odpadky!"
+  step12: "Zvládl jsi to!"

@@ -1,0 +1,185 @@
+build_ships: Total de naves construídas
+buttonLostPassword: Esqueceu a senha?
+buttonRegister: Cadastrar
+buttonScreenshot: Capturas de tela
+civil: Civil
+colony: Colônia
+deathstar: Estrela da Morte
+destroyed_sats: Satélites solares destruídos
+disclamerLabelAddress: 'Endereço do jogo:'
+disclamerLabelMail: 'E-mail de suporte:'
+disclamerLabelNotice: Mais informações
+disclamerLabelPhone: 'Telefone:'
+first_fights: Primeiras lutas do universo
+forum: Fórum
+hof_empty: Ainda não há dados no hall da fama.
+login_error_1: 'E-mail ou senha errados! Dica: gerenciadores de senha costumam preencher o nome de usuário, mas o login é feito com o e-mail.'
+login_error_2: Sua conta foi acessada de outro dispositivo, ou o seu endereço IP mudou.
+login_error_3: Sua sessão expirou. Entre de novo.
+login_error_4: Tentativas de login demais. Espere 15 minutos e tente de novo.
+loginButton: Entrar
+loginEmail: E-mail
+loginHeader: Login
+loginInfo: Ao entrar, eu aceito a %s.
+loginPassword: Senha
+loginRememberMe: Continuar conectado por %d dias
+loginServerDesc: '%s é um jogo de estratégia espacial em que centenas de jogadores competem <strong>ao mesmo tempo</strong> para ser os melhores. Tudo o que você precisa é de um navegador comum.'
+loginWelcome: Bem-vindo a %s
+Lowest_longterm_points: Contas pré-cadastradas com menos pontos
+menu_banlist: Lista de banidos
+menu_battlehall: Battle Hall
+menu_disclamer: Contato
+menu_news: Notícias
+menu_rules: Regras
+military: Militar
+news_does_not_exist: Nenhuma notícia disponível.
+news_from: Em %s por %s
+overall: Geral
+passwordBack: Voltar
+passwordChangedMailSend: Sua nova senha está a caminho. Você vai receber um e-mail em instantes.
+passwordChangedMailTitle: Nova senha para %s
+passwordConfirmInfo: Clique no botão para redefinir a sua senha. A gente manda a nova senha por e-mail.
+passwordConfirmSubmit: Me mandar uma senha nova
+passwordErrorMailEmpty: A gente não conhece esse e-mail.
+passwordInfo: Esqueceu a senha? Digite o nome de usuário e o e-mail da sua conta. Se não lembrar deles, fale com um administrador.
+passwordMail: E-mail
+passwordNext: Próximo
+passwordSubmit: Enviar
+passwordUsername: Nome de usuário
+passwordValidInValid: Solicitação inválida.
+passwordValidMailSend: Você vai receber um e-mail em instantes com os próximos passos.
+passwordValidMailTitle: Redefinição de senha para %s
+players: Jogadores
+points_amount: Pontos / Quantidade
+powFailed: A verificação automática anti-bots falhou ou expirou. Volte, espere um pouco e envie o formulário de novo.
+powNoCrypto: Seu navegador não consegue executar a verificação automática anti-bots (ela precisa de uma conexão https segura).
+powVerifying: Verificando o seu navegador …
+registerBack: Voltar
+registerDataPrivacyDesc: Eu concordo com a %s
+registerEmail: E-mail
+registerEmailDesc: Digite o seu e-mail.
+registerEmailReplay: Repetir e-mail
+registerEmailReplayDesc: Digite o e-mail de novo para confirmar.
+registerErrorDataPrivacy: Aceite a política de privacidade para continuar.
+registerErrorMailEmpty: Digite um e-mail.
+registerErrorMailExist: Este e-mail já está cadastrado.
+registerErrorMailInvalid: Isso não parece um e-mail válido.
+registerErrorMailSame: Os dois e-mails não são iguais.
+registerErrorPasswordLength: Sua senha precisa ter pelo menos %s caracteres.
+registerErrorPasswordSame: As duas senhas não são iguais.
+registerErrorRules: Aceite as regras para continuar.
+registerErrorUniClosed: O cadastro está fechado neste universo.
+registerErrorUsernameChar: Seu nome de usuário só pode ter letras, números, espaços, _, - e .
+registerErrorUsernameEmpty: Digite um nome de usuário.
+registerErrorUsernameExist: Esse nome de usuário já está em uso.
+registerLanguage: Idioma
+registerMailCompleteTitle: Bem-vindo a %s!
+registerMailVertifyTitle: Ative a sua conta em %s
+registerPassword: Senha
+registerPasswordDesc: Sua senha precisa ter pelo menos %s caracteres.
+registerPasswordReplay: Repetir senha
+registerPasswordReplayDesc: Digite a mesma senha de novo.
+registerReferral: 'Indicado por:'
+registerRules: Regras
+registerRulesDesc: Eu concordo com as %s
+registerSendComplete: Valeu por se cadastrar! Veja o seu e-mail (inclusive a caixa de spam) para os próximos passos.
+registerTimezone: Fuso horário
+registerUsername: Nome de usuário
+registerUsernameDesc: 'Use de 3 a 25 caracteres: letras, números, espaços, pontos, hifens e underscores.'
+registerWelcomePMSenderName: Administrador
+registerWelcomePMSubject: Boas-vindas
+registerWelcomePMText: Bem-vindo a %s! Primeiro construa uma Planta de Energia Solar, porque é preciso energia para produzir recursos. Abra Edifícios no menu da esquerda e comece pela Planta de Energia Solar.<br>Com energia, você pode construir minas. Continue em Edifícios e construa uma Mina de Metal, depois uma Mina de Cristal.<br><br>Para construir naves, você precisa de um Hangar. O menu Tecnologias, à esquerda, mostra o que é preciso para liberá-lo.<br>Se tiver mais dúvidas, veja o FAQ, a wiki ou abra um ticket de suporte.<br><br>A equipe deseja muita diversão na exploração do universo!
+siteTitleBanList: Lista de banidos
+siteTitleBattleHall: Battle Hall
+siteTitleDataPrivacy: Política de privacidade
+siteTitleDisclamer: Contato
+siteTitleHOF: Hall da Fama
+siteTitleIndex: Início
+siteTitleLostPassword: Esqueceu a senha?
+siteTitleNews: Notícias
+siteTitleRegister: Cadastrar
+siteTitleRules: Regras
+siteTitleScreens: Capturas de tela
+spy: Sondas de Espionagem
+st_buildings: Edifícios
+st_defenses: Defesa
+st_fleets: Frota
+st_points: Pontos
+st_researh: Pesquisa
+theme: Tema
+universe: Universo
+vertifyAdminMessage: A conta "%s" foi ativada.
+vertifyNoUserFound: Solicitação inválida.
+passwordErrorUsernameEmpty: Você não digitou um nome de usuário!
+uni_closed: ' (fechado)'
+uni_reg_closed: ' (cadastro fechado)'
+uni_reg_open: ' (só cadastro)'
+home_menu: Menu
+home_meta_description: '%s – o jogo de estratégia espacial no navegador com charme dos anos 2000: faça seus planetas crescerem, monte frotas, forme alianças.'
+home_started: Já está rodando!
+home_starts_in: Em
+home_team: Equipe
+home_meme_alt: Meme em quadrinhos do deck de comando do {game_name}
+home_meme_alt_deep_space_transit: 'Quadrinho: dois cadetes em um ônibus espacial: um desaba ao ver um campo de asteroides, o outro sorri para uma nebulosa brilhante. "Patrulha de setor padrão vs. encontrar uma nebulosa inexplorada rica em recursos."'
+home_meme_alt_deuterium_joyride: 'Quadrinho: um comandante cansado no deck de observação vê dois recrutas flutuando lá fora: "Vendo os recrutas novos gastarem todo o Deutério passeando lá fora enquanto eu espero 12 horas pela minha melhoria de mina."'
+home_meme_alt_enemy_fleet: 'Quadrinho: um cadete segura a cabeça em pânico enquanto os alarmes piscam: "1000 destruidores inimigos a caminho?! Eu achava que esse setor era seguro?!"'
+home_meme_alt_fleet_decimated: 'Quadrinho: um soldado em choque encara o vazio enquanto naves explodem do lado de fora de uma cúpula estilhaçada: "Quando você passa 20 horas farmando recursos só para a frota de um top 3 aparecer e desmontar tudo em 3 segundos."'
+home_meme_alt_solo_scouting: 'Quadrinho: o Comandante Kamioka sorri e apoia uma mão robótica no ombro de um cadete: "Relaxa, cadete. O Alto Comando tem confiança ''total'' na sua missão solo de reconhecimento no Espaço."'
+home_meme_alt_this_is_fine: 'Quadrinho: um cachorro de traje espacial senta calmamente em uma central de comando em chamas e diz "Isso é normal": "Relaxa. Minha frota só está 4 horas atrasada para voltar."'
+source_code: Código-fonte
+news_back: Voltar às notícias
+lightbox_close: Fechar
+lightbox_prev: Imagem anterior
+lightbox_next: Próxima imagem
+news_pinned: Fixada
+news_read_more: Ler mais
+news_latest: Últimas notícias
+home_discord_online: Online
+home_discord_join: Entre no nosso Discord
+news_all: Todas as notícias
+csrf_invalid: A verificação de segurança falhou (sua sessão pode ter expirado). Recarregue a página e tente de novo.
+home_logged_in_head: Sua conta
+home_logged_in_as: Conectado como %s
+home_continue: Ir para os seus universos
+home_account_lobby: Lobby da conta
+rulesEmpty: Nenhuma regra foi publicada ainda.
+loginLostPasswordOff: Esqueceu a senha? %s
+loginContactTeam: Fale com a equipe.
+home_step_build: Construa minas, pesquisas e hangares nos seus planetas.
+home_step_fleet: 'Envie frotas: explore, negocie, saqueie ou defenda.'
+home_step_alliance: Entre em uma aliança e suba nos rankings.
+home_hof_desc: Vencedores de rodadas encerradas
+home_battlehall_desc: As maiores batalhas da rodada em andamento
+memorialFilter: Batalhas memoriais
+toc_contents: Conteúdo
+loginRememberHint: Não use isso em um computador compartilhado.
+home_step_rules: Leia as %s antes de começar.
+socialContinueWith: Continuar com %s
+socialOr: ou
+socialErrorState: Não foi possível verificar o login (a solicitação expirou ou era inválida). Comece de novo.
+socialErrorProvider: O provedor não concluiu o login. Tente de novo mais tarde.
+socialErrorCancelled: O login foi cancelado.
+socialErrorNoEmail: O provedor não compartilhou um e-mail verificado. Cadastre-se com e-mail e senha e conecte o serviço depois, nas configurações da conta.
+socialErrorTaken: Esta conta do provedor já está conectada a outra conta de jogador.
+socialErrorExpired: Esta etapa expirou. Comece o login de novo.
+socialLinkTitle: Vincule a sua conta
+socialLinkIntro: Já existe uma conta com o e-mail %s. Para conectá-la ao seu login do %s, digite uma vez a senha dessa conta.
+socialLinkPassword: Senha da conta existente
+socialLinkHelp: Isso confirma que a conta é sua. O seu login com o provedor só é conectado depois disso.
+socialLinkButton: Vincular e entrar
+socialLinkWrong: A senha está errada.
+socialCancel: Cancelar
+socialCompleteTitle: Concluir cadastro
+socialCompleteIntro: Você está entrando com %s (%s) pela primeira vez. Escolha o seu nome e aceite as regras para criar a conta. Você não precisa de senha; dá para definir uma depois pela função de senha perdida.
+socialConnectedTitle: Serviços conectados
+socialConnectedIntro: Entre com estes serviços em vez de usar uma senha.
+socialConnected: Conectado
+socialConnectedAs: Conectado (%s)
+socialNotConnected: Não conectado
+socialConnect: Conectar
+socialDisconnect: Desconectar
+socialLinked: O serviço agora está conectado à sua conta.
+socialUnlinked: O serviço foi desconectado.
+socialLastMethod: Este é o seu único jeito de entrar. Defina uma senha primeiro (senha perdida, na página inicial) e depois desconecte o serviço.
+socialLastMethodHint: 'Último método de login: defina uma senha primeiro, depois você pode desconectá-lo.'
+socialErrorUnavailable: Este método de login não está disponível.

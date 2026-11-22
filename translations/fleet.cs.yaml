@@ -1,0 +1,468 @@
+and: a
+battle_stats_damage_done: Způsobené poškození
+battle_stats_damage_dead: Přebytečné poškození
+battle_stats_shield_hit: Zásahy do štítů
+battle_stats_ship_destroyed: Zničené lodě
+battle_stats_shield_bounced: Odražené poškození
+battle_stats_rapid_fire_done: Rychlá palba
+battle_stats_explosion_triggered: Výbuchy
+battle_stats_stunned_done: Vyřazeno
+battle_stats_target: Cíl
+battle_stats_total: Celkem
+battle_stats_total_all_targets: Celkem (všechny cíle)
+battle_stats_total_all_fleets: Celkem (všechny flotily)
+damage: bodů poškození.
+debree_field_1: 'Na těchto souřadnicích se nyní nachází:'
+debree_field_2: ' trosek.'
+fcp_colony: Kolonie
+fl_expocap_explain: >-
+  Tohle je maximální množství expedičních bodů, které má smysl poslat. Cokoli
+  nad tento strop tvé odměny nezvýší, ale přijít o to ještě můžeš.
+fl_send_back: Odvolat
+fl_simulate: Simulovat
+fleet_attack_1: Útočící flotila střílí na obránce s palebnou silou
+fleet_attack_2: bodů. Štíty obránce pohltí
+fleet_defs_1: Bránící flotila střílí na útočníka s palebnou silou
+fleet_defs_2: bodů. Štíty útočníka pohltí
+spy_best_planet: Nejlepší planeta
+spy_best_resources_per_second: Nejlepší suroviny za sekundu
+spy_energy: Energie
+spy_hazard_potential: Potenciál nebezpečí
+spy_large_transporter: Velký transportér
+spy_market_value: Tržní hodnota
+spy_necessary_recycler: Potřebné recyklátory
+spy_necessary_transporters: Potřebné lodě
+spy_potential_recycling: Potenciál recyklace
+spy_potential_resources: Potenciální suroviny
+spy_small_transporter: Malý transportér
+spy_summary: Souhrn
+spy_total_resources: Suroviny celkem
+sys_adress_planet: '[%s:%s:%s]'
+sys_and: a
+sys_attack_attacker_pos: Útočník
+sys_attack_defender_pos: Obránce
+sys_attack_round: Kolo
+cr_start: "Počáteční flotily"
+cr_rounds: "Kola"
+cr_debris: "Pole trosek"
+cr_loot: "Kořist"
+cr_losses: "Ztráty"
+cr_moon: "Šance na měsíc"
+cr_lost_round: "Ztraceno v tomto kole"
+cr_lost_total: "Ztraceno celkem"
+cr_stats: "Statistiky bitvy"
+sys_attack_title: 'Na tomto místě proti sobě stojí následující flotily: '
+sys_attacker_lostunits: 'Ztráty útočníka:'
+sys_attacker_won: Útočník vyhrál bitvu!
+sys_both_won: 'Souboj končí remízou! '
+sys_colo_allisok: >-
+  Tvoje flotila dorazila na souřadnice %s. Osadníci se pustili do kolonizace
+  nové planety.
+sys_colo_badpos: >-
+  Tvoje flotila dorazila na souřadnice %s. Osídlení tam není možné,
+  a tak se osadníci zklamaně vrátili domů.
+sys_colo_maxcolo: >-
+  Tvoje flotila dorazila na souřadnice %s. Osídlení není možné: můžeš
+  mít nejvýše %d planet.
+sys_colo_mess_from: Kolonizace
+sys_colo_mess_report: Zpráva o kolonizaci
+sys_colo_notech: >-
+  Tvoje flotila dorazila na souřadnice %s. Osadníci zjistili, že jejich
+  vybavení se pro tamní podnebí nehodí a je potřeba ho vylepšit.
+  Zklamaně se vrátili domů.
+sys_colo_notfree: >-
+  Tvoje flotila dorazila na souřadnice %s. Osadníci bohužel zjistili,
+  že planeta je už obydlená! Totálně demoralizovaní se vrátili domů.
+sys_debris: Pole trosek
+sys_def_rebuild: 'Část obrany se podařilo opravit:'
+sys_defender_lostunits: 'Ztráty obránce:'
+sys_defender_won: Obránce vyhrál bitvu!
+sys_destroyed: Zničeno
+sys_destruc_echec: >-
+  Planetou otřásla zemětřesení, ale něco se pokazilo: Hvězdy smrti
+  vybuchly a rozletěly se na tisíc kousků a rázové vlny
+  smetly celou flotilu.
+sys_destruc_lune: 'Šance na zničení měsíce: %d%%'
+sys_destruc_mess1: 'Hvězdy smrti vypálily svou obrovskou energii na měsíc.'
+sys_destruc_null: >-
+  Hvězdy smrti se před výstřelem nestihly plně nabít.<br> Měsíc nebyl
+  zničen.
+sys_destruc_reussi: >-
+  Paprsky Hvězd smrti dosáhly měsíce a roztrhaly ho na kusy. <br>Celý
+  měsíc byl zničen!
+sys_destruc_rip: 'Šance, že se flotila zničí sama: %d%%'
+sys_destruc_stop: 'Obránci se podařilo zničení měsíce zablokovat.'
+sys_destruc_title: 'Na tomto místě proti sobě stojí následující flotily při ničení měsíce:'
+sys_expe_attack_1_1_1: Zoufalý vesmírný pirát se pokusil zmocnit se naší expediční flotily.
+sys_expe_attack_1_1_2: >-
+  Na nás zaútočili nějací primitivní barbaři ve vesmírných lodích. Aspoň že
+  jejich lodě byly v otřesném stavu. Kdyby jejich palebná síla byla vážná
+  hrozba, byli bychom nuceni odpovědět vlastní.
+sys_expe_attack_1_1_3: >-
+  Zachytili jsme pár rádiových zpráv od velmi opilých pirátů. Zřejmě
+  na nás zaútočí.
+sys_expe_attack_1_1_4: >-
+  Museli jsme bojovat s několika piráty, ale naštěstí jsme je přečíslili.
+sys_expe_attack_1_1_5: >-
+  Naše flotila hlásí, že jakýsi Moa Tikarr a jeho posádka požadovali
+  bezpodmínečnou kapitulaci naší flotily. Pokud to myslí vážně, přijdou na to,
+  že se umíme bránit velmi dobře.
+sys_expe_attack_1_2_1: Tvoje expediční flotila měla nečekané setkání s vesmírnými piráty.
+sys_expe_attack_1_2_2: >-
+  Vlétli jsme do léčky hvězdných pirátů! Boji se bohužel nedalo vyhnout.
+sys_expe_attack_1_2_3: >-
+  Volání o pomoc od jiné expediční flotily se ukázalo jako past
+  mazaných pirátů. Bitvě se nedalo vyhnout.
+sys_expe_attack_1_3_1: >-
+  Zachycené signály nepocházely od neznámých vetřelců, ale z tajné
+  pirátské základny! Piráti nebyli z naší přítomnosti ve svém sektoru moc nadšení.
+sys_expe_attack_1_3_2: Expediční flotila hlásila prudké boje s neidentifikovanými pirátskými loděmi!
+sys_expe_attack_1_3_3: >-
+  Právě nám dorazila naléhavá zpráva od velitele expedice:
+  „Jdou na nás! Vyskočili z hyperprostoru, naštěstí jsou to jen
+  piráti, takže máme šanci, budeme bojovat!“
+sys_expe_attack_2_1_1: Tvoje expediční flotila měla nepříliš přátelský první kontakt s neznámým druhem.
+sys_expe_attack_2_1_2: Nějaké podivné lodě zaútočily na expediční flotilu bez varování!
+sys_expe_attack_2_1_3: Na naši expedici zaútočila malá skupina neidentifikovaných vesmírných lodí!
+sys_expe_attack_2_1_4: >-
+  Expediční flotila hlásí kontakt s neznámými loděmi. Rádiové zprávy
+  nelze dekódovat, ale podivné lodě jako by nabíjely
+  zbraně.
+sys_expe_attack_2_2_1: Neznámý druh útočí na naši expedici!
+sys_expe_attack_2_2_2: >-
+  Tvoje expediční flotila zřejmě narušila území dosud
+  neznámé, ale vysoce agresivní vetřelecké rasy.
+sys_expe_attack_2_2_3: >-
+  Spojení s naší expediční flotilou se náhle přerušilo. Naposledy
+  jsme slyšeli, že flotila je pod těžkou palbou. Útočníky se
+  nepodařilo identifikovat.
+sys_expe_attack_2_3_1: >-
+  Tvoje expedice narazila na vetřeleckou invazní flotilu a hlásí masivní bitvy!
+sys_expe_attack_2_3_2: >-
+  Velká skupina krystalických lodí neznámého původu míří přímo na srážku s naší
+  expediční flotilou. Musíme se připravit na nejhorší.
+sys_expe_attack_2_3_3: >-
+  Měli jsme trochu potíže správně vyslovit nářečí vetřelecké rasy.
+  Náš diplomat omylem zavolal „Palte!“ místo „Mír!“
+sys_expe_attackname_1: Piráti
+sys_expe_attackname_2: Vetřelci
+sys_expe_back_home: Tvoje flotila se vrátila na %1$s %2$s z expedice na %3$s.
+sys_expe_back_home_ress: Doručuje %s %s, %s %s a %s %s.
+sys_expe_back_home_ships_flound: 'Byly nalezeny následující lodě:'
+sys_expe_back_home_ships_lost: 'Byly ztraceny následující lodě:'
+sys_expe_depleted_max_1: >-
+  Zápis z deníku spojového důstojníka: Pokud se někdy budeme cítit
+  nejistě, můžeme se vždycky spojit s ostatními expedicemi, které se tady
+  potulují.
+sys_expe_depleted_max_2: >-
+  Zápis z deníku spojového důstojníka: Jestli to takhle půjde dál, budeme
+  muset zřídit navigační bóje, abychom tenhle provoz zvládli.
+sys_expe_depleted_max_3: >-
+  Zápis z deníku spojového důstojníka: Možná by tady bylo užitečnější
+  otevřít obchod se suvenýry než poslat další expedici.
+sys_expe_depleted_med_1: >-
+  Zápis z deníku spojového důstojníka: Našli jsme stopy několika
+  expedičních flotil v okolí. Míříme domů.
+sys_expe_depleted_med_2: >-
+  Zápis z deníku spojového důstojníka: Navázali jsme přátelský rádiový
+  kontakt s několika dalšími expedicemi v tomto sektoru.
+sys_expe_depleted_med_3: >-
+  Zápis z deníku spojového důstojníka: Oslavili jsme konec expedice
+  s posádkou další expediční flotily, která cestuje ve stejném
+  sektoru. Ani oni nemají nic nového.
+sys_expe_depleted_min_1: >-
+  Zápis z deníku spojového důstojníka: Zdá se, že lidé už
+  v této části galaxie byli.
+sys_expe_depleted_min_2: >-
+  Zápis z deníku spojového důstojníka: Našli jsme trosky starých
+  vesmírných lodí. Nejsme tu první.
+sys_expe_depleted_min_3: >-
+  Zápis z deníku spojového důstojníka: Málem jsme se srazili
+  s další expediční flotilou. Nikdy by mě nenapadlo, že tu bude ještě někdo
+  další.
+sys_expe_depleted_not_1: >-
+  Zápis z deníku spojového důstojníka: Zdá se, že tahle část
+  vesmíru ještě nebyla prozkoumána.
+sys_expe_depleted_not_2: >-
+  Zápis z deníku spojového důstojníka: Je skvělý pocit být první,
+  kdo prolétá neprozkoumaným sektorem.
+sys_expe_feqeuence_few: Více než 10 expedic za posledních 24 hodin
+sys_expe_feqeuence_many: Více než 50 expedic za posledních 24 hodin
+sys_expe_feqeuence_medium: Více než 25 expedic za posledních 24 hodin
+sys_expe_found_goods: 'Vytěženo: %s %s.'
+sys_expe_found_ress_1_1: >-
+  Tvoje expedice objevila malé asteroidní pole, z něhož se podařilo
+  vytěžit nějaké suroviny.
+sys_expe_found_ress_1_2: >-
+  Na odlehlé planetce bylo nalezeno několik snadno dostupných ložisek
+  surovin a nerosty se úspěšně vytěžily.
+sys_expe_found_ress_1_3: >-
+  Tvoje expedice narazila na velmi staré vraky lodí z dávno minulé bitvy.
+  Jednotlivé součásti se podařilo zachránit a recyklovat.
+sys_expe_found_ress_1_4: >-
+  Expedice objevila planetu zamořenou radiací s vysoce jedovatou
+  atmosférou. Skeny však ukázaly, že tahle planeta obsahuje
+  spoustu surovin. Automatické drony se pokusily vytěžit
+  co nejvíc.
+sys_expe_found_ress_2_1: >-
+  Tvoje expedice našla prastarý konvoj nákladních lodí, plně naložený, ale
+  opuštěný. Něco surovin se podařilo získat. 
+sys_expe_found_ress_2_2: >-
+  Tvoje expedice našla velká ložiska surovin na malém měsíci s vlastní
+  atmosférou. Posádka právě tenhle poklad těží.
+sys_expe_found_ress_2_3: >-
+  Potkali jsme malý konvoj civilních lodí, které naléhavě potřebovaly jídlo
+  a léky. Výměnou jsme dostali značné množství užitečných surovin.
+sys_expe_found_ress_3_1: >-
+  Tvoje expediční flotila hlásí objev obrovského vetřeleckého vraku.
+  Technologii sice nedokázali nijak využít, ale loď se podařilo
+  rozebrat na jednotlivé díly a získat cenné suroviny.
+sys_expe_found_ress_3_2: >-
+  Pás asteroidů kolem neznámé planety obsahoval ohromná množství surovin.
+  Expediční flotila naplnila své skladovací prostory!
+sys_expe_found_ress_logbook_1: >-
+  Zápis z deníku prvního důstojníka: Využili jsme každý kousek volného místa,
+  a přesto jsme nemohli vzít všechny nalezené suroviny.
+sys_expe_found_ress_logbook_2: >-
+  Zápis z deníku prvního důstojníka: Kdybychom tak měli pár nákladních
+  lodí navíc! Teď musíme spoustu surovin nechat za sebou.
+sys_expe_found_ress_logbook_3: >-
+  Zápis z deníku prvního důstojníka: Už jsme vyhodili
+  všechno, co nepotřebujeme, ale pořád se nám nedaří udělat dost místa pro
+  všechny nalezené suroviny.
+sys_expe_found_ress_logbook_4: >-
+  Zápis z deníku prvního důstojníka: I když jsme jídelnu
+  a všechny společenské místnosti předělali na sklady, pořád jsme nemohli
+  odvézt všechny nalezené suroviny.
+sys_expe_found_ships_1_1: >-
+  Objevili jsme pozůstatky předchozí expedice! Naši technici
+  zjišťují, jestli by se některé z vraků daly znovu zprovoznit.
+sys_expe_found_ships_1_2: >-
+  Našli jsme opuštěnou pirátskou základnu. V hangáru stojí pořád ještě pár
+  starých lodí. Naši technici zjišťují, jestli jsou některé z nich ještě použitelné.
+sys_expe_found_ships_1_3: >-
+  Naše expedice našla planetu, která byla válkami skoro úplně zničena.
+  Na oběžné dráze se vznášely různé vraky lodí. Technici se pokusili některé
+  z nich opravit. Možná se dozvíme víc o tom, co se tu stalo.
+sys_expe_found_ships_1_4: >-
+  Expedice narazila na starou hvězdnou základnu, která je zřejmě opuštěná
+  celou věčnost. V hangáru pevnosti se našlo několik lodí. Technikům se
+  některé z nich podařilo znovu rozlétat.
+sys_expe_found_ships_2_1: >-
+  Našli jsme pozůstatky armády. Technici expedice
+  ihned vlezli na částečně nepoškozené lodě a některé z nich
+  dokázali opravit.
+sys_expe_found_ships_2_2: >-
+  Naše expedice objevila starou automatickou loděnici, v níž byly některé lodě ještě
+  ve výrobě. Po obnovení dodávky energie do loděnice naši technici
+  dokončili jejich stavbu.
+sys_expe_found_ships_3_1: >-
+  Našli jsme gigantický hřbitov lodí. Několika technikům expedice
+  se podařilo zprovoznit jednu či dvě lodě.
+sys_expe_found_ships_3_2: >-
+  Objevili jsme planetu se zbytky civilizace. Z vesmíru byla spatřena
+  další gigantická lodní stanice, která je pořád neporušená. Někteří
+  naši technici a piloti sestoupili na povrch, aby zjistili, jestli se
+  pár lodí dá získat zpět.
+sys_expe_found_ships_logbook_1: >-
+  Zápis z deníku strojního důstojníka: Kdybychom s sebou přivedli pár lodí
+  navíc, bylo by snadné odvézt domů nějaké z těch krásek!
+sys_expe_found_ships_logbook_2: >-
+  Zápis z deníku strojního důstojníka: Bohužel jsme neměli kapacitu na to,
+  abychom na této misi odvezli všechny objevené lodě.
+sys_expe_found_ships_logbook_3: >-
+  Zápis z deníku strojního důstojníka: Bohužel nemáme dost kapacity na to,
+  abychom s sebou odvezli všechny nalezené lodě.
+sys_expe_found_ships_nothing: Žádné lodě se nepodařilo najít.
+sys_expe_lost_fleet_1: >-
+  Z expedice zbyla jen tahle rádiová zpráva: Zzzrrt
+  bože!...Krrrzzzzt to zrrrtrzt vidí krgzzzz ano z jak Krzzzzzzzztzzzz...
+sys_expe_lost_fleet_2: >-
+  Poslední, co jsme od expedice dostali, byly neuvěřitelně dobré
+  záběry zblízka na otevírající se černou díru.
+sys_expe_lost_fleet_3: >-
+  Jaderná porucha na jedné z velitelských lodí způsobila řetězovou reakci,
+  která zničila celou expedici ve velkolepém výbuchu.
+sys_expe_lost_fleet_4: >-
+  Expediční flotila se nevrátila z hyperprostorového skoku. Naši vědci
+  si pořád lámou hlavu, co se mohlo stát, ale flotila je zřejmě ztracena navždy.
+sys_expe_nothing_1: >-
+  Tahle expedice nepřináší nic vzrušujícího kromě pár zvědavých malých
+  zvířátek z neznámé bažinaté planety.
+sys_expe_nothing_2: >-
+  Tvoje expedice pořídila nádherné snímky supernovy. Jinak ale expedice
+  žádné nové poznatky nepřinesla. Má ale dobrou šanci vyhrát letošní
+  soutěž Nejlepší snímek vesmíru.
+sys_expe_nothing_3: >-
+  Podivný počítačový virus krátce po opuštění sluneční soustavy ochromil navigaci.
+  Celá expediční flotila tak celou dobu létala v kruzích.
+  Netřeba dodávat, že expedice nebyla nijak zvlášť úspěšná.
+sys_expe_nothing_4: >-
+  Forma života z čisté energie donutila všechny členy expedice několik dní
+  zírat na hypnotické symboly na obrazovkách. Když se většina konečně
+  vzpamatovala, musela být expedice zrušena kvůli nedostatku deuteria.
+sys_expe_nothing_5: >-
+  Tak aspoň už víme, že červené anomálie třídy 5 nemají jen chaotické účinky
+  na systémy lodi, ale mohou u posádky vyvolat i masivní halucinace.
+  Bohužel se na téhle expedici nic dalšího neobjevilo.
+sys_expe_nothing_6: >-
+  Navzdory zprvu slibným skenům tohoto sektoru jsme se bohužel
+  vrátili s prázdnou.
+sys_expe_nothing_7: >-
+  Možná se na téhle odlehlé planetě neměly slavit kapitánovy narozeniny.
+  Zlá krvácivá horečka poslala většinu posádky na ošetřovnu a
+  akutní nedostatek personálu způsobil, že expedice selhala.
+sys_expe_nothing_8: >-
+  Tvoje expedice nenašla nic než nekonečnou prázdnotu vesmíru. Nebyl tam
+  ani malý asteroid, ani záření, ani částice, ani nic jiného, co
+  by tuhle expedici udělalo aspoň trochu vzrušující.
+sys_expe_nothing_9: >-
+  Porucha reaktoru na velitelské lodi málem zničila celou
+  expedici. Naštěstí byli technici více než zdatní a dokázali
+  zabránit nejhoršímu. Oprava však zabrala tolik času, že se expedice
+  vrátila, aniž by něčeho dosáhla.
+sys_expe_report: Zpráva o expedici
+sys_expe_report_msg: 'Zpráva o expedici flotily %s %s na %s:'
+sys_expe_time_fast_1: >-
+  Nepředvídaná zpětná vazba v energetických cívkách pohonného systému urychlila
+  návrat expedice, takže dorazí dřív, než se čekalo.
+  Prvotní zprávy však naznačují, že nemá co dalšího hlásit.
+sys_expe_time_fast_2: >-
+  Poněkud odvážný nový velitel použil nestabilní červí díru ke zkrácení
+  zpáteční cesty - a povedlo se! Samotná expedice ale žádné nové poznatky nepřinesla.
+sys_expe_time_fast_3: >-
+  Tvoje expedice nehlásila v prozkoumaném sektoru žádné anomálie. Flotila
+  však při zpátečním letu narazila na sluneční vítr, který cestu výrazně
+  urychlil. Expedice se nyní vrátí domů o něco dřív, než se čekalo.
+sys_expe_time_slow_1: >-
+  Vážná chyba navigátora zavedla flotilu úplně na špatné místo.
+  Zpáteční cesta proto trvala podstatně déle.
+sys_expe_time_slow_2: >-
+  Z dosud neznámých důvodů se skok flotily úplně nepovedl. Málem
+  skončila v srdci hvězdy! Naštěstí přistála ve známém
+  systému, ale zpáteční cesta potrvá déle, než se původně plánovalo.
+sys_expe_time_slow_3: >-
+  Nový navigační modul se zřejmě stále potýká s nějakými chybami. Expediční flotila
+  nejen že zamířila úplně špatným směrem, ale spotřebovala i všechno
+  deuterium! Zklamaná expedice se teď vrací na záložní energii.
+sys_expe_time_slow_4: >-
+  Tvoje expedice vstoupila do sektoru se zesílenými částicovými bouřemi. Ty přetížily
+  systémy pro ukládání energie, takže u všech lodí selhaly hlavní systémy.
+  Tvým mechanikům se podařilo zabránit nejhoršímu, ale expedice se nyní vrátí
+  s výrazným zpožděním.
+sys_expe_time_slow_5: >-
+  Vlajková loď tvé expediční flotily se srazila s cizí lodí, která bez varování
+  skočila přímo do flotily. Cizí loď vybuchla a škody
+  na vlajkové lodi byly značné. Jakmile se dokončí nejvážnější opravy,
+  tvoje lodě zahájí zpáteční cestu, protože expedice nemůže pokračovat
+  v současném stavu.
+sys_expe_time_slow_6: >-
+  Hvězdný vítr rudého obra zkreslil skok expedice, takže
+  navigační systémy zcela špatně spočítaly zpáteční cestu.
+  Expedice se tak ocitla v nekonečné prázdnotě mezi neznámými hvězdami.
+sys_fleet_return: Tvoje flotila se vrací na %s %s %s a doručuje %s %s, %s %s a %s %s. %s
+sys_fleet_won: >-
+  Tvoje flotila se vrátila z útoku na %s %s na %s %s. Ukořistila jsi %s %s, %s %s a %s %s.
+sys_gain: Zisk
+sys_honorpoints_changed: 'Čestné body:'
+sys_irak_def: 'Zachyceno raket: %d.'
+sys_irak_mess: Meziplanetární rakety (%d) z %s dopadly na %s <br><br>
+sys_irak_no_att: Všechny rakety byly zachyceny.
+sys_irak_no_def: Planeta nemá žádnou obranu.
+sys_irak_subject: Dopad raket
+sys_lost: Ztráty
+sys_mess_attack_cancel: |-
+  Bitva na %s %s byla zrušena.
+  Server ji nedokázal spočítat.
+sys_mess_attack_report: Zpráva o útoku
+sys_mess_fleetback: Návrat flotily
+sys_mess_piratebase_gone: 'Tvoje flotila dorazila na %s, ale pirátská základna tam už není. Flotila se vrací domů.'
+sys_mess_spy_activity: Zpráva kontrarozvědky
+sys_mess_spy_control: Ústřední zpravodajská služba
+sys_mess_spy_destroyed: Tvoje špionážní sondy byly zničeny!
+sys_mess_spy_ennemyfleet_1: Nepřátelské špionážní sondy z planety %s byly spatřeny poblíž %s.
+sys_mess_spy_ennemyfleet_3: Nepřátelské špionážní sondy z měsíce %s byly spatřeny poblíž %s.
+sys_mess_spy_link: >-
+  <a href="game/galaxy/%3$s/%4$s">%1$s (%2$s)
+  [%3$s:%4$s:%5$s]</a>
+sys_mess_spy_lostproba: 'Šance na odhalení špionážních sond byla: %d%%'
+sys_mess_spy_qg: Špionážní oddělení
+sys_mess_spy_repair_order: V opravárenském doku se právě obnovují lodě.
+sys_mess_spy_report: Zpravodajská zpráva
+sys_mess_spy_report_details_1: Špionážní zpráva z planety %1$s (%2$s) [%3$s:%4$s:%5$s] ze dne %6$s
+sys_mess_spy_report_details_3: Špionážní zpráva z měsíce %1$s (%2$s) [%3$s:%4$s:%5$s] ze dne %6$s
+sys_mess_spy_report_details_4: Špionážní zpráva z %1$s (%2$s) [%3$s:%4$s:%5$s] ze dne %6$s
+sys_mess_tower: Velitelství flotil
+sys_mess_transport: Transport
+sys_moonbuilt: >-
+  Obrovská množství volného kovu a krystalu se navzájem přitahují a
+  vytvářejí kolem planety satelit!
+sys_moonproba: 'Šance na měsíc: '
+sys_raport_amount_error: >-
+  Nejsou vybrány žádné lodě ani obrana, nebo jich je na simulaci příliš mnoho.
+sys_raport_lost_contact: >-
+  Spojení s útočící flotilou bylo ztraceno (byla sestřelena v prvním
+  kole).
+sys_raport_not_found: 'Neplatné ID bojové zprávy'
+sys_recy_gotten: >-
+  Tvoje recyklátory sebraly %2$s %6$s a %3$s %7$s z celkových %4$s
+  %6$s a %5$s %7$s na souřadnicích %1$s.
+sys_recy_mess: Tvoje recyklační flotila se vrátila na %s %s s %s %s, %s %s a %s %s.
+sys_recy_report: 'Zpráva o recyklaci'
+sys_ship_armour: Pancíř
+sys_ship_count: Počet
+sys_ship_repaired: Opraveno
+sys_ship_shield: Štíty
+sys_ship_type: Typ
+sys_ship_weapon: Palebná síla
+sys_spy_fleet: Flotila
+sys_stat_mess: >-
+  Tvoje flotila z %s %s dorazila na %s %s %s a doručila %s %s, %s %s a %s
+  %s. %s
+sys_stat_mess_stay: Rozmístěná flotila
+sys_stealed_ressources: Ukořistili
+sys_trade_mess_arr_success: >-
+  Tvoje obchodní flotila je připravena vrátit se na %1$s %2$s (zpáteční let: %5$s). <form
+  action="game/fleet/recall"
+  method="post"><input name="fleetID" value="%3$s" type="hidden"><input
+  value="%4$s" type="submit"></form>
+sys_trade_mess_back: Tvoje obchodní flotila se vrátila na %s %s bez úspěchu.
+sys_trade_mess_back_success: >-
+  Tvoje obchodní flotila se úspěšně vrátila na %4$s %5$s s
+  %1$s kovu, %2$s krystalu a %3$s deuteria.
+sys_tran_mess_back: Tvoje flotila se vrátila na %s %s.
+sys_tran_mess_owner: >-
+  Tvoje flotila z %s %s dorazila na %s %s %s a doručila %s %s, %s %s
+  a %s %s.
+sys_tran_mess_user: Mírumilovná flotila z %s %s dorazila na %s %s a doručila %s %s, %s %s a %s %s.
+sys_units: jednotek
+sys_wreckfield: >-
+  Některé zničené lodě obránce na pár dní vytvoří na oběžné dráze planety
+  pole vraků.
+sys_wreckfield_added: 'Přidáno do pole vraků:'
+type_mission_1: Útok
+type_mission_2: Útok aliance
+type_mission_3: Transport
+type_mission_4: Rozmístění
+type_mission_5: Držení
+type_mission_6: Špionáž
+type_mission_7: Kolonizace
+type_mission_8: Recyklace
+type_mission_9: Zničení
+type_mission_15: Expedice
+type_mission_16: Obchod
+type_mission_17: Převod
+type_planet_1: Planeta
+type_planet_2: Trosky
+type_planet_3: Měsíc
+type_planet_4: Pirátská základna
+type_planet_short_1: P
+type_planet_short_2: T
+type_planet_short_3: M
+depot_msg_subject: "Flotila zásobena"
+depot_msg_text: "Tvoje flotila na %s byla zásobena hráčem %s: pobyt prodloužen o %s h."
+cr_actions: "Akce se zprávou"
+cr_attack_again: "Zaútočit znovu"
+cr_simulate: "Simulovat"
+sys_expe_factor: "Faktor %s"
+sys_irak_vacation: "Rakety byly ztraceny: cílový hráč je v režimu dovolené."

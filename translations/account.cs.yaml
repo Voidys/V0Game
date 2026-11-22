@@ -1,0 +1,84 @@
+Active_players: Aktivní hráči
+Back: Zpět
+mail:
+  subject:
+    mail_changed: 'E-mailová adresa tvého účtu %s byla změněna'
+Other_universes: Další vesmíry
+Play: Hrát
+Playername: Jméno hráče
+Register: Registrovat se
+Settings: Nastavení
+Sitting_end: Konec zastupování
+Sitting_request: Požádat o zastupování (zatím není k dispozici)
+uni_status_regclosed_gameclosed: Zavřeno
+uni_status_regclosed_gameopen: Otevřeno ke hraní
+uni_status_regopen_gameclosed: Otevřeno k registraci
+uni_status_regopen_gameopen: Otevřeno
+Universe_end: Konec
+Universe_start: Začátek
+Universe_status: 'Stav vesmíru: '
+Universes: Vesmíry
+Your_universes: Tvoje vesmíry
+board_create: Nový příspěvek
+board_edit_post: Upravit příspěvek
+board_sort: Řadit
+board_sort_hot: Žhavé
+board_sort_new: Nové
+board_sort_top: Nejlepší
+board_period_all: Za celou dobu
+board_period_week: Tento týden
+board_csort_best: Nejlepší
+board_flair: Štítek
+board_flair_all: Vše
+board_flair_general: Obecné
+board_flair_guide: Návod
+board_flair_question: Otázka
+board_flair_suggestion: Návrh
+board_flair_bug: Chyba
+board_flair_offtopic: Off-topic
+board_upvote: Hlasovat pro
+board_downvote: Hlasovat proti
+board_pinned: Připnuto
+board_locked: Zamčeno
+board_by: od
+board_comments: Komentáře
+board_empty: Zatím žádné příspěvky. Buď první, kdo nějaký napíše.
+board_no_comments: Zatím žádné komentáře.
+board_title: Nadpis
+board_body: Text
+board_publish: Zveřejnit
+board_save: Uložit
+board_cancel: Zrušit
+board_edit: Upravit
+board_edited: upraveno
+board_delete: Smazat
+board_deleted: "[smazáno]"
+board_deleted_user: "[smazáno]"
+board_confirm_delete: Opravdu to chceš smazat?
+board_reply: Odpovědět
+board_collapse: Sbalit vlákno
+board_add_comment: Napsat komentář
+board_comment_send: Okomentovat
+board_mod_pin: Připnout
+board_mod_unpin: Odepnout
+board_mod_lock: Zamknout
+board_mod_unlock: Odemknout
+board_not_found: Tento příspěvek nebo komentář neexistuje.
+board_not_allowed: Tohle nemáš povoleno.
+board_err_csrf: Požadavek se nepodařilo ověřit. Načti stránku znovu a zkus to ještě jednou.
+board_err_title: Zadej prosím nadpis.
+board_err_title_long: Nadpis může mít nejvýše 200 znaků.
+board_err_body: Zadej prosím nějaký text (ne prázdný, ne příliš dlouhý).
+board_err_locked: Tento příspěvek je zamčený - nové komentáře nejsou možné.
+board_err_rate_post: "Počkej ještě %d s před dalším příspěvkem."
+board_err_rate_comment: "Počkej ještě %d s před dalším komentářem."
+board_ago_now: právě teď
+board_ago_min: "před %d min"
+board_ago_hours: "před %d h"
+board_ago_days: "před %d d"
+board_guest_hint: Přihlas se, abys mohl psát příspěvky, komentovat a hlasovat.
+board_guest_login: Přihlásit se
+board_guest_register: Registrovat se
+rl_board_err_self_vote: "Pro vlastní příspěvek nebo komentář hlasovat nemůžeš."
+rl_board_err_vote_cap: "Denní limit hlasů byl dosažen. Zkus to zítra."
+rl_board_err_write_cap: "Denní limit příspěvků a komentářů byl dosažen. Zkus to zítra."

@@ -1,0 +1,85 @@
+Active_players: Jucători activi
+Back: Înapoi
+mail:
+  subject:
+    mail_changed: 'Adresa de e-mail a contului tău %s a fost schimbată'
+Other_universes: Alte universuri
+Play: Joacă
+Playername: Nume jucător
+Register: Înregistrare
+Settings: Setări
+Sitting_end: Sfârșit sitting
+Sitting_request: Cere sitting (încă indisponibil)
+uni_status_regclosed_gameclosed: Închis
+uni_status_regclosed_gameopen: Deschis pentru joc
+uni_status_regopen_gameclosed: Deschis pentru înregistrare
+uni_status_regopen_gameopen: Deschis
+Universe_end: Sfârșit
+Universe_start: Start
+Universe_status: 'Starea universului: '
+Universes: Universuri
+Your_universes: Universurile tale
+
+board_create: Postare nouă
+board_edit_post: Editează postarea
+board_sort: Sortează
+board_sort_hot: În trend
+board_sort_new: Noi
+board_sort_top: Top
+board_period_all: Dintotdeauna
+board_period_week: Săptămâna aceasta
+board_csort_best: Cele mai bune
+board_flair: Etichetă
+board_flair_all: Toate
+board_flair_general: General
+board_flair_guide: Ghid
+board_flair_question: Întrebare
+board_flair_suggestion: Sugestie
+board_flair_bug: Bug
+board_flair_offtopic: Off-topic
+board_upvote: Vot pozitiv
+board_downvote: Vot negativ
+board_pinned: Fixat
+board_locked: Blocat
+board_by: de
+board_comments: Comentarii
+board_empty: Încă nu există postări. Fii primul care scrie una.
+board_no_comments: Încă nu există comentarii.
+board_title: Titlu
+board_body: Text
+board_publish: Publică
+board_save: Salvează
+board_cancel: Anulează
+board_edit: Editează
+board_edited: editat
+board_delete: Șterge
+board_deleted: "[șters]"
+board_deleted_user: "[șters]"
+board_confirm_delete: Chiar vrei să ștergi asta?
+board_reply: Răspunde
+board_collapse: Restrânge discuția
+board_add_comment: Scrie un comentariu
+board_comment_send: Comentează
+board_mod_pin: Fixează
+board_mod_unpin: Dezlipește
+board_mod_lock: Blochează
+board_mod_unlock: Deblochează
+board_not_found: Această postare sau acest comentariu nu există.
+board_not_allowed: Nu ai voie să faci asta.
+board_err_csrf: Cererea nu a putut fi verificată. Reîncarcă pagina și încearcă din nou.
+board_err_title: Introdu un titlu.
+board_err_title_long: Titlul poate avea cel mult 200 de caractere.
+board_err_body: Scrie ceva text (nu gol și nu prea lung).
+board_err_locked: Această postare este blocată - nu mai sunt permise comentarii noi.
+board_err_rate_post: "Mai așteaptă %d secundă/secunde până la următoarea postare."
+board_err_rate_comment: "Mai așteaptă %d secundă/secunde până la următorul comentariu."
+board_ago_now: chiar acum
+board_ago_min: "acum %d min"
+board_ago_hours: "acum %d h"
+board_ago_days: "acum %d z"
+board_guest_hint: Conectează-te ca să postezi, să comentezi și să votezi.
+board_guest_login: Conectare
+board_guest_register: Înregistrare
+rl_board_err_self_vote: "Nu poți vota propria postare sau propriul comentariu."
+rl_board_err_vote_cap: "Ai atins limita zilnică de voturi. Încearcă din nou mâine."
+rl_board_err_write_cap: "Ai atins limita zilnică de postări și comentarii. Încearcă din nou mâine."

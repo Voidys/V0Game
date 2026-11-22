@@ -2,6 +2,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Game\Core\LanguageCatalog;
 use App\Security\Account;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
@@ -98,7 +99,7 @@ final class LocaleSubscriber implements EventSubscriberInterface
         }
 
         foreach ($request->getLanguages() as $language) {
-            $code = strtolower(explode('_', $language)[0]);
+            $code = LanguageCatalog::packCodeForTag($language);
             if ($this->isAvailable($code)) {
                 return $code;
             }

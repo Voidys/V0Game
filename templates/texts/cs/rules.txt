@@ -1,0 +1,73 @@
+<p class="rules-notice"><strong>POZOR: Pravidla se mohou změnit a každý uživatel je povinen se o jejich stavu sám informovat!</strong></p>
+<h2>1. Účty</h2>
+<p>Majitelem účtu je vždy majitel pevně uvedené e-mailové adresy. Účet smí hrát jen jedna osoba. Jedinou výjimkou je zastupování (sitting). Pokud je nutné hlídat cizí účet nebo ho přepnout do režimu dovolené, musí být předem informován a o povolení požádán příslušný operátor. Při krátkodobém zastupování do 12 hodin stačí hlášení operátorovi. Během zastupování jsou zakázány všechny pohyby flotil, povoleno je jen zaparkování flotily na souřadnicích zastupovaného a stavba surovin na planetě, na které se nachází. Účet smí být zastupován nejvýše 72 hodin. U výjimek je nutné povolení operátora. Předání účtu smí proběhnout nejvýše jednou za 3 měsíce a výhradně zdarma. Účet nahlas operátorovi.</p>
+<hr>
+<h2>2. Multiúčty</h2>
+<p>Každý hráč smí hrát na vesmír jen jeden účet. Pokud se dva nebo více účtů obvykle, příležitostně nebo trvale hraje ze stejného internetového připojení (např. školy, univerzity nebo internetové kavárny), musí se to předem nahlásit adminovi. V takových případech mají dotčené účty zakázán jakýkoli kontakt flotilami, dokud používají stejné připojení. Stejně tak jsou zakázány další shody.</p>
+<hr>
+<h2>3. Pushing</h2>
+<p>Pushing je obecně zakázán. Pushing zahrnuje například všechny transporty surovin a střelby na měsíce bez odpovídající protihodnoty z účtů s nižšími body na účty s vyššími body.<br>
+Obchod musí být dokončen do 24 hodin. Výjimky musí předem schválit moderátoři přes ticket na Discordu nebo soukromou zprávu ve hře. <a href="./team">Tým najdeš tady.</a>.<br>
+Nezískání povolení nebo nedodržení pravidla může vést k banu.</p>
+
+<h2>3.1 Obchod a útoky</h2>
+<p>Pokud chtějí hráči prodat nebo rozdat suroviny jiným hráčům, smějí tak učinit v poměru mezi 75%% a 125%% tržní ceny.</p>
+<p>Zvláštní případ:<br>
+Pokud není možné rozdělit ukořistěné suroviny v okně 24 hodin po útocích s Hvězdami smrti, je to obecně povoleno, ale musí se to nahlásit moderátorům.</p>
+<details>
+	<summary>Příklady nepřípustného obchodování/útoků (klikni pro rozbalení):</summary>
+	<ul>
+	<li>Hráč A (slabý v bodech) záměrně pošle svou flotilu útokem na hráče B (silného v bodech) s cílem ji zcela zničit. V takovém případě musí silnější hráč otevřít ticket.</li>
+	<li>Hráči ze společného ACS nerozdělí ukořistěné suroviny a pole trosek podle pravidla 24 hodin.</li>
+	<li>Hráč A informuje ostatní, že končí hru. Pro každého příjemce této zprávy platí pro informované stop útoků na 24 hodin (od přijetí zprávy). V takovém případě je nutné informovat moderátory.</li>
+	<li>Hráč A sdílí údaje o své flotile (přílet, doby letu, velikost, pozice atd.) s ostatními, aby se tyto informace daly použít k útoku na hráče A. To je nespravedlivá výhoda oproti ostatním hráčům a považuje se to za poskytnutí surovin (pasivní pushing). V takovém případě je nutné informovat moderátory.</li>
+	</ul>
+</details>
+
+<h2>3.2 Rozlučkové bitvy</h2>
+<p>Rozlučkové bitvy je obecně nutné předem domluvit s moderátorským týmem.</p>
+
+<p><a href="{wiki_url}/wiki/En/Regeln">wiki</a></p>
+<hr>
+<h2>4. Bashing</h2>
+<p>Bashing znamená vícenásobné útoky během 24 hodin na stejného hráče nebo planetu/měsíc. Je to zakázáno, ale hra tomu brání. <a href="{wiki_url}/wiki/En/Universen-Übersicht">Nastavení se může u jednotlivých vesmírů lišit.</a> Útoky špionážními sondami nebo meziplanetárními raketami se nepočítají.</p>
+<p>Pravidlo o bashingu platí výhradně pro aktivní hráče. Pokud jsou strany ve válce, jsou další útoky povoleny. Válka musí být vyhlášena na fóru nejméně 24 hodin před dalšími útoky (obě aliance nebo jméno jednotlivce, který válku vyhlašuje, musí být v názvu oznámení správně napsány). Vyhlášení války lze adresovat jen aliancím, přičemž válku může vyhlásit aliance nebo jednotlivec.</p>
+<p>Přijetí války není vyžadováno. Války, které zjevně slouží jen masivnímu obcházení pravidla o bashingu, jsou zakázány. Posoudit to přísluší odpovědným moderátorům a operátorům.</p>
+<hr>
+<h2>5. Raketové útoky meziplanetárními raketami</h2>
+<p>Povoleno je jen 1 000 útoků meziplanetárními raketami za 24 hodin. Počet raket na útok je nezávislý.</p>
+<hr>
+<h2>6. Zneužívání chyb</h2>
+<p>Zneužívání chyb a omylů v programování je zakázáno. Zjištěné chyby se mají nahlásit co nejdříve přes <a href="%s" target="_blank" rel="noopener noreferrer">GIT Issue</a> nebo v kanálu Discordu #bugs. Podvádění je také zakázáno.</p>
+<hr>
+<h2>6.1 Nástroje a aplikace</h2>
+<p>Používání externích nástrojů a uživatelských skriptů, které nebyly plně schváleny, je zakázáno.</p>
+<p>Skripty a nástroje nesmějí poskytovat herní výhodu, kterou hráči bez nich nemají. Při jakékoli nejasnosti ohledně souladu nástroje s pravidly je nutné kontaktovat moderátora/administrátora. Pro toto schvalování musí být nástroj poskytnut a schválen určenému posuzovateli. Pokud je nástroj schválen, zveřejní posuzovatel jeho funkce (ne samotný nástroj).</p>
+<p>Poznámka: Zveřejňování a zpřístupňování vlastních nástrojů se důrazně doporučuje, ale není povinné.</p>
+<hr>
+<h2>6.2 Zneužití ochrany proti supům (Anti-Vulture)</h2>
+<p>Záměrné zneužití mechaniky proti supům k získání výhody, například k bezrizikovému gravitonovému výzkumu, je zakázáno a bude potrestáno banem.</p>
+<hr>
+<h2>7. Výhrůžky/urážky</h2>
+<p>Vydírání a výhrůžky v reálném životě povedou k vyloučení z jedné nebo všech herních oblastí. Vydíráním a výhrůžkami v reálném životě se rozumí jakýkoli druh komunikace, který jasně signalizuje úmysl vypátrat a ublížit osobě nebo blízké třetí osobě.</p>
+<hr>
+<h2>8. Spam a erotika</h2>
+<p>Spamování a reklama třetích stran jsou zakázány. Jakákoli forma erotiky a pornografie je zakázána. A bude potrestána banem napříč vesmíry a doživotním!</p>
+<hr>
+<h2>9. Šikana</h2>
+<p>Chování škodlivé pro komunitu a šikana jsou tu nežádoucí!</p>
+
+<p>Pro upřesnění: Šikana je jakékoli chování zahrnující opakované, pravidelné citové obtěžování, trýznění a ubližování.
+Jak ze strany jednotlivců, tak skupiny osob v nadřazeném postavení.
+Zneužití moci, výhrůžky násilím, slovní napadání, obtěžování, odhalování a vyloučení jsou jen některé příklady toho, jak může šikana probíhat.</p>
+
+<p>Pokud jsi šikanován sám nebo se o tom doslechneš, klidně nás kontaktuj!
+Pokusíme se najít cestu ven.
+Šikana nezůstává bez následků.</p>
+<hr>
+<h2>10. Jména hráčů</h2>
+<p>Kvůli problémům v minulosti je zakázán každý znak kromě následujících:</p>
+<p>a-z</p>
+<p>A-Z</p>
+<p>äÄ öÖ üÜ ß</p>
+<p>" ", "-", "_"</p>

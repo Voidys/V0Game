@@ -1,0 +1,12 @@
+Ciao {USERNAME},
+
+grazie per esserti registrato su {GAMENAME}!
+
+Siamo contenti che tu abbia scelto di entrare nella nostra community 
+e speriamo che ti divertirai un sacco!
+
+Dai un'occhiata anche al nostro Discord: 
+{DISCORD}
+
+Un saluto,
+il team di {GAMENAME}

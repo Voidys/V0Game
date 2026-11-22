@@ -1,0 +1,73 @@
+<p class="rules-notice"><strong>ATTENZIONE: le regole possono cambiare e ogni utente è tenuto a restare informato sul loro stato!</strong></p>
+<h2>1. Account</h2>
+<p>Il proprietario di un account è sempre il titolare dell'indirizzo e-mail registrato. Un account può essere giocato solo da una persona. L'unica eccezione è il sitting. Se serve controllare l'account di un'altra persona o metterlo in modalità vacanza, l'operatore responsabile deve essere informato in anticipo e va ottenuto il suo permesso. Per i sitting brevi di meno di 12 ore basta una segnalazione all'operatore. Durante il sitting sono vietati tutti i movimenti di flotta, è consentito solo stazionare la flotta sulle coordinate del sitter e costruire risorse sul pianeta su cui si trova. Un account può essere affidato in sitting per un massimo di 72 ore. Per le eccezioni va ottenuto il permesso di un operatore. La cessione di un account può avvenire al massimo ogni 3 mesi ed esclusivamente a titolo gratuito. Segnala l'account all'operatore.</p>
+<hr>
+<h2>2. Multiaccount</h2>
+<p>Ogni giocatore può giocare un solo account per universo. Se due o più account vengono giocati di solito, ogni tanto o in modo permanente dalla stessa connessione internet (ad es. scuole, università o internet café), va comunicato in anticipo a un admin. In questi casi agli account interessati è vietato qualsiasi contatto tra flotte mentre usano la stessa connessione internet. Sono vietati allo stesso modo ulteriori elementi in comune.</p>
+<hr>
+<h2>3. Pushing</h2>
+<p>Il pushing è vietato in generale. Per pushing si intendono, ad esempio, tutti i trasporti di risorse e i colpi sulle lune senza un'adeguata compensazione da account con meno punti ad account con più punti.<br>
+Uno scambio deve essere concluso entro 24 ore. Le eccezioni devono essere approvate in anticipo dai moderatori tramite ticket Discord o messaggio privato in gioco. <a href="./team">Qui trovi il team.</a>.<br>
+La mancata richiesta di autorizzazione o il mancato rispetto della regola possono comportare un ban.</p>
+
+<h2>3.1 Scambi e attacchi</h2>
+<p>Se i giocatori vogliono vendere o distribuire risorse ad altri giocatori, possono farlo a un rapporto tra il 75%% e il 125%% del prezzo di mercato.</p>
+<p>Caso particolare:<br>
+Se dopo attacchi con Morti Nere non è possibile distribuire le risorse catturate entro la finestra di 24 ore, in generale è consentito, ma va comunicato ai moderatori.</p>
+<details>
+	<summary>Esempi di scambi/attacchi irregolari (clicca per espandere):</summary>
+	<ul>
+	<li>Il giocatore A (debole in punti) manda di proposito la sua flotta in attacco contro il giocatore B (forte in punti) con l'obiettivo di farla distruggere completamente. In questo caso il giocatore più forte deve aprire un ticket.</li>
+	<li>I giocatori di un ACS comune non si dividono le risorse catturate e il campo di detriti secondo la regola delle 24 ore.</li>
+	<li>Il giocatore A informa gli altri che lascia il gioco. Per ogni destinatario di questo messaggio vale uno stop agli attacchi di 24 ore (dalla ricezione del messaggio) nei confronti degli avvisati. In questo caso vanno avvisati i moderatori.</li>
+	<li>Il giocatore A condivide i dettagli della sua flotta (arrivo, tempi di volo, dimensione, posizione, ecc.) con altri in modo che queste informazioni possano essere usate per attaccare il giocatore A. Questo è un vantaggio sleale rispetto agli altri giocatori (pushing passivo). Rappresenta un vantaggio sleale rispetto agli altri giocatori ed è considerato una fornitura di risorse (pushing passivo). In questo caso vanno avvisati i moderatori.</li>
+	</ul>
+</details>
+
+<h2>3.2 Battaglie d'addio</h2>
+<p>Le battaglie d'addio vanno in generale concordate in anticipo con il team di moderazione.</p>
+
+<p><a href="{wiki_url}/wiki/En/Regeln">wiki</a></p>
+<hr>
+<h2>4. Bashing</h2>
+<p>Per bashing si intendono attacchi multipli entro un periodo di 24 ore contro lo stesso giocatore o lo stesso pianeta/la stessa luna. È vietato, ma il gioco impedisce che accada. <a href="{wiki_url}/wiki/En/Universen-Übersicht">Le impostazioni possono variare da universo a universo.</a> Gli attacchi con sonde spia o missili interplanetari non vengono contati.</p>
+<p>La regola del bash vale esclusivamente per i giocatori attivi. Se le parti sono in guerra, ulteriori attacchi sono consentiti. La guerra deve essere dichiarata nel forum almeno 24 ore prima di ulteriori attacchi (nel titolo dell'annuncio devono essere scritti correttamente i nomi di entrambe le alleanze o il nome del singolo che dichiara guerra). Una dichiarazione di guerra può essere rivolta solo ad alleanze, e a dichiararla può essere un'alleanza o un singolo.</p>
+<p>L'accettazione della guerra non è necessaria. Sono vietate le guerre che servono ovviamente solo ad aggirare in massa la regola del bash. Giudicare spetta ai moderatori e agli operatori responsabili.</p>
+<hr>
+<h2>5. Attacchi con missili interplanetari</h2>
+<p>Sono consentiti solo 1.000 attacchi con missili interplanetari ogni 24 ore. Il numero di missili per attacco è indipendente.</p>
+<hr>
+<h2>6. Bugusing</h2>
+<p>Sfruttare bug ed errori di programmazione è vietato. I bug individuati vanno segnalati il prima possibile tramite <a href="%s" target="_blank" rel="noopener noreferrer">GIT Issue</a> o nel canale Discord #bugs. Anche barare è vietato.</p>
+<hr>
+<h2>6.1 Strumenti e applicazioni</h2>
+<p>È vietato l'uso di strumenti esterni e userscript che non siano stati rilasciati ufficialmente.</p>
+<p>Script e strumenti non devono dare un vantaggio di gioco che i giocatori senza di essi non hanno. Per chiarire qualsiasi dubbio sulla conformità di uno strumento alle regole va contattato un moderatore/amministratore. Per questa procedura di approvazione lo strumento deve essere fornito e approvato per un revisore indicato. Se uno strumento viene approvato tramite la procedura di revisione, le sue funzioni (non lo strumento stesso) vengono pubblicate dal revisore.</p>
+<p>Nota: pubblicare e rendere disponibili strumenti sviluppati in proprio è fortemente incoraggiato, ma non obbligatorio.</p>
+<hr>
+<h2>6.2 Abuso della protezione anti-avvoltoio</h2>
+<p>L'abuso deliberato della meccanica anti-avvoltoio per ottenere un vantaggio, come ad esempio una ricerca sui gravitoni senza rischi, è vietato e verrà punito con un ban.</p>
+<hr>
+<h2>7. Minacce/insulti</h2>
+<p>Ricatti e minacce nella vita reale comportano l'esclusione da una o da tutte le aree di gioco. Per ricatti e minacce nella vita reale si intende qualsiasi forma di comunicazione che segnali chiaramente l'intenzione di rintracciare e danneggiare una persona o un suo stretto familiare.</p>
+<hr>
+<h2>8. Spam ed erotismo</h2>
+<p>Lo spam e la pubblicità di terzi sono vietati. È vietata qualsiasi forma di erotismo e pornografia. E verrà punita con un ban a vita su tutto l'universo!</p>
+<hr>
+<h2>9. Bullismo</h2>
+<p>I comportamenti dannosi per la community e il bullismo qui non sono ammessi!</p>
+
+<p>Per definirlo: il bullismo è qualsiasi comportamento che comporta molestie emotive, tormenti e offese ripetuti e regolari.
+Sia da parte di singoli sia da parte di un gruppo di persone in posizione di superiorità.
+Abuso di potere, minacce di violenza, offese verbali, molestie, esposizione pubblica ed esclusione sono solo alcuni esempi di come può avvenire il bullismo.</p>
+
+<p>Se sei vittima di bullismo o ne vieni a conoscenza, contattaci pure!
+Cercheremo di trovare una via d'uscita.
+Il bullismo non è privo di conseguenze.</p>
+<hr>
+<h2>10. Nomi dei giocatori</h2>
+<p>A causa di problemi in passato ogni carattere, a parte i seguenti, è vietato:</p>
+<p>a-z</p>
+<p>A-Z</p>
+<p>äÄ öÖ üÜ ß</p>
+<p>" ", "-", "_"</p>

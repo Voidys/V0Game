@@ -1154,6 +1154,7 @@ ov_newname_specialchar: Les noms de planète ne peuvent contenir que des chiffre
 ov_newname_too_long: Le nom de la planète peut avoir au maximum %d caractères.
 ov_news: Actualités
 ov_news_all: 'Toutes les actualités'
+tutorial_label: 'Tutoriel'
 tutorial_step_of: 'Étape %1 sur %2'
 ov_of: de
 ov_outlaw: 'Hors-la-loi jusqu''à :'
@@ -1683,6 +1684,7 @@ shell_footer: Pied de page
 shell_footer_game: Jeu
 shell_footer_community: Communauté
 shell_footer_legal: Mentions légales
+shell_footer_credits: 'construit sur le travail de nombreux projets open source'
 shell_imprint: Mentions légales
 ui_palette_placeholder: Pages, planètes, coordonnées (p. ex. 1:42:8)…
 ui_palette_empty: Aucun résultat

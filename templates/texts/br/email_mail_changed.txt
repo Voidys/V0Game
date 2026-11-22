@@ -1,0 +1,11 @@
+Olá, {USERNAME}!
+
+O e-mail da sua conta acabou de ser alterado.
+A mudança vira definitiva em alguns dias.
+
+Se não foi você, abra um ticket no nosso Discord:
+{DISCORD}
+
+Abraço,
+
+Equipe {GAMENAME}

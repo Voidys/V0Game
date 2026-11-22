@@ -1,0 +1,1750 @@
+Account: Účet
+Achievement_names:
+  '1': Bez spánku a ve špatné náladě
+  '2': Perpetuum mobile
+  '3': Zasloužené
+  '4': K čemu to teď je?
+  '5': Protože můžu
+  '6': Minimální mzda
+  '7': Velká francouzská revoluce
+  '8': Opilé zachraňování
+  '9': To není měsíc
+  '10': Hra s kuličkami
+  '11': TheLegend27
+  '12': Požehnání od Slippyho
+  '13': To bylo o fous
+  '14': Prokletí od Slippyho
+  '15': Máme ještě lehké stíhače?
+  '16': Hej, kámo, kde mám deuterium?!
+  '17': Obrana nad vším!
+  '18': Hlavní nádraží
+  '19': Tlustá kůže 1
+  '20': Tlustá kůže 2
+  '21': Tlustá kůže 3
+  '22': Tlustá kůže 4
+  '23': Tlustá kůže 5
+  '24': Pal z laz0ru!
+  '25': Porušení GDPR
+  '26': Všechno pro úspěchy
+  '27': Čas velkého mozku
+  '28': Alternativní styl hry
+  '29': Komunistický manifest
+  '30': Tohle je Sparta
+  '31': Vyrazil jsem na dovolenou
+  '32': Pirát!
+  '33': Já přestat můžu!
+  '34': Na jídelním lístku
+  '35': To není hezké!
+  '36': Miesernachtsmann
+  '37': Taková nejsem
+  '38': Cornag and Offz
+  '39': Smysl života
+  '40': Kolumbus
+  '41': Filantrop slotů flotily
+  '42': Aspoň jsem se dostal do Bojové síně
+  '43': Poslepu
+  '44': To se stává každému
+  '45': Zámečník
+  '46': Čistá nenávist!
+  '47': Jack Rozparovač
+  '48': Rozparovač Jack
+  '49': Team Rocket zase odlétá
+  '50': Ups
+  '51': Moc chudý na procházení
+  '52': Megalomanie
+  '53': Einstein
+  '54': Šťastný nový rok!
+  '55': Živoucí legenda
+Achievement_text:
+  '1': Měl jsi celou noc pro sebe a nevystřelil jsi ani jednou.
+  '2': Měl jsi flotily nepřetržitě na cestě 90 dní.
+  '3': 'Přišel jsi o flotilu, zatímco jsi měl nastavený jazyk „francouzština“.'
+  '4': Vyzkoumej iontovou technologii 10.
+  '5': Vyzkoumej gravitonový výzkum 2, jen protože můžeš.
+  '6': Jeden z tvých útoků se vrátil jen s 1 kovem, 1 krystalem a 1 deuteriem.
+  '7': 'Poraz flotilu pirátských nebo vetřeleckých lodí o celkem alespoň 10 000 lodích. Vesmír je náš!'
+  '8': Dostav se na štamgast (úterý ve 20:00 na Discordu).
+  '9': Postav svou první Hvězdu smrti.
+  '10': Znič hráči měsíc.
+  '11': Hraj 14 dní výhradně na mobilu.
+  '12': Tvou flotilu při první expedici zničila černá díra.
+  '13': Pošli flotilu pryč méně než 5 sekund před dopadem příchozího útoku.
+  '14': Přijď o 10 flotil kvůli černým dírám. Prázdnota má hlad.
+  '15': Nepodaří se ti vytvořit měsíc u planety ani na 10 pokusů. Příště štěstí.
+  '16': Více než 250 tvých recyklátorů se vrátilo s prázdnou.
+  '17': Zařaď do jedné stavební zakázky alespoň 5000 raketometů.
+  '18': Spal 5 milionů deuteria jako palivo na jedné planetě během 24 hodin.
+  '19': Vyzkoumej pancéřovou technologii 3.
+  '20': Vyzkoumej pancéřovou technologii 6.
+  '21': Vyzkoumej pancéřovou technologii 9.
+  '22': Vyzkoumej pancéřovou technologii 12.
+  '23': Vyzkoumej pancéřovou technologii 15.
+  '24': Vyzkoumej laserovou technologii 12.
+  '25': Přihlas se k Rekordům.
+  '26': Smaž planetu, která ti dává nejvíc bodů (alespoň 100 000 bodů).
+  '27': Vyzkoumej mezigalaktickou výzkumnou síť 1.
+  '28': Vylepši všechny tři sklady na měsíci alespoň na úroveň 3.
+  '29': Zkolektivizuj flotilu hráče s vyšším skóre pomocí 5členného ACS.
+  '30': Odraž 5členný ACS úplně sám.
+  '31': Pošli svým útokem hráče do režimu dovolené.
+  '32': 'Přepadni 1000 planet s motivem „SetSail“. Arr!'
+  '33': Vrať se z režimu dovolené.
+  '34': Buď poprvé napaden. Vítej ve vesmíru.
+  '35': Zaútoč na aktivního hráče, který má méně než 1/10 tvých bodů.
+  '36': "Dostaň zprávu, která obsahuje jeden z následujících bloků:\r\n                        \"Hurensohn\", \"gleichstarke Ziele\", \"gegen Schwächere\", \"ehrenlos\""
+  '37': Nech se vyhladit 5členným ACS.
+  '38': 'Zaútoč na členy své vlastní aliance. Přátelská palba, někdo?'
+  '39': Zaútoč na někoho s přesně 42 loděmi.
+  '40': Kolonizuj planetu vzdálenou alespoň půl vesmíru.
+  '41': Zablokuj slot flotily na týden špatnou nabídkou na tržišti.
+  '42': Dostaň se 4krát do Bojové síně na poražené straně.
+  '43': "Vyhraj bitvu, zatímco je tvůj účet označen jako neaktivní,\r\n            na jedné ze svých planet, kam předtím dorazila flotila s dobou letu delší než 7 dní."
+  '44': 'Vyráběj surovinu na planetě déle než 7 dní při méně než 100 % energie.'
+  '45': Vyhraj útok proti hráči z první pětky v obraně.
+  '46': Spusť ochranu před bashingem vypálením meziplanetárních raket.
+  '47': Znič 5 měsíců.
+  '48': Přijď o 5 Hvězd smrti při pokusu o zničení měsíců. Au.
+  '49': Zbourej kolonii krátce po jejím založení.
+  '50': "Přijď o všechny solární satelity na planetě s dostatkem\r\n            energie na výzkum gravitonové technologie, aniž bys gravitonovou technologii vyzkoumal."
+  '51': Spotřebuj všechno deuterium při procházení pohledu na galaxii.
+  '52': >-
+    Postav Hvězdu smrti, aniž bys předtím postavil jiné bojové lodě (lehký
+    stíhač, těžký stíhač, křižník, bitevní loď, bombardér, ničitel nebo bojový
+    křižník).
+  '53': Měj nejvyšší úroveň v 5 výzkumech současně.
+  '54': 'Načasuj útok na aktivního hráče tak, aby dopadl 1. 1. v 00:00:00.'
+  '55': Zvláštní úspěch
+ach_filter_all: Vše
+ach_filter_locked: Zamčené
+ach_filter_unlocked: Odemčené
+ach_locked: Zatím neodemčeno
+ach_progress: 'Odemčeno %d z %d'
+ach_unlocked_on: 'Odemčeno %s'
+Achievements: Úspěchy
+admin_access_1: Máš dočasná administrátorská práva.
+admin_access_2: ' pokud nejsou okamžitě nutná.'
+admin_access_link: VYPNOUT OPRÁVNĚNÍ
+Advanced_Stats:
+  destroy_moon_rips_lost: Ztracené Hvězdy smrti při pokusech o zničení měsíců
+  desunits: Zapojen do ničení jednotek
+  desunits_real: Zničené nepřátelské jednotky
+  dishonorable_fights: Nečestné souboje
+  draws: Remízy
+  expo_aliens_large: Velcí vetřelci
+  expo_aliens_medium: Střední vetřelci
+  expo_aliens_small: Malí vetřelci
+  expo_black_hole: Černé díry
+  expo_count: Expedice
+  expo_fast: Rychlé expedice
+  expo_first: 'Nalezeno na expedici dne:'
+  expo_found: 'Nálezy z expedic:'
+  expo_lost: 'Ztráty na expedicích:'
+  expo_nothing: Expedice s prázdnou
+  expo_pirates_large: Velcí piráti
+  expo_pirates_medium: Střední piráti
+  expo_pirates_small: Malí piráti
+  expo_res_large: Velké nálezy surovin
+  expo_res_medium: Střední nálezy surovin
+  expo_res_small: Malé nálezy surovin
+  expo_ships_large: Velké nálezy lodí
+  expo_ships_medium: Střední nálezy lodí
+  expo_ships_small: Malé nálezy lodí
+  expo_slow: Pomalé expedice
+  first: 'První úroveň/kus:'
+  first_attack: První útok
+  first_attack_win: První úspěšný útok
+  first_big_attack_win: První velké vítězství v útoku (zničen 1 mil. jednotek)
+  first_big_defense_win: První velké vítězství v obraně (zničen 1 mil. jednotek)
+  first_colony: První kolonie
+  first_defense: První obrana
+  first_defense_win: První úspěšná obrana
+  first_espionage: První špionážní mise
+  first_expedition: První expedice
+  first_expo_aliens_large: První setkání s velkými vetřelci
+  first_expo_aliens_medium: První setkání se středními vetřelci
+  first_expo_aliens_small: První setkání s malými vetřelci
+  first_expo_black_hole: První setkání s černou dírou
+  first_expo_fast: První rychlá expedice
+  first_expo_nothing: První expedice s prázdnou
+  first_expo_pirates_large: První setkání s velkými piráty
+  first_expo_pirates_medium: První setkání se středními piráty
+  first_expo_pirates_small: První setkání s malými piráty
+  first_expo_res_large: První velký nález surovin
+  first_expo_res_medium: První střední nález surovin
+  first_expo_res_small: První malý nález surovin
+  first_expo_ships_large: První velký nález lodí
+  first_expo_ships_medium: První střední nález lodí
+  first_expo_ships_small: První malý nález lodí
+  first_expo_slow: První pomalá expedice
+  first_moon: První měsíc
+  first_moon_trys: Pokusy o první měsíc
+  first_recycling: První recyklační mise
+  first_vacation: První režim dovolené
+  galaxy_scroll_spending: Celkem deuteria utraceného posouváním pohledu na galaxii
+  honorable_fights: Čestné souboje
+  honorpoints: Čestné body
+  kbcrystal: Zapojen do krystalových trosek
+  kbcrystal_real: Vytvořené krystalové trosky
+  kbmetal: Zapojen do kovových trosek
+  kbmetal_real: Vytvořené kovové trosky
+  loos: Prohry
+  lostunits: Zapojen do ztrát jednotek
+  lostunits_real: Vlastní ztráty jednotek
+  moons_created: Vytvořené měsíce
+  moons_deleted: Opuštěné měsíce
+  moons_destroyed: Zničené měsíce
+  moons_lost: Ztracené měsíce
+  moons_received: Získané měsíce
+  outlaw_activations: Aktivace psance
+  planets_created: Kolonizované planety
+  planets_deleted: Opuštěné planety
+  raided_crystal: Vyloupený krystal
+  raided_deuterium: Vyloupené deuterium
+  raided_metal: Vyloupený kov
+  recycled_crystal: Recyklovaný krystal
+  recycled_metal: Recyklovaný kov
+  set_sail_wins: Vyhrané souboje s aktivním motivem SetSail
+  stolen_crystal: Ukradený krystal
+  stolen_deuterium: Ukradené deuterium
+  stolen_metal: Ukradený kov
+  used_fuel: Spotřebované palivo
+  wons: Výhry
+advancedStats: Rozšířené statistiky
+al_acept_request: Přijmout
+al_actions: Akce
+al_all_players: Všichni hráči
+al_alliance: Aliance
+al_alliance_closed: Tato aliance nepřijímá nové členy.
+al_alliance_full: Tato aliance je plná. Zkus jinou.
+al_apply_rate_limited: "Dnes jsi poslal příliš mnoho přihlášek. Zkus to zítra."
+al_alliance_make: Založ si vlastní alianci
+al_alliance_min_points: 'Pro přihlášku do této aliance potřebuješ alespoň %d bodů.'
+al_alliance_search: Hledat aliance
+al_ally_info_members: Členové
+al_ally_info_name: Jméno
+al_ally_info_tag: Značka
+al_ally_information: Informace o alianci
+al_already_exists: 'Aliance se jménem <b>%s</b> už existuje. Vyber jiné jméno.'
+al_apply_accepted: Přihláška přijata.
+al_apply_declined: Přihláška zamítnuta.
+al_apply_not_exists: Tato přihláška už neexistuje.
+al_applyform_send: Odeslat
+al_back: Zpět
+al_candidate: Uchazeč
+al_characters: znaků
+al_circular_alliance: 'Aliance '
+al_circular_front_text: 'Člen aliance <b>%s</b> napsal:'
+al_circular_message: Zprávy aliance
+al_circular_reset: Obnovit
+al_circular_send_ciruclar: Poslat hromadnou zprávu
+al_circular_send_submit: Odeslat
+al_circular_sended: 'Zpráva odeslána těmto hráčům:'
+al_click_to_send_request: Vstoupit do aliance
+al_close_ally: 'Opravdu chceš alianci rozpustit?'
+al_configura_ranks: Spravovat hodnosti
+al_continue: Pokračovat
+al_coords: Souřadnice
+al_create: Vytvořit
+al_create_new_rank: Vytvořit novou hodnost
+al_created: 'Aliance <b>%s</b> založena!'
+al_decline_request: Odmítnout
+al_default_leader_name: Vůdce
+al_delete_request: Stáhnout přihlášku
+al_delete_request_confirm: 'Stáhnout svou přihlášku?'
+al_description_message: Tato aliance zatím nenapsala popis.
+al_diplo: Diplomacie
+al_diplo_accept: Příchozí žádosti
+al_diplo_accept_no: Smlouva odmítnuta.
+al_diplo_accept_no_confirm: 'Odmítnout tuto smlouvu?'
+al_diplo_accept_no_mes: Smlouva (%s) mezi aliancemi <b>%s</b> a <b>%s</b> byla odmítnuta!
+al_diplo_accept_send: Odchozí žádosti
+al_diplo_accept_yes: Smlouva podepsána.
+al_diplo_accept_yes_confirm: 'Přijmout tuto smlouvu?'
+al_diplo_accept_yes_mes: Smlouva (%s) mezi aliancemi <b>%s</b> a <b>%s</b> byla podepsána!
+al_diplo_ally: Aliance
+al_diplo_ask: Žádost o smlouvu
+al_diplo_ask_mes: >-
+  <a href="game/alliance/admin/diplomacy">[Žádost o smlouvu]</a> (%s)
+  byla odeslána od <b>%s</b> k <b>%s</b>.<br>Důvod: %s
+al_diplo_confirm_delete: 'Ukončit tuto smlouvu?'
+al_diplo_create: Požádat o smlouvu
+al_diplo_create_done: Žádost o smlouvu odeslána.
+al_diplo_delete: Smlouva ukončena
+al_diplo_delete_mes: 'Smlouva (%s) mezi aliancemi <b>%s</b> a <b>%s</b> skončila.'
+al_diplo_exists: 'S aliancí %s už máš aktivní nebo čekající smlouvu.'
+al_diplo_head: Správa diplomacie
+al_diplo_info: >-
+  <p>Na této stránce spravuješ diplomatické smlouvy své aliance.</p><p>Typy
+  smluv jsou uvedeny níže. Další informace: <a
+  href="game/faq">FAQ</a> nebo <a
+  href="{wiki_url}/wiki/En/Hauptseite"
+  target="_blank">wiki</a>.</p>
+al_diplo_level:
+  - Hlavní
+  - Křídlo
+  - Spojenectví
+  - Obchodní smlouva
+  - Pakt o neútočení
+  - Válka
+  - Tajné spojenectví
+  - Mír
+al_diplo_level_des: Typy smluv
+al_diplo_no_accept: '- Žádné žádosti -'
+al_diplo_no_alliance: 'Aliance s ID %s nenalezena.'
+al_diplo_no_entry: '- Žádné smlouvy -'
+al_diplo_same_alliance: 'Se svou vlastní aliancí smlouvu uzavřít nemůžeš!'
+al_diplo_text: Žádost/důvod
+al_diplo_war: Vyhlášení války
+al_diplo_war_end: Vyhlášení míru
+al_diplo_war_end_mes: 'Dokument %s mezi aliancemi <b>%s</b> a <b>%s</b> právě skončil.'
+al_diplo_war_mes: >-
+  Aliance <b>%1$s</b> vyhlásila %3$s aliancí <b>%2$s</b>!
+  <br>Důvod:<br>%4$s<br><br>Informace: Válka začne za <b>24 hodin</b>,
+  od kdy se pozastaví pravidlo o limitu útoků.<br>Další informace najdeš
+  v <a href="./rules?lang=en"
+  target="_blank">[Pravidlech]</a>.
+al_diplo_withdraw: Žádost o smlouvu stažena.
+al_diplo_withdraw_confirm: 'Stáhnout tuto žádost o smlouvu?'
+al_diplo_withdraw_mes: Žádost o smlouvu (%s) mezi aliancemi <b>%s</b> a <b>%s</b> byla stažena.
+al_disolve_alliance: Rozpustit alianci
+al_dlte: Smazat
+al_estate: Online
+al_find_alliances: Najít aliance
+al_find_no_alliances: Žádné aliance nenalezeny. Zkus jiné hledání.
+al_find_submit: Hledat
+al_find_text: Hledat
+al_founder_rank_text: Zakladatel
+al_go_out_no: 'Ne'
+al_go_out_yes: 'Ano'
+al_has_accepted: '</b> přijala tvou přihlášku!<br>Zpráva: <br>'
+al_has_declined: '</b> zamítla tvou přihlášku!<br>Zpráva: <br>'
+al_hi_the_alliance: Aliance <b>
+al_inside_section: Jen pro členy
+al_inside_text: Soukromý popis
+al_invalid_rank_name: Názvy hodností smí obsahovat jen písmena, číslice, mezery, podtržítka, pomlčky a tečky.
+al_kick_player: 'Vyhodit hráče %s z aliance?'
+al_leave_alliance: Opustit alianci
+al_leave_ally: 'Opustit alianci?'
+al_leave_sucess: 'Opustil jsi alianci <b>%s</b>.'
+al_leaving: Hráč opustil alianci
+al_leaving_msg: >-
+  Hráč <a href="#" data-action="dialog-playercard" data-id="%s" data-name="%s"><b>%s</b></a> opustil alianci!
+al_make_alliance: Založit alianci
+al_make_ally_insufficient_points: 'Nemáš dost bodů na založení aliance.<br>Potřebuješ alespoň %s bodů a ještě ti jich chybí %s.'
+al_make_ally_name_required: Jméno aliance (3-30 znaků)
+al_make_ally_tag_required: Značka aliance (3-8 znaků)
+al_make_submit: Založit
+al_manage_alliance: Správa aliance
+al_manage_diplo: Diplomacie
+al_manage_founder_rank: Hodnost vůdce
+al_manage_image: Obrázek banneru
+al_manage_members: Členové
+al_manage_options: Možnosti
+al_manage_ranks: Hodnosti
+al_manage_request_min_points: Min. bodů
+al_manage_requests: Přihlášky
+al_member: Jméno
+al_member_since: Vstoupil
+al_memberlist_min: min
+al_memberlist_off: Offline
+al_memberlist_on: Online
+al_message: Zpráva
+al_name: Změnit jméno aliance
+al_name_required: Zadej prosím jméno aliance.
+al_link_too_long: Odkaz je příliš dlouhý (nejvýše 255 znaků).
+al_name_tag_too_long: Značka může mít nejvýše 8 znaků a jméno 30.
+al_new_apply: >-
+  Tvoje aliance obdržela <a
+  href="game/alliance/admin/applications">[přihlášku]</a> od
+  hráče <a href="#" data-action="dialog-playercard" data-id="%s" data-name="%s"><b>%s</b></a>.
+al_new_member_rank_text: Nový člen
+al_new_requests: 'Čeká: %d'
+al_newname_specialchar: Jména a značky aliancí smí obsahovat jen písmena, číslice, mezery, podtržítka, pomlčky a tečky.
+al_no_diplo: '-'
+al_no_ranks_defined: 'Zatím žádné hodnosti. Vytvoř první!'
+al_no_requests: Právě teď žádné přihlášky.
+al_not_exists: Taková aliance neexistuje.
+al_num: ID
+al_ok: OK
+al_outside_text: Veřejný popis
+al_points: Body
+al_position: Pořadí
+al_rank: Tvoje hodnost
+al_rank_desc:
+  ADMIN: Může spravovat alianci
+  DIPLOMATIC: Může spravovat diplomacii
+  EVENTS: Může vidět události
+  KICK: Může vyhazovat členy
+  MANAGEAPPLY: Může spravovat přihlášky
+  MANAGEUSERS: Může spravovat členy
+  MEMBERLIST: Může vidět seznam členů
+  ONLINESTATE: Může vidět, kdo je online
+  RANKS: Může spravovat hodnosti
+  ROUNDMAIL: Může posílat hromadné zprávy
+  SEEAPPLY: Může vidět přihlášky
+  TRANSFER: Může se stát vůdcem aliance
+al_rank_diplo: Diplomat
+al_rank_name: Jméno
+al_receiver: Příjemce
+al_reply_to_request: Odpovědět
+al_request: Přihláška
+al_request_confirmation_message: 'Přihláška odeslána!<br> Jakmile bude přijata nebo zamítnuta, dostaneš zprávu.'
+al_request_date: Datum přihlášky
+al_request_deleted: 'Tvoje přihláška do aliance <b>%s</b> byla stažena.<br> Teď můžeš podat novou přihlášku nebo založit vlastní alianci.'
+al_request_from: Žádost pro <b>%s</b>
+al_request_last_onlinetime: Poslední aktivita
+al_request_list: Seznam žádostí
+al_request_register_time: Registrován
+al_request_text: Formulář přihlášky
+al_request_wait_message: 'Tvoje přihláška do <b>%s</b> stále čeká na vyřízení.<br> Počkej na odpověď, nebo ji stáhni a přihlas se jinam.'
+al_requests: Žádosti
+al_requests_allowed: Otevřeno
+al_requests_min_points: ' %s bodů'
+al_requests_not_allowed: Zavřeno
+al_save: Uložit
+al_saved: Uloženo!
+al_send_circular_message: Poslat hromadnou zprávu
+al_set_max_members: Max. členů
+al_tag: Změnit značku aliance
+al_tag_required: Zadej prosím značku aliance.
+al_texts: Texty
+al_the_alliance: Aliance
+al_transfer_alliance: Předat alianci
+al_transfer_submit: Předat
+al_transfer_to: Předat komu
+al_user_list: Seznam členů
+al_users_list: 'Členové (celkem: %d)'
+al_users_list_main: 'Hlavní členové (celkem: %d) - %s'
+al_users_list_wing: 'Členové křídla (celkem: %d) - %s'
+al_view_diplo: Zobrazit diplomacii
+al_view_stats: Zobrazit bojové statistiky
+al_web_site: Domovská stránka
+al_web_text: Web aliance
+al_write_request: Přihlásit se do aliance <b>%s</b>
+al_you_was_acceted: 'Byl jsi přijat do '
+al_you_was_declined: 'Byl jsi zamítnut z '
+al_your_ally: Tvoje aliance
+al_your_request_title: Tvoje přihláška
+banned_message: >-
+  Dostal jsi ban. <!--discord_url-->Pokud myslíš, že to byla chyba, napiš nám na Discordu:
+  <a href="{discord_url}">{discord_url}</a><!--/discord_url-->
+bd_actual_production: 'Aktuální produkce:'
+bd_available: 'K dispozici: '
+bd_build: Postavit
+bd_build_next_level: 'Vylepšit '
+bd_build_ships: Postavit
+bd_building_lab: Nelze zkoumat, dokud se vylepšuje výzkumná laboratoř.
+bd_building_shipyard: Nelze stavět lodě ani obranu, dokud se vylepšuje loděnice (nebo továrna na nanoboty).
+bd_buildlist_full: Fronta stavby je plná.
+bd_cancel: Zrušit
+bd_cancel_send: Zrušit stavbu
+bd_cancel_warning: 'Pozor!<br>Zrušením se vrátí jen 60 % ceny.'
+bd_continue: Pokračovat
+bd_deploy: Uvést do služby
+bd_deployable: 'Oprava dokončena! Automatické uvedení do služby za:'
+bd_destroy_time: Doba trvání
+bd_dismantle: Zbourat
+bd_jump_gate_action: Skok
+bd_lvl: Úroveň
+bd_max_builds: 'Tvoje fronta je plná: nejvýše %d zakázek.'
+bd_max_ships: max
+bd_max_ships_long: Maximální možný počet jednotek ke stavbě
+bd_max_ships_repair: Maximální počet obnovitelných jednotek
+bd_maxlevel: Dosažena maximální úroveň
+bd_more_engine: Produkuje o <font class="colorPositive">%s</font> víc %s
+bd_need_engine: Spotřebuje o <font class="colorNegative">%s</font> víc %s
+bd_next_level: 'Další úroveň:'
+bd_no_lab: Na této planetě není výzkumná laboratoř. Frontu můžeš prohlížet, ale ne měnit.
+bd_no_lab_here: 'Na této planetě není výzkumná laboratoř'
+bd_on_this_planet: 'na této planetě'
+bd_no_more_fields: Na této planetě nezbývají žádná volná pole.
+bd_operating: '(Ve výstavbě)'
+bd_paused: pozastaveno
+bd_price_for_destroy: 'Cena za zbourání:'
+bd_protection_shield_only_one: Štít můžeš postavit jen jeden!
+bd_remaining: Chybějící suroviny
+bd_repair_rate: Míra opravy
+bd_repair_ships: Opravit
+bd_repairdock_busy: Opravárenský dok je zaneprázdněn jinou zakázkou.
+bd_repairdock_deploy: 'Opravy hotové. Lodě jsou zpět ve službě!'
+bd_repairdock_empty: Není tu žádné pole vraků k opravě.
+bd_repairdock_required: Nejdřív na této planetě postav opravárenský dok.
+bd_repairdock_time: Zbývající čas pole vraků
+bd_repairing: Probíhá oprava
+bd_requirements: Chybí požadavky
+bd_researclist_full: Fronta výzkumu je plná.
+bd_shipyard_required: Nejdřív postav loděnici.
+bd_tech: Výzkum
+bd_tech_next_level: 'Zkoumat '
+bd_working: Zaneprázdněno
+bd_wreck_count: Vraky v poli vraků
+blockDm: Blokovat přímé zprávy
+blockTrade: Blokovat obchod
+bn_by: Od
+bn_exists: 'Celkem '
+bn_from: Od
+bn_no_players_banned: Právě teď nikdo nemá ban.
+bn_player: Hráč
+bn_players_banned: ' zabanovaných hráčů'
+bn_players_banned_list: Seznam zabanovaných hráčů
+bn_reason: Důvod
+bn_until: Do
+bn_writemail: 'Napsat hráči %s'
+bs_acs_slot: Slot ACS
+bs_add_acs_slot: Přidat slot ACS
+bs_atter: Útočník
+bs_cancel: Obnovit
+bs_too_many_units: "Příliš mnoho jednotek na jednu simulaci (nejvýše %s)."
+bs_busy: "Simulace už běží, počkej prosím, až skončí."
+bs_deffer: Obránce
+bs_derbis_raport: 'Potřebné pro recyklaci trosek: %s %s.'
+bs_load: Načíst
+bs_load_invalid: Neplatný sdílený kód
+bs_load_no_input: Nezadán žádný sdílený kód
+bs_reset: Obnovit
+bs_send: Spočítat
+bs_share: Sdílet
+bs_share_code: Sdílený kód
+bs_share_copy_fail: Kopírování se nezdařilo
+bs_share_copy_prompt: 'Zkopíruj prosím sdílený kód ručně:'
+bs_share_error: Sdílený kód se nepodařilo vygenerovat
+bs_share_success: Sdílený řetězec zkopírován do schránky
+bs_steal: 'Suroviny obránce:'
+bs_steal_raport: 'Potřebné k ukořistění surovin: %s %s nebo %s %s.'
+bs_swap: Prohodit strany
+bs_techno: Technologie
+bs_wait: Před další simulací počkej prosím 5 sekund
+bu_accept: Přijmout
+bu_accepted_request_body: Ahoj %s,<br>%s přijal tvou žádost o přátelství!
+bu_accepted_request_title: 'Žádost o přátelství přijata!'
+bu_action: Akce
+bu_alliance: Aliance
+bu_buddy_list: Seznam přátel
+bu_cancel_request: Zrušit žádost
+bu_cannot_request_yourself: Žádost o přátelství nemůžeš poslat sám sobě
+bu_characters: Znaky
+bu_connected: Připojen
+bu_coords: Souřadnice
+bu_decline: Odmítnout
+bu_delete: Smazat
+bu_disconnected: Offline
+bu_minutes: ' min'
+bu_my_requests: Moje žádosti
+bu_new_request_body: 'Ahoj %s,<br>%s se s tebou chce přátelit!'
+bu_new_request_title: Nová žádost o přátelství
+bu_no_buddys: 'Zatím nemáš žádné přátele. Pošli žádost z profilu hráče!'
+bu_no_request: Žádné žádosti.
+bu_online: Online
+bu_partners: Partneři
+bu_player: Hráč
+bu_player_not_exist: Takový hráč neexistuje.
+bu_rejected_request_body: 'Ahoj %s,<br>%s odmítl tvou žádost o přátelství!'
+bu_rejected_request_title: 'Žádost o přátelství odmítnuta!'
+bu_request_exists: 'Pro tohoto hráče už žádost o přátelství existuje!'
+bu_request_limit: 'Příliš mnoho žádostí o přátelství. Než pošleš další, pár minut počkej.'
+bu_request_message: Zpráva k žádosti
+bu_request_send: Žádost o přátelství odeslána.
+bu_request_text: Text žádosti
+bu_requests: Žádosti
+bu_send: Odeslat
+bu_text: Text
+build: Stavět
+cff_acs_fleet: Flotila v ACS
+cff_aproaching: 'Flotila se skládá z '
+cff_mission_acs: '%s z %s %s %s dorazila na %s %s %s. Mise: %s'
+cff_mission_other_expo_0: '%s z %s %s %s dorazila na pozici %s. Mise: %s'
+cff_mission_other_expo_2: '%s z %s %s %s je na expedici na pozici %s. Mise: %s'
+cff_mission_other_recy_0: '%s z %s %s %s dorazila k poli trosek na %s. Mise: %s'
+cff_mission_other_0: '%s z %s %s %s dorazila na %s %s %s. Mise: %s'
+cff_mission_other_1: '%s se vrací z %s %s %s na %s %s %s. Mise: %s'
+cff_mission_other_2: '%s z %s %s %s je na oběžné dráze kolem %s %s %s. Mise: %s'
+cff_mission_other_expo_1: '%s se vrací z pozice %s na %s %s %s. Mise: %s'
+cff_mission_other_mip: 'Raketový útok (%d) z %s %s %s na %s %s %s.'
+cff_mission_other_recy_1: '%s se vrací z pole trosek na %s na planetu %s %s %s. Mise: %s'
+cff_mission_own_0: 'Tvoje %s z %s %s %s dorazila na %s %s %s. Mise: %s'
+cff_mission_own_1: 'Tvoje %s se vrací z %s %s %s na %s %s %s. Mise: %s'
+cff_mission_own_2: 'Tvoje %s z %s %s %s je na oběžné dráze kolem %s %s %s. Mise: %s'
+cff_mission_own_expo_0: 'Tvoje %s z %s %s %s dorazila na pozici %s. Mise: %s'
+cff_mission_own_expo_1: 'Tvoje %s se vrací z pozice %s na %s %s %s. Mise: %s'
+cff_mission_own_expo_2: 'Tvoje %s z %s %s %s je na expedici na pozici %s. Mise: %s'
+cff_mission_own_mip: Raketový útok (%d) z %s %s %s na %s %s %s.
+cff_mission_own_recy_0: 'Tvoje %s z %s %s %s dorazila k poli trosek na %s. Mise: %s'
+cff_mission_own_recy_1: >-
+  Tvoje %s se vrací z pole trosek na %s na planetu %s %s %s. Mise:
+  %s
+cff_mission_target_bad: 'Nepřátelská %s hráče %s z %s %s %s dorazila na %s %s %s. Mise: %s'
+cff_mission_target_good: 'Přátelská %s hráče %s z %s %s %s dorazila na %s %s %s. Mise: %s'
+cff_mission_target_mip: Raketový útok (%d) hráče %s z %s %s %s na %s %s %s.
+cff_mission_target_stay: >-
+  Přátelská %s hráče %s z %s %s %s je na oběžné dráze kolem %s %s %s. Mise:
+  %s
+cff_no_fleet_data: Žádná data o flotile
+cff_ships: ' jednotek'
+colonyWarn: Varovat před kolonizací více než 2 planet v jednom systému
+css_account_banned_expire: >-
+  Máš ban do %1$s!<br>V případě dotazů nás prosím <a style="color: -webkit-link;" href="%2$s">kontaktuj (odkaz)</a>.
+css_account_banned_message: Tvůj účet dostal ban.
+css_account_banned_reason: 'Důvod: %s'
+css_goto_homeside: <a href="./">Na úvodní stránku</a>
+custom_fleet: Vlastní flotily
+custom_fleet_confirm: Odstranit šablonu flotily %s?
+delete_confirm_gala: 'Smazat lokálně uložená data galaxie?'
+Description: Popis
+destroyed: Zničeno
+dishonorable_fights: Nečestné souboje
+donate: Přispět
+expedition: Expedice
+fa_action_not_allowed: Akce není povolena
+fa_no_fleetroom: Není dost místa v nákladu pro palivo
+fa_no_more_slots: Žádné volné sloty flotily
+fa_no_recyclers: Žádné recyklátory k dispozici
+fa_no_spios: Žádné sondy k dispozici
+fa_not_enough_fuel: Nedostatek paliva
+fa_not_enough_probes: Žádné sondy k dispozici
+fa_not_spy_yourself: Nemůžeš špehovat sám sebe
+fa_planet_not_exist: Planeta neexistuje
+fa_sending: Odeslat
+fa_strong_player: Hráč je příliš silný
+fa_vacation_mode: Hráč je v režimu dovolené
+fa_vacation_mode_current: Jsi v režimu dovolené
+fa_week_player: Hráč je příliš slabý
+fcm_info: Info
+fcm_mainplanet: Domovská planeta
+fcm_moon: Měsíc
+fcm_planet: Planeta
+fcm_universe: Vesmír
+fcp_colony: Kolonie
+fgf_time: 'Čas: '
+fgr_time: 'Doba opravy: '
+first: První
+fl_a: (A)
+fl_acs: ACS
+fl_acs_change: Změnit
+fl_acs_change_name: Zadej nový název
+fl_acs_invitation_message: ' pozván do ACS.'
+fl_acs_invitation_title: ACS
+fl_acs_newname_alphanum: Název ACS smí obsahovat jen písmena a číslice
+fl_acs_title: Útok aliance
+fl_add_to_attack: ' přidán k útoku.'
+fl_admin_attack: Na adminy nelze útočit.
+fl_all_resources: Všechny suroviny
+fl_already_invited: ' už byl pozván.'
+fl_ammount: Lodě
+fl_arrival: Přílet
+fl_arrival_time: Čas příletu
+fl_arrival_target: "Přílet k cíli"
+fl_return_home: "Návrat"
+fl_attack_confirm_buddy: |-
+  Cíl je na tvém seznamu přátel.
+  Opravdu chceš zaútočit?
+fl_attack_confirm_diplo: 'Máš smlouvu (%s) s hráčem %s. Zaútočit i přesto?'
+fl_attack_confirm_outlaw: 'Útokem na %s se na 7 dní staneš psancem.'
+fl_bash_protection: Tím bys porušil limit útoků.
+fl_daily_cap_reached: "Denní limit flotil %1$d byl dosažen. Obnoví se za %2$d h %3$d min."
+fl_daily_attack_cap_reached: "Denní limit útoků %1$d byl dosažen. Obnoví se za %2$d h %3$d min."
+fl_beginning: Odkud
+fl_blocked: ' nepřijímá pozvánky.'
+fl_bonus: Bonus
+fl_bonus_attack: Zbraně
+fl_bonus_defensive: Pancíř
+fl_bonus_shield: Štíty
+fl_cargo_capacity: Nákladní kapacita
+fl_colonize_confirm: 'V tomto systému už máš víc než jednu planetu. Přeplněné systémy přitahují silné hráče. Kolonizovat i přesto?'
+fl_continue: Pokračovat
+fl_debris_shortcut: (T)
+fl_departure: Odlet
+fl_destiny: Cíl
+fl_distance: Vzdálenost
+fl_dlte_shortcut: Smazat
+fl_dont_exist: ' neexistuje.'
+fl_empty_target: 'Není dostupná žádná mise. Existuje cíl?'
+fl_error: Něco se pokazilo. Zkus to prosím znovu.
+fl_error_empty_derbis: 'Na těchto souřadnicích není žádné pole trosek!'
+fl_error_no_moon: Na těchto souřadnicích není žádný měsíc.
+fl_error_not_avalible: Na těchto souřadnicích nic není.
+fl_error_same_planet: 'Start a cíl jsou stejná planeta!'
+fl_exchange: Výměna
+fl_expedition_alert_message: 'Pozor: expedice jsou riskantní. Můžeš přijít o celou flotilu!'
+fl_expedition_tech_required: Než můžeš vyslat expedici, potřebuješ astrofyziku úrovně 1.
+fl_expeditions: Expedice
+fl_fleet: Flotila
+fl_fleet_sended: 'Flotila odeslána!'
+fl_fleet_speed: Rychlost flotily
+fl_fleets: Flotila
+fl_flying_arrival: Přílet
+fl_flying_return: Návrat
+fl_flying_time: Doba (jedna cesta)
+fl_from: Z
+fl_fuel_consumption: Spotřeba deuteria
+fl_hold_confirm_outlaw: 'Držením pozice u %s se na 7 dní staneš psancem.'
+fl_hold_max_fleets: K těmto souřadnicím už míří příliš mnoho flotil, takže se tvoje flotila nedala odeslat.
+fl_hold_max_user: Byl dosažen maximální počet obránců, takže se tvoje flotila nedala odeslat.
+fl_hold_time: Doba držení
+fl_hold_time_not_exists: Vyber prosím platnou dobu držení.
+fl_hours: Hodiny
+fl_in_vacation_player: Hráč je v režimu dovolené
+fl_info_detail: Podrobnosti
+fl_invalid_mission: Tahle mise tady není možná.
+fl_invalid_target: Tento cíl není platný.
+fl_invite_members: Pozvat členy
+fl_market_type: Typ tržiště
+fl_max: max
+fl_max_speed: Max. rychlost
+fl_members_invited: Pozváni
+fl_mission: Mise
+fl_modify_sac_name: Název ACS
+fl_moon_shortcut: (M)
+fl_mt_fleet: Tržiště lodí
+fl_mt_resources: Tržiště surovin
+fl_my_planets: Moje planety
+fl_new_mission_title: 'Nová mise: Vyber flotilu'
+fl_no_colony: Není tu žádná kolonie
+fl_no_expedition_slot: Žádné volné sloty expedic.
+fl_no_more_slots: Žádné volné sloty
+fl_no_noresource: 'Nenaloženy žádné suroviny!'
+fl_no_noresource_exchange: Pro výměnu nezadány žádné suroviny
+fl_no_probe_expos: 'Expedice nemůže sestávat jen ze špionážních sond!'
+fl_no_same_alliance: 'Cílový hráč musí být ve tvé alianci nebo na tvém seznamu přátel!'
+fl_no_ships: Žádné lodě k dispozici
+fl_no_shortcuts: Žádné zkratky
+fl_no_slots: Žádné sloty k dispozici
+fl_no_target: Žádná cílová planeta k dispozici
+fl_not_all_ship_avalible: Ne všechny lodě jsou k dispozici.
+fl_not_enough: 'Nedostatek: %s.'
+fl_not_enough_deuterium: Na tento let není dost deuteria.
+fl_not_enough_space: Není dost místa v nákladu.
+fl_null: žádné
+fl_number: ID
+fl_objective: Skončí za
+fl_only_planets_colonizable: Kolonizovat lze jen planety.
+fl_onway: Tam
+fl_order: Pořadí
+fl_own_planet_error: Něco se pokazilo. Vyber prosím znovu planetu, ze které chceš flotilu poslat.
+fl_planet_shortcut: (P)
+fl_planets: Planety
+fl_player: 'Hráč '
+fl_player_is_noob: Hráč je pod ochranou nováčků.
+fl_player_is_strong: Hráč je příliš silný.
+fl_r: (R)
+fl_remove_all_ships: Žádné lodě
+fl_resources: 'Naložit suroviny'
+fl_resources_left: Volná kapacita
+fl_return_time: Čas návratu
+fl_returning: Návrat
+fl_sac_of_fleet: Flotila ACS
+fl_select_all_ships: Všechny lodě
+fl_selected_resources: Vybrané suroviny
+fl_send_back: Odvolat
+fl_send_fleet: Poslat flotilu
+fl_ship_available: Dostupné lodě
+fl_ship_type: Typ lodi
+fl_shortcut: Zkratky
+fl_shortcut_add: Přidat
+fl_shortcut_edition: Upravit zkratku
+fl_shortcut_name: Jméno
+fl_shortcut_save: Uložit zkratku
+fl_shortcut_saved: Zkratka uložena!
+fl_simulate: Simulovat
+fl_speed_title: 'Rychlost: '
+fl_spy_confirm_outlaw: 'Špehováním hráče %s se na 7 dní staneš psancem.'
+fl_strong_player: Hráč je příliš silný.
+fl_stronger_techs: Tvoje zbraňová, pancéřová nebo štítová technologie je příliš nízká.
+fl_system_places: Zvláštní místa
+fl_target_exists: Cílová planeta
+fl_trade_no_resource_loaded: Nenaložil jsi žádné suroviny.
+fl_trade_same_resource: Nemůžeš prodat %s za %s.
+fl_trade_to_many_resources_loaded: Prodat můžeš jen jeden druh suroviny.
+fl_transfer_alert_message: |-
+  Pozor!
+  Tvoje flotila bude převedena jinému hráči!
+fl_vacation_mode_active: Režim dovolené aktivní
+fl_visibility: Viditelnost
+fl_visibility_all: Všichni
+fl_visibility_alliance: Aliance, smluvní partneři a přátelé
+fl_visibility_no_enemies: Všichni kromě nepřátel
+fl_week_player: Hráč je pod ochranou nováčků
+fleet_table_custom_empty_name: 'Zadej název flotily!'
+fleetPrio: Priorita řazení flotil
+fm_add_filter: Přidat filtr lodí
+fm_all: Vše
+fm_civil: Civilní
+fm_engines: Motory
+fm_imperial: Imperiální
+fm_military: Vojenské
+fm_mining: Těžební
+fm_other: Ostatní
+fm_recycler: Recyklátor
+fm_storage: Sklady
+foreign_colors: Cizí barvy
+found: 'Nalezeno '
+ft_absenden: Odeslat
+ft_charge: Obchodní sazba
+ft_count: Počet
+ft_empty: Prázdné
+ft_head: Obchodní flotily
+ft_max: max
+ft_total: Celkem
+general_colors: Obecné barvy
+gl_actions: Akce
+gl_activity: (*)
+gl_activity_inactive: (%d min)
+gl_all_defenses: Veškerá obrana
+gl_alliance: Aliance
+gl_alliance_page: Stránka aliance
+gl_alliance_web_page: Web aliance
+gl_avaible_missiles: Dostupné rakety
+gl_avaible_recyclers: Recyklátory
+gl_avaible_spyprobes: Špionážní sondy
+gl_banned: Zabanován / pozastaven
+gl_buddy_request: Žádost o přátelství
+gl_colonizable: Kolonizovatelné
+gl_debris_field: Pole trosek
+gl_diameter: Průměr
+gl_features: Vlastnosti
+gl_fleets: Sloty flotily
+gl_galaxy: Galaxie
+gl_in_the_rank: 'Hráč %s, pořadí %d'
+gl_inactive_seven: 7 dní neaktivní
+gl_inactive_twentyeight: 28 dní neaktivní
+gl_legend: Legenda
+gl_member: '%d členů'
+gl_member_add: '%d člen'
+gl_missil_flytime: Doba do dopadu
+gl_missil_launch: Raketový útok
+gl_missil_launch_action: Vypustit rakety
+gl_missil_to_launch: 'Množství (k dispozici <b>%d</b>)'
+gl_missile_attack: Raketový útok
+gl_moon: Měsíc
+gl_no_deuterium_to_view_galaxy: 'Není dost deuteria na prohlížení galaxie!'
+gl_no_spy_report: Pro tuto planetu zatím není žádná špionážní zpráva.
+gl_not_colonizable: Nelze kolonizovat!
+gl_objective: Hlavní cíl
+gl_out_space: Hluboký vesmír
+gl_phalanx: Falanga
+gl_planet: Planeta
+gl_planet_destroyed: Planeta zničena
+gl_player: Hráč
+gl_player_estate: Hráč (stav)
+gl_playercard: Profil hráče
+gl_populed_planets: 'Obydlených planet: %d'
+gl_pos: Poz.
+gl_resources: Suroviny
+gl_see_on_stats: Statistiky
+gl_short_ban: B
+gl_short_inactive: i
+gl_short_long_inactive: I
+gl_short_newbie: 'N'
+gl_short_strong: S
+gl_short_vacation: RD
+gl_show: Zobrazit systém
+gl_show_spy_report: Špionážní zpráva
+gl_solar_system: Systém
+gl_spy: Špehování
+gl_spy_report_fresh: Špionážní zpráva (< %d h)
+gl_spy_report_none: Žádná špionážní zpráva
+gl_spy_report_old: Špionážní zpráva (> %d h)
+gl_spy_report_recent: Špionážní zpráva (< %d h)
+gl_strong_player: Silný hráč
+gl_sync: Uložit data
+gl_sync_export_csv: Exportovat CSV
+gl_sync_export_json: Exportovat JSON
+gl_sync_import_json: Importovat JSON
+gl_sync_reset: Obnovit data
+gl_temperature: Teplota
+gl_to: do
+gl_trade_space: Tržiště
+gl_vacation: Režim dovolené
+gl_week_player: Slabý hráč
+honor_rank: Čestná hodnost
+honor_rank_low_1: Císař banditů
+honor_rank_low_10: Král banditů
+honor_rank_low_20: Pán banditů
+honor_rank_low_30: Bandita
+honor_rank_top_1: Božský císař
+honor_rank_top_10: Velký císař
+honor_rank_top_20: Císař
+honor_rank_top_30: Hvězdný pán
+honorable_fights: Čestné souboje
+honorpoints: Čestné body
+in_attack_pt: Útočná síla
+in_base_speed: Základní rychlost
+in_capacity: Nákladní kapacita
+in_consumption: Spotřeba paliva
+in_destroy: Zničit
+in_difference: Rozdíl
+in_engine: Motor
+in_jump_gate_already_used: 'Skoková brána se dobíjí. Připravena za: '
+in_jump_gate_doesnt_have_one: Nemáš žádnou další skokovou bránu, kam by sis mohl skočit.
+in_jump_gate_done: 'Skok se povedl! Skoková brána bude znovu připravena za: %s'
+in_jump_gate_error_data: 'Neplatné souřadnice skoku!'
+in_jump_gate_finish_moon: Cíl
+in_jump_gate_jump: Skok
+in_jump_gate_no_target: Žádný cíl skoku k dispozici.
+in_jump_gate_not_ready_target: 'Cílová brána se stále dobíjí. Připravena za '
+in_jump_gate_select_ships: 'Skoková brána: vyber lodě'
+in_jump_gate_start_moon: Odkud
+in_jump_gate_wait_time: 'Další skok možný za:'
+in_level: Úroveň
+in_missilesamount: Dostupné
+in_missilestype: Typ rakety
+in_prod_p_hour: Za hodinu
+in_rf_again: Rychlá palba proti
+in_rf_explanation: >-
+  Rychlá palba: V každém kole boje může tato jednotka vystřelit vícekrát.
+  Procento ukazuje šanci na další výstřel po zásahu cíle
+  daného typu.
+in_rf_from: Rychlá palba od
+in_shield_pt: Síla štítu
+in_storage: Sklad
+in_struct_pt: Strukturální integrita
+kontakt: 'Ahoj!<br>Tahle stránka ukazuje lidi, kteří tenhle projekt provozují, moderují a vyvíjejí.<br>Máš otázky nebo problémy? Ozvi se nám.<br><br><!--discord_url-->Pro lepší výměnu názorů s námi i s ostatními hráči provozujeme server na Discordu. Najdeš ho <a href="{discord_url}">tady</a> nebo v menu.<br>Najdeš tam nejnovější novinky i nejlepší memy z aliancí vesmíru.<br>Ptej se na herní mechaniky a sdílej své nápady, kam by se hra měla ubírat.<br><br><!--/discord_url-->Samozřejmě odpovídáme i na tvé otázky ve hře.<br>Mysli prosím na to, že hru hrajeme jako koníček, takže odpověď může trvat pár dní.<br>'
+lm_administration: Administrace
+lm_alliance: Aliance
+lm_banned: Zabanovaní
+lm_battlesim: Simulátor
+lm_buddylist: Přátelé
+lm_buildings: Budovy
+lm_changelog: Seznam změn
+lm_dataPrivacy: Ochrana soukromí
+lm_defenses: Obrana
+lm_empire: Impérium
+lm_faq: FAQ
+lm_fleet: Flotila
+lm_fleettrader: Obchodník s loděmi
+lm_galaxy: Galaxie
+lm_info: Info
+lm_logout: Odhlásit se
+lm_marketplace: Tržiště
+lm_messages: Zprávy
+lm_notes: Poznámky
+lm_options: Možnosti
+lm_overview: Přehled
+lm_playercard: Profil hráče
+lm_records: Rekordy
+lm_repairdock: Opravárenský dok
+lm_research: Výzkum
+lm_resources: Suroviny
+lm_rules: Pravidla
+lm_search: Hledat
+lm_shipshard: Hangár
+lm_statistics: Statistiky
+lm_support: Podpora
+lm_technology: Technologie
+lm_topkb: Bojová síň
+lo_continue: Klikni pro pokračování.
+lo_logout: 'Byl jsi odhlášen. Brzy na viděnou!'
+lo_notify: 'Přesměrování za <span id="seconds">5</span> sekund'
+lo_redirect: Přesměrovat
+lo_title: Odhlášen
+loading: Načítání ...
+lost: Ztraceno
+lv_buildable: Lze postavit
+lv_buildings: Budovy
+lv_coords: Souřadnice
+lv_defenses: Obrana
+lv_fields: Pole
+lv_highlight: 'Zvýraznit: '
+lv_imperium_title: Impérium
+lv_name: Jméno
+lv_planet: Planeta
+lv_prodPerHour: Produkce za hodinu
+lv_resources: Suroviny
+lv_ships: Lodě
+lv_show: 'Zobrazit: '
+lv_storageFilled: Hodin do naplnění
+lv_technology: Technologie
+lv_total: Celkem
+lv_unbuildable: Nelze postavit
+ma_add_missile_number: 'Zadej počet raket! '
+ma_all: Vše
+ma_impulse_drive_required: Vyžaduje impulzní motor
+ma_missiles_sended: ' raket vypuštěno. Cíl: '
+ma_no_missiles: Žádné rakety
+ma_no_range: Cíl je mimo dosah tvých raket.
+ma_own_planet: "Raketami nemůžeš zaútočit na vlastní planetu."
+ma_not_send_other_galaxy: 'Rakety nelze poslat do jiné galaxie. '
+ma_planet_doesnt_exists: 'Taková planeta neexistuje. '
+ma_silo_level: 'Vyžaduje silo úrovně 4! '
+ma_wrong_target: Špatný cíl
+market_buyable_no_enemies: Žádní nepřátelé
+market_buyable_no_tech: Příliš slabý
+market_buyable_only_trade_partners: Jen partneři
+market_buyable_too_far: Příliš daleko
+market_confirm_are_you_sure: Opravdu?
+market_fleet: Flotila
+market_info_description: 'Levá strana: nabídky k prodeji | Pravá strana: požadovaná cena<br><br>&bull; Přijaté nabídky nelze zrušit &bull;<br>&bull; Některé nabídky nelze přijmout kvůli pravidlu o pushingu &bull;<br>&bull; Kupující platí palivo za zakoupenou flotilu &bull;'
+market_info_header: Tržiště
+market_info_no_return: 'Nabídky na tržišti nelze zrušit!'
+market_msg_trade_bought: Tvoje flotila letí na %s s %s %s, %s %s, %s %s a stojí %s %s.
+market_msg_trade_from: Tržiště
+market_msg_trade_sold: Tvoje flotila letí na %s s %s %s, %s %s, %s %s.
+market_msg_trade_topic: Stav obchodu
+market_p_buy: Koupit
+market_p_cost_amount: Množství
+market_p_cost_type: Typ ceny
+market_p_end: Konec
+market_p_from_duration: Let z
+market_p_msg_more_ships_is_needed: Pro tuto nabídku potřebuješ víc lodí.
+market_p_msg_not_found: Tahle nabídka je pryč.
+market_p_msg_own_offer: Vlastní nabídku nemůžeš koupit.
+market_p_msg_purchase_failed: Nákup neprošel. Zkus to prosím znovu.
+market_p_msg_resources_error: Nemáš dost surovin.
+market_p_msg_too_far: Tato nabídka je příliš daleko, cesta by trvala déle, než prodávající dovoluje.
+market_p_msg_sent: Odesláno malých transportérů %s, velkých transportérů %s
+market_p_msg_wrong_resource_type: Tahle nabídka žádá neplatnou surovinu.
+market_p_offer_type: Typ nabídky
+market_p_ratio: Poměr
+market_p_submit: Koupit hned!
+market_p_to_duration: Let do
+market_ship_as_first: 'Vyber typ lodi pro obchod:'
+Messages: Zprávy
+messagesPerPage: Zpráv na stránku (3-50)
+mg_answer_to: Odpověď pro
+mg_blocked: Tento hráč nepřijímá zprávy.
+mg_characters: Znaky
+mg_confirm: Potvrdit
+mg_delete: Smazat zprávu
+mg_delete_all: Smazat všechny zprávy
+mg_delete_marked: Smazat označené zprávy
+mg_delete_type_all: Smazat všechny zprávy tohoto typu
+mg_delete_unmarked: Smazat neoznačené zprávy tohoto typu
+mg_deleted: Zpráva smazána.
+mg_empty_text: Zadej prosím text
+mg_error: 'Příjemce nenalezen!'
+mg_too_many_recipients: "Najednou můžeš napsat nejvýše %d hráčům."
+mg_text_too_long: "Zpráva je příliš dlouhá (nejvýše %d znaků)."
+mg_rate_limited: "Posíláš zprávy příliš rychle. Počkej prosím pár minut."
+mg_favorite: Označit jako oblíbenou
+mg_favorite_filter_off: Zobrazit všechny
+mg_favorite_filter_on: Zobrazit jen oblíbené
+mg_forward: Přeposlat zprávu
+mg_grouping_off: Zobrazit zprávy nesdružené
+mg_grouping_on: Zobrazit zprávy sdružené
+mg_message: Zpráva
+mg_message_send: 'Zpráva odeslána!'
+mg_min_3_chars: Pro hledání zadej alespoň 3 znaky
+mg_new: Nové
+mg_no_subject: Bez předmětu
+mg_no_user: Žádní hráči nenalezeni
+mg_overview: Správa zpráv
+mg_open_all: 'Vždy otevírat kategorii „Všechny zprávy“'
+mg_page: Stránka
+mg_read_all: Označit všechny zprávy jako přečtené
+mg_read_marked: Označit vybrané zprávy jako přečtené
+mg_read_type_all: Označit všechny zprávy tohoto typu jako přečtené
+mg_search: Hledat
+mg_search_placeholder: Zadej hledaný výraz
+mg_send: Odeslat
+mg_send_new: Napsat zprávu
+mg_send_to: Odeslat komu
+mg_subject: Předmět
+mg_remember_last_category: Pamatovat si poslední kategorii zpráv
+mg_select_all: Vybrat vše
+mg_type:
+  '0': Špionážní zprávy
+  '1': Zprávy od hráčů
+  '2': Zprávy aliance
+  '3': Bojové zprávy
+  '4': Systémové zprávy
+  '5': Transport
+  '6': Cizí transport
+  '7': Kontrarozvědka
+  '15': Zprávy z expedic
+  '50': Herní zprávy
+  '99': Stavba
+  '100': Všechny zprávy
+  '998': Oblíbené
+  '999': Hledat zprávy
+negativ: Záporné
+neutral: Neutrální
+neutral_fights: Neutrální souboje
+noob_interface: Rozhraní pro začátečníky je zapnuté. Je to zjednodušená verze hry pro rychlý a snadný start a položky menu se odemykají, jak procházíš tutoriálem. Kdykoli ho můžeš vypnout v možnostech.
+nt_back: Zpět
+nt_characters: znaků
+nt_create_new_note: Vytvořit novou poznámku
+nt_create_note: Vytvořit poznámku
+nt_date_note: Datum
+nt_dlte_note: Smazat
+nt_edit_note: Upravit poznámku
+nt_important: Vysoká
+nt_no_text: Žádný text
+nt_limit_reached: 'Dosáhl jsi maximálního počtu poznámek (%1$d). Nejdřív smaž staré poznámky.'
+nt_no_title: Bez nadpisu
+nt_normal: Normální
+nt_note: Poznámka
+nt_notes: Poznámky
+nt_priority: Priorita
+nt_reset: Obnovit
+nt_save: Uložit
+nt_size_note: Velikost
+nt_subject_note: Předmět
+nt_unimportant: Nízká
+nt_you_dont_have_notes: Zatím nemáš žádné poznámky
+op_activate_vacation_mode: Aktivovat režim dovolené
+op_activate_vacation_mode_confirm: 'Režim dovolené nebudeš moci 48 hodin vypnout. Jsi si jistý?'
+op_activate_vacation_mode_descrip: 'Režim dovolené tě chrání při delší nepřítomnosti. Lze ho aktivovat, jen když nemáš žádné flotily na cestě. Jakmile je aktivní, chrání tě před novými útoky. Útoky, které už začaly, ale budou pokračovat, a přátelské flotily, které drží pozici, budou posláni zpět! Produkce surovin, stavba budov, zakázky v loděnici a výzkum se po tu dobu zastaví a poté pokračují. Režim dovolené nelze v prvních 48 hodinách vypnout!'
+op_active_build_messages: Zapnout zprávy o stavbě
+op_active_spy_messages_mode: Zapnout souhrnné špionážní zprávy
+op_add_to_buddy_list: Poslat žádost o přátelství
+op_admin_discord_hook: Discord webhook pro soukromé zprávy
+op_admin_discord_id: Discord ID uživatele pro upozornění na soukromé zprávy
+op_admin_planets_protection: Zapnout ochranu adminských planet
+op_admin_title_options: Možnosti administrátora
+op_block_pm: Blokovat soukromé zprávy
+op_build_pages: Budovy / Výzkum
+op_cant_activate_vacation_mode: Režim dovolené nemůžeš zapnout, dokud máš flotily na cestě.
+op_cant_deactivate_vacation_mode: Režim dovolené zatím nelze ukončit.
+op_change_mail_exist: 'E-mailová adresa %s se už používá.'
+op_change_name_exist: 'Uživatelské jméno %s je už obsazené.'
+op_change_name_pro_week: 'Uživatelské jméno můžeš měnit jen jednou za 7 dnů!'
+op_collapse_spy_reports: Zobrazovat špionážní zprávy ve výchozím stavu sbalené
+op_decimal_separator: Oddělovač desetin
+op_dlte_account: Smazat účet
+op_dlte_account_descrip: Tvůj účet bude zcela smazán nejdřív po 7 dnech. Přesný čas závisí na tom, kdy se spustí úloha mazání, takže to může trvat ještě pár dní navíc. Smazání můžeš zrušit, dokud nebylo provedeno, tedy dokud se ještě můžeš do účtu přihlásit.
+op_email_adress: E-mailová adresa
+op_enable_planet_styles: Zobrazovat holo efekty na planetách, které je mají
+op_end_vacation_mode: Vypnout režim dovolené
+op_galaxy_settings: Galaxie
+op_general_settings: Obecné
+op_hangar_filters: Zobrazovat v loděnici další filtry
+op_hangar_group_filters: Skupinové filtry loděnice
+op_hide_useless: Skrýt základní výzkum, jakmile dosáhne maximální užitečné úrovně
+op_lang: Jazyk
+op_max_fleets_messages: Maximum zpráv o flotilách
+op_missile_attack: Raketový útok
+op_missing_requirements_opacity: Ztlumit položky, kterým chybí požadavky
+op_missing_resources_opacity: Ztlumit položky, na které nemáš
+op_need_pass_mail: Pro změnu e-mailové adresy zadej své heslo.
+op_new_pass: Nové heslo (min. 8 znaků)
+op_noob_interface: Rozhraní pro začátečníky
+op_not_vaild_mail: Tahle e-mailová adresa nevypadá platně.
+op_old_pass: Aktuální heslo
+op_options_changed: Nastavení uloženo.
+op_options_deletion_activated: Smazání účtu aktivováno!
+op_options_deletion_deactivated: Smazání účtu zrušeno!
+op_options_no_other_settings_changed: Nic dalšího se nezměnilo.
+op_options_vacation_activated: 'Režim dovolené je zapnutý. Užij si pauzu!'
+op_options_vacation_deactivated: 'Režim dovolené je vypnutý. Vítej zpátky!'
+op_repeat_new_pass: Nové heslo (znovu)
+op_save_changes: Uložit změny
+op_shortcut: Zkratka
+op_show: Zobrazit
+op_show_all_buildable_elements: Zobrazovat i položky, kterým chybí požadavky
+op_show_message_category: Skočit rovnou na odpovídající kategorii zpráv
+op_skin_example: Motiv
+op_sort_abc: Abecedně
+op_sort_down: Sestupně
+op_sort_kind: Pořadí řazení
+op_sort_koords: Souřadnice
+op_sort_normal: Pořadí kolonizace
+op_sort_planets_by: Řadit planety podle
+op_sort_up: Vzestupně
+op_spy: Špehování
+op_spy_probes_number: Špionážních sond na misi
+op_spy_probes_number_descrip: Počet sond posílaných z pohledu Galaxie.
+op_spy_report: Špionážní zpráva
+op_spy_report_fresh_time: Čerstvá špionážní zpráva (zelená tečka), až do
+op_spy_report_fresh_time_tooltip: >-
+  Špionážní zprávy novější než zadaný počet hodin mají v pohledu Galaxie
+  zelenou tečku.
+op_spy_report_recent_time: Nedávná špionážní zpráva (žlutá tečka), až do
+op_spy_report_recent_time_tooltip: >-
+  Špionážní zprávy novější než zadaný počet hodin mají žlutou tečku; starší
+  zprávy mají červenou tečku.
+op_spy_report_time_invalid: Neplatné časy špionážních zpráv. Obě hodnoty musí být alespoň 1 hodina a hodnota pro nedávné musí být vyšší než hodnota pro čerstvé.
+op_stop_dlte_account: Zrušit smazání účtu
+op_timezone: Časové pásmo
+op_user_data: Uživatelské údaje
+op_user_name_no_alphanumeric: 'Tvoje uživatelské jméno smí obsahovat jen písmena a číslice!'
+op_username: Uživatelské jméno
+op_vacation_delete_mode: Nebezpečná zóna
+op_vacation_mode_active_message: 'Režim dovolené nelze vypnout do: '
+op_write_message: Napsat zprávu
+other: Ostatní
+ov_abandon_planet_not_possible: Tuto kolonii nemůžeš smazat, dokud k ní nebo z ní létají flotily.
+ov_admins_online: Aktivní admini
+ov_aprox: Přibližně
+ov_checknews_hide: Skrýt novinky
+ov_checknews_show: Zobrazit novinky
+ov_closed: 'Tento vesmír je právě zavřený!'
+ov_delete_planet: Smazat planetu
+ov_developed_fields: Využitá pole
+ov_diameter: Průměr
+ov_distance_unit: km
+ov_events: Události
+ov_fields: Pole
+ov_fleet: Flotily
+ov_fleetbutton_hide: Skrýt
+ov_fleetbutton_show: Zobrazit
+ov_free: Volné
+ov_have_new_message: Máš novou zprávu
+ov_have_new_messages: 'Nových zpráv: %d'
+ov_queues: Fronty
+ov_max_developed_fields: Pole celkem
+ov_moon: Měsíc
+ov_newname_done: Planeta přejmenována!
+ov_newname_specialchar: 'Jména planet smí obsahovat jen číslice, písmena, mezery, podtržítka, pomlčky a tečky!'
+ov_newname_too_long: 'Jméno planety může mít nejvýše %d znaků.'
+ov_news: Novinky
+ov_news_all: 'Všechny novinky'
+tutorial_label: 'Tutoriál'
+tutorial_step_of: 'Krok %1 z %2'
+ov_of: z
+ov_outlaw: 'Psanec do:'
+ov_place: Pozice
+ov_planet: Planeta
+ov_planet_abandoned: Planeta smazána.
+ov_planet_rename: Přejmenovat planetu
+ov_planetmenu: Přejmenovat nebo smazat
+ov_planets: Planety a měsíce
+ov_points: Body
+ov_position: Pozice
+ov_principal_planet_cant_abanone: 'Svou domovskou planetu smazat nemůžeš!'
+ov_rename_label: Nové jméno
+ov_rules: Pravidla
+ov_rulesnotify: Dodržuj prosím
+ov_security_confirm: Opravdu chceš zničit %s?
+ov_security_request: Bezpečnostní otázka
+ov_server_time: Čas serveru
+ov_temp_unit: °C
+ov_temperature: Teplota
+ov_ticketbot: Ticketbot
+ov_to: do
+ov_userrank_info: '%s (%s <a href="game/statistics?range=%d">%d</a> %s %s)'
+ov_wrong_name: 'Špatné jméno!'
+ov_wrong_pass: 'Špatné heslo!'
+own: Vlastní
+own_colors: Vlastní barvy
+page_doesnt_exist: Požadovaná stránka neexistuje.
+pl_ally: Aliance
+pl_buddy: Přítel
+pl_builds: Budovy
+pl_def: Obrana
+pl_dercrystal: Recyklovaný krystal
+pl_dermetal: Recyklovaný kov
+pl_destroy: '%s se podílel na'
+pl_destroy_real: '%s se osobně podílel na'
+pl_etc: 'Atd. '
+pl_fightdraw: Remízy
+pl_fightlose: Prohry
+pl_fights: Souboje
+pl_fightstats: Statistiky soubojů
+pl_fightwon: Výhry
+pl_fleet: Flotila
+pl_fprocent: Procento
+pl_homeplanet: Domovská planeta
+pl_message: Zpráva
+pl_name: Uživatelské jméno
+pl_overview: Profil hráče
+pl_points: Body
+pl_range: Pořadí
+pl_tech: Výzkum
+pl_total: Celkem
+pl_totalfight: Souboje celkem
+pl_unitslose: Ztracené jednotky
+pl_unitsshot: Zničené jednotky
+PM: '[PM]'
+positiv: Kladné
+px_fleet_movement: Pohyb flotil
+px_no_deuterium: Nedostatek deuteria.
+px_no_fleet: Právě teď nejsou na cestě žádné flotily.
+px_out_of_range: Mimo dosah
+px_scan_position: Skenovat pozici
+ready: Připraveno
+rebuild_proteciton_link: Předčasně ji vypneš tady.
+rebuild_proteciton_mode: Tvůj účet je pod ochranou obnovy, která tě může chránit před útoky.
+rec_count: Množství
+rec_last_update_on: 'Naposledy aktualizováno '
+rec_level: Úroveň
+rec_players: Hráč
+rec_time: Datum/čas
+recordsOptIn: Ukázat své rekordy všem hráčům
+repaired: Opraveno
+rs_amount: Množství
+rs_basic_income: Základní produkce
+rs_calculate: Uložit změny
+rs_daily: Denní produkce
+rs_lvl: Úroveň
+rs_production_on_planet: Suroviny vyrobené na „%s“
+rs_ramp_up: 'Nastavit vše na 100 %'
+rs_ress_bonus: Bonus (z výzkumu)
+rs_ress_bonus_position: Bonus (z pozice planety)
+rs_shut_down: 'Nastavit vše na 0 %'
+rs_storage_capacity: Skladová kapacita
+rs_sum: Hodinová produkce
+rs_weekly: Týdenní produkce
+sh_alliance: Aliance
+sh_alliance_name: Jméno aliance
+sh_alliance_tag: Značka aliance
+sh_buddy_request: Žádost o přátelství
+sh_coords: Pozice
+sh_loading: (Načítání ...)
+sh_members: Členové
+sh_name: Jméno
+sh_planet: Planeta
+sh_planet_name: Jméno planety
+sh_player_name: Jméno hráče
+sh_points: Body
+sh_position: Pořadí
+sh_search: Hledat
+sh_search_in_the_universe: Hledat ve vesmíru
+sh_tag: Značka
+sh_write_message: Soukromá zpráva
+spec_mail_inactive_title: '%s - Připomínka'
+spytech_playercard:
+  level2: Viditelné od špionážní technologie 2!
+  level4: Viditelné od špionážní technologie 4!
+  level6: Viditelné od špionážní technologie 6!
+st_alliance: Aliance
+st_buildings: Budovy
+st_defenses: Obrana
+st_fleets: Flotila
+st_honor: Čestné body
+st_in_the_positions: v pořadí
+st_members: Členové
+st_per: za
+st_per_member: Na člena
+st_player: Hráč
+st_points: Body
+st_position: Pořadí
+st_researh: Výzkum
+st_show: Zobrazit
+st_statistics: Statistiky
+st_units: Jednotky
+st_updated: Aktualizováno
+st_write_message: Soukromá zpráva
+StaticTimer: Čas příletu
+stats:
+  '202': Malé transportéry
+  '203': Velké transportéry
+  '204': Lehké stíhače
+  '205': Těžké stíhače
+  '206': Křižníky
+  '207': Bitevní lodě
+  '208': Kolonizační lodě
+  '209': Recyklátory
+  '210': Špionážní sondy
+  '211': Bombardéry
+  '212': Solární satelity
+  '213': Ničitelé
+  '214': Hvězdy smrti
+  '215': Bitevní křižníky
+  '216': Černé měsíce
+  '217': Bitevní transportéry
+  '218': Avataři
+  '219': Bitevní recyklátory
+  '401': Raketomety
+  '402': Lehké laserové věže
+  '403': Těžké laserové věže
+  '404': Gaussovy kanóny
+  '405': Iontové kanóny
+  '406': Plazmové kanóny
+  '407': Malé planetární štíty
+  '408': Velké planetární štíty
+  '409': Atmosférické štíty
+  '410': Gravitonové kanóny
+  '411': Orbitální obranné platformy
+  '412': Bunkr
+  '413': Titanový laser
+  '414': Návnada
+  '502': Antibalistické rakety
+  '503': Meziplanetární rakety
+  '901': Kov
+  '902': Krystal
+  '903': Deuterium
+stb_activ: Podrobné špionážní zprávy (Scavengers Toolbox) zapnuty
+stb_big_ress: Hojné suroviny (méně než)
+stb_big_ress_tooltip: Pokud planeta drží méně surovin než tato hodnota, špionážní zpráva se označí světle zeleně (dobré). Špionážní zprávy s více surovinami než tato hodnota se zobrazí světle modře (optimální).
+stb_big_time: Hojné suroviny za sekundu (méně než)
+stb_big_time_tooltip: Nejlepší možný výnos surovin za sekundu, zaokrouhlený na dvě desetinná místa. Poměr pod touto hodnotou se počítá jako dobrý (světle zelená), hodnota nad ní jako optimální (světle modrá).
+stb_low_ress: Málo surovin (méně než)
+stb_low_ress_tooltip: Pokud planeta drží méně surovin než tato hodnota, špionážní zpráva se označí jasně červeně (špatné).
+stb_med_time: Střední suroviny za sekundu (méně než)
+stb_med_time_tooltip: Nejlepší možný výnos surovin za sekundu, zaokrouhlený na dvě desetinná místa. Poměr pod touto hodnotou se počítá jako střední (světle oranžová).
+stb_mid_ress: Střední suroviny (méně než)
+stb_mid_ress_tooltip: Pokud planeta drží méně surovin než tato hodnota, špionážní zpráva se označí světle oranžově (střední).
+stb_small_time: Málo surovin za sekundu (méně než)
+stb_small_time_tooltip: Nejlepší možný výnos surovin za sekundu, zaokrouhlený na dvě desetinná místa. Poměr pod touto hodnotou se počítá jako špatný (světle červená).
+stb_title: Scavengers Toolbox
+sys_back: Zpět
+sys_buildlist: Fronta stavby
+sys_buildlist_fail: Stavba se nezdařila
+sys_catchup: 'Bonus k ceně a době stavby: %01.2f'
+sys_catchup_short: 'Bonus: %01.2f'
+sys_catchup_tooltip: 'Bonus za dohánění: kratší doba a nižší cena podle rekordní úrovně této budovy/výzkumu'
+sys_closed_game: 'Hra je zatím zavřená:'
+sys_forward: Další
+sys_game_is_setup: '<h1>Registrace dokončena!</h1><br><p>Připravujeme tvůj vesmír!</p><!--discord_url--><p>Mezitím se k nám připoj na</p><h3><a href="{discord_url}" target="_blank">-> Discord <-</a></h3><!--/discord_url-->'
+sys_module_inactive: Tento modul je neaktivní
+sys_nomore_level: 'Nemáš žádné: %s ke zbourání.'
+sys_notenough_money: 'Na %s <a href="./game/buildings?cp=%d&amp;re=0">[%d:%d:%d]</a> není dost surovin ke stavbě: %s. <br>Máš: %s %s, %s %s a %s %s. <br>Stojí: %s %s, %s %s a %s %s.'
+sys_refferal_from: Systém
+sys_refferal_text: Hráč %s, kterého jsi pozval, dosáhl %s bodů.
+sys_refferal_title: Bonus za hráče %s
+sys_techlist: Fronta výzkumu
+team: Tým
+teamRole: Role
+ti_admin_close: Ticket uzavřen!
+ti_admin_open: Ticket otevřen!
+ti_answer: Odpovědět
+ti_answers: Odpověď
+ti_category: Kategorie
+ti_close: Ticket uzavřen
+ti_create: 'Ticket vytvořen dne '
+ti_create_head: Vytvořit ticket
+ti_create_info: "<p>Při vytváření ticketu podpory popiš svůj problém co nejpodrobněji!</p>\r\n<p>Podrobný popis zkracuje dobu řešení a předchází zdlouhavému přeposílání dotazů tam a zpátky.</p>\r\n<p>U problémů s účty pomůže uvést příslušné údaje o účtu, což usnadní přiřazení ticketu a zkrátí vyřizování.</p>"
+ti_date: Datum
+ti_error_closed: Tento ticket je už uzavřený, takže na něj nelze odpovědět.
+ti_error_too_many_open: "Už máš %d otevřených ticketů. Než otevřeš další, počkej, až se některý uzavře."
+ti_error_rate_limited: "Otevíráš tickety příliš rychle. Zkus to prosím později."
+ti_error_no_subject: Zadej prosím předmět.
+ti_from: od
+ti_header: Systém podpory
+ti_id: Ticket
+ti_message: Zpráva
+ti_msgtime: Zpráva odeslána v
+ti_new: Nový ticket
+ti_not_exist: 'Ticket #%d nenalezen.'
+ti_open: Otevřít ticket
+ti_overview: Zpět
+ti_read: Ticket ke čtení
+ti_responded: 'Na ticket odpovězeno dne '
+ti_status: Stav
+ti_status_answer: Odpověď
+ti_status_closed: Uzavřeno
+ti_status_open: Otevřeno
+ti_subject: Předmět
+ti_submit: Odeslat
+ti_username: Hráč
+tkb_all: vše
+tkb_datum: Datum
+tkb_day: den
+tkb_diplomacy: Diplomacie
+tkb_exclude: vyloučit
+tkb_galaxy: Galaxie
+tkb_gewinner: <b>-Vítěz-</b>
+tkb_gratz: 'Celý tým gratuluje nejlepší stovce '
+tkb_legende: '<b>Legenda: </b>'
+tkb_memorial: Památníky
+tkb_month: měsíc
+tkb_only: jen
+tkb_owners: Zapojení uživatelé
+tkb_platz: Pořadí
+tkb_self: jen vlastní
+tkb_timeframe: Časové období
+tkb_top: Bojová síň
+tkb_units: Jednotky
+tkb_verlierer: <b>-Poražený-</b>
+tkb_week: týden
+tn_delete_mode: 'Tvůj účet bude smazán dne %s.'
+tn_vacation_mode: Tvůj účet je v režimu dovolené.
+tn_vacation_mode_kick: >-
+  <br><br>UPOZORNĚNÍ: Režim dovolené se po 4 týdnech neaktivity automaticky
+  vypne.
+tn_vacation_mode_until: Tvůj účet je v režimu dovolené minimálně do %s.
+tr_exchange_done: 'Obchod dokončen!'
+tr_exchange_error: Množství surovin je neplatné nebo nedostatečné
+tt_lvl: 'Úroveň '
+tt_lv_short: 'Úr.'
+tt_requirements: Požadavky
+tt_unlocks: 'Odemyká'
+tt_status_owned: 'Postaveno'
+tt_status_available: 'Dostupné'
+tt_status_locked: 'Zamčeno'
+tt_hint: 'Najeď na technologii nebo ji vyber a uvidíš její požadavky (nahoře) a co odemyká (dole). Klikem ji připneš, Esc vymaže.'
+tt_foreign: 'Požaduje tuto kategorii, patří do jiné'
+tt_none: 'žádné'
+tt_graph: 'Strom technologií'
+type_mission_1: Útok
+type_mission_1_foreign: Cizí útok
+type_mission_1_own: Vlastní útok
+type_mission_2: Útok aliance
+type_mission_2_foreign: Cizí útočná flotila ACS
+type_mission_2_friend: Přátelská útočná flotila ACS
+type_mission_2_own: Vlastní útočná flotila ACS
+type_mission_3: Transport
+type_mission_3_foreign: Cizí transport
+type_mission_3_own: Vlastní transport
+type_mission_4: Rozmístění
+type_mission_4_foreign: Cizí rozmístění
+type_mission_4_own: Vlastní rozmístění
+type_mission_5: Držení
+type_mission_5_foreign: Cizí držení
+type_mission_5_own: Vlastní držení
+type_mission_6: Špionáž
+type_mission_6_foreign: Cizí špionáž
+type_mission_6_own: Vlastní špionáž
+type_mission_7: Kolonizace
+type_mission_7_foreign: Cizí kolonizace
+type_mission_7_own: Vlastní kolonizace
+type_mission_7_own_return: Návrat vlastní kolonizace
+type_mission_8: Recyklace
+type_mission_8_foreign: Cizí recyklace
+type_mission_8_own: Vlastní recyklace
+type_mission_9: Zničení
+type_mission_9_foreign: Cizí zničení
+type_mission_9_own: Vlastní zničení
+type_mission_10: Raketový útok
+type_mission_10_foreign: Cizí raketový útok
+type_mission_10_own: Vlastní raketový útok
+type_mission_15: Expedice
+type_mission_15_foreign: Cizí expedice
+type_mission_15_own: Vlastní expedice
+type_mission_16: Obchod
+type_mission_16_foreign: Cizí flotila z tržiště
+type_mission_16_own: Vlastní flotila z tržiště
+type_mission_17: Převod
+type_mission_17_foreign: Cizí převod
+type_mission_17_own: Vlastní převod
+type_mission_20: Útok
+type_mission_21: Špionáž
+type_mission_22: Recyklace
+type_mission_return_foreign: Cizí návrat
+type_mission_return_own: Vlastní návrat
+type_planet_1: Planeta
+type_planet_2: Pole trosek
+type_planet_3: Měsíc
+type_planet_4: Pirátská základna
+type_planet_short_1: P
+type_planet_short_2: T
+type_planet_short_3: M
+type_planet_short_4: Pz
+user_level_0: Hráč
+user_level_1: Moderátor
+user_level_2: Operátor
+user_level_3: Administrátor
+whenbuildable: Lze postavit za
+write_message: Napsat zprávu
+fl_cargo_options: Možnosti nákladu
+fl_cargo_preset: Předvolba
+fl_cargo_needed: potřeba
+fl_cargo_select: vybrat
+fl_cargo_current_planet: Aktuální planeta
+ui_skip_to_content: Přeskočit na obsah
+ui_watch: Sledovat
+ui_unwatch: Přestat sledovat
+ui_message_tools: Hledání, filtry a akce
+ui_menu: Menu
+ui_rank: Pořadí
+ui_queue: Fronta
+ui_queue_free: volný slot
+ui_planet_prev: "Předchozí planeta"
+ui_planet_next: "Další planeta"
+ui_queue_done: "Vše hotovo v %at% (za %in%)"
+ui_full_in: "Plné za"
+ui_energy_used: "Spotřebovaná energie"
+ui_points: Body
+ui_close: Zavřít
+ui_storage_full: "Sklad plný: produkce zastavena"
+ui_messages: Zprávy
+ui_server_time: Čas serveru
+ui_planet: Planeta
+ui_nav_empire: Impérium
+ui_nav_universe: Vesmír
+ui_nav_community: Komunita
+ui_nav_help: Nápověda
+ui_nav_personal: Osobní
+ui_nav_rankings: 'Žebříčky'
+ui_nav_sections: 'Sekce'
+ui_user_menu: 'Menu účtu'
+gl_points: Body
+mg_action: Akce
+mg_message_type: Typ zprávy
+mg_to: Komu
+tkb_unentschieden: '<b>-Remíza-</b>'
+source_code: Zdrojový kód
+teamMemberName: Jméno
+teamMemberContact: Kontakt
+teamMemberAbout: O mně
+teamEmpty: Zatím nebyli přidáni žádní členové týmu.
+
+lm_board: Fórum
+bd_depot_action: "Zásobovat flotily"
+depot_title: "Alianční sklad"
+depot_intro: "Zde můžeš zásobovat přátelské flotily, které drží pozici na této planetě. Každé zásobení prodlouží jejich pobyt o 1 až %s hodin (úroveň tvého skladu) a stojí deuterium z této planety. Flotile nikdy nesmí zbývat víc než %s hodin pobytu."
+depot_deuterium_stock: "Deuterium na této planetě"
+depot_empty: "Na této planetě nedrží pozici žádné přátelské flotily."
+depot_col_owner: "Hráč"
+depot_col_ships: "Lodě"
+depot_col_stay_end: "Pobyt končí"
+depot_col_hourly: "Cena za hodinu"
+depot_col_supply: "Zásobit"
+depot_hours: "%s h"
+depot_cost: "Cena"
+depot_supply: "Zásobit"
+depot_full: "Dosažen maximální pobyt"
+depot_done: "Flotila byla zásobena: její pobyt se prodloužil o %s h za %s deuteria."
+depot_err_not_owner: "Tato planeta není tvoje."
+depot_err_no_depot: "Tato planeta nemá alianční sklad."
+depot_err_hours: "Flotilu můžeš zásobit najednou na 1 až %s hodin (úroveň tvého skladu)."
+depot_err_fleet: "Tato flotila už na této planetě nedrží pozici."
+depot_err_max_stay: "Flotile může zbývat nejvýše %s hodin pobytu. Zvol méně hodin."
+depot_err_deuterium: "Na této planetě není dost deuteria: potřeba %s."
+op_discord_hook_invalid: "Neplatný Discord webhook. Povoleny jsou jen adresy https://discord.com/api/webhooks/..."
+fl_push_guard: "Tento transport je zablokován: cílový hráč ti v poslední době neposlal suroviny a hodnota nákladu je nad limitem."
+rl_too_many_requests: "Příliš mnoho požadavků za krátkou dobu. Počkej prosím %d s a zkus to znovu."
+lm_vote: "Hlasovat"
+vt_head: "Hlasuj pro hru"
+vt_intro: "Hlasuj na níže uvedených webech a dostaneš odměnu na svou hlavní planetu. Na každém webu lze znovu hlasovat po uplynutí jeho odpočinku."
+vt_site: "Web"
+vt_reward: "Odměna"
+vt_status: "Stav"
+vt_ready: "Připraveno"
+vt_wait: "Znovu za %d h %d min"
+vt_button: "Hlasovat"
+vt_none: "Právě teď nejsou k dispozici žádné weby pro hlasování."
+vt_postback_hint: "Odměna dorazí poté, co web potvrdí tvůj hlas."
+vt_notice_rewarded: "Díky za hlasování! Odměna byla přidána na tvou hlavní planetu."
+vt_notice_pending: "Díky za hlasování! Odměna dorazí poté, co web potvrdí tvůj hlas."
+vt_notice_cooldown: "Než budeš moct na tomto webu znovu hlasovat, musíš počkat."
+mg_confirm_delete_one: "Smazat tuto zprávu?"
+mg_confirm_delete_bulk: "Opravdu smazat tyto zprávy? Nelze to vrátit."
+mg_quick_read_all: "Označit vše jako přečtené"
+mg_quick_delete_read: "Smazat přečtené"
+mg_quick_delete_older: "Smazat starší než %d dní"
+mg_confirm_delete_read: "Smazat všechny přečtené zprávy této kategorie? Oblíbené zůstanou."
+mg_confirm_delete_older: "Smazat všechny zprávy této kategorie starší než %d dní? Oblíbené zůstanou."
+mg_spy_again: "Znovu špehovat"
+fl_change_target: "Změnit cíl"
+mg_group_mark: "Označit jako přečtené"
+mg_group_delete: "Smazat"
+mg_pick_category: "Vyber nahoře kategorii a uvidíš její zprávy."
+mg_no_messages: "Tady nejsou žádné zprávy."
+mg_select_message: "Vybrat zprávu"
+mg_search_player: "Hledat hráče"
+mg_remove_receiver: "Odebrat příjemce"
+mg_no_receiver: "Vyber alespoň jednoho příjemce."
+nt_confirm_delete: "Smazat označené poznámky?"
+nt_priority_legend: "Barva = priorita: zelená nízká, žlutá normální, červená vysoká"
+al_save_all_hint: "Obě tlačítka Uložit ukládají texty a možnosti společně."
+al_dissolve_btn: "Rozpustit alianci..."
+al_transfer_btn: "Předat alianci..."
+al_dissolve_hint: "Tímto se aliance trvale smaže a všichni členové se odeberou. Nelze to vrátit."
+al_transfer_hint: "Předej vedení jinému členovi. Ztratíš hodnost zakladatele."
+al_transfer_confirm: "Předat alianci vybranému členovi? Ztratíš vedení."
+al_kick: "Vyhodit"
+al_find_results: "Výsledky"
+al_find_browse: "Největší aliance"
+al_find_none_yet: "V tomto vesmíru zatím nejsou žádné aliance."
+al_no_inside_text: "Zatím žádný text pro členy."
+bd_needs: 'Potřebuje'
+bd_missing: 'Chybí'
+honorfights: "Čestné souboje"
+pl_block_head: "Blokovat"
+pl_block_hint: "Projeví se okamžitě, není tu tlačítko Uložit."
+st_my_rank: "Skočit na mé pořadí"
+st_legend_noob: "Ochrana nováčků"
+rec_intro: "Nejvyšší úroveň dosažená v tomto vesmíru pro každou budovu a výzkum ve srovnání s tvou vlastní."
+as_intro: "Podrobné počítadla tvé vlastní aktivity (expedice, stavby, ztráty, zabití). Žebříčky všech hráčů najdeš na stránce Statistiky."
+as_show_empty: "Zobrazit prázdné řádky"
+op_sections: "Skočit na"
+op_save_hint: "Změny se projeví po uložení."
+op_dlte_account_confirm: "Opravdu smazat svůj účet? Zcela se odstraní nejdřív po 7 dnech; do té doby můžeš smazání zrušit."
+ti_none: "Zatím nemáš žádné tickety. Nejdřív si přečti: %s; pokud to nepomůže, vytvoř ticket."
+ti_faq_first: "Nejdřív se mrkni do FAQ: spousta otázek je tam zodpovězena."
+team_contact_hint: "Potřebuješ pomoc? Otevři ticket přes: %s."
+cl_hint: "Technické změny herního softwaru, nejnovější nahoře. Kliknutím na položku ji rozbalíš."
+cl_empty: "Žádné zaznamenané změny."
+toc_contents: "Obsah"
+sh_hint: "Zadej alespoň dva znaky, pak stiskni Enter nebo Hledat."
+sh_search_type: "Hledat"
+sh_search_text: "Hledaný text"
+sh_no_players: "Nic nenalezeno. Zkontroluj překlepy nebo zkus kratší text."
+sh_no_alliances: "Žádné aliance nenalezeny. Zkontroluj překlepy nebo zkus kratší text."
+fl_no_ship_selected: "Vyber alespoň jednu loď."
+fl_recall_confirm: "Odvolat tuto flotilu? Otočí se hned a doma bude v %s."
+fl_recall_return: "Zpět doma při odvolání teď"
+fl_no_fleets: "Žádné flotily na misi."
+fl_quick_fleets: "Rychlé flotily"
+fl_quick_fleets_hint: "Zatím nic uloženo. Ulož kombinaci lodí pod „Vlastní flotily“ níže a objeví se tu jako zkratka na jedno kliknutí; objeví se tu i tvoje poslední mise."
+fl_load_hint: "Šedé hodnoty jsou zásoby této planety. Tlačítka nákladu navrhnou, kolik lodí to unese; ponech pole prázdné, pokud nechceš nic posílat."
+fl_load_clear: "Vymazat"
+fl_cargo_options_hint: "Červená znamená, že té lodi nemáš dost. Kliknutím na ikonu lodi ji předvybereš spolu s cílem."
+fl_summary: "Souhrn odeslání"
+fl_coord_range: "Neplatné souřadnice. Povoleno: galaxie 1-%d, systém 1-%d, pozice 1-%d."
+fl_sending: "Odesílání flotily..."
+ft_rate_info: 'Obchodník si ponechá %s%% hodnoty lodi a zbytek vyplatí v surovinách.'
+ft_per_ship: 'Výplata za loď'
+ft_receive: 'Dostaneš'
+market_tab_resources: 'Tržiště surovin'
+market_tab_fleets: 'Tržiště lodí'
+market_ratio_label: 'Porovnat nabídky v poměru'
+market_ratio_hint: 'Nastavuje směnný kurz používaný pro sloupec Poměr; vybraná surovina je základ.'
+market_no_offers: 'Právě teď žádné nabídky.'
+gl_recycle_needs: "Recyklovat (potřebuje recyklátor)"
+gl_keys_hint: "Klávesnice: šipky nebo A D posouvají systém, W S galaxii."
+rs_ramp_up_confirm: 'Nastavit každého producenta na 100 % a uložit?'
+rs_shut_down_confirm: 'Nastavit každého producenta na 0 % a uložit? Produkce se zastaví.'
+rs_energy_deficit: 'Nedostatek energie: doly běží pod nastavenou úrovní, dokud se energie nevyrovná.'
+ov_event_hostile: 'Nepřátelské'
+ov_no_fleets: 'Žádné pohyby flotil.'
+al_chart_x: "Čas (hodin zpět)"
+al_chart_y: "Body"
+as_sub_count: "Expedice"
+as_sub_found: "Nálezy"
+as_sub_lost: "Ztráty"
+as_sub_first: "První kroky"
+op_notifications: "Upozornění"
+rs_full_in: 'Plné za'
+rs_full_now: 'Plné'
+fl_prepared_gone: "Tato flotila už není připravena (vypršela, byla uvolněna nebo už odeslána). Začni prosím znovu."
+gl_legend_activity: "Aktivní během posledních 15 min, zobrazeno jako (před minutami) až do 60"
+st_rank_change: "Změna pořadí od poslední aktualizace"
+st_prev_range: "Předchozích 100"
+st_next_range: "Dalších 100"
+op_unsaved_one: "1 neuložená změna"
+op_unsaved_many: "%d neuložených změn"
+pl_note: "Poznámka"
+pl_galaxy_view: "Zobrazit v galaxii"
+shell_jump: "Skočit na…"
+shell_jump_tip: "Skoč na stránku, planetu nebo souřadnice"
+shell_switch_planet: "Přepnout planetu"
+shell_switch_to: "Přepnout na %s"
+shell_moon_of: "Měsíc planety %s"
+shell_fields: "polí"
+shell_slots_tip: "Využito %1 z %2 slotů planet"
+shell_shortcuts: "Zkratky"
+shell_shortcuts_title: "Klávesové zkratky"
+shell_attack_title: "Blíží se nepřátelská flotila"
+shell_attack_arrives: "dorazí za"
+shell_attack_in: "Útok za"
+shell_attack_fleet: "Flotila"
+shell_attack_details: "Podrobnosti"
+shell_attack_hide: "Skrýt varování"
+shell_tagline: "Open-source vesmírná strategie ve tvém prohlížeči."
+shell_footer: "Zápatí"
+shell_footer_game: "Hra"
+shell_footer_community: "Komunita"
+shell_footer_legal: "Právní věci"
+shell_footer_credits: 'postaveno na práci mnoha open-source projektů'
+shell_imprint: "Impressum"
+ui_palette_placeholder: "Stránky, planety, souřadnice (např. 1:42:8)…"
+ui_palette_empty: "Žádné shody"
+ui_palette_pages: "Stránky"
+ui_palette_planets: "Planety"
+ui_palette_go: "Přejít na"
+ui_palette_galaxy: "Galaxie"
+ui_shortcuts_title: "Klávesové zkratky"
+ui_shortcuts_palette: "Skok na stránku, planetu nebo souřadnice"
+ui_shortcuts_go_overview: "Přehled"
+ui_shortcuts_go_buildings: "Budovy"
+ui_shortcuts_go_galaxy: "Galaxie"
+ui_shortcuts_planets: "Předchozí / další planeta"
+ui_shortcuts_help: "Tato nápověda"
+mg_not_delivered: "Nedoručeno (blokují zprávy): %s"
+al_already_member: "Už jsi členem aliance. Nejdřív ji opusť, abys mohl založit novou."
+al_kicked: "Odebrán z aliance"
+al_kicked_msg: "Byl jsi odebrán z aliance <b>%s</b>."
+al_disbanded: "Aliance rozpuštěna"
+al_disbanded_msg: "Aliance <b>%s</b> byla rozpuštěna. Už nejsi členem."
+al_disbanded_applicant_msg: "Aliance <b>%s</b> byla rozpuštěna, tvoje přihláška je neplatná."
+al_disbanded_partner_msg: "Aliance <b>%s</b> byla rozpuštěna. Všechny smlouvy s ní skončily."
+fa_no_debris: "Žádné pole trosek ke sběru."
+fl_colonize_slot_taken: "Na cílové pozici už planeta je."
+fl_choose_destination: "Vyber cíl"
+op_cant_activate_vacation_hostile: "Režim dovolené nemůžeš zapnout, dokud k tvým planetám míří nepřátelské flotily."
+rec_staff_excluded: "Členové týmu a zabanovaní hráči nenastavují rekordy, takže tvoje vlastní úrovně mohou být vyšší."
+rec_hidden_holder: "skrytý"
+rec_hidden_holder_info: "Držitel rekordu nezobrazuje své jméno v rekordech."
+rec_pending: "Nový rekord – započítá se při další aktualizaci statistik."
+rec_you: "Ty (zatím nezapočítáno)"

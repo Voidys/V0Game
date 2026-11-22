@@ -1187,6 +1187,7 @@ ov_newname_specialchar: Planetennamen dürfen nur Buchstaben, Zahlen, Leerzeiche
 ov_newname_too_long: 'Der Planetenname darf höchstens %d Zeichen lang sein.'
 ov_news: News
 ov_news_all: 'Alle News'
+tutorial_label: 'Tutorial'
 tutorial_step_of: 'Schritt %1 von %2'
 ov_of: von
 ov_outlaw: 'Gesetzloser bis:'
@@ -1710,6 +1711,7 @@ shell_footer: "Fußzeile"
 shell_footer_game: "Spiel"
 shell_footer_community: "Community"
 shell_footer_legal: "Rechtliches"
+shell_footer_credits: 'aufgebaut auf der Arbeit vieler Open-Source-Projekte'
 shell_imprint: "Impressum"
 ui_palette_placeholder: "Seiten, Planeten, Koordinaten (z. B. 1:42:8)…"
 ui_palette_empty: "Keine Treffer"

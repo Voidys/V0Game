@@ -1187,6 +1187,7 @@ ov_newname_specialchar: 'Planet names may only contain numbers, letters, spaces,
 ov_newname_too_long: 'The planet name may have at most %d characters.'
 ov_news: News
 ov_news_all: 'All news'
+tutorial_label: 'Tutorial'
 tutorial_step_of: 'Step %1 of %2'
 ov_of: of
 ov_outlaw: 'Outlaw until:'
@@ -1715,6 +1716,7 @@ shell_footer: "Footer"
 shell_footer_game: "Game"
 shell_footer_community: "Community"
 shell_footer_legal: "Legal"
+shell_footer_credits: 'built on the work of many open-source projects'
 shell_imprint: "Imprint"
 ui_palette_placeholder: "Pages, planets, coordinates (e.g. 1:42:8)…"
 ui_palette_empty: "No matches"

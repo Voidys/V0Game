@@ -1,0 +1,84 @@
+Active_players: Aktív játékosok
+Back: Vissza
+mail:
+  subject:
+    mail_changed: 'A(z) %s fiókod e-mail-címe megváltozott'
+Other_universes: Más univerzumok
+Play: Játék
+Playername: Játékosnév
+Register: Regisztráció
+Settings: Beállítások
+Sitting_end: Helyettesítés vége
+Sitting_request: Helyettesítés kérése (még nem elérhető)
+uni_status_regclosed_gameclosed: Zárva
+uni_status_regclosed_gameopen: Játékra nyitva
+uni_status_regopen_gameclosed: Regisztrációra nyitva
+uni_status_regopen_gameopen: Nyitva
+Universe_end: Vége
+Universe_start: Kezdés
+Universe_status: 'Univerzum állapota: '
+Universes: Univerzumok
+Your_universes: Az univerzumaid
+board_create: Új bejegyzés
+board_edit_post: Bejegyzés szerkesztése
+board_sort: Rendezés
+board_sort_hot: Felkapott
+board_sort_new: Új
+board_sort_top: Top
+board_period_all: Mindenkori
+board_period_week: Ezen a héten
+board_csort_best: Legjobb
+board_flair: Címke
+board_flair_all: Mind
+board_flair_general: Általános
+board_flair_guide: Útmutató
+board_flair_question: Kérdés
+board_flair_suggestion: Javaslat
+board_flair_bug: Hiba
+board_flair_offtopic: Off-topic
+board_upvote: Tetszik
+board_downvote: Nem tetszik
+board_pinned: Kitűzve
+board_locked: Lezárva
+board_by: 'szerző:'
+board_comments: Hozzászólások
+board_empty: Még nincs bejegyzés. Légy te az első!
+board_no_comments: Még nincs hozzászólás.
+board_title: Cím
+board_body: Szöveg
+board_publish: Közzététel
+board_save: Mentés
+board_cancel: Mégse
+board_edit: Szerkesztés
+board_edited: szerkesztve
+board_delete: Törlés
+board_deleted: "[törölve]"
+board_deleted_user: "[törölve]"
+board_confirm_delete: Tényleg törlöd?
+board_reply: Válasz
+board_collapse: Szál összecsukása
+board_add_comment: Írj hozzászólást
+board_comment_send: Hozzászólás
+board_mod_pin: Kitűzés
+board_mod_unpin: Kitűzés megszüntetése
+board_mod_lock: Lezárás
+board_mod_unlock: Feloldás
+board_not_found: Ez a bejegyzés vagy hozzászólás nem létezik.
+board_not_allowed: Ezt nem teheted meg.
+board_err_csrf: A kérést nem sikerült ellenőrizni. Töltsd újra az oldalt, és próbáld meg újra.
+board_err_title: Adj meg egy címet.
+board_err_title_long: A cím legfeljebb 200 karakter hosszú lehet.
+board_err_body: Írj be valami szöveget (ne legyen üres, és ne legyen túl hosszú).
+board_err_locked: Ez a bejegyzés le van zárva - új hozzászólás nem lehetséges.
+board_err_rate_post: "Várj még %d másodpercet a következő bejegyzés előtt."
+board_err_rate_comment: "Várj még %d másodpercet a következő hozzászólás előtt."
+board_ago_now: épp most
+board_ago_min: "%d perce"
+board_ago_hours: "%d órája"
+board_ago_days: "%d napja"
+board_guest_hint: Jelentkezz be, hogy írhass, hozzászólhass és szavazhass.
+board_guest_login: Bejelentkezés
+board_guest_register: Regisztráció
+rl_board_err_self_vote: "A saját bejegyzésedre vagy hozzászólásodra nem szavazhatsz."
+rl_board_err_vote_cap: "Elérted a napi szavazati limitet. Próbáld újra holnap."
+rl_board_err_write_cap: "Elérted a bejegyzések és hozzászólások napi limitjét. Próbáld újra holnap."

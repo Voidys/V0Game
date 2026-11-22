@@ -1,0 +1,78 @@
+dir: ltr
+js_tdformat: '[M] [D] [d] [H]:[i]:[s]'
+months:
+  - Gen
+  - Feb
+  - Mar
+  - Apr
+  - Mag
+  - Giu
+  - Lug
+  - Ago
+  - Set
+  - Ott
+  - Nov
+  - Dic
+php_tdformat: 'j M Y, H:i:s'
+short_day: g
+short_hour: h
+short_minute: m
+short_second: s
+timezones:
+  '-1': '[UTC - 1] Ora standard delle Azzorre, Ora di Capo Verde, Ora della Groenlandia orientale'
+  '-2': '[UTC - 2] Ora di Fernando de Noronha, Ora della Georgia del Sud e Isole Sandwich Australi'
+  '-3': '[UTC - 3] Ora standard dell''Amazzonia, Ora della Groenlandia centrale'
+  '-3.5': '[UTC - 3:30] Ora standard di Terranova'
+  '-4': '[UTC - 4] Ora standard dell''Atlantico'
+  '-4.5': '[UTC - 4:30] Ora standard del Venezuela'
+  '-5': '[UTC - 5] Ora standard orientale'
+  '-6': '[UTC - 6] Ora standard centrale'
+  '-7': '[UTC - 7] Ora standard di montagna'
+  '-8': '[UTC - 8] Ora standard del Pacifico'
+  '-9': '[UTC - 9] Ora standard dell''Alaska, Ora dell''isola Gambier'
+  '-9.5': '[UTC - 9:30] Ora delle Isole Marchesi'
+  '-10': '[UTC - 10] Ora standard delle Hawaii-Aleutine, Ora delle Isole Cook'
+  '-11': '[UTC - 11] Ora di Niue, Ora standard delle Samoa'
+  '-12': '[UTC - 12] Ora dell''isola Baker'
+  '0': '[UTC] Ora dell''Europa occidentale, Ora del meridiano di Greenwich'
+  '1': '[UTC + 1] Ora dell''Europa centrale, Ora dell''Africa occidentale'
+  '2': '[UTC + 2] Ora dell''Europa orientale, Ora dell''Africa centrale'
+  '3': '[UTC + 3] Ora standard di Mosca, Ora dell''Africa orientale'
+  '3.5': '[UTC + 3:30] Ora standard dell''Iran'
+  '4': '[UTC + 4] Ora standard del Golfo, Ora standard di Samara'
+  '4.5': '[UTC + 4:30] Ora dell''Afghanistan'
+  '5': '[UTC + 5] Ora standard del Pakistan, Ora standard di Ekaterinburg'
+  '5.5': '[UTC + 5:30] Ora standard dell''India, Ora dello Sri Lanka'
+  '5.75': '[UTC + 5:45] Ora del Nepal'
+  '6': '[UTC + 6] Ora del Bangladesh, Ora del Bhutan, Ora standard di Novosibirsk'
+  '6.5': '[UTC + 6:30] Ora delle Isole Cocos, Ora del Myanmar'
+  '7': '[UTC + 7] Ora dell''Indocina, Ora standard di Krasnojarsk'
+  '8': '[UTC + 8] Ora standard della Cina, Ora standard dell''Australia occidentale, Ora standard di Irkutsk'
+  '8.75': '[UTC + 8:45] Ora standard dell''Australia Occidentale sud-orientale'
+  '9': '[UTC + 9] Ora standard del Giappone, Ora standard della Corea, Ora standard di Čita'
+  '9.5': '[UTC + 9:30] Ora standard dell''Australia centrale'
+  '10': '[UTC + 10] Ora standard dell''Australia orientale, Ora standard di Vladivostok'
+  '10.5': '[UTC + 10:30] Ora standard di Lord Howe'
+  '11': '[UTC + 11] Ora delle Isole Salomone, Ora standard di Magadan'
+  '11.5': '[UTC + 11:30] Ora dell''Isola Norfolk'
+  '12': '[UTC + 12] Ora della Nuova Zelanda, Ora delle Figi, Ora standard della Kamčatka'
+  '12.75': '[UTC + 12:45] Ora delle Isole Chatham'
+  '13': '[UTC + 13] Ora di Tonga, Ora delle Isole Phoenix'
+  '14': '[UTC + 14] Ora delle Isole della Linea'
+week_day:
+  - Dom
+  - Lun
+  - Mar
+  - Mer
+  - Gio
+  - Ven
+  - Sab
+php_dateformat: d/m/Y
+lang_group_fun: "Lingue divertenti"
+dialog_ok: "OK"
+dialog_cancel: "Annulla"
+cookie_notice_title: "Cookie"
+cookie_notice_text: "Questo sito usa solo cookie tecnicamente necessari (sessione di login, lingua, \"resta connesso\" se lo scegli, collegamento del dispositivo). I cookie facoltativi vengono usati solo con il tuo consenso."
+cookie_notice_privacy: "Informativa sulla privacy"
+cookie_notice_necessary: "Solo quelli necessari"
+cookie_notice_all: "Accetta tutti"

@@ -1,0 +1,8 @@
+Salut {USERNAME},
+
+Nu te-ai mai conectat în {GAMENAME} din {LASTDATE}. Dacă vrei să rămâi în continuare membru al comunității noastre, conectează-te cu datele contului tău, altfel contul îți va fi șters.
+
+Dacă ți-ai uitat parola, intră pe {HTTPPATH} și apasă pe „Ai uitat parola”. În câteva minute vei primi un e-mail cu parola ta nouă.
+
+Cu drag,
+Echipa {GAMENAME}

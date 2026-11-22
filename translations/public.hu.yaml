@@ -1,0 +1,208 @@
+build_ships: Összes legyártott hajó
+buttonLostPassword: Elfelejtetted a jelszavad?
+buttonRegister: Regisztráció
+buttonScreenshot: Képernyőképek
+civil: Civil
+colony: Kolónia
+deathstar: Halálcsillag
+destroyed_sats: Megsemmisített napműholdak
+disclamerLabelAddress: 'Játék címe:'
+disclamerLabelMail: 'Támogatási e-mail:'
+disclamerLabelNotice: További információ
+disclamerLabelPhone: 'Telefon:'
+first_fights: Az univerzum első csatái
+forum: Fórum
+hof_empty: "Még nincsenek hírességek csarnoka-adatok."
+login_error_1: >-
+  Hibás e-mail-cím vagy jelszó! Tipp: a jelszókezelők gyakran a felhasználóneved
+  töltik ki, de az e-mail-címeddel kell belépned.
+login_error_2: >-
+  A fiókodba egy másik eszközről léptek be, vagy megváltozott az IP-címed.
+login_error_3: A munkameneted lejárt. Jelentkezz be újra.
+login_error_4: 'Túl sok bejelentkezési kísérlet. Várj 15 percet, és próbáld újra.'
+loginButton: Belépés
+loginEmail: E-mail
+loginHeader: Bejelentkezés
+loginInfo: A bejelentkezéssel elfogadom a(z) %s.
+loginPassword: Jelszó
+loginRememberMe: 'Maradjak bejelentkezve %d napig'
+loginServerDesc: >-
+  A(z) %s egy űrstratégiai játék, ahol százával versengenek a játékosok
+  <strong>egyszerre</strong> azért, hogy a legjobbak legyenek. Mindössze egy
+  átlagos böngészőre van szükséged.
+loginWelcome: Üdv a(z) %s világában
+Lowest_longterm_points: A legkevesebb ponttal rendelkező előregisztrált fiókok
+menu_banlist: Tiltólista
+menu_battlehall: Csatacsarnok
+menu_disclamer: Kapcsolat
+menu_news: Hírek
+menu_rules: Szabályok
+military: Katonai
+news_does_not_exist: Nincs elérhető hír.
+news_from: '%s napján, írta: %s'
+overall: Összesített
+passwordBack: Vissza
+passwordChangedMailSend: Az új jelszavad úton van. Hamarosan e-mailt kapsz.
+passwordChangedMailTitle: 'Új jelszó a(z) %s játékhoz'
+passwordConfirmInfo: 'Kattints a gombra a jelszavad visszaállításához. Az új jelszót e-mailben elküldjük neked.'
+passwordConfirmSubmit: 'Küldjetek új jelszót'
+passwordErrorMailEmpty: Ezt az e-mail-címet nem ismerjük.
+passwordInfo: >-
+  Elfelejtetted a jelszavad? Add meg a fiókod felhasználónevét és e-mail-címét.
+  Ha nem emlékszel rájuk, fordulj egy adminisztrátorhoz.
+passwordMail: E-mail
+passwordNext: Tovább
+passwordSubmit: Küldés
+passwordUsername: Felhasználónév
+passwordValidInValid: Érvénytelen kérés.
+passwordValidMailSend: Hamarosan e-mailt kapsz a következő lépésekkel.
+passwordValidMailTitle: 'Jelszó-visszaállítás a(z) %s játékhoz'
+players: Játékosok
+points_amount: Pontok / Mennyiség
+powFailed: >-
+  Az automatikus botellenőrzés sikertelen volt vagy lejárt. Menj vissza, várj
+  egy kicsit, és küldd el újra az űrlapot.
+powNoCrypto: >-
+  A böngésződ nem tudja futtatni az automatikus botellenőrzést (biztonságos
+  https-kapcsolat kell hozzá).
+powVerifying: A böngésződ ellenőrzése …
+registerBack: Vissza
+registerDataPrivacyDesc: Elfogadom a(z) %s
+registerEmail: E-mail
+registerEmailDesc: Add meg az e-mail-címed.
+registerEmailReplay: E-mail újra
+registerEmailReplayDesc: Írd be újra az e-mail-címed a megerősítéshez.
+registerErrorDataPrivacy: A folytatáshoz fogadd el az adatvédelmi nyilatkozatot.
+registerErrorMailEmpty: Add meg az e-mail-címed.
+registerErrorMailExist: Ez az e-mail-cím már regisztrálva van.
+registerErrorMailInvalid: Ez nem tűnik érvényes e-mail-címnek.
+registerErrorMailSame: A két e-mail-cím nem egyezik.
+registerErrorPasswordLength: A jelszavad legalább %s karakter hosszú legyen.
+registerErrorPasswordSame: A két jelszó nem egyezik.
+registerErrorRules: A folytatáshoz fogadd el a szabályokat.
+registerErrorUniClosed: Ebben az univerzumban zárva a regisztráció.
+registerErrorUsernameChar: A felhasználóneved csak betűket, számokat, szóközt, _, - és . karaktert tartalmazhat
+registerErrorUsernameEmpty: Add meg a felhasználóneved.
+registerErrorUsernameExist: Ez a felhasználónév már foglalt.
+registerLanguage: Nyelv
+registerMailCompleteTitle: Üdv a(z) %s világában!
+registerMailVertifyTitle: 'Aktiváld a fiókod a(z) %s játékhoz'
+registerPassword: Jelszó
+registerPasswordDesc: A jelszavad legalább %s karakter hosszú legyen.
+registerPasswordReplay: Jelszó újra
+registerPasswordReplayDesc: Írd be ugyanazt a jelszót újra.
+registerReferral: 'Ajánlód:'
+registerRules: Szabályok
+registerRulesDesc: Elfogadom a(z) %s
+registerSendComplete: >-
+  Köszi a regisztrációt! A következő lépésekért nézd meg az e-mailjeidet (a
+  spam mappát is).
+registerTimezone: Időzóna
+registerUsername: Felhasználónév
+registerUsernameDesc: >-
+  3-25 karakter: betűk, számok, szóközök, pontok, kötőjelek és aláhúzásjelek.
+registerWelcomePMSenderName: Adminisztrátor
+registerWelcomePMSubject: Üdv
+registerWelcomePMText: >-
+  Üdv a(z) %s világában! Először építs egy Naperőművet, mert a nyersanyagok
+  termeléséhez energia kell. Nyisd meg az Épületeket a bal oldali menüben, és
+  kezdd a Naperőművel.<br>Ha már van energiád, építhetsz bányákat. Maradj az
+  Épületeknél, és építs egy Fémbányát, majd egy Kristálybányát.<br><br>Hajók
+  építéséhez Hajógyár kell. A bal oldali Technológiák menüben láthatod, mi kell
+  a feloldásához.<br>Ha további kérdésed van, nézd meg a GYIK-et, a wikit, vagy
+  nyiss egy támogatási jegyet.<br><br>A csapat sok szórakozást kíván az
+  univerzum felfedezéséhez!
+siteTitleBanList: Tiltólista
+siteTitleBattleHall: Csatacsarnok
+siteTitleDataPrivacy: Adatvédelmi nyilatkozat
+siteTitleDisclamer: Kapcsolat
+siteTitleHOF: Hírességek csarnoka
+siteTitleIndex: Kezdőlap
+siteTitleLostPassword: Elfelejtetted a jelszavad?
+siteTitleNews: Hírek
+siteTitleRegister: Regisztráció
+siteTitleRules: Szabályok
+siteTitleScreens: Képernyőképek
+spy: Kémszondák
+st_buildings: Épületek
+st_defenses: Védelem
+st_fleets: Flotta
+st_points: Pontok
+st_researh: Kutatás
+theme: Téma
+universe: Univerzum
+vertifyAdminMessage: A(z) „%s” fiók aktiválva lett.
+vertifyNoUserFound: Érvénytelen kérés.
+passwordErrorUsernameEmpty: Nem adtál meg felhasználónevet!
+uni_closed: ' (zárva)'
+uni_reg_closed: ' (regisztráció zárva)'
+uni_reg_open: ' (csak regisztráció)'
+home_menu: Menü
+home_meta_description: '%s – az űrstratégiai böngészőjáték 2000-es évekbeli bájjal: növeszd a bolygóidat, építs flottákat, kovácsolj szövetségeket.'
+home_started: Már fut!
+home_starts_in: Indulásig
+home_team: Csapat
+home_meme_alt: 'Képregény-mém a(z) {game_name} parancsnoki hídjáról'
+home_meme_alt_deep_space_transit: "Képregény: két kadét egy siklóban – az egyik összeroskad egy aszteroidamező láttán, a másik vigyorog egy izzó ködön. „Szokásos szektorjárőrözés vs. egy felfedezetlen, nyersanyagban gazdag köd megtalálása.”"
+home_meme_alt_deuterium_joyride: "Képregény: egy fáradt parancsnok a megfigyelőfedélzeten nézi, ahogy két újonc lebeg odakint – „Nézem, ahogy az újoncok az összes Deutériumukat elpazarolják a kinti hancúrozásra, miközben én 12 órát várok a bányafejlesztésemre.”"
+home_meme_alt_enemy_fleet: "Képregény: egy kadét kétségbeesetten kapja a fejéhez a kezét, miközben villognak a riasztók – „1000 ellenséges rombolóval kell számolni?! Azt hittem, ez a szektor biztonságos!?”"
+home_meme_alt_fleet_decimated: "Képregény: egy sokkot kapott katona mered maga elé, míg odakint hajók robbannak egy összetört kupola mögött – „Amikor 20 órát farmolsz nyersanyagot, aztán egy top 3-as játékos flottája beugrik, és 3 másodperc alatt szétszed mindent.”"
+home_meme_alt_solo_scouting: "Képregény: Kamioka parancsnok vigyorogva teszi robotkezét egy kadét vállára – „Ne aggódj, kadét. A Főparancsnokság »teljes« bizalmat szavaz a magányos felderítő küldetésedben az Űrbe.”"
+home_meme_alt_this_is_fine: "Képregény: egy űrruhás kutya nyugodtan ül egy lángoló parancsnoki központban, és azt mondja: „Ez így jó” – „Nyugi. A flottám csak 4 órát késik a visszatéréssel.”"
+source_code: Forráskód
+news_back: Vissza a hírekhez
+lightbox_close: "Bezárás"
+lightbox_prev: "Előző kép"
+lightbox_next: "Következő kép"
+news_pinned: Kitűzve
+news_read_more: Tovább olvasom
+news_latest: Legfrissebb hírek
+home_discord_online: "Online"
+home_discord_join: "Csatlakozz a Discordunkhoz"
+news_all: Összes hír
+csrf_invalid: 'A biztonsági ellenőrzés sikertelen volt (lehet, hogy lejárt a munkameneted). Töltsd újra az oldalt, és próbáld meg újra.'
+home_logged_in_head: "A fiókod"
+home_logged_in_as: "Bejelentkezve mint %s"
+home_continue: "Tovább az univerzumaidhoz"
+home_account_lobby: "Fiókelőtér"
+rulesEmpty: "Még nem tettek közzé szabályokat."
+loginLostPasswordOff: "Elfelejtetted a jelszavad? %s"
+loginContactTeam: "Írj a csapatnak."
+home_step_build: "Építs bányákat, kutatóállomásokat és hajógyárakat a bolygóidon."
+home_step_fleet: "Küldj flottákat: fedezz fel, kereskedj, fosztogass vagy védekezz."
+home_step_alliance: "Lépj be egy szövetségbe, és törj a ranglista csúcsára."
+home_hof_desc: "A lezárt körök győztesei"
+home_battlehall_desc: "A futó kör legnagyobb csatái"
+memorialFilter: "Emlékcsaták"
+toc_contents: "Tartalom"
+loginRememberHint: "Közös számítógépen ne használd."
+home_step_rules: "Olvasd el a(z) %s, mielőtt belevágsz."
+socialContinueWith: "Folytatás ezzel: %s"
+socialOr: "vagy"
+socialErrorState: "A bejelentkezést nem sikerült ellenőrizni (a kérés lejárt vagy érvénytelen volt). Kezdd újra."
+socialErrorProvider: "A szolgáltató nem fejezte be a bejelentkezést. Próbáld újra később."
+socialErrorCancelled: "A bejelentkezést megszakították."
+socialErrorNoEmail: "A szolgáltató nem osztott meg ellenőrzött e-mail-címet. Regisztrálj e-mail-címmel és jelszóval, majd a fiókbeállításokban kapcsold hozzá a szolgáltatást."
+socialErrorTaken: "A szolgáltatónak ez a fiókja már egy másik játékosfiókhoz van kapcsolva."
+socialErrorExpired: "Ez a lépés lejárt. Indítsd újra a bejelentkezést."
+socialLinkTitle: "Kapcsold össze a fiókodat"
+socialLinkIntro: "A(z) %s e-mail-címmel már létezik fiók. Hogy összekapcsold a(z) %s bejelentkezéseddel, add meg egyszer annak a fióknak a jelszavát."
+socialLinkPassword: "A meglévő fiók jelszava"
+socialLinkHelp: "Ez igazolja, hogy a fiók a tiéd. A szolgáltatós bejelentkezésed csak ezután kapcsolódik hozzá."
+socialLinkButton: "Összekapcsolás és belépés"
+socialLinkWrong: "Hibás jelszó."
+socialCancel: "Mégse"
+socialCompleteTitle: "Regisztráció befejezése"
+socialCompleteIntro: "Először jelentkezel be ezzel: %s (%s). Válassz nevet, és fogadd el a szabályokat a fiókod létrehozásához. Jelszóra nincs szükséged; később beállíthatsz egyet az elfelejtett jelszó funkcióval."
+socialConnectedTitle: "Összekapcsolt szolgáltatások"
+socialConnectedIntro: "Jelszó helyett ezekkel a szolgáltatásokkal jelentkezhetsz be."
+socialConnected: "Összekapcsolva"
+socialConnectedAs: "Összekapcsolva (%s)"
+socialNotConnected: "Nincs összekapcsolva"
+socialConnect: "Összekapcsolás"
+socialDisconnect: "Leválasztás"
+socialLinked: "A szolgáltatás mostantól össze van kapcsolva a fiókoddal."
+socialUnlinked: "A szolgáltatást leválasztottuk."
+socialLastMethod: "Ez az egyetlen módod a bejelentkezésre. Előbb állíts be jelszót (elfelejtett jelszó a kezdőlapon), utána választhatod le a szolgáltatást."
+socialLastMethodHint: "Utolsó bejelentkezési mód: előbb állíts be jelszót, utána leválaszthatod."
+socialErrorUnavailable: "Ez a bejelentkezési mód nem érhető el."

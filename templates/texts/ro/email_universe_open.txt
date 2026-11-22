@@ -1,0 +1,16 @@
+﻿Salut {USERNAME},
+
+a sosit momentul - {UNINAME} și-a deschis porțile pe {OPENTIME}!
+Ne bucurăm că ești aici și îți urăm multă distracție și aventuri palpitante.
+
+Jocul îl găsești la {HTTPPATH}.
+Ești binevenit și pe Discord-ul nostru:
+{DISCORD}
+
+Dacă ți-ai uitat parola, apasă pur și simplu pe „Ai uitat parola” de pe pagină.
+Imediat după aceea vei primi un e-mail cu o parolă nouă.
+
+Dacă tot ai probleme cu conectarea sau înregistrarea, scrie-ne pe Discord.
+
+Cu drag,
+Echipa {GAMENAME}

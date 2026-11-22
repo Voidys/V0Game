@@ -1,0 +1,472 @@
+and: și
+battle_stats_damage_done: Daune provocate
+battle_stats_damage_dead: Daune în exces
+battle_stats_shield_hit: Lovituri în scuturi
+battle_stats_ship_destroyed: Nave distruse
+battle_stats_shield_bounced: Daune deviate
+battle_stats_rapid_fire_done: Foc rapid
+battle_stats_explosion_triggered: Explozii
+battle_stats_stunned_done: Dezactivate
+battle_stats_target: Țintă
+battle_stats_total: Total
+battle_stats_total_all_targets: Total (toate țintele)
+battle_stats_total_all_fleets: Total (toate flotele)
+damage: puncte de daună.
+debree_field_1: 'Pe aceste coordonate se află acum:'
+debree_field_2: ' de resturi.'
+fcp_colony: Colonie
+fl_expocap_explain: >-
+  Aceasta este cantitatea maximă de puncte de expediție care merită trimisă.
+  Tot ce depășește această limită nu îți mărește recompensele, dar se poate
+  pierde în continuare.
+fl_send_back: Întoarcere
+fl_simulate: Simulează
+fleet_attack_1: Flota atacatoare trage cu o putere de
+fleet_attack_2: asupra apărătorului. Scuturile apărătorului absorb
+fleet_defs_1: Flota care se apără trage cu o putere de
+fleet_defs_2: asupra atacatorului. Scuturile atacatorului absorb
+spy_best_planet: Cea mai bună planetă
+spy_best_resources_per_second: Cele mai bune resurse pe secundă
+spy_energy: Energie
+spy_hazard_potential: Potențial de pericol
+spy_large_transporter: Transportor mare
+spy_market_value: Valoare de piață
+spy_necessary_recycler: Reciclatoare necesare
+spy_necessary_transporters: Nave necesare
+spy_potential_recycling: Potențial de reciclare
+spy_potential_resources: Resurse potențiale
+spy_small_transporter: Transportor mic
+spy_summary: Rezumat
+spy_total_resources: Total resurse
+sys_adress_planet: '[%s:%s:%s]'
+sys_and: și
+sys_attack_attacker_pos: Atacator
+sys_attack_defender_pos: Apărător
+sys_attack_round: Runda
+cr_start: "Flote de start"
+cr_rounds: "Runde"
+cr_debris: "Câmp de resturi"
+cr_loot: "Pradă"
+cr_losses: "Pierderi"
+cr_moon: "Șansă de lună"
+cr_lost_round: "Pierdut în această rundă"
+cr_lost_total: "Pierdut în total"
+cr_stats: "Statisticile bătăliei"
+sys_attack_title: 'Următoarele flote se înfruntă pe: '
+sys_attacker_lostunits: 'Pierderile atacatorului:'
+sys_attacker_won: Atacatorul a câștigat bătălia!
+sys_both_won: 'Lupta se termină la egalitate! '
+sys_colo_allisok: >-
+  Flota ta a ajuns la coordonatele %s. Coloniștii au început să colonizeze
+  planeta nouă.
+sys_colo_badpos: >-
+  Flota ta a ajuns la coordonatele %s. Colonizarea nu este posibilă acolo,
+  așa că coloniștii s-au întors acasă dezamăgiți.
+sys_colo_maxcolo: >-
+  Flota ta a ajuns la coordonatele %s. Colonizarea nu este posibilă: poți avea
+  cel mult %d planete.
+sys_colo_mess_from: Colonizare
+sys_colo_mess_report: Raport de colonizare
+sys_colo_notech: >-
+  Flota ta a ajuns la coordonatele %s. Coloniștii au constatat că echipamentul
+  lor nu se potrivește climei și trebuie îmbunătățit. Dezamăgiți, s-au întors
+  acasă.
+sys_colo_notfree: >-
+  Flota ta a ajuns la coordonatele %s. Din păcate, coloniștii au descoperit că
+  planeta este deja locuită! Complet demoralizați, s-au întors acasă.
+sys_debris: Câmp de resturi
+sys_def_rebuild: 'O parte din apărări au putut fi reparate:'
+sys_defender_lostunits: 'Pierderile apărătorului:'
+sys_defender_won: Apărătorul a câștigat bătălia!
+sys_destroyed: Distrus
+sys_destruc_echec: >-
+  Cutremurele au zguduit planeta, dar ceva a mers prost: Stelele morții au
+  explodat și s-au făcut o mie de bucăți, iar undele de șoc au distrus întreaga
+  flotă.
+sys_destruc_lune: 'Șansa de a distruge luna: %d%%'
+sys_destruc_mess1: 'Stelele morții și-au tras energia uriașă asupra lunii.'
+sys_destruc_null: >-
+  Stelele morții nu s-au putut încărca complet înainte să tragă.<br> Luna nu a
+  fost distrusă.
+sys_destruc_reussi: >-
+  Razele Stelelor morții au ajuns la lună și au făcut-o bucăți. <br>Întreaga
+  lună a fost distrusă!
+sys_destruc_rip: 'Șansa ca flota să se autodistrugă: %d%%'
+sys_destruc_stop: 'Apărătorul a blocat cu succes distrugerea lunii.'
+sys_destruc_title: 'Următoarele flote se înfruntă pentru distrugerea unei luni:'
+sys_expe_attack_1_1_1: Un pirat spațial disperat a încercat să ne captureze flota de expediție.
+sys_expe_attack_1_1_2: >-
+  Niște barbari primitivi ne-au atacat cu nave spațiale. Măcar navele lor erau
+  într-o stare groaznică. Dacă puterea lor de foc ar fi fost o amenințare
+  serioasă, ar fi trebuit să răspundem cu a noastră.
+sys_expe_attack_1_1_3: >-
+  Am interceptat câteva mesaje radio ale unor pirați foarte beți. Se pare că
+  vom fi atacați.
+sys_expe_attack_1_1_4: >-
+  A trebuit să luptăm cu niște pirați, dar din fericire eram mai numeroși.
+sys_expe_attack_1_1_5: >-
+  Flota noastră raportează că un anume Moa Tikarr și echipajul lui au cerut
+  capitularea necondiționată a flotei noastre. Dacă vorbesc serios, vor afla că
+  ne putem apăra foarte bine.
+sys_expe_attack_1_2_1: Flota ta de expediție a avut o întâlnire neprevăzută cu niște pirați spațiali.
+sys_expe_attack_1_2_2: >-
+  Am zburat într-o ambuscadă a unor pirați stelari! Din păcate, lupta a fost inevitabilă.
+sys_expe_attack_1_2_3: >-
+  Apelul de ajutor al altei flote de expediție s-a dovedit a fi o capcană a
+  unor pirați vicleni. Bătălia a fost inevitabilă.
+sys_expe_attack_1_3_1: >-
+  Semnalele interceptate nu veneau de la extratereștri necunoscuți, ci dintr-o
+  bază secretă de pirați! Piraților nu le-a priit prea tare prezența noastră în
+  sectorul lor.
+sys_expe_attack_1_3_2: Flota de expediție a raportat lupte intense cu nave pirat neidentificate!
+sys_expe_attack_1_3_3: >-
+  Tocmai am primit un mesaj urgent de la comandantul expediției:
+  „Vin peste noi! Au sărit din hiperspațiu, din fericire sunt doar pirați, deci
+  avem o șansă, ne batem!”
+sys_expe_attack_2_1_1: Flota ta de expediție a avut un prim contact neprietenos cu o specie necunoscută.
+sys_expe_attack_2_1_2: Niște nave ciudate au atacat flota de expediție fără avertisment!
+sys_expe_attack_2_1_3: Expediția noastră a fost atacată de un mic grup de nave spațiale neidentificate!
+sys_expe_attack_2_1_4: >-
+  Flota de expediție raportează contact cu nave necunoscute. Mesajele radio nu
+  pot fi decodate, dar navele ciudate par să-și încarce armele.
+sys_expe_attack_2_2_1: O specie necunoscută ne atacă expediția!
+sys_expe_attack_2_2_2: >-
+  Flota ta de expediție a încălcat se pare teritoriul unei rase extraterestre
+  necunoscute până acum, dar extrem de agresive.
+sys_expe_attack_2_2_3: >-
+  Legătura cu flota noastră de expediție a fost tăiată brusc. Ultimul lucru pe
+  care l-am auzit a fost că flota primea foc masiv. Atacatorii nu au putut fi
+  identificați.
+sys_expe_attack_2_3_1: >-
+  Expediția ta a dat peste o flotă de invazie extraterestră și raportează bătălii masive!
+sys_expe_attack_2_3_2: >-
+  Un grup mare de nave cristaline de origine necunoscută este pe curs direct de
+  coliziune cu flota noastră de expediție. Trebuie să ne pregătim pentru ce e
+  mai rău.
+sys_expe_attack_2_3_3: >-
+  Am avut ceva probleme să pronunțăm corect dialectul rasei extraterestre.
+  Diplomatul nostru a strigat din greșeală „Foc!” în loc de „Pace!”
+sys_expe_attackname_1: Pirați
+sys_expe_attackname_2: Extratereștri
+sys_expe_back_home: Flota ta s-a întors pe %1$s %2$s din expediția de la %3$s.
+sys_expe_back_home_ress: Aduce %s %s, %s %s și %s %s.
+sys_expe_back_home_ships_flound: 'Au fost găsite următoarele nave:'
+sys_expe_back_home_ships_lost: 'Au fost pierdute următoarele nave:'
+sys_expe_depleted_max_1: >-
+  Însemnare din jurnalul ofițerului de comunicații: Dacă ne simțim vreodată
+  nesiguri, ne putem uni oricând cu celelalte expediții care zboară pe aici.
+sys_expe_depleted_max_2: >-
+  Însemnare din jurnalul ofițerului de comunicații: Dacă merge așa, va trebui
+  să montăm geamanduri de navigație ca să facem față traficului.
+sys_expe_depleted_max_3: >-
+  Însemnare din jurnalul ofițerului de comunicații: Poate ar fi mai util să
+  deschidem aici un magazin de suveniruri decât să trimitem încă o expediție.
+sys_expe_depleted_med_1: >-
+  Însemnare din jurnalul ofițerului de comunicații: Am găsit urme ale mai
+  multor flote de expediție în zonă. Ne întoarcem acasă.
+sys_expe_depleted_med_2: >-
+  Însemnare din jurnalul ofițerului de comunicații: Am stabilit contact radio
+  prietenos cu alte expediții din acest sector.
+sys_expe_depleted_med_3: >-
+  Însemnare din jurnalul ofițerului de comunicații: Am sărbătorit sfârșitul
+  expediției cu echipajul altei flote de expediție care călătorește în același
+  sector. Nici ei nu au nimic nou de raportat.
+sys_expe_depleted_min_1: >-
+  Însemnare din jurnalul ofițerului de comunicații: Se pare că oamenii au mai
+  fost în această parte a galaxiei.
+sys_expe_depleted_min_2: >-
+  Însemnare din jurnalul ofițerului de comunicații: Am găsit resturi de nave
+  spațiale vechi. Nu suntem primii aici.
+sys_expe_depleted_min_3: >-
+  Însemnare din jurnalul ofițerului de comunicații: Aproape ne-am ciocnit cu
+  altă flotă de expediție. Nu m-am gândit niciodată că va mai fi cineva pe aici.
+sys_expe_depleted_not_1: >-
+  Însemnare din jurnalul ofițerului de comunicații: Se pare că această parte a
+  universului nu a fost explorată încă.
+sys_expe_depleted_not_2: >-
+  Însemnare din jurnalul ofițerului de comunicații: E senzațional să fim primii
+  care străbat un sector neexplorat.
+sys_expe_feqeuence_few: Peste 10 expediții în ultimele 24 de ore
+sys_expe_feqeuence_many: Peste 50 de expediții în ultimele 24 de ore
+sys_expe_feqeuence_medium: Peste 25 de expediții în ultimele 24 de ore
+sys_expe_found_goods: 'Au fost extrase %s %s.'
+sys_expe_found_ress_1_1: >-
+  Expediția ta a descoperit un mic roi de asteroizi din care au putut fi
+  extrase niște resurse.
+sys_expe_found_ress_1_2: >-
+  Pe un planetoid izolat au fost găsite mai multe câmpuri de resurse ușor
+  accesibile, iar materiile prime au fost extrase cu succes.
+sys_expe_found_ress_1_3: >-
+  Expediția ta a dat peste epave foarte vechi de nave spațiale dintr-o bătălie
+  de mult încheiată. Unele componente au putut fi recuperate și reciclate.
+sys_expe_found_ress_1_4: >-
+  Expediția a descoperit o planetă contaminată de radiații, cu o atmosferă
+  extrem de toxică. Scanările au arătat însă că planeta conține multe materii
+  prime. Au fost trimise drone automate care au încercat să extragă cât mai
+  multe resurse.
+sys_expe_found_ress_2_1: >-
+  Expediția ta a găsit un convoi străvechi de cargouri, complet încărcat, dar
+  pustiu. Au putut fi obținute niște resurse. 
+sys_expe_found_ress_2_2: >-
+  Expediția ta a găsit mari zăcăminte de materii prime pe o mică lună cu
+  atmosferă proprie. Echipajul extrage acum această comoară.
+sys_expe_found_ress_2_3: >-
+  Am întâlnit un mic convoi de nave civile care aveau nevoie urgentă de hrană
+  și medicamente. La schimb, am primit o cantitate considerabilă de resurse
+  utile.
+sys_expe_found_ress_3_1: >-
+  Flota ta de expediție raportează descoperirea unei epave extraterestre uriașe.
+  Deși nu au putut face nimic cu tehnologia, nava a putut fi demontată în
+  piesele ei, aducând materii prime valoroase.
+sys_expe_found_ress_3_2: >-
+  Centura de asteroizi din jurul unei planete necunoscute conținea cantități
+  enorme de materii prime. Flota de expediție și-a umplut cămările!
+sys_expe_found_ress_logbook_1: >-
+  Însemnare din jurnalul primului ofițer: Am folosit fiecare centimetru de
+  spațiu liber, dar tot nu am putut lua toate resursele găsite.
+sys_expe_found_ress_logbook_2: >-
+  Însemnare din jurnalul primului ofițer: Dacă am fi avut câteva cargouri în
+  plus! Acum trebuie să lăsăm în urmă cantități uriașe de resurse.
+sys_expe_found_ress_logbook_3: >-
+  Însemnare din jurnalul primului ofițer: Am aruncat deja tot ce nu ne mai
+  trebuie, dar tot nu putem face loc pentru toate resursele găsite.
+sys_expe_found_ress_logbook_4: >-
+  Însemnare din jurnalul primului ofițer: Chiar și după ce am transformat
+  cantina și toate salonele în depozite, tot nu am putut transporta toate
+  resursele găsite.
+sys_expe_found_ships_1_1: >-
+  Am descoperit rămășițele unei expediții anterioare! Tehnicienii noștri
+  verifică dacă pot repune în funcțiune câteva dintre epave.
+sys_expe_found_ships_1_2: >-
+  Am găsit o bază de pirați pustie. Câteva nave vechi mai sunt în hangar.
+  Tehnicienii noștri verifică dacă unele dintre nave mai pot fi folosite.
+sys_expe_found_ships_1_3: >-
+  Expediția noastră a găsit o planetă aproape complet devastată de războaie.
+  Diverse epave de nave pluteau pe orbită. Tehnicienii au încercat să repare
+  câteva dintre ele. Poate aflăm mai multe despre ce s-a întâmplat aici.
+sys_expe_found_ships_1_4: >-
+  Expediția a dat peste o veche bază stelară care pare abandonată de o
+  eternitate. În hangarul fortăreței au fost găsite câteva nave. Tehnicienii au
+  reușit să pună din nou în zbor pe unele dintre ele.
+sys_expe_found_ships_2_1: >-
+  Am găsit rămășițele unei armade. Tehnicienii expediției s-au urcat imediat pe
+  navele parțial intacte și au reușit să repare câteva dintre ele.
+sys_expe_found_ships_2_2: >-
+  Expediția noastră a descoperit un vechi șantier naval automat, cu unele nave
+  încă în faza de producție. După ce au restabilit alimentarea cu energie a
+  șantierului, tehnicienii noștri au lucrat să le termine construcția.
+sys_expe_found_ships_3_1: >-
+  Am găsit un cimitir gigantic de nave. Câțiva tehnicieni ai expediției au
+  reușit să pună din nou în funcțiune una sau două nave.
+sys_expe_found_ships_3_2: >-
+  Am descoperit o planetă cu rămășițele unei civilizații. Din spațiu a fost
+  observată și o altă stație de nave gigantică, încă intactă. Câțiva dintre
+  tehnicienii și piloții noștri au coborât la suprafață ca să stabilească dacă
+  o parte din nave pot fi recuperate.
+sys_expe_found_ships_logbook_1: >-
+  Însemnare din jurnalul ofițerului de la sala mașinilor: Dacă am fi adus
+  câteva nave în plus, ar fi fost ușor să luăm acasă câteva dintre frumusețile
+  astea!
+sys_expe_found_ships_logbook_2: >-
+  Însemnare din jurnalul ofițerului de la sala mașinilor: Din păcate, nu am
+  avut capacitatea să aducem înapoi toate navele descoperite în această
+  misiune.
+sys_expe_found_ships_logbook_3: >-
+  Însemnare din jurnalul ofițerului de la sala mașinilor: Din păcate, nu avem
+  destulă capacitate ca să aducem înapoi toate navele găsite.
+sys_expe_found_ships_nothing: Nu a putut fi găsită nicio navă.
+sys_expe_lost_fleet_1: >-
+  Singurul lucru rămas din expediție este următorul mesaj radio: Zzzrrt
+  Doamne!...Krrrzzzzt zrrrtrzt vede krgzzzz da de cum Krzzzzzzzztzzzz...
+sys_expe_lost_fleet_2: >-
+  Ultimul lucru primit de la expediție au fost niște prim-planuri incredibil
+  de bune ale unei găuri negre care se deschidea.
+sys_expe_lost_fleet_3: >-
+  O breșă nucleară pe una dintre navele de comandă a dus la o reacție în lanț
+  care a distrus întreaga expediție într-o explozie spectaculoasă.
+sys_expe_lost_fleet_4: >-
+  Flota de expediție nu s-a întors din saltul în hiperspațiu. Oamenii noștri de
+  știință încă se întreabă ce s-ar fi putut întâmpla, dar flota pare pierdută
+  pentru totdeauna.
+sys_expe_nothing_1: >-
+  Această expediție nu aduce nimic palpitant, în afară de câteva animăluțe
+  curioase dintr-o planetă mlăștinoasă necunoscută.
+sys_expe_nothing_2: >-
+  Expediția ta a făcut niște poze frumoase ale unei supernove. Totuși,
+  expediția nu a adus cu adevărat concluzii noi. Dar are șanse bune să câștige
+  anul acesta concursul Cea mai bună poză din Univers.
+sys_expe_nothing_3: >-
+  Un virus informatic ciudat a paralizat navigația la scurt timp după părăsirea
+  sistemului solar. Din cauza asta, întreaga flotă de expediție a zburat în
+  cerc tot timpul. De prisos să spunem că expediția nu a fost prea reușită.
+sys_expe_nothing_4: >-
+  O formă de viață din energie pură i-a făcut pe toți membrii expediției să se
+  holbeze zile întregi la simboluri hipnotice de pe ecrane. Când cei mai mulți
+  și-au limpezit în sfârșit mintea, expediția a trebuit anulată din cauza lipsei
+  de deuteriu.
+sys_expe_nothing_5: >-
+  Ei bine, măcar știm acum că anomaliile roșii de clasa 5 nu doar afectează
+  haotic sistemele navei, ci pot declanșa și halucinații masive la echipaj. Din
+  păcate, nimic altceva nu a fost descoperit în această expediție.
+sys_expe_nothing_6: >-
+  În ciuda scanărilor inițial promițătoare ale acestui sector, ne-am întors,
+  din păcate, cu mâinile goale.
+sys_expe_nothing_7: >-
+  Poate că nu trebuia sărbătorită ziua căpitanului pe această planetă izolată.
+  O febră hemoragică urâtă a băgat cea mai mare parte a echipajului la
+  infirmerie, iar criza acută de personal a făcut expediția să eșueze.
+sys_expe_nothing_8: >-
+  Expediția ta nu a găsit nimic în afară de vidul imens al spațiului. Nu a fost
+  nici măcar un asteroid mic, nici radiații, nici particule, nimic care să
+  facă expediția măcar puțin interesantă.
+sys_expe_nothing_9: >-
+  O defecțiune a reactorului de pe nava de comandă aproape a distrus întreaga
+  expediție. Din fericire, tehnicienii au fost mai mult decât capabili și au
+  evitat ce e mai rău. Reparația a luat însă atât de mult timp, încât
+  expediția s-a întors fără să fi realizat nimic.
+sys_expe_report: Raport de expediție
+sys_expe_report_msg: 'Raportul de expediție al flotei de %s %s la %s:'
+sys_expe_time_fast_1: >-
+  O buclă de feedback neprevăzută în bobinele de energie ale propulsiei a
+  accelerat întoarcerea expediției, care a ajuns mai devreme decât se aștepta.
+  Primele rapoarte indică totuși că nu are nimic altceva de raportat.
+sys_expe_time_fast_2: >-
+  Noul comandant, cam îndrăzneț, a folosit o gaură de vierme instabilă ca să
+  scurteze drumul de întoarcere - cu succes! Totuși, expediția în sine nu a
+  adus concluzii noi.
+sys_expe_time_fast_3: >-
+  Expediția ta nu a raportat anomalii în sectorul explorat. Totuși, flota a
+  întâlnit un vânt solar în zborul de întoarcere, care a accelerat semnificativ
+  călătoria. Expediția ta se va întoarce acum acasă ceva mai devreme decât se
+  aștepta.
+sys_expe_time_slow_1: >-
+  O gafă gravă a navigatorului a lăsat flota într-un loc complet greșit. Drumul
+  de întoarcere a durat, în consecință, considerabil mai mult.
+sys_expe_time_slow_2: >-
+  Din motive încă necunoscute, saltul flotei a ieșit complet prost. Aproape că
+  au ajuns în inima unei stele! Din fericire, au aterizat într-un sistem
+  cunoscut, dar întoarcerea va dura mai mult decât s-a planificat inițial.
+sys_expe_time_slow_3: >-
+  Noul modul de navigație pare încă bântuit de câteva buguri. Nu numai că
+  flota de expediție a luat-o complet în direcția greșită, dar și-a consumat
+  tot deuteriul! Dezamăgită, expediția se întoarce acum pe energie de rezervă.
+sys_expe_time_slow_4: >-
+  Expediția ta a intrat într-un sector cu furtuni de particule intensificate.
+  Asta a suprasolicitat sistemele de stocare a energiei, iar sistemele
+  principale ale tuturor navelor au cedat. Mecanicii tăi au reușit să evite ce
+  e mai rău, dar expediția se va întoarce acum cu o întârziere considerabilă.
+sys_expe_time_slow_5: >-
+  Nava-amiral a flotei tale de expediție s-a ciocnit cu o navă extraterestră
+  care a sărit direct în flotă fără avertisment. Nava extraterestră a explodat,
+  iar avariile la nava-amiral au fost considerabile. După ce reparațiile cele
+  mai grave sunt gata, navele tale vor porni la drum înapoi, deoarece
+  expediția nu poate continua în starea actuală.
+sys_expe_time_slow_6: >-
+  Vântul stelar al unei gigante roșii a distorsionat saltul expediției, făcând
+  sistemele de navigație să calculeze complet greșit drumul de întoarcere. Ca
+  urmare, expediția se află în vidul imens dintre stele necunoscute.
+sys_fleet_return: Flota ta se întoarce pe %s %s %s și livrează %s %s, %s %s și %s %s. %s
+sys_fleet_won: >-
+  Flota ta s-a întors dintr-un atac de la %s %s pe %s %s. Ai capturat %s %s, %s %s și %s %s.
+sys_gain: Profit
+sys_honorpoints_changed: 'Puncte de onoare:'
+sys_irak_def: '%d rachete au fost interceptate.'
+sys_irak_mess: Rachete interplanetare (%d) de la %s au lovit în %s <br><br>
+sys_irak_no_att: Toate rachetele au fost interceptate.
+sys_irak_no_def: Planeta nu are apărări.
+sys_irak_subject: Impact de rachete
+sys_lost: Pierderi
+sys_mess_attack_cancel: |-
+  Bătălia de la %s %s a fost anulată.
+  Serverul nu a putut-o calcula.
+sys_mess_attack_report: Raport de atac
+sys_mess_fleetback: Întoarcerea flotei
+sys_mess_piratebase_gone: 'Flota ta a ajuns la %s, dar baza piraților nu mai este acolo. Flota se întoarce acasă.'
+sys_mess_spy_activity: Raport de contraspionaj
+sys_mess_spy_control: Informații centrale
+sys_mess_spy_destroyed: Sondele tale de spionaj au fost distruse!
+sys_mess_spy_ennemyfleet_1: Au fost zărite sonde de spionaj inamice de pe planeta %s în apropierea lui %s.
+sys_mess_spy_ennemyfleet_3: Au fost zărite sonde de spionaj inamice de pe luna %s în apropierea lui %s.
+sys_mess_spy_link: >-
+  <a href="game/galaxy/%3$s/%4$s">%1$s (%2$s)
+  [%3$s:%4$s:%5$s]</a>
+sys_mess_spy_lostproba: 'Șansa ca sondele de spionaj să fie detectate a fost: %d%%'
+sys_mess_spy_qg: Departamentul de spionaj
+sys_mess_spy_repair_order: În prezent se repară nave în docul de reparații.
+sys_mess_spy_report: Raport de informații
+sys_mess_spy_report_details_1: Raport de spionaj de pe planeta %1$s (%2$s) [%3$s:%4$s:%5$s] din %6$s
+sys_mess_spy_report_details_3: Raport de spionaj de pe luna %1$s (%2$s) [%3$s:%4$s:%5$s] din %6$s
+sys_mess_spy_report_details_4: Raport de spionaj de la %1$s (%2$s) [%3$s:%4$s:%5$s] din %6$s
+sys_mess_tower: Comanda flotei
+sys_mess_transport: Transport
+sys_moonbuilt: >-
+  Cantitățile uriașe de metal și cristal liber se atrag unele pe altele și
+  formează un satelit în jurul planetei!
+sys_moonproba: 'Șansă de lună: '
+sys_raport_amount_error: >-
+  Nu ai selectat nave sau apărări, sau sunt prea multe pentru simulare.
+sys_raport_lost_contact: >-
+  Contactul cu flota atacatoare s-a pierdut (a fost doborâtă în prima rundă).
+sys_raport_not_found: 'ID invalid de raport de luptă'
+sys_recy_gotten: >-
+  Reciclatoarele tale au colectat %2$s %6$s și %3$s %7$s dintr-un total de %4$s
+  %6$s și %5$s %7$s la coordonatele %1$s.
+sys_recy_mess: Flota ta de reciclatoare s-a întors pe %s %s cu %s %s, %s %s și %s %s.
+sys_recy_report: 'Raport de reciclare'
+sys_ship_armour: Blindaj
+sys_ship_count: Cantitate
+sys_ship_repaired: Reparat
+sys_ship_shield: Scuturi
+sys_ship_type: Tip
+sys_ship_weapon: Putere de foc
+sys_spy_fleet: Flotă
+sys_stat_mess: >-
+  Flota ta de pe %s %s a ajuns la %s %s %s și a livrat %s %s, %s %s și %s
+  %s. %s
+sys_stat_mess_stay: Flotă staționată
+sys_stealed_ressources: Ei jefuiesc
+sys_trade_mess_arr_success: >-
+  Flota ta de negustori este gata să se întoarcă pe %1$s %2$s (zbor de întoarcere: %5$s). <form
+  action="game/fleet/recall"
+  method="post"><input name="fleetID" value="%3$s" type="hidden"><input
+  value="%4$s" type="submit"></form>
+sys_trade_mess_back: Flota ta de negustori s-a întors pe %s %s fără succes.
+sys_trade_mess_back_success: >-
+  Flota ta de negustori s-a întors cu succes pe %4$s %5$s cu
+  %1$s metal, %2$s cristal și %3$s deuteriu.
+sys_tran_mess_back: Flota ta s-a întors pe %s %s.
+sys_tran_mess_owner: >-
+  Flota ta de pe %s %s a ajuns la %s %s %s și a livrat %s %s, %s %s
+  și %s %s.
+sys_tran_mess_user: O flotă pașnică de pe %s %s a ajuns la %s %s și a livrat %s %s, %s %s și %s %s.
+sys_units: unități
+sys_wreckfield: >-
+  Unele dintre navele distruse ale apărătorului formează câteva zile un câmp
+  de epave pe orbita planetei.
+sys_wreckfield_added: 'Adăugat la câmpul de epave:'
+type_mission_1: Atac
+type_mission_2: Atac de alianță
+type_mission_3: Transport
+type_mission_4: Staționare
+type_mission_5: Menținere
+type_mission_6: Spionaj
+type_mission_7: Colonizare
+type_mission_8: Reciclare
+type_mission_9: Distrugere
+type_mission_15: Expediție
+type_mission_16: Comerț
+type_mission_17: Transfer
+type_planet_1: Planetă
+type_planet_2: Resturi
+type_planet_3: Lună
+type_planet_4: Bază de pirați
+type_planet_short_1: P
+type_planet_short_2: R
+type_planet_short_3: L
+depot_msg_subject: "Flotă aprovizionată"
+depot_msg_text: "Flota ta de la %s a fost aprovizionată de %s: staționarea a fost prelungită cu %s h."
+cr_actions: "Acțiuni asupra raportului"
+cr_attack_again: "Atacă din nou"
+cr_simulate: "Simulează"
+sys_expe_factor: "Factor %s"
+sys_irak_vacation: "Rachetele au fost pierdute: jucătorul țintă este în modul vacanță."

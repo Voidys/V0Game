@@ -1,0 +1,1750 @@
+Account: Cont
+Achievement_names:
+  '1': Nedormit și prost dispus
+  '2': Perpetuum mobile
+  '3': Meritat
+  '4': Mai are rost acum?
+  '5': Pentru că pot
+  '6': Salariul minim
+  '7': Revoluția franceză
+  '8': Economii în stare de ebrietate
+  '9': Asta nu e o lună
+  '10': Joc de bile
+  '11': TheLegend27
+  '12': Binecuvântarea lui Slippy
+  '13': A fost la mustață
+  '14': Blestemul lui Slippy
+  '15': Mai avem vânători ușori?
+  '16': Hei, unde-mi sunt resturile?!
+  '17': Apărare de Suzeran!
+  '18': Gara Centrală din Frankfurt
+  '19': Piele groasă 1
+  '20': Piele groasă 2
+  '21': Piele groasă 3
+  '22': Piele groasă 4
+  '23': Piele groasă 5
+  '24': Îmi trag laserul!
+  '25': Încălcare GDPR
+  '26': Totul pentru Realizări
+  '27': E timpul pentru Big Brain
+  '28': Mod de joc alternativ
+  '29': Manifestul comunist
+  '30': Asta e Sparta
+  '31': Plecat în vacanță
+  '32': Corsar!
+  '33': Mă pot opri oricând!
+  '34': Pe meniu
+  '35': Nu e frumos!
+  '36': Miesernachtsmann
+  '37': Nu sunt genul ăsta de fată
+  '38': Cornag și Offz
+  '39': Sensul vieții
+  '40': Columb
+  '41': Filantropul sloturilor de flotă
+  '42': Măcar am prins Sala bătăliilor
+  '43': Cu ochii închiși
+  '44': Se întâmplă tuturor
+  '45': Lăcătuș
+  '46': Ură pură!
+  '47': Jack Spintecătorul
+  '48': Spintecă Jack-ul
+  '49': Team Rocket decolează din nou
+  '50': Hopa
+  '51': Prea sărac ca să navighez
+  '52': Megalomanie
+  '53': Einstein
+  '54': La mulți ani!
+  '55': Legendă vie
+Achievement_text:
+  '1': Ai avut o noapte întreagă doar pentru tine și n-ai reușit nicio lovitură.
+  '2': Ai avut flote în mișcare non-stop timp de 90 de zile.
+  '3': 'Ți-ai pierdut flota în timp ce limba ta era setată pe „franceză”.'
+  '4': Cercetează Tehnologia ionică nivelul 10.
+  '5': Cercetează Cercetarea de graviton nivelul 2, doar pentru că poți.
+  '6': Unul dintre atacurile tale s-a întors cu doar 1 metal, 1 cristal și 1 deuteriu.
+  '7': 'Învinge o flotă de nave pirat sau extraterestre de cel puțin 10.000 de nave. Spațiul e al nostru!'
+  '8': Vino la Strammtisch (marțea la 20:00 pe Discord).
+  '9': Construiește-ți prima Stea a morții.
+  '10': Distruge luna unui jucător.
+  '11': Joacă 14 zile exclusiv pe mobil.
+  '12': Flota ta a fost distrusă de o gaură neagră în prima ta expediție.
+  '13': Trimite-ți flota în altă parte cu mai puțin de 5 secunde înainte să lovească un atac care sosește.
+  '14': Pierde 10 flote în găuri negre. Vidul îi e foame.
+  '15': Nu reuși să creezi o lună la o planetă după 10 încercări. Mai mult noroc data viitoare.
+  '16': Mai mult de 250 dintre reciclatoarele tale s-au întors goale.
+  '17': Pune în coadă cel puțin 5000 de Lansatoare de rachete într-o singură comandă de construcție.
+  '18': Arde 5 milioane de deuteriu drept combustibil pe o singură planetă în 24 de ore.
+  '19': Cercetează Tehnologia blindajului nivelul 3.
+  '20': Cercetează Tehnologia blindajului nivelul 6.
+  '21': Cercetează Tehnologia blindajului nivelul 9.
+  '22': Cercetează Tehnologia blindajului nivelul 12.
+  '23': Cercetează Tehnologia blindajului nivelul 15.
+  '24': Cercetează Tehnologia laser nivelul 12.
+  '25': Alătură-te Recordurilor.
+  '26': Șterge planeta care îți aduce cele mai multe puncte (cel puțin 100.000 de puncte).
+  '27': Cercetează Rețeaua intergalactică de cercetare nivelul 1.
+  '28': Îmbunătățește toate cele trei depozite de pe o lună la cel puțin nivelul 3.
+  '29': Colectivizează flota unui jucător cu scor mai mare printr-un ACS de 5 jucători.
+  '30': Respinge singur un ACS de 5 jucători.
+  '31': Trimite un jucător în modul vacanță cu atacul tău.
+  '32': 'Jefuiește 1000 de planete folosind tema „SetSail”. Arr!'
+  '33': Întoarce-te din modul vacanță.
+  '34': Fii atacat pentru prima dată. Bun venit în univers.
+  '35': Atacă un jucător activ care are mai puțin de 1/10 din punctele tale.
+  '36': "Primește un mesaj care conține unul dintre următoarele blocuri:\r\n                        \"Hurensohn\", \"gleichstarke Ziele\", \"gegen Schwächere\", \"ehrenlos\""
+  '37': Fii șters de un ACS de 5 jucători.
+  '38': 'Atacă membri ai propriei alianțe. Foc prietenesc, cineva?'
+  '39': Atacă pe cineva cu exact 42 de nave.
+  '40': Colonizează o planetă la cel puțin jumătate de univers distanță.
+  '41': Blochează un slot de flotă o săptămână cu o ofertă proastă pe piață.
+  '42': Intră de 4 ori în Sala bătăliilor de partea învinsă.
+  '43': "Câștigă o bătălie în timp ce contul tău este marcat ca Inactiv,\r\n            pe una dintre planetele tale unde a ajuns înainte o flotă cu un timp de zbor de peste 7 zile."
+  '44': 'Produce o resursă pe o planetă mai mult de 7 zile în timp ce rulezi la mai puțin de 100% energie.'
+  '45': Câștigă un atac împotriva unui jucător aflat în top 5 la apărare.
+  '46': Declanșează protecția de bash tragând rachete interplanetare.
+  '47': Distruge 5 luni.
+  '48': Pierde 5 Stele ale morții încercând să distrugi luni. Au.
+  '49': Demolează o colonie la scurt timp după creare.
+  '50': "Pierde toți sateliții solari de pe o planetă cu destulă\r\n            energie ca să cercetezi tehnologia Graviton, fără să fi cercetat tehnologia Graviton."
+  '51': Consumă tot deuteriul tău răsfoind vizualizarea galaxiei.
+  '52': >-
+    Construiește o Stea a morții fără să fi construit mai întâi alte nave de
+    luptă (Vânător ușor, Vânător greu, Crucișător, Navă de luptă, Bombardier,
+    Distrugător sau Crucișător de luptă).
+  '53': Ține nivelul maxim la 5 cercetări în același timp.
+  '54': 'Sincronizează un atac asupra unui jucător activ ca să lovească pe 01.01 00:00:00.'
+  '55': Realizare specială
+ach_filter_all: Toate
+ach_filter_locked: Blocate
+ach_filter_unlocked: Deblocate
+ach_locked: Încă nedeblocat
+ach_progress: '%d din %d deblocate'
+ach_unlocked_on: 'Deblocat pe %s'
+Achievements: Realizări
+admin_access_1: Ai drepturi temporare de administrator.
+admin_access_2: ' dacă nu sunt necesare imediat.'
+admin_access_link: DEZACTIVEAZĂ PERMISIUNILE
+Advanced_Stats:
+  destroy_moon_rips_lost: Stele ale morții pierdute încercând să distrugă luni
+  desunits: Implicat în distrugerea de unități
+  desunits_real: Unități inamice distruse
+  dishonorable_fights: Lupte neonorabile
+  draws: Egaluri
+  expo_aliens_large: Extratereștri mari
+  expo_aliens_medium: Extratereștri medii
+  expo_aliens_small: Extratereștri mici
+  expo_black_hole: Găuri negre
+  expo_count: Expediții
+  expo_fast: Expediții rapide
+  expo_first: 'Găsit în expediție pe:'
+  expo_found: 'Găsiri din expediții:'
+  expo_lost: 'Pierderi în expediții:'
+  expo_nothing: Expediții cu mâinile goale
+  expo_pirates_large: Pirați mari
+  expo_pirates_medium: Pirați medii
+  expo_pirates_small: Pirați mici
+  expo_res_large: Găsiri mari de resurse
+  expo_res_medium: Găsiri medii de resurse
+  expo_res_small: Găsiri mici de resurse
+  expo_ships_large: Găsiri mari de nave
+  expo_ships_medium: Găsiri medii de nave
+  expo_ships_small: Găsiri mici de nave
+  expo_slow: Expediții lente
+  first: 'Primul nivel/prima piesă:'
+  first_attack: Primul atac
+  first_attack_win: Primul atac reușit
+  first_big_attack_win: Prima victorie majoră în atac (1M unități distruse)
+  first_big_defense_win: Prima victorie majoră în apărare (1M unități distruse)
+  first_colony: Prima colonie
+  first_defense: Prima apărare
+  first_defense_win: Prima apărare reușită
+  first_espionage: Prima misiune de spionaj
+  first_expedition: Prima expediție
+  first_expo_aliens_large: Prima întâlnire cu extratereștri mari
+  first_expo_aliens_medium: Prima întâlnire cu extratereștri medii
+  first_expo_aliens_small: Prima întâlnire cu extratereștri mici
+  first_expo_black_hole: Prima întâlnire cu o gaură neagră
+  first_expo_fast: Prima expediție rapidă
+  first_expo_nothing: Prima expediție cu mâinile goale
+  first_expo_pirates_large: Prima întâlnire cu pirați mari
+  first_expo_pirates_medium: Prima întâlnire cu pirați medii
+  first_expo_pirates_small: Prima întâlnire cu pirați mici
+  first_expo_res_large: Prima găsire mare de resurse
+  first_expo_res_medium: Prima găsire medie de resurse
+  first_expo_res_small: Prima găsire mică de resurse
+  first_expo_ships_large: Prima găsire mare de nave
+  first_expo_ships_medium: Prima găsire medie de nave
+  first_expo_ships_small: Prima găsire mică de nave
+  first_expo_slow: Prima expediție lentă
+  first_moon: Prima lună
+  first_moon_trys: Încercări pentru prima lună
+  first_recycling: Prima misiune de reciclare
+  first_vacation: Primul mod vacanță
+  galaxy_scroll_spending: Total deuteriu cheltuit derulând vizualizarea galaxiei
+  honorable_fights: Lupte onorabile
+  honorpoints: Puncte de onoare
+  kbcrystal: Implicat în resturi de cristal
+  kbcrystal_real: Resturi de cristal create
+  kbmetal: Implicat în resturi de metal
+  kbmetal_real: Resturi de metal create
+  loos: Pierdute
+  lostunits: Implicat în pierderi de unități
+  lostunits_real: Pierderi proprii de unități
+  moons_created: Luni create
+  moons_deleted: Luni abandonate
+  moons_destroyed: Luni distruse
+  moons_lost: Luni pierdute
+  moons_received: Luni primite
+  outlaw_activations: Activări de haiduc
+  planets_created: Planete colonizate
+  planets_deleted: Planete abandonate
+  raided_crystal: Cristal jefuit
+  raided_deuterium: Deuteriu jefuit
+  raided_metal: Metal jefuit
+  recycled_crystal: Cristal reciclat
+  recycled_metal: Metal reciclat
+  set_sail_wins: Lupte câștigate cu tema SetSail activă
+  stolen_crystal: Cristal furat
+  stolen_deuterium: Deuteriu furat
+  stolen_metal: Metal furat
+  used_fuel: Combustibil consumat
+  wons: Câștigate
+advancedStats: Statistici avansate
+al_acept_request: Acceptă
+al_actions: Acțiuni
+al_all_players: Toți jucătorii
+al_alliance: Alianță
+al_alliance_closed: Această alianță nu acceptă membri noi.
+al_alliance_full: Această alianță este plină. Încearcă alta.
+al_apply_rate_limited: "Ai trimis prea multe cereri azi. Încearcă din nou mâine."
+al_alliance_make: Creează-ți propria alianță
+al_alliance_min_points: 'Ai nevoie de cel puțin %d puncte ca să aplici la această alianță.'
+al_alliance_search: Caută alianțe
+al_ally_info_members: Membri
+al_ally_info_name: Nume
+al_ally_info_tag: Tag
+al_ally_information: Informații despre alianță
+al_already_exists: 'Există deja o alianță numită <b>%s</b>. Alege alt nume.'
+al_apply_accepted: Cerere acceptată.
+al_apply_declined: Cerere respinsă.
+al_apply_not_exists: Cererea aceea nu mai există.
+al_applyform_send: Trimite
+al_back: Înapoi
+al_candidate: Candidat
+al_characters: caractere
+al_circular_alliance: 'Alianța '
+al_circular_front_text: 'Membrul alianței <b>%s</b> a scris:'
+al_circular_message: Mesaje de alianță
+al_circular_reset: Resetează
+al_circular_send_ciruclar: Trimite mesaj în masă
+al_circular_send_submit: Trimite
+al_circular_sended: 'Mesaj trimis acestor jucători:'
+al_click_to_send_request: Alătură-te alianței
+al_close_ally: 'Chiar vrei să desființezi alianța?'
+al_configura_ranks: Gestionează rangurile
+al_continue: Continuă
+al_coords: Coordonate
+al_create: Creează
+al_create_new_rank: Creează un rang nou
+al_created: 'Alianța <b>%s</b> a fost întemeiată!'
+al_decline_request: Respinge
+al_default_leader_name: Lider
+al_delete_request: Retrage cererea
+al_delete_request_confirm: 'Retragi cererea?'
+al_description_message: Această alianță nu a scris încă o descriere.
+al_diplo: Diplomație
+al_diplo_accept: Cereri primite
+al_diplo_accept_no: Pact respins.
+al_diplo_accept_no_confirm: 'Respingi acest pact?'
+al_diplo_accept_no_mes: Pactul (%s) dintre alianțele <b>%s</b> și <b>%s</b> a fost respins!
+al_diplo_accept_send: Cereri trimise
+al_diplo_accept_yes: Pact semnat.
+al_diplo_accept_yes_confirm: 'Accepți acest pact?'
+al_diplo_accept_yes_mes: Pactul (%s) dintre alianțele <b>%s</b> și <b>%s</b> a fost semnat!
+al_diplo_ally: Alianță
+al_diplo_ask: Cerere de pact
+al_diplo_ask_mes: >-
+  <a href="game/alliance/admin/diplomacy">[O cerere de pact]</a> (%s)
+  a fost trimisă de la <b>%s</b> către <b>%s</b>.<br>Motiv: %s
+al_diplo_confirm_delete: 'Încheii acest pact?'
+al_diplo_create: Cere pact
+al_diplo_create_done: Cerere de pact trimisă.
+al_diplo_delete: Pact încheiat
+al_diplo_delete_mes: 'Pactul (%s) dintre alianțele <b>%s</b> și <b>%s</b> s-a încheiat.'
+al_diplo_exists: 'Ai deja un pact activ sau în așteptare cu %s.'
+al_diplo_head: Gestionarea diplomației
+al_diplo_info: >-
+  <p>Pe această pagină poți gestiona pacturile diplomatice ale alianței
+  tale.</p><p>Tipurile de pact sunt listate mai jos. Mai multe informații: <a
+  href="game/faq">FAQ</a> sau <a
+  href="{wiki_url}/wiki/En/Hauptseite"
+  target="_blank">wiki</a>.</p>
+al_diplo_level:
+  - Principală
+  - Aripă
+  - Alianță
+  - Pact comercial
+  - Pact de neagresiune
+  - Război
+  - Alianță secretă
+  - Pace
+al_diplo_level_des: Tipuri de pacturi
+al_diplo_no_accept: '- Nicio cerere -'
+al_diplo_no_alliance: 'Nu a fost găsită nicio alianță cu ID-ul %s.'
+al_diplo_no_entry: '- Niciun pact -'
+al_diplo_same_alliance: 'Nu poți face un pact cu propria alianță!'
+al_diplo_text: Cerere/Motiv
+al_diplo_war: Declarație de război
+al_diplo_war_end: Declarație de pace
+al_diplo_war_end_mes: 'Pactul %s dintre alianțele <b>%s</b> și <b>%s</b> tocmai s-a încheiat.'
+al_diplo_war_mes: >-
+  Alianța <b>%1$s</b> i-a declarat <b>%2$s</b> pactul %3$s!
+  <br>Motiv:<br>%4$s<br><br>Informație: războiul va începe în <b>24 de ore</b>,
+  moment în care Regula de bash va fi suspendată.<br>Pentru mai multe
+  informații, consultă <a href="./rules?lang=en"
+  target="_blank">[Regulile]</a>.
+al_diplo_withdraw: Cerere de pact retrasă.
+al_diplo_withdraw_confirm: 'Retragi această cerere de pact?'
+al_diplo_withdraw_mes: Cererea de pact (%s) dintre alianțele <b>%s</b> și <b>%s</b> a fost retrasă.
+al_disolve_alliance: Desființează alianța
+al_dlte: Șterge
+al_estate: Online
+al_find_alliances: Găsește alianțe
+al_find_no_alliances: Nu s-au găsit alianțe. Încearcă o altă căutare.
+al_find_submit: Caută
+al_find_text: Caută după
+al_founder_rank_text: Fondator
+al_go_out_no: 'Nu'
+al_go_out_yes: 'Da'
+al_has_accepted: '</b> ți-a acceptat cererea!<br>Mesaj: <br>'
+al_has_declined: '</b> ți-a respins cererea!<br>Mesaj: <br>'
+al_hi_the_alliance: Alianța <b>
+al_inside_section: Doar pentru membri
+al_inside_text: Descriere privată
+al_invalid_rank_name: Numele rangurilor pot conține doar litere, cifre, spații, underscore, cratime și puncte.
+al_kick_player: 'Îl excluzi pe %s din alianță?'
+al_leave_alliance: Părăsește alianța
+al_leave_ally: 'Părăsești alianța?'
+al_leave_sucess: 'Ai părăsit alianța <b>%s</b>.'
+al_leaving: Jucătorul a părăsit alianța
+al_leaving_msg: >-
+  Jucătorul <a href="#" data-action="dialog-playercard" data-id="%s" data-name="%s"><b>%s</b></a> a părăsit alianța!
+al_make_alliance: Creează alianță
+al_make_ally_insufficient_points: 'Nu ai destule puncte ca să creezi o alianță.<br>Ai nevoie de cel puțin %s puncte și îți mai lipsesc %s.'
+al_make_ally_name_required: Numele alianței (3-30 de caractere)
+al_make_ally_tag_required: Tag-ul alianței (3-8 caractere)
+al_make_submit: Creează
+al_manage_alliance: Gestionează alianța
+al_manage_diplo: Diplomație
+al_manage_founder_rank: Rangul de lider
+al_manage_image: Imagine banner
+al_manage_members: Membri
+al_manage_options: Opțiuni
+al_manage_ranks: Ranguri
+al_manage_request_min_points: Puncte min.
+al_manage_requests: Cereri de aderare
+al_member: Nume
+al_member_since: S-a alăturat
+al_memberlist_min: min
+al_memberlist_off: Offline
+al_memberlist_on: Online
+al_message: Mesaj
+al_name: Schimbă numele alianței
+al_name_required: Introdu un nume de alianță.
+al_link_too_long: Linkul este prea lung (cel mult 255 de caractere).
+al_name_tag_too_long: Tag-ul poate avea cel mult 8 caractere, iar numele 30.
+al_new_apply: >-
+  Alianța ta a primit <a
+  href="game/alliance/admin/applications">[o cerere]</a> de la
+  jucătorul <a href="#" data-action="dialog-playercard" data-id="%s" data-name="%s"><b>%s</b></a>.
+al_new_member_rank_text: Membru nou
+al_new_requests: '%d în așteptare'
+al_newname_specialchar: Numele și tag-urile alianțelor pot conține doar litere, cifre, spații, underscore, cratime și puncte.
+al_no_diplo: '-'
+al_no_ranks_defined: 'Încă nu există ranguri. Creează-l pe primul!'
+al_no_requests: Momentan nu există cereri.
+al_not_exists: Alianța aceea nu există.
+al_num: ID
+al_ok: OK
+al_outside_text: Descriere publică
+al_points: Puncte
+al_position: Rang
+al_rank: Rangul tău
+al_rank_desc:
+  ADMIN: Poate gestiona alianța
+  DIPLOMATIC: Poate gestiona diplomația
+  EVENTS: Poate vedea evenimentele
+  KICK: Poate exclude membri
+  MANAGEAPPLY: Poate gestiona cererile
+  MANAGEUSERS: Poate gestiona membrii
+  MEMBERLIST: Poate vedea lista de membri
+  ONLINESTATE: Poate vedea cine e online
+  RANKS: Poate gestiona rangurile
+  ROUNDMAIL: Poate trimite mesaje în masă
+  SEEAPPLY: Poate vedea cererile
+  TRANSFER: Poate deveni liderul alianței
+al_rank_diplo: Diplomat
+al_rank_name: Nume
+al_receiver: Destinatar
+al_reply_to_request: Răspunde
+al_request: Cerere
+al_request_confirmation_message: 'Cerere trimisă!<br> Vei primi un mesaj imediat ce este acceptată sau respinsă.'
+al_request_date: Data cererii
+al_request_deleted: 'Cererea ta de aderare la alianța <b>%s</b> a fost retrasă.<br> Acum poți trimite o cerere nouă sau poți crea propria alianță.'
+al_request_from: Cerere pentru <b>%s</b>
+al_request_last_onlinetime: Ultima activitate
+al_request_list: Lista de cereri
+al_request_register_time: Înregistrat
+al_request_text: Formular de cerere
+al_request_wait_message: 'Cererea ta de aderare la <b>%s</b> este încă în așteptare.<br> Așteaptă un răspuns sau retrage-o și aplică în altă parte.'
+al_requests: Cereri
+al_requests_allowed: Deschis
+al_requests_min_points: ' %s puncte'
+al_requests_not_allowed: Închis
+al_save: Salvează
+al_saved: Salvat!
+al_send_circular_message: Trimite mesaj în masă
+al_set_max_members: Membri max.
+al_tag: Schimbă tag-ul alianței
+al_tag_required: Introdu un tag de alianță.
+al_texts: Texte
+al_the_alliance: Alianța
+al_transfer_alliance: Transferă alianța
+al_transfer_submit: Transferă
+al_transfer_to: Transferă către
+al_user_list: Lista de membri
+al_users_list: 'Membri (total: %d)'
+al_users_list_main: 'Membri principali (total: %d) - %s'
+al_users_list_wing: 'Membri de aripă (total: %d) - %s'
+al_view_diplo: Arată diplomația
+al_view_stats: Arată statisticile de luptă
+al_web_site: Pagina principală
+al_web_text: Site-ul alianței
+al_write_request: Aplică la alianța <b>%s</b>
+al_you_was_acceted: 'Ai fost acceptat în '
+al_you_was_declined: 'Ai fost respins din '
+al_your_ally: Alianța ta
+al_your_request_title: Cererea ta
+banned_message: >-
+  Ai fost banat. <!--discord_url-->Dacă crezi că a fost o greșeală, scrie-ne pe Discord:
+  <a href="{discord_url}">{discord_url}</a><!--/discord_url-->
+bd_actual_production: 'Producție curentă:'
+bd_available: 'Disponibil: '
+bd_build: Construiește
+bd_build_next_level: 'Îmbunătățește '
+bd_build_ships: Construiește
+bd_building_lab: Nu poți cerceta cât timp laboratorul de cercetare este în curs de îmbunătățire.
+bd_building_shipyard: Nu poți construi nave sau apărări cât timp Șantierul naval (sau Fabrica de nanoboți) este în curs de îmbunătățire.
+bd_buildlist_full: Coada de construcție este plină.
+bd_cancel: Anulează
+bd_cancel_send: Anulează construcția
+bd_cancel_warning: 'Atenție!<br>Anularea returnează doar 60% din cost.'
+bd_continue: Continuă
+bd_deploy: Repune în serviciu
+bd_deployable: 'Reparație completă! Repunere automată în serviciu în:'
+bd_destroy_time: Durată
+bd_dismantle: Demolează
+bd_jump_gate_action: Salt
+bd_lvl: Nivel
+bd_max_builds: 'Coada ta este plină: cel mult %d comenzi.'
+bd_max_ships: max
+bd_max_ships_long: Numărul maxim de unități care se pot construi
+bd_max_ships_repair: Numărul maxim de unități recuperabile
+bd_maxlevel: Nivelul maxim a fost atins
+bd_more_engine: Produce cu <font class="colorPositive">%s</font> mai mult %s
+bd_need_engine: Consumă cu <font class="colorNegative">%s</font> mai mult %s
+bd_next_level: 'Nivelul următor:'
+bd_no_lab: Nu există laborator de cercetare pe această planetă. Poți vedea coada, dar nu o poți modifica.
+bd_no_lab_here: 'Nu există laborator de cercetare pe această planetă'
+bd_on_this_planet: 'pe această planetă'
+bd_no_more_fields: Nu mai sunt câmpuri libere pe această planetă.
+bd_operating: '(În construcție)'
+bd_paused: în pauză
+bd_price_for_destroy: 'Cost de demolare:'
+bd_protection_shield_only_one: Poți construi un singur scut!
+bd_remaining: Resurse lipsă
+bd_repair_rate: Rata de reparare
+bd_repair_ships: Repară
+bd_repairdock_busy: Docul de reparații este ocupat cu altă lucrare.
+bd_repairdock_deploy: 'Reparațiile s-au terminat. Navele sunt înapoi în serviciu!'
+bd_repairdock_empty: Aici nu există câmp de epave de reparat.
+bd_repairdock_required: Construiește mai întâi un doc de reparații pe această planetă.
+bd_repairdock_time: Timp rămas al câmpului de epave
+bd_repairing: Reparație în curs
+bd_requirements: Cerințe lipsă
+bd_researclist_full: Coada de cercetare este plină.
+bd_shipyard_required: Construiește mai întâi un Șantier naval.
+bd_tech: Cercetează
+bd_tech_next_level: 'Cercetează '
+bd_working: Ocupat
+bd_wreck_count: Epave în câmpul de epave
+blockDm: Blochează mesajele directe
+blockTrade: Blochează comerțul
+bn_by: De
+bn_exists: 'Total '
+bn_from: De la
+bn_no_players_banned: Momentan nu e banat nimeni.
+bn_player: Jucător
+bn_players_banned: ' jucători banați'
+bn_players_banned_list: Lista jucătorilor banați
+bn_reason: Motiv
+bn_until: Până la
+bn_writemail: 'Scrie-i lui %s'
+bs_acs_slot: Slot ACS
+bs_add_acs_slot: Adaugă slot ACS
+bs_atter: Atacator
+bs_cancel: Resetează
+bs_too_many_units: "Prea multe unități pentru o singură simulare (cel mult %s)."
+bs_busy: "O simulare rulează deja, așteaptă să se termine."
+bs_deffer: Apărător
+bs_derbis_raport: 'Necesar pentru reciclarea resturilor: %s %s.'
+bs_load: Încarcă
+bs_load_invalid: Cod de partajare invalid
+bs_load_no_input: Nu a fost introdus niciun cod de partajare
+bs_reset: Resetează
+bs_send: Calculează
+bs_share: Partajează
+bs_share_code: Cod de partajare
+bs_share_copy_fail: Copierea a eșuat
+bs_share_copy_prompt: 'Copiază manual codul de partajare:'
+bs_share_error: Codul de partajare nu a putut fi generat
+bs_share_success: Șirul de partajare a fost copiat în clipboard
+bs_steal: 'Resursele apărătorului:'
+bs_steal_raport: 'Necesar pentru capturarea resurselor: %s %s sau %s %s.'
+bs_swap: Schimbă părțile
+bs_techno: Tehnologie
+bs_wait: Așteaptă 5 secunde înainte de următoarea simulare
+bu_accept: Acceptă
+bu_accepted_request_body: Salut %s,<br>%s ți-a acceptat cererea de prietenie!
+bu_accepted_request_title: 'Cerere de prietenie acceptată!'
+bu_action: Acțiune
+bu_alliance: Alianță
+bu_buddy_list: Lista de prieteni
+bu_cancel_request: Anulează cererea
+bu_cannot_request_yourself: Nu poți trimite o cerere de prietenie ție însuți
+bu_characters: Caractere
+bu_connected: Conectat
+bu_coords: Coordonate
+bu_decline: Refuză
+bu_delete: Șterge
+bu_disconnected: Offline
+bu_minutes: ' min'
+bu_my_requests: Cererile mele
+bu_new_request_body: 'Salut %s,<br>%s vrea să-ți fie prieten!'
+bu_new_request_title: Cerere de prietenie nouă
+bu_no_buddys: 'Încă nu ai prieteni. Trimite o cerere din profilul unui jucător!'
+bu_no_request: Nicio cerere.
+bu_online: Online
+bu_partners: Parteneri
+bu_player: Jucător
+bu_player_not_exist: Jucătorul acela nu există.
+bu_rejected_request_body: 'Salut %s,<br>%s ți-a refuzat cererea de prietenie!'
+bu_rejected_request_title: 'Cerere de prietenie refuzată!'
+bu_request_exists: 'Există deja o cerere de prietenie pentru acest jucător!'
+bu_request_limit: 'Prea multe cereri de prietenie. Așteaptă câteva minute înainte să mai trimiți.'
+bu_request_message: Mesaj de cerere
+bu_request_send: Cerere de prietenie trimisă.
+bu_request_text: Mesajul cererii
+bu_requests: Cereri
+bu_send: Trimite
+bu_text: Text
+build: Construiește
+cff_acs_fleet: Flotă în ACS
+cff_aproaching: 'Flota este alcătuită din '
+cff_mission_acs: '%s din %s %s %s a ajuns la %s %s %s. Misiune: %s'
+cff_mission_other_expo_0: '%s din %s %s %s a ajuns la poziția %s. Misiune: %s'
+cff_mission_other_expo_2: '%s din %s %s %s este în expediție la poziția %s. Misiune: %s'
+cff_mission_other_recy_0: '%s din %s %s %s a ajuns la câmpul de resturi de la %s. Misiune: %s'
+cff_mission_other_0: '%s din %s %s %s a ajuns la %s %s %s. Misiune: %s'
+cff_mission_other_1: '%s se întoarce din %s %s %s spre %s %s %s. Misiune: %s'
+cff_mission_other_2: '%s din %s %s %s este pe orbita lui %s %s %s. Misiune: %s'
+cff_mission_other_expo_1: '%s se întoarce de la poziția %s spre %s %s %s. Misiune: %s'
+cff_mission_other_mip: 'Atac cu rachete (%d) din %s %s %s spre %s %s %s.'
+cff_mission_other_recy_1: '%s se întoarce de la câmpul de resturi de la %s spre planeta %s %s %s. Misiune: %s'
+cff_mission_own_0: '%s ta din %s %s %s a ajuns la %s %s %s. Misiune: %s'
+cff_mission_own_1: '%s ta se întoarce din %s %s %s spre %s %s %s. Misiune: %s'
+cff_mission_own_2: '%s ta din %s %s %s este pe orbita lui %s %s %s. Misiune: %s'
+cff_mission_own_expo_0: '%s ta din %s %s %s a ajuns la poziția %s. Misiune: %s'
+cff_mission_own_expo_1: '%s ta se întoarce de la poziția %s spre %s %s %s. Misiune: %s'
+cff_mission_own_expo_2: '%s ta din %s %s %s este în expediție la poziția %s. Misiune: %s'
+cff_mission_own_mip: Atac cu rachete (%d) din %s %s %s spre %s %s %s.
+cff_mission_own_recy_0: '%s ta din %s %s %s a ajuns la câmpul de resturi de la %s. Misiune: %s'
+cff_mission_own_recy_1: >-
+  %s ta se întoarce de la câmpul de resturi de la %s spre planeta %s %s %s.
+  Misiune: %s
+cff_mission_target_bad: '%s ostilă a jucătorului %s din %s %s %s a ajuns la %s %s %s. Misiune: %s'
+cff_mission_target_good: '%s prietenă a jucătorului %s din %s %s %s a ajuns la %s %s %s. Misiune: %s'
+cff_mission_target_mip: Atac cu rachete (%d) al jucătorului %s din %s %s %s asupra lui %s %s %s.
+cff_mission_target_stay: >-
+  %s prietenă a jucătorului %s din %s %s %s este pe orbita lui %s %s %s.
+  Misiune: %s
+cff_no_fleet_data: Fără date despre flotă
+cff_ships: ' unități'
+colonyWarn: Avertizează înainte de colonizarea a mai mult de 2 planete într-un sistem
+css_account_banned_expire: >-
+  Ești banat până la %1$s!<br>Dacă ai întrebări, te rugăm să <a style="color: -webkit-link;" href="%2$s">ne contactezi (link)</a>.
+css_account_banned_message: Contul tău a fost banat.
+css_account_banned_reason: 'Motiv: %s'
+css_goto_homeside: <a href="./">Mergi la pagina principală</a>
+custom_fleet: Flote personalizate
+custom_fleet_confirm: Elimini șablonul de flotă %s?
+delete_confirm_gala: 'Ștergi datele galaxiei salvate local?'
+Description: Descriere
+destroyed: Distrus
+dishonorable_fights: Lupte neonorabile
+donate: Donează
+expedition: Expediție
+fa_action_not_allowed: Acțiune nepermisă
+fa_no_fleetroom: Nu ai destul spațiu de marfă pentru combustibil
+fa_no_more_slots: Niciun slot de flotă liber
+fa_no_recyclers: Nu sunt reciclatoare disponibile
+fa_no_spios: Nu sunt sonde disponibile
+fa_not_enough_fuel: Combustibil insuficient
+fa_not_enough_probes: Nu sunt sonde disponibile
+fa_not_spy_yourself: Nu te poți spiona pe tine însuți
+fa_planet_not_exist: Planeta nu există
+fa_sending: Trimite
+fa_strong_player: Jucătorul este prea puternic
+fa_vacation_mode: Jucătorul este în modul vacanță
+fa_vacation_mode_current: Ești în modul vacanță
+fa_week_player: Jucătorul este prea slab
+fcm_info: Info
+fcm_mainplanet: Planeta-mamă
+fcm_moon: Lună
+fcm_planet: Planetă
+fcm_universe: Univers
+fcp_colony: Colonie
+fgf_time: 'Timp: '
+fgr_time: 'Timp de reparare: '
+first: Prime
+fl_a: (A)
+fl_acs: ACS
+fl_acs_change: Schimbă
+fl_acs_change_name: Introdu un nume nou
+fl_acs_invitation_message: ' invitat în ACS.'
+fl_acs_invitation_title: ACS
+fl_acs_newname_alphanum: Numele ACS poate conține doar litere și cifre
+fl_acs_title: Atac de alianță
+fl_add_to_attack: ' adăugat la atac.'
+fl_admin_attack: Administratorii nu pot fi atacați.
+fl_all_resources: Toate resursele
+fl_already_invited: ' a fost deja invitat.'
+fl_ammount: Nave
+fl_arrival: Sosire
+fl_arrival_time: Ora sosirii
+fl_arrival_target: "Sosire la țintă"
+fl_return_home: "Întoarcere"
+fl_attack_confirm_buddy: |-
+  Ținta este în lista ta de prieteni.
+  Sigur vrei să ataci?
+fl_attack_confirm_diplo: 'Ai un pact (%s) cu %s. Ataci oricum?'
+fl_attack_confirm_outlaw: 'Dacă îl ataci pe %s, vei deveni haiduc timp de 7 zile.'
+fl_bash_protection: Asta ar încălca regula de bash.
+fl_daily_cap_reached: "Limita zilnică de flote de %1$d a fost atinsă. Se resetează în %2$dh %3$dmin."
+fl_daily_attack_cap_reached: "Limita zilnică de atacuri de %1$d a fost atinsă. Se resetează în %2$dh %3$dmin."
+fl_beginning: Origine
+fl_blocked: ' nu acceptă invitații.'
+fl_bonus: Bonus
+fl_bonus_attack: Arme
+fl_bonus_defensive: Blindaj
+fl_bonus_shield: Scuturi
+fl_cargo_capacity: Capacitate de transport
+fl_colonize_confirm: 'Ai deja mai mult de o planetă în acest sistem. Sistemele aglomerate atrag jucători puternici. Colonizezi oricum?'
+fl_continue: Continuă
+fl_debris_shortcut: (CR)
+fl_departure: Plecare
+fl_destiny: Destinație
+fl_distance: Distanță
+fl_dlte_shortcut: Șterge
+fl_dont_exist: ' nu există.'
+fl_empty_target: 'Nicio misiune disponibilă. Există ținta?'
+fl_error: Ceva a mers prost. Încearcă din nou.
+fl_error_empty_derbis: 'Nu există câmp de resturi la aceste coordonate!'
+fl_error_no_moon: Nu există lună la aceste coordonate.
+fl_error_not_avalible: Nu există nimic la aceste coordonate.
+fl_error_same_planet: 'Startul și destinația sunt aceeași planetă!'
+fl_exchange: Schimb
+fl_expedition_alert_message: 'Atenție: expedițiile sunt riscante. Ți-ai putea pierde întreaga flotă!'
+fl_expedition_tech_required: Ai nevoie de Astrofizică nivelul 1 ca să poți porni o expediție.
+fl_expeditions: Expediții
+fl_fleet: Flotă
+fl_fleet_sended: 'Flotă trimisă!'
+fl_fleet_speed: Viteza flotei
+fl_fleets: Flotă
+fl_flying_arrival: Sosire
+fl_flying_return: Întoarcere
+fl_flying_time: Durată (dus)
+fl_from: De la
+fl_fuel_consumption: Consum de deuteriu
+fl_hold_confirm_outlaw: 'Menținerea la %s te va face haiduc timp de 7 zile.'
+fl_hold_max_fleets: Prea multe flote se îndreaptă deja spre aceste coordonate, așa că flota ta nu a putut fi trimisă.
+fl_hold_max_user: S-a atins numărul maxim de apărători, așa că flota ta nu a putut fi trimisă.
+fl_hold_time: Timp de Menținere
+fl_hold_time_not_exists: Alege un timp de Menținere valid.
+fl_hours: Ore
+fl_in_vacation_player: Jucătorul este în modul vacanță
+fl_info_detail: Detalii
+fl_invalid_mission: Misiunea aceea nu este posibilă aici.
+fl_invalid_target: Ținta aceea nu este validă.
+fl_invite_members: Invită membri
+fl_market_type: Tip de piață
+fl_max: max
+fl_max_speed: Viteză max.
+fl_members_invited: Invitați
+fl_mission: Misiune
+fl_modify_sac_name: Nume ACS
+fl_moon_shortcut: (L)
+fl_mt_fleet: Piața de flote
+fl_mt_resources: Piața de resurse
+fl_my_planets: Planetele mele
+fl_new_mission_title: 'Misiune nouă: alege flota'
+fl_no_colony: Nu există nicio colonie
+fl_no_expedition_slot: Niciun slot de expediție liber.
+fl_no_more_slots: Niciun slot liber
+fl_no_noresource: 'Nicio resursă încărcată!'
+fl_no_noresource_exchange: Nu au fost introduse resurse pentru schimb
+fl_no_probe_expos: 'O expediție nu poate fi formată doar din Sonde de spionaj!'
+fl_no_same_alliance: 'Jucătorul țintă trebuie să fie în alianța ta sau în lista ta de prieteni!'
+fl_no_ships: Nu sunt nave disponibile
+fl_no_shortcuts: Fără scurtături
+fl_no_slots: Niciun slot disponibil
+fl_no_target: Nicio planetă țintă disponibilă
+fl_not_all_ship_avalible: Nu toate navele sunt disponibile.
+fl_not_enough: 'Nu ai destul %s.'
+fl_not_enough_deuterium: Deuteriu insuficient pentru acest zbor.
+fl_not_enough_space: Spațiu de marfă insuficient.
+fl_null: niciuna
+fl_number: ID
+fl_objective: Se termină în
+fl_only_planets_colonizable: Pot fi colonizate doar planete.
+fl_onway: La dus
+fl_order: Ordine
+fl_own_planet_error: Ceva a mers prost. Alege din nou planeta din care vrei să trimiți flota.
+fl_planet_shortcut: (P)
+fl_planets: Planete
+fl_player: 'Jucător '
+fl_player_is_noob: Jucătorul este sub protecția începătorilor.
+fl_player_is_strong: Jucătorul este prea puternic.
+fl_r: (R)
+fl_remove_all_ships: Nicio navă
+fl_resources: 'Încarcă resurse'
+fl_resources_left: Capacitate disponibilă
+fl_return_time: Ora întoarcerii
+fl_returning: În întoarcere
+fl_sac_of_fleet: Flotă ACS
+fl_select_all_ships: Toate navele
+fl_selected_resources: Resurse selectate
+fl_send_back: Întoarcere
+fl_send_fleet: Trimite flota
+fl_ship_available: Nave disponibile
+fl_ship_type: Tip de navă
+fl_shortcut: Scurtături
+fl_shortcut_add: Adaugă
+fl_shortcut_edition: Editează scurtătura
+fl_shortcut_name: Nume
+fl_shortcut_save: Salvează scurtătura
+fl_shortcut_saved: Scurtătură salvată!
+fl_simulate: Simulează
+fl_speed_title: 'Viteză: '
+fl_spy_confirm_outlaw: 'Spionarea lui %s te va face haiduc timp de 7 zile.'
+fl_strong_player: Jucătorul este prea puternic.
+fl_stronger_techs: Tehnologia ta de arme, blindaj sau scut este prea mică.
+fl_system_places: Locuri speciale
+fl_target_exists: Planeta țintă
+fl_trade_no_resource_loaded: Nu ai încărcat nicio resursă.
+fl_trade_same_resource: Nu poți vinde %s pe %s.
+fl_trade_to_many_resources_loaded: Poți vinde doar un singur tip de resursă.
+fl_transfer_alert_message: |-
+  Atenție!
+  Flota ta va fi transferată altui jucător!
+fl_vacation_mode_active: Mod vacanță activ
+fl_visibility: Vizibilitate
+fl_visibility_all: Toți
+fl_visibility_alliance: Alianță, parteneri de pact și prieteni
+fl_visibility_no_enemies: Toți în afară de dușmani
+fl_week_player: Jucătorul este sub protecția începătorilor
+fleet_table_custom_empty_name: 'Introdu un nume pentru flotă!'
+fleetPrio: Prioritatea ordinii flotelor
+fm_add_filter: Adaugă filtru de nave
+fm_all: Toate
+fm_civil: Civile
+fm_engines: Motoare
+fm_imperial: Imperiale
+fm_military: Militare
+fm_mining: Minerit
+fm_other: Altele
+fm_recycler: Reciclator
+fm_storage: Depozitare
+foreign_colors: Culori pentru străini
+found: 'Găsit '
+ft_absenden: Trimite
+ft_charge: Tarif de negustor
+ft_count: Număr
+ft_empty: Gol
+ft_head: Flote de negustori
+ft_max: max
+ft_total: Total
+general_colors: Culori generale
+gl_actions: Acțiuni
+gl_activity: (*)
+gl_activity_inactive: (%d min)
+gl_all_defenses: Toate apărările
+gl_alliance: Alianță
+gl_alliance_page: Pagina alianței
+gl_alliance_web_page: Site-ul alianței
+gl_avaible_missiles: Rachete disponibile
+gl_avaible_recyclers: Reciclatoare
+gl_avaible_spyprobes: Sonde de spionaj
+gl_banned: Banat / Suspendat
+gl_buddy_request: Cerere de prietenie
+gl_colonizable: Colonizabil
+gl_debris_field: Câmp de resturi
+gl_diameter: Diametru
+gl_features: Proprietăți
+gl_fleets: Sloturi de flotă
+gl_galaxy: Galaxie
+gl_in_the_rank: 'Jucătorul %s, locul %d'
+gl_inactive_seven: Inactiv de 7 zile
+gl_inactive_twentyeight: Inactiv de 28 de zile
+gl_legend: Legendă
+gl_member: '%d membri'
+gl_member_add: '%d membru'
+gl_missil_flytime: Timp până la impact
+gl_missil_launch: Atac cu rachete
+gl_missil_launch_action: Lansează rachete
+gl_missil_to_launch: 'Cantitate (<b>%d</b> disponibile)'
+gl_missile_attack: Atac cu rachete
+gl_moon: Lună
+gl_no_deuterium_to_view_galaxy: 'Deuteriu insuficient ca să vezi galaxia!'
+gl_no_spy_report: Încă nu există raport de spionaj pentru această planetă.
+gl_not_colonizable: Nu poate fi colonizat!
+gl_objective: Obiectiv principal
+gl_out_space: Spațiul adânc
+gl_phalanx: Falangă
+gl_planet: Planetă
+gl_planet_destroyed: Planetă distrusă
+gl_player: Jucător
+gl_player_estate: Jucător (stare)
+gl_playercard: Profilul jucătorului
+gl_populed_planets: '%d planete locuite'
+gl_pos: Poz.
+gl_resources: Resurse
+gl_see_on_stats: Statistici
+gl_short_ban: B
+gl_short_inactive: i
+gl_short_long_inactive: I
+gl_short_newbie: 'N'
+gl_short_strong: S
+gl_short_vacation: MV
+gl_show: Arată sistemul
+gl_show_spy_report: Raport de spionaj
+gl_solar_system: Sistem
+gl_spy: Spionaj
+gl_spy_report_fresh: Raport de spionaj (< %dh)
+gl_spy_report_none: Fără raport de spionaj
+gl_spy_report_old: Raport de spionaj (> %dh)
+gl_spy_report_recent: Raport de spionaj (< %dh)
+gl_strong_player: Jucător puternic
+gl_sync: Salvează datele
+gl_sync_export_csv: Exportă CSV
+gl_sync_export_json: Exportă JSON
+gl_sync_import_json: Importă JSON
+gl_sync_reset: Resetează datele
+gl_temperature: Temperatură
+gl_to: la
+gl_trade_space: Piață
+gl_vacation: Mod vacanță
+gl_week_player: Jucător slab
+honor_rank: Rang de onoare
+honor_rank_low_1: Împărat al bandiților
+honor_rank_low_10: Regele bandiților
+honor_rank_low_20: Lord al bandiților
+honor_rank_low_30: Bandit
+honor_rank_top_1: Zeu-Împărat
+honor_rank_top_10: Mare Împărat
+honor_rank_top_20: Împărat
+honor_rank_top_30: Lord stelar
+honorable_fights: Lupte onorabile
+honorpoints: Puncte de onoare
+in_attack_pt: Putere de atac
+in_base_speed: Viteză de bază
+in_capacity: Capacitate de transport
+in_consumption: Consum de combustibil
+in_destroy: Distruge
+in_difference: Dif.
+in_engine: Propulsie
+in_jump_gate_already_used: 'Poarta de salt se reîncarcă. Gata în: '
+in_jump_gate_doesnt_have_one: Nu ai altă poartă de salt spre care să sari.
+in_jump_gate_done: 'Salt reușit! Poarta de salt e gata din nou în: %s'
+in_jump_gate_error_data: 'Coordonate de salt invalide!'
+in_jump_gate_finish_moon: Destinație
+in_jump_gate_jump: Salt
+in_jump_gate_no_target: Nicio țintă de salt disponibilă.
+in_jump_gate_not_ready_target: 'Poarta de destinație se mai reîncarcă. Gata în '
+in_jump_gate_select_ships: 'Poarta de salt: alege navele'
+in_jump_gate_start_moon: Origine
+in_jump_gate_wait_time: 'Următorul salt este posibil în:'
+in_level: Nivel
+in_missilesamount: Disponibile
+in_missilestype: Tip de rachetă
+in_prod_p_hour: Pe oră
+in_rf_again: Foc rapid împotriva
+in_rf_explanation: >-
+  Foc rapid: în fiecare rundă de luptă, această unitate poate trage de mai
+  multe ori. Procentul arată șansa unei trageri suplimentare după lovirea unei
+  ținte de acel tip.
+in_rf_from: Foc rapid de la
+in_shield_pt: Putere de scut
+in_storage: Depozitare
+in_struct_pt: Integritate structurală
+kontakt: 'Salut!<br>Această pagină arată oamenii care administrează, moderează și dezvoltă acest proiect.<br>Ai întrebări sau probleme? Scrie-ne.<br><br><!--discord_url-->Pentru un schimb mai bun cu noi și cu alți jucători, avem un server de Discord. Îl găsești <a href="{discord_url}">aici</a> sau prin meniu.<br>Acolo vei găsi ultimele noutăți și cele mai bune meme-uri din alianțele universului.<br>Întreabă despre mecanica jocului și împărtășește-ți ideile pentru viitorul jocului.<br><br><!--/discord_url-->Bineînțeles, răspundem și la întrebările tale din joc.<br>Ține minte că jucăm acest joc ca hobby, așa că răspunsurile pot dura câteva zile.<br>'
+lm_administration: Administrare
+lm_alliance: Alianță
+lm_banned: Banați
+lm_battlesim: Simulator
+lm_buddylist: Prieteni
+lm_buildings: Clădiri
+lm_changelog: Jurnal de modificări
+lm_dataPrivacy: Confidențialitatea datelor
+lm_defenses: Apărări
+lm_empire: Imperiu
+lm_faq: FAQ
+lm_fleet: Flotă
+lm_fleettrader: Negustor de flote
+lm_galaxy: Galaxie
+lm_info: Info
+lm_logout: Deconectare
+lm_marketplace: Piață
+lm_messages: Mesaje
+lm_notes: Notițe
+lm_options: Opțiuni
+lm_overview: Prezentare generală
+lm_playercard: Profil jucător
+lm_records: Recorduri
+lm_repairdock: Doc de reparații
+lm_research: Cercetare
+lm_resources: Resurse
+lm_rules: Reguli
+lm_search: Căutare
+lm_shipshard: Hangar
+lm_statistics: Statistici
+lm_support: Suport
+lm_technology: Tehnologii
+lm_topkb: Sala bătăliilor
+lo_continue: Apasă ca să continui.
+lo_logout: 'Ai fost deconectat. Pe curând!'
+lo_notify: 'Redirecționare în <span id="seconds">5</span> secunde'
+lo_redirect: Redirecționează
+lo_title: Deconectat
+loading: Se încarcă ...
+lost: Pierdut
+lv_buildable: Se poate construi
+lv_buildings: Clădiri
+lv_coords: Coordonate
+lv_defenses: Apărări
+lv_fields: Câmpuri
+lv_highlight: 'Evidențiază: '
+lv_imperium_title: Imperiu
+lv_name: Nume
+lv_planet: Planetă
+lv_prodPerHour: Producție pe oră
+lv_resources: Resurse
+lv_ships: Nave
+lv_show: 'Arată: '
+lv_storageFilled: Ore până la umplere
+lv_technology: Tehnologii
+lv_total: Total
+lv_unbuildable: Nu se poate construi
+ma_add_missile_number: 'Introdu numărul de rachete! '
+ma_all: Toate
+ma_impulse_drive_required: Este necesară Propulsia cu impuls
+ma_missiles_sended: ' rachete lansate. Țintă: '
+ma_no_missiles: Nicio rachetă
+ma_no_range: Ținta este în afara razei rachetelor tale.
+ma_own_planet: "Nu îți poți ataca propria planetă cu rachete."
+ma_not_send_other_galaxy: 'Nu poți trimite rachete în altă galaxie. '
+ma_planet_doesnt_exists: 'Planeta aceea nu există. '
+ma_silo_level: 'Este necesar Silozul nivelul 4! '
+ma_wrong_target: Țintă greșită
+market_buyable_no_enemies: Fără dușmani
+market_buyable_no_tech: Prea slab
+market_buyable_only_trade_partners: Doar parteneri
+market_buyable_too_far: Prea departe
+market_confirm_are_you_sure: Ești sigur?
+market_fleet: Flotă
+market_info_description: 'Partea stângă: oferte de vânzare | Partea dreaptă: preț cerut<br><br>&bull; Ofertele acceptate nu pot fi anulate &bull;<br>&bull; Unele oferte nu pot fi acceptate din cauza regulii de push &bull;<br>&bull; Cumpărătorul plătește combustibilul pentru o flotă cumpărată &bull;'
+market_info_header: Piață
+market_info_no_return: 'Ofertele de pe piață nu pot fi anulate!'
+market_msg_trade_bought: Flota ta zboară spre %s cu %s %s, %s %s, %s %s și costă %s %s.
+market_msg_trade_from: Piață
+market_msg_trade_sold: Flota ta zboară spre %s cu %s %s, %s %s, %s %s.
+market_msg_trade_topic: Starea comerțului
+market_p_buy: Cumpără
+market_p_cost_amount: Cantitate
+market_p_cost_type: Tipul costului
+market_p_end: Sfârșit
+market_p_from_duration: Zbor de la
+market_p_msg_more_ships_is_needed: Ai nevoie de mai multe nave pentru această ofertă.
+market_p_msg_not_found: Oferta aceea a dispărut.
+market_p_msg_own_offer: Nu îți poți cumpăra propria ofertă.
+market_p_msg_purchase_failed: Cumpărarea nu a trecut. Încearcă din nou.
+market_p_msg_resources_error: Nu ai destule resurse.
+market_p_msg_too_far: Această ofertă este prea departe, călătoria ar dura mai mult decât permite vânzătorul.
+market_p_msg_sent: Au fost trimise %s Transportoare mici, %s Transportoare mari
+market_p_msg_wrong_resource_type: Această ofertă cere o resursă invalidă.
+market_p_offer_type: Tipul ofertei
+market_p_ratio: Raport
+market_p_submit: Cumpără acum!
+market_p_to_duration: Zbor spre
+market_ship_as_first: 'Alege tipul de navă pentru comerț:'
+Messages: Mesaje
+messagesPerPage: Mesaje pe pagină (3-50)
+mg_answer_to: Răspuns la
+mg_blocked: Acest jucător nu acceptă mesaje.
+mg_characters: Caractere
+mg_confirm: Confirmă
+mg_delete: Șterge mesajul
+mg_delete_all: Șterge toate mesajele
+mg_delete_marked: Șterge mesajele marcate
+mg_delete_type_all: Șterge toate mesajele de acest tip
+mg_delete_unmarked: Șterge mesajele nemarcate de acest tip
+mg_deleted: Mesaj șters.
+mg_empty_text: Introdu un text
+mg_error: 'Destinatarul nu a fost găsit!'
+mg_too_many_recipients: "Poți scrie cel mult la %d jucători odată."
+mg_text_too_long: "Mesajul este prea lung (cel mult %d caractere)."
+mg_rate_limited: "Trimiți mesaje prea repede. Așteaptă câteva minute."
+mg_favorite: Marchează ca favorit
+mg_favorite_filter_off: Arată toate
+mg_favorite_filter_on: Arată doar favoritele
+mg_forward: Redirecționează mesajul
+mg_grouping_off: Arată mesajele negrupate
+mg_grouping_on: Arată mesajele grupate
+mg_message: Mesaj
+mg_message_send: 'Mesaj trimis!'
+mg_min_3_chars: Introdu cel puțin 3 caractere ca să cauți
+mg_new: Nou
+mg_no_subject: Fără subiect
+mg_no_user: Nu s-au găsit jucători
+mg_overview: Gestionarea mesajelor
+mg_open_all: 'Deschide mereu categoria „Toate mesajele”'
+mg_page: Pagina
+mg_read_all: Marchează toate mesajele ca citite
+mg_read_marked: Marchează mesajele selectate ca citite
+mg_read_type_all: Marchează toate mesajele de acest tip ca citite
+mg_search: Caută
+mg_search_placeholder: Introdu termenul de căutare
+mg_send: Trimite
+mg_send_new: Scrie un mesaj
+mg_send_to: Trimite către
+mg_subject: Subiect
+mg_remember_last_category: Ține minte ultima categorie de mesaje
+mg_select_all: Selectează tot
+mg_type:
+  '0': Rapoarte de spionaj
+  '1': Mesaje de la jucători
+  '2': Mesaje de alianță
+  '3': Rapoarte de luptă
+  '4': Mesaje de sistem
+  '5': Transport
+  '6': Transport străin
+  '7': Contraspionaj
+  '15': Rapoarte de expediție
+  '50': Mesaje de joc
+  '99': Construcție
+  '100': Toate mesajele
+  '998': Favorite
+  '999': Caută în mesaje
+negativ: Negative
+neutral: Neutre
+neutral_fights: Lupte neutre
+noob_interface: Interfața pentru începători este activă. Este o versiune simplificată a jocului pentru un start rapid și ușor, iar intrările din meniu se deblochează pe măsură ce parcurgi tutorialul. O poți opri oricând din opțiuni.
+nt_back: Înapoi
+nt_characters: caractere
+nt_create_new_note: Creează o notiță nouă
+nt_create_note: Creează notiță
+nt_date_note: Data
+nt_dlte_note: Șterge
+nt_edit_note: Editează notița
+nt_important: Mare
+nt_no_text: Fără text
+nt_limit_reached: 'Ai atins numărul maxim de notițe (%1$d). Șterge mai întâi notițele vechi.'
+nt_no_title: Fără titlu
+nt_normal: Normală
+nt_note: Notiță
+nt_notes: Notițe
+nt_priority: Prioritate
+nt_reset: Resetează
+nt_save: Salvează
+nt_size_note: Mărime
+nt_subject_note: Subiect
+nt_unimportant: Mică
+nt_you_dont_have_notes: Încă nu ai notițe
+op_activate_vacation_mode: Activează modul vacanță
+op_activate_vacation_mode_confirm: 'Nu vei putea dezactiva modul vacanță timp de 48 de ore. Ești sigur?'
+op_activate_vacation_mode_descrip: 'Modul vacanță te protejează în absențe mai lungi. Poate fi activat doar cât timp niciuna dintre flotele tale nu este în mișcare. Odată activ, te protejează de atacuri noi. Totuși, atacurile deja începute continuă, iar flotele prietene aflate în Menținere vor fi trimise înapoi! Producția de resurse, construcția clădirilor, comenzile din șantierul naval și cercetarea sunt oprite în acest timp și se reiau după aceea. Modul vacanță nu poate fi dezactivat în primele 48 de ore!'
+op_active_build_messages: Activează mesajele de construcție
+op_active_spy_messages_mode: Activează rapoartele de spionaj rezumate
+op_add_to_buddy_list: Trimite cerere de prietenie
+op_admin_discord_hook: Webhook Discord pentru mesaje private
+op_admin_discord_id: ID de utilizator Discord pentru notificări la mesaje private
+op_admin_planets_protection: Activează protecția planetelor de admin
+op_admin_title_options: Opțiuni de admin
+op_block_pm: Blochează mesajele private
+op_build_pages: Clădiri / Cercetare
+op_cant_activate_vacation_mode: Nu poți porni modul vacanță cât timp flotele tale sunt în mișcare.
+op_cant_deactivate_vacation_mode: Modul vacanță nu poate fi încheiat încă.
+op_change_mail_exist: 'Adresa de e-mail %s este deja folosită.'
+op_change_name_exist: 'Numele de utilizator %s este deja luat.'
+op_change_name_pro_week: 'Îți poți schimba numele de utilizator doar o dată la 7 zile!'
+op_collapse_spy_reports: Arată rapoartele de spionaj restrânse implicit
+op_decimal_separator: Separator zecimal
+op_dlte_account: Șterge contul
+op_dlte_account_descrip: Contul tău va fi șters complet după cel puțin 7 zile. Momentul exact depinde de când rulează sarcina de ștergere, deci poate dura încă câteva zile. Poți anula ștergerea cât timp nu a fost efectuată, adică cât timp te mai poți conecta în cont.
+op_email_adress: Adresa de e-mail
+op_enable_planet_styles: Arată efecte holo pe planetele care au unul
+op_end_vacation_mode: Dezactivează modul vacanță
+op_galaxy_settings: Galaxie
+op_general_settings: General
+op_hangar_filters: Arată filtre suplimentare în șantierul naval
+op_hangar_group_filters: Filtre de grup în șantierul naval
+op_hide_useless: Ascunde cercetările de bază după ce ating nivelul maxim util
+op_lang: Limbă
+op_max_fleets_messages: Număr maxim de mesaje despre flote
+op_missile_attack: Atac cu rachete
+op_missing_requirements_opacity: Estompează elementele cu cerințe lipsă
+op_missing_resources_opacity: Estompează elementele pe care nu ți le permiți
+op_need_pass_mail: Introdu parola ca să-ți schimbi adresa de e-mail.
+op_new_pass: Parolă nouă (min. 8 caractere)
+op_noob_interface: Interfață pentru începători
+op_not_vaild_mail: Adresa aceea de e-mail nu pare validă.
+op_old_pass: Parola curentă
+op_options_changed: Setări salvate.
+op_options_deletion_activated: Ștergerea contului a fost activată!
+op_options_deletion_deactivated: Ștergerea contului a fost dezactivată!
+op_options_no_other_settings_changed: Nu s-a mai schimbat nimic altceva.
+op_options_vacation_activated: 'Modul vacanță este activ. Bucură-te de pauză!'
+op_options_vacation_deactivated: 'Modul vacanță este oprit. Bine ai revenit!'
+op_repeat_new_pass: Parolă nouă (repetă)
+op_save_changes: Salvează modificările
+op_shortcut: Scurtătură
+op_show: Vizualizare
+op_show_all_buildable_elements: Arată și elementele cu cerințe lipsă
+op_show_message_category: Sari direct la categoria de mesaje potrivită
+op_skin_example: Temă
+op_sort_abc: Alfabetic
+op_sort_down: Descrescător
+op_sort_kind: Ordine de sortare
+op_sort_koords: Coordonate
+op_sort_normal: Ordinea colonizării
+op_sort_planets_by: Sortează planetele după
+op_sort_up: Crescător
+op_spy: Spionaj
+op_spy_probes_number: Sonde de spionaj per misiune
+op_spy_probes_number_descrip: Numărul de sonde trimise din vizualizarea Galaxiei.
+op_spy_report: Raport de spionaj
+op_spy_report_fresh_time: Raport de spionaj proaspăt (punct verde), până la
+op_spy_report_fresh_time_tooltip: >-
+  Rapoartele de spionaj mai noi decât numărul de ore dat arată un punct verde
+  în vizualizarea galaxiei.
+op_spy_report_recent_time: Raport de spionaj recent (punct galben), până la
+op_spy_report_recent_time_tooltip: >-
+  Rapoartele de spionaj mai noi decât numărul de ore dat arată un punct galben;
+  rapoartele mai vechi arată un punct roșu.
+op_spy_report_time_invalid: Timpi invalizi pentru rapoartele de spionaj. Ambele valori trebuie să fie de cel puțin 1 oră, iar valoarea pentru recent trebuie să fie mai mare decât cea pentru proaspăt.
+op_stop_dlte_account: Anulează ștergerea contului
+op_timezone: Fus orar
+op_user_data: Date de utilizator
+op_user_name_no_alphanumeric: 'Numele tău de utilizator poate conține doar litere și cifre!'
+op_username: Nume de utilizator
+op_vacation_delete_mode: Zona periculoasă
+op_vacation_mode_active_message: 'Modul vacanță nu poate fi dezactivat până la: '
+op_write_message: Scrie mesaj
+other: Altele
+ov_abandon_planet_not_possible: Nu poți șterge această colonie cât timp zboară flote spre ea sau dinspre ea.
+ov_admins_online: Administratori activi
+ov_aprox: Aproximativ
+ov_checknews_hide: Ascunde noutățile
+ov_checknews_show: Arată noutățile
+ov_closed: 'Acest univers este închis în prezent!'
+ov_delete_planet: Șterge planeta
+ov_developed_fields: Câmpuri folosite
+ov_diameter: Diametru
+ov_distance_unit: km
+ov_events: Evenimente
+ov_fields: Câmpuri
+ov_fleet: Flote
+ov_fleetbutton_hide: Ascunde
+ov_fleetbutton_show: Arată
+ov_free: Liber
+ov_have_new_message: Ai un mesaj nou
+ov_have_new_messages: Ai %d mesaje noi
+ov_queues: Cozi
+ov_max_developed_fields: Total câmpuri
+ov_moon: Lună
+ov_newname_done: Planetă redenumită!
+ov_newname_specialchar: 'Numele planetelor pot conține doar cifre, litere, spații, underscore, cratime și puncte!'
+ov_newname_too_long: 'Numele planetei poate avea cel mult %d caractere.'
+ov_news: Noutăți
+ov_news_all: 'Toate noutățile'
+tutorial_label: 'Tutorial'
+tutorial_step_of: 'Pasul %1 din %2'
+ov_of: din
+ov_outlaw: 'Haiduc până la:'
+ov_place: Poziție
+ov_planet: Planetă
+ov_planet_abandoned: Planetă ștearsă.
+ov_planet_rename: Redenumește planeta
+ov_planetmenu: Redenumește sau șterge
+ov_planets: Planete și luni
+ov_points: Puncte
+ov_position: Poziție
+ov_principal_planet_cant_abanone: 'Nu îți poți șterge planeta-mamă!'
+ov_rename_label: Nume nou
+ov_rules: Reguli
+ov_rulesnotify: Te rugăm să respecți
+ov_security_confirm: Sigur vrei să distrugi %s?
+ov_security_request: Întrebare de securitate
+ov_server_time: Ora serverului
+ov_temp_unit: °C
+ov_temperature: Temperatură
+ov_ticketbot: Ticketbot
+ov_to: la
+ov_userrank_info: '%s (%s <a href="game/statistics?range=%d">%d</a> %s %s)'
+ov_wrong_name: 'Nume greșit!'
+ov_wrong_pass: 'Parolă greșită!'
+own: Proprii
+own_colors: Culori proprii
+page_doesnt_exist: Pagina cerută nu există.
+pl_ally: Alianță
+pl_buddy: Prieten
+pl_builds: Clădiri
+pl_def: Apărare
+pl_dercrystal: Cristal reciclat
+pl_dermetal: Metal reciclat
+pl_destroy: '%s a fost implicat în'
+pl_destroy_real: '%s a fost implicat personal în'
+pl_etc: 'Etc '
+pl_fightdraw: Egaluri
+pl_fightlose: Pierdute
+pl_fights: Lupte
+pl_fightstats: Statistici de luptă
+pl_fightwon: Câștigate
+pl_fleet: Flotă
+pl_fprocent: Procent
+pl_homeplanet: Planeta-mamă
+pl_message: Mesaj
+pl_name: Nume de utilizator
+pl_overview: Profil jucător
+pl_points: Puncte
+pl_range: Rang
+pl_tech: Cercetare
+pl_total: Total
+pl_totalfight: Total lupte
+pl_unitslose: Unități pierdute
+pl_unitsshot: Unități distruse
+PM: '[MP]'
+positiv: Pozitive
+px_fleet_movement: Flotă în mișcare
+px_no_deuterium: Deuteriu insuficient.
+px_no_fleet: Nicio flotă în mișcare acum.
+px_out_of_range: În afara razei
+px_scan_position: Scanează poziția
+ready: Gata
+rebuild_proteciton_link: O poți dezactiva mai devreme aici.
+rebuild_proteciton_mode: Contul tău este în protecție de reconstrucție, care te poate feri de atacuri.
+rec_count: Cantitate
+rec_last_update_on: 'Ultima actualizare la '
+rec_level: Nivel
+rec_players: Jucător
+rec_time: Data/Ora
+recordsOptIn: Arată recordurile tale tuturor jucătorilor
+repaired: Reparate
+rs_amount: Cantitate
+rs_basic_income: Producție de bază
+rs_calculate: Salvează modificările
+rs_daily: Producție zilnică
+rs_lvl: Nivel
+rs_production_on_planet: Resurse produse pe „%s”
+rs_ramp_up: 'Setează tot pe 100%'
+rs_ress_bonus: Bonus (prin cercetare)
+rs_ress_bonus_position: Bonus (prin poziția planetei)
+rs_shut_down: 'Setează tot pe 0%'
+rs_storage_capacity: Capacitate de depozitare
+rs_sum: Producție pe oră
+rs_weekly: Producție săptămânală
+sh_alliance: Alianță
+sh_alliance_name: Numele alianței
+sh_alliance_tag: Tag-ul alianței
+sh_buddy_request: Cerere de prietenie
+sh_coords: Poziție
+sh_loading: (Se încarcă ...)
+sh_members: Membri
+sh_name: Nume
+sh_planet: Planetă
+sh_planet_name: Numele planetei
+sh_player_name: Numele jucătorului
+sh_points: Puncte
+sh_position: Rang
+sh_search: Caută
+sh_search_in_the_universe: Caută în univers
+sh_tag: Tag
+sh_write_message: Mesaj privat
+spec_mail_inactive_title: '%s - Reamintire'
+spytech_playercard:
+  level2: Vizibil de la Tehnologia de spionaj 2!
+  level4: Vizibil de la Tehnologia de spionaj 4!
+  level6: Vizibil de la Tehnologia de spionaj 6!
+st_alliance: Alianță
+st_buildings: Clădiri
+st_defenses: Apărări
+st_fleets: Flotă
+st_honor: Puncte de onoare
+st_in_the_positions: pe locurile
+st_members: Membri
+st_per: după
+st_per_member: Per membru
+st_player: Jucător
+st_points: Puncte
+st_position: Rang
+st_researh: Cercetare
+st_show: Arată
+st_statistics: Statistici
+st_units: Unități
+st_updated: Actualizat
+st_write_message: Mesaj privat
+StaticTimer: Ora sosirii
+stats:
+  '202': Transportoare mici
+  '203': Transportoare mari
+  '204': Vânătoare ușoare
+  '205': Vânătoare grele
+  '206': Crucișătoare
+  '207': Nave de luptă
+  '208': Nave de colonizare
+  '209': Reciclatoare
+  '210': Sonde de spionaj
+  '211': Bombardiere
+  '212': Sateliți solari
+  '213': Distrugătoare
+  '214': Stele ale morții
+  '215': Crucișătoare de luptă
+  '216': Luni negre
+  '217': Transportoare de luptă
+  '218': Avatare
+  '219': Reciclatoare de luptă
+  '401': Lansatoare de rachete
+  '402': Turele laser ușoare
+  '403': Turele laser grele
+  '404': Tunuri Gauss
+  '405': Tunuri ionice
+  '406': Tunuri cu plasmă
+  '407': Cupole de scut mici
+  '408': Cupole de scut mari
+  '409': Scuturi atmosferice
+  '410': Tunuri cu graviton
+  '411': Platforme orbitale de apărare
+  '412': Buncăre
+  '413': Lasere Titan
+  '414': Momeli
+  '502': Interceptoare
+  '503': Rachete interplanetare
+  '901': Metal
+  '902': Cristal
+  '903': Deuteriu
+stb_activ: Rapoarte de spionaj detaliate (Scavengers Toolbox) activate
+stb_big_ress: Resurse abundente (mai puțin de)
+stb_big_ress_tooltip: Dacă planeta deține mai puține resurse decât această valoare, raportul de spionaj este marcat verde deschis (bun). Rapoartele de spionaj cu mai multe resurse decât această valoare sunt afișate în albastru deschis (optim).
+stb_big_time: Resurse abundente pe secundă (mai puțin de)
+stb_big_time_tooltip: Cel mai bun randament posibil de resurse pe secundă, rotunjit la două zecimale. Un raport sub această valoare contează ca bun (verde deschis), o valoare peste ea ca optim (albastru deschis).
+stb_low_ress: Resurse puține (mai puțin de)
+stb_low_ress_tooltip: Dacă planeta deține mai puține resurse decât această valoare, raportul de spionaj este marcat roșu aprins (prost).
+stb_med_time: Resurse moderate pe secundă (mai puțin de)
+stb_med_time_tooltip: Cel mai bun randament posibil de resurse pe secundă, rotunjit la două zecimale. Un raport sub această valoare contează ca mediu (portocaliu deschis).
+stb_mid_ress: Resurse moderate (mai puțin de)
+stb_mid_ress_tooltip: Dacă planeta deține mai puține resurse decât această valoare, raportul de spionaj este marcat portocaliu deschis (mediu).
+stb_small_time: Resurse puține pe secundă (mai puțin de)
+stb_small_time_tooltip: Cel mai bun randament posibil de resurse pe secundă, rotunjit la două zecimale. Un raport sub această valoare contează ca prost (roșu deschis).
+stb_title: Scavengers Toolbox
+sys_back: Înapoi
+sys_buildlist: Coada de construcție
+sys_buildlist_fail: Construcția a eșuat
+sys_catchup: 'Bonus de cost și timp de construcție: %01.2f'
+sys_catchup_short: 'Bonus: %01.2f'
+sys_catchup_tooltip: 'Bonus de recuperare: timp și cost reduse, pe baza nivelului record al acestei clădiri/cercetări'
+sys_closed_game: 'Jocul este închis deocamdată:'
+sys_forward: Înainte
+sys_game_is_setup: '<h1>Înregistrare completă!</h1><br><p>Ne pregătim universul pentru tine!</p><!--discord_url--><p>Între timp, ca să nu ratezi nimic, intră la noi pe</p><h3><a href="{discord_url}" target="_blank">-> Discord <-</a></h3><!--/discord_url-->'
+sys_module_inactive: Acest modul este inactiv
+sys_nomore_level: 'Nu ai niciun nivel de %s de demolat.'
+sys_notenough_money: 'Resurse insuficiente pe %s <a href="./game/buildings?cp=%d&amp;re=0">[%d:%d:%d]</a> ca să construiești %s. <br>Ai: %s %s, %s %s și %s %s. <br>Costă: %s %s, %s %s și %s %s.'
+sys_refferal_from: Sistem
+sys_refferal_text: Jucătorul %s, recrutat de tine, a atins %s puncte.
+sys_refferal_title: Bonus de jucător %s
+sys_techlist: Coada de cercetare
+team: Echipa
+teamRole: Rol
+ti_admin_close: Tichet închis!
+ti_admin_open: Tichet deschis!
+ti_answer: Răspunde
+ti_answers: Răspuns
+ti_category: Categorie
+ti_close: Tichet închis
+ti_create: 'Tichet creat la '
+ti_create_head: Creează tichet
+ti_create_info: "<p>Când creezi un tichet de suport, descrie-ți problema cât mai detaliat!</p>\r\n<p>O descriere detaliată scurtează timpul de rezolvare și evită un du-te-vino care consumă timp.</p>\r\n<p>La probleme legate de conturi, furnizarea datelor relevante ale contului ajută la repartizarea tichetului și scurtează timpul de procesare.</p>"
+ti_date: Data
+ti_error_closed: Acest tichet este deja închis, deci nu i se mai poate răspunde.
+ti_error_too_many_open: "Ai deja %d tichete deschise. Așteaptă să se închidă unul înainte să deschizi altul."
+ti_error_rate_limited: "Deschizi tichete prea repede. Încearcă din nou mai târziu."
+ti_error_no_subject: Introdu un subiect.
+ti_from: de
+ti_header: Sistem de suport
+ti_id: Tichet
+ti_message: Mesaj
+ti_msgtime: Mesaj postat la
+ti_new: Tichet nou
+ti_not_exist: 'Tichetul #%d nu a fost găsit.'
+ti_open: Deschide tichet
+ti_overview: Înapoi
+ti_read: Tichet de citit
+ti_responded: 'Tichet cu răspuns la '
+ti_status: Stare
+ti_status_answer: Răspuns
+ti_status_closed: Închis
+ti_status_open: Deschis
+ti_subject: Subiect
+ti_submit: Trimite
+ti_username: Jucător
+tkb_all: toate
+tkb_datum: Data
+tkb_day: zi
+tkb_diplomacy: Diplomație
+tkb_exclude: exclude
+tkb_galaxy: Galaxie
+tkb_gewinner: <b>-Câștigător-</b>
+tkb_gratz: 'Toată echipa felicită top 100 '
+tkb_legende: '<b>Legendă: </b>'
+tkb_memorial: Memoriale
+tkb_month: lună
+tkb_only: doar
+tkb_owners: Utilizatori implicați
+tkb_platz: Loc
+tkb_self: doar proprii
+tkb_timeframe: Interval de timp
+tkb_top: Sala bătăliilor
+tkb_units: Unități
+tkb_verlierer: <b>-Învins-</b>
+tkb_week: săptămână
+tn_delete_mode: 'Contul tău va fi șters pe %s.'
+tn_vacation_mode: Contul tău este în modul vacanță.
+tn_vacation_mode_kick: >-
+  <br><br>ATENȚIE: Modul vacanță este dezactivat automat după 4 săptămâni de
+  inactivitate.
+tn_vacation_mode_until: Contul tău este în modul vacanță cel puțin până la %s.
+tr_exchange_done: 'Comerț încheiat!'
+tr_exchange_error: Cantitatea de resurse este invalidă sau insuficientă
+tt_lvl: 'Nivel '
+tt_lv_short: 'Niv'
+tt_requirements: Cerințe
+tt_unlocks: 'Deblochează'
+tt_status_owned: 'Construit'
+tt_status_available: 'Disponibil'
+tt_status_locked: 'Blocat'
+tt_hint: 'Plimbă cursorul peste o tehnologie sau selectează-o ca să-i urmărești cerințele (sus) și ce deblochează (jos). Click ca s-o fixezi, Esc ca să ștergi.'
+tt_foreign: 'Cerută de această categorie, aparține alteia'
+tt_none: 'niciuna'
+tt_graph: 'Arborele tehnologic'
+type_mission_1: Atac
+type_mission_1_foreign: Atac străin
+type_mission_1_own: Atac propriu
+type_mission_2: Atac de alianță
+type_mission_2_foreign: Flotă străină de atac ACS
+type_mission_2_friend: Flotă prietenă de atac ACS
+type_mission_2_own: Flotă proprie de atac ACS
+type_mission_3: Transport
+type_mission_3_foreign: Transport străin
+type_mission_3_own: Transport propriu
+type_mission_4: Staționare
+type_mission_4_foreign: Staționare străină
+type_mission_4_own: Staționare proprie
+type_mission_5: Menținere
+type_mission_5_foreign: Menținere străină
+type_mission_5_own: Menținere proprie
+type_mission_6: Spionaj
+type_mission_6_foreign: Spionaj străin
+type_mission_6_own: Spionaj propriu
+type_mission_7: Colonizare
+type_mission_7_foreign: Colonizare străină
+type_mission_7_own: Colonizare proprie
+type_mission_7_own_return: Întoarcere din colonizare proprie
+type_mission_8: Reciclare
+type_mission_8_foreign: Reciclare străină
+type_mission_8_own: Reciclare proprie
+type_mission_9: Distrugere
+type_mission_9_foreign: Distrugere străină
+type_mission_9_own: Distrugere proprie
+type_mission_10: Atac cu rachete
+type_mission_10_foreign: Atac străin cu rachete
+type_mission_10_own: Atac propriu cu rachete
+type_mission_15: Expediție
+type_mission_15_foreign: Expediție străină
+type_mission_15_own: Expediție proprie
+type_mission_16: Comerț
+type_mission_16_foreign: Flotă străină de piață
+type_mission_16_own: Flotă proprie de piață
+type_mission_17: Transfer
+type_mission_17_foreign: Transfer străin
+type_mission_17_own: Transfer propriu
+type_mission_20: Atac
+type_mission_21: Spionaj
+type_mission_22: Reciclare
+type_mission_return_foreign: Întoarcere străină
+type_mission_return_own: Întoarcere proprie
+type_planet_1: Planetă
+type_planet_2: Câmp de resturi
+type_planet_3: Lună
+type_planet_4: Bază de pirați
+type_planet_short_1: P
+type_planet_short_2: R
+type_planet_short_3: L
+type_planet_short_4: Bp
+user_level_0: Jucător
+user_level_1: Moderator
+user_level_2: Operator
+user_level_3: Administrator
+whenbuildable: Se poate construi în
+write_message: Scrie mesaj
+fl_cargo_options: Opțiuni de încărcătură
+fl_cargo_preset: Presetare
+fl_cargo_needed: necesar
+fl_cargo_select: selectează
+fl_cargo_current_planet: Planeta curentă
+ui_skip_to_content: Sari la conținut
+ui_watch: Urmărește
+ui_unwatch: Nu mai urmări
+ui_message_tools: Căutare, filtre și acțiuni
+ui_menu: Meniu
+ui_rank: Rang
+ui_queue: Coadă
+ui_queue_free: slot liber
+ui_planet_prev: "Planeta anterioară"
+ui_planet_next: "Planeta următoare"
+ui_queue_done: "Totul gata la %at% (în %in%)"
+ui_full_in: "Plin în"
+ui_energy_used: "Energie folosită"
+ui_points: Puncte
+ui_close: Închide
+ui_storage_full: "Depozit plin: producția s-a oprit"
+ui_messages: Mesaje
+ui_server_time: Ora serverului
+ui_planet: Planetă
+ui_nav_empire: Imperiu
+ui_nav_universe: Univers
+ui_nav_community: Comunitate
+ui_nav_help: Ajutor
+ui_nav_personal: Personal
+ui_nav_rankings: 'Clasamente'
+ui_nav_sections: 'Secțiuni'
+ui_user_menu: 'Meniul contului'
+gl_points: Puncte
+mg_action: Acțiune
+mg_message_type: Tipul mesajului
+mg_to: Către
+tkb_unentschieden: '<b>-Egalitate-</b>'
+source_code: Cod sursă
+teamMemberName: Nume
+teamMemberContact: Contact
+teamMemberAbout: Despre
+teamEmpty: Încă nu a fost adăugat niciun membru al echipei.
+
+lm_board: Forum
+bd_depot_action: "Aprovizionează flotele"
+depot_title: "Depozit de alianță"
+depot_intro: "Flotele prietene aflate în Menținere la această planetă pot fi aprovizionate aici. Fiecare aprovizionare le prelungește șederea cu 1 până la %s ore (nivelul depozitului tău) și costă deuteriu de pe această planetă. O flotă nu poate avea niciodată mai mult de %s ore de ședere rămase."
+depot_deuterium_stock: "Deuteriu pe această planetă"
+depot_empty: "Nicio flotă prietenă nu se află în Menținere la această planetă."
+depot_col_owner: "Jucător"
+depot_col_ships: "Nave"
+depot_col_stay_end: "Șederea se termină"
+depot_col_hourly: "Cost pe oră"
+depot_col_supply: "Aprovizionare"
+depot_hours: "%s h"
+depot_cost: "Cost"
+depot_supply: "Aprovizionează"
+depot_full: "Șederea maximă a fost atinsă"
+depot_done: "Flota a fost aprovizionată: șederea ei este prelungită cu %s h pentru %s deuteriu."
+depot_err_not_owner: "Această planetă nu este a ta."
+depot_err_no_depot: "Această planetă nu are Depozit de alianță."
+depot_err_hours: "Poți aproviziona o flotă pentru 1 până la %s ore odată (nivelul depozitului tău)."
+depot_err_fleet: "Această flotă nu mai este în Menținere la această planetă."
+depot_err_max_stay: "O flotă poate avea cel mult %s ore de ședere rămase. Alege mai puține ore."
+depot_err_deuterium: "Deuteriu insuficient pe această planetă: sunt necesare %s."
+op_discord_hook_invalid: "Webhook Discord invalid. Sunt permise doar URL-uri de forma https://discord.com/api/webhooks/..."
+fl_push_guard: "Acest transport este blocat: jucătorul țintă nu ți-a trimis resurse recent, iar valoarea încărcăturii depășește limita."
+rl_too_many_requests: "Prea multe cereri într-un timp scurt. Așteaptă %d secundă/secunde și încearcă din nou."
+lm_vote: "Votează"
+vt_head: "Votează pentru joc"
+vt_intro: "Votează pe site-urile de mai jos și primești o recompensă pe planeta-mamă. Fiecare site poate fi votat din nou după pauza lui."
+vt_site: "Site"
+vt_reward: "Recompensă"
+vt_status: "Stare"
+vt_ready: "Gata"
+vt_wait: "Din nou în %d h %d min"
+vt_button: "Votează"
+vt_none: "Momentan nu există site-uri de vot."
+vt_postback_hint: "Recompensa ajunge după ce site-ul îți confirmă votul."
+vt_notice_rewarded: "Mulțumim pentru vot! Recompensa a fost adăugată pe planeta ta-mamă."
+vt_notice_pending: "Mulțumim pentru vot! Recompensa ajunge după ce site-ul îți confirmă votul."
+vt_notice_cooldown: "Trebuie să aștepți înainte să votezi din nou pe acest site."
+mg_confirm_delete_one: "Ștergi acest mesaj?"
+mg_confirm_delete_bulk: "Chiar ștergi aceste mesaje? Nu se poate anula."
+mg_quick_read_all: "Marchează toate ca citite"
+mg_quick_delete_read: "Șterge citite"
+mg_quick_delete_older: "Șterge mai vechi de %d zile"
+mg_confirm_delete_read: "Ștergi toate mesajele citite din această categorie? Favoritele sunt păstrate."
+mg_confirm_delete_older: "Ștergi toate mesajele din această categorie mai vechi de %d zile? Favoritele sunt păstrate."
+mg_spy_again: "Spionează din nou"
+fl_change_target: "Schimbă ținta"
+mg_group_mark: "Marchează ca citit"
+mg_group_delete: "Șterge"
+mg_pick_category: "Alege mai sus o categorie ca să-i vezi mesajele."
+mg_no_messages: "Niciun mesaj aici."
+mg_select_message: "Selectează mesajul"
+mg_search_player: "Caută jucător"
+mg_remove_receiver: "Elimină destinatarul"
+mg_no_receiver: "Alege cel puțin un destinatar."
+nt_confirm_delete: "Ștergi notițele marcate?"
+nt_priority_legend: "Culoare = prioritate: verde mică, galben normală, roșu mare"
+al_save_all_hint: "Ambele butoane Salvează salvează textele și opțiunile împreună."
+al_dissolve_btn: "Desființează alianța..."
+al_transfer_btn: "Transferă alianța..."
+al_dissolve_hint: "Asta șterge definitiv alianța și elimină toți membrii. Nu se poate anula."
+al_transfer_hint: "Predă conducerea altui membru. Pierzi rangul de fondator."
+al_transfer_confirm: "Transferi alianța membrului selectat? Pierzi conducerea."
+al_kick: "Exclude"
+al_find_results: "Rezultate"
+al_find_browse: "Cele mai mari alianțe"
+al_find_none_yet: "Încă nu există alianțe în acest univers."
+al_no_inside_text: "Încă nu există text pentru membri."
+bd_needs: 'Necesită'
+bd_missing: 'Lipsește'
+honorfights: "Lupte de onoare"
+pl_block_head: "Blochează"
+pl_block_hint: "Are efect imediat, nu există buton Salvează."
+st_my_rank: "Sari la rangul meu"
+st_legend_noob: "Protecția începătorilor"
+rec_intro: "Cel mai înalt nivel atins în acest univers pentru fiecare clădire și cercetare, comparat cu al tău."
+as_intro: "Contoare detaliate ale activității tale (expediții, construcții, pierderi, distrugeri). Clasamentele tuturor jucătorilor sunt pe pagina Statistici."
+as_show_empty: "Arată rândurile goale"
+op_sections: "Sari la"
+op_save_hint: "Modificările se aplică după salvare."
+op_dlte_account_confirm: "Chiar îți ștergi contul? Este eliminat complet după cel puțin 7 zile; până atunci poți anula ștergerea."
+ti_none: "Încă nu ai tichete. Citește mai întâi %s; dacă nu ajută, creează un tichet."
+ti_faq_first: "Verifică mai întâi FAQ-ul: multe întrebări își găsesc răspunsul acolo."
+team_contact_hint: "Ai nevoie de ajutor? Deschide un tichet prin %s."
+cl_hint: "Modificări tehnice ale software-ului jocului, cele mai noi primele. Apasă pe o intrare ca s-o extinzi."
+cl_empty: "Nicio modificare înregistrată."
+toc_contents: "Cuprins"
+sh_hint: "Scrie cel puțin două caractere, apoi apasă Enter sau Caută."
+sh_search_type: "Caută după"
+sh_search_text: "Text de căutat"
+sh_no_players: "Nu s-a găsit nimic. Verifică ortografia sau încearcă un text mai scurt."
+sh_no_alliances: "Nu s-au găsit alianțe. Verifică ortografia sau încearcă un text mai scurt."
+fl_no_ship_selected: "Alege cel puțin o navă."
+fl_recall_confirm: "Rechemi această flotă? Se întoarce acum din drum și ajunge acasă la %s."
+fl_recall_return: "Din nou acasă dacă e rechemată acum"
+fl_no_fleets: "Nicio flotă în misiune."
+fl_quick_fleets: "Flote rapide"
+fl_quick_fleets_hint: "Încă nu e nimic salvat. Salvează o combinație de nave la „Flote personalizate” mai jos și apare aici ca scurtătură cu un singur clic; apare aici și ultima ta misiune."
+fl_load_hint: "Valorile gri sunt stocul acestei planete. Butoanele de încărcătură sugerează câte nave o duc; lasă un câmp gol ca să nu trimiți nimic."
+fl_load_clear: "Golește"
+fl_cargo_options_hint: "Roșu înseamnă că nu ai destule din acea navă. Apasă pe pictograma unei nave ca s-o preselectezi împreună cu ținta."
+fl_summary: "Rezumatul trimiterii"
+fl_coord_range: "Coordonate invalide. Permise: galaxie 1-%d, sistem 1-%d, poziție 1-%d."
+fl_sending: "Se trimite flota..."
+ft_rate_info: 'Negustorul păstrează %s%% din valoarea navei și plătește restul în resurse.'
+ft_per_ship: 'Plată per navă'
+ft_receive: 'Primești'
+market_tab_resources: 'Piața de resurse'
+market_tab_fleets: 'Piața de flote'
+market_ratio_label: 'Compară ofertele la raportul'
+market_ratio_hint: 'Setează cursul de schimb folosit pentru coloana Raport; resursa selectată este baza.'
+market_no_offers: 'Momentan nu există oferte.'
+gl_recycle_needs: "Reciclează (necesită un reciclator)"
+gl_keys_hint: "Tastatură: săgețile sau A D mută sistemul, W S galaxia."
+rs_ramp_up_confirm: 'Setezi fiecare producător pe 100% și salvezi?'
+rs_shut_down_confirm: 'Setezi fiecare producător pe 0% și salvezi? Producția se oprește.'
+rs_energy_deficit: 'Deficit de energie: minele rulează sub nivelul setat până când energia revine în echilibru.'
+ov_event_hostile: 'Ostil'
+ov_no_fleets: 'Nicio mișcare de flote.'
+al_chart_x: "Timp (ore în urmă)"
+al_chart_y: "Puncte"
+as_sub_count: "Expediții"
+as_sub_found: "Găsiri"
+as_sub_lost: "Pierderi"
+as_sub_first: "Primele"
+op_notifications: "Notificări"
+rs_full_in: 'Plin în'
+rs_full_now: 'Plin'
+fl_prepared_gone: "Această flotă nu mai este pregătită (a expirat, a fost eliberată sau trimisă deja). Începe din nou."
+gl_legend_activity: "Activ în ultimele 15 min, afișat ca (minute în urmă) până la 60"
+st_rank_change: "Schimbarea rangului de la ultima actualizare"
+st_prev_range: "Precedentele 100"
+st_next_range: "Următoarele 100"
+op_unsaved_one: "1 modificare nesalvată"
+op_unsaved_many: "%d modificări nesalvate"
+pl_note: "Notiță"
+pl_galaxy_view: "Arată în galaxie"
+shell_jump: "Sari la…"
+shell_jump_tip: "Sari la o pagină, planetă sau coordonate"
+shell_switch_planet: "Schimbă planeta"
+shell_switch_to: "Treci la %s"
+shell_moon_of: "Luna lui %s"
+shell_fields: "câmpuri"
+shell_slots_tip: "%1 din %2 sloturi de planetă folosite"
+shell_shortcuts: "Scurtături"
+shell_shortcuts_title: "Scurtături de tastatură"
+shell_attack_title: "Se apropie o flotă ostilă"
+shell_attack_arrives: "ajunge în"
+shell_attack_in: "Atac în"
+shell_attack_fleet: "Flotă"
+shell_attack_details: "Detalii"
+shell_attack_hide: "Ascunde avertismentul"
+shell_tagline: "Strategie spațială open-source în browserul tău."
+shell_footer: "Subsol"
+shell_footer_game: "Joc"
+shell_footer_community: "Comunitate"
+shell_footer_legal: "Legal"
+shell_footer_credits: 'construit pe munca multor proiecte open-source'
+shell_imprint: "Date de identificare"
+ui_palette_placeholder: "Pagini, planete, coordonate (ex. 1:42:8)…"
+ui_palette_empty: "Nicio potrivire"
+ui_palette_pages: "Pagini"
+ui_palette_planets: "Planete"
+ui_palette_go: "Mergi la"
+ui_palette_galaxy: "Galaxie"
+ui_shortcuts_title: "Scurtături de tastatură"
+ui_shortcuts_palette: "Sari la o pagină, planetă sau coordonate"
+ui_shortcuts_go_overview: "Prezentare generală"
+ui_shortcuts_go_buildings: "Clădiri"
+ui_shortcuts_go_galaxy: "Galaxie"
+ui_shortcuts_planets: "Planeta anterioară / următoare"
+ui_shortcuts_help: "Acest ajutor"
+mg_not_delivered: "Nelivrat către (blochează mesajele): %s"
+al_already_member: "Ești deja membru al unei alianțe. Părăsește-o mai întâi ca să întemeiezi una nouă."
+al_kicked: "Exclus din alianță"
+al_kicked_msg: "Ai fost exclus din alianța <b>%s</b>."
+al_disbanded: "Alianță desființată"
+al_disbanded_msg: "Alianța <b>%s</b> a fost desființată. Nu mai ești membru."
+al_disbanded_applicant_msg: "Alianța <b>%s</b> a fost desființată, cererea ta este nulă."
+al_disbanded_partner_msg: "Alianța <b>%s</b> a fost desființată. Toate tratatele cu ea s-au încheiat."
+fa_no_debris: "Nu există câmp de resturi de colectat."
+fl_colonize_slot_taken: "Există deja o planetă la poziția țintă."
+fl_choose_destination: "Alege destinația"
+op_cant_activate_vacation_hostile: "Nu poți porni modul vacanță cât timp flote ostile sunt în drum spre planetele tale."
+rec_staff_excluded: "Membrii echipei și jucătorii banați nu stabilesc recorduri, așa că nivelurile tale pot fi mai mari."
+rec_hidden_holder: "ascuns"
+rec_hidden_holder_info: "Deținătorul recordului nu își arată numele în recorduri."
+rec_pending: "Record nou – contorizat la următoarea actualizare a statisticilor."
+rec_you: "Tu (încă necontorizat)"

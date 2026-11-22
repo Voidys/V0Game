@@ -1,0 +1,209 @@
+build_ships: Celkem postavených lodí
+buttonLostPassword: Zapomněl jsi heslo?
+buttonRegister: Registrovat se
+buttonScreenshot: Snímky obrazovky
+civil: Civilní
+colony: Kolonie
+deathstar: Hvězda smrti
+destroyed_sats: Zničené solární satelity
+disclamerLabelAddress: 'Adresa hry:'
+disclamerLabelMail: 'E-mail podpory:'
+disclamerLabelNotice: Další informace
+disclamerLabelPhone: 'Telefon:'
+first_fights: První bitvy ve vesmíru
+forum: Fórum
+hof_empty: "Zatím žádná data do Síně slávy."
+login_error_1: >-
+  Špatný e-mail nebo heslo! Tip: správci hesel často vyplní uživatelské jméno,
+  ale přihlašovat se musíš e-mailem.
+login_error_2: >-
+  Do tvého účtu se někdo přihlásil z jiného zařízení, nebo se změnila tvoje
+  IP adresa.
+login_error_3: Tvoje relace vypršela. Přihlas se prosím znovu.
+login_error_4: 'Příliš mnoho pokusů o přihlášení. Počkej 15 minut a zkus to znovu.'
+loginButton: Přihlásit se
+loginEmail: E-mail
+loginHeader: Přihlášení
+loginInfo: Přihlášením souhlasím s dokumentem %s.
+loginPassword: Heslo
+loginRememberMe: 'Zůstat přihlášen %d dní'
+loginServerDesc: >-
+  %s je vesmírná strategická hra, ve které se stovky hráčů přetahují
+  <strong>ve stejnou chvíli</strong> o to, kdo bude nejlepší. Stačí ti běžný
+  webový prohlížeč.
+loginWelcome: Vítej v %s
+Lowest_longterm_points: Předregistrované účty s nejmenším počtem bodů
+menu_banlist: Seznam banů
+menu_battlehall: Bojová síň
+menu_disclamer: Kontakt
+menu_news: Novinky
+menu_rules: Pravidla
+military: Vojenské
+news_does_not_exist: Žádné novinky.
+news_from: Dne %s od %s
+overall: Celkově
+passwordBack: Zpět
+passwordChangedMailSend: Tvoje nové heslo je na cestě. Za chvíli ti přijde e-mail.
+passwordChangedMailTitle: 'Nové heslo pro %s'
+passwordConfirmInfo: 'Klikni na tlačítko a heslo se obnoví. Nové heslo ti pošleme e-mailem.'
+passwordConfirmSubmit: 'Pošlete mi nové heslo'
+passwordErrorMailEmpty: Tuhle e-mailovou adresu neznáme.
+passwordInfo: >-
+  Zapomněl jsi heslo? Zadej uživatelské jméno a e-mailovou adresu svého účtu.
+  Pokud si je nepamatuješ, obrať se na správce.
+passwordMail: E-mail
+passwordNext: Další
+passwordSubmit: Odeslat
+passwordUsername: Uživatelské jméno
+passwordValidInValid: Neplatný požadavek.
+passwordValidMailSend: Za chvíli ti přijde e-mail s dalšími kroky.
+passwordValidMailTitle: 'Obnovení hesla pro %s'
+players: Hráči
+points_amount: Body / počet
+powFailed: >-
+  Automatická kontrola botů selhala nebo vypršela. Vrať se prosím zpět, chvíli
+  počkej a formulář odešli znovu.
+powNoCrypto: >-
+  Tvůj prohlížeč nemůže spustit automatickou kontrolu botů (potřebuje zabezpečené
+  spojení https).
+powVerifying: Kontroluji tvůj prohlížeč …
+registerBack: Zpět
+registerDataPrivacyDesc: Souhlasím s dokumentem %s
+registerEmail: E-mail
+registerEmailDesc: Zadej svou e-mailovou adresu.
+registerEmailReplay: E-mail znovu
+registerEmailReplayDesc: Zadej e-mailovou adresu ještě jednou pro potvrzení.
+registerErrorDataPrivacy: Pro pokračování musíš přijmout zásady ochrany soukromí.
+registerErrorMailEmpty: Zadej prosím e-mailovou adresu.
+registerErrorMailExist: Tahle e-mailová adresa už je zaregistrovaná.
+registerErrorMailInvalid: Tohle nevypadá jako platná e-mailová adresa.
+registerErrorMailSame: Obě e-mailové adresy se neshodují.
+registerErrorPasswordLength: Tvoje heslo musí mít alespoň %s znaků.
+registerErrorPasswordSame: Obě hesla se neshodují.
+registerErrorRules: Pro pokračování musíš přijmout pravidla.
+registerErrorUniClosed: V tomto vesmíru je registrace uzavřena.
+registerErrorUsernameChar: Tvoje uživatelské jméno smí obsahovat jen písmena, číslice, mezery, _, - a .
+registerErrorUsernameEmpty: Zadej prosím uživatelské jméno.
+registerErrorUsernameExist: Tohle uživatelské jméno je už obsazené.
+registerLanguage: Jazyk
+registerMailCompleteTitle: Vítej v %s!
+registerMailVertifyTitle: 'Aktivuj svůj účet pro %s'
+registerPassword: Heslo
+registerPasswordDesc: Tvoje heslo musí mít alespoň %s znaků.
+registerPasswordReplay: Heslo znovu
+registerPasswordReplayDesc: Zadej stejné heslo ještě jednou.
+registerReferral: 'Pozval tě:'
+registerRules: Pravidla
+registerRulesDesc: Souhlasím s dokumentem %s
+registerSendComplete: >-
+  Díky za registraci! Podívej se do e-mailu (včetně spamu), čekají tam další
+  kroky.
+registerTimezone: Časové pásmo
+registerUsername: Uživatelské jméno
+registerUsernameDesc: >-
+  Použij 3 až 25 znaků: písmena, číslice, mezery, tečky, pomlčky a
+  podtržítka.
+registerWelcomePMSenderName: Administrátor
+registerWelcomePMSubject: Vítej
+registerWelcomePMText: >-
+  Vítej v %s! Nejdřív postav solární elektrárnu, protože k produkci surovin je
+  potřeba energie. Otevři v levém menu Budovy a začni solární elektrárnou.<br>Až
+  budeš mít energii, můžeš stavět doly. Zůstaň v Budovách a postav důl na kovy,
+  pak důl na krystaly.<br><br>K stavbě lodí potřebuješ loděnici. Menu Technologie
+  vlevo ukazuje, co je potřeba k jejímu odemčení.<br>Máš-li další otázky,
+  mrkni do FAQ, do wiki, nebo otevři ticket podpory.<br><br>Tým ti přeje
+  spoustu zábavy při objevování vesmíru!
+siteTitleBanList: Seznam banů
+siteTitleBattleHall: Bojová síň
+siteTitleDataPrivacy: Zásady ochrany soukromí
+siteTitleDisclamer: Kontakt
+siteTitleHOF: Síň slávy
+siteTitleIndex: Domů
+siteTitleLostPassword: Zapomněl jsi heslo?
+siteTitleNews: Novinky
+siteTitleRegister: Registrace
+siteTitleRules: Pravidla
+siteTitleScreens: Snímky obrazovky
+spy: Špionážní sondy
+st_buildings: Budovy
+st_defenses: Obrana
+st_fleets: Flotila
+st_points: Body
+st_researh: Výzkum
+theme: Motiv
+universe: Vesmír
+vertifyAdminMessage: Účet „%s“ byl aktivován.
+vertifyNoUserFound: Neplatný požadavek.
+passwordErrorUsernameEmpty: Nezadal jsi uživatelské jméno!
+uni_closed: ' (zavřeno)'
+uni_reg_closed: ' (registrace uzavřena)'
+uni_reg_open: ' (jen registrace)'
+home_menu: Menu
+home_meta_description: '%s – vesmírná strategická hra v prohlížeči s kouzlem nultých let: rozvíjej planety, stavěj flotily, uzavírej aliance.'
+home_started: Už běží!
+home_starts_in: Za
+home_team: Tým
+home_meme_alt: 'Komiksový mem z velitelského můstku {game_name}'
+home_meme_alt_deep_space_transit: "Komiks: dva kadeti v raketoplánu – jeden se hroutí při pohledu na pole asteroidů, druhý se šklebí na zářící mlhovinu. „Běžné hlídky v sektoru vs. objevení neprozkoumané mlhoviny bohaté na suroviny.“"
+home_meme_alt_deuterium_joyride: "Komiks: unavený velitel na pozorovací palubě sleduje, jak se dva rekruti poflakují venku – „Koukám, jak si nováčci vyplýtvali všechno deuterium na projížďky venku, zatímco já čekám 12 hodin na vylepšení dolů.“"
+home_meme_alt_enemy_fleet: "Komiks: kadet si v panice svírá hlavu, zatímco blikají poplachy – „1000 nepřátelských ničitelů na cestě?! Myslel jsem, že tenhle sektor je bezpečný?!“"
+home_meme_alt_fleet_decimated: "Komiks: voják v šoku zírá před sebe, zatímco venku před rozbitou kupolí explodují lodě – „Když 20 hodin farmíš suroviny a pak ti flotila hráče z první trojky přiskočí a za 3 sekundy všechno rozebere.“"
+home_meme_alt_solo_scouting: "Komiks: velitel Kamioka se šklebí a pokládá robotickou ruku kadetovi na rameno – „Nebojte, kadete. Vrchní velení má ‚úplnou‘ důvěru ve vaši samostatnou průzkumnou misi do Vesmíru.“"
+home_meme_alt_this_is_fine: "Komiks: pes ve skafandru klidně sedí v hořícím velitelském centru a říká „To je v pohodě“ – „Klid. Moje flotila se vrací jen o 4 hodiny později.“"
+source_code: Zdrojový kód
+news_back: Zpět na novinky
+lightbox_close: "Zavřít"
+lightbox_prev: "Předchozí obrázek"
+lightbox_next: "Další obrázek"
+news_pinned: Připnuto
+news_read_more: Číst dál
+news_latest: Nejnovější novinky
+home_discord_online: "Online"
+home_discord_join: "Připoj se k našemu Discordu"
+news_all: Všechny novinky
+csrf_invalid: 'Bezpečnostní kontrola selhala (možná ti vypršela relace). Načti stránku znovu a zkus to ještě jednou.'
+home_logged_in_head: "Tvůj účet"
+home_logged_in_as: "Přihlášen jako %s"
+home_continue: "Pokračovat do svých vesmírů"
+home_account_lobby: "Lobby účtu"
+rulesEmpty: "Zatím nebyla zveřejněna žádná pravidla."
+loginLostPasswordOff: "Zapomněl jsi heslo? %s"
+loginContactTeam: "Napiš týmu."
+home_step_build: "Stavěj na svých planetách doly, výzkum a loděnice."
+home_step_fleet: "Posílej flotily: zkoumej, obchoduj, přepadej nebo braň."
+home_step_alliance: "Vstup do aliance a šplhej po žebříčcích."
+home_hof_desc: "Vítězové ukončených kol"
+home_battlehall_desc: "Největší bitvy probíhajícího kola"
+memorialFilter: "Památné bitvy"
+toc_contents: "Obsah"
+loginRememberHint: "Nepoužívej na sdíleném počítači."
+home_step_rules: "Než začneš, přečti si %s."
+socialContinueWith: "Pokračovat přes %s"
+socialOr: "nebo"
+socialErrorState: "Přihlášení se nepodařilo ověřit (požadavek vypršel nebo byl neplatný). Začni prosím znovu."
+socialErrorProvider: "Poskytovatel přihlášení nedokončil. Zkus to prosím později."
+socialErrorCancelled: "Přihlášení bylo zrušeno."
+socialErrorNoEmail: "Poskytovatel nesdílí ověřenou e-mailovou adresu. Zaregistruj se prosím e-mailem a heslem a službu pak připoj v nastavení účtu."
+socialErrorTaken: "Tenhle účet u poskytovatele je už připojený k jinému hráčskému účtu."
+socialErrorExpired: "Tenhle krok vypršel. Začni přihlášení prosím znovu."
+socialLinkTitle: "Propoj svůj účet"
+socialLinkIntro: "Účet s e-mailovou adresou %s už existuje. Abys ho propojil s přihlášením přes %s, zadej jednou heslo toho účtu."
+socialLinkPassword: "Heslo stávajícího účtu"
+socialLinkHelp: "Tím potvrdíš, že účet je tvůj. Přihlášení přes poskytovatele se propojí až poté."
+socialLinkButton: "Propojit a přihlásit"
+socialLinkWrong: "Heslo je špatně."
+socialCancel: "Zrušit"
+socialCompleteTitle: "Dokonči registraci"
+socialCompleteIntro: "Přihlašuješ se přes %s (%s) poprvé. Vyber si jméno a přijmi pravidla, aby se ti vytvořil účet. Heslo nepotřebuješ; můžeš si ho nastavit později funkcí zapomenutého hesla."
+socialConnectedTitle: "Připojené služby"
+socialConnectedIntro: "Přihlašuj se těmito službami místo hesla."
+socialConnected: "Připojeno"
+socialConnectedAs: "Připojeno (%s)"
+socialNotConnected: "Nepřipojeno"
+socialConnect: "Připojit"
+socialDisconnect: "Odpojit"
+socialLinked: "Služba je nyní připojená k tvému účtu."
+socialUnlinked: "Služba byla odpojena."
+socialLastMethod: "Tohle je tvůj jediný způsob přihlášení. Nejdřív si nastav heslo (zapomenuté heslo na úvodní stránce), pak službu odpoj."
+socialLastMethodHint: "Poslední způsob přihlášení: nejdřív si nastav heslo, pak ho můžeš odpojit."
+socialErrorUnavailable: "Tento způsob přihlášení není k dispozici."

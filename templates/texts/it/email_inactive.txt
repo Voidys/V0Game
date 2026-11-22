@@ -1,0 +1,8 @@
+Ciao {USERNAME},
+
+non accedi a {GAMENAME} dal {LASTDATE}. Se vuoi restare nella nostra community, accedi con i dati del tuo account, altrimenti il tuo account verrà eliminato.
+
+Se hai dimenticato la password, vai su {HTTPPATH} e clicca su "Password dimenticata". Nel giro di pochi minuti riceverai un'e-mail con la tua nuova password.
+
+Un saluto,
+il team di {GAMENAME}

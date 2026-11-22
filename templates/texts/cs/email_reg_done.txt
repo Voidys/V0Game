@@ -1,0 +1,12 @@
+Ahoj {USERNAME},
+
+díky za registraci v {GAMENAME}.
+
+Jsme rádi, že ses rozhodl stát se součástí naší komunity,
+a doufáme, že si to u nás užiješ!
+
+Mrkni se také k nám na Discord:
+{DISCORD}
+
+Zdraví
+tým {GAMENAME}

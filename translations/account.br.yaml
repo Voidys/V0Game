@@ -1,0 +1,84 @@
+Active_players: Jogadores ativos
+Back: Voltar
+mail:
+  subject:
+    mail_changed: O endereço de email da sua conta %s foi alterado
+Other_universes: Outros universos
+Play: Jogar
+Playername: Nome de jogador
+Register: Cadastrar
+Settings: Configurações
+Sitting_end: Fim do sitting
+Sitting_request: Pedir sitting (ainda não disponível)
+uni_status_regclosed_gameclosed: Fechado
+uni_status_regclosed_gameopen: Aberto para jogar
+uni_status_regopen_gameclosed: Aberto ao registro
+uni_status_regopen_gameopen: Aberto
+Universe_end: Fim
+Universe_start: Início
+Universe_status: 'Status do universo: '
+Universes: Universos
+Your_universes: Seus universos
+board_create: Nova postagem
+board_edit_post: Editar postagem
+board_sort: Ordenar
+board_sort_hot: Em alta
+board_sort_new: Novo
+board_sort_top: Mais votados
+board_period_all: Sempre
+board_period_week: Esta semana
+board_csort_best: Melhor
+board_flair: Tag
+board_flair_all: Todas
+board_flair_general: Geral
+board_flair_guide: Guia
+board_flair_question: Pergunta
+board_flair_suggestion: Sugestão
+board_flair_bug: Bug
+board_flair_offtopic: Fora do assunto
+board_upvote: Voto positivo
+board_downvote: Voto negativo
+board_pinned: Fixado
+board_locked: Bloqueado
+board_by: por
+board_comments: Comentários
+board_empty: Ainda não há postagens. Seja o primeiro a escrever uma.
+board_no_comments: Ainda não há comentários.
+board_title: Título
+board_body: Texto
+board_publish: Publicar
+board_save: Salvar
+board_cancel: Cancelar
+board_edit: Editar
+board_edited: editado
+board_delete: Excluir
+board_deleted: '[excluído]'
+board_deleted_user: '[excluído]'
+board_confirm_delete: Quer mesmo excluir isto?
+board_reply: Responder
+board_collapse: Recolher tópico
+board_add_comment: Escrever um comentário
+board_comment_send: Comentar
+board_mod_pin: Fixar
+board_mod_unpin: Desafixar
+board_mod_lock: Bloquear
+board_mod_unlock: Desbloquear
+board_not_found: Esta postagem ou comentário não existe.
+board_not_allowed: Você não tem permissão para fazer isso.
+board_err_csrf: Não foi possível verificar a solicitação. Recarregue a página e tente de novo.
+board_err_title: Digite um título.
+board_err_title_long: O título pode ter no máximo 200 caracteres.
+board_err_body: Digite um texto (não pode estar vazio nem longo demais).
+board_err_locked: Esta postagem está bloqueada, sem novos comentários.
+board_err_rate_post: Espere mais %d segundo(s) antes da próxima postagem.
+board_err_rate_comment: Espere mais %d segundo(s) antes do próximo comentário.
+board_ago_now: agora há pouco
+board_ago_min: há %d min
+board_ago_hours: há %d h
+board_ago_days: há %d d
+board_guest_hint: Entre para postar, comentar e votar.
+board_guest_login: Entrar
+board_guest_register: Cadastrar
+rl_board_err_self_vote: Você não pode votar na sua própria postagem ou comentário.
+rl_board_err_vote_cap: Limite diário de votos atingido. Tente de novo amanhã.
+rl_board_err_write_cap: Limite diário de postagens e comentários atingido. Tente de novo amanhã.

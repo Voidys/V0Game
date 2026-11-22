@@ -1,0 +1,73 @@
+<p class="rules-notice"><strong>ATENȚIE: Regulile se pot schimba, iar fiecare utilizator are obligația să se țină la curent cu ultima versiune!</strong></p>
+<h2>1. Conturi</h2>
+<p>Proprietarul unui cont este întotdeauna proprietarul adresei de e-mail setate. Un cont poate fi jucat doar de o singură persoană. Singura excepție este sitting-ul. Dacă e nevoie să supraveghezi contul altcuiva sau să îl pui în modul vacanță, operatorul responsabil trebuie informat în prealabil și trebuie obținută aprobarea lui. Pentru sitting-uri scurte, sub 12 ore, e suficient un anunț către operator. În timpul sitting-ului sunt interzise toate mișcările de flote; este permisă doar parcarea flotei pe coordonatele sitterului și construirea de resurse pe planeta pe care se află. Un cont poate fi ținut în sitting cel mult 72 de ore. Pentru excepții trebuie obținută aprobarea unui operator. Un cont poate fi predat mai departe cel mult o dată la 3 luni și exclusiv gratuit. Anunță contul operatorului.</p>
+<hr>
+<h2>2. Multiconturi</h2>
+<p>Fiecare jucător are voie să joace un singur cont per univers. Dacă două sau mai multe conturi sunt jucate de obicei, ocazional sau permanent de pe aceeași conexiune la internet (de ex. școli, universități sau internet cafe-uri), trebuie anunțat în prealabil un admin. În astfel de cazuri, conturilor respective le este interzis orice contact între flote cât timp folosesc aceeași conexiune. De asemenea, sunt interzise și alte puncte comune.</p>
+<hr>
+<h2>3. Pushing</h2>
+<p>Pushing-ul este interzis în general. Pushing înseamnă, de exemplu, orice transport de resurse și orice lovitură asupra lunilor fără compensație adecvată, de la conturi cu mai puține puncte către conturi cu mai multe puncte.<br>
+Un schimb trebuie încheiat în 24 de ore. Excepțiile trebuie aprobate în prealabil de moderatori printr-un tichet pe Discord sau un mesaj privat în joc. <a href="./team">Echipa o găsești aici.</a>.<br>
+Lipsa aprobării sau nerespectarea regulii poate duce la ban.</p>
+
+<h2>3.1 Comerț și atacuri</h2>
+<p>Dacă jucătorii vor să vândă sau să împartă resurse altor jucători, o pot face la un raport între 75%% și 125%% din prețul pieței.</p>
+<p>Caz special:<br>
+Dacă după atacuri cu Stele ale morții nu este posibil să distribui resursele capturate în fereastra de 24 de ore, asta este permis în general, dar trebuie anunțat moderatorilor.</p>
+<details>
+	<summary>Exemple de comerț/atacuri neregulamentare (click pentru a extinde):</summary>
+	<ul>
+	<li>Jucătorul A (slab la puncte) își trimite intenționat flota la atac asupra jucătorului B (puternic la puncte), cu scopul de a fi distrusă complet. În acest caz, jucătorul mai puternic trebuie să deschidă un tichet.</li>
+	<li>Jucătorii dintr-un același ACS nu împart resursele capturate și câmpul de resturi conform regulii de 24 de ore.</li>
+	<li>Jucătorul A le spune altora că se retrage din joc. Pentru fiecare destinatar al acestui mesaj se aplică o pauză de atac de 24 de ore (de la primirea mesajului) față de cei anunțați. În acest caz, moderatorii trebuie anunțați.</li>
+	<li>Jucătorul A împarte cu alții detaliile flotei sale (sosire, timpi de zbor, mărime, poziție etc.) pentru ca aceste informații să poată fi folosite la atacarea jucătorului A. Acesta este un avantaj incorect față de ceilalți jucători (passive pushing). Acesta reprezintă un avantaj incorect față de ceilalți jucători și este considerat o furnizare de resurse (passive pushing). În acest caz, moderatorii trebuie anunțați.</li>
+	</ul>
+</details>
+
+<h2>3.2 Bătălii de adio</h2>
+<p>Bătăliile de adio trebuie coordonate, în general, în prealabil cu echipa de moderare.</p>
+
+<p><a href="{wiki_url}/wiki/En/Regeln">wiki</a></p>
+<hr>
+<h2>4. Bashing</h2>
+<p>Bashing înseamnă atacuri multiple într-un interval de 24 de ore asupra aceluiași jucător sau asupra aceleiași planete/luni. Este interzis, dar jocul împiedică să se întâmple. <a href="{wiki_url}/wiki/En/Universen-Übersicht">Setările pot varia de la un univers la altul.</a> Atacurile cu sonde de spionaj sau rachete interplanetare nu se iau în calcul.</p>
+<p>Regula de bază se aplică exclusiv jucătorilor activi. Dacă părțile sunt în război, sunt permise atacuri suplimentare. Războiul trebuie declarat pe forum cu cel puțin 24 de ore înainte de atacurile suplimentare (ambele alianțe sau numele celui care declară războiul trebuie scrise corect în titlul anunțului). O declarație de război poate fi adresată doar alianțelor, iar declarația poate fi făcută de o alianță sau de un individ.</p>
+<p>Acceptarea războiului nu este necesară. Războaiele care servesc în mod evident doar ocolirii masive a regulii de bash sunt interzise. Moderatorii și operatorii responsabili decid asta.</p>
+<hr>
+<h2>5. Atacuri cu rachete interplanetare</h2>
+<p>Sunt permise doar 1.000 de atacuri cu rachete interplanetare la 24 de ore. Numărul de rachete per atac este independent.</p>
+<hr>
+<h2>6. Folosirea bugurilor</h2>
+<p>Exploatarea bugurilor și a erorilor de programare este interzisă. Bugurile descoperite trebuie raportate cât mai repede, prin <a href="%s" target="_blank" rel="noopener noreferrer">GIT Issue</a> sau pe canalul de Discord #bugs. Trișatul este de asemenea interzis.</p>
+<hr>
+<h2>6.1 Unelte și aplicații</h2>
+<p>Folosirea uneltelor externe și a scripturilor de utilizator care nu au fost aprobate complet este interzisă.</p>
+<p>Scripturile și uneltele nu trebuie să ofere un avantaj în joc pe care jucătorii fără ele nu îl au. Pentru orice nelămurire privind conformitatea unei unelte cu regulile trebuie contactat un moderator/administrator. Pentru acest proces de aprobare, unealta trebuie pusă la dispoziția unui verificator desemnat și aprobată de el. Dacă o unealtă este aprobată în urma verificării, funcțiile ei (nu unealta în sine) sunt publicate de verificator.</p>
+<p>Notă: Publicarea și punerea la dispoziție a uneltelor dezvoltate de tine este foarte încurajată, dar nu obligatorie.</p>
+<hr>
+<h2>6.2 Abuzul protecției anti-vultur</h2>
+<p>Abuzul intenționat al mecanicii anti-vultur pentru a obține un avantaj, de exemplu o cercetare de graviton fără risc, este interzis și se pedepsește cu ban.</p>
+<hr>
+<h2>7. Amenințări/insulte</h2>
+<p>Șantajul și amenințările din viața reală duc la excluderea din una sau din toate zonele jocului. Șantajul și amenințările din viața reală sunt orice fel de comunicare care semnalează clar intenția de a localiza și a face rău unei persoane sau unei terțe persoane apropiate.</p>
+<hr>
+<h2>8. Spam și erotică</h2>
+<p>Spamul și reclamele pentru terți sunt interzise. Orice formă de erotism și pornografie este interzisă. Și se pedepsește cu ban pe tot universul și pe viață!</p>
+<hr>
+<h2>9. Bullying</h2>
+<p>Comportamentul dăunător pentru comunitate și bullying-ul sunt nedorite aici!</p>
+
+<p>Ca să definim: bullying înseamnă orice comportament care implică hărțuire emoțională repetată, regulată, tortură și rănire.
+Atât din partea unor indivizi, cât și a unui grup de persoane aflate într-o poziție superioară.
+Abuzul de putere, amenințările cu violența, abuzul verbal, hărțuirea, expunerea publică și excluderea sunt doar câteva exemple despre cum poate apărea bullying-ul.</p>
+
+<p>Dacă ești tu însuți victima bullying-ului sau auzi despre așa ceva, scrie-ne liniștit!
+Vom încerca să găsim o soluție.
+Bullying-ul nu rămâne fără consecințe.</p>
+<hr>
+<h2>10. Nume de jucători</h2>
+<p>Din cauza problemelor din trecut, orice caracter în afară de următoarele este interzis:</p>
+<p>a-z</p>
+<p>A-Z</p>
+<p>äÄ öÖ üÜ ß</p>
+<p>" ", "-", "_"</p>

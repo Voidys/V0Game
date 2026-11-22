@@ -1154,6 +1154,7 @@ ov_newname_specialchar: Tên hành tinh chỉ được chứa chữ số, chữ 
 ov_newname_too_long: Tên hành tinh tối đa %d ký tự.
 ov_news: Tin tức
 ov_news_all: 'Tất cả tin tức'
+tutorial_label: 'Hướng dẫn'
 tutorial_step_of: 'Bước %1 / %2'
 ov_of: trên
 ov_outlaw: 'Ngoài vòng pháp luật đến:'
@@ -1683,6 +1684,7 @@ shell_footer: Chân trang
 shell_footer_game: Trò chơi
 shell_footer_community: Cộng đồng
 shell_footer_legal: Pháp lý
+shell_footer_credits: 'xây dựng trên công sức của nhiều dự án mã nguồn mở'
 shell_imprint: Thông tin nhà phát hành
 ui_palette_placeholder: 'Trang, hành tinh, tọa độ (vd: 1:42:8)…'
 ui_palette_empty: Không có kết quả

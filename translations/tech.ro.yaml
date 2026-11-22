@@ -1,0 +1,817 @@
+bonus:
+  Attack: Atac
+  BuildTime: 'Timp de construcție'
+  Defensive: Apărare
+  DefensiveTime: 'Timp de construcție a apărării'
+  Energy: 'Producție de energie'
+  Expedition: Expediții
+  FleetSlots: 'Sloturi de flotă'
+  FlyTime: 'Timp de zbor'
+  GateCoolTime: Timp de reîncărcare a porții de salt
+  MoreFound: 'Găsiri din expediții'
+  Planets: Planete
+  ResearchTime: Timp de cercetare
+  Resource: 'Producție de resurse'
+  ResourceStorage: Depozitare de resurse
+  Shield: Scut
+  ShipStorage: 'Depozitare de nave'
+  ShipTime: 'Timp de construcție a navelor'
+  SpyPower: Putere de spionaj
+longDescription:
+  '1': >-
+    Minele de metal extrag minereul pe care se sprijină orice imperiu, la
+    început de drum sau deja consacrat.
+  '2': >-
+    Cristalul este ingredientul-cheie pentru circuitele electronice și anumite
+    aliaje.
+  '3': >-
+    Deuteriul alimentează navele tale spațiale și este extras din adâncul
+    mărilor. Este o substanță rară, deci relativ scumpă.
+  '4': >-
+    Centralele solare transformă lumina soarelui în energie. Fiecare mină are
+    nevoie de energie ca să funcționeze.
+  '6': >-
+    Implicit, fiecare nivel scurtează timpul de cercetare cu 8%.
+  '12': >-
+    Centrala cu fuziune produce energie prin fuziunea deuteriului. Oferă mai
+    multă energie decât o Centrală solară, dar costă mai mult de construit.
+    Producția crește cu Tehnologia energiei și cu nivelul centralei însăși.
+    Formula producției de energie este:<br>
+    Energie produsă = 30 x nivelul Centralei cu fuziune x (1,05 + (0,01 *
+    nivelul Tehnologiei energiei))^nivelul Centralei cu fuziune
+  '14': >-
+    Fabricile de roboți furnizează roboți de construcție care ajută la
+    ridicarea clădirilor tale. Fiecare nivel accelerează îmbunătățirea
+    clădirilor.
+  '15': >-
+    Culmea roboticii. Fiecare nivel înjumătățește timpul de construcție al
+    clădirilor, navelor și apărărilor.
+  '21': 'Toate navele și apărările sunt construite în șantierul naval al planetei.'
+  '22': Oferă depozitare pentru excesul de metal.
+  '23': Oferă depozitare pentru excesul de cristal.
+  '24': 'Oferă depozitare pentru excesul de deuteriu.'
+  '31': >-
+    Ai nevoie de un laborator de cercetare ca să cercetezi tehnologii noi.
+    Nivelul laboratorului stabilește cât de repede cercetezi și ce tehnologii
+    poți debloca. Cercetarea rulează în laboratorul planetei pe care o pornești,
+    iar rezultatul se aplică tuturor planetelor tale. Cât timp rulează o
+    cercetare, niciun laborator de cercetare nu poate fi îmbunătățit.
+  '33': >-
+    Terraformatorul extinde suprafața utilizabilă a planetei. Fiecare nivel îți
+    dă 5 câmpuri în plus, plus un câmp suplimentar la fiecare nivel par.
+    Fiecare nivel al Terraformatorului ocupă el însuși un câmp.<br>Construirea
+    lui cere energie, dar energia nu se consumă: planeta ta trebuie doar să
+    producă destulă (1.000 pentru nivelul 1, dublându-se cu fiecare nivel),
+    chiar dacă minele tale o folosesc deja. Odată construit, Terraformatorul nu
+    mai poate fi demolat niciodată.
+  '34': "Depozitul de alianță îți lasă să aprovizionezi cu deuteriu flotele prietene aflate în Menținere la planeta ta și astfel să le prelungești șederea. Îl deschizi din pagina clădirii: pentru fiecare flotă în Menținere alegi între 1 oră și atâtea ore câte are nivelul depozitului și plătești orele înmulțite cu costul orar de menținere al flotei din deuteriul planetei tale. Costul orar de menținere este o zecime din consumul de bază de combustibil însumat al navelor flotei, rotunjit în sus. O flotă poate fi aprovizionată iar și iar, dar nu poate avea niciodată mai mult de 32 de ore de ședere rămase. Pot fi aprovizionate doar flotele altor jucători aflate în prezent pe orbita planetei tale."
+  '35': >-
+    Docul de reparații poate repara navele care au fost distruse în bătălie și
+    au lăsat un câmp de epave. O reparație durează cel mult 12 ore și nu se
+    poate încheia mai devreme de 30 de minute după apariția câmpului de epave.
+    <br>După ce apare câmpul de epave, ai 3 zile ca să pornești reparația.
+    Când reparația se termină, trebuie să repui singur navele în serviciu. Dacă
+    nu o faci, ele revin automat în serviciu după 3 zile.
+  '41': >-
+    Luna nu are atmosferă, iar o lună nouă are loc pentru o singură clădire, așa
+    că începe cu Baza lunară. Fiecare nivel oferă 3 câmpuri în plus și ocupă el
+    însuși un câmp. Odată construită, Baza lunară nu mai poate fi demontată
+    niciodată.
+  '42': >-
+    Falanga senzorială îți lasă să urmărești mișcările flotelor. Cu cât nivelul
+    e mai mare, cu atât raza Falangei este mai mare: (nivelul Falangei)^2 - 1
+    sisteme implicit, deci nivelul 1 acoperă doar sistemul propriu al lunii. O
+    scanare costă 5.000 de deuteriu, care trebuie să fie pe lună. Ca să
+    scanezi, deschide vizualizarea galaxiei de pe lună și apasă pe o planetă din
+    rază. Lunile în sine nu pot fi scanate cu Falanga, pentru că nu au
+    atmosferă.<br><br>Falanga arată flotele care pleacă de la sau zboară spre
+    planeta scanată: când ajung, când se termină o Menținere și când flotele
+    proprietarului se întorc acasă. Staționările și rachetele nu sunt arătate
+    niciodată, la fel nici zborurile de reciclare sau de comerț spre planetă.
+  '43': >-
+    Porțile de salt sunt transmițătoare uriașe care trimit flote mari prin
+    univers fără să piardă timp. Nu consumă deuteriu, dar nu poți transfera
+    resurse în acest fel. Ambele porți trebuie să fie gata: după un salt,
+    fiecare poartă are nevoie de o răcire, care implicit este de 60 de minute
+    la nivelul 1 și scade cu fiecare nivel, până la 10 minute de la nivelul 15.
+  '44': >-
+    Silozurile de rachete îți stochează rachetele. Implicit, fiecare nivel
+    adaugă 10 sloturi. O Rachetă interceptoare ocupă 1 slot, o Rachetă
+    interplanetară ocupă 2.
+  '106': >-
+    Această tehnologie îți lasă să aduni informații despre alte planete și
+    luni. Când trimiți sonde, Tehnologia ta de spionaj este comparată cu cea a
+    țintei: cu cât nivelul tău e mai mare, cu atât mai multe informații în
+    raport și cu atât mai mică șansa ca sondele tale să fie detectate. Mai
+    multe sonde dezvăluie mai multe detalii, dar cresc riscul de detectare.
+    La anumite niveluri ale Tehnologiei de spionaj afli mai multe și despre
+    flotele străine pe ecranul tău de Prezentare generală:<br><br><li>La
+    nivelul 0-1 vezi doar că o flotă se apropie de planeta ta</li><li>La
+    nivelurile 2-3 vezi câte nave se apropie</li><li>La nivelurile 4-7 vezi ce
+    tipuri de nave sunt în flotă</li><li>La nivelul 8+ vezi câte nave din
+    fiecare tip sunt în flotă</li>
+  '108': >-
+    Calculatoarele mai bune îți lasă să comanzi mai multe flote. Fiecare nivel
+    al Tehnologiei calculatoarelor crește cu unu numărul maxim de flote.
+  '109': >-
+    Tehnologia armelor face sistemele de armament mai eficiente. Fiecare nivel
+    crește puterea armelor tuturor unităților cu 10% din valoarea de bază.
+  '110': >-
+    Tehnologia scuturilor face scuturile navelor și ale structurilor defensive
+    mai eficiente. Fiecare nivel crește puterea scuturilor cu 10% din valoarea
+    de bază.
+  '111': >-
+    Aliajele speciale îmbunătățesc blindajul navelor și al structurilor
+    defensive. Fiecare nivel crește eficiența blindajului cu 10%.
+  '113': >-
+    Stăpânirea diferitelor tipuri de energie este cheia multor tehnologii noi.
+    Fiecare nivel al Tehnologiei energiei crește și producția de energie a
+    Centralei cu fuziune.
+  '114': >-
+    Prin integrarea dimensiunilor a 4-a și a 5-a poți cerceta un nou tip de
+    propulsie, mai economică și mai eficientă.
+  '115': >-
+    Dezvoltarea acestei propulsii face unele nave mai rapide, dar fiecare nivel
+    adaugă doar 10% din viteza de bază. Nave afectate: Transportor mic,
+    Transportor mare, Vânător ușor, Reciclator și Sondă de spionaj
+    (Transportorul mic și Reciclatorul trec mai târziu la propulsii mai bune).
+  '117': >-
+    Propulsia cu impuls funcționează pe principiul reacției. Dezvoltarea ei
+    face unele nave mai rapide, dar fiecare nivel adaugă doar 20% din viteza de
+    bază: Bombardier, Crucișător, Vânător greu și Navă de colonizare, plus
+    Transportorul mic și Reciclatorul după ce trec la această propulsie.
+    Rachetele interplanetare zboară și ele mai departe cu fiecare nivel.
+  '118': >-
+    Propulsia hiperspațială curbează spațiul în jurul unei nave. Dezvoltarea ei
+    face unele nave mai rapide, dar fiecare nivel adaugă doar 30% din viteza de
+    bază: Crucișător de luptă, Navă de luptă, Distrugător, Steaua morții, Luna
+    neagră, Transportor de luptă, Avatar și Reciclator de luptă, plus
+    Bombardierul și Reciclatorul după ce trec la această propulsie. Cere
+    Tehnologia hiperspațiului (nivelul 3) și un Laborator de cercetare (nivelul
+    7).
+  '120': >-
+    Lumina focalizată produce o rază care dăunează la tot ce lovește. Cere un
+    Laborator de cercetare (nivelul 1) și Tehnologia energiei (nivelul 2).
+  '121': 'O rază mortală de ioni accelerați, care provoacă daune enorme la impact.'
+  '122': >-
+    O dezvoltare ulterioară a tehnologiei ionice, care accelerează plasmă de
+    energie înaltă, creată prin supraîncălzirea ionilor. Are un efect devastator
+    la impact.
+  '123': >-
+    Cercetătorii de pe planete diferite comunică prin această rețea. Fiecare
+    nivel lasă încă un laborator să se alăture laboratorului în care pornești o
+    cercetare. Sunt alese laboratoarele cu cele mai mari niveluri, iar un
+    laborator conectat trebuie să fie destul de avansat ca să poată rula acea
+    cercetare singur. Nivelurile lor se adună pentru calculul timpului de
+    cercetare.
+  '124': >-
+    Astrofizica deblochează colonizarea și expedițiile în spațiul adânc.
+    Limita de colonii, timpul de Menținere și pozițiile de mai jos sunt setările
+    implicite; universul tău poate diferi.<br><br> <li>Limita de colonii</li>
+    Nivelul 1-2 = 2 planete<br> Nivelul 3-4 = 3 planete<br> Nivelul 5-6 = 4
+    planete<br> Nivelul 7-8 = 5 planete<br> Nivelul 9-10 = 6 planete<br>
+    Nivelul 11-12 = 7 planete<br> Nivelul 13-14 = 8 planete<br> Nivelul 15-16
+    = 9 planete<br> Nivelul 17-18 = 10 planete<br> Nivelul 19-20 = 11
+    planete<br> Nivelul 21+ = 12 planete<br><br> <li>Sloturi de expediție</li>
+    Nivelul 1-3 = 1 expediție<br> Nivelul 4-8 = 2 expediții<br> Nivelul 9-15 =
+    3 expediții<br> Nivelul 16-24 = 4 expediții<br>(încă una la fiecare
+    pătrat perfect următor: 25, 36, ...)<br><br> <li>Timp de Menținere în
+    expediție</li> Nivel = timpul maxim de Menținere în ore<br><br>
+    <li>Poziții colonizabile</li> Nivelul 1-3 = 4-12<br> Nivelul 4-5 = 3-13<br>
+    Nivelul 6-7 = 2-14<br> Nivelul 8+ = 1-15
+  '131': >-
+    Crește producția de metal cu 2% pe nivel.
+  '132': >-
+    Crește producția de cristal cu 2% pe nivel.
+  '133': >-
+    Crește producția de deuteriu cu 2% pe nivel.
+  '134': >-
+    Reduce costurile de zbor cu 2% pe nivel.
+  '199': >-
+    Tragerea unei sarcini concentrate de particule de graviton creează un câmp
+    gravitațional artificial care poate distruge nave și chiar luni. Cere un
+    Laborator de cercetare (nivelul 12).
+  '202': >-
+    Transportorul mic este o navă agilă care duce rapid resurse spre alte
+    planete.<br>Zboară cu propulsia cu combustie până când Propulsia ta cu
+    impuls ajunge la nivelul 5. De atunci trece la propulsia cu impuls, care
+    îi dublează viteza de bază.
+  '203': >-
+    Acest cargou duce mult mai mult decât Transportorul mic și este în general
+    mai rapid datorită unei propulsii îmbunătățite.
+  '204': >-
+    Prima navă de luptă pe care o construiește orice împărat. Vânătorul ușor
+    este agil, dar vulnerabil singur; în număr mare, devine o adevărată
+    amenințare pentru orice imperiu. Vânătoarele ușoare sunt primele care
+    escortează transportoarele mici și mari spre planete ostile cu apărare
+    slabă.
+  '205': 'Acest vânător are blindaj mai bun și lovește mai tare decât Vânătorul ușor.'
+  '206': >-
+    Crucișătoarele au blindaj de aproape trei ori mai mare decât al vânătoarelor
+    grele și putere de foc de peste două ori mai mare. Sunt și foarte rapide.
+  '207': >-
+    Navele de luptă sunt coloana vertebrală a unei flote. Tunurile grele,
+    viteza mare și calele mari de marfă le fac adversari de luat în serios.
+  '208': >-
+    Această navă bine blindată cucerește planete noi, de care un imperiu în
+    ascensiune are nevoie ca să crească. La noua colonie, nava este demontată,
+    iar tot materialul reciclabil merge în dezvoltarea noii lumi. Câte planete
+    poți coloniza depinde direct de Astrofizică: primul nivel și fiecare al
+    doilea nivel după el permit încă o colonie (implicit).
+  '209': >-
+    Reciclatorul culege materii prime din câmpurile de resturi. Capacitatea lui
+    de transport este de 20.000. Începe cu propulsia cu combustie, trece la
+    propulsia cu impuls când Propulsia ta cu impuls ajunge la nivelul 17 și la
+    propulsia hiperspațială când Propulsia ta hiperspațială ajunge la nivelul
+    15.
+  '210': >-
+    Sondele de spionaj sunt drone mici și agile care livrează date despre flote
+    și planete la mari distanțe.
+  '211': >-
+    Bombardierul a fost construit special ca să distrugă apărările unei
+    planete.<br>Zboară cu propulsia cu impuls și trece la propulsia
+    hiperspațială când Propulsia ta hiperspațială ajunge la nivelul 8.
+  '212': >-
+    Sateliții solari sunt platforme simple de celule solare pe o orbită înaltă,
+    staționară. Strâng lumina soarelui și o transmit prin laser către stația de
+    la sol.
+  '213': >-
+    Distrugătorul este regele navelor de război. Împotriva Turelelor laser
+    ușoare are foc rapid: după fiecare lovitură mai trage o dată în 9 din 10
+    cazuri.
+  '214': >-
+    Puterea distructivă a Stelei morții nu are egal și poate distruge luni.
+  '215': 'Crucișătorul de luptă este specializat în interceptarea flotelor ostile.'
+  '216': >-
+    Succesorul popularei Stele ale morții: mult mai rapid și mai robust, cu o
+    cală uriașă de marfă, dar lovește ceva mai puțin tare.
+  '217': >-
+    O dezvoltare a Transportorului mare, cu mult mai multă capacitate de
+    transport. Merge pe propulsia hiperspațială, deci începe mai lent decât
+    Transportorul mare, dar îl depășește pe măsură ce Propulsia ta
+    hiperspațială crește în nivel.
+  '218': 'Cel mai rău scenariu posibil, deși unul foarte lent.'
+  '219': >-
+    O cală uriașă de marfă și motoare noi îi permit să zboare mai repede și să
+    adune mai mult din câmpurile de resturi.
+  '220': >-
+    Colosul de oțel este o adevărată fortăreață în spațiu, apărată de bariere
+    de neînvins și de blindaj masiv. Chiar și cele mai aprige atacuri ricoșează
+    de el în timp ce înaintează neabătut. Dar această superioritate defensivă
+    se plătește: armamentul lui abia merită menționat, iar motoarele lui lente
+    îl fac un gigant încet. În locul loviturilor fulgerătoare sau al
+    manevrelor agile, nava se bazează pe rezistență pură. Cine vrea să-l
+    oprească trebuie să aibă mare răbdare – sau putere de foc copleșitoare.
+  '221': >-
+    Lama furtunii este un vânător de top: incredibil de rapid și înarmat fără
+    milă. Adversarii abia o văd înainte să lovească. Apărarea e o grijă
+    secundară – nu trebuie să reziste la ce poate pur și simplu depăși. Singura
+    ei țintă sunt flotele de transportoare și reciclatoare, care sunt
+    spulberate fără rezistență. Cu viteza ei uluitoare, poate lovi după
+    plac și poate dispărea înainte să sosească întăririle. Cine e vizat de Lama
+    furtunii are puține șanse de scăpare.
+  '222': >-
+    Crucișătorul greu este o evoluție întărită a crucișătorului standard. Cu
+    scuturi îmbunătățite și armament puternic, își poate ține locul în fața
+    adversarilor greoi. Excelează când este folosit alături de Coloși de oțel,
+    Distrugătoare și Bombardiere, unde puterea lui de foc strălucește cu
+    adevărat. Totuși, în ciuda puterii lui, rămâne lent și mai puțin manevrabil.
+  '223': >-
+    Drona-scut reprezintă o nouă abordare a apărării flotei, concentrată în
+    principal pe protecția echipajului. Tehnologiile inovatoare, dar grele, de
+    scuturi au redus semnificativ viteza de zbor și manevrabilitatea. În ciuda
+    vitezei și agilității slabe, este foarte eficientă în apărare. Structura
+    depășită a fost împinsă la limită ca să ofere o apărare aproape
+    impenetrabilă.
+  '224': >-
+    Transportul de asalt improvizat este o navă de transport netestată, echipată
+    cu armament minim, creată special ca să-i deranjeze pe vecinii nepăsători
+    și nepregătiți. Acest vehicul improvizat nu e făcut pentru folosire pe
+    termen lung, ci pentru atacuri rapide, impulsive, care provoacă reacții
+    imediate. O ceartă de vecinătate este practic garantată de îndată ce este
+    folosit. Cu echipamentul lui limitat și natura imprevizibilă, devine o
+    unealtă periculoasă pentru escaladarea rapidă a conflictelor.
+  '225': >-
+    Transportorul furtunii este o adevărată minune a tehnologiei, oferind
+    echilibrul perfect între putere de luptă, viteză și capacitate de
+    transport. Capacitatea lui de a desfășura rapid trupe și resurse, aducând
+    pe câmpul de luptă o putere de foc impresionantă, l-a făcut un element
+    esențial al oricărei flote puternice. Fie pentru unități de asalt rapide,
+    fie pentru sprijinirea operațiunilor de lungă durată, Transportorul
+    furtunii este cheia războiului eficient și un obiect absolut obligatoriu în
+    orice flotă.
+  '226': >-
+    Transportorul de luptă colosal reprezintă culmea ingineriei. În ciuda
+    designului ușor voluminos și a vitezei de zbor lente care rezultă, este cel
+    mai puternic blindat transportor de luptă văzut vreodată de vreo flotă.
+    Puterea lui de foc copleșitoare îl face o forță de neoprit pe câmpul de
+    luptă. Acest behemot poate sparge fără efort liniile inamice, oferind în
+    același timp protecție maximă echipajului. Întruchipează forță și
+    reziliență, fiind un atu esențial pentru orice flotă puternic înarmată.
+  '227': >-
+    Reciclatorul optimizat este o îmbunătățire de ultimă generație a
+    reciclatorului standard. Echipat cu un motor cu impuls puternic, ajunge mai
+    repede și mai economic la câmpurile de resturi, fiind un atu esențial
+    pentru orice flotă avansată. Designul lui optimizat reduce costurile de
+    construcție și crește eficiența recuperării resurselor. Disponibil de la
+    mijlocul jocului, oferă un avantaj strategic oricărui imperiu în expansiune.
+  '228': >-
+    Reciclatorul Omega reprezintă culmea tehnologiei de reciclare – dar cu un
+    preț mare. Propulsia lui hiperspațială puternică îi permite să ajungă la
+    câmpurile de resturi în timp record și să recupereze resurse mai repede
+    decât orice altă navă. Totuși, viteza vine în detrimentul eficienței:
+    costurile lui de construcție și de combustibil sunt imense, făcându-l o
+    opțiune viabilă doar pentru comandanții bogați la sfârșitul jocului. Pentru
+    cei care pun viteza înaintea costului, acesta este Reciclatorul suprem.
+  '229': >-
+    Dezvoltată ca să rupă dominația Xerilor, Vipera este arma supremă împotriva
+    Vânătoarelor ușoare, Vânătoarelor grele și Crucișătoarelor. Cu tunurile ei
+    cu foc rapid și tehnologia avansată, răstoarnă balanța puterii în univers.
+  '230': >-
+    Rapid. Precis. Intangibil. Interceptorul nu e construit pentru lupte corecte
+    – e proiectat să lovească repede și tare, creând un avantaj copleșitor într-o
+    clipită.
+  '231': >-
+    Behemotul este rezultatul unor decenii de cercetare a gravitonului,
+    transformat într-o platformă de luptă necruțătoare. Spre deosebire de
+    Stelele morții, nu a fost conceput pentru distrugere planetară, ci pentru
+    eficiență maximă pe câmpul de luptă. Prin renunțarea la sistemele mari
+    consumatoare de energie necesare distrugerii lunilor, designul lui a fost
+    mult ușurat, permițând motoare mai puternice, agilitate mai mare și putere
+    de foc crescută. Tunul lui compact cu graviton îl face un motor mobil al
+    distrugerii, capabil să anihileze singur chiar și flote masive.
+  '232': >-
+    Titanul golului reprezintă culmea tehnologiei moderne a gravitonului.
+    Fiecare aspect al designului lui servește unui singur scop: anihilarea
+    rapidă a lunilor inamice. Turelele de arme convenționale au fost omise
+    intenționat ca să reducă masa și să facă loc unor generatoare de cristal
+    colosale. Acestea alimentează cele mai avansate bobine de accelerare
+    construite vreodată în galaxiile cunoscute, oferind navei un nivel de
+    mobilitate fără egal. Cerințele imense de cristal fac din fiecare Titan al
+    golului o realizare industrială monumentală – și un simbol al puterii
+    distructive fără limite.
+  '401': >-
+    Lansatorul de rachete este o apărare simplă, dar rentabilă. După o
+    bătălie, în medie aproximativ 70% din apărările distruse sunt reconstruite.
+  '402': >-
+    Laserele ușoare sunt arme simple de la sol. Sisteme speciale de țintire
+    urmăresc inamicul, iar un laser de mare intensitate taie prin carcasa
+    țintei. După o bătălie, în medie aproximativ 70% din apărările distruse
+    sunt reconstruite.
+  '403': >-
+    Laserul greu este o versiune practică, îmbunătățită, a Laserului ușor. După
+    o bătălie, în medie aproximativ 70% din apărările distruse sunt
+    reconstruite.
+  '404': >-
+    Tunul Gauss trage proiectile metalice de mare densitate cu o viteză
+    extrem de mare. După o bătălie, în medie aproximativ 70% din apărările
+    distruse sunt reconstruite.
+  '405': >-
+    Un tun ionic trage raze de ioni (particule încărcate pozitiv sau negativ).
+    După o bătălie, în medie aproximativ 70% din apărările distruse sunt
+    reconstruite.
+  '406': >-
+    Turela cu plasmă folosește o celulă mare de combustibil a unui reactor
+    nuclear ca să alimenteze un accelerator electromagnetic care trage pulsuri
+    (toroizi) de plasmă. După o bătălie, în medie aproximativ 70% din
+    apărările distruse sunt reconstruite.
+  '407': >-
+    Cupola de scut mică învăluie întreaga planetă într-un câmp care absoarbe
+    cantități uriașe de energie. Poate fi construită doar una pe planetă.
+  '408': >-
+    Cupola de scut mare este o dezvoltare ulterioară care are nevoie de mult
+    mai multă energie ca să reziste atacurilor. Poate fi construită doar una pe
+    planetă.
+  '409': >-
+    Evoluția tehnologiei cupolelor de scut. Folosește mult mai multă energie,
+    dar rezistă la mai multe atacuri decât orice alt scut. Poate fi construit
+    doar unul pe planetă.
+  '410': >-
+    După ani de cercetări asupra gravitației, oamenii de știință au dezvoltat
+    un tun cu graviton care generează un câmp mic, concentrat, de graviton și îl
+    trage în inamic.
+  '411': >-
+    O platformă de apărare imobilă, fără energie proprie, ținută pe o orbită
+    stabilă în jurul planetei de gravitație. Pornirea acestui proces cere
+    cantități uriașe de energie. Poate fi construită doar una pe planetă.
+  '412': >-
+    Buncărul este o structură puternic fortificată, proiectată să reziste chiar
+    și celor mai puternice atacuri. Oferă protecție fără egal locuitorilor
+    planetei și infrastructurii critice, fiind o piatră de temelie a apărării
+    planetare.
+  '413': >-
+    Laserul Titan este o armă colosală, cu putere distructivă fără egal.
+  '414': >-
+    Momeala este un sistem defensiv sofisticat, proiectat să inducă în eroare
+    și să deruteze forțele inamice. Camuflându-se ca Lansator de rachete,
+    descurajează atacurile.
+  '502': >-
+    Rachetele interceptoare distrug Rachetele interplanetare care sosesc. Este
+    nevoie de o Rachetă interceptoare pentru fiecare Rachetă interplanetară.
+  '503': >-
+    Rachetele interplanetare distrug apărările adversarului, dacă Rachetele
+    interceptoare nu le doboară. Apărările distruse astfel nu sunt
+    reconstruite. Implicit, raza lor (în sisteme solare) depinde de nivelul
+    Propulsiei tale cu impuls:<br>Raza = (5 x nivelul Propulsiei cu impuls) - 1
+  '901': >-
+    Metalul este resursa principală pentru clădiri și nave. Este cea mai
+    ieftină resursă, dar și cea de care ai cel mai mult nevoie și, ca și
+    cristalul, cere cea mai puțină energie la producție. Cu cât minele sunt mai
+    mari, cu atât sapă mai adânc în pământ.
+  '902': >-
+    Cristalul este resursa principală pentru circuite electronice și anumite
+    aliaje. Se produce în mine subterane, unde materia primă este transformată
+    pe loc în circuite.
+  '903': >-
+    Deuteriul se găsește în cele mai adânci mări și este una dintre cele mai
+    rare resurse din univers. Trebuie să ajungi pe fundul mării ca să-l obții,
+    ceea ce îl face cea mai scumpă resursă.
+  '911': 'Energia este necesară pentru producerea oricărei resurse.'
+secureResources: >-
+  Fiecare nivel al unei clădiri de depozitare protejează 1% din producția
+  zilnică a acelei resurse de jefuire în timpul atacurilor, până la un maxim de
+  10%.
+shortDescription:
+  '1': >-
+    Minele de metal extrag minereul pe care se sprijină orice imperiu, la
+    început de drum sau deja consacrat.
+  '2': >-
+    Cristalul este ingredientul-cheie pentru circuitele electronice și anumite
+    aliaje.
+  '3': >-
+    Deuteriul alimentează navele tale spațiale și este extras din adâncul
+    mărilor. Este o substanță rară, deci relativ scumpă.
+  '4': >-
+    Centralele solare transformă lumina soarelui în energie. Fiecare mină are
+    nevoie de energie ca să funcționeze.
+  '6': >-
+    Implicit, fiecare nivel scurtează timpul de cercetare cu 8%.
+  '12': Centrala cu fuziune produce energie prin fuziunea combustibilului deuteriu.
+  '14': >-
+    Fabricile de roboți furnizează roboți de construcție care ajută la
+    ridicarea clădirilor tale. Fiecare nivel accelerează îmbunătățirea
+    clădirilor.
+  '15': >-
+    Culmea roboticii. Fiecare nivel înjumătățește timpul de construcție al
+    clădirilor, navelor și apărărilor.
+  '21': 'Toate navele și apărările sunt construite în șantierul naval al planetei.'
+  '22': Oferă depozitare pentru excesul de metal.
+  '23': Oferă depozitare pentru excesul de cristal.
+  '24': 'Oferă depozitare pentru excesul de deuteriu.'
+  '31': 'Ai nevoie de un laborator de cercetare ca să cercetezi tehnologii noi.'
+  '33': >-
+    Terraformatorul extinde suprafața utilizabilă a planetei: 5 câmpuri în plus
+    pe nivel, plus unul suplimentar la fiecare nivel par. Fiecare nivel ocupă el
+    însuși un câmp.
+  '34': "Depozitul de alianță îți lasă să prelungești, pe deuteriu, șederea flotelor prietene aflate în Menținere la planeta ta: la fiecare aprovizionare, până la atâtea ore câte are nivelul depozitului."
+  '35': 'Docul de reparații reface navele dintr-un câmp de epave.'
+  '41': >-
+    Luna nu are atmosferă, iar o lună nouă are loc pentru o singură clădire, așa
+    că începe cu Baza lunară.
+  '42': >-
+    Falanga senzorială îți lasă să urmărești mișcările flotelor. Cu cât nivelul
+    e mai mare, cu atât raza Falangei este mai mare.
+  '43': >-
+    Porțile de salt sunt transmițătoare uriașe care trimit flote mari prin
+    univers fără să piardă timp.
+  '44': 'Silozurile de rachete îți stochează rachetele.'
+  '106': >-
+    Această tehnologie îți lasă să aduni informații despre alte planete și
+    luni.
+  '108': >-
+    Calculatoarele mai bune îți lasă să comanzi mai multe flote. Fiecare nivel
+    al Tehnologiei calculatoarelor crește cu unu numărul maxim de flote.
+  '109': >-
+    Tehnologia armelor face sistemele de armament mai eficiente. Fiecare nivel
+    crește puterea armelor tuturor unităților cu 10% din valoarea de bază.
+  '110': >-
+    Tehnologia scuturilor face scuturile navelor și ale structurilor defensive
+    mai eficiente. Fiecare nivel crește puterea scuturilor cu 10% din valoarea
+    de bază.
+  '111': >-
+    Aliajele speciale îmbunătățesc blindajul navelor și al structurilor
+    defensive. Fiecare nivel crește eficiența blindajului cu 10%.
+  '113': >-
+    Stăpânirea diferitelor tipuri de energie este cheia multor tehnologii noi.
+  '114': >-
+    Prin integrarea dimensiunilor a 4-a și a 5-a poți cerceta un nou tip de
+    propulsie, mai economică și mai eficientă.
+  '115': >-
+    Dezvoltarea acestei propulsii face unele nave mai rapide, dar fiecare nivel
+    adaugă doar 10% din viteza de bază.
+  '117': >-
+    Propulsia cu impuls funcționează pe principiul reacției. Dezvoltarea ei
+    face unele nave mai rapide, dar fiecare nivel adaugă doar 20% din viteza de
+    bază.
+  '118': >-
+    Propulsia hiperspațială curbează spațiul în jurul unei nave. Dezvoltarea ei
+    face unele nave mai rapide, dar fiecare nivel adaugă doar 30% din viteza de
+    bază.
+  '120': 'Lumina focalizată produce o rază care dăunează la tot ce lovește.'
+  '121': 'O rază mortală de ioni accelerați, care provoacă daune enorme la impact.'
+  '122': >-
+    O dezvoltare ulterioară a tehnologiei ionice, care accelerează plasmă de
+    energie înaltă, creată prin supraîncălzirea ionilor. Are un efect devastator
+    la impact.
+  '123': Cercetătorii de pe planete diferite comunică prin această rețea.
+  '124': >-
+    Deblochează colonizarea și expedițiile în spațiul adânc. Planete în plus la
+    nivelurile impare, sloturi de expediție în plus la nivelurile pătrate,
+    Menținere mai lungă în expediții și mai multe poziții de planetă într-un
+    sistem.
+  '131': >-
+    Crește producția de metal cu 2% pe nivel.
+  '132': >-
+    Crește producția de cristal cu 2% pe nivel.
+  '133': >-
+    Crește producția de deuteriu cu 2% pe nivel.
+  '134': >-
+    Reduce costurile de zbor cu 2% pe nivel.
+  '199': >-
+    Tragerea unei sarcini concentrate de particule de graviton creează un câmp
+    gravitațional artificial care poate distruge nave și chiar luni.
+  '202': >-
+    Transportorul mic este o navă agilă care duce rapid resurse spre alte
+    planete.
+  '203': >-
+    Acest cargou duce mult mai mult decât Transportorul mic și este în general
+    mai rapid datorită unei propulsii îmbunătățite.
+  '204': >-
+    Prima navă de luptă pe care o construiește orice împărat. Vânătorul ușor
+    este agil, dar vulnerabil singur; în număr mare, devine o adevărată
+    amenințare pentru orice imperiu. Vânătoarele ușoare sunt primele care
+    escortează transportoarele mici și mari spre planete ostile cu apărare
+    slabă.
+  '205': 'Acest vânător are blindaj mai bun și lovește mai tare decât Vânătorul ușor.'
+  '206': >-
+    Crucișătoarele au blindaj de aproape trei ori mai mare decât al vânătoarelor
+    grele și putere de foc de peste două ori mai mare. Sunt și foarte rapide.
+  '207': >-
+    Navele de luptă sunt coloana vertebrală a unei flote. Tunurile grele,
+    viteza mare și calele mari de marfă le fac adversari de luat în serios.
+  '208': 'Planetele libere pot fi colonizate cu această navă.'
+  '209': 'Reciclatorul culege materii prime din câmpurile de resturi.'
+  '210': >-
+    Sondele de spionaj sunt drone mici și agile care livrează date despre flote
+    și planete la mari distanțe.
+  '211': 'Bombardierul a fost construit special ca să distrugă apărările unei planete.'
+  '212': >-
+    Sateliții solari sunt platforme simple de celule solare pe o orbită înaltă,
+    staționară. Strâng lumina soarelui și o transmit prin laser către stația de
+    la sol.
+  '213': 'Distrugătorul este regele navelor de război.'
+  '214': >-
+    Puterea distructivă a Stelei morții nu are egal și poate distruge luni.
+  '215': 'Crucișătorul de luptă este specializat în interceptarea flotelor ostile.'
+  '216': >-
+    Succesorul popularei Stele ale morții: mult mai rapid și mai robust, cu o
+    cală uriașă de marfă, dar lovește ceva mai puțin tare.
+  '217': >-
+    O dezvoltare a Transportorului mare, cu mult mai multă capacitate de
+    transport. Merge pe propulsia hiperspațială, deci începe mai lent decât
+    Transportorul mare, dar îl depășește pe măsură ce Propulsia ta
+    hiperspațială crește în nivel.
+  '218': 'Cel mai rău scenariu posibil, deși unul foarte lent.'
+  '219': >-
+    O cală uriașă de marfă și motoare noi îi permit să zboare mai repede și să
+    adune mai mult din câmpurile de resturi.
+  '220': >-
+    Colosul de oțel rezistă oricărui atac cu scuturi masive și blindaj gros,
+    dar armele și motoarele lui lasă mult de dorit.
+  '221': >-
+    Lama furtunii este un vânător fulgerător, înarmat până în dinți. Apărare?
+    Inutilă – prada ei sunt transportoarele și reciclatoarele fără apărare.
+  '222': >-
+    Un crucișător lent, dar puternic înarmat, cu scuturi și capacități ofensive
+    sporite.
+  '223': >-
+    O reproiectare a vânătorului ușor, care pune siguranța echipajului înaintea
+    unor caracteristici de zbor slabe.
+  '224': >-
+    O navă de transport netestată, cu armament minim, proiectată să-i deranjeze
+    pe vecinii nepăsători și să declanșeze conflict imediat.
+  '225': >-
+    O navă care combină puterea de luptă, viteza și capacitatea de transport,
+    devenind indispensabilă oricărei flote puternice.
+  '226': >-
+    Un transportor de luptă puternic blindat, cu un design impunător, ușor
+    voluminos, a cărui putere de foc copleșitoare poate învinge chiar și cei mai
+    duri adversari.
+  '227': >-
+    O versiune îmbunătățită a reciclatorului clasic, cu motoare cu impuls, care
+    permite misiuni de recuperare mai eficiente la costuri mai mici.
+  '228': O îmbunătățire extrem de rapidă, dar ineficientă, a Reciclatorului, cu propulsie hiperspațială.
+  '229': >-
+    Dezvoltată ca să rupă dominația Xerilor, Vipera este arma supremă împotriva
+    Vânătoarelor ușoare, Vânătoarelor grele și Crucișătoarelor. Cu tunurile ei
+    cu foc rapid și tehnologia avansată, răstoarnă balanța puterii în univers.
+  '230': >-
+    Rapid. Precis. Intangibil. Interceptorul nu e construit pentru lupte corecte
+    – e proiectat să lovească repede și tare, creând un avantaj copleșitor într-o
+    clipită.
+  '231': >-
+    O Stea a morții mai mică și mai rapidă, care nu poate distruge luni.
+    Behemotul este mortal împotriva flotelor.
+  '232': >-
+    Mai rapid, mai exploziv, mereu o surpriză plăcută.
+    Titanul golului este teroarea lunilor.
+  '401': Lansatorul de rachete este o apărare simplă, dar rentabilă.
+  '402': >-
+    Laserele ușoare sunt arme defensive simple de la sol. Sisteme speciale de
+    țintire urmăresc navele inamice, iar un laser de mare intensitate taie
+    prin carcasa țintei.
+  '403': Laserul greu este o versiune îmbunătățită a Laserului ușor.
+  '404': >-
+    Tunul Gauss trage proiectile metalice de mare densitate cu o viteză
+    extrem de mare.
+  '405': >-
+    Un tun ionic trage raze de ioni (particule încărcate pozitiv sau negativ).
+  '406': >-
+    Turela cu plasmă folosește o celulă mare de combustibil a unui reactor
+    nuclear ca să alimenteze un accelerator electromagnetic care trage pulsuri
+    (toroizi) de plasmă.
+  '407': >-
+    Cupola de scut mică învăluie întreaga planetă într-un câmp care absoarbe
+    cantități uriașe de energie.
+  '408': >-
+    Cupola de scut mare poate absorbi substanțial mai multă energie în timpul
+    atacurilor.
+  '409': >-
+    Evoluția tehnologiei cupolelor de scut. Folosește mult mai multă energie,
+    dar rezistă la mai multe atacuri decât orice alt scut.
+  '410': >-
+    După ani de cercetări asupra gravitației, oamenii de știință au dezvoltat
+    un tun cu graviton care generează un câmp mic, concentrat, de graviton și îl
+    trage în inamic.
+  '411': >-
+    O platformă de apărare imobilă, fără energie proprie, ținută pe o orbită
+    stabilă în jurul planetei de gravitație. Pornirea acestui proces cere
+    cantități uriașe de energie.
+  '412': 'Protejează! Ca piesa de Lego din Kindergarten TD.'
+  '413': 'Laserul Titan este un laser colosal.'
+  '414': >-
+    Momeala este un sistem defensiv sofisticat, proiectat să inducă în eroare
+    și să deruteze forțele inamice. Camuflându-se ca Lansator de rachete,
+    descurajează atacurile.
+  '502': 'Rachetele interceptoare distrug Rachetele interplanetare care sosesc.'
+  '503': 'Rachetele interplanetare distrug apărările adversarului.'
+  '901': >-
+    Metalul este resursa principală pentru clădiri și nave. Este cea mai
+    ieftină resursă, dar și cea de care ai cel mai mult nevoie.
+  '902': >-
+    Cristalele sunt resursa principală folosită la construirea circuitelor
+    electronice și la formarea unor aliaje.
+  '903': >-
+    Deuteriul se găsește în cele mai adânci mări. Este cea mai scumpă resursă și
+    cere și cea mai multă energie.
+  '911': 'Energia este necesară pentru producerea oricărei resurse.'
+shortNames:
+  '202': Transportor mic
+  '203': Transportor mare
+  '204': Vânător ușor
+  '205': Vânător greu
+  '206': Crucișător
+  '207': Navă de luptă
+  '208': Navă de colonizare
+  '209': Reciclator
+  '210': Sondă de spionaj
+  '211': Bombardier
+  '212': Satelit solar
+  '213': Distrugător
+  '214': Steaua morții
+  '215': Crucișător de luptă
+  '216': Luna neagră
+  '217': Transportor de luptă
+  '218': Avatar
+  '219': Reciclator de luptă
+  '220': Colosul de oțel
+  '221': Lama furtunii
+  '222': Crucișător greu
+  '223': Dronă-scut
+  '224': Transport de asalt improvizat
+  '225': Transportorul furtunii
+  '226': Transportor de luptă colosal
+  '227': Reciclator optimizat
+  '228': Reciclator Omega
+  '229': Viperă
+  '230': Interceptor
+  '231': Behemot
+  '232': Titanul golului
+  '401': Lansator de rachete
+  '402': Turelă laser ușoară
+  '403': Turelă laser grea
+  '404': Tun Gauss
+  '405': Tun ionic
+  '406': Tun cu plasmă
+  '407': Cupolă de scut mică
+  '408': Cupolă de scut mare
+  '409': Scut atmosferic
+  '410': 'Tun cu graviton'
+  '411': Platformă orbitală de apărare
+  '412': Buncăr
+  '413': Laser Titan
+  '414': Momeală
+spytechStatsDescription: >-
+  La nivelurile 0 și 1 poți vedea doar punctele totale ale celorlalți jucători.
+  De la nivelul 2 vezi și punctele lor de clădiri; de la nivelul 4, punctele lor
+  de cercetare. De la nivelul 6 vezi și punctele lor de nave și apărare, precum
+  și statisticile lor de luptă.
+tech:
+  '0': Clădiri
+  '1': Mină de metal
+  '2': Mină de cristal
+  '3': Sintetizator de deuteriu
+  '4': 'Centrală solară'
+  '6': Universitate
+  '12': Centrală cu fuziune
+  '14': Fabrică de roboți
+  '15': Fabrică de nanoboți
+  '21': Șantier naval
+  '22': Depozit de metal
+  '23': Depozit de cristal
+  '24': Rezervor de deuteriu
+  '31': Laborator de cercetare
+  '33': Terraformator
+  '34': Depozit de alianță
+  '35': 'Doc de reparații'
+  '40': Clădiri lunare
+  '41': 'Bază lunară'
+  '42': Falangă senzorială
+  '43': Poartă de salt
+  '44': Siloz de rachete
+  '100': Cercetare
+  '106': Tehnologie de spionaj
+  '108': Tehnologia calculatoarelor
+  '109': Tehnologia armelor
+  '110': Tehnologia scuturilor
+  '111': Tehnologia blindajului
+  '113': Tehnologia energiei
+  '114': Tehnologia hiperspațiului
+  '115': Propulsie cu combustie
+  '117': Propulsie cu impuls
+  '118': Propulsie hiperspațială
+  '120': Tehnologie laser
+  '121': Tehnologie ionică
+  '122': Tehnologia plasmei
+  '123': Rețea intergalactică de cercetare
+  '124': Astrofizică
+  '131': Producție de metal
+  '132': Producție de cristal
+  '133': Producție de deuteriu
+  '134': Eficiența combustibilului
+  '199': Cercetare de graviton
+  '200': Nave
+  '202': Transportor mic
+  '203': Transportor mare
+  '204': Vânător ușor
+  '205': Vânător greu
+  '206': Crucișător
+  '207': Navă de luptă
+  '208': Navă de colonizare
+  '209': Reciclator
+  '210': Sondă de spionaj
+  '211': Bombardier
+  '212': Satelit solar
+  '213': Distrugător
+  '214': Steaua morții
+  '215': Crucișător de luptă
+  '216': Luna neagră
+  '217': Transportor de luptă
+  '218': Avatar
+  '219': Reciclator de luptă
+  '220': Colosul de oțel
+  '221': Lama furtunii
+  '222': Crucișător greu
+  '223': Dronă-scut
+  '224': Transport de asalt improvizat
+  '225': Transportorul furtunii
+  '226': Transportor de luptă colosal
+  '227': Reciclator optimizat
+  '228': Reciclator Omega
+  '229': Viperă
+  '230': Interceptor
+  '231': Behemot
+  '232': Titanul golului
+  '400': Apărare planetară
+  '401': Lansator de rachete
+  '402': Turelă laser ușoară
+  '403': Turelă laser grea
+  '404': Tun Gauss
+  '405': Tun ionic
+  '406': Tun cu plasmă
+  '407': Cupolă de scut mică
+  '408': Cupolă de scut mare
+  '409': Scut atmosferic
+  '410': 'Tun cu graviton'
+  '411': Platformă orbitală de apărare
+  '412': Buncăr
+  '413': Laser Titan
+  '414': Momeală
+  '500': Rachete
+  '502': Interceptor
+  '503': Rachete interplanetare
+  '900': Resurse
+  '901': Metal
+  '902': Cristal
+  '903': Deuteriu
+  '911': Energie

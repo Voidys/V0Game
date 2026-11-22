@@ -1,0 +1,271 @@
+back: Înapoi
+continue: Continuă
+continueUpgrade: Actualizează
+install_desc: >-
+  Ca să activezi instrumentul de instalare, creează fișierul
+  „var/ENABLE_INSTALL_TOOL”.<br> Numele fișierului ține cont de majuscule și
+  nu are extensie.<br> Fișierul poate fi gol.
+
+  Se șterge automat după ce instalarea s-a terminat sau dacă are mai mult de o
+  oră.
+install_title: Instrumentul de instalare este blocat
+intro_install: Instalează
+intro_lang: Limbă
+intro_text: 'V0Game este un joc open-source de strategie spațială în browser: dezvoltă-ți planetele, fă cercetări, trimite flote și luptă-te cu sute de jucători în același timp.<br><br>Acest asistent configurează o instalare nouă pas cu pas: îți verifică serverul, se conectează la baza de date și o creează, construiește tabelele, te lasă să-ți dai un nume jocului și creează administratorul.'
+intro_upgrade_head: Ai instalat deja V0Game?
+intro_upgrade_text: >-
+  <p>Ai instalat deja V0Game și vrei doar să actualizezi?</p><p>Îți poți
+  actualiza baza de date existentă aici, în câteva clicuri!</p>
+intro_welcome: 'Bun venit la V0Game!'
+licence_accept: >-
+  Accepți termenii licenței? Poți instala software-ul doar dacă îi accepți.
+licence_desc: >-
+  Citește termenii licenței de mai jos. Folosește bara de derulare ca să vezi
+  documentul complet.
+licence_head: Termenii licenței
+licence_need_accept: Trebuie să accepți termenii licenței ca să continui instalarea.
+login: Conectare
+menu_install: Instalare
+menu_upgrade: Actualizare
+reg_dir: Se poate scrie în folderul &raquo;%s&laquo;?
+reg_file: Se poate scrie în fișierul &raquo;%s&laquo;?
+reg_not_found: Negăsit
+reg_not_writable: Nu se poate scrie
+reg_writable: Se poate scrie
+req_desc: >-
+  Înainte ca instalarea să poată continua, V0Game îți verifică configurația
+  serverului și fișierele ca să se asigure că poate fi instalat și folosit.
+  Citește rezultatele cu atenție și nu continua până când toate testele
+  obligatorii nu sunt trecute.
+sql_close_reason: |-
+  Universul este în curs de configurare.
+  Așteaptă te rog.
+sql_welcome: Bun venit la V0Game v
+step1_head: Configurează accesul la baza de date
+step1_mysql_dbname: Numele bazei de date
+step1_mysql_dbpass: Parola bazei de date
+step1_mysql_dbuser: Utilizatorul bazei de date
+step1_mysql_migrationpass: Parola de migrare a bazei de date
+step1_mysql_migrationpass_info: >-
+  Ți se va cere această parolă când sunt necesare modificări sau actualizări
+  ale bazei de date pentru o versiune nouă a jocului.
+step1_mysql_port: Portul bazei de date
+step1_mysql_prefix: 'Prefix pentru tabele:'
+step2_conf_op_fail: Nu se poate scrie în config.php!
+step2_config_exists: config.php există deja!
+step2_db_con_fail: Nu s-a putut face conexiunea la baza de date. Vezi detaliile erorii mai jos.
+step2_db_done: Conexiunea la baza de date a reușit!
+step2_db_no_dbname: Nu a fost specificat numele bazei de date.
+step2_db_too_long: Prefixul tabelelor nu poate avea mai mult de 36 de caractere.
+step2_prefix_invalid: >-
+  Prefixul tabelelor poate conține doar caractere alfanumerice și underscore.
+step3_db_error: 'Crearea tabelelor bazei de date a eșuat:'
+step3_head: Creează tabelele bazei de date
+step4_admin_mail: 'E-mail de contact:'
+step4_admin_name: 'Nume de utilizator administrator:'
+step4_admin_name_desc: Introdu un nume de utilizator de 3 până la 20 de caractere.
+step4_admin_pass: 'Parola administratorului:'
+step4_desc: >-
+  Asistentul de instalare va crea acum un cont de administrator. Introdu un
+  nume de utilizator, o adresă de e-mail și o parolă.
+step4_head: Creează administratorul
+step6_desc: 'Ai instalat V0Game cu succes.'
+step6_head: Felicitări!
+title_install: Instalator
+upgrade_available: >-
+  Sunt disponibile actualizări ale bazei de date. Baza de date este la
+  revizia %s și poate fi actualizată la revizia %s.
+upgrade_back: Înapoi
+upgrade_intro_welcome: Bun venit la actualizatorul bazei de date!
+upgrade_message_admin: >-
+  Administratori: ca să instalezi actualizarea bazei de date, introdu parola de
+  migrare și continuă.
+upgrade_message_user: >-
+  Jucători: așteptați puțin, apoi încercați să apăsați „Înapoi la joc”.
+upgrade_notavailable: Revizia %s este deja cea mai recentă pentru baza ta de date.
+upgrade_nothingtodo: Nu e nimic de făcut. Baza de date este deja la revizia %s.
+upgrade_return: Înapoi la joc
+upgrade_success: >-
+  Actualizarea bazei de date a reușit. Baza de date este acum la revizia %s.
+upgrade_title: Este necesară o actualizare a bazei de date!
+ins_step_licence: 'Licență'
+ins_step_requirements: 'Cerințe'
+ins_step_database: 'Bază de date'
+ins_step_build: 'Tabele'
+ins_step_game: 'Joc'
+ins_step_admin: 'Administrator'
+ins_step_done: 'Gata'
+ins_recheck: 'Verifică din nou'
+ins_db_connection: 'Conexiune'
+ins_db_createdb: 'Creează baza de date dacă nu există încă'
+ins_db_connect: 'Conectează și creează'
+ins_db_no_host: 'Nu a fost specificat serverul bazei de date.'
+ins_db_name_invalid: 'Numele bazei de date poate conține doar litere, cifre, _ și - (max. 64 de caractere).'
+ins_check_input: 'Date verificate'
+ins_check_connect: 'Conectat la serverul bazei de date'
+ins_check_database: 'Baza de date »%s«'
+ins_db_missing: 'nu există (bifează „creează baza de date” sau creează-l singur)'
+ins_db_create_fail: 'nu a putut fi creată:'
+ins_db_created: 'creată'
+ins_db_exists: 'există'
+ins_check_tables: 'Încă nu există tabele cu prefixul »%s«'
+ins_tables_exist: 'Există deja %d tabel(e) cu acest prefix. Alege alt prefix sau altă bază de date.'
+ins_check_write: '%s scris'
+ins_build_desc: 'Instalatorul creează acum tabelele jocului și le umple cu valorile implicite, pas cu pas.'
+ins_task_tables: 'Creează tabelele'
+ins_task_migrations: 'Înregistrează versiunea bazei de date'
+ins_task_config: 'Scrie setările jocului'
+ins_task_universe: 'Configurează universul 1'
+ins_build_start: 'Construiește baza de date'
+ins_back_database: 'Înapoi la setările bazei de date'
+ins_game_name: 'Numele jocului'
+ins_game_name_info: 'Apare în titlu, în antet și în e-mailuri. Implicit: V0Game.'
+ins_default_theme: 'Temă implicită'
+ins_default_theme_info: 'Tema pentru conturile noi și vizitatori; jucătorii o pot schimba din setările lor.'
+ins_game_name_invalid: 'Introdu un nume de joc de 1 până la 64 de caractere.'
+ins_theme_invalid: 'Temă necunoscută.'
+ins_to_start: 'Către pagina de start'
+ins_credits_head: 'Pe umerii giganților'
+ins_credits_text: 'V0Game continuă o lungă serie de jocuri open-source în browser. Respect pentru toți cei care le-au construit și le-au ținut în viață înaintea noastră:'
+ins_credits_thanks: 'Mulțumiri tuturor programatorilor și mentenanților care au construit acest joc și l-au ținut în viață de-a lungul anilor, de la 2Moons și SteemNova până la pr0game.'
+ins_licence_note: 'Software liber sub GNU AGPL v3'
+ins_task_images: 'Optimizează imaginile (WebP)'
+ins_db_help: 'V0Game stochează totul într-o bază de date MySQL sau MariaDB. Valorile de mai jos le primești din panoul de hosting (caută „Baze de date” sau „MySQL”) sau de la cine ți-a configurat serverul. Dacă ai instalat MySQL singur, de obicei merg cele implicite.'
+ins_db_host: 'Serverul bazei de date'
+ins_db_host_info: 'Aproape mereu „localhost”. Unele servicii de hosting îți dau un nume ca „db1.example.com”.'
+ins_db_name_info: 'Numele bazei de date pentru joc. Creează-l mai întâi în panoul de hosting sau lasă instalatorul să-l creeze (vezi caseta de mai jos).'
+ins_db_advanced: 'Avansat (port, prefix de tabele, parolă de migrare) - de obicei nu e necesar'
+ins_db_prefix_info: 'Adăugat în fața fiecărui nume de tabel. Schimbă-l doar dacă împarți o bază de date cu alt software.'
+ins_db_migrationpw_info: 'Protejează pagina de actualizare (install/?mode=upgrade) pentru viitoarele actualizări ale jocului. Lasă-l gol și instalatorul generează unul puternic și ți-l arată o singură dată pe ultima pagină.'
+ins_db_migrationpw_placeholder: 'generată automat'
+ins_migrationpw_invalid: 'Parola de migrare nu are voie să conțină ghilimele, backslash-uri, $ sau întreruperi de rând.'
+ins_err_technical: 'detalii tehnice'
+ins_err_access_denied: 'Serverul bazei de date a refuzat numele de utilizator sau parola. Verifică-le pe amândouă să nu fie greșeli de scriere (contează majusculele) în panoul de hosting.'
+ins_err_unknown_db: 'Această bază de date nu există pe server. Verifică numele sau bifează „Creează baza de date” mai jos.'
+ins_err_no_privilege: 'Acest utilizator de bază de date nu are voie să folosească baza de date respectivă. Dă-i utilizatorului toate privilegiile asupra ei în panoul de hosting.'
+ins_err_no_create: 'Acest utilizator nu are voie să creeze baze de date. Creează o bază de date goală în panoul de hosting și debifează „Creează baza de date”.'
+ins_err_socket: 'Socketul serverului bazei de date nu a fost găsit. Încearcă hostul „127.0.0.1” în loc de „localhost”.'
+ins_err_unreachable: 'Serverul bazei de date „%s” nu poate fi contactat. Verifică numele hostului și portul și dacă serverul bazei de date rulează. Multe servicii de hosting permit conexiuni doar de la propriile servere web, așa că „localhost” este de obicei corect.'
+ins_game_desc: 'Dă-i un nume jocului tău și alege cum se joacă. Tot ce e aici poate fi schimbat mai târziu în administrare (Admin - Setări).'
+ins_group_general: 'General'
+ins_uni_name: 'Numele universului'
+ins_uni_name_info: 'Apare jucătorilor când aleg un univers. Gol = „Universul 1”.'
+ins_uni_name_invalid: 'Numele universului poate avea cel mult 60 de caractere.'
+ins_language: 'Limba implicită'
+ins_language_info: 'Limba pentru vizitatorii noi și pentru contul tău de administrator.'
+ins_language_invalid: 'Limbă necunoscută.'
+ins_timezone: 'Fus orar'
+ins_timezone_info: 'Preselectat de pe serverul tău. Folosit pentru ora serverului afișată.'
+ins_timezone_invalid: 'Fus orar necunoscut.'
+ins_group_speed: 'Viteza jocului'
+ins_speed_info: 'Cât de repede merg clădirile, cercetările, navele, flotele și producția. Clasic este ritmul original; presetările mai rapide se potrivesc comunităților mici și rundelor scurte.'
+ins_speed_classic: 'Clasic'
+ins_speed_classic_info: 'ritmul original, rundele durează luni'
+ins_speed_fast: 'Rapid'
+ins_speed_fast_info: 'de aproximativ trei ori mai rapid, rundele durează săptămâni'
+ins_speed_blitz: 'Blitz'
+ins_speed_blitz_info: 'până la de zece ori mai rapid, rundele durează zile'
+ins_speed_detail: 'Construcții/cercetări %bx, flote %fx, resurse %rx'
+ins_speed_invalid: 'Presetare de viteză necunoscută.'
+ins_group_players: 'Jucători'
+ins_registration: 'Înregistrare'
+ins_registration_open: 'Deschisă - oricine se poate înscrie'
+ins_registration_closed: 'Închisă - doar tu poți crea conturi'
+ins_registration_info: 'Alege „închisă” cât timp încă pui lucrurile la punct. O poți deschide mai târziu din Admin - Setări.'
+ins_registration_invalid: 'Setare de înregistrare necunoscută.'
+ins_bots: 'Jucători calculator (boți)'
+ins_bots_info: 'De la 0 la 50. Boții joacă precum jucătorii reali, cu obiceiuri diferite, așa că un univers nou nu e gol. 0 = fără boți.'
+ins_bots_invalid: 'Numărul de boți trebuie să fie între 0 și 50.'
+ins_mail: 'Trimite e-mailuri (înregistrare, resetare parolă)'
+ins_mail_info: 'Dezactivat implicit. Pornește-l doar când serverul tău poate trimite e-mailuri; poți configura SMTP mai târziu din Admin - Setări.'
+ins_admin_mail_info: 'Folosit pentru resetări de parolă și ca adresă de contact.'
+ins_admin_mail_invalid: 'Introdu o adresă de e-mail validă.'
+ins_admin_pass_confirm: 'Repetă parola'
+ins_admin_pass_rules: 'Parola trebuie să aibă cel puțin %d caractere (cel mult 64). O propoziție din câteva cuvinte e ușor de ținut minte și greu de ghicit.'
+ins_admin_pass_short: 'Parola trebuie să aibă cel puțin %d caractere.'
+ins_admin_pass_long: 'Parola poate avea cel mult 64 de caractere.'
+ins_admin_pass_mismatch: 'Cele două parole nu se potrivesc.'
+ins_done_checklist: 'Lista ta de verificare'
+ins_done_login: 'Conectează-te la administrare.'
+ins_done_login_info: 'Ești deja conectat ca „%s”. Data viitoare folosește:'
+ins_done_cron: 'Configurează cron job-ul (obligatoriu).'
+ins_done_cron_info: 'Fără el nu avansează nimic în joc (flote, cozi de construcție, statistici). Adaugă această linie în crontab-ul utilizatorului serverului web (crontab -e) sau creează un cron job cu ea în panoul de hosting:'
+ins_done_cron_help: "Cum configurezi cron job-ul (și într-un panou de hosting)"
+ins_done_locked: 'Instrumentul de instalare este acum blocat.'
+ins_done_locked_info: 'Nimeni nu mai poate rula asistentul. Ca să actualizezi mai târziu, urmează secțiunea de actualizare din documentație.'
+ins_done_https: 'Folosește HTTPS.'
+ins_done_https_info: 'Ești pe HTTP simplu: parolele circulă necriptat. Configurează un certificat (de exemplu Let''s Encrypt) înainte să inviți jucători.'
+ins_done_https_ok: 'Această pagină a fost servită prin HTTPS - bine.'
+ins_done_settings: 'Schimbă setările mai târziu.'
+ins_done_settings_info: 'Admin - Setări: numele jocului, viteza, înregistrarea, e-mail (SMTP), boți și multe altele.'
+ins_done_bots: 'Boți.'
+ins_done_bots_info: 'Au fost creați %d boți. Acționează când rulează cron job-ul. Gestionează-i din administrare.'
+ins_done_bots_failed: 'Administratorul a fost creat, dar boții nu au putut fi creați. Îi poți adăuga mai târziu din administrare.'
+ins_done_migrationpw: 'Notează-ți parola de migrare (apare o singură dată).'
+ins_done_migrationpw_info: 'Ai nevoie de ea pentru actualizările jocului. Este stocată și în config/game.php.'
+ins_done_docs: 'Documentație:'
+ins_done_to_admin: 'Către administrare'
+ins_step_legal: 'Juridic'
+ins_legal_desc: 'Alege unde este găzduit jocul și cum încep paginile legale și forumul comunității. Toate acestea le poți schimba mai târziu în zona de administrare (Setări, Pagini).'
+ins_group_privacy: 'Regiunea de hosting'
+ins_privacy_info: 'Regiunea decide ce politică de confidențialitate se folosește implicit.'
+ins_privacy_eu: 'UE / SEE - politică de confidențialitate GDPR'
+ins_privacy_eu_info: 'Alege asta când jocul este găzduit în Uniunea Europeană sau în Spațiul Economic European sau se adresează jucătorilor de acolo.'
+ins_privacy_other: 'În afara UE - politică de confidențialitate generală'
+ins_privacy_other_info: 'O politică de confidențialitate pe înțelesul tuturor, fără trimiteri la GDPR.'
+ins_group_rules: 'Reguli'
+ins_rules_default: 'Importă regulile implicite'
+ins_rules_default_info: 'Pagina de reguli pornește cu regulile standard ale jocului, pe care le poți edita după aceea.'
+ins_rules_blank: 'Începe goală'
+ins_rules_blank_info: 'Pagina de reguli rămâne goală până îți scrii propriile reguli în zona de administrare.'
+ins_group_community: 'Comunitate'
+ins_cookie_consent: "Afișează notificarea de consimțământ pentru cookie-uri (GDPR)"
+ins_cookie_consent_info: "Arată vizitatorilor o notificare despre cookie-urile folosite de joc. Recomandat pentru operatorii care servesc UE. Se poate schimba mai târziu în setări."
+ins_board: 'Activează forumul comunității'
+ins_board_info: 'Un forum pentru jucătorii tăi. Când e dezactivat, toate linkurile către forum sunt ascunse și paginile forumului nu sunt disponibile.'
+ins_legal_note: 'Textele generate sunt doar șabloane. Ca operator, ești responsabil pentru textele legale ale jocului tău și ar trebui să le verifici.'
+ins_legal_region_invalid: 'Alege o regiune de hosting validă.'
+ins_legal_rules_invalid: 'Alege cum să înceapă regulile.'
+ins_step_mail: 'E-mail'
+ins_mail_desc: 'Opțional. Alege cum trimite jocul e-mailuri (înregistrare, resetare parolă). Poți sări peste acest pas și îl configurezi mai târziu din Admin - Setări.'
+ins_mail_enable: 'Trimite e-mailuri'
+ins_mail_method: 'Metodă'
+ins_mail_method_php: 'Funcția PHP mail()'
+ins_mail_method_smtp: 'Server SMTP'
+ins_mail_from: 'Adresa expeditorului'
+ins_mail_host: 'Host SMTP'
+ins_mail_port: 'Port SMTP'
+ins_mail_enc: 'Criptare'
+ins_mail_enc_none: 'Niciuna'
+ins_mail_user: 'Utilizator SMTP'
+ins_mail_pass: 'Parolă SMTP'
+ins_mail_pass_info: 'Nu se mai afișează niciodată; introdu-o din nou după un e-mail de test.'
+ins_mail_save: 'Salvează și continuă'
+ins_mail_skip: 'Sari peste (e-mailul rămâne oprit)'
+ins_mail_test_head: 'Trimite un e-mail de test'
+ins_mail_test_to: 'Trimite e-mailul de test către'
+ins_mail_test_send: 'Trimite e-mail de test'
+ins_mail_test_ok: 'E-mail de test trimis către %s.'
+ins_mail_test_fail: 'E-mailul de test a eșuat: %s'
+ins_mail_from_invalid: 'Introdu o adresă de e-mail validă pentru expeditor.'
+ins_mail_host_required: 'Introdu hostul SMTP.'
+ins_mail_port_invalid: 'Introdu un port valid (1-65535).'
+ins_mail_test_invalid: 'Introdu o adresă de e-mail validă pentru e-mailul de test.'
+ins_mail_test_subject: 'E-mail de test V0Game'
+ins_mail_test_body: 'Acesta este un e-mail de test de la instalatorul V0Game. Setările tale de e-mail funcționează.'
+ins_done_social: 'Conectare socială (opțional).'
+ins_social_hint: 'Conectarea cu Discord, Google, GitHub sau Facebook poate fi activată mai târziu din Admin - Conectare socială.'
+ins_group_imprint: 'Date de identificare (opțional)'
+ins_imprint_info: 'Date de contact pentru pagina cu datele de identificare. Ambele pot rămâne goale și pot fi schimbate mai târziu din Admin - Setări.'
+ins_imprint_eu_hint: 'Operatorii din UE au de obicei nevoie de o pagină cu datele de identificare și o adresă de e-mail de contact. O poți sări acum, dar completează-o înainte să faci jocul public.'
+ins_imprint_mail: 'E-mail de contact'
+ins_imprint_address: 'Adresa din datele de identificare'
+ins_imprint_mail_invalid: 'Introdu o adresă de e-mail de contact validă pentru datele de identificare.'
+ins_more_settings: 'Mai multe setări'
+ins_update_check: 'Verifică actualizări'
+ins_update_check_info: 'Panoul de administrare întreabă serverul de actualizări (GitHub) care este ultima versiune.'
+ins_discord_url: 'Link de invitație Discord'
+ins_discord_url_info: 'Opțional, de exemplu https://discord.gg/serverultau.'
+ins_discord_url_invalid: 'Introdu un link Discord valid care începe cu http:// sau https://.'
+ins_mail_user_valid: 'Cere activare prin e-mail'
+ins_mail_user_valid_info: 'Conturile noi trebuie să-și confirme adresa prin e-mail înainte să poată juca. Disponibil doar când e-mailul este activat.'

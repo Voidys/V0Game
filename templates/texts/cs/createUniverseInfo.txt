@@ -1,0 +1,12 @@
+<div class="left">
+<h2>Informace o podpoře více vesmírů</h2>
+<p>V0Game umí více vesmírů zvládat dobře, ale musíš podle požadavků nastavit webový server.</p>
+<p>Co tvůj server podporuje, zjistíš tlačítkem „Informace“. Pokud si nejsi jistý, nejlepší je zeptat se kamarádů z hostingové firmy.</p>
+<h3>Apache</h3>
+<p>Pokud provozuješ server Apache, musíš v souboru .htaccess v hlavní distribuci odstranit jen řádky 48-51 (odstranit cestu).<br>
+Navíc je potřeba mod_rewrite.</p>
+<h3>nginx</h3>
+<p>Pokud poběží server nginx, konfigurace vhostu se rozšíří přímo o pravidlo přepisování:</p>
+<p><code>{NGINX-CODE}</code></p>
+<p>Úryvek kódu stačí vložit pod řádek s „server_name“.</p>
+</div>
