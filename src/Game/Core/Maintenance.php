@@ -42,7 +42,7 @@ class Maintenance
 
         $this->gameView()->clearCompiledTemplates();
 
-        (new \App\Game\Cronjob\Cronjob($this->db, $this->configs, $this->state))->reCalculateCronjobs();
+        (new \App\Game\Cronjob\Cronjob($this->db, $this->configs, $this->state))->reCalculateCronjobs(null, true);
 
         $sql = 'UPDATE %%PLANETS%% SET eco_hash = :ecoHash;';
         $this->db->update($sql, [

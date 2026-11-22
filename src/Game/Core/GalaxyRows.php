@@ -201,8 +201,20 @@ class GalaxyRows
                 && $PLANET[$elements->find(INTERPLANETARY_MISSILE)?->column] > 0
                 && $this->module(MODULE_MISSION_ATTACK)
                 && $this->module(MODULE_MISSILEATTACK)
-                && $this->fleetFunctions()->inMissileRange($PLANET, $this->galaxyRow, $USER[$elements->find(117)?->column]),
+                && $this->fleetFunctions()->inMissileRange($PLANET, $this->galaxyRow, $USER[$elements->find(117)?->column])
+                && $this->missileTargetAllowed(),
         ];
+    }
+
+    /** Whether the launch rules (FleetMissileController) allow missiles at this owner: not in vacation mode, not newbie-protected, no stronger player unless outlaw attacks are on. */
+    private function missileTargetAllowed(): bool
+    {
+        if (!empty($this->galaxyRow['urlaubs_modus'])) {
+            return false;
+        }
+        $protection = $this->protectionRules()->checkNoobProtectionFor($this->models()->user($this->state->USER), $this->models()->user($this->galaxyRow));
+
+        return !$protection['NoobPlayer'] && (!$protection['StrongPlayer'] || $this->configs->get()->noob_protection_outlaw);
     }
 
     /**

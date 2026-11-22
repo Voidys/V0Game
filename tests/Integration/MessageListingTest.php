@@ -69,7 +69,8 @@ final class MessageListingTest extends GameTestCase
         $user['messages_per_page'] = 5;
         $this->seedMessages((int) $user['id']);
 
-        $list = $this->list($user, MessageType::All->value);
+        // an empty category lists (and so marks as read) nothing
+        $list = $this->list($user, MessageType::Transport->value);
         $cat = $list['CategoryList'];
 
         $this->assertEquals(7, $cat[MessageType::SpyReport->value]['total']);
@@ -80,8 +81,13 @@ final class MessageListingTest extends GameTestCase
         $this->assertEquals(13, $cat[MessageType::All->value]['total']);
         $this->assertEquals(9, $cat[MessageType::All->value]['unread']);
         $this->assertEquals(3 + 1 + 1, $cat[MessageType::Favorites->value]['total']);
-        $this->assertEquals(13, $list['MessageCount']);
-        $this->assertEquals(3, $list['maxPage']);
+        $this->assertEquals(0, $list['MessageCount']);
+
+        $all = $this->list($user, MessageType::All->value);
+        $this->assertEquals(13, $all['MessageCount']);
+        $this->assertEquals(3, $all['maxPage']);
+        // the counters of the answer already reflect the messages read by listing them
+        $this->assertLessThan(9, $all['CategoryList'][MessageType::All->value]['unread']);
     }
 
     public function testPageCountFollowsTheFilterWithoutASeparateCountQuery(): void

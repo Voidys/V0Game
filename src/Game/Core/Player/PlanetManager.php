@@ -7,6 +7,7 @@ use Exception;
 use App\Game\Core\Database;
 use App\Game\Core\Config;
 use App\Game\Core\ConfigRegistry;
+use App\Game\Core\Language;
 use App\Game\Core\Singleton;
 use App\Game\Core\GameUtilities;
 
@@ -101,8 +102,6 @@ class PlanetManager
         bool $isHome = false,
         int $authlevel = 0,
     ): int {
-        $LNG = $this->state->LNG;
-
         if ($this->planetPositions()->checkPosition($universe, $galaxy, $system, $planet) === false) {
             throw new Exception(
                 sprintf("Try to create a planet at position: %s:%s:%s!", $galaxy, $system, $planet),
@@ -144,6 +143,7 @@ class PlanetManager
         $imageName = $this->pickPlanetImage($planetData, $dataIndex, $userId, $config);
 
         if (empty($name)) {
+            $LNG = $this->ownerLanguage($userId);
             $name = $isHome ? $LNG['fcm_mainplanet'] : $LNG['fcp_colony'];
         }
 
@@ -296,6 +296,33 @@ class PlanetManager
         return $this->db->lastInsertId();
     }
 
+    /** @var array<string, Language> languages loaded for default names, by language code */
+    private array $ownerLanguages = [];
+
+    /**
+     * Language of the player a planet or moon is created for (default names are in the owner's language, not in the
+     * language of whoever triggers the creation: an admin, a cron run or the other side of a fight). Falls back to the
+     * request's language.
+     */
+    private function ownerLanguage(int $userId): mixed
+    {
+        $current = $this->state->LNG;
+        $lang = (string) $this->db->selectSingle('SELECT `lang` FROM %%USERS_SETTINGS%% WHERE `user_id` = :userId;', [
+            ':userId' => $userId,
+        ], 'lang');
+        if ($lang === '' || !$current instanceof Language || $current->getLanguage() === $lang) {
+            return $current;
+        }
+
+        if (!isset($this->ownerLanguages[$lang])) {
+            $language = new Language($this->configs, $lang);
+            $language->includeData(['L18N', 'INGAME', 'CUSTOM']);
+            $this->ownerLanguages[$lang] = $language;
+        }
+
+        return $this->ownerLanguages[$lang];
+    }
+
     /**
      * Creates the moon of a planet and links it (parent planet id_luna).
      *
@@ -322,8 +349,6 @@ class PlanetManager
         ?string $moonName = null,
         ?int $diameter = null,
     ): int {
-        $LNG = $this->state->LNG;
-
         $db = $this->db;
 
         $sql = 'SELECT `id_luna`, `planet_type`, `id`, `name`, `temp_max`, `temp_min`
@@ -359,7 +384,7 @@ class PlanetManager
         $minTemperature = $parentPlanet['temp_min'] - random_int(10, 45);
 
         if (empty($moonName)) {
-            $moonName = $LNG['type_planet_3'] ?? 'Mond';
+            $moonName = $this->ownerLanguage($userId)['type_planet_3'] ?? 'Mond';
         }
 
         $moonId = $this->insertMoonRow([

@@ -18,8 +18,9 @@
 {% endmacro %}
 
 {# "14:32" for a timestamp in the player's time zone, with the date when it is not today. #}
-{% macro clock(timestamp) %}
-  {% set tz = TIMEZONESTRING|default('UTC') %}
+{# Macros do not see the page context: the player's time zone comes in as $tz (TIMEZONESTRING). #}
+{% macro clock(timestamp, tz = 'UTC') %}
+  {% set tz = tz|default('UTC') %}
   {{- timestamp|date(timestamp|date('Ymd', tz) == 'now'|date('Ymd', tz) ? 'H:i' : 'd.m. H:i', tz) -}}
 {% endmacro %}
 
@@ -102,7 +103,7 @@
     {% if (o.foot is not defined or o.foot) %}<footer class="card__foot">
       <span class="when">
         {% if (o.time is not defined or o.time) %}{{ b.time(Element.elementTime) }}{% endif %}
-        {% if o.done is defined and o.done %}<small>&rarr; {{ b.clock(o.done) }}</small>{% endif %}
+        {% if o.done is defined and o.done %}<small>&rarr; {{ b.clock(o.done, o.tz|default('UTC')) }}</small>{% endif %}
       </span>
       {{ o.action|default('') }}
     </footer>{% endif %}

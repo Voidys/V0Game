@@ -29,6 +29,9 @@ class FleetAjaxController extends AbstractGameController
 {
     public $returnData = [];
 
+    /** A confirmed attack on a stronger player: the outlaw status is written when the fleet is really sent. */
+    private bool $outlawPending = false;
+
     public function initialize(): void
     {
         parent::initialize();
@@ -102,8 +105,6 @@ class FleetAjaxController extends AbstractGameController
         $activeSlots = $this->fleetFunctions()->getCurrentFleets($this->state->USER['id']);
         $maxSlots = $this->fleetFunctions()->getMaxFleetSlots($this->state->USER);
 
-        $statsHandler = new AdvancedStatsHandler($this->db, $this->configs, $this->state);
-
         $this->returnData['slots'] = $activeSlots;
 
         if (IsVacationMode($this->state->USER)) {
@@ -127,7 +128,7 @@ class FleetAjaxController extends AbstractGameController
         }
 
         if ($targetMission == Mission::Spy->value || $targetMission == Mission::Missile->value) {
-            $this->checkAttackRestrictions($targetMission, $targetData, $confirmed, $statsHandler);
+            $this->checkAttackRestrictions($targetMission, $targetData, $confirmed);
         }
 
         $SpeedFactor = $this->fleetFunctions()->getGameSpeedFactor();
@@ -234,14 +235,23 @@ class FleetAjaxController extends AbstractGameController
         $e = $this->elements();
 
         if ($targetMission == Mission::Recycling->value) {
-            $sql = "SELECT (der_metal + der_crystal) as sum FROM %%PLANETS%% WHERE id = :planetID AND universe = :universe;";
+            $sql = "SELECT (der_metal + der_crystal) as sum, tf_active FROM %%PLANETS%% WHERE id = :planetID AND universe = :universe;";
         } else {
-            $sql = "SELECT (der_metal + der_crystal) as sum FROM %%PIRATE_BASES%% WHERE id = :planetID AND universe = :universe;";
+            $sql = "SELECT (der_metal + der_crystal) as sum, 0 as tf_active FROM %%PIRATE_BASES%% WHERE id = :planetID AND universe = :universe;";
         }
-        $totalDebris = $this->db->selectSingle($sql, [
+        $field = $this->db->selectSingle($sql, [
             ':planetID' => $planetID,
             ':universe' => $this->universe()->current(),
-        ], 'sum');
+        ]);
+        $totalDebris = (float) ($field['sum'] ?? 0);
+
+        if ($totalDebris <= 0) {
+            if (empty($field['tf_active'])) {
+                $this->sendData(611, $this->state->LNG['fa_no_debris']);
+            }
+            // wreck field without debris: one recycler is enough to collect it
+            $totalDebris = 1;
+        }
 
         $fleetArray = [];
 
@@ -269,7 +279,7 @@ class FleetAjaxController extends AbstractGameController
      *
      * @param array<string, mixed> $targetData row from getTargetData()
      */
-    private function checkAttackRestrictions(mixed $targetMission, array $targetData, bool $confirmed, AdvancedStatsHandler $statsHandler): void
+    private function checkAttackRestrictions(mixed $targetMission, array $targetData, bool $confirmed): void
     {
         $LNG = $this->state->LNG;
         $db = $this->db;
@@ -323,11 +333,8 @@ class FleetAjaxController extends AbstractGameController
                 $this->sendData(600, '');
             }
 
-            $db->update('UPDATE %%USERS%% SET outlaw_time = :outlawTime WHERE id = :userId;', [
-                ':outlawTime'   => $this->state->runtime->timestamp,
-                ':userId'       => $this->state->USER['id'],
-            ]);
-            $statsHandler->increment($this->state->USER['id'], AdvancedStatsEnum::OUTLAW_ACTIVATIONS);
+            // written by dispatchFleet() once every other check passed (a refused launch must not mark the sender)
+            $this->outlawPending = true;
         }
 
         if ($targetMission == Mission::Missile->value) {
@@ -364,6 +371,14 @@ class FleetAjaxController extends AbstractGameController
         $capped = $this->fleetCaps->consume((int) $this->state->USER['id'], $targetMission);
         if ($capped !== null) {
             $this->sendData(621, $LNG->format($capped['key'], $capped['limit'], $capped['hours'], $capped['minutes']));
+        }
+
+        if ($this->outlawPending) {
+            $this->db->update('UPDATE %%USERS%% SET outlaw_time = :outlawTime WHERE id = :userId;', [
+                ':outlawTime'   => $this->state->runtime->timestamp,
+                ':userId'       => $this->state->USER['id'],
+            ]);
+            (new AdvancedStatsHandler($this->db, $this->configs, $this->state))->increment($this->state->USER['id'], AdvancedStatsEnum::OUTLAW_ACTIVATIONS);
         }
 
         $shipID = array_keys($fleetArray);

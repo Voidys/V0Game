@@ -32,7 +32,7 @@ class StatRanker
         foreach ($this->universes as $uni) {
             foreach (['tech', 'build', 'defs', 'fleet', 'total', 'units'] as $type) {
                 // User ranking, invisible admins at bottom of same points
-                if ($this->configs->get()->stat == 2) {
+                if ($this->configs->get((int) $uni)->stat == 2) {
                     $sql = 'CREATE TEMPORARY TABLE temp_ranking AS
                         SELECT s.id_owner, s.' . $type . '_points, 0 AS ' . $type . '_rank
                         FROM %%STATPOINTS%% s
@@ -96,7 +96,7 @@ class StatRanker
 
         foreach ($this->universes as $uni) {
             // User ranking, invisible admins at bottom of same points
-            if ($this->configs->get()->stat == 2) {
+            if ($this->configs->get((int) $uni)->stat == 2) {
                 $sql = 'CREATE TEMPORARY TABLE temp_honor_ranking AS
                     SELECT s.id_owner, 0 AS honor_rank
                     FROM %%STATPOINTS%% s

@@ -90,7 +90,7 @@ class MarketRules
 
         // players without an alliance (id 0) are not in one alliance together
         $sameAlliance = (int) $ally > 0 && $ally == $seller_ally;
-        if ($visibility == 1 && !$buddy && !$sameAlliance && ($level == null || $level > 3)) {
+        if ($visibility == 1 && !$buddy && !$sameAlliance && ($level == null || ($level > 3 && $level != 6))) {
             return [
                 'buyable' => false,
                 'reason' => $LNG['market_buyable_only_trade_partners'],

@@ -33,7 +33,8 @@ class NotesController extends AbstractGameController
     public function initialize(): void
     {
         parent::initialize();
-        $this->setWindow('popup');
+        // fragment for the modal loader, the full shell when the page is opened directly
+        $this->setWindow($this->state->runtime->ajax ? 'popup' : 'full');
     }
 
     /**

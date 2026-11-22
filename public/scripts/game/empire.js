@@ -148,10 +148,12 @@ const formatLogTick = (value) => formatPoints(value).replace(/(\d+)\.0+(?= |$)/
 
 /** Line chart of the points history (total and per category) on a logarithmic axis; non-positive values are gaps. Returns the Chart instance. */
 function pointsChart(data) {
+  // x = hours back (negative, now = 0): the stat snapshots are not evenly spaced, so the axis is proportional to time
+  const hours = data.hoursBack ?? [];
   // total: thicker line drawn on top; categories: thin solid lines
   const line = (label, values, color, main) => ({
     label,
-    data: positiveOrNull(values),
+    data: positiveOrNull(values).map((y, i) => ({ x: -(hours[i] ?? 0), y })),
     borderColor: color,
     backgroundColor: color,
     pointBackgroundColor: color,
@@ -163,7 +165,6 @@ function pointsChart(data) {
   return new Chart(document.getElementById('playerChart'), {
     type: 'line',
     data: {
-      labels: data.hoursAgo,
       datasets: applySavedVisibility('playerChart', [
         line(data.labels.points, data.total, COLORS.points, true),
         line(data.labels.buildings, data.build, COLORS.buildings),
@@ -178,7 +179,7 @@ function pointsChart(data) {
       spanGaps: true,
       interaction: { mode: 'index', intersect: false },
       scales: {
-        x: { ticks: timeAgoTicks(), grid: { display: false } },
+        x: { type: 'linear', min: -Math.max(0, ...hours), max: 0, ticks: { ...timeAgoTicks(), callback: (value) => Math.round(-value) + (data.hourUnit ?? 'h') }, grid: { display: false } },
         y: { type: 'logarithmic', afterBuildTicks: niceLogTicks, ticks: { autoSkip: false, callback: formatLogTick } },
       },
       plugins: {

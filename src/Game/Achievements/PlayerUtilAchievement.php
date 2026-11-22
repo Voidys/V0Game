@@ -95,7 +95,7 @@ class PlayerUtilAchievement
                 ':userId'   => $planetData['id_owner'],
             ]);
             $biggestPlanet = 0;
-            $biggestPlanetPoints = 99999;
+            $biggestPlanetPoints = 0;
             foreach ($planets as $planet) {
                 $points = $statbuidler->getBuildingScoreByPlanet($planet);
                 if ($points['points'] > $biggestPlanetPoints) {

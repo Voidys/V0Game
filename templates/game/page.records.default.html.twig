@@ -1,8 +1,13 @@
 {% import '_macros/ui.html.twig' as ui -%}
-{% macro element_row(elementID, elementRow, own) %}
+{% macro element_row(elementID, elementRow, own, staffExcluded) %}
 <tr{% if not elementRow %} class="is-empty"{% endif %}>
 	<td><a href="#" data-action="dialog-info" data-id="{{ elementID }}" class="tooltip" data-tooltip-content="{{ include('game/tooltip.element.html.twig', {id: elementID})|e('html_attr') }}">{{ LNG.tech[elementID] }}</a></td>
-	{% if elementRow and elementRow|length <= 3 %}
+	{# own level is live, the records are from the last statistics run: a player who already beat the record holds it (counted at the next run); staff never set records #}
+	{% set ownRecord = elementRow and own > elementRow[0].level and not staffExcluded %}
+	{% if ownRecord %}
+		<td><strong title="{{ LNG.rec_pending }}">{{ LNG.rec_you }}</strong></td>
+		<td class="num colorPositive" title="{{ LNG.rec_pending }}">{{ pretty_number(own) }}</td>
+	{% elseif elementRow and elementRow|length <= 3 %}
 		<td>
 			{% set test = 0 %}
 			{% for user in elementRow %}
@@ -12,7 +17,7 @@
 					{% set test = test + 1 %}
 				{% endif %}
 			{% endfor %}
-			{% if test == 0 %}-{% endif %}
+			{% if test == 0 %}<span class="muted" title="{{ LNG.rec_hidden_holder_info }}">{{ LNG.rec_hidden_holder }}</span>{% endif %}
 		</td>
 		<td class="num">{{ pretty_number(elementRow[0].level) }}</td>
 	{% elseif elementRow and elementRow|length < 10 %}
@@ -31,14 +36,20 @@
 		<td>-</td>
 		<td class="num">-</td>
 	{% endif %}
-	<td class="num">{% if elementRow %}{{ own }}{% else %}-{% endif %}</td>
+	{% if ownRecord %}
+		<td class="num colorPositive">{{ own }}</td>
+	{% elseif elementRow and own > elementRow[0].level %}
+		<td class="num muted" title="{{ LNG.rec_staff_excluded }}">{{ own }}</td>
+	{% else %}
+		<td class="num">{% if elementRow %}{{ own }}{% else %}-{% endif %}</td>
+	{% endif %}
 </tr>
 {% endmacro %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_records }}{{ parent() }}{% endblock %}
 {% block pagehead %}
 {% set recActions %}<label class="control-group"><input type="checkbox" id="rec-show-empty"> {{ LNG.as_show_empty }}</label>{% endset %}
-{% set recMeta %}{{ LNG.rec_intro }} {{ LNG.rec_last_update_on }}: {{ update }}{% endset %}
+{% set recMeta %}{{ LNG.rec_intro }} {{ LNG.rec_last_update_on }}: {{ update }}{% if staffExcluded %} {{ LNG.rec_staff_excluded }}{% endif %}{% endset %}
 {{ ui.page_head(LNG.lm_records, 'medal', recMeta, recActions) }}
 {% endblock %}
 {% block content %}
@@ -54,7 +65,7 @@
 			</tr></thead>
 			<tbody>
 			{% for elementID, elementRow in buildList %}
-				{{ _self.element_row(elementID, elementRow, elementRow ? userBuild[elementRow[0]["name"]] : null) }}
+				{{ _self.element_row(elementID, elementRow, elementRow ? userBuild[elementRow[0]["name"]] : null, staffExcluded) }}
 			{% endfor %}
 			</tbody>
 		</table>
@@ -70,7 +81,7 @@
 			</tr></thead>
 			<tbody>
 			{% for elementID, elementRow in researchList %}
-				{{ _self.element_row(elementID, elementRow, elementRow ? userTech[elementRow[0]["name"]] : null) }}
+				{{ _self.element_row(elementID, elementRow, elementRow ? userTech[elementRow[0]["name"]] : null, staffExcluded) }}
 			{% endfor %}
 			</tbody>
 		</table>

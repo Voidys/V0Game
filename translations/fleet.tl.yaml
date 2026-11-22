@@ -489,3 +489,5 @@ depot_msg_text: "Ang fleet mo sa %s ay nasuplayan ni %s: pinahaba ang pananatili
 cr_actions: "Mga aksyon ng ulat"
 cr_attack_again: "Umatake muli"
 cr_simulate: "I-simulate"
+sys_expe_factor: "Factor %s"
+sys_irak_vacation: "The missiles were lost: the target player is in vacation mode."

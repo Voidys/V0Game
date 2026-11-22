@@ -21,6 +21,7 @@ use App\Game\Core\Config;
 use App\Game\Core\Config\ConfigFieldProcessor;
 use App\Game\Core\Log;
 use App\Game\Core\ResourceUpdate;
+use App\Game\Core\StoredData;
 use App\Game\Core\Universe;
 use App\Game\Core\Config\ConfigFieldSchema;
 use App\Routing\GameRoute;
@@ -129,6 +130,8 @@ class ConfigUniController extends AbstractAdminController
                 ':universe' => $this->universe()->getEmulated(),
             ]);
         } elseif (($uni_status == STATUS_OPEN || $uni_status == STATUS_LOGIN_ONLY) && ($config->uni_status == STATUS_CLOSED)) {
+            // Queues did not run while closed (like vacation mode): postpone them by the closed time, taken before the timestamps are reset.
+            $this->shiftQueuesByClosedTime();
             // If login is opened, update all planet timestamps to avoid resource production during closed login times.
             $db->update("UPDATE %%PLANETS%% SET `last_update` = :newTime, `eco_hash` = '' WHERE `universe` = :universe;", [
                 ':newTime'  => time(),
@@ -152,6 +155,50 @@ class ConfigUniController extends AbstractAdminController
                 }
             }
             $db->commit();
+        }
+    }
+
+    /**
+     * Postpones the building queues of all planets and the research queues of all players that are not on vacation by the time the
+     * universe was closed. Closing settled every owned planet (last_update = closing time); fleet events processed while closed can
+     * only move single planets later, so the oldest owned planet `last_update` is the closing time.
+     */
+    private function shiftQueuesByClosedTime(): void
+    {
+        $db = $this->db;
+        $universe = $this->universe()->getEmulated();
+        $closedAt = (int) $db->selectSingle('SELECT MIN(p.`last_update`) AS closed FROM %%PLANETS%% p INNER JOIN %%USERS%% u ON u.`id` = p.`id_owner` WHERE p.`universe` = :universe AND p.`planet_type` = 1 AND p.`destruyed` = 0 AND p.`last_update` > 0;', [':universe' => $universe], 'closed');
+        $delta = time() - $closedAt;
+        if ($closedAt <= 0 || $delta <= 0) {
+            return;
+        }
+
+        $planets = $db->select('SELECT p.`id`, p.`b_building_id` FROM %%PLANETS%% p INNER JOIN %%USERS%% u ON u.`id` = p.`id_owner` WHERE p.`universe` = :universe AND p.`b_building` != 0 AND p.`b_building_id` != \'\' AND u.`urlaubs_modus` = 0;', [':universe' => $universe]);
+        foreach ($planets as $planet) {
+            $queue = StoredData::decode($planet['b_building_id']);
+            foreach ($queue as &$entry) {
+                $entry[3] += $delta;
+            }
+            unset($entry);
+            $db->update('UPDATE %%PLANETS%% SET `b_building` = `b_building` + :delta, `b_building_id` = :queue WHERE `id` = :id;', [
+                ':delta' => $delta,
+                ':queue' => StoredData::encode($queue),
+                ':id' => $planet['id'],
+            ]);
+        }
+
+        $users = $db->select('SELECT `id`, `b_tech_queue` FROM %%USERS%% WHERE `universe` = :universe AND `b_tech` != 0 AND `b_tech_queue` != \'\' AND `urlaubs_modus` = 0;', [':universe' => $universe]);
+        foreach ($users as $user) {
+            $queue = StoredData::decode($user['b_tech_queue']);
+            foreach ($queue as &$entry) {
+                $entry[3] += $delta;
+            }
+            unset($entry);
+            $db->update('UPDATE %%USERS%% SET `b_tech` = `b_tech` + :delta, `b_tech_queue` = :queue WHERE `id` = :id;', [
+                ':delta' => $delta,
+                ':queue' => StoredData::encode($queue),
+                ':id' => $user['id'],
+            ]);
         }
     }
 }

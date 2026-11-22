@@ -552,3 +552,5 @@ depot_msg_text: "Deine Floddn bei %s is von %s wersorchd worn: Aufendhald um %s 
 cr_actions: "Aggzionen zum Bericht"
 cr_attack_again: "Nochmal angreifn"
 cr_simulate: "Simulieren"
+sys_expe_factor: "Factor %s"
+sys_irak_vacation: "The missiles were lost: the target player is in vacation mode."

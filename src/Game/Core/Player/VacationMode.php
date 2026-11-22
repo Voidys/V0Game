@@ -19,6 +19,16 @@ class VacationMode
 {
     use GameUtilities;
 
+    /** Production percentage columns of a planet (value 0-10 = 0-100 %), in the order of `planets.porcent_saved`. */
+    public const PERCENT_COLUMNS = [
+        'metal_mine_porcent',
+        'crystal_mine_porcent',
+        'deuterium_sintetizer_porcent',
+        'solar_plant_porcent',
+        'fusion_plant_porcent',
+        'solar_satelit_porcent',
+    ];
+
     public function __construct(
         protected Database $db,
         protected ConfigRegistry $configs,
@@ -58,7 +68,7 @@ class VacationMode
             if (isset($PLANET)) {
                 $this->shiftBuildQueue($PLANET, $umode_delta);
             }
-            $this->resumeOtherPlanets((int) $USER['id'], $umode_delta);
+            $restored = $this->resumeOtherPlanets((int) $USER['id'], $umode_delta);
 
             $sql = 'UPDATE %%USERS%% SET
                 `urlaubs_modus` = 0,
@@ -78,7 +88,12 @@ class VacationMode
 
             $PlanetRess = new ResourceUpdate($this->db, $this->configs, $this->state);
             if (isset($PLANET)) {
-                $PLANET['last_update'] = $this->state->runtime->timestamp;
+                // the rows were rewritten by resumeOtherPlanets(): the request's copy gets the restored levels too, and
+                // one second of production so that CalcResource() rebuilds production and energy for this request
+                foreach ($restored[$PLANET['id']] ?? [] as $column => $value) {
+                    $PLANET[$column] = $value;
+                }
+                $PLANET['last_update'] = $this->state->runtime->timestamp - 1;
                 $PLANET['eco_hash'] = '';
                 [$USER, $PLANET] = $PlanetRess->CalcResource($USER, $PLANET, true);
                 $this->playerUtilAchievements()->checkPlayerUtilAchievements33($USER['id']);
@@ -89,6 +104,35 @@ class VacationMode
                 [$USER, $CPLANET] = $PlanetRess->CalcResource($USER, $CPLANET, true);
             }
         }
+    }
+
+    /**
+     * SQL expression that stores the planet's production percentages in a comma separated list (for `porcent_saved`).
+     */
+    public static function percentSnapshotSql(): string
+    {
+        return "CONCAT_WS(',', `" . implode('`, `', self::PERCENT_COLUMNS) . "`)";
+    }
+
+    /**
+     * Decodes `planets.porcent_saved` into column => value; missing or malformed snapshots give every column 10 (100 %).
+     *
+     * @return array<string, string>
+     */
+    public static function percentsFromSnapshot(?string $snapshot): array
+    {
+        $values = explode(',', (string) $snapshot);
+        $valid = count($values) === count(self::PERCENT_COLUMNS);
+        foreach ($values as $value) {
+            $valid = $valid && ctype_digit($value) && (int) $value <= 10;
+        }
+
+        $percents = [];
+        foreach (self::PERCENT_COLUMNS as $i => $column) {
+            $percents[$column] = $valid ? (string) (int) $values[$i] : '10';
+        }
+
+        return $percents;
     }
 
     /**
@@ -143,20 +187,23 @@ class VacationMode
 
     /**
      * Postpones building queues and wreck fields of all non-destroyed planets by the vacation length and
-     * resets the production percentages of mines, power plants and satellites to 10. The eco hash is cleared: the
-     * vacation entry zeroed production and energy, so the next update must rebuild them (the hash alone would match).
+     * restores the production percentages of mines, power plants and satellites the player had before the vacation
+     * (`porcent_saved`; 10 = 100 % when there is no snapshot). The eco hash is cleared: the vacation entry zeroed
+     * production and energy, so the next update must rebuild them (the hash alone would match).
      * Side effects: locks the planets (FOR UPDATE), UPDATE planets and planet_wreckfield.
      *
      * @param int $userId
      * @param int $umode_delta seconds spent in vacation mode
+     * @return array<int, array<string, string>> planet id => restored percentage columns
      */
-    private function resumeOtherPlanets(int $userId, int $umode_delta): void
+    private function resumeOtherPlanets(int $userId, int $umode_delta): array
     {
         $db = $this->db;
-        $sql = 'SELECT `id`, `b_building`, `b_building_id` FROM %%PLANETS%% WHERE `id_owner` = :userID AND `destruyed` = 0 FOR UPDATE;';
+        $sql = 'SELECT `id`, `b_building`, `b_building_id`, `porcent_saved` FROM %%PLANETS%% WHERE `id_owner` = :userID AND `destruyed` = 0 FOR UPDATE;';
         $planets = $db->select($sql, [
             ':userID'   => $userId,
         ]);
+        $restored = [];
 
         foreach ($planets as $CPLANET) {
             if (!empty($CPLANET['b_building']) && !empty($CPLANET['b_building_id'])) {
@@ -174,14 +221,23 @@ class VacationMode
                 `b_building_id` = :current_queue,
                 `last_update` = :timestamp,
                 `eco_hash` = "",
-                `metal_mine_porcent` = "10",
-                `crystal_mine_porcent` = "10",
-                `deuterium_sintetizer_porcent` = "10",
-                `solar_plant_porcent` = "10",
-                `fusion_plant_porcent` = "10",
-                `solar_satelit_porcent` = "10"
+                `porcent_saved` = "",
+                `metal_mine_porcent` = :metal,
+                `crystal_mine_porcent` = :crystal,
+                `deuterium_sintetizer_porcent` = :deuterium,
+                `solar_plant_porcent` = :solar,
+                `fusion_plant_porcent` = :fusion,
+                `solar_satelit_porcent` = :satellite
                 WHERE `id` = :planetID;';
+            $percents = self::percentsFromSnapshot($CPLANET['porcent_saved']);
+            $restored[$CPLANET['id']] = $percents;
             $db->update($sql, [
+                ':metal' => $percents['metal_mine_porcent'],
+                ':crystal' => $percents['crystal_mine_porcent'],
+                ':deuterium' => $percents['deuterium_sintetizer_porcent'],
+                ':solar' => $percents['solar_plant_porcent'],
+                ':fusion' => $percents['fusion_plant_porcent'],
+                ':satellite' => $percents['solar_satelit_porcent'],
                 ':planetID' => $CPLANET['id'],
                 ':building' => $CPLANET['b_building'],
                 ':current_queue' => $CPLANET['b_building_id'],
@@ -200,6 +256,8 @@ class VacationMode
 
             unset($CPLANET);
         }
+
+        return $restored;
     }
 
     /**
@@ -220,6 +278,11 @@ class VacationMode
             ':userID'       => $USER['id'],
             ':time'         => $byBan ? 0 : ($this->state->runtime->timestamp + $this->configs->get()->vmode_min_time),
             ':startTime'    => $this->state->runtime->timestamp,
+        ]);
+
+        // remember the player's levels for the way back (a second call while already in vacation keeps the first snapshot)
+        $db->update('UPDATE %%PLANETS%% SET `porcent_saved` = ' . self::percentSnapshotSql() . " WHERE `id_owner` = :userID AND `porcent_saved` = '';", [
+            ':userID'   => $USER['id'],
         ]);
 
         $sql = 'UPDATE %%PLANETS%% SET `energy_used` = 0, `energy` = 0, `metal_mine_porcent` = "0",

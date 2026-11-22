@@ -6,6 +6,10 @@
 {{ ui.page_head(LNG.nt_notes, 'sticky-note', notesList is not empty ? LNG.nt_priority_legend : null, actions) }}
 {% endblock %}
 {% block content %}
+{% if layout_template == 'game/layout.ajax.html.twig' %}
+<header class="panel__head"><h2>{{ LNG.nt_notes }}</h2><a class="btn btn--primary" href="{{ path('game_notes_new') }}">{{ icon('plus') }} {{ LNG.nt_create_new_note }}</a></header>
+{% if notesList is not empty %}<p class="hint">{{ LNG.nt_priority_legend }}</p>{% endif %}
+{% endif %}
 <form class="panel panel--flush" action="{{ path('game_notes_delete') }}" method="post">
 	{% if notesList is not empty %}
 	<table class="data notes-table">

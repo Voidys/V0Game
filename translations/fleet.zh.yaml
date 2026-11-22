@@ -246,3 +246,5 @@ depot_msg_text: "你在 %s 的舰队得到了 %s 的补给：停留时间延长 
 cr_actions: "战报操作"
 cr_attack_again: "再次攻击"
 cr_simulate: "模拟"
+sys_expe_factor: "Factor %s"
+sys_irak_vacation: "The missiles were lost: the target player is in vacation mode."

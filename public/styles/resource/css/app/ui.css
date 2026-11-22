@@ -234,6 +234,7 @@
     transition: inline-size var(--t-slow) var(--ease-out);
   }
   .meter--warn::after { background: var(--c-warning); }
+  .meter--danger::after { background: var(--c-negative); }
   .meter--thin { block-size: 2px; }
 
   /* ------------------------------------------------------------------ empty state */

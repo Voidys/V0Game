@@ -81,7 +81,7 @@ class MissionCaseAttack extends AbstractBattleMission
         $battleHandler->GenerateWreckField($targetPlanetID, $combatResult, $targetUser['id'], $this->_fleet['universe']);
 
         foreach ($setup->userAttack as $attackerId => $fleet) {
-            $this->statsHandler->setTimestamp($this->_fleet['owner'], AdvancedStatsEnum::FIRST_ATTACK, $this->_fleet['arrival_time']);
+            $this->statsHandler->setTimestamp($attackerId, AdvancedStatsEnum::FIRST_ATTACK, $this->_fleet['arrival_time']);
         }
         foreach ($setup->userDefend as $defenderId => $fleet) {
             $this->statsHandler->setTimestamp($defenderId, AdvancedStatsEnum::FIRST_DEFENSE, $this->_fleet['arrival_time']);
@@ -156,9 +156,7 @@ class MissionCaseAttack extends AbstractBattleMission
         $randChance = $this->roll(1, 100);
         if ($randChance <= $chanceCreateMoon + $additionalChance) {
             $LNG = $this->getLanguage($targetUser['lang']);
-            $reportInfo['moonName'] = $LNG['type_planet_3'];
-
-            $this->planetManager()->createMoon(
+            $moonId = $this->planetManager()->createMoon(
                 $this->_fleet['universe'],
                 $this->_fleet['end_galaxy'],
                 $this->_fleet['end_system'],
@@ -168,15 +166,19 @@ class MissionCaseAttack extends AbstractBattleMission
                 $LNG['type_planet_3'],
             );
 
-            $this->statsHandler->increment($targetUser['id'], AdvancedStatsEnum::MOONS_RECEIVED, 1);
-            $this->statsHandler->setTimestamp($this->_fleet['owner'], AdvancedStatsEnum::FIRST_MOON, $this->_fleet['arrival_time']);
-            foreach ($userAttack as $attackerId => $fleet) {
-                $this->statsHandler->increment($attackerId, AdvancedStatsEnum::MOONS_CREATED, 1);
-            }
+            // createMoon() gives false when the parent planet is gone or has a moon already: nothing was built
+            if ($moonId) {
+                $reportInfo['moonName'] = $LNG['type_planet_3'];
+                $this->statsHandler->increment($targetUser['id'], AdvancedStatsEnum::MOONS_RECEIVED, 1);
+                foreach ($userAttack as $attackerId => $fleet) {
+                    $this->statsHandler->setTimestamp($attackerId, AdvancedStatsEnum::FIRST_MOON, $this->_fleet['arrival_time']);
+                    $this->statsHandler->increment($attackerId, AdvancedStatsEnum::MOONS_CREATED, 1);
+                }
 
-            if ($config->debris_moon == 1) {
-                foreach ($debrisResource as $elementID) {
-                    $planetDebris[$elementID] = 0;
+                if ($config->debris_moon == 1) {
+                    foreach ($debrisResource as $elementID) {
+                        $planetDebris[$elementID] = 0;
+                    }
                 }
             }
         }

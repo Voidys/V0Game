@@ -616,16 +616,18 @@ class MarketPurchase
         $elements = $this->elements();
         // sorry world.
         $amount = $fleetResult['ex_resource_amount'];
+        // cargo room per ship from the fleet rules (FleetMath::getFleetRoom), the same figure a real fleet of these ships carries
+        $capacity = fn(int $shipId): int => $this->fleetFunctions()->getFleetRoom([$shipId => 1]);
 
         $F1capacity = 0;
         $F1type = 0;
         if ($shipType == 1) {
             // PRIO for LC
-            $F1capacity = $elements->capacity(SHIP_SMALL_CARGO);
+            $F1capacity = $capacity(SHIP_SMALL_CARGO);
             $F1type = SHIP_SMALL_CARGO;
         } else {
             // PRIO for HC
-            $F1capacity = $elements->capacity(SHIP_LARGE_CARGO);
+            $F1capacity = $capacity(SHIP_LARGE_CARGO);
             $F1type = SHIP_LARGE_CARGO;
         }
 
@@ -640,11 +642,11 @@ class MarketPurchase
         if ($amountTMP > 0) {
             if ($shipType == 1) {
                 // We need HC
-                $F2capacity = $elements->capacity(SHIP_LARGE_CARGO);
+                $F2capacity = $capacity(SHIP_LARGE_CARGO);
                 $F2type = SHIP_LARGE_CARGO;
             } else {
                 // We need LC
-                $F2capacity = $elements->capacity(SHIP_SMALL_CARGO);
+                $F2capacity = $capacity(SHIP_SMALL_CARGO);
                 $F2type = SHIP_SMALL_CARGO;
             }
             $F2 = min($PLANET[$elements->column($F2type)], ceil($amountTMP / $F2capacity));

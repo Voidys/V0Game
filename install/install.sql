@@ -689,6 +689,7 @@ CREATE TABLE `%PREFIX%planets` (
   `solar_plant_porcent` enum('0','1','2','3','4','5','6','7','8','9','10') NOT NULL DEFAULT '10',
   `fusion_plant_porcent` enum('0','1','2','3','4','5','6','7','8','9','10') NOT NULL DEFAULT '10',
   `solar_satelit_porcent` enum('0','1','2','3','4','5','6','7','8','9','10') NOT NULL DEFAULT '10',
+  `porcent_saved` varchar(32) NOT NULL DEFAULT '',
   `last_jump_time` int(11) NOT NULL DEFAULT '0',
   `der_metal` double(50,0) unsigned NOT NULL DEFAULT '0',
   `der_crystal` double(50,0) unsigned NOT NULL DEFAULT '0',

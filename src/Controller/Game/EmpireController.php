@@ -188,6 +188,19 @@ class EmpireController extends AbstractGameController
     }
 
     /**
+     * Whole hours until a storage of capacity $max holding $stock is full at $perHour; 0 when it already is, null
+     * ("never") when the production is zero or negative.
+     */
+    private function hoursUntilFull(float|int $max, float|int $stock, float|int $perHour): ?float
+    {
+        if ($perHour <= 0) {
+            return null;
+        }
+
+        return floor(max($max - $stock, 0) / $perHour);
+    }
+
+    /**
      * Adds the planet's identity, fields, temperature, resources, storage-full times, production and the running
      * building to the template columns.
      *
@@ -224,9 +237,9 @@ class EmpireController extends AbstractGameController
             $basic[RESOURCE_METAL] = $config->metal_basic_income * ($config->resource_multiplier / 2500);
             $basic[RESOURCE_CRYSTAL] = $config->crystal_basic_income * ($config->resource_multiplier / 2500);
             $basic[RESOURCE_DEUT] = $config->deuterium_basic_income * ($config->resource_multiplier / 2500);
-            $planetList['resourceFull'][RESOURCE_METAL][$Planet['id']] = floor(max($Planet['metal_max'] - $Planet['metal'], 0) / max(1, $Planet['metal_perhour'] + $basic[RESOURCE_METAL]));
-            $planetList['resourceFull'][RESOURCE_CRYSTAL][$Planet['id']] = floor(max($Planet['crystal_max'] - $Planet['crystal'], 0) / max(1, $Planet['crystal_perhour'] + $basic[RESOURCE_CRYSTAL]));
-            $planetList['resourceFull'][RESOURCE_DEUT][$Planet['id']] = floor(max($Planet['deuterium_max'] - $Planet['deuterium'], 0) / max($basic[RESOURCE_DEUT] + $Planet['deuterium_perhour'], 1));
+            $planetList['resourceFull'][RESOURCE_METAL][$Planet['id']] = $this->hoursUntilFull($Planet['metal_max'], $Planet['metal'], $Planet['metal_perhour'] + $basic[RESOURCE_METAL]);
+            $planetList['resourceFull'][RESOURCE_CRYSTAL][$Planet['id']] = $this->hoursUntilFull($Planet['crystal_max'], $Planet['crystal'], $Planet['crystal_perhour'] + $basic[RESOURCE_CRYSTAL]);
+            $planetList['resourceFull'][RESOURCE_DEUT][$Planet['id']] = $this->hoursUntilFull($Planet['deuterium_max'], $Planet['deuterium'], $basic[RESOURCE_DEUT] + $Planet['deuterium_perhour']);
         } else {
             $basic[RESOURCE_METAL] = 0;
             $basic[RESOURCE_CRYSTAL] = 0;

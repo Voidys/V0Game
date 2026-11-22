@@ -49,6 +49,7 @@ class MarketOfferListing
 			AND f.`universe` = :universe
             AND f.`status` = :fleetState
             AND t.`buyer_fleet_id` IS NULL
+            AND f.`stay_time` > :now
             ORDER BY f.`stay_time` ASC;';
         return $this->db->select($sql, [
             ':al'           => $USER['ally_id'],
@@ -56,6 +57,7 @@ class MarketOfferListing
             ':buyerid'      => $USER['id'],
             ':universe'     => $this->universe()->current(),
             ':fleetState'   => FLEET_HOLD,
+            ':now'          => $this->state->runtime->timestamp,
         ]);
     }
 

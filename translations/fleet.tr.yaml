@@ -252,3 +252,5 @@ depot_msg_text: "%s konumundaki filon %s tarafından ikmal edildi: kalış %s sa
 cr_actions: "Rapor eylemleri"
 cr_attack_again: "Tekrar saldır"
 cr_simulate: "Simüle et"
+sys_expe_factor: "Factor %s"
+sys_irak_vacation: "The missiles were lost: the target player is in vacation mode."

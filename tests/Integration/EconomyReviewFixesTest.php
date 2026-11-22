@@ -108,7 +108,7 @@ final class EconomyReviewFixesTest extends GameTestCase
         $user = $this->loadUser((int) $user['id']);
         $planet = $this->loadPlanet((int) $planet['id']);
         $players->disable_vmode($user, $planet);
-        $this->assertSame('', (string) $this->loadPlanet((int) $planet['id'])['eco_hash'], 'the hash is cleared');
+        $this->assertGreaterThan(0, (float) $this->loadPlanet((int) $planet['id'])['metal_perhour'], 'the request that ends the vacation already rebuilds production');
 
         // the next update, some time later, recalculates production and energy (before: stayed 0 until the hash changed)
         $this->db->update('UPDATE %%PLANETS%% SET last_update = :t WHERE id = :id;', [':t' => $now - 50, ':id' => $planet['id']]);

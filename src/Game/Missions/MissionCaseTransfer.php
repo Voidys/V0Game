@@ -154,8 +154,8 @@ class MissionCaseTransfer extends MissionFunctions implements MissionInterface
 
         $db = $this->db;
         $sql = 'SELECT `name` FROM %%PLANETS%% WHERE `id` = :planetId;';
-        $targetPlanet = $db->selectSingle($sql, [
-            ':planetId' => $this->_fleet['end_id'],
+        $startPlanet = $db->selectSingle($sql, [
+            ':planetId' => $this->_fleet['start_id'],
         ]);
 
         $stationShips = "";
@@ -168,7 +168,7 @@ class MissionCaseTransfer extends MissionFunctions implements MissionInterface
         $Message = $LNG->format(
             'sys_fleet_return',
             $LNG['type_planet_' . $this->_fleet['start_type']],
-            $targetPlanet['name'],
+            $startPlanet['name'] ?? '',
             GetStartAddressLink($this->_fleet, ''),
             $this->viewHelpers()->prettyNumber($this->_fleet['resource_metal']),
             $LNG['tech'][RESOURCE_METAL],

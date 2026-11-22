@@ -504,7 +504,7 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
                 WHERE d.owner_2 = :allianceID AND accept = 0 AND u.id = :userID AND (u.id = a.ally_owner OR ra.DIPLOMATIC = 1)) AS diplos,
             (SELECT COUNT(b.`id`) FROM %%BUDDY%% b
                 JOIN %%BUDDY_REQUEST%% br ON br.`id` = b.`id`
-                WHERE b.`sender` = :userID OR b.`owner` = :userID) AS buddies;";
+                WHERE b.`owner` = :userID) AS buddies;";
         $row = $this->db->selectSingle($sql, [
             // no alliance has id 0: players without one count nothing
             ':allianceID' => $this->state->USER['ally_id'] ?: 0,

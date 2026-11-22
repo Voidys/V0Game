@@ -232,7 +232,7 @@ class GalaxyController extends AbstractGameController
 
     /**
      * CSS class per planet position of the system: colorPositive where a colony may be founded (the player's research allows
-     * the position and it is free), colorNegative otherwise.
+     * the position, he is below his planet limit and it is free), colorNegative otherwise.
      *
      * @param array<int, mixed> $Result occupied positions of the system
      * @return array<int, string> position => class
@@ -243,11 +243,13 @@ class GalaxyController extends AbstractGameController
         // allowPlanetPosition() depends only on the distance to the nearest edge (1, 2, 3, or further in), so
         // each tier is asked once instead of once per position
         $allowedByTier = [];
+        // at the planet limit the colonisation is refused on arrival, so no slot is offered
+        $atLimit = $this->planetPositions()->currentPlanetCount($this->state->USER) >= $this->planetPositions()->maxPlanetCount($this->state->USER);
         for ($i = 1; $i <= $config->max_planets; $i++) {
             $tier = min($i - 1, $config->max_planets - $i, 3);
             $allowedByTier[$tier] ??= $this->planetPositions()->allowPlanetPosition($i, $this->state->USER);
             $allowPlanetPosition = $allowedByTier[$tier];
-            if ($allowPlanetPosition && !isset($Result[$i])) {
+            if (!$atLimit && $allowPlanetPosition && !isset($Result[$i])) {
                 $colonizable[$i] = 'colorPositive';
             } else {
                 $colonizable[$i] = 'colorNegative';

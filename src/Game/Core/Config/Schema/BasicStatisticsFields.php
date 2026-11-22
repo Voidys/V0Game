@@ -24,7 +24,7 @@ final class BasicStatisticsFields
                     'maxlength' => 7,
                     'size' => 7,
                     'transform' => 'int',
-                    'min' => 0,
+                    'min' => 1,
                     'default' => 1000,
                 ],
                 'stat' => [

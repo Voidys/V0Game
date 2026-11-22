@@ -708,7 +708,8 @@ kbd {
   .page-fab {
     position: fixed;
     inset-inline-end: max(var(--space-4), env(safe-area-inset-right, 0px));
-    inset-block-end: calc(var(--tabbar-h) + var(--safe-b) + var(--space-3));
+    /* --fab-lift (ui.js): how far the page footer reaches into the viewport, the button stays above it */
+    inset-block-end: max(calc(var(--tabbar-h) + var(--safe-b) + var(--space-3)), calc(var(--fab-lift, 0px) + var(--space-3)));
     z-index: 35;
     min-block-size: 3rem;
     padding-inline: var(--space-4);

@@ -258,3 +258,5 @@ depot_msg_text: "Twoja flota przy %s została zaopatrzona przez %s: pobyt wydłu
 cr_actions: "Akcje raportu"
 cr_attack_again: "Atakuj ponownie"
 cr_simulate: "Symuluj"
+sys_expe_factor: "Factor %s"
+sys_irak_vacation: "The missiles were lost: the target player is in vacation mode."

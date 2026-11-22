@@ -161,6 +161,10 @@ class ExpeditionCombatEvent extends ExpeditionEvent
 
         $battleHandler = new BattleHandler(false, $this->db, $this->configs, $this->state);
         $combatResult = $battleHandler->engine->fight($fleetAttack, $fleetDefend, $this->fleet['universe']);
+        if (!$combatResult) {
+            // engine failure: no fight took place, the fleet stays as it is (the encounter text only)
+            return $Message;
+        }
         $report = (new ExpeditionCombatReport($this->db, $this->configs, $this->state, $this->ctx))->generate($combatResult, $battleHandler, $fleetAttack, $fleetDefend);
 
         $fleetArray = '';

@@ -106,7 +106,7 @@ class BattleHandler
                 WHERE `id` = :userID;";
                 $db->update($sql, [
                     ':someTime'      => $combatTime,
-                    ':attackers'     => json_encode($attacker),
+                    ':attackers'     => json_encode(array_values($opponents)),
                     ':someTimeLater' => $combatTime + TIME_1_MONTH,
                     ':userID'        => $userID,
                 ]);
@@ -125,7 +125,7 @@ class BattleHandler
      * @param int $battleType REAL_FIGHT or EXPO_FIGHT (or a simulator constant, no side effects then).
      * @param BattleResult $combatResult result of the fight.
      * @param array<string, mixed> $reportInfo header data (fleet row, debris, loot, moon chances, ...).
-     * @param array<int|string, BattleFleet> $attackers attacking fleets that still exist after the fight (destroyed ones are already removed; only these get a `players` entry).
+     * @param array<int|string, BattleFleet> $attackers attacking fleets that still exist after the fight (destroyed ones are already removed; the `players` entries come from the start state of the result, so wiped-out fleets keep theirs).
      * @param array<int|string, BattleFleet> $defenders likewise for the defending side.
      * @param string|null $battleEngineName engine name stored with the result ('rust' selects the raw round format).
      * @return array<string, mixed> report data
@@ -134,7 +134,7 @@ class BattleHandler
     {
         $DATA = $this->reportHeader($combatResult, $reportInfo);
 
-        $players = $this->reportPlayers([$attackers, $defenders]);
+        $players = $this->reportPlayers([$combatResult->startAttackers() + $attackers, $combatResult->startDefenders() + $defenders]);
         if ($players !== []) {
             $DATA['players'] = $players;
         }
@@ -145,7 +145,11 @@ class BattleHandler
                 $DATA['rounds'] = $rounds;
             }
         } else {
-            $DATA['rounds'] = $combatResult->rounds;
+            $rounds = $combatResult->rounds;
+            if (isset($rounds[0])) {
+                $rounds[0] = self::scrubStartState($rounds[0]);
+            }
+            $DATA['rounds'] = $rounds;
         }
         if ($battleType == REAL_FIGHT) {
             $this->battleAchievements()->checkBattleAchievements($reportInfo, $combatResult, $DATA);
@@ -160,6 +164,37 @@ class BattleHandler
         }
 
         return $DATA;
+    }
+
+    /**
+     * Start state (round 0) of a Rust report reduced to what the report pages and the simulator prefill read: per fleet
+     * the owner's id, name and combat techs, the start coordinates of the fleet and the units. The stored report is
+     * readable by every participant, so the rest of the user row and the fleet row must not end up in it.
+     * Idempotent; the migration of old reports keeps its own copy of this whitelist.
+     *
+     * @param array<string, mixed> $round0 rounds[0] with the fleet lists `attackers` and `defenders`
+     * @return array<string, mixed>
+     */
+    public static function scrubStartState(array $round0): array
+    {
+        $playerKeys = array_flip(['id', 'username', 'military_tech', 'shield_tech', 'defence_tech']);
+        $fleetKeys = array_flip(['start_galaxy', 'start_system', 'start_planet', 'start_type']);
+        foreach (['attackers', 'defenders'] as $side) {
+            foreach ($round0[$side] ?? [] as $key => $fleet) {
+                if (!is_array($fleet)) {
+                    continue;
+                }
+                if (isset($fleet['player']) && is_array($fleet['player'])) {
+                    $fleet['player'] = array_intersect_key($fleet['player'], $playerKeys);
+                }
+                if (isset($fleet['fleetDetail']) && is_array($fleet['fleetDetail'])) {
+                    $fleet['fleetDetail'] = array_intersect_key($fleet['fleetDetail'], $fleetKeys);
+                }
+                $round0[$side][$key] = $fleet;
+            }
+        }
+
+        return $round0;
     }
 
     /**

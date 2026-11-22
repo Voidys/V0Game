@@ -216,11 +216,11 @@
       {% for key, entry in watchList %}
           <tr>
             <td>{% if key==0 %}{{ entry.name }}{% else %}{{ entry.coords }} {{ entry.name }} ({{ entry.level }}){% endif %}</td>
-            <td class="num {{ (resourceTable[901].current>=entry.metal) ? 'colorPositive':'colorNegative' }}">{{ entry.metal|number_format(0, ",", ".") }}</td>
-            <td class="num {{ (resourceTable[902].current>=entry.crystal) ? 'colorPositive':'colorNegative' }}">{{ entry.crystal|number_format(0, ",", ".") }}</td>
-            <td class="num {{ (resourceTable[903].current>=entry.deuterium) ? 'colorPositive':'colorNegative' }}">{{ entry.deuterium|number_format(0, ",", ".") }}</td>
+            <td class="num {{ (resourceTable[901].current>=entry.metal) ? 'colorPositive':'colorNegative' }}">{{ pretty_number(entry.metal) }}</td>
+            <td class="num {{ (resourceTable[902].current>=entry.crystal) ? 'colorPositive':'colorNegative' }}">{{ pretty_number(entry.crystal) }}</td>
+            <td class="num {{ (resourceTable[903].current>=entry.deuterium) ? 'colorPositive':'colorNegative' }}">{{ pretty_number(entry.deuterium) }}</td>
             <td class="num">
-              <span class="{% if FleetsOnPlanet[202].count >= entry.needed202 %}colorPositive{% else %}colorNegative{% endif %}">{{ entry.needed202 }}</span> / <span class="{% if FleetsOnPlanet[203].count >= entry.needed203 %}colorPositive{% else %}colorNegative{% endif %}">{{ entry.needed203 }}</span>
+              <span class="{% if FleetsOnPlanet[202].count >= entry.needed202 %}colorPositive{% else %}colorNegative{% endif %}">{{ pretty_number(entry.needed202) }}</span> / <span class="{% if FleetsOnPlanet[203].count >= entry.needed203 %}colorPositive{% else %}colorNegative{% endif %}">{{ pretty_number(entry.needed203) }}</span>
             </td>
             <td class="ctr">
               <span class="{% if FleetsOnPlanet[202].count == 0 %}colorNegative{% else %}{% if FleetsOnPlanet[202].count >= entry.needed202 %}colorPositive{% else %}colorNeutral{% endif %}{% endif %} clickable" data-action="cargo-preset" data-type="202" data-galaxy="{{ entry.galaxy }}" data-system="{{ entry.system }}" data-planet="{{ entry.planet }}" data-planet-type="{{ entry.planet_type }}" data-metal="{{ entry.metal }}" data-crystal="{{ entry.crystal }}" data-deuterium="{{ entry.deuterium }}" data-total="{{ entry.total }}" data-ship202="{{ FleetsOnPlanet[202].count|default(0) }}" data-ship203="{{ FleetsOnPlanet[203].count|default(0) }}" data-needed202="{{ entry.needed202 }}" data-needed203="{{ entry.needed203 }}" data-capacity202="{{ shiptypes[202].capacity }}" data-capacity203="{{ shiptypes[203].capacity }}">{{ icon('car') }}</span> /

@@ -168,7 +168,7 @@ class Statbuilder
      */
     private function isHidden(array $userData): bool
     {
-        return (in_array($this->configs->get()->stat, [1, 2]) && $userData['authlevel'] >= $this->configs->get()->stat_level) || !empty($userData['bana']);
+        return (in_array($this->configs->get((int) $userData["universe"])->stat, [1, 2]) && $userData['authlevel'] >= $this->configs->get((int) $userData["universe"])->stat_level) || !empty($userData['bana']);
     }
 
     /**

@@ -378,9 +378,6 @@ class MessageListing
         $db = $this->db;
         $MessageList    = [];
         $MessagesID     = [];
-        $this->typeCounts = null;
-        $CategoryList = $this->categoryList();
-
         [$conditions, $params] = $this->filter($MessCategory, $fav, $searchtext);
         $groupedArray = $this->groupedTypes($grp);
         $data = $this->fetchPage($conditions, $params, $groupedArray, $page, $MessCategory, $fav, $searchtext);
@@ -403,6 +400,10 @@ class MessageListing
                     ->setParameter('userID', $USER['id']),
             );
         }
+
+        // counted after the listed messages were marked as read
+        $this->typeCounts = null;
+        $CategoryList = $this->categoryList();
 
         return [
             'MessageList' => $MessageList,

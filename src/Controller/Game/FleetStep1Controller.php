@@ -35,7 +35,7 @@ class FleetStep1Controller extends AbstractGameController
 
     /**
      * Fleet dispatch step 1. Request: ship<id> = counts of the ships to send (solar satellites ignored; none selected goes back to the fleet page),
-     * galaxy/system/planet/type (preset target, default the current planet), target_mission, met_storage/krist_storage/deut_storage (preset cargo).
+     * galaxy/system/planet/type (preset target, default the player's next other planet, else the current planet), target_mission, met_storage/krist_storage/deut_storage (preset cargo).
      * Stores the chosen fleet in the game session under a new random token (used by steps 2 and 3), refuses ships the planet does not have, and renders the
      * target form with speed choices, coordinate shortcuts, own planets, usable alliance combat groups, the pirate base and the universe geometry for
      * the flight time preview.
@@ -46,10 +46,7 @@ class FleetStep1Controller extends AbstractGameController
         $USER = $this->state->USER;
         $PLANET = $this->state->PLANET;
         $LNG = $this->state->LNG;
-        $targetGalaxy = $this->input()->int('galaxy', (int) $PLANET['galaxy']);
-        $targetSystem = $this->input()->int('system', (int) $PLANET['system']);
-        $targetPlanet = $this->input()->int('planet', (int) $PLANET['planet']);
-        $targetType = $this->input()->int('type', (int) $PLANET['planet_type']);
+        [$targetGalaxy, $targetSystem, $targetPlanet, $targetType] = $this->presetTarget();
 
         $mission = $this->input()->int('target_mission', -1);
 
@@ -391,6 +388,25 @@ class FleetStep1Controller extends AbstractGameController
     }
 
     /**
+     * The target coordinates of the request; without a preset the player's next other planet (the current one is no
+     * valid target), else the current planet.
+     *
+     * @return array{0: int, 1: int, 2: int, 3: int} galaxy, system, planet, type
+     */
+    private function presetTarget(): array
+    {
+        $PLANET = $this->state->PLANET;
+        $default = $this->input()->int('galaxy', 0) === 0 ? ($this->GetColonyList()[0] ?? null) : null;
+
+        return [
+            $this->input()->int('galaxy', (int) ($default['galaxy'] ?? $PLANET['galaxy'])),
+            $this->input()->int('system', (int) ($default['system'] ?? $PLANET['system'])),
+            $this->input()->int('planet', (int) ($default['planet'] ?? $PLANET['planet'])),
+            $this->input()->int('type', (int) ($default['type'] ?? $PLANET['planet_type'])),
+        ];
+    }
+
+    /**
      * The player's other planets/moons (not the current one) as quick-select targets with name, coordinates and type.
      */
     private function GetColonyList()
@@ -399,7 +415,7 @@ class FleetStep1Controller extends AbstractGameController
         $USER = $this->state->USER;
         $ColonyList = [];
 
-        foreach ($USER['PLANETS'] as $CurPlanetID => $CurPlanet) {
+        foreach ($USER['PLANETS'] ?? [] as $CurPlanetID => $CurPlanet) {
             if ($PLANET['id'] == $CurPlanet['id']) {
                 continue;
             }
@@ -554,7 +570,7 @@ class FleetStep1Controller extends AbstractGameController
             ':userId'   => $this->state->USER['id'],
         ]);
 
-        if (!isset($pirateBase)) {
+        if (empty($pirateBase)) {
             return $LNG['fl_error_not_avalible'];
         }
 
@@ -593,11 +609,11 @@ class FleetStep1Controller extends AbstractGameController
             ':targetType' => (($targetPlanetType == 2) ? 1 : $targetPlanetType),
         ]);
 
-        if ($targetPlanetType == 3 && !isset($planetData)) {
+        if ($targetPlanetType == 3 && empty($planetData)) {
             return $LNG['fl_error_no_moon'];
         }
 
-        if ($targetPlanetType == 1 && !isset($planetData) && !$koloShipInFleet) {
+        if ($targetPlanetType == 1 && empty($planetData) && !$koloShipInFleet) {
             return $LNG['fl_error_not_avalible'];
         }
 

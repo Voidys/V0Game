@@ -226,34 +226,28 @@ class HonorPoints
                 $result[$data['side'] . 'sH'][$data['username']] = 0;
                 continue;
             }
-            $fullpoints = 0;
-            $pointsChange = 0;
             if ($data['side'] == 'attacker') {
                 $fullpoints = $attackerFullpoints;
                 $pointsChange = $attackerHonorpointsChange;
-
-                if ($attackerHonorpointsChange > 0) {
-                    $statsHandler->increment($playerID, AdvancedStatsEnum::HONORABLE_FIGHTS, 1);
-                } elseif ($attackerHonorpointsChange < 0) {
-                    $statsHandler->increment($playerID, AdvancedStatsEnum::DISHONORABLE_FIGHTS, 1);
-                }
             } else {
                 $fullpoints = $defenderFullpoints;
                 $pointsChange = $defenderHonorpointsChange;
-
-                if ($defenderHonorpointsChange > 0) {
-                    $statsHandler->increment($playerID, AdvancedStatsEnum::HONORABLE_FIGHTS, 1);
-                } elseif ($defenderHonorpointsChange < 0) {
-                    $statsHandler->increment($playerID, AdvancedStatsEnum::DISHONORABLE_FIGHTS, 1);
-                }
             }
 
+            // a share of 1% or less gets no points and the fight does not count for the player
             if (!isset($data['fightpoints']) || $fullpoints == 0 || $data['fightpoints'] / $fullpoints <= 0.01) {
                 $result[$data['side'] . 'sH'][$data['username']] = 0;
                 continue;
             }
 
-            $change = $pointsChange * ($data['fightpoints'] / $fullpoints);
+            if ($pointsChange > 0) {
+                $statsHandler->increment($playerID, AdvancedStatsEnum::HONORABLE_FIGHTS, 1);
+            } elseif ($pointsChange < 0) {
+                $statsHandler->increment($playerID, AdvancedStatsEnum::DISHONORABLE_FIGHTS, 1);
+            }
+
+            // rounded once: the report shows the value that is stored
+            $change = (int) round($pointsChange * ($data['fightpoints'] / $fullpoints));
             $statsHandler->increment($playerID, AdvancedStatsEnum::HONORPOINTS, $change);
             $result[$data['side'] . 'sH'][$data['username']] = $change;
         }

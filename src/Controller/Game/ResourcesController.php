@@ -361,10 +361,6 @@ class ResourcesController extends AbstractGameController
             $productionList[$ProdID]['production'][$ID] = $Production;
 
             if ($Production > 0) {
-                if ($this->state->PLANET[$e->column($ID)] == 0) {
-                    continue;
-                }
-
                 $temp[$ID]['plus'] += $Production;
             } else {
                 $temp[$ID]['minus'] += $Production;
@@ -435,7 +431,7 @@ class ResourcesController extends AbstractGameController
                 RESOURCE_METAL => $temp[RESOURCE_METAL]['plus'] + $bonusProduction[RESOURCE_METAL] + $bonusProductionPositionBased[RESOURCE_METAL] + $basicProduction[RESOURCE_METAL],
                 RESOURCE_CRYSTAL => $temp[RESOURCE_CRYSTAL]['plus'] + $bonusProduction[RESOURCE_CRYSTAL] + $bonusProductionPositionBased[RESOURCE_CRYSTAL] + $basicProduction[RESOURCE_CRYSTAL],
                 RESOURCE_DEUT => $temp[RESOURCE_DEUT]['plus'] + $bonusProduction[RESOURCE_DEUT] + $bonusProductionPositionBased[RESOURCE_DEUT] + $basicProduction[RESOURCE_DEUT] + $fusion_planet_deut,
-                RESOURCE_ENERGY => $this->state->PLANET[$e->column(RESOURCE_ENERGY)] + $basicProduction[RESOURCE_ENERGY] + $this->state->PLANET[$e->column(RESOURCE_ENERGY) . '_used'],
+                RESOURCE_ENERGY => $this->state->PLANET[$e->column(RESOURCE_ENERGY)] + $this->state->PLANET[$e->column(RESOURCE_ENERGY) . '_used'],
             ];
         } else {
             $bonusProduction = [
@@ -449,7 +445,7 @@ class ResourcesController extends AbstractGameController
                 RESOURCE_METAL => $temp[RESOURCE_METAL]['plus'] + $bonusProduction[RESOURCE_METAL] + $basicProduction[RESOURCE_METAL],
                 RESOURCE_CRYSTAL => $temp[RESOURCE_CRYSTAL]['plus'] + $bonusProduction[RESOURCE_CRYSTAL] + $basicProduction[RESOURCE_CRYSTAL],
                 RESOURCE_DEUT => $temp[RESOURCE_DEUT]['plus'] + $bonusProduction[RESOURCE_DEUT] + $basicProduction[RESOURCE_DEUT] + $fusion_planet_deut,
-                RESOURCE_ENERGY => $this->state->PLANET[$e->column(RESOURCE_ENERGY)] + $basicProduction[RESOURCE_ENERGY] + $this->state->PLANET[$e->column(RESOURCE_ENERGY) . '_used'],
+                RESOURCE_ENERGY => $this->state->PLANET[$e->column(RESOURCE_ENERGY)] + $this->state->PLANET[$e->column(RESOURCE_ENERGY) . '_used'],
             ];
         }
 

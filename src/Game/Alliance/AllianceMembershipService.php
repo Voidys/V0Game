@@ -38,6 +38,11 @@ class AllianceMembershipService
         $USER = $this->state->USER;
         $LNG = $this->state->LNG;
 
+        // a member has to leave first (a leader cannot found a second alliance and stay owner of the first)
+        if (!empty($USER['ally_id'])) {
+            throw AllianceException::message($LNG['al_already_member'], $LNG['sys_back'], 'game_alliance_show');
+        }
+
         $userPoints = $this->repository->userPoints($USER['id']);
         $min_points = $this->configs->get()->alliance_create_min_points;
 
@@ -123,7 +128,7 @@ class AllianceMembershipService
             ':userId' => $USER['id'],
         ]);
 
-        $sql = "UPDATE %%STATPOINTS%% SET id_ally = :allianceId WHERE id_owner = :userId;";
+        $sql = "UPDATE %%STATPOINTS%% SET id_ally = :allianceId WHERE id_owner = :userId AND stat_type = 1;";
         $db->update($sql, [
             ':allianceId' => $allianceId,
             ':userId' => $USER['id'],
@@ -213,6 +218,8 @@ class AllianceMembershipService
         $db->update($sql, [
             ':id' => $id,
         ]);
+
+        $this->messenger->memberKicked($id, '[' . $alliance['ally_tag'] . '] ' . $alliance['ally_name']);
 
         $sql = "UPDATE %%STATPOINTS%% SET id_ally = 0 WHERE id_owner = :id AND stat_type = 1;";
         $db->update($sql, [
@@ -312,7 +319,9 @@ class AllianceMembershipService
         $db = $this->db;
         $params = [':AllianceID' => $alliance['id']];
 
-        $db->update("UPDATE %%USERS%% SET ally_id = '0' WHERE ally_id = :AllianceID;", $params);
+        $this->messenger->allianceDisbanded($alliance);
+
+        $db->update("UPDATE %%USERS%% SET ally_id = 0, ally_rank_id = 0, ally_register_time = 0 WHERE ally_id = :AllianceID;", $params);
         $db->update("UPDATE %%STATPOINTS%% SET id_ally = '0' WHERE id_ally = :AllianceID;", $params);
         $db->delete("DELETE FROM %%STATPOINTS%% WHERE id_owner = :AllianceID AND stat_type = 2;", $params);
         $db->delete("DELETE FROM %%STATPOINTS_HISTORY%% WHERE id_owner = :AllianceID AND stat_type = 2;", $params);

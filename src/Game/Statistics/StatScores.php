@@ -56,7 +56,7 @@ class StatScores
             $TechCounts += $USER[$elements->column($Techno)];
         }
 
-        return ['count' => $TechCounts, 'points' => ($TechPoints / $this->configs->get()->stat_settings)];
+        return ['count' => $TechCounts, 'points' => ($TechPoints / max(1, $this->configs->get((int) $USER['universe'])->stat_settings))];
     }
 
     /**
@@ -82,7 +82,7 @@ class StatScores
             }
             $BuildCounts += $PLANET[$elements->column($Build)];
         }
-        return ['count' => $BuildCounts, 'points' => ($BuildPoints / $this->configs->get()->stat_settings)];
+        return ['count' => $BuildCounts, 'points' => ($BuildPoints / max(1, $this->configs->get((int) $PLANET['universe'])->stat_settings))];
     }
 
     /**
@@ -107,7 +107,7 @@ class StatScores
             $DefenseCounts += $USER[$elements->column($Defense)];
         }
 
-        return ['count' => $DefenseCounts, 'points' => ($DefensePoints / $this->configs->get()->stat_settings)];
+        return ['count' => $DefenseCounts, 'points' => ($DefensePoints / max(1, $this->configs->get((int) $USER['universe'])->stat_settings))];
     }
 
     /**
@@ -132,6 +132,6 @@ class StatScores
             $FleetCounts += $USER[$elements->column($Fleet)];
         }
 
-        return ['count' => $FleetCounts, 'points' => ($FleetPoints / $this->configs->get()->stat_settings)];
+        return ['count' => $FleetCounts, 'points' => ($FleetPoints / max(1, $this->configs->get((int) $USER['universe'])->stat_settings))];
     }
 }

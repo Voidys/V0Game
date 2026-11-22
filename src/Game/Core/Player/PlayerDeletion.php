@@ -163,6 +163,11 @@ class PlayerDeletion
             ':allianceId'   => $allianceId,
         ]);
 
+        $sql = 'DELETE FROM %%DIPLO%% WHERE `owner_1` = :allianceId OR `owner_2` = :allianceId;';
+        $db->delete($sql, [
+            ':allianceId'   => $allianceId,
+        ]);
+
         $sql = 'DELETE FROM %%STATPOINTS%% WHERE `stat_type` = :type AND `id_owner` = :allianceId;';
         $db->delete($sql, [
             ':allianceId'   => $allianceId,
@@ -304,12 +309,12 @@ class PlayerDeletion
     /** Sends fleets of other players that were heading to the deleted player's planets back home. */
     private function recallIncomingFleets(int $userId): void
     {
-        $fleetIds = $this->db->select('SELECT `id` FROM %%FLEETS%% WHERE `target_owner` = :userId;', [
+        $fleetIds = $this->db->select('SELECT `id`, `owner` FROM %%FLEETS%% WHERE `target_owner` = :userId AND `owner` != :userId;', [
             ':userId'   => $userId,
         ]);
 
         foreach ($fleetIds as $fleetId) {
-            $this->fleetFunctions()->sendFleetBack(['id' => $userId], $fleetId['id']);
+            $this->fleetFunctions()->sendFleetBack(['id' => $fleetId['owner']], $fleetId['id']);
         }
     }
 

@@ -102,6 +102,9 @@ class FleetMissionRules
             if ($view->isModuleAvailable(MODULE_MISSION_ACS)) {
                 $availableMissions[] = Mission::Acs->value;
             }
+        } elseif ($ExpeditionPosition || $TradePosition || $PirateBasePosition) {
+            // the special slot's module is off: it is not an ordinary (colonisable) planet slot
+            $availableMissions = [];
         } else {
             $availableMissions = $this->planetMissions($MissionInfo, $UsedPlanet, $YourPlanet);
         }
@@ -239,10 +242,10 @@ class FleetMissionRules
         }
 
         $PhRange	= (new FleetMath($this->db, $this->configs, $this->state))->getPhalanxRange($PLANET[$elements->column(42)]);
-        // if ($this->configs->get()->galaxy_type == 2) {
-        // TODO or else
-        // } else if
-        if ($this->configs->get()->galaxy_type == 1) {
+        if ($this->configs->get()->galaxy_type == 2) {
+            // same rule as the missile range (FleetMath::inMissileRange): flat distance, range > 1 reaches every system
+            return $PhRange > 1;
+        } elseif ($this->configs->get()->galaxy_type == 1) {
             $max = $this->configs->get()->max_system;
             $thisSystem = $PLANET['system'];
 

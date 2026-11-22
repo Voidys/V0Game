@@ -246,3 +246,5 @@ depot_msg_text: "Твой флот у %s снабжён игроком %s: пр�
 cr_actions: "Действия с докладом"
 cr_attack_again: "Атаковать снова"
 cr_simulate: "Симулировать"
+sys_expe_factor: "Factor %s"
+sys_irak_vacation: "The missiles were lost: the target player is in vacation mode."

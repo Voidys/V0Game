@@ -2,7 +2,7 @@
 {% import '_macros/ui.html.twig' as ui -%}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_fleet }}{{ parent() }}{% endblock %}
-{% block pagehead %}{{ ui.page_head(LNG.lm_fleet, 'send', LNG.fl_new_mission_title) }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_fleet, 'send', LNG.fl_choose_destination) }}{% endblock %}
 {% block content %}
 {% include 'game/shared.fleetSummary.html.twig' %}
 {% set backQuery = {galaxy: galaxy, system: system, planet: planet, planettype: type, target_mission: mission} %}
@@ -92,9 +92,9 @@
 	<section class="panel panel--flush">
 	<table class="table-fixed shortcut">
 		<tr>
-			<th colspan="{{ themeSettings.SHORTCUT_ROWS_ON_FLEET1 }}">{{ LNG.fl_shortcut }} (<a href="#" data-action="edit-shortcuts" class="shortcut-link-edit shortcut-link">{{ LNG.fl_shortcut_edition }}</a><a href="#" data-action="save-shortcuts" class="shortcut-edit">{{ LNG.fl_shortcut_save }}</a>)</th>
+			<th colspan="{{ themeSettings.SHORTCUT_ROWS_ON_FLEET1 }}">{{ LNG.fl_shortcut }} &middot; <a href="#" data-action="edit-shortcuts" class="shortcut-link-edit shortcut-link">{{ LNG.fl_shortcut_edition }}</a><a href="#" data-action="save-shortcuts" class="shortcut-edit">{{ LNG.fl_shortcut_save }}</a></th>
 		</tr>
-    <tr class="shortcut-row">
+    <tr class="shortcut-row"{% if shortcutList|length == 0 %} hidden{% endif %}>
       <td colspan="2">
         <div class="shortcut-container" >
           {% for shortcutID, shortcutRow in shortcutList %}

@@ -118,6 +118,12 @@ class BuildingQueueProcessor
 
             if ($HaveResources === true && $HaveFields === true) {
                 $this->payFromWorkingPlanet($st, $costResources);
+                // the waiting entries follow the started one: re-chain their durations and end times
+                if (count($CurrentQueue) > 1) {
+                    $st->planet['b_building_id'] = StoredData::encode($CurrentQueue);
+                    $tail = $this->retimeBuildingQueue($st, array_slice($CurrentQueue, 1), $BuildEndTime, 1);
+                    $CurrentQueue = array_merge([$CurrentQueue[0]], $tail);
+                }
                 $NewQueue = StoredData::encode($CurrentQueue);
                 $Loop = false;
             } else {
@@ -173,14 +179,15 @@ class BuildingQueueProcessor
      *
      * @param array<int, array> $queue
      * @param array<mixed> $queue
+     * @param int|null $preceding queue entries in front of $queue that count for queued robotics/nanite (null: none)
      * @return array<int, array>
      */
-    private function retimeBuildingQueue(QueueState $st, array $queue, int|float $baseTime): array
+    private function retimeBuildingQueue(QueueState $st, array $queue, int|float $baseTime, ?int $preceding = null): array
     {
         $NewQueue = [];
         $userModel = $this->models()->user($st->user);
         $planetModel = $this->models()->planet($st->planet);
-        foreach ($queue as $ListIDArray) {
+        foreach (array_values($queue) as $index => $ListIDArray) {
             $ListIDArray[2] = $this->buildFunctions()->buildingTimeFor(
                 $userModel,
                 $planetModel,
@@ -188,6 +195,7 @@ class BuildingQueueProcessor
                 null,
                 $ListIDArray[4] == 'destroy',
                 $ListIDArray[1],
+                $preceding === null ? 0 : $preceding + $index,
             );
             $baseTime += $ListIDArray[2];
             $ListIDArray[3] = $baseTime;

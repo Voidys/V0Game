@@ -25,6 +25,9 @@ use App\Game\Core\StoredData;
 #[\App\Controller\RequireModule('MODULE_RESEARCH')]
 class ResearchController extends AbstractGameController
 {
+    /** @var string|null language key of the reason why the last insert command was refused */
+    private ?string $rejection = null;
+
     private const QUEUE_ELEMENT_ID = 0;
     private const QUEUE_LEVEL = 1;
     private const QUEUE_ELEMENT_TIME = 2;
@@ -252,8 +255,13 @@ class ResearchController extends AbstractGameController
             !in_array($elementId, $this->elements()->ids('tech'))
             || !$this->buildFunctions()->isEnabled($elementId)
             || !$this->buildFunctions()->isTechnologieAccessible($this->state->USER, $this->state->PLANET, $elementId)
-            || !$this->checkLabSettingsInQueue()
         ) {
+            return false;
+        }
+
+        if (!$this->checkLabSettingsInQueue()) {
+            $this->rejection = 'bd_building_lab';
+
             return false;
         }
 
@@ -267,6 +275,8 @@ class ResearchController extends AbstractGameController
         }
 
         if ($this->configs->get()->max_elements_tech != 0 && $this->configs->get()->max_elements_tech <= $ActualCount) {
+            $this->rejection = 'bd_researclist_full';
+
             return false;
         }
 
@@ -297,12 +307,16 @@ class ResearchController extends AbstractGameController
     private function startResearch(int $elementId, int $BuildLevel): bool
     {
         if ($this->elements()->get($elementId)->maxLevel < $BuildLevel) {
+            $this->rejection = 'bd_maxlevel';
+
             return false;
         }
 
         $costResources      = $this->buildFunctions()->getElementPrice($this->state->USER, $this->state->PLANET, $elementId, false, $BuildLevel);
 
         if (!$this->buildFunctions()->isElementBuyable($this->state->USER, $this->state->PLANET, $elementId, $costResources)) {
+            $this->rejection = 'bd_remaining';
+
             return false;
         }
 
@@ -341,6 +355,8 @@ class ResearchController extends AbstractGameController
         $BuildLevel                 += $addLevel;
 
         if ($this->elements()->get($elementId)->maxLevel < $BuildLevel) {
+            $this->rejection = 'bd_maxlevel';
+
             return false;
         }
 
@@ -490,8 +506,8 @@ class ResearchController extends AbstractGameController
             'ResearchList'  => $ResearchList,
             'IsLabinBuild'  => !$bContinue,
             'hasLab'        => $hasLab,
-            'IsFullQueue'   => $this->configs->get()->max_elements_tech == 0
-                || $this->configs->get()->max_elements_tech == count($TechQueue),
+            'IsFullQueue'   => $this->configs->get()->max_elements_tech != 0
+                && count($TechQueue) >= $this->configs->get()->max_elements_tech,
             'Queue'         => $TechQueue,
             'queueSlots'    => max((int) $this->configs->get()->max_elements_tech, count($TechQueue)),
             'isCatchUp'     => $config->catch_up,
@@ -540,21 +556,31 @@ class ResearchController extends AbstractGameController
         }
         $db->commit();
 
+        // a refused insert says why instead of silently reloading the page
+        if ($TheCommand == 'insert' && $this->rejection !== null) {
+            return $this->messageResponse($this->state->LNG[$this->rejection], [['label' => $this->state->LNG['bd_continue'], 'url' => $this->router->generate('game_research_show')]]);
+        }
+
         return $this->redirectToRoute('game_research_show');
     }
 
     /**
      * Seconds until the planet's production (incl. basic income) covers the missing resources of $costOverflow; the slowest
-     * resource counts and resources without production are ignored.
+     * resource counts; 0 when a missing resource is not produced or the price exceeds the storage capacity.
      *
      * @param array<int, int|float> $costOverflow resources still missing
+     * @param array<int, int|float> $costResources the price per resource
      * @param array<int, int|float> $production hourly production per resource
      */
-    private function timeToAfford(array $costOverflow, array $production): int|float
+    private function timeToAfford(array $costOverflow, array $production, array $costResources): int|float
     {
         $timetobuild = 0;
         foreach ([RESOURCE_METAL, RESOURCE_CRYSTAL, RESOURCE_DEUT] as $resourceId) {
-            if (array_key_exists($resourceId, $costOverflow) && $costOverflow[$resourceId] != 0 && $production[$resourceId] > 0) {
+            if (array_key_exists($resourceId, $costOverflow) && $costOverflow[$resourceId] != 0) {
+                // never reachable: nothing is produced, or the price is above the storage capacity
+                if ($production[$resourceId] <= 0 || ($costResources[$resourceId] ?? 0) > $this->state->PLANET[$this->elements()->column($resourceId) . '_max']) {
+                    return 0;
+                }
                 $timetobuild = max($timetobuild, $costOverflow[$resourceId] / $production[$resourceId]);
             }
         }
@@ -613,7 +639,7 @@ class ResearchController extends AbstractGameController
 
             $costResources = $this->buildFunctions()->elementPriceFor($userModel, $planetModel, $elementId, false, $levelToBuild + 1);
             $costOverflow = $this->buildFunctions()->restPriceFor($userModel, $planetModel, $elementId, $costResources);
-            $timetobuild = $this->timeToAfford($costOverflow, $production);
+            $timetobuild = $this->timeToAfford($costOverflow, $production, $costResources);
             $elementTime = $this->buildFunctions()->buildingTimeFor($userModel, $planetModel, $elementId, $costResources);
             $buyable = $QueueCount != 0 || $this->buildFunctions()->isBuyableFor($userModel, $planetModel, $elementId, $costResources);
 

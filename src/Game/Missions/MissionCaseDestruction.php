@@ -109,7 +109,7 @@ class MissionCaseDestruction extends AbstractBattleMission
     /**
      * Rolls the moon and fleet destruction after an attacker win. Moon destruction chance = (100 - sqrt(diameter)) *
      * sqrt(RIPs of all surviving attacking fleets), clamped to 0..100; on success the fleets stationed at or flying to the
-     * moon are moved to the parent planet. The attacking fleet is lost with a chance of sqrt(diameter) / 2 percent.
+     * moon are moved to the parent planet. The attacking fleet (all fleets of the ACS group) is lost with a chance of sqrt(diameter) / 2 percent.
      *
      * @param array<string, mixed> $targetPlanet the moon
      * @param array<string, mixed> $reportInfo   report data; the moonDestroy and fleetDestroy entries are filled in (modified)
@@ -153,6 +153,7 @@ class MissionCaseDestruction extends AbstractBattleMission
                 $this->statsHandler->increment($this->_fleet['owner'], AdvancedStatsEnum::DESTROY_MOON_RIPS_LOST, $leadRips);
             }
             $this->KillFleet();
+            $this->killJoinedFleets($fleetAttack);
             $reportInfo['fleetDestroySuccess'] = true;
         } else {
             $reportInfo['fleetDestroySuccess'] = false;
@@ -160,6 +161,26 @@ class MissionCaseDestruction extends AbstractBattleMission
 
         $reportInfo['moonDestroyChance'] = $moonDestroyChance;
         $reportInfo['fleetDestroyChance'] = $fleetDestroyChance;
+    }
+
+    /**
+     * The explosion destroys the whole attacking group: the joined (non-lead) ACS fleets are deleted too and their lost
+     * ships and RIPs are counted, as the destruction chance already uses the RIPs of every fleet.
+     *
+     * @param array<int|string, \App\Game\BattleEngine\BattleFleet> $fleetAttack attacking fleets by fleet id
+     */
+    private function killJoinedFleets(array $fleetAttack): void
+    {
+        foreach ($fleetAttack as $fleetId => $attackFleet) {
+            if ($fleetId == $this->_fleet['id']) {
+                continue;
+            }
+            $this->db->delete('DELETE %%FLEETS%%, %%FLEETS_EVENT%%
+                FROM %%FLEETS%% LEFT JOIN %%FLEETS_EVENT%% ON `id` = `fleetId`
+                WHERE `id` = :fleetId', [':fleetId' => $fleetId]);
+            $this->statsHandler->updateLostAdvancedStats($attackFleet->userId(), $attackFleet->units);
+            $this->statsHandler->increment($attackFleet->userId(), AdvancedStatsEnum::DESTROY_MOON_RIPS_LOST, ($attackFleet->units[SHIP_RIP] ?? 0) + ($attackFleet->units[VOID_TITAN] ?? 0));
+        }
     }
 
     /**
@@ -218,7 +239,7 @@ class MissionCaseDestruction extends AbstractBattleMission
             `end_id` = :planetId,
             `mission` = IF(`mission` = :dest, :att, `mission`)
             WHERE `end_id` = :moonId
-            AND `mission` NOT IN (' . Mission::PiratebaseAttack->value . ',' . Mission::PiratebaseSpy->value . ',' . Mission::PiratebaseRecycling->value . ')
+            AND `mission` NOT IN (' . Mission::PiratebaseAttack->value . ',' . Mission::PiratebaseSpy->value . ',' . Mission::PiratebaseRecycling->value . ',' . Mission::Missile->value . ')
             AND `id` != :fleetId;';
 
         $db->update($sql, [

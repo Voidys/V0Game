@@ -101,6 +101,8 @@ class MissionCaseExpedition extends MissionFunctions implements MissionInterface
                   AND `end_system` = :end_system
                   AND `end_planet` = :end_planet
                   AND `stay_time` > UNIX_TIMESTAMP(NOW() - INTERVAL 1 DAY)
+                  AND `stay_time` <= :stay_time
+                  AND `id` != :fleet_id
                   AND `universe` = :universe
                   AND `hasCanceled` = 0";
 
@@ -109,6 +111,8 @@ class MissionCaseExpedition extends MissionFunctions implements MissionInterface
             'end_system'  => $this->_fleet['end_system'],
             'end_planet'  => $this->_fleet['end_planet'],
             'universe'    => $this->_fleet['universe'],
+            'stay_time'   => $this->_fleet['stay_time'],
+            'fleet_id'    => $this->_fleet['id'],
         ], 'total');
 
         // Depletion check
@@ -130,8 +134,8 @@ class MissionCaseExpedition extends MissionFunctions implements MissionInterface
             $this->ctx->logbook = $LNG['sys_expe_depleted_max_' . random_int(1, 3)];
         }
 
-        $depleted = random_int(0, 100);
-        if ($depleted < $chanceDepleted) {
+        $depleted = random_int(1, 100);
+        if ($depleted <= $chanceDepleted) {
             $card = [
                 'type' => 'Nothing',
                 'size' => 'none',
@@ -295,7 +299,7 @@ class MissionCaseExpedition extends MissionFunctions implements MissionInterface
         }
 
         if ($factor != 0) {
-            $Message .= '<span class="expo-event expo-event--' . $ExpoColor . '"><br><br>' . $ExpoEventAndSize . " - Faktor " . $factor . '</span>';
+            $Message .= '<span class="expo-event expo-event--' . $ExpoColor . '"><br><br>' . $ExpoEventAndSize . " - " . $this->LNG->format('sys_expe_factor', $factor) . '</span>';
         } else {
             $Message .= '<span class="expo-event expo-event--' . $ExpoColor . '"><br><br>' . $ExpoEventAndSize . '</span>';
         }

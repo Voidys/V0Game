@@ -148,6 +148,7 @@ final class MissionQueriesTest extends GameTestCase
         $this->assertFalse($this->db->selectSingle('SELECT id FROM %%FLEETS%% WHERE id = :id;', [':id' => $fleet['id']]), 'the fleet is deleted');
         $this->assertFalse($this->db->selectSingle('SELECT fleetID FROM %%FLEETS_EVENT%% WHERE fleetID = :id;', [':id' => $fleet['id']]), 'and its event with it');
         $this->assertEquals(50, $this->loadPlanet((int) $ownerPlanet['id'])[$resource[401]]);
+        $this->assertSame(1, (int) $this->db->selectSingle('SELECT COUNT(*) AS n FROM %%MESSAGES%% WHERE message_owner = :id;', [':id' => $sender['id']], 'n'), 'the sender is told that the missiles were lost');
     }
 
     public function testMissilesDestroyDefenseWhenSomeGetThrough(): void

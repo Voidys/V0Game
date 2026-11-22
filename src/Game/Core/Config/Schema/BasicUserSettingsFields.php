@@ -71,7 +71,7 @@ final class BasicUserSettingsFields
                     'maxlength' => 3,
                     'size' => 3,
                     'transform' => 'int',
-                    'min' => 0,
+                    'min' => 1,
                     'unit' => $LNG['se_days'],
                     'default' => 21,
                 ],

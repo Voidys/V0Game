@@ -156,7 +156,7 @@ final class BuildFunctionsTest extends GameTestCase
         'research time 122/5/{"laboratory":7}/2' => 26584.0,
         'time fast universe mine 3' => 30.0,
         'time fast universe small cargo' => 1152.0,
-        'rest price mine 3' => [901 => 35.0, 902 => 0],
+        'rest price mine 3' => [901 => 34.1, 902 => 0],
         'max constructible 202' => 10,
         'max constructible 203' => 3,
         'max constructible 204' => 8,

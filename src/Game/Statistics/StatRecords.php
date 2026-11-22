@@ -72,7 +72,7 @@ class StatRecords
     {
         $db = $this->db;
         $isPlanet = $table === 'PLANETS';
-        $level = $this->configs->get()->stat_level;
+        $level = $this->configs->get($uni)->stat_level;
 
         if ($columns === []) {
             return [];

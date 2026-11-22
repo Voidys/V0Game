@@ -341,7 +341,10 @@ class PlanetPositions
         }
 
         do {
-            $planet = random_int(round($config->max_planets * 0.2), round($config->max_planets * 0.8));
+            // like randomHP/blockHP: only slots a new player (astrophysics 1) may hold
+            do {
+                $planet = random_int(round($config->max_planets * 0.2), round($config->max_planets * 0.8));
+            } while (!$this->allowPlanetPosition($planet, null, $universe));
             if ($planet < 3) {
                 $planet += 1;
             } else {

@@ -46,4 +46,13 @@ final class RaportAccessTest extends GameTestCase
         [$stranger] = $this->createPlayer();
         $this->assertFalse($this->access($stranger, $list, (string) $defender['id'])[0]);
     }
+
+    public function testOwnSimulationOpensInFull(): void
+    {
+        [$player] = $this->createPlayer();
+        [$other] = $this->createPlayer();
+
+        $this->assertSame([true, true], $this->access($player, 'sim:' . $player['id'], ''));
+        $this->assertFalse($this->access($other, 'sim:' . $player['id'], '')[0]);
+    }
 }

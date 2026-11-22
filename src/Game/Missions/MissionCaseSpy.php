@@ -123,6 +123,9 @@ class MissionCaseSpy extends MissionFunctions implements MissionInterface
         foreach (array_values($this->getPlanetFleet($targetPlanet)) as $ships) {
             $totalShipDefCount += $ships;
         }
+        foreach ($e->ids('defense') as $defenseId) {
+            $totalShipDefCount += (int) ($targetPlanet[$e->column($defenseId)] ?? 0);
+        }
 
         $targetChance = $this->getDetectionChance($senderSpyTech, $targetSpyTech, $fleetAmount, $totalShipDefCount);
         $spyChance = random_int(1, 100);

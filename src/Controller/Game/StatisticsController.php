@@ -83,7 +83,7 @@ class StatisticsController extends AbstractGameController
             'RangeList'   => $RangeList,
             'CUser_ally'  => $this->state->USER['ally_id'],
             'CUser_id'    => $this->state->USER['id'],
-            'stat_date'   => $this->viewHelpers()->formatDate($LNG['php_tdformat'], $this->cronjobs()->getLastExecutionTime('statistic'), $this->state->USER['timezone']),
+            'stat_date'   => $this->statisticTime(),
             'ShortStatus' => [
                 'vacation'      => $LNG['gl_short_vacation'],
                 'banned'        => $LNG['gl_short_ban'],
@@ -363,7 +363,7 @@ class StatisticsController extends AbstractGameController
         $db = $this->db;
         $query = $db->fetchAll(
             $db->qb()
-                ->select('DISTINCT s.*', 'a.id', 'a.ally_members', 'a.ally_name')
+                ->select('DISTINCT s.*', 'a.id', 'a.ally_members', 'a.ally_name', '(SELECT COUNT(*) FROM ' . $db->table('USERS') . ' m WHERE m.ally_id = a.id AND m.onlinetime >= ' . ($this->state->runtime->timestamp - INACTIVE) . ') AS ally_active')
                 ->from($db->table('STATPOINTS'), 's')
                 ->innerJoin('s', $db->table('ALLIANCE'), 'a', 'a.id = s.id_owner')
                 ->where('universe = :universe')
@@ -381,13 +381,25 @@ class StatisticsController extends AbstractGameController
                 'name'          => $StatRow['ally_name'],
                 'members'       => $StatRow['ally_members'],
                 'rank'          => $StatRow[$Rank],
-                'mppoints'      => $this->viewHelpers()->prettyNumber(floor($StatRow[$Points] / (max($StatRow['ally_members'], 1)))),
+                'mppoints'      => $this->viewHelpers()->prettyNumber(floor($StatRow[$Points] / (max($StatRow['ally_active'], 1)))),
                 'points'        => $this->viewHelpers()->prettyNumber($StatRow[$Points]),
                 'ranking'       => $StatRow[$OldRank] - $StatRow[$Rank],
             ];
         }
 
         return $rows;
+    }
+
+    /**
+     * Time of the last statistics run, "-" while the job never ran.
+     */
+    private function statisticTime(): string
+    {
+        $time = $this->cronjobs()->getLastExecutionTime('statistic');
+
+        return $time === false
+            ? '-'
+            : $this->viewHelpers()->formatDate($this->state->LNG['php_tdformat'], $time, $this->state->USER['timezone']);
     }
 
     /**

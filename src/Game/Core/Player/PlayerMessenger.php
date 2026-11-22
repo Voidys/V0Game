@@ -175,7 +175,13 @@ class PlayerMessenger
             `message_unread` = :messageUnread,
             `created_at`     = :created_at;';
 
-        foreach ($receiverIds as $receiverId) {
+        $senderIsReceiver = false;
+        foreach (array_unique($receiverIds) as $receiverId) {
+            // the sender gets exactly one copy, already read, even when he is among the receivers
+            if ($senderId !== 0 && $receiverId == $senderId) {
+                $senderIsReceiver = true;
+                continue;
+            }
             $db->insert($sqlUserMessage, [
                 ':messageId'        => $messageId,
                 ':userId'           => $receiverId,
@@ -186,7 +192,7 @@ class PlayerMessenger
             ]);
         }
 
-        if ($senderId !== 0) {
+        if ($senderId !== 0 || $senderIsReceiver) {
             $db->insert($sqlUserMessage, [
                 ':messageId'        => $messageId,
                 ':userId'           => $senderId,

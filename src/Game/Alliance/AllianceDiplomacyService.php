@@ -291,6 +291,11 @@ class AllianceDiplomacyService
             throw AllianceException::home();
         }
 
+        // only an open request may be rejected, a war (accepted at once) cannot be ended that way
+        if ($targetAlliance['accept'] == 1 || $targetAlliance['diplo'] == DiploType::War->value) {
+            throw AllianceException::home();
+        }
+
         $this->messenger->sendDiplomatic(
             $this->repository->messageReceivers($targetAlliance['id'], $this->state->USER['ally_id'], true),
             $alliance['ally_tag'],
@@ -319,6 +324,10 @@ class AllianceDiplomacyService
         }
 
         $level = (int) $targetAlliance['diplo'];
+        // a war ends only through an accepted peace offer, never by deleting the row (also not by the declaring side)
+        if ($level === DiploType::War->value) {
+            throw AllianceException::home();
+        }
         if ($targetAlliance['accept'] == 1) {
             $this->messenger->sendDiplomatic(
                 $this->bothSides($targetAlliance, $alliance),
@@ -387,6 +396,8 @@ class AllianceDiplomacyService
             ]);
         }
 
+        $this->assertNoOpenPeaceOffer($level, $alliance, $targetAlliance);
+
         if ($level == DiploType::War->value) {
             $this->messenger->sendDiplomatic(
                 $this->bothSides($targetAlliance, $alliance),
@@ -430,6 +441,34 @@ class AllianceDiplomacyService
             ':universe' => $this->universe()->current(),
             ':request_time' => $this->state->runtime->timestamp,
         ]);
+    }
+
+    /**
+     * One open peace offer between two alliances at a time (the lookup in create() only sees one joined row).
+     *
+     * @param array<string, mixed> $alliance
+     * @param array<string, mixed> $targetAlliance
+     * @throws AllianceException json error when a peace offer is already open
+     */
+    private function assertNoOpenPeaceOffer(int $level, array $alliance, array $targetAlliance): void
+    {
+        if ($level != DiploType::Peace->value) {
+            return;
+        }
+
+        $sql = "SELECT COUNT(*) as c FROM %%DIPLO%% WHERE `level` = :peace
+            AND `owner_1` IN (:id1, :id2) AND `owner_2` IN (:id1, :id2);";
+        $openPeace = $this->db->selectSingle($sql, [
+            ':peace' => DiploType::Peace->value,
+            ':id1' => $alliance['id'],
+            ':id2' => $targetAlliance['id'],
+        ], 'c');
+        if ($openPeace) {
+            throw AllianceException::json([
+                'error' => true,
+                'message' => $this->state->LNG->format('al_diplo_exists', $targetAlliance['ally_name']),
+            ]);
+        }
     }
 
     /**

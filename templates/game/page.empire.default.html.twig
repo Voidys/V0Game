@@ -47,7 +47,7 @@
       <td>{{ LNG.lv_fields }}</td>
       <td class="num">-</td>
         {% for field in empireList.field %}
-          <td class="num">{{ field.current }} / {{ field.max }}</td>
+          <td class="num{% if field.current > field.max %} colorNegative{% endif %}">{{ field.current }} / {{ field.max }}</td>
         {% endfor %}
     </tr>
     <tr>
@@ -58,7 +58,7 @@
         {% endfor %}
     </tr>
     <tr>
-      <td>{{ LNG.ov_points }}</td>
+      <td>{{ LNG.ov_points }} ({{ LNG.lv_planet|trim }})</td>
       <td class="num">{{ pretty_number(array_sum(empireList.points)) }}</td>
         {% for planetID, points in empireList.points %}
           <td class="num">{{ pretty_number(points) }}</td>
@@ -87,11 +87,13 @@
               </span>
             {% endif %}
             {% if enableShowStorageFilled == "true" %}
-              <br><span {% if min(empireList.resourceFull[elementID])>23 %}class="colorPositive"
-                  {% elseif min(empireList.resourceFull[elementID])<24 and min(empireList.resourceFull[elementID])>6 %}class="colorNeutral"
-                  {% elseif min(empireList.resourceFull[elementID])<7 %}class="colorNegative"
+              {% set fullHours = empireList.resourceFull[elementID]|default([])|filter(h => h is not null) %}
+              {% set minFull = fullHours ? min(fullHours) : null %}
+              <br><span {% if minFull is null %}class="colorNeutral"{% elseif minFull > 23 %}class="colorPositive"
+                  {% elseif minFull > 6 %}class="colorNeutral"
+                  {% else %}class="colorNegative"
                 {% endif %}>
-                {{ pretty_number(min(empireList.resourceFull[elementID])) }} h
+                {% if minFull is null %}&infin;{% else %}{{ pretty_number(minFull) }} h{% endif %}
               </span>
             {% endif %}
             {% if array_sum(empireList.currentTransported[elementID]) > 0 %}
@@ -114,10 +116,11 @@
                   </span>
                 {% endif %}
                 {% if enableShowStorageFilled == "true" %}
-                  <br><span {% if empireList.resourceFull[elementID][planetID]>23 %}class="colorPositive"
-                      {% elseif empireList.resourceFull[elementID][planetID]<24 and empireList.resourceFull[elementID][planetID]>6 %}class="colorNeutral"
-                      {% elseif empireList.resourceFull[elementID][planetID]<7 %}class="colorNegative"{% endif %}>
-                    {{ pretty_number(empireList.resourceFull[elementID][planetID]) }} h
+                  {% set full = empireList.resourceFull[elementID][planetID] ?? null %}
+                  <br><span {% if full is null %}class="colorNeutral"{% elseif full > 23 %}class="colorPositive"
+                      {% elseif full > 6 %}class="colorNeutral"
+                      {% else %}class="colorNegative"{% endif %}>
+                    {% if full is null %}&infin;{% else %}{{ pretty_number(full) }} h{% endif %}
                   </span>
                 {% endif %}
               {% endif %}
@@ -272,6 +275,8 @@
   {{ data_island('empire-chart-data', {
     times: chartPoints.points.time,
     hoursAgo: chartPoints.points.hoursAgo,
+    hoursBack: chartPoints.points.hoursBack,
+    hourUnit: LNG.short_hour,
     total: chartPoints.points.total,
     build: chartPoints.points.build,
     tech: chartPoints.points.tech,

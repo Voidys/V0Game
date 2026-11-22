@@ -114,8 +114,11 @@ class ResourceProduction
         $out['crystal_max'] = $temp[902]['max'] * $config->storage_multiplier;
         $out['deuterium_max'] = $temp[903]['max'] * $config->storage_multiplier;
 
-        $out['energy'] = round($temp[911]['plus'] * $config->energy_multiplier);
-        $out['energy_used'] = $temp[911]['minus'] * $config->energy_multiplier;
+        // the configured base energy production is added on planets only (moons get no basic income)
+        $energyBasic = $planet->isMoon() ? 0 : $config->energy_basic_income * $config->energy_multiplier;
+        $out['energy'] = round($temp[911]['plus'] * $config->energy_multiplier + $energyBasic);
+        // both figures are stored rounded (double(50,0)), so the throttle must use the rounded values too
+        $out['energy_used'] = round($temp[911]['minus'] * $config->energy_multiplier);
         // Without energy consumers (all mines off) there is nothing to throttle, but the fusion plant still burns its
         // deuterium (like OGame, the reactor runs at its set level regardless of consumers), so production is not zeroed.
         $energyUsed = abs($out['energy_used']);

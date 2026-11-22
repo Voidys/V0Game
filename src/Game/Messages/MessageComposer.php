@@ -104,6 +104,30 @@ class MessageComposer
         return array_values(array_filter($ids, static fn(int $id): bool => isset($valid[$id])));
     }
 
+    /**
+     * Names of the requested recipients that were not delivered to (they block messages or do not exist).
+     *
+     * @param list<int> $delivered ids from deliverableReceivers()
+     * @return list<string> usernames (decoded ids without a name are left out)
+     */
+    public function skippedNames(mixed $receiver, array $delivered): array
+    {
+        $skipped = array_values(array_diff($this->requestedIds($receiver), $delivered));
+        if ($skipped === []) {
+            return [];
+        }
+
+        $params = [':universe' => $this->universe()->current()];
+        $placeholders = [];
+        foreach ($skipped as $index => $id) {
+            $placeholders[] = ':id' . $index;
+            $params[':id' . $index] = $id;
+        }
+        $sql = 'SELECT `username` FROM %%USERS%% WHERE `id` IN (' . implode(', ', $placeholders) . ') AND `universe` = :universe;';
+
+        return array_column($this->db->select($sql, $params), 'username');
+    }
+
     /** Whether the message is in the current player's (not deleted) mailbox, i.e. may be forwarded by them. */
     public function ownsMessage(mixed $messageID): bool
     {

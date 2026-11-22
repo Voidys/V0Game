@@ -138,8 +138,8 @@ class ViewHelpers
     }
 
     /**
-     * Full number below 1e9, from 1e9 on the value in millions (floor) with the language's million suffix, e.g.
-     * 8.980 Mio (de) / 8,980 M (en). Top bar resource values.
+     * Full number below 1e9, from 1e9 on the value in billions with three decimals (floored to millions) and the language's
+     * billion suffix, e.g. 8,980 Mrd (de) / 8.980 B (en) — the unit the compact phone figures use. Top bar resource values.
      */
     public function millionsNumber($number): string
     {
@@ -149,18 +149,19 @@ class ViewHelpers
         $USER = $this->state->USER;
         $unit = (new NumberAbbreviation())->suffixesForLang($USER['lang'] ?? DEFAULT_LANG);
 
-        return $this->prettyNumber(floor($number / 1000000)) . '&nbsp;' . ($unit[2] ?? 'M');
+        // billions with three decimals (floored to millions), the unit the compact phone figures use too: 8,980 Mrd
+        return $this->prettyNumber(floor($number / 1000000) / 1000, 3) . '&nbsp;' . ($unit[3] ?? 'B');
     }
 
     /**
-     * Cost tile number: the full number below 10,000, from there on the largest language unit with value/unit >= 1,
+     * Cost tile number: the full number below 100,000, from there on the largest language unit with value/unit >= 1,
      * floored to at most 6 letters + digits in total (decimals = clamp(6 - suffix length - integer digits, 0, 2)),
      * trailing zeros trimmed, e.g. 12,8K / 1,63 Mio / 25 Mio / 8 Mrd.
      */
     public function compactNumber($number): string
     {
         $number = (float) $number;
-        if (abs($number) < 10000) {
+        if (abs($number) < 100000) {
             return $this->prettyNumber($number);
         }
         $negate = $number < 0 ? '-' : '';

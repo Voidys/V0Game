@@ -89,6 +89,11 @@ class CleanerCronjob extends AbstractCronjobTask
         $sql = 'DELETE r FROM %%ALLIANCE_RANK%% r JOIN %%ALLIANCE%% a ON a.`id` = r.`allianceID` WHERE a.`ally_members` = 0;';
         $db->delete($sql);
 
+        $emptyAlliances = '(SELECT `id` FROM %%ALLIANCE%% WHERE `ally_members` = 0)';
+        $db->delete('DELETE FROM %%DIPLO%% WHERE `owner_1` IN ' . $emptyAlliances . ' OR `owner_2` IN ' . $emptyAlliances . ';');
+        $db->delete('DELETE FROM %%STATPOINTS%% WHERE `stat_type` = 2 AND `id_owner` IN ' . $emptyAlliances . ';');
+        $db->delete('DELETE FROM %%STATPOINTS_HISTORY%% WHERE `stat_type` = 2 AND `id_owner` IN ' . $emptyAlliances . ';');
+
         $sql = 'DELETE FROM %%ALLIANCE%% WHERE `ally_members` = 0;';
         $db->delete($sql);
 
@@ -129,7 +134,8 @@ class CleanerCronjob extends AbstractCronjobTask
 
     /**
      * Deletes the players (authlevel user) of every universe except registration-only ones who requested the deletion
-     * more than del_user_manually days ago or were offline longer than del_user_automatic days (0 = off).
+     * more than del_user_manually days ago or were offline longer than del_user_automatic days (0 = off), separately switchable and with own day counts
+     * for players in vacation mode (del_user_vacation*) and banned players (del_user_banned*; 0 days = same as inactive players).
      *
      * @param iterable<int> $unis available universes
      */
@@ -143,18 +149,26 @@ class CleanerCronjob extends AbstractCronjobTask
                 continue;
             }
 
-            // del_user_automatic = 0 means disabled: no onlinetime is smaller than 0, so nobody matches
-            $del_inactive   = $config->del_user_automatic > 0
-                ? $this->state->runtime->timestamp - ($config->del_user_automatic * 86400)
+            $now            = $this->state->runtime->timestamp;
+            $inactiveDays   = (int) $config->del_user_automatic;
+            // per group: threshold timestamp, 0 = group off (no onlinetime is smaller than 0, so nobody matches);
+            // days 0 for vacation/banned players means "same as inactive players" (the former single rule)
+            $limit = static fn(bool $on, int $days): int => $on && ($days > 0 ? $days : $inactiveDays) > 0
+                ? $now - (($days > 0 ? $days : $inactiveDays) * 86400)
                 : 0;
-            $del_deleted    = $this->state->runtime->timestamp - ($config->del_user_manually * 86400);
+            $del_deleted    = $now - ($config->del_user_manually * 86400);
             $sql = 'SELECT `id` FROM %%USERS%% WHERE `authlevel` = :authlevel AND universe = :uni
-                AND ((`db_deaktjava` != 0 AND `db_deaktjava` < :timeDeleted) OR `onlinetime` < :timeInactive);';
+                AND ((`db_deaktjava` != 0 AND `db_deaktjava` < :timeDeleted)
+                OR (`bana` = 0 AND `urlaubs_modus` = 0 AND `onlinetime` < :timeInactive)
+                OR (`bana` = 0 AND `urlaubs_modus` = 1 AND `onlinetime` < :timeVacation)
+                OR (`bana` != 0 AND `onlinetime` < :timeBanned));';
 
             $deleteUserIds = $db->select($sql, [
                 ':authlevel'    => AuthLevel::User->value,
                 ':timeDeleted'  => $del_deleted,
-                ':timeInactive' => $del_inactive,
+                ':timeInactive' => $limit((bool) $config->del_user_automatic_on, $inactiveDays),
+                ':timeVacation' => $limit((bool) $config->del_user_vacation_on, (int) $config->del_user_vacation),
+                ':timeBanned'   => $limit((bool) $config->del_user_banned_on, (int) $config->del_user_banned),
                 ':uni'          => $uni,
             ]);
 

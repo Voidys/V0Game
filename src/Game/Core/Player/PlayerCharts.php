@@ -50,6 +50,7 @@ class PlayerCharts
         $result['points'] = [
             'time' => [],
             'hoursAgo' => [],
+            'hoursBack' => [],
             'total' => [],
             'build' => [],
             'tech' => [],
@@ -64,6 +65,8 @@ class PlayerCharts
         foreach ($statpoints as $row) {
             $result['points']['time'][] = $this->viewHelpers()->formatDate("M d Y H:i", $row['timestamp'], $USER['timezone']);
             $result['points']['hoursAgo'][] = $this->formatChartHoursAgo((int) $row['timestamp'], $LNG);
+            // exact age in hours for a time-proportional x axis (the snapshots are not evenly spaced)
+            $result['points']['hoursBack'][] = round(max(0, $this->state->runtime->timestamp - (int) $row['timestamp']) / 3600, 2);
             $result['points']['tech'][] = ($this->protectionRules()->spyTechAllowedFor(4, $targetUserId, $viewer) ? $row['tech_points'] : 0);
             $result['points']['build'][] = ($this->protectionRules()->spyTechAllowedFor(2, $targetUserId, $viewer) ? $row['build_points'] : 0);
             $result['points']['defence'][] = ($this->protectionRules()->spyTechAllowedFor(6, $targetUserId, $viewer) ? $row['defs_points'] : 0);

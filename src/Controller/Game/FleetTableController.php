@@ -459,6 +459,13 @@ class FleetTableController extends AbstractGameController
                 $NextEventTime = $fleetsRow['return_time'];
             }
 
+            // FleetLauncher::sendFleetBack(): a holding Hold/Trade fleet comes home after the outward duration only
+            $holding = ($fleetsRow['mission'] == Mission::Hold->value || $fleetsRow['mission'] == Mission::Trade->value)
+                && $fleetsRow['status'] == FLEET_HOLD;
+            $recallTimestamp = $holding
+                ? ($fleetsRow['arrival_time'] - $fleetsRow['start_time']) + $this->state->runtime->timestamp
+                : 2 * $this->state->runtime->timestamp - $fleetsRow['start_time'];
+
             $FlyingFleetList[$NextEventTime . sprintf('%010d', $fleetsRow['id'])] = [
                 'id'                => $fleetsRow['id'],
                 'mission'           => $fleetsRow['mission'],
@@ -483,7 +490,7 @@ class FleetTableController extends AbstractGameController
                 'resttime'          => $returnTime - $this->state->runtime->timestamp,
                 'startTimestamp'    => $fleetsRow['start_time'],
                 // when a recall now would bring the fleet home (the same rule as FleetLauncher::sendFleetBack())
-                'recallTime'        => $this->viewHelpers()->formatDate($LNG['php_tdformat'], 2 * $this->state->runtime->timestamp - $fleetsRow['start_time'], $USER['timezone']),
+                'recallTime'        => $this->viewHelpers()->formatDate($LNG['php_tdformat'], $recallTimestamp, $USER['timezone']),
                 'FleetList'         => $FleetList[$fleetsRow['id']],
             ];
         }

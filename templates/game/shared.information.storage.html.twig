@@ -23,7 +23,7 @@
 				<tr{% if CurrentLevel == elementLevel %} class="is-current"{% endif %}>
 					<td class="act"><span class="mono">{{ elementLevel }}</span></td>
 					{% for resourceID, storage in productionData %}
-					{% set storageDiff = storage - productionTable.storage[CurrentLevel[resourceID]] %}
+					{% set storageDiff = storage - (productionTable.storage[CurrentLevel][resourceID] ?? 0) %}
 					<td class="num"><span class="{% if storage > 0 %}colorPositive{% elseif storage < 0 %}colorNegative{% else %}white{% endif %}">{{ pretty_number(storage) }}</span></td>
 					<td class="num"><span class="{% if storageDiff > 0 %}colorPositive{% elseif storageDiff < 0 %}colorNegative{% else %}white{% endif %}">{{ pretty_number(storageDiff) }}</span></td>
 					{% endfor %}

@@ -5,11 +5,11 @@
  */
 import { qsa, now, pretty_number, shortly_number, setVisibleInterval, pageData, getRestTimeFormat } from './core.js';
 
-/** Full number below 1e9, from 1e9 on millions with the language's million suffix (numberSuffixes[2]); same rule as the Twig millions_number(). */
+/** Full number below 1e9, from 1e9 on billions with three decimals and the language's billion suffix (numberSuffixes[3]); same rule as the Twig millions_number(). */
 function millionsNumber(amount) {
   if (Math.abs(amount) < 1e9) return pretty_number(amount);
-  const suffix = Array.isArray(window.numberSuffixes) && window.numberSuffixes[2] ? window.numberSuffixes[2] : 'M';
-  return `${pretty_number(Math.floor(amount / 1e6))}&nbsp;${suffix}`;
+  const suffix = Array.isArray(window.numberSuffixes) && window.numberSuffixes[3] ? window.numberSuffixes[3] : 'B';
+  return `${pretty_number(Math.floor(amount / 1e6) / 1000, 3)}&nbsp;${suffix}`;
 }
 
 /**

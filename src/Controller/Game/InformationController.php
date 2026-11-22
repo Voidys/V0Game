@@ -355,7 +355,8 @@ class InformationController extends AbstractGameController
         $e = $this->elements();
         $elementID  = $this->input()->int('id');
 
-        $this->setWindow('popup');
+        // fragment for the modal loader, the full shell when the page is opened directly
+        $this->setWindow($this->state->runtime->ajax ? 'popup' : 'full');
 
         $productionTable    = [];
         $FleetInfo          = [];

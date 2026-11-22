@@ -18,7 +18,6 @@ const { data, honorboost, config, token, questionList = {}, tradeMarket, urls = 
 const field = (name) => document.getElementsByName(name)[0];
 
 let dataFlyDistance = 0;
-let dataFlyTimeRaw = 0;
 let dataFlyTime = 0;
 let dataFlyConsumption = 0;
 let dataFlyCargoSpace = 0;
@@ -29,7 +28,6 @@ const updateVars = (resetAcs = true) => {
     field('group').value = 0;
   }
   dataFlyDistance = getDistance();
-  dataFlyTimeRaw = getRawDuration();
   dataFlyTime = getDuration();
   dataFlyConsumption = getConsumption();
   dataFlyCargoSpace = storage();
@@ -90,7 +88,7 @@ const getDistance = () => {
 
 /**
  * Unrounded travel time, including fleetSpeedFactor.
- * Used for the deuterium preview so it matches FleetFunctions::getFleetConsumption().
+ * Floored by getDuration(); the floored seconds feed the deuterium preview, like FleetMath::missionDurationFor().
  * Keep in sync with FleetMath::getMissionDuration().
  */
 const getRawDuration = () => {
@@ -110,7 +108,7 @@ const getDuration = () => Math.floor(getRawDuration());
 const getConsumption = () => {
   let consumption = 0;
   for (const ship of Object.values(data.ships)) {
-    const spd = 35000 / Math.max(dataFlyTimeRaw * data.gamespeed - 10, 1) * Math.sqrt(dataFlyDistance * 10 / ship.speed);
+    const spd = 35000 / Math.max(dataFlyTime * data.gamespeed - 10, 1) * Math.sqrt(dataFlyDistance * 10 / ship.speed);
     const basicConsumption = ship.consumption * ship.amount;
     consumption += basicConsumption * dataFlyDistance / 35000 * (spd / 10 + 1) * (spd / 10 + 1);
   }
@@ -125,7 +123,7 @@ const refreshFormData = () => {
   const hours = Math.floor(dataFlyTime / 3600);
   const minutes = Math.floor((dataFlyTime - hours * 3600) / 60);
   const seconds = dataFlyTime - hours * 3600 - minutes * 60;
-  document.getElementById('duration').textContent = `${hours}:${dezInt(minutes, 2)}:${dezInt(seconds, 2)} h`;
+  document.getElementById('duration').textContent = `${hours}:${dezInt(minutes, 2)}:${dezInt(seconds, 2)}`;
   document.getElementById('distance').textContent = pretty_number(dataFlyDistance);
   document.getElementById('maxspeed').textContent = pretty_number(data.maxspeed);
   const signal = dataFlyCargoSpace >= 0 ? 'colorPositive' : 'colorNegative';
@@ -728,6 +726,7 @@ const addShortcut = () => {
   newShortcut.append(...children);
   document.querySelector('.shortcut-container').append(newShortcut);
   document.querySelectorAll('.shortcut-none').forEach((el) => el.remove());
+  document.querySelector('.shortcut-row').hidden = false;
 };
 
 /** Switches the shortcut list into edit mode (adds an empty entry when there is none yet). */

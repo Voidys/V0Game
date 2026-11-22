@@ -28,9 +28,10 @@ class PlanetReshuffle
     /**
      * Deletes every planet of all regular players of a universe and gives each a new home planet.
      *
-     * Only allowed for an admin while the universe is closed and no player owns more than one planet.
+     * Only allowed for an admin while the universe is closed, no regular player owns more than one planet and no fleet of
+     * or to a regular player is in flight.
      * Side effects: sets onlinetime of all users to now, deletes planets (also moons/colonies), creates new
-     * home planets, resets last_galaxy_pos/last_system_pos, updates users' home coordinates.
+     * home planets, deletes their wreck fields, resets and saves last_galaxy_pos/last_system_pos, updates users' home coordinates.
      *
      * @param int $universe
      * @return string|bool true on success, otherwise the translated error text
@@ -41,17 +42,30 @@ class PlanetReshuffle
         $USER = $this->state->USER;
         $db = $this->db;
         $config = $this->configs->get($universe);
-        $sql = 'SELECT MAX(count) AS max FROM(SELECT count(*) AS count, `id_owner` FROM %%PLANETS%% WHERE `universe` = :uni GROUP BY `id_owner`) AS plani;';
+        // only the planets that are reshuffled count: regular players' planets (no moons, no destroyed ones, no staff/bots)
+        $sql = 'SELECT MAX(count) AS max FROM(SELECT count(*) AS count, p.`id_owner` FROM %%PLANETS%% p
+            INNER JOIN %%USERS%% u ON u.`id` = p.`id_owner`
+            WHERE p.`universe` = :uni AND p.`planet_type` = 1 AND p.`destruyed` = 0 AND u.`authlevel` = :auth GROUP BY p.`id_owner`) AS plani;';
         $maxPlanetAmount = $db->selectSingle($sql, [
             ':uni' => $universe,
+            ':auth' => AuthLevel::User->value,
         ], 'max');
+        // fleets of (or heading to) the regular players would point to planets that are about to vanish
+        $sql = 'SELECT COUNT(*) AS count FROM %%FLEETS%% WHERE `universe` = :uni AND (
+            `owner` IN (SELECT `id` FROM %%USERS%% WHERE `authlevel` = :auth) OR `target_owner` IN (SELECT `id` FROM %%USERS%% WHERE `authlevel` = :auth));';
+        $fleetsInFlight = (int) $db->selectSingle($sql, [
+            ':uni' => $universe,
+            ':auth' => AuthLevel::User->value,
+        ], 'count');
         $uniStatus = $config->uni_status;
 
-        if ($maxPlanetAmount > 1 || $uniStatus != STATUS_CLOSED || $USER['authlevel'] != AuthLevel::Admin->value) {
+        if ($maxPlanetAmount > 1 || $fleetsInFlight > 0 || $uniStatus != STATUS_CLOSED || $USER['authlevel'] != AuthLevel::Admin->value) {
             $result = "";
             $LNG = $this->state->LNG;
             if ($maxPlanetAmount > 1) {
                 $result = $LNG['rp_planet_error'];
+            } elseif ($fleetsInFlight > 0) {
+                $result = $LNG['rp_fleets_error'];
             } elseif ($uniStatus != STATUS_CLOSED) {
                 $result = $LNG['rp_universe_error'];
             } elseif ($USER['authlevel'] != AuthLevel::Admin->value) {
@@ -70,6 +84,10 @@ class PlanetReshuffle
             ':universe' => $universe,
         ]);
         foreach ($userIds as $userId) {
+            $sql = 'DELETE FROM %%PLANET_WRECKFIELD%% WHERE `planetID` IN (SELECT `id` FROM %%PLANETS%% WHERE `id_owner` = :userId);';
+            $db->delete($sql, [
+                ':userId'   => $userId['id'],
+            ]);
             $sql = 'DELETE FROM %%PLANETS%% WHERE `id_owner` = :userId;';
             $db->delete($sql, [
                 ':userId'   => $userId['id'],
@@ -80,6 +98,7 @@ class PlanetReshuffle
         foreach ($userIds as $userId) {
             $this->placeNewHomePlanet($universe, (int) $userId['id']);
         }
+        $config->save(); // the position counters (last_*_pos) were advanced by the placement
         return true;
     }
 

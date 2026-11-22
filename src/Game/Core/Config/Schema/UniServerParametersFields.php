@@ -18,7 +18,7 @@ final class UniServerParametersFields
     public function fields(Language $LNG): array
     {
         // split into parts only to keep each method short; `+` keeps the field order
-        return ['server_parameters' => $this->part1($LNG) + $this->part2($LNG) + $this->part3($LNG) + $this->part4($LNG)];
+        return ['server_parameters' => $this->part1($LNG) + $this->part2($LNG) + $this->part3($LNG) + $this->part3b($LNG) + $this->part4($LNG)];
     }
 
     /**
@@ -215,6 +215,50 @@ final class UniServerParametersFields
                 'unit' => $LNG['se_days'],
                 'default' => 90,
             ],
+        ];
+    }
+
+    /**
+     * Fields of category `server_parameters`, part 3b (automatic deletion groups, vacation time; see fields()).
+     *
+     * @return array<string, array<string, mixed>> field => definition
+     */
+    private function part3b(Language $LNG): array
+    {
+        return [
+            'del_user_automatic_on' => [
+                'type' => ConfigFieldSchema::TYPE_CHECKBOX,
+                'transform' => 'bool',
+                'default' => true,
+            ],
+            'del_user_vacation_on' => [
+                'type' => ConfigFieldSchema::TYPE_CHECKBOX,
+                'transform' => 'bool',
+                'default' => true,
+            ],
+            'del_user_vacation' => [
+                'type' => ConfigFieldSchema::TYPE_NUMBER,
+                'maxlength' => 3,
+                'size' => 2,
+                'transform' => 'int',
+                'min' => 0,
+                'unit' => $LNG['se_days'],
+                'default' => 0,
+            ],
+            'del_user_banned_on' => [
+                'type' => ConfigFieldSchema::TYPE_CHECKBOX,
+                'transform' => 'bool',
+                'default' => true,
+            ],
+            'del_user_banned' => [
+                'type' => ConfigFieldSchema::TYPE_NUMBER,
+                'maxlength' => 3,
+                'size' => 2,
+                'transform' => 'int',
+                'min' => 0,
+                'unit' => $LNG['se_days'],
+                'default' => 0,
+            ],
             'vmode_min_time' => [
                 'type' => ConfigFieldSchema::TYPE_NUMBER,
                 'maxlength' => 11,
@@ -240,6 +284,11 @@ final class UniServerParametersFields
                 'transform' => 'int',
                 'min' => 0,
                 'default' => 0,
+            ],
+            'vmode_allow_incoming' => [
+                'type' => ConfigFieldSchema::TYPE_CHECKBOX,
+                'transform' => 'bool',
+                'default' => true,
             ],
             'depot_cost_real_consumption' => [
                 'type' => ConfigFieldSchema::TYPE_CHECKBOX,

@@ -17,7 +17,7 @@ class PirateSpawnerCronjob extends AbstractCronjobTask
         \App\Game\Core\Singleton $state,
     ) {
         parent::__construct($db, $configs, $state);
-        require_once 'config/game.php';
+        require_once $state->runtime->rootPath . 'config/game.php';
     }
 
     /**
@@ -52,18 +52,29 @@ class PirateSpawnerCronjob extends AbstractCronjobTask
                 $users = $this->getUsers($universe, $config->piratebase_min_points);
 
                 foreach ($users as $user) {
-                    $planets = $this->getUserPlanets($user['id']);
-                    $userShips = $this->getUserShips($user['id'], $planets);
+                    // one failing player must not abort the run (the bases written so far stay valid)
+                    try {
+                        $planets = $this->getUserPlanets($user['id']);
+                        if ($planets === []) {
+                            continue;
+                        }
+                        $userShips = $this->getUserShips($user['id'], $planets);
 
-                    $index = random_int(0, count($planets) - 1);
-                    $targetPlanet = $planets[$index];
-                    $pirateFleet = $this->getPirateFleet($userShips, $excludedShips, $config->piratebase_fleet_percentage_min, $config->piratebase_fleet_percentage_max);
-                    $ress = $this->getPirateRess($planets, $user['id_planet'], $config->piratebase_mainplanet_only, $config->piratebase_ress_hours);
+                        $pirateFleet = $this->getPirateFleet($userShips, $excludedShips, $config->piratebase_fleet_percentage_min, $config->piratebase_fleet_percentage_max);
+                        if ($pirateFleet === []) {
+                            continue; // no ships: an empty base would only hand out free resources
+                        }
+                        $targetPlanet = $planets[random_int(0, count($planets) - 1)];
+                        $ress = $this->getPirateRess($planets, $user['id_planet'], $config->piratebase_mainplanet_only, $config->piratebase_ress_hours);
 
-                    $this->createPirateBase($targetPlanet, $pirateFleet, $ress, $user);
+                        $this->createPirateBase($targetPlanet, $pirateFleet, $ress, $user);
+                    } catch (\Throwable $e) {
+                        error_log("Error in PirateSpawnerCronjob for user " . $user['id'] . ": " . $e->getMessage());
+                        $this->discord()->sendLog('PirateSpawnerCronjob', null, $e);
+                    }
                 }
             }
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             error_log("Error in PirateSpawnerCronjob: " . $e->getMessage());
             $this->discord()->sendLog('PirateSpawnerCronjob', null, $e);
         }
@@ -174,7 +185,10 @@ class PirateSpawnerCronjob extends AbstractCronjobTask
         foreach ($fleets as $fleet) {
             $fleetArray = $this->fleetFunctions()->unserialize($fleet['ships']);
             foreach ($fleetArray as $elementId => $amount) {
-                $userShips[$elementId] += $amount;
+                // only real ships (missile fleets carry 502/503, which are not in the fleet list)
+                if (isset($userShips[$elementId])) {
+                    $userShips[$elementId] += $amount;
+                }
             }
         }
 

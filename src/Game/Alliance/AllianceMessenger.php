@@ -79,6 +79,78 @@ class AllianceMessenger
         }
     }
 
+    /** Tells a kicked member that he was removed from the alliance. */
+    public function memberKicked(int|string $userId, string $label): void
+    {
+        $lang = $this->playerLookup()->getLanguage(null, $userId);
+        $this->sendSystem($userId, $lang, $lang['al_kicked'], $lang->formatHtml('al_kicked_msg', $label));
+    }
+
+    /**
+     * Tells everybody concerned that the alliance is being disbanded: the other members, the open applicants and the
+     * leaders/diplomats of the alliances it had a treaty with. Call before the alliance rows are deleted.
+     *
+     * @param array<string, mixed> $alliance
+     */
+    public function allianceDisbanded(array $alliance): void
+    {
+        $db = $this->db;
+        $label = '[' . $alliance['ally_tag'] . '] ' . $alliance['ally_name'];
+        $actingId = $this->state->USER['id'];
+        $allianceId = (int) $alliance['id'];
+
+        $members = $db->select(
+            'SELECT u.id, us.lang FROM %%USERS%% u INNER JOIN %%USERS_SETTINGS%% us ON u.id = us.user_id
+            WHERE u.ally_id = :id AND u.id != :actor;',
+            [':id' => $allianceId, ':actor' => $actingId],
+        );
+        $this->sendDisbanded($members, 'al_disbanded_msg', $label);
+
+        $applicants = $db->select(
+            'SELECT u.id, us.lang FROM %%ALLIANCE_REQUEST%% r INNER JOIN %%USERS%% u ON u.id = r.userID
+            INNER JOIN %%USERS_SETTINGS%% us ON u.id = us.user_id WHERE r.allianceID = :id;',
+            [':id' => $allianceId],
+        );
+        $this->sendDisbanded($applicants, 'al_disbanded_applicant_msg', $label);
+
+        $partners = $db->select(
+            'SELECT IF(owner_1 = :id, owner_2, owner_1) AS partner FROM %%DIPLO%% WHERE owner_1 = :id OR owner_2 = :id;',
+            [':id' => $allianceId],
+        );
+        $receivers = [];
+        foreach ($partners as $partner) {
+            foreach ($this->repository->messageReceivers((int) $partner['partner'], 0, true) as $receiver) {
+                $receivers[$receiver['id']] = $receiver;
+            }
+        }
+        $this->sendDisbanded(array_values($receivers), 'al_disbanded_partner_msg', $label);
+    }
+
+    /**
+     * @param list<array{id: int|string, lang: string}> $receivers
+     */
+    private function sendDisbanded(array $receivers, string $textKey, string $label): void
+    {
+        foreach ($receivers as $receiver) {
+            $lang = $this->playerLookup()->getLanguage($receiver['lang']);
+            $this->sendSystem($receiver['id'], $lang, $lang['al_disbanded'], $lang->formatHtml($textKey, $label));
+        }
+    }
+
+    /** One alliance-type system message (sender: the alliance system) to a user, in his language. */
+    private function sendSystem(int|string $userId, \ArrayAccess|array $lang, string $subject, string $text): void
+    {
+        $this->playerMessenger()->sendMessage(
+            $userId,
+            0,
+            $lang['al_alliance'],
+            MessageType::Alliance->value,
+            $subject,
+            $text,
+            $this->state->runtime->timestamp,
+        );
+    }
+
     /**
      * Circular message of the acting user to all members of the alliance or to one rank.
      *

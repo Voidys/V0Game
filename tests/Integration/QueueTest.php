@@ -43,7 +43,7 @@ final class QueueTest extends GameTestCase
         'research remove #3: serialized' => 'a:3:{i:0;a:6:{i:0;i:106;i:1;i:1;i:2;d:617;i:3;d:T+617;i:4;i:PLANET;i:5;a:3:{i:901;d:200;i:902;d:1000;i:903;d:200;}}i:1;a:5:{i:0;i:108;i:1;i:1;i:2;d:205;i:3;d:T+822;i:4;i:PLANET;}i:2;a:5:{i:0;i:106;i:1;i:2;i:2;d:1234;i:3;d:T+2056;i:4;i:PLANET;}}',
         'research cancel: refund in database' => [200.0, 600.0, -400.0],
         'research cancel: serialized' => 'a:1:{i:0;a:6:{i:0;i:108;i:1;i:1;i:2;d:205;i:3;d:T+205;i:4;i:PLANET;i:5;a:2:{i:902;d:400;i:903;d:600;}}}',
-        'elapsed build: queue' => 'a:2:{i:0;a:6:{i:0;i:2;i:1;i:1;i:2;d:103;i:3;d:T+203;i:4;s:5:"build";i:5;a:2:{i:901;d:48;i:902;d:24;}}i:1;a:5:{i:0;i:3;i:1;i:1;i:2;d:80;i:3;d:T+240;i:4;s:5:"build";}}',
+        'elapsed build: queue' => 'a:2:{i:0;a:6:{i:0;i:2;i:1;i:1;i:2;d:103;i:3;d:T+203;i:4;s:5:"build";i:5;a:2:{i:901;d:48;i:902;d:24;}}i:1;a:5:{i:0;i:3;i:1;i:1;i:2;d:432;i:3;d:T+635;i:4;s:5:"build";}}',
         'elapsed build: levels and fields' => [4, 0, 0, 1, 203.0],
         'elapsed build: resources' => [99952.0, 99976.0, 100000.0],
         'elapsed research: queue' => 'a:1:{i:0;a:6:{i:0;i:108;i:1;i:1;i:2;d:205;i:3;d:T+305;i:4;i:PLANET;i:5;a:2:{i:902;d:400;i:903;d:600;}}}',

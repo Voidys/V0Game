@@ -28,6 +28,9 @@ use App\Game\AdvancedStats\AdvancedStatsHandler;
 #[\App\Controller\RequireModule('MODULE_MISSILEATTACK')]
 class FleetMissileController extends AbstractGameController
 {
+    /** The target is a stronger player (outlaw rule on): the outlaw status is written once the launch is certain. */
+    private bool $outlawPending = false;
+
     /**
      * Interplanetary missile launch (request: galaxy, system, planet, type = planet type of the target, SendMI = number of missiles, Target
      * = primary target defense id). Validates silo level, missile range, protections and counts, then creates the missile fleet event and
@@ -65,6 +68,7 @@ class FleetMissileController extends AbstractGameController
                 $this->state->PLANET = array_merge($this->state->PLANET, $locked);
             }
 
+            $this->outlawPending = false;
             $missileCount = $this->state->PLANET['interplanetary_misil'];
             $anz          = min($requested, $missileCount);
 
@@ -84,6 +88,14 @@ class FleetMissileController extends AbstractGameController
                 $capped = $this->fleetCaps->consume((int) $this->state->USER['id'], Mission::Missile->value);
                 if ($capped !== null) {
                     return $LNG->format($capped['key'], $capped['limit'], $capped['hours'], $capped['minutes']);
+                }
+                if ($this->outlawPending) {
+                    $this->db->update('UPDATE %%USERS%% SET outlaw_time = :outlawTime WHERE id = :userId;', [
+                        ':outlawTime' => $this->state->runtime->timestamp,
+                        ':userId'     => $this->state->USER['id'],
+                    ]);
+                    $statsHandler = new AdvancedStatsHandler($this->db, $this->configs, $this->state);
+                    $statsHandler->increment($this->state->USER['id'], AdvancedStatsEnum::OUTLAW_ACTIVATIONS);
                 }
                 $this->launch($target, $targetGalaxy, $targetSystem, $targetPlanet, $targetType, $primaryTarget, $anz);
                 $sent = (int) $anz;
@@ -122,9 +134,11 @@ class FleetMissileController extends AbstractGameController
 
         $this->loadOwnPoints();
 
-        $protectionError = $this->protectionError($target);
-        if ($protectionError !== null) {
-            $error = $protectionError;
+        if ($error == "") {
+            $protectionError = $this->protectionError($target);
+            if ($protectionError !== null) {
+                $error = $protectionError;
+            }
         }
 
         if ($error == "" && $this->fleetFunctions()->checkBash((int) $target['planetID'])) {
@@ -217,8 +231,8 @@ class FleetMissileController extends AbstractGameController
 
     /**
      * Newbie and strong-player protection against the target: a newbie target gives the error text; a strong target gives
-     * the error text unless outlaw attacks are allowed, in which case the player is marked as outlaw now (and the activation
-     * is counted in the advanced stats). Null when the protection does not forbid the launch.
+     * the error text unless outlaw attacks are allowed, in which case the player is marked as outlaw when the missiles
+     * are really launched (and the activation is counted in the advanced stats). Null when the protection does not forbid the launch.
      *
      * @param array<string, mixed>|false|null $target from findTarget()
      */
@@ -232,12 +246,7 @@ class FleetMissileController extends AbstractGameController
         }
         if ($IsNoobProtec['StrongPlayer']) {
             if ($this->configs->get()->noob_protection_outlaw) {
-                $this->db->update('UPDATE %%USERS%% SET outlaw_time = :outlawTime WHERE id = :userId;', [
-                    ':outlawTime' => $this->state->runtime->timestamp,
-                    ':userId'     => $this->state->USER['id'],
-                ]);
-                $statsHandler = new AdvancedStatsHandler($this->db, $this->configs, $this->state);
-                $statsHandler->increment($this->state->USER['id'], AdvancedStatsEnum::OUTLAW_ACTIVATIONS);
+                $this->outlawPending = true;
             } else {
                 return $LNG['fl_strong_player'];
             }

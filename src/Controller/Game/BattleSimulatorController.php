@@ -237,7 +237,7 @@ class BattleSimulatorController extends AbstractGameController
         $fleetDefend = [];
         $fleetAttack = [];
         foreach ($BattleArray as $BattleSlotID => $BattleSlot) {
-            if (isset($BattleSlot[0]) && (array_sum($BattleSlot[0]) > 0 || $BattleSlotID == 0)) {
+            if (isset($BattleSlot[0]) && ($this->slotHasUnits($BattleSlot[0], $e->ids('fleet')) || $BattleSlotID == 0)) {
                 $attackerPlayer = [
                     'id' => (1000 + $BattleSlotID + 1),
                     'username'  => $LNG['bs_atter'] . ' Nr.' . ($BattleSlotID + 1),
@@ -258,7 +258,7 @@ class BattleSimulatorController extends AbstractGameController
                 $fleetAttack[] = new BattleFleet(count($fleetAttack), $attackerPlayer, $BattleSlot[0], $this->simulatedFleetDetail());
             }
 
-            if (isset($BattleSlot[1]) && (array_sum($BattleSlot[1]) > 0 || $BattleSlotID == 0)) {
+            if (isset($BattleSlot[1]) && ($this->slotHasUnits($BattleSlot[1], array_merge($e->ids('fleet'), $e->ids('defense'))) || $BattleSlotID == 0)) {
                 $defenderPlayer = [
                     'id' => (2000 + $BattleSlotID + 1),
                     'username'  => $LNG['bs_deffer'] . ' Nr.' . ($BattleSlotID + 1),
@@ -281,6 +281,23 @@ class BattleSimulatorController extends AbstractGameController
         }
 
         return [$fleetAttack, $fleetDefend, $battleElementAmount];
+    }
+
+    /**
+     * Whether one side of a slot holds any ship or defense unit (the tech levels and resources of the slot do not count).
+     *
+     * @param array<int, int|float> $side element id => amount
+     * @param array<int, int> $unitIds ids that count as units
+     */
+    private function slotHasUnits(array $side, array $unitIds): bool
+    {
+        foreach ($side as $id => $count) {
+            if (in_array($id, $unitIds) && getNumber($count) > 0) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

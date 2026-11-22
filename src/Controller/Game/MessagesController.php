@@ -206,6 +206,11 @@ class MessagesController extends AbstractGameController
 
         $composer->send($receiverList, $receiver, $subject, $text, $groupKey);
 
+        $skipped = $composer->skippedNames($receiver, $receiverList);
+        if ($skipped !== []) {
+            return $this->jsonResponse($LNG['mg_message_send'] . ' ' . sprintf($LNG['mg_not_delivered'], implode(', ', $skipped)));
+        }
+
         return $this->jsonResponse($LNG['mg_message_send']);
     }
 

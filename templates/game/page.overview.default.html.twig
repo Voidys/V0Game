@@ -56,7 +56,7 @@
                 <div class="stat"><dt class="stat__label">{{ LNG.ov_position }}</dt><dd class="stat__value"><a href="{{ path('game_galaxy_show', {galaxy: galaxy, system: system}) }}">[{{ galaxy }}:{{ system }}:{{ planet }}]</a></dd></div>
                 <div class="stat stat--wide"><dt class="stat__label">{{ LNG.ov_points }}</dt><dd class="stat__value stat__value--text">{% if rankInfo %}{{ LNG.format('ov_userrank_info', rankInfo.points, LNG.ov_place, rankInfo.rank, rankInfo.rank, LNG.ov_of, rankInfo.usersCount) }}{% else %}-{% endif %}</dd></div>
             </dl>
-            <div class="meter{% if fieldFill > 0.9 %} meter--warn{% endif %}" style="--fill: {{ fieldFill|number_format(3, '.', '') }}" title="{{ planet_field_current }} / {{ planet_field_max }} {{ LNG.ov_fields }}"></div>
+            <div class="meter{% if planet_field_current > planet_field_max %} meter--danger{% elseif fieldFill > 0.9 %} meter--warn{% endif %}" style="--fill: {{ fieldFill|number_format(3, '.', '') }}" title="{{ planet_field_current }} / {{ planet_field_max }} {{ LNG.ov_fields }}"></div>
         </div>
     </section>
 

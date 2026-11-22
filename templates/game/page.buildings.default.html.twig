@@ -30,7 +30,7 @@
 
       {% set extra %}
         {% if Element.infoEnergy and not Element.requirements %}
-          <p class="hint">{{ LNG.bd_next_level }} · {{ LNG.format(Element.infoEnergy.consumes ? 'bd_need_engine' : 'bd_more_engine', Element.infoEnergy.amount, LNG.tech[911]) }}</p>
+          <p class="hint">{{ LNG.bd_next_level }} {{ LNG.format(Element.infoEnergy.consumes ? 'bd_need_engine' : 'bd_more_engine', Element.infoEnergy.amount, LNG.tech[911]) }}</p>
         {% endif %}
         {% if Element.factor != null and not Element.requirements and Element.buyable %}
           <span class="tag tag--info tooltip" data-tooltip-content="{{ LNG.sys_catchup_tooltip }}">{{ LNG.format('sys_catchup_short', Element.factor) }} %</span>
@@ -119,6 +119,7 @@
         tools: tools,
         time: not atMax,
         done: (not atMax and umode == 0) ? baseEnd + Element.elementTime : null,
+        tz: TIMEZONESTRING,
         action: action,
       }) }}
     {% endfor %}

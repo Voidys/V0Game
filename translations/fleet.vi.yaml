@@ -246,3 +246,5 @@ depot_msg_text: "Hạm đội của bạn tại %s đã được %s tiếp tế:
 cr_actions: "Thao tác với báo cáo"
 cr_attack_again: "Tấn công lại"
 cr_simulate: "Mô phỏng"
+sys_expe_factor: "Factor %s"
+sys_irak_vacation: "The missiles were lost: the target player is in vacation mode."

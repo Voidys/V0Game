@@ -682,6 +682,47 @@ final class AllianceServicesTest extends GameTestCase
         self::assertSame(0, (int) $this->db->selectSingle('SELECT COUNT(*) AS c FROM %%DIPLO%% WHERE owner_1 IN (:a,:b) AND owner_2 IN (:a,:b);', [':a' => $allianceA['id'], ':b' => $allianceB['id']], 'c'));
     }
 
+    public function testAWarCannotBeEndedByDeletingOrRejectingIt(): void
+    {
+        [$ownerA, $allianceA, $ownerB, $allianceB] = $this->twoAlliances();
+        $this->services($ownerA)->diplomacy()->create($allianceA, $allianceB['id'], DiploType::War->value, 'war');
+        $war = $this->treatyId($allianceA['id'], $allianceB['id']);
+
+        foreach ([[$ownerB, $allianceB, 'delete'], [$ownerB, $allianceB, 'reject'], [$ownerA, $allianceA, 'delete'], [$ownerA, $allianceA, 'reject']] as [$owner, $alliance, $method]) {
+            $exit = $this->exitOf(fn() => $this->services($owner)->diplomacy()->$method($alliance, $war));
+            self::assertSame(AllianceException::HOME, $exit->kind, $method);
+        }
+        self::assertSame($war, $this->treatyId($allianceA['id'], $allianceB['id']));
+
+        // a second open peace offer between the pair is refused
+        $this->services($ownerB)->diplomacy()->create($allianceB, $allianceA['id'], DiploType::Peace->value, 'enough');
+        $again = $this->exitOf(fn() => $this->services($ownerA)->diplomacy()->create($allianceA, $allianceB['id'], DiploType::Peace->value, 'again'));
+        self::assertSame(AllianceException::JSON, $again->kind);
+        self::assertSame(1, (int) $this->db->selectSingle('SELECT COUNT(*) AS c FROM %%DIPLO%% WHERE level = :peace;', [':peace' => DiploType::Peace->value], 'c'));
+    }
+
+    public function testMembersCannotFoundASecondAlliance(): void
+    {
+        [$owner] = $this->foundAlliance('SEC', 'Second Alliance');
+        $exit = $this->exitOf(fn() => $this->services($owner)->membership()->assertMayFound());
+        self::assertSame(AllianceException::MESSAGE, $exit->kind);
+    }
+
+    public function testKickAndDisbandInformThoseConcerned(): void
+    {
+        [$owner, $alliance] = $this->foundAlliance('INF', 'Inform Alliance');
+        $kicked = $this->join($this->player(), $alliance);
+        $member = $this->join($this->player(), $alliance);
+        $alliance = $this->reloadAlliance($alliance['id']);
+
+        $this->services($owner)->membership()->kick($alliance, AllianceRights::all(true), $kicked['id']);
+        self::assertSame(1, $this->messageCount($kicked['id']));
+
+        $this->services($owner)->membership()->disband($alliance);
+        self::assertSame(1, $this->messageCount($member['id']));
+        self::assertSame(0, (int) $this->loadUser((int) $member['id'])['ally_rank_id']);
+    }
+
     public function testDiplomacyViewsGroupTreatiesByStatus(): void
     {
         [$ownerA, $allianceA, $ownerB, $allianceB] = $this->twoAlliances();
@@ -719,7 +760,8 @@ final class AllianceServicesTest extends GameTestCase
         $messenger->sendCircular($alliance, 0, 'Subject', 'Hello all');
         self::assertSame(2, $this->messageCount($pilot['id']));
         self::assertSame(1, $this->messageCount($plain['id']));
-        self::assertSame(1, $this->messageCount($owner['id']));
+        self::assertSame(0, $this->messageCount($owner['id']), 'the sender gets one read copy, no unread one');
+        self::assertSame(1, (int) $this->db->selectSingle('SELECT COUNT(*) AS c FROM %%USERS_TO_MESSAGES%% WHERE user_id = :u AND message_unread = 0 AND message_id = (SELECT MAX(message_id) FROM %%USERS_TO_MESSAGES%% WHERE user_id = :u);', [':u' => $owner['id']], 'c'));
 
         $exit = $this->exitOf(fn() => $messenger->sendCircular($alliance, 0, 'Subject', ''));
         self::assertSame(AllianceException::JSON, $exit->kind);
@@ -753,7 +795,8 @@ final class AllianceServicesTest extends GameTestCase
 
         $this->services($ownerA)->diplomacy()->create($allianceA, $allianceB['id'], DiploType::War->value, 'war');
 
-        foreach ([$ownerA, $ownerB, ...$membersA, ...$membersB] as $user) {
+        self::assertSame(0, $this->messageCount($ownerA['id']), 'the sender only has the read copy');
+        foreach ([$ownerB, ...$membersA, ...$membersB] as $user) {
             self::assertSame(1, $this->messageCount($user['id']), 'user ' . $user['id']);
         }
     }

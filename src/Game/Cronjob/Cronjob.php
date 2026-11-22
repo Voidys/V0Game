@@ -165,24 +165,29 @@ class Cronjob
 
     /**
      * Sets nextTime of one job (or all when null) to the next run of its cron expression strictly after now (CronExpression already skips the current minute, so `* * * * *` runs every minute; the former +60 s made it skip one).
+     * With $keepDue, jobs that are already due (nextTime in the past) are left alone, so a bulk recalculation (daily job,
+     * cache clear) cannot swallow runs that were missed during downtime.
      */
-    public function reCalculateCronjobs(?int $cronjobID = null): void
+    public function reCalculateCronjobs(?int $cronjobID = null, bool $keepDue = false): void
     {
         $db = $this->db;
 
         if (!empty($cronjobID)) {
-            $sql = 'SELECT cronjobID, min, hours, dom, month, dow FROM %%CRONJOBS%% WHERE cronjobID = :cronjobId;';
+            $sql = 'SELECT cronjobID, nextTime, min, hours, dom, month, dow FROM %%CRONJOBS%% WHERE cronjobID = :cronjobId;';
             $cronjobResult = $db->select($sql, [
                 ':cronjobId' => $cronjobID,
             ]);
         } else {
-            $sql = 'SELECT cronjobID, min, hours, dom, month, dow FROM %%CRONJOBS%%;';
+            $sql = 'SELECT cronjobID, nextTime, min, hours, dom, month, dow FROM %%CRONJOBS%%;';
             $cronjobResult = $db->select($sql);
         }
 
         $sql = 'UPDATE %%CRONJOBS%% SET nextTime = :nextTime WHERE cronjobID = :cronjobId;';
 
         foreach ($cronjobResult as $cronjobRow) {
+            if ($keepDue && $cronjobRow['nextTime'] !== null && $cronjobRow['nextTime'] < $this->state->runtime->timestamp) {
+                continue;
+            }
             $cronTabString = implode(' ', [$cronjobRow['min'], $cronjobRow['hours'], $cronjobRow['dom'], $cronjobRow['month'], $cronjobRow['dow']]);
 
             $cron = new CronExpression($cronTabString);

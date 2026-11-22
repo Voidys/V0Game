@@ -1693,3 +1693,20 @@ ui_shortcuts_go_buildings: Gebäude
 ui_shortcuts_go_galaxy: Weltmeer
 ui_shortcuts_planets: Voriger / nächster Hafen
 ui_shortcuts_help: Diese Hilfe
+mg_not_delivered: "Not delivered to (they block messages): %s"
+al_already_member: "You are already a member of an alliance. Leave it first to found a new one."
+al_kicked: "Removed from the alliance"
+al_kicked_msg: "You have been removed from the alliance <b>%s</b>."
+al_disbanded: "Alliance disbanded"
+al_disbanded_msg: "The alliance <b>%s</b> has been disbanded. You are no longer a member."
+al_disbanded_applicant_msg: "The alliance <b>%s</b> has been disbanded, your application is void."
+al_disbanded_partner_msg: "The alliance <b>%s</b> has been disbanded. All treaties with it have ended."
+fa_no_debris: "No debris field to collect."
+fl_colonize_slot_taken: "There is already a planet at the target position."
+fl_choose_destination: "Choose destination"
+op_cant_activate_vacation_hostile: "You can't start vacation mode while hostile fleets are on their way to your planets."
+rec_staff_excluded: "Team members and banned players set no records, so your own levels can be higher."
+rec_hidden_holder: "hidden"
+rec_hidden_holder_info: "The record holder does not show their name in the records."
+rec_pending: "New record – counted at the next statistics update."
+rec_you: "You (not counted yet)"

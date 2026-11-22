@@ -19,6 +19,7 @@ namespace App\Game\Cronjob;
 
 use App\Game\Core\Config;
 use App\Game\Core\ResourceUpdate;
+use App\Game\Core\Player\VacationMode;
 use App\Game\Core\Universe;
 
 /**
@@ -42,6 +43,7 @@ class DailyCronjob extends AbstractCronjobTask
         foreach ($universes as $universe) {
             $this->cancelVacation($universe);
             $this->updateInactiveMines($universe);
+            $this->restoreReturnedMines($universe);
             $this->emptyInactiveAllianceAndBuddy($universe);
         }
         $this->cleanReports($universes);
@@ -61,11 +63,11 @@ class DailyCronjob extends AbstractCronjobTask
     }
 
     /**
-     * Recomputes nextTime of every cronjob (Cronjob::reCalculateCronjobs()).
+     * Recomputes nextTime of every cronjob that is not already due (Cronjob::reCalculateCronjobs()), so missed runs stay due.
      */
     public function reCalculateCronjobs(): void
     {
-        $this->cronjobs()->reCalculateCronjobs();
+        $this->cronjobs()->reCalculateCronjobs(null, true);
     }
 
     /**
@@ -152,7 +154,8 @@ class DailyCronjob extends AbstractCronjobTask
 
     /**
      * Sets the production percentage of mines, solar plant, fusion plant and satellites on the home/colony planets
-     * (type 1) of players offline longer than INACTIVE (7 days, not in vacation) back to 100% (stored as 10).
+     * (type 1) of players offline longer than INACTIVE (7 days, not in vacation) to 100% (stored as 10); the previous levels are
+     * kept in `porcent_saved` and restored by restoreReturnedMines() when the player comes back.
      * Every planet whose levels change is brought up to date first (stock integrated to now at the levels the player set),
      * so the new levels only count from now on and nothing is credited retroactively.
      * @param int $universe universe id.
@@ -176,8 +179,52 @@ class DailyCronjob extends AbstractCronjobTask
             $planet = $db->selectSingle('SELECT * FROM %%PLANETS%% WHERE `id` = :id FOR UPDATE;', [':id' => $row['id']]);
             if (!empty($user) && !empty($planet)) {
                 (new ResourceUpdate($db, $this->configs, $this->state))->CalcResource($user, $planet, true);
-                $db->update("UPDATE %%PLANETS%% SET `eco_hash` = '', `metal_mine_porcent` = :full, `crystal_mine_porcent` = :full, `deuterium_sintetizer_porcent` = :full, `solar_plant_porcent` = :full, `fusion_plant_porcent` = :full, `solar_satelit_porcent` = :full WHERE `id` = :id;", [
+                // the player's own levels are kept in porcent_saved (first reset only) and come back when he returns
+                $db->update("UPDATE %%PLANETS%% SET `porcent_saved` = IF(`porcent_saved` = '', " . VacationMode::percentSnapshotSql() . ", `porcent_saved`), `eco_hash` = '', `metal_mine_porcent` = :full, `crystal_mine_porcent` = :full, `deuterium_sintetizer_porcent` = :full, `solar_plant_porcent` = :full, `fusion_plant_porcent` = :full, `solar_satelit_porcent` = :full WHERE `id` = :id;", [
                     ':full' => 10, // 10 = 100%
+                    ':id' => $row['id'],
+                ]);
+            }
+            $db->commit();
+        }
+    }
+
+    /**
+     * Gives players who are back (online within INACTIVE, not in vacation) the production percentages they had before
+     * updateInactiveMines() set them to 100% (`porcent_saved`). Planets the player has changed since the reset (not all
+     * levels at 100% any more) keep his new levels, the snapshot is dropped. Stock is integrated first, like in the reset.
+     * @param int $universe universe id.
+     */
+    public function restoreReturnedMines(int $universe): void
+    {
+        $db = $this->db;
+        $sql = "SELECT p.`id`, p.`id_owner` FROM %%PLANETS%% p INNER JOIN %%USERS%% u ON u.`id` = p.`id_owner`
+                WHERE p.`porcent_saved` != '' AND u.`urlaubs_modus` = 0 AND u.`onlinetime` >= :inactive AND u.`universe` = :universe;";
+        $planets = $db->select($sql, [
+            ':inactive' => $this->state->runtime->timestamp - INACTIVE,
+            ':universe' => $universe,
+        ]);
+
+        foreach ($planets as $row) {
+            $db->startTransaction();
+            $user = $db->selectSingle('SELECT u.*, us.* FROM %%USERS%% u INNER JOIN %%USERS_SETTINGS%% us ON us.`user_id` = u.`id` WHERE u.`id` = :id FOR UPDATE;', [':id' => $row['id_owner']]);
+            $planet = $db->selectSingle('SELECT * FROM %%PLANETS%% WHERE `id` = :id FOR UPDATE;', [':id' => $row['id']]);
+            if (!empty($user) && !empty($planet) && $planet['porcent_saved'] !== '') {
+                $untouched = true;
+                foreach (VacationMode::PERCENT_COLUMNS as $column) {
+                    $untouched = $untouched && (string) $planet[$column] === '10';
+                }
+                if ($untouched) {
+                    (new ResourceUpdate($db, $this->configs, $this->state))->CalcResource($user, $planet, true);
+                }
+                $percents = $untouched ? VacationMode::percentsFromSnapshot($planet['porcent_saved']) : array_intersect_key($planet, array_flip(VacationMode::PERCENT_COLUMNS));
+                $db->update("UPDATE %%PLANETS%% SET `porcent_saved` = '', `eco_hash` = '', `metal_mine_porcent` = :metal, `crystal_mine_porcent` = :crystal, `deuterium_sintetizer_porcent` = :deuterium, `solar_plant_porcent` = :solar, `fusion_plant_porcent` = :fusion, `solar_satelit_porcent` = :satellite WHERE `id` = :id;", [
+                    ':metal' => $percents['metal_mine_porcent'],
+                    ':crystal' => $percents['crystal_mine_porcent'],
+                    ':deuterium' => $percents['deuterium_sintetizer_porcent'],
+                    ':solar' => $percents['solar_plant_porcent'],
+                    ':fusion' => $percents['fusion_plant_porcent'],
+                    ':satellite' => $percents['solar_satelit_porcent'],
                     ':id' => $row['id'],
                 ]);
             }
@@ -217,14 +264,15 @@ class DailyCronjob extends AbstractCronjobTask
             }
         }
 
-        // Delete simulations/expofights older than 3 days and KBs older than config setting and not in Battlehall
-        $sql = "DELETE FROM %%RW%% WHERE 
+        // Delete simulations (attacker `sim:<id>`) older than 3 days; every other report (battles, expedition fights) lives
+        // as long as the messages that link it (config setting) unless it is in the Battlehall
+        $sql = "DELETE FROM %%RW%% WHERE
             `keep` = 0 AND (
-                ( `defender` = '' AND `time` < :threeDays ) OR
-                ( `defender` != '' AND `time` < :oldStuff AND `rid` NOT IN ( SELECT `rid` FROM %%TOPKB%% ) )
+                ( `defender` = '' AND `attacker` LIKE 'sim:%' AND `time` < :threeDays ) OR
+                ( NOT ( `defender` = '' AND `attacker` LIKE 'sim:%' ) AND `time` < :oldStuff AND `rid` NOT IN ( SELECT `rid` FROM %%TOPKB%% ) )
             );";
         $db->delete($sql, [
-            ':threeDays' => $this->state->runtime->timestamp - TIME_72_HOURS, // Keep only last 3 days of sims/pirate/aliens
+            ':threeDays' => $this->state->runtime->timestamp - TIME_72_HOURS, // Keep only the last 3 days of simulations
             ':oldStuff' => $del_before,
         ]);
 

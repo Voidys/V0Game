@@ -481,13 +481,16 @@ class FleetStep2Controller extends AbstractGameController
                     $questionList[Mission::Hold->value] = $questionHold;
                     $questionList[Mission::Spy->value] = $questionSpy;
                 }
-            } elseif ($targetAllianceData) {
+            }
+
+            // diplomacy / buddy questions are independent of the outlaw rule (the outlaw question wins when it applies)
+            if ($question === '' && $targetAllianceData) {
                 $question = $LNG->format(
                     'fl_attack_confirm_diplo',
                     (($targetAllianceData['owner_2'] == $targetAllianceData['id'] && $targetAllianceData['level'] == 1) ? $LNG['al_diplo_level'][0] : $LNG['al_diplo_level'][$targetAllianceData['level']]),
                     '[' . $targetAllianceData['ally_tag'] . '] ' . $targetAllianceData['ally_name'],
                 );
-            } elseif ($buddy['anz'] > 0) {
+            } elseif ($question === '' && $buddy['anz'] > 0) {
                 $question = $LNG['fl_attack_confirm_buddy'];
             }
 

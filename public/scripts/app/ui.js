@@ -334,6 +334,30 @@ function tabbarKeyboard() {
   document.addEventListener('focusout', () => document.body.classList.remove('kb-open'));
 }
 
+/** phones: the floating page action (.page-fab) rises above the page footer while the footer is in view, so it never covers it */
+function fabAboveFooter() {
+  const fab = qs('.page-fab');
+  const footer = qs('footer.footer');
+  if (!fab || !footer) return;
+  let queued = false;
+  const update = () => {
+    queued = false;
+    const lift = Math.max(0, window.innerHeight - footer.getBoundingClientRect().top);
+    document.documentElement.style.setProperty('--fab-lift', `${Math.round(lift)}px`);
+  };
+  const schedule = () => {
+    if (!queued) {
+      queued = true;
+      requestAnimationFrame(update);
+    }
+  };
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  // content loaded or folded later moves the footer without a scroll
+  if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(document.body);
+  update();
+}
+
 /** the side panel sticks below the top bar; its height varies (resource row, wrapping), so measure it */
 function topbarHeight() {
   const bar = qs('.topbar');
@@ -373,6 +397,7 @@ export function initUi() {
   sidebarToggle();
   userMenu();
   tabbarKeyboard();
+  fabAboveFooter();
   topbarHeight();
   automationReport();
   qsa('[data-tabs]').forEach((el) => tabs(el));

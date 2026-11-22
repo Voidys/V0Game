@@ -85,9 +85,10 @@ class ProtectionRules
      * @param float $factor base catch-up factor (1.0 = no catch-up)
      * @param int $elementId
      * @param int $currentLevel
+     * @param int|null $universe universe whose records count (default: the current one)
      * @return float
      */
-    public function getCatchUpFactorForElement(float $factor, int $elementId, int $currentLevel): float
+    public function getCatchUpFactorForElement(float $factor, int $elementId, int $currentLevel, ?int $universe = null): float
     {
         if ($factor == 1.0) {
             return 1.0;
@@ -95,9 +96,10 @@ class ProtectionRules
 
         $db = $this->db;
 
-        $sql = 'SELECT `level` FROM %%RECORDS%% WHERE `elementID` = :elementId;';
-        $maxLevel = $db->selectSingle($sql, [
+        $sql = 'SELECT MAX(`level`) AS `level` FROM %%RECORDS%% WHERE `elementID` = :elementId AND `universe` = :universe;';
+        $maxLevel = (int) $db->selectSingle($sql, [
             ':elementId' => $elementId,
+            ':universe' => $universe ?? $this->universe()->current(),
         ], 'level');
 
         $diff = $maxLevel - $currentLevel;

@@ -26,11 +26,11 @@ final class BattleValueObjectsTest extends GameTestCase
     // GOLDEN-BEGIN
     private const REPORT_HASHES = [
         'A-php' => ['868a84aa7954a439', '307609ac9db0aa63'],
-        'A-rust' => ['f9b3001f04de78b1', '307609ac9db0aa63'],
+        'A-rust' => ['5700cccc1ce7fc9b', '307609ac9db0aa63'],
         'multi-php' => ['06afdb21b6fc8754', 'f692a55216c96b55'],
-        'multi-rust' => ['a6b883ff63beed8f', 'f692a55216c96b55'],
+        'multi-rust' => ['e2a00b3eee513699', 'f692a55216c96b55'],
         'npc-php' => ['11cca57de930a461', '80ad852a3aa0b32c'],
-        'npc-rust' => ['ac2bf05c5dc7b93c', 'c32aff4d7a0804f6'],
+        'npc-rust' => ['16e8e6cd9e00fc24', 'c32aff4d7a0804f6'],
     ];
     // GOLDEN-END
 

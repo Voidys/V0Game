@@ -246,3 +246,5 @@ depot_msg_text: "กองเรือของคุณที่ %s ได้�
 cr_actions: "การดำเนินการของรายงาน"
 cr_attack_again: "โจมตีอีกครั้ง"
 cr_simulate: "จำลอง"
+sys_expe_factor: "Factor %s"
+sys_irak_vacation: "The missiles were lost: the target player is in vacation mode."

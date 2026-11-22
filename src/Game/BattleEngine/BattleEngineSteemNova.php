@@ -253,7 +253,14 @@ class BattleEngineSteemNova extends AbstractBattleEngine
                     foreach ($fleet['unit'] as $element => $amount) {
                         $realUnits[$sideName][$fleetID][$element] = $amount;
                         if ($amount > 0) {
-                            ${$sideName}[$fleetID]['unit'][$element] = max(1, (int) round($amount / $scale));
+                            // stochastic rounding keeps the expected weight of every type (a stack below the scale is not inflated to one
+                            // full ship); a type that rounds to 0 sits the fight out and shares its fleet's loss ratio (scaleBack)
+                            $exact = $amount / $scale;
+                            $scaled = (int) floor($exact);
+                            if ($exact - $scaled > 0 && rand(0, 999999) < ($exact - $scaled) * 1000000) {
+                                $scaled++;
+                            }
+                            ${$sideName}[$fleetID]['unit'][$element] = $scaled;
                         }
                     }
                 }
@@ -517,6 +524,29 @@ class BattleEngineSteemNova extends AbstractBattleEngine
     }
 
     /**
+     * Puts a type back that was scaled to 0 ships and sat the fight out: full amount in every round but the last, its
+     * share of the fleet's losses at the end.
+     *
+     * @param array<mixed> $attackers
+     * @param array<mixed> $defenders
+     * @param array<mixed> $ROUND
+     */
+    private function restoreSatOut(array &$attackers, array &$defenders, array &$ROUND, string $sideName, int|string $fleetID, int|string $element, int $left, int|float $real): void
+    {
+        $last = array_key_last($ROUND);
+        foreach (array_keys($ROUND) as $r) {
+            if (isset($ROUND[$r][$sideName][$fleetID])) {
+                $ROUND[$r][$sideName][$fleetID]['unit'][$element] = $r === $last ? $left : $real;
+            }
+        }
+        if ($sideName === 'attackers') {
+            $attackers[$fleetID]['unit'][$element] = $left;
+        } else {
+            $defenders[$fleetID]['unit'][$element] = $left;
+        }
+    }
+
+    /**
      * Converts the result of a fight on scaled fleets back to the real amounts.
      *
      * @param array<mixed> $realUnits
@@ -530,9 +560,25 @@ class BattleEngineSteemNova extends AbstractBattleEngine
         $sides = ['attackers' => 'infoA', 'defenders' => 'infoD'];
 
         foreach ($sides as $sideName => $infoKey) {
+            $survivorFleets = $sideName === 'attackers' ? $attackers : $defenders;
+            // survival ratio of the ships that fought (per fleet, else of the whole side): applies to the types that were
+            // scaled to 0 and sat the fight out
+            $ratio = static fn(float $fought, float $left): float => $fought > 0 ? min(1, $left / $fought) : 1;
+            $sideFought = 0;
+            $sideLeft = 0;
+            foreach ($scaledUnits[$sideName] as $fleetID => $fleet) {
+                $sideFought += array_sum($fleet['unit']);
+                $sideLeft += array_sum($survivorFleets[$fleetID]['unit'] ?? []);
+            }
             foreach ($realUnits[$sideName] as $fleetID => $elements) {
+                $fought = array_sum($scaledUnits[$sideName][$fleetID]['unit']);
+                $fleetRatio = $fought > 0 ? $ratio($fought, array_sum($survivorFleets[$fleetID]['unit'] ?? [])) : $ratio($sideFought, $sideLeft);
                 foreach ($elements as $element => $real) {
                     $start = $scaledUnits[$sideName][$fleetID]['unit'][$element];
+                    if ($start <= 0) {
+                        $this->restoreSatOut($attackers, $defenders, $ROUND, $sideName, $fleetID, $element, $real <= 0 ? 0 : (int) round($real * $fleetRatio), $real);
+                        continue;
+                    }
                     $f = $factor($real, $start);
                     foreach ($ROUND as $r => $round) {
                         $left = $round[$sideName][$fleetID]['unit'][$element] ?? 0;

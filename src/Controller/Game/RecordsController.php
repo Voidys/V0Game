@@ -55,19 +55,20 @@ class RecordsController extends AbstractGameController
         $userBuildResult = $this->ownBuildingMaxLevels();
 
         [, $fleetList, $researchList, $buildList] = $this->groupRecords($recordResult);
+        $lastRun = $this->cronjobs()->getLastExecutionTime('statistic');
 
         return $this->render('game/page.records.default.html.twig', [
             'fleetList'     => $fleetList,
             'researchList'  => $researchList,
             'buildList'     => $buildList,
-            'update'        => $this->viewHelpers()->formatDate(
-                $LNG['php_tdformat'],
-                $this->cronjobs()->getLastExecutionTime('statistic'),
-                $USER['timezone'],
-            ),
+            'update'        => $lastRun === false
+                ? '-'
+                : $this->viewHelpers()->formatDate($LNG['php_tdformat'], $lastRun, $USER['timezone']),
             'userTech'      => $userTechResult,
             'userBuild'     => $userBuildResult,
             'firstTimes'    => $firstTimes,
+            // hidden staff (authlevel at or above stat_level) set no records: tell them why their own levels may be higher
+            'staffExcluded' => (int) $this->configs->get()->stat_level > 0 && (int) $USER['authlevel'] >= (int) $this->configs->get()->stat_level,
         ]);
     }
 

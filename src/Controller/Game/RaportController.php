@@ -77,6 +77,7 @@ class RaportController extends AbstractGameController
 
         [$showDetails, $isDefender] = $this->detailAccess($reportData);
         $isParticipant = $this->isParticipant($reportData);
+        $hasDefendingPlayer = $this->hasDefendingPlayer($reportData);
 
         $Info = null;
         if (!$showDetails) {
@@ -94,7 +95,8 @@ class RaportController extends AbstractGameController
             $combatReport = StoredData::decode($reportData['raport']);
         }
 
-        if (!$isDefender && $combatReport['result'] == DEFENDER && count($combatReport['rounds']) <= 2) {
+        // contact is only lost in a fight with a defending player; simulations and expeditions have none (defender column without ids)
+        if (!$isDefender && $hasDefendingPlayer && $combatReport['result'] == DEFENDER && count($combatReport['rounds']) <= 2) {
             return $this->messageResponse($LNG['sys_raport_lost_contact']);
         }
 
@@ -115,12 +117,24 @@ class RaportController extends AbstractGameController
         return $this->render($reportData['battleengine'] === 'rust' ? 'game/shared.mission.raport.rust.html.twig' : 'game/shared.mission.raport.html.twig', $context);
     }
 
+    /** Whether the defender column of a report row lists at least one player id (not for simulations and expeditions). */
+    private function hasDefendingPlayer(array $reportData): bool
+    {
+        foreach (explode(',', (string) $reportData['defender']) as $id) {
+            if (ctype_digit($id)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /** Whether the viewer is an attacker or defender of the report itself (admins and alliance mates are not). */
     private function isParticipant(array $reportData): bool
     {
         $id = (string) $this->state->USER['id'];
 
-        return in_array($id, explode(',', (string) $reportData['attacker']), true) || in_array($id, explode(',', (string) $reportData['defender']), true);
+        return in_array($id, explode(',', (string) $reportData['attacker']), true) || $reportData['attacker'] === 'sim:' . $id || in_array($id, explode(',', (string) $reportData['defender']), true);
     }
 
     /**
@@ -238,6 +252,11 @@ class RaportController extends AbstractGameController
         $defenders = explode(",", $reportData['defender']);
         $isAttacker = in_array((string) $USER['id'], $attackers, true);
         $isDefender = in_array((string) $USER['id'], $defenders, true);
+        // the player's own simulation (marked `sim:<id>` in the attacker column) opens in full, as the defender's view
+        if ($reportData['attacker'] === 'sim:' . $USER['id']) {
+            $isAttacker = true;
+            $isDefender = true;
+        }
         if (array_key_exists('authlevel', $USER) && $USER['authlevel'] > AuthLevel::User->value) {
             $isDefender = true;
         }

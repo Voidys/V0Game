@@ -49,6 +49,8 @@ class MissionCaseTransport extends MissionFunctions implements MissionInterface
 
         // return fleet if target planet deleted or abandoned (destruyed is set while the row waits for cleanup)
         if ($targetPlanet == false || !empty($targetPlanet['destruyed'])) {
+            // nothing was delivered: the anti-push guard must not count this transport
+            $this->UpdateFleetLog('hasCanceled', 1);
             $this->setState(FLEET_RETURN);
             $this->SaveFleet();
             return;

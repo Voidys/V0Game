@@ -17,6 +17,7 @@
 
 namespace App\Controller\Game;
 
+use App\Game\Enum\Mission;
 use App\Game\Settings\SettingsRefused;
 use App\Game\Settings\SettingsUpdater;
 use App\Routing\GameRoute;
@@ -247,7 +248,7 @@ class SettingsController extends AbstractGameController
             return $this->messageResponse($LNG['op_options_vacation_deactivated'], $this->settingsButton($LNG['sys_forward']));
         } else {
             if (!$this->checkVMode()) {
-                return $this->messageResponse($LNG['op_cant_activate_vacation_mode'], $this->settingsButton($LNG['sys_back']));
+                return $this->messageResponse($this->incomingHostileRefused ? $LNG['op_cant_activate_vacation_hostile'] : $LNG['op_cant_activate_vacation_mode'], $this->settingsButton($LNG['sys_back']));
             }
 
             $this->vacationMode()->enable_vmode($this->state->USER, $this->state->PLANET);
@@ -263,6 +264,29 @@ class SettingsController extends AbstractGameController
             }
             return $this->messageResponse(new Markup($text, 'UTF-8'), $this->settingsButton($LNG['sys_forward']));
         }
+    }
+
+    /** Set by checkVMode() when vacation was refused because of foreign hostile fleets on their way. */
+    private bool $incomingHostileRefused = false;
+
+    /**
+     * Whether foreign fleets with a hostile mission (attack, ACS attack, missile, destroy, spy) are on their way to a
+     * planet or moon of the player (outward flights only; own fleets and returning ones do not count).
+     */
+    private function hostileFleetsInbound(): bool
+    {
+        $sql = 'SELECT COUNT(*) AS state FROM %%FLEETS%% WHERE `target_owner` = :userID AND `owner` != :userID
+            AND `status` = :outward AND `mission` IN (:attack, :acs, :missile, :destroy, :spy);';
+
+        return (int) $this->db->selectSingle($sql, [
+            ':userID'   => $this->state->USER['id'],
+            ':outward'  => FLEET_OUTWARD,
+            ':attack'   => Mission::Attack->value,
+            ':acs'      => Mission::Acs->value,
+            ':missile'  => Mission::Missile->value,
+            ':destroy'  => Mission::Destruction->value,
+            ':spy'      => Mission::Spy->value,
+        ], 'state') > 0;
     }
 
     /**
@@ -339,6 +363,12 @@ class SettingsController extends AbstractGameController
 
         if ($fleets != 0) {
             $db->rollback();
+            return false;
+        }
+
+        if (!$this->configs->get($this->state->USER['universe'])->vmode_allow_incoming && $this->hostileFleetsInbound()) {
+            $db->rollback();
+            $this->incomingHostileRefused = true;
             return false;
         }
 

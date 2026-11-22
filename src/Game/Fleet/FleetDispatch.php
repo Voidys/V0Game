@@ -265,7 +265,7 @@ class FleetDispatch
         }
     }
 
-    /** Resolves the ACS group the fleet wants to join (arrival time of the group); without a valid group the mission becomes a plain attack. */
+    /** Resolves the ACS group the fleet wants to join (arrival time of the group); a group that is no longer joinable refuses the dispatch. */
     private function resolveAcs(): void
     {
         $USER = $this->state->USER;
@@ -301,8 +301,7 @@ class FleetDispatch
             }
 
             if (empty($this->ACSTime)) {
-                $this->fleetGroup = 0;
-                $this->targetMission = Mission::Attack->value;
+                $this->refuse($this->state->LNG['fl_invalid_mission'], 'game_fleet_step2_show');
             }
         }
     }
@@ -319,7 +318,7 @@ class FleetDispatch
 
         if ($this->targetMission == Mission::Colonisation->value) {
             if (!empty($this->targetPlanetData)) {
-                $this->refuse($LNG['fl_target_exists'], 'game_fleet_step1_show');
+                $this->refuse($LNG['fl_colonize_slot_taken'], 'game_fleet_step1_show');
             }
 
             if ($this->targetType != 1) {
@@ -372,7 +371,7 @@ class FleetDispatch
         $USER = $this->state->USER;
         $db = $this->db;
         if ($this->targetPlanet == $this->config->max_planets + 3) {
-            $sql = "SELECT `id`, `id_owner`, `der_metal`, `der_crystal`, 0 as `destruyed`, 0 as `ally_deposit`
+            $sql = "SELECT `id`, `id_owner`, `der_metal`, `der_crystal`, 0 as `tf_active`, 0 as `destruyed`, 0 as `ally_deposit`
                 FROM %%PIRATE_BASES%% 
                 WHERE `universe` = :universe AND `galaxy` = :targetGalaxy AND `system` = :targetSystem AND `id_owner` = :userId;";
             return $db->selectSingle($sql, [
@@ -382,7 +381,7 @@ class FleetDispatch
                 ':userId' => $USER['id'],
             ]);
         } else {
-            $sql = "SELECT `id`, `id_owner`, `der_metal`, `der_crystal`, `destruyed`, `ally_deposit`
+            $sql = "SELECT `id`, `id_owner`, `der_metal`, `der_crystal`, `tf_active`, `destruyed`, `ally_deposit`
                 FROM %%PLANETS%%
                 WHERE `universe` = :universe AND `galaxy` = :targetGalaxy
                   AND `system` = :targetSystem AND `planet` = :targetPlanet AND `planet_type` = :targetType;";

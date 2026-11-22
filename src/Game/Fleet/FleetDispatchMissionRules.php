@@ -34,7 +34,7 @@ trait FleetDispatchMissionRules
         }
 
         if ($this->targetMission != Mission::Recycling->value && IsVacationMode($this->targetPlayerData)) {
-            $this->refuse($LNG['fl_target_exists'], 'game_fleet_step1_show');
+            $this->refuse($LNG['fl_in_vacation_player'], 'game_fleet_step1_show');
         }
 
         if ($this->targetMission == Mission::Attack->value || $this->targetMission == Mission::Acs->value || $this->targetMission == Mission::Destruction->value) {
@@ -118,7 +118,8 @@ trait FleetDispatchMissionRules
         }
 
         $market = new \App\Game\Core\MarketManager($this->db, $this->configs, $this->state);
-        $balance = $market->convertToDeutNumeric([
+        // a hold delivers nothing (the cargo flies home again), so only transports and transfers count
+        $balance = $this->targetMission == Mission::Hold->value ? 0.0 : $market->convertToDeutNumeric([
             901 => $this->fleetResource[901],
             902 => $this->fleetResource[902],
             903 => $this->fleetResource[903],
@@ -134,18 +135,17 @@ trait FleetDispatchMissionRules
         }
     }
 
-    /** Value (deuterium units) of the transport, hold and transfer fleets $from sent to $to in the last 7 days, not cancelled. */
+    /** Value (deuterium units) of the transport and transfer fleets $from sent to $to in the last 7 days, not cancelled. */
     private function pushValue(\App\Game\Core\MarketManager $market, int $from, int $to): float
     {
         $rows = $this->db->select(
             'SELECT `mission`, `ships`, `resource_metal`, `resource_crystal`, `resource_deuterium` FROM %%LOG_FLEETS%%
-            WHERE `owner` = :from AND `target_owner` = :to AND `mission` IN (:transport, :hold, :transfer)
+            WHERE `owner` = :from AND `target_owner` = :to AND `mission` IN (:transport, :transfer)
               AND `start_time` > :since AND `hasCanceled` = 0;',
             [
                 ':from' => $from,
                 ':to' => $to,
                 ':transport' => Mission::Transport->value,
-                ':hold' => Mission::Hold->value,
                 ':transfer' => Mission::Transfer->value,
                 ':since' => $this->state->runtime->timestamp - 7 * ONE_DAY,
             ],

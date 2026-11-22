@@ -40,7 +40,7 @@
           <span class="resource__value resource__value--full res_current{% if full %} colorNegative{% endif %}" id="current_{{ resourceData.name }}" data-ticker="current_{{ resourceData.name }}" data-real="{{ resourceData.current }}">{{ shortlyNumber ? shortly_number(resourceData.current) : millions_number(resourceData.current) }}</span>
           <span class="resource__value resource__value--short res_current{% if full %} colorNegative{% endif %}" data-ticker="current_{{ resourceData.name }}">{{ shortly_number(resourceData.current, null, true) }}</span>
           {% if resourceData.max is defined and resourceData.max is not null %}
-            {% if resourceData.production is defined %}<span class="resource__rate mono{% if resourceData.production < 0 %} neg{% endif %}">{{ resourceData.production < 0 ? '' : '+' }}{{ shortly_number(resourceData.production, null, true) }}/h</span>{% endif %}
+            {% if resourceData.production is defined %}<span class="resource__rate mono{% if resourceData.production < 0 %} neg{% endif %}">{{ resourceData.production < 0 ? '' : '+' }}{{ pretty_number(resourceData.production) }}/h</span>{% endif %}
             <span class="resource__max res_max" id="max_{{ resourceData.name }}" data-real="{{ resourceData.max }}">{{ pretty_number(resourceData.max) }}</span>
             <span class="resource__max resource__max--short">/ {{ shortly_number(resourceData.max, null, true) }}</span>
             {% set fillPct = resourceData.max > 0 ? min(100, resourceData.current / resourceData.max * 100)|round(1) : 0 %}

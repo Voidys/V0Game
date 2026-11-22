@@ -15,8 +15,6 @@
 
 namespace App\Game\Cronjob;
 
-use Exception;
-use App\Game\Core\Discord;
 use App\Game\Core\Statbuilder;
 
 /**
@@ -25,18 +23,14 @@ use App\Game\Core\Statbuilder;
 class StatisticCronjob extends AbstractCronjobTask
 {
     /**
-     * Calls Statbuilder::generateStats(), archiveStats() and buildRecords(); exceptions are reported to Discord and echoed, not rethrown.
+     * Calls Statbuilder::generateStats(), archiveStats() and buildRecords(); failures propagate to Cronjob::execute().
      */
     public function run(): void
     {
-        try {
-            $stat = new Statbuilder($this->db, $this->configs, $this->state);
-            $stat->generateStats();
-            $stat->archiveStats();
-            $stat->buildRecords();
-        } catch (Exception $exception) {
-            $this->discord()->sendLog('StatisticCronjob', null, $exception);
-            echo $exception->getMessage();
-        }
+        // a failure is not caught here: Cronjob::execute() logs it as failed (no success entry) and reports it once
+        $stat = new Statbuilder($this->db, $this->configs, $this->state);
+        $stat->generateStats();
+        $stat->archiveStats();
+        $stat->buildRecords();
     }
 }

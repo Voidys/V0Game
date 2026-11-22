@@ -85,7 +85,7 @@ class BuildFunctions
 
     /**
      * Typed version of getRestPrice(): per resource of the price, how much the planet (or, for non-planet
-     * resources, the player) still lacks; the available stock is floored first.
+     * resources, the player) still lacks; compared with the exact stock, like the charge is taken.
      *
      * @param array<int, float|int>|null $elementPrice price to use instead of the computed one
      * @return array<int, float|int> missing amount per resource id (0 when covered)
@@ -100,7 +100,11 @@ class BuildFunctions
 
         foreach ($elementPrice as $resType => $resPrice) {
             $available = $planet->has($resType) ? $planet->count($resType) : $user->level($resType);
-            $overflow[$resType] = max($resPrice - floor($available), 0);
+            if ($resType == RESOURCE_ENERGY) {
+                // energy is a requirement, not a stock: what counts is the surplus (production minus consumption)
+                $available += $planet->energyUsed;
+            }
+            $overflow[$resType] = max($resPrice - $available, 0);
         }
 
         return $overflow;

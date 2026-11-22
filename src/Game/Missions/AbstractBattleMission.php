@@ -144,7 +144,7 @@ abstract class AbstractBattleMission extends MissionFunctions implements Mission
 
         if ($this->_fleet['end_type'] == PlanetType::Moon->value) {
             // Use planet debris, if attack on moons
-            $sql = "SELECT `der_metal`, `der_crystal` FROM %%PLANETS%% WHERE `id_luna` = :moonId;";
+            $sql = "SELECT `der_metal`, `der_crystal` FROM %%PLANETS%% WHERE `id_luna` = :moonId FOR UPDATE;";
             $targetDebris = $db->selectSingle($sql, [
                 ':moonId'   => $this->_fleet['end_id'],
             ]);
