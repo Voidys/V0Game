@@ -730,7 +730,7 @@ kbd {
   .mail__selhit { min-inline-size: 2.75rem; margin-inline: -0.625rem; }
   /* small links and text buttons in rows, cards and toolbars: a taller hit area (padding) that does not move the
      layout (matching negative margin) */
-  :where(.content) :where(td, th, .card__head, .card__mid, .card__costs, .card__tools, .card__foot, .card__art, .mail, .kv, .toolbar, .legend, li, dd, p, .info-head, .panel__head, .empty, .hint, .stat__value) :where(a, button.link):not(.btn, .button, .row-action, .galaxy-action, .segmented > *) {
+  :where(.content) :where(td, th, .card__head, .card__mid, .card__costs, .card__tools, .card__foot, .card__art, .mail, .kv, .toolbar, .legend, li, dd, p, .info-head, .panel__head, .empty, .hint, .stat__value) :where(a, button.link):not(.btn, .button, .tag, .row-action, .galaxy-action, .segmented > *) {
     padding-block: 0.7rem;
     margin-block: -0.7rem;
     padding-inline: 0.375rem;
@@ -903,7 +903,7 @@ input.fleet-amount::placeholder { opacity: 1; }
 
 /* touch: narrow icon links and the notes checkbox get a 40 px hit area without moving the layout */
 @media (pointer: coarse) {
-  .content td :is(a.tooltip, a:has(> svg:only-child)), .content .stat__value a { padding-inline: 1rem; margin-inline: -1rem; }
+  .content td :is(a.tooltip, a:has(> svg:only-child)):not(.btn, .button, .tag, .row-action, .galaxy-action), .content .stat__value a { padding-inline: 1rem; margin-inline: -1rem; }
   .content .check-hit { display: inline-flex; align-items: center; justify-content: center; min-inline-size: 2.75rem; min-block-size: 2.75rem; margin-block: -0.5rem; }
   .hero-orbit a.orbit-moon::after { content: ""; position: absolute; inset: -0.625rem; }
 }
