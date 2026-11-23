@@ -21,6 +21,7 @@ final class NewsController extends AbstractLoginController
      * Article texts are rendered through the HTML sanitizer.
      */
     #[GameRoute('index', 'news', 'news')]
+    #[\App\Routing\PublicCache(300)]
     #[GameRoute('index', 'news/{id}', 'news', 'article', requirements: ['id' => '\d+'])]
     public function show(): Response
     {

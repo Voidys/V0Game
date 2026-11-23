@@ -89,6 +89,15 @@ class FlyingFleetHandler
         $this->token    = $token;
     }
 
+    /** Whether an unclaimed event of the universe is due (one plain read, no writes). */
+    public function hasDue(int $universe): bool
+    {
+        return $this->db->selectSingle('SELECT 1 AS due FROM %%FLEETS_EVENT%% WHERE `lock` IS NULL AND `time` <= :time AND `universe` = :universe LIMIT 1;', [
+            ':time' => $this->state->runtime->timestamp,
+            ':universe' => $universe,
+        ], 'due') !== false;
+    }
+
     /**
      * Claims the due events of a universe (sets a fresh random lock token on all unlocked `fleets_event` rows with
      * time <= now) in a short transaction of their own, runs them (run()) and releases the events that were not

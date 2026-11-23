@@ -49,6 +49,14 @@
 		{% endfor %}
 		</tbody>
 	</table>
+	{% if pages > 1 %}
+	{% set pageQuery = {sort: sort, dir: dir, inactive: filter.inactive ? 1 : null, max_defense: filter.max_defense ?: null, max_age: filter.max_age ?: null} %}
+	<nav class="panel__body toolbar" aria-label="{{ LNG.farm_page_nav }}">
+		{% if page > 1 %}<a class="button" href="{{ path('game_farms_show', pageQuery|merge({page: page - 1})) }}">{{ LNG.farm_prev }}</a>{% endif %}
+		<span>{{ LNG.format("farm_page_of", page, pages, total) }}</span>
+		{% if page < pages %}<a class="button" href="{{ path('game_farms_show', pageQuery|merge({page: page + 1})) }}">{{ LNG.farm_next }}</a>{% endif %}
+	</nav>
+	{% endif %}
 	<p class="hint panel__body">{{ LNG.spy_tools_note }}</p>
 	{% else %}
 	<p class="empty">{{ LNG.farm_none }}</p>

@@ -10,7 +10,8 @@ use Symfony\Component\DependencyInjection\Attribute\AutowireServiceClosure;
  * Read access to the game configuration (App\Game\Core\Config):
  * global key/value pairs ({prefix}config) merged with the per-universe ones
  * ({prefix}config_universe). Values are raw strings, as stored.
- * Once the game's ConfigRegistry has loaded the same tables in this request, its rows are reused.
+ * Once the game's ConfigRegistry has loaded the same tables in this request, or a valid config cache file exists
+ * (ConfigCache), those rows are reused instead of querying.
  */
 final class GameConfig
 {
@@ -46,7 +47,7 @@ final class GameConfig
     /** @return array<string, string> */
     private function global(): array
     {
-        $rows = ($this->registry)()->rawRows();
+        $rows = ($this->registry)()->rawRowsOrCached();
         if ($rows !== null) {
             return $rows[0];
         }
@@ -59,7 +60,7 @@ final class GameConfig
     /** @return array<string, string> */
     private function universe(int $universe): array
     {
-        $rows = ($this->registry)()->rawRows();
+        $rows = ($this->registry)()->rawRowsOrCached();
         if ($rows !== null) {
             return $rows[1][$universe] ?? [];
         }

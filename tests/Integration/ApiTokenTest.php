@@ -129,6 +129,11 @@ final class ApiTokenTest extends GameTestCase
         $this->assertSame(1_800_000_000, (int) $this->db->selectSingle('SELECT last_used_at FROM %%API_TOKENS%% WHERE id = :id;', [':id' => $tokenId], 'last_used_at'));
         $this->tokens->touch($tokenId, 1_800_000_061);
         $this->assertSame(1_800_000_061, (int) $this->db->selectSingle('SELECT last_used_at FROM %%API_TOKENS%% WHERE id = :id;', [':id' => $tokenId], 'last_used_at'));
+        // a stamp the lookup already returned and that is fresh sends no statement at all
+        $this->tokens->touch($tokenId, 1_800_000_100, 1_800_000_061);
+        $this->assertSame(1_800_000_061, (int) $this->db->selectSingle('SELECT last_used_at FROM %%API_TOKENS%% WHERE id = :id;', [':id' => $tokenId], 'last_used_at'));
+        $this->tokens->touch($tokenId, 1_800_000_200, 1_800_000_061);
+        $this->assertSame(1_800_000_200, (int) $this->db->selectSingle('SELECT last_used_at FROM %%API_TOKENS%% WHERE id = :id;', [':id' => $tokenId], 'last_used_at'));
         $this->assertNotSame('', $plain);
     }
 

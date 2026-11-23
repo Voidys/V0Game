@@ -51,6 +51,7 @@ class RaportController extends AbstractGameController
      * (from TOPKB_USERS). Renders the template for the battle engine stored with the report (`rust` or classic). Unknown ids end in a message.
      */
     #[GameRoute('game', 'report/{raport}', 'raport', requirements: ['raport' => '[A-Za-z0-9]+'])]
+    #[\App\Routing\PublicCache(86400)]
     public function show(): Response
     {
         $LNG = $this->state->LNG;

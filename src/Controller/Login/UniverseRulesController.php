@@ -22,6 +22,7 @@ class UniverseRulesController extends AbstractLoginController
      * The settings of the current universe grouped as tables (UniverseRules).
      */
     #[GameRoute('index', 'rules/universe', 'universeRules')]
+    #[\App\Routing\PublicCache(300)]
     public function show(): Response
     {
         return $this->render('login/page.universeRules.default.html.twig', [

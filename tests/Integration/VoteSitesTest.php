@@ -139,7 +139,7 @@ final class VoteSitesTest extends GameTestCase
         $first = $this->tokenOf($site);
         // a second token for the same window (clicked before the first callback arrived)
         $this->db->insert('INSERT INTO %%VOTE_LOG%% (`site_id`, `user_id`, `token`, `clicked_at`, `ip`) VALUES (:site, :user, :token, :now, :ip);', [
-            ':site' => $site['id'], ':user' => $user['id'], ':token' => 'b' . substr($first, 1), ':now' => self::NOW + 1, ':ip' => '127.0.0.1',
+            ':site' => $site['id'], ':user' => $user['id'], ':token' => ($first[0] === 'b' ? 'c' : 'b') . substr($first, 1), ':now' => self::NOW + 1, ':ip' => '127.0.0.1',
         ]);
 
         self::assertSame(VoteSites::CALLBACK_OK, $this->votes->callback($site, (string) $site['secret'], $first, self::NOW + 5));

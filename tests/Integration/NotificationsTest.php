@@ -41,6 +41,33 @@ final class NotificationsTest extends GameTestCase
 
                 return true;
             }
+
+            public int $pushBatches = 0;
+            public int $discordBatches = 0;
+
+            public function sendPushBatch(array $messages): array
+            {
+                $this->pushBatches++;
+                $out = [];
+                foreach ($messages as $key => $message) {
+                    $this->pushes[] = [$message['subscription']['endpoint'], $message['payload']];
+                    $out[$key] = $this->result;
+                }
+
+                return $out;
+            }
+
+            public function sendDiscordBatch(array $messages): array
+            {
+                $this->discordBatches++;
+                $out = [];
+                foreach ($messages as $key => $message) {
+                    $this->discord[] = [$message['webhook'], $message['content']];
+                    $out[$key] = true;
+                }
+
+                return $out;
+            }
         };
     }
 
@@ -103,6 +130,73 @@ final class NotificationsTest extends GameTestCase
         $this->dispatcher($this->transport(NotificationTransport::PUSH_GONE))->notify((int) $user['id'], NotificationDispatcher::TYPE_ATTACK, 'A', 'B', 'game');
 
         self::assertSame(0, (int) $this->db->selectSingle('SELECT COUNT(*) c FROM %%PUSH_SUBSCRIPTIONS%% WHERE user_id = :u;', [':u' => $user['id']], 'c'));
+    }
+
+    public function testBatchSendsOneFlushAndDropsOnlyExpiredSubscriptions(): void
+    {
+        [$a] = $this->createPlayer();
+        [$b] = $this->createPlayer();
+        $this->subscribe((int) $a['id'], 'https://push.example/a');
+        $this->subscribe((int) $b['id'], 'https://push.example/b');
+        $this->setPrefs((int) $b['id'], ['notify_discord_webhook' => 'https://discord.com/api/webhooks/1/x']);
+        $transport = new class implements NotificationTransport {
+            public int $batches = 0;
+            public int $discordBatches = 0;
+
+            public function sendPush(array $subscription, string $payload): string
+            {
+                return self::PUSH_ERROR;
+            }
+
+            public function sendDiscord(string $webhookUrl, string $content): bool
+            {
+                return true;
+            }
+
+            public function sendPushBatch(array $messages): array
+            {
+                $this->batches++;
+                $out = [];
+                foreach ($messages as $key => $message) {
+                    $out[$key] = str_ends_with($message['subscription']['endpoint'], '/b') ? self::PUSH_GONE : self::PUSH_OK;
+                }
+
+                return $out;
+            }
+
+            public function sendDiscordBatch(array $messages): array
+            {
+                $this->discordBatches++;
+
+                return array_fill_keys(array_keys($messages), true);
+            }
+        };
+
+        $this->dispatcher($transport)->notifyBatch([
+            ['user_id' => (int) $a['id'], 'type' => NotificationDispatcher::TYPE_ATTACK, 'title' => 'A', 'body' => 'x', 'url' => 'game'],
+            ['user_id' => (int) $b['id'], 'type' => NotificationDispatcher::TYPE_ATTACK, 'title' => 'B', 'body' => 'x', 'url' => 'game'],
+            ['user_id' => (int) $a['id'], 'type' => NotificationDispatcher::TYPE_SPY, 'title' => 'S', 'body' => 'x', 'url' => 'game'],
+        ]);
+
+        self::assertSame(1, $transport->batches);
+        self::assertSame(1, $transport->discordBatches);
+        $left = array_column($this->db->select('SELECT endpoint FROM %%PUSH_SUBSCRIPTIONS%% WHERE user_id IN (:a, :b);', [':a' => $a['id'], ':b' => $b['id']]), 'endpoint');
+        self::assertSame(['https://push.example/a'], $left, 'the expired subscription is removed, the delivered one stays');
+        self::assertGreaterThan(0, (int) $this->db->selectSingle('SELECT last_used_at l FROM %%PUSH_SUBSCRIPTIONS%% WHERE endpoint = \'https://push.example/a\';', [], 'l'));
+    }
+
+    public function testReturnedFleetWatchIsOnlyWrittenWhenTheReturnTimeChanged(): void
+    {
+        [$o] = $this->createPlayer();
+        $this->setPrefs((int) $o['id'], ['notify_fleet_return' => 1]);
+        $fleetId = $this->fleet((int) $o['id'], 0, Mission::Transport->value, self::NOW + 100, start: self::NOW - 100, status: 0);
+        $this->detector()->returnedFleets(self::NOW);
+        $this->db->update('UPDATE %%NOTIFICATION_WATCH%% SET user_id = 987654 WHERE fleet_id = :f;', [':f' => $fleetId]);
+        $this->detector()->returnedFleets(self::NOW);
+        self::assertSame(987654, (int) $this->db->selectSingle('SELECT user_id u FROM %%NOTIFICATION_WATCH%% WHERE fleet_id = :f;', [':f' => $fleetId], 'u'), 'unchanged return time: row untouched');
+        $this->db->update('UPDATE %%FLEETS%% SET return_time = return_time + 50 WHERE id = :f;', [':f' => $fleetId]);
+        $this->detector()->returnedFleets(self::NOW);
+        self::assertSame(0 + (int) $this->db->selectSingle('SELECT return_time r FROM %%FLEETS%% WHERE id = :f;', [':f' => $fleetId], 'r'), (int) $this->db->selectSingle('SELECT return_time r FROM %%NOTIFICATION_WATCH%% WHERE fleet_id = :f;', [':f' => $fleetId], 'r'));
     }
 
     private function fleet(int $owner, int $target, int $mission, int $arrival, int $start = self::NOW - 60, int $group = 0, int $status = 0): int

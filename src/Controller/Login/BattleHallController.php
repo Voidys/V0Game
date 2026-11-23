@@ -29,6 +29,7 @@ class BattleHallController extends AbstractLoginController
      * (id, default current), memorial (0 = normal battles, 1 = memorial battles only). Reads TOPKB with the participants.
      */
     #[GameRoute('index', 'battle-hall', 'battleHall')]
+    #[\App\Routing\PublicCache(300)]
     public function show(): Response
     {
         $LNG = $this->state->LNG;

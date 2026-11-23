@@ -91,7 +91,7 @@ final class ApiController
         if ($scope !== null && !in_array($scope, $token['scopes'], true)) {
             return $this->error('missing_scope', 403, ['scope' => $scope]);
         }
-        $this->tokens->touch($token['id'], time());
+        $this->tokens->touch($token['id'], time(), $token['last_used_at'] ?? null);
 
         try {
             return $this->json($endpoint($token));

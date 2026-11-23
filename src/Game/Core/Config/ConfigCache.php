@@ -53,14 +53,35 @@ final class ConfigCache
     }
 
     /**
+     * Only the raw rows of a cache entry, validated by stamp and the module-free base fingerprint; for readers that
+     * run before the game booted (the module list is not known yet).
+     *
+     * @return array{0: array<string, string>, 1: array<int, array<string, string>>}|null
+     */
+    public function loadRaw(string $stamp, string $base): ?array
+    {
+        if (!$this->enabled || !is_file($this->dir . self::FILE)) {
+            return null;
+        }
+        $entry = include $this->dir . self::FILE;
+        $data = is_array($entry) ? ($entry['data'] ?? null) : null;
+        if (!is_array($data) || ($entry['stamp'] ?? null) !== $stamp || ($entry['base'] ?? null) !== $base
+            || !is_array($data['rawGlobal'] ?? null) || !is_array($data['rawUniverse'] ?? null)) {
+            return null;
+        }
+
+        return [$data['rawGlobal'], $data['rawUniverse']];
+    }
+
+    /**
      * @param array<string, mixed> $data
      */
-    public function store(string $stamp, string $fingerprint, array $data): void
+    public function store(string $stamp, string $fingerprint, array $data, string $base = ''): void
     {
         if (!$this->enabled) {
             return;
         }
-        SafeFile::write($this->dir . self::FILE, '<?php return ' . var_export(['stamp' => $stamp, 'fingerprint' => $fingerprint, 'data' => $data], true) . ';');
+        SafeFile::write($this->dir . self::FILE, '<?php return ' . var_export(['stamp' => $stamp, 'fingerprint' => $fingerprint, 'base' => $base, 'data' => $data], true) . ';');
         if (function_exists('opcache_invalidate')) {
             opcache_invalidate($this->dir . self::FILE, true);
         }

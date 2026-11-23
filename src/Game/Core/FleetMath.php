@@ -348,8 +348,9 @@ class FleetMath
      * Typed version of getFleetConsumption(). Reads the player's honor points from the DB (fuel boost).
      *
      * @param array<int, mixed> $FleetArray ship id => count
+     * @param float|null $honorBoost the player's honor fuel factor when the caller already knows it (saves the DB reads)
      */
-    public function fleetConsumptionFor(array $FleetArray, int $MissionDuration, int $MissionDistance, User $Player, int $GameSpeed): float
+    public function fleetConsumptionFor(array $FleetArray, int $MissionDuration, int $MissionDistance, User $Player, int $GameSpeed, ?float $honorBoost = null): float
     {
         $consumption = 0;
 
@@ -361,7 +362,7 @@ class FleetMath
             $basicConsumption = $ShipConsumption * $Count;
             $consumption += $basicConsumption * $MissionDistance / 35000 * (($spd / 10) + 1) * (($spd / 10) + 1);
         }
-        return (round($consumption * $this->honorPoints()->calculate_honorpoints_boost($Player->id)) + 1);
+        return (round($consumption * ($honorBoost ?? $this->honorPoints()->calculate_honorpoints_boost($Player->id))) + 1);
     }
 
     /**

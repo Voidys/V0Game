@@ -19,6 +19,7 @@ final class RulesController extends AbstractController
      * Renders the rules CMS page in the request locale as sanitized HTML.
      */
     #[Route('/rules', name: 'login_rules', methods: ['GET'])]
+    #[\App\Routing\PublicCache(300)]
     public function __invoke(Request $request, ContentPages $pages, HtmlContent $html, TranslatorInterface $translator): Response
     {
         $page = $pages->find('rules', $request->getLocale());

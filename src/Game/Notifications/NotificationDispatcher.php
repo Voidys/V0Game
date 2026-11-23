@@ -63,23 +63,56 @@ class NotificationDispatcher
      */
     public function notify(int $userId, string $type, string $title, string $body, string $url): void
     {
-        $settings = $this->db->selectSingle('SELECT * FROM %%USERS_SETTINGS%% WHERE `user_id` = :user;', [':user' => $userId]);
-        if (!is_array($settings) || !self::wants($settings, $type)) {
+        $this->notifyBatch([['user_id' => $userId, 'type' => $type, 'title' => $title, 'body' => $body, 'url' => $url]]);
+    }
+
+    /**
+     * Notifies many players at once: settings and push subscriptions are loaded with IN queries, all push messages go
+     * out in one flush and all Discord posts run concurrently. Same rules as notify() for each entry.
+     *
+     * @param list<array{user_id: int, type: string, title: string, body: string, url: string}> $notifications
+     */
+    public function notifyBatch(array $notifications): void
+    {
+        if ($notifications === []) {
             return;
         }
-
-        $url = $this->absoluteUrl($url);
-        $subscriptions = $this->db->select('SELECT `id`, `endpoint`, `p256dh`, `auth` FROM %%PUSH_SUBSCRIPTIONS%% WHERE `user_id` = :user;', [':user' => $userId]);
-        if ($subscriptions !== []) {
-            $payload = json_encode(['title' => $title, 'body' => $body, 'url' => $url, 'tag' => $type], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-            foreach ($subscriptions as $subscription) {
-                $this->push($subscription, $payload);
+        $ids = array_values(array_unique(array_map(static fn(array $n): int => (int) $n['user_id'], $notifications)));
+        $settings = [];
+        $subscriptions = [];
+        foreach (array_chunk($ids, 500) as $chunk) {
+            $in = implode(',', $chunk);
+            foreach ($this->db->select('SELECT * FROM %%USERS_SETTINGS%% WHERE `user_id` IN (' . $in . ');') as $row) {
+                $settings[(int) $row['user_id']] = $row;
+            }
+            foreach ($this->db->select('SELECT `id`, `user_id`, `endpoint`, `p256dh`, `auth` FROM %%PUSH_SUBSCRIPTIONS%% WHERE `user_id` IN (' . $in . ');') as $row) {
+                $subscriptions[(int) $row['user_id']][] = $row;
             }
         }
 
-        $hook = trim((string) ($settings['notify_discord_webhook'] ?? ''));
-        if ($hook !== '' && Discord::isAllowedWebhook($hook)) {
-            $this->transport->sendDiscord($hook, '**' . $title . '**' . "\n" . $body . "\n" . $url);
+        $push = [];
+        $discord = [];
+        foreach ($notifications as $index => $n) {
+            $userId = (int) $n['user_id'];
+            if (!isset($settings[$userId]) || !self::wants($settings[$userId], $n['type'])) {
+                continue;
+            }
+            $url = $this->absoluteUrl($n['url']);
+            $payload = json_encode(['title' => $n['title'], 'body' => $n['body'], 'url' => $url, 'tag' => $n['type']], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            foreach ($subscriptions[$userId] ?? [] as $subscription) {
+                $push[$index . ':' . $subscription['id']] = ['subscription' => $subscription, 'payload' => $payload];
+            }
+            $hook = trim((string) ($settings[$userId]['notify_discord_webhook'] ?? ''));
+            if ($hook !== '' && Discord::isAllowedWebhook($hook)) {
+                $discord[$index] = ['webhook' => $hook, 'content' => '**' . $n['title'] . '**' . "\n" . $n['body'] . "\n" . $url];
+            }
+        }
+
+        if ($push !== []) {
+            $this->settlePushes($push, $this->transport->sendPushBatch($push));
+        }
+        if ($discord !== []) {
+            $this->transport->sendDiscordBatch($discord);
         }
     }
 
@@ -92,19 +125,31 @@ class NotificationDispatcher
     }
 
     /**
-     * Sends one push message; an expired subscription is deleted, a delivered one gets its last_used_at stamp.
+     * Expired subscriptions (PUSH_GONE) are deleted, delivered ones get their last_used_at stamp.
      *
-     * @param array<string, mixed> $subscription row of push_subscriptions
+     * @param array<string, array{subscription: array<string, mixed>, payload: string}> $push by key
+     * @param array<string, string> $results PUSH_* per key
      */
-    private function push(array $subscription, string $payload): void
+    private function settlePushes(array $push, array $results): void
     {
-        $result = $this->transport->sendPush($subscription, $payload);
-        if ($result === NotificationTransport::PUSH_GONE) {
-            $this->db->delete('DELETE FROM %%PUSH_SUBSCRIPTIONS%% WHERE `id` = :id;', [':id' => $subscription['id']]);
-        } elseif ($result === NotificationTransport::PUSH_OK) {
-            $this->db->update('UPDATE %%PUSH_SUBSCRIPTIONS%% SET `last_used_at` = :now WHERE `id` = :id;', [
+        $gone = [];
+        $ok = [];
+        foreach ($push as $key => $message) {
+            $id = (int) $message['subscription']['id'];
+            $result = $results[$key] ?? NotificationTransport::PUSH_ERROR;
+            if ($result === NotificationTransport::PUSH_GONE) {
+                $gone[$id] = $id;
+            } elseif ($result === NotificationTransport::PUSH_OK) {
+                $ok[$id] = $id;
+            }
+        }
+        if ($gone !== []) {
+            $this->db->delete('DELETE FROM %%PUSH_SUBSCRIPTIONS%% WHERE `id` IN (' . implode(',', $gone) . ');');
+        }
+        $ok = array_diff($ok, $gone);
+        if ($ok !== []) {
+            $this->db->update('UPDATE %%PUSH_SUBSCRIPTIONS%% SET `last_used_at` = :now WHERE `id` IN (' . implode(',', $ok) . ');', [
                 ':now' => $this->state->runtime->timestamp,
-                ':id' => $subscription['id'],
             ]);
         }
     }

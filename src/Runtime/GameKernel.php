@@ -36,9 +36,11 @@ final class GameKernel
     /**
      * @param string $mode       LOGIN, INGAME, ADMIN, ACCOUNT, CRON, ...
      * @param string $scriptName the original entry script, e.g. "game"
+     * @param list<string> $lean parts of the boot to skip (App\Routing\LeanBoot constants)
      */
-    public function boot(string $mode, string $scriptName): void
+    public function boot(string $mode, string $scriptName, array $lean = []): void
     {
+        $this->state->lean = $lean;
         $root = $this->getRootPath();
 
         $this->useRequest($this->requests->getCurrentRequest() ?? Request::createFromGlobals(), $root, $scriptName);

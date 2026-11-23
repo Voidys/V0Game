@@ -4,6 +4,7 @@ namespace App\Game\Notifications;
 
 use App\Game\Core\ConfigRegistry;
 use App\Game\Core\Database;
+use App\Game\Core\ErrorReporter;
 use App\Game\Core\GameUtilities;
 use App\Game\Core\Singleton;
 use App\Game\Core\SpyReportAnalysis;
@@ -43,6 +44,41 @@ class NotificationDetector
         protected Singleton $state,
     ) {}
 
+    /** @var array<string, array<int, true>>|null user ids that switched a notify_* flag on, by column; loaded once per run */
+    private ?array $optedIn = null;
+
+    /** every notify_* column the finders look at */
+    private const FLAGS = ['notify_attack', 'notify_spy', 'notify_fleet_return', 'notify_queue_build', 'notify_queue_research', 'notify_queue_shipyard', 'notify_farm_awake'];
+
+    /**
+     * Ids of the players with a notify flag switched on (one query for all flags, kept for the life of the detector).
+     *
+     * @return array<int, true> keyed by user id
+     */
+    private function optedIn(string $flag): array
+    {
+        if ($this->optedIn === null) {
+            $this->optedIn = array_fill_keys(self::FLAGS, []);
+            $rows = $this->db->select('SELECT `user_id`, ' . implode(', ', array_map(static fn(string $f): string => '`' . $f . '`', self::FLAGS)) . '
+                FROM %%USERS_SETTINGS%% WHERE ' . implode(' = 1 OR ', array_map(static fn(string $f): string => '`' . $f . '`', self::FLAGS)) . ' = 1;');
+            foreach ($rows as $row) {
+                foreach (self::FLAGS as $f) {
+                    if ((int) $row[$f] === 1) {
+                        $this->optedIn[$f][(int) $row['user_id']] = true;
+                    }
+                }
+            }
+        }
+
+        return $this->optedIn[$flag];
+    }
+
+    /** SQL fragment restricting a column to the opted-in players (`AND col IN (...)`); the caller returns early for an empty set. */
+    private function ownerIn(string $column, array $optedIn): string
+    {
+        return count($optedIn) > 2000 ? '' : ' AND ' . $column . ' IN (' . implode(',', array_keys($optedIn)) . ')';
+    }
+
     /**
      * Hostile fleets (attack, ACS attack, destruction, missile) or spy probes on their way to a planet or moon of a
      * player with the matching preference; the members of one ACS group count once.
@@ -53,11 +89,17 @@ class NotificationDetector
     {
         $sql = 'SELECT f.`id`, f.`group`, f.`mission`, f.`target_owner`, f.`ship_amount`, f.`arrival_time`,
             f.`start_galaxy`, f.`start_system`, f.`start_planet`, f.`end_galaxy`, f.`end_system`, f.`end_planet`, f.`end_type`,
-            s.`notify_attack`, s.`notify_spy`
-            FROM %%FLEETS%% f INNER JOIN %%USERS_SETTINGS%% s ON s.`user_id` = f.`target_owner`
+            f.`target_owner` AS `notify_user`
+            FROM %%FLEETS%% f
             WHERE f.`status` = :outward AND f.`owner` != f.`target_owner` AND f.`start_time` > :since AND f.`arrival_time` > :now
             AND f.`mission` IN (:attack, :acs, :destroy, :missile, :spy)
-            AND (s.`notify_attack` = 1 OR s.`notify_spy` = 1) ORDER BY f.`id`;';
+            {OWNERS} ORDER BY f.`id`;';
+        $attack = $this->optedIn('notify_attack');
+        $spyers = $this->optedIn('notify_spy');
+        if ($attack === [] && $spyers === []) {
+            return [];
+        }
+        $sql = str_replace('{OWNERS}', $this->ownerIn('f.`target_owner`', $attack + $spyers), $sql);
         $rows = $this->db->select($sql, [
             ':outward' => FLEET_OUTWARD,
             ':since' => $now - self::WINDOW,
@@ -72,9 +114,13 @@ class NotificationDetector
         $events = [];
         foreach ($rows as $row) {
             $spy = (int) $row['mission'] === Mission::Spy->value;
-            if (!(int) $row[$spy ? 'notify_spy' : 'notify_attack']) {
+            $owner = (int) $row['target_owner'];
+            if (!isset(($spy ? $spyers : $attack)[$owner])) {
                 continue;
             }
+            unset($row['notify_user']);
+            $row['notify_attack'] = isset($attack[$owner]) ? 1 : 0;
+            $row['notify_spy'] = isset($spyers[$owner]) ? 1 : 0;
             $key = ($spy ? 'spy:' : 'atk:') . ((int) $row['group'] > 0 ? 'g' . $row['group'] : $row['id']);
             $events[$key] ??= [
                 'key' => $key,
@@ -97,14 +143,7 @@ class NotificationDetector
      */
     public function returnedFleets(int $now): array
     {
-        $this->db->insert('INSERT INTO %%NOTIFICATION_WATCH%% (`fleet_id`, `user_id`, `return_time`)
-            SELECT f.`id`, f.`owner`, f.`return_time` FROM %%FLEETS%% f
-            INNER JOIN %%USERS_SETTINGS%% s ON s.`user_id` = f.`owner`
-            WHERE s.`notify_fleet_return` = 1 AND f.`mission` != :missile AND f.`status` != :destroyed AND f.`owner` != 0
-            ON DUPLICATE KEY UPDATE `return_time` = VALUES(`return_time`);', [
-            ':missile' => Mission::Missile->value,
-            ':destroyed' => FLEET_DESTROYED,
-        ]);
+        $this->refreshWatch();
 
         $gone = $this->db->select('SELECT w.`fleet_id`, w.`user_id`, w.`return_time`, l.`ship_amount`, l.`start_id`
             FROM %%NOTIFICATION_WATCH%% w
@@ -124,6 +163,31 @@ class NotificationDetector
     }
 
     /**
+     * Brings notification_watch in line with the fleets of players with the return preference; only rows that are new
+     * or whose return time changed are written.
+     */
+    private function refreshWatch(): void
+    {
+        $optedIn = $this->optedIn('notify_fleet_return');
+        if ($optedIn === []) {
+            return;
+        }
+        $fleets = $this->db->select('SELECT f.`id`, f.`owner`, f.`return_time` FROM %%FLEETS%% f
+            WHERE f.`mission` != :missile AND f.`status` != :destroyed AND f.`owner` != 0' . $this->ownerIn('f.`owner`', $optedIn) . ';', [
+            ':missile' => Mission::Missile->value,
+            ':destroyed' => FLEET_DESTROYED,
+        ]);
+        $watched = array_column($this->db->select('SELECT `fleet_id`, `return_time` FROM %%NOTIFICATION_WATCH%%;'), 'return_time', 'fleet_id');
+        foreach ($fleets as $fleet) {
+            if (!isset($optedIn[(int) $fleet['owner']]) || (isset($watched[$fleet['id']]) && (int) $watched[$fleet['id']] === (int) $fleet['return_time'])) {
+                continue;
+            }
+            $this->db->insert('INSERT INTO %%NOTIFICATION_WATCH%% (`fleet_id`, `user_id`, `return_time`) VALUES (:id, :user, :time)
+                ON DUPLICATE KEY UPDATE `return_time` = VALUES(`return_time`);', [':id' => $fleet['id'], ':user' => $fleet['owner'], ':time' => $fleet['return_time']]);
+        }
+    }
+
+    /**
      * Building queues whose current element ended (b_building in the past) but has not been processed by a page
      * visit yet, for players with the building preference.
      *
@@ -131,14 +195,21 @@ class NotificationDetector
      */
     public function finishedBuildings(int $now): array
     {
+        $optedIn = $this->optedIn('notify_queue_build');
+        if ($optedIn === []) {
+            return [];
+        }
         $rows = $this->db->select('SELECT p.`id`, p.`id_owner`, p.`name`, p.`b_building`, p.`b_building_id`
-            FROM %%PLANETS%% p INNER JOIN %%USERS_SETTINGS%% s ON s.`user_id` = p.`id_owner`
-            WHERE s.`notify_queue_build` = 1 AND p.`destruyed` = 0 AND p.`b_building` BETWEEN :since AND :now AND p.`b_building_id` != \'\';', [
+            FROM %%PLANETS%% p
+            WHERE p.`destruyed` = 0 AND p.`b_building` BETWEEN :since AND :now AND p.`b_building_id` != \'\'' . $this->ownerIn('p.`id_owner`', $optedIn) . ';', [
             ':since' => $now - self::WINDOW,
             ':now' => $now,
         ]);
         $events = [];
         foreach ($rows as $row) {
+            if (!isset($optedIn[(int) $row['id_owner']])) {
+                continue;
+            }
             $queue = StoredData::decode($row['b_building_id']);
             if (empty($queue[0])) {
                 continue;
@@ -158,14 +229,21 @@ class NotificationDetector
      */
     public function finishedResearch(int $now): array
     {
+        $optedIn = $this->optedIn('notify_queue_research');
+        if ($optedIn === []) {
+            return [];
+        }
         $rows = $this->db->select('SELECT u.`id`, u.`b_tech`, u.`b_tech_id`, u.`b_tech_planet`
-            FROM %%USERS%% u INNER JOIN %%USERS_SETTINGS%% s ON s.`user_id` = u.`id`
-            WHERE s.`notify_queue_research` = 1 AND u.`b_tech_id` > 0 AND u.`b_tech` BETWEEN :since AND :now;', [
+            FROM %%USERS%% u
+            WHERE u.`b_tech_id` > 0 AND u.`b_tech` BETWEEN :since AND :now' . $this->ownerIn('u.`id`', $optedIn) . ';', [
             ':since' => $now - self::WINDOW,
             ':now' => $now,
         ]);
         $events = [];
         foreach ($rows as $row) {
+            if (!isset($optedIn[(int) $row['id']])) {
+                continue;
+            }
             $events[] = ['key' => 'res:' . $row['id'] . ':' . $row['b_tech'], 'user_id' => (int) $row['id'], 'type' => NotificationDispatcher::TYPE_QUEUE_RESEARCH, 'data' => $row];
         }
 
@@ -180,16 +258,27 @@ class NotificationDetector
      */
     public function finishedShipyards(int $now): array
     {
-        $rows = $this->db->select('SELECT p.`id` FROM %%PLANETS%% p INNER JOIN %%USERS_SETTINGS%% s ON s.`user_id` = p.`id_owner`
-            WHERE s.`notify_queue_shipyard` = 1 AND p.`destruyed` = 0 AND p.`b_hangar_id` != \'\';');
+        $optedIn = $this->optedIn('notify_queue_shipyard');
+        if ($optedIn === []) {
+            return [];
+        }
+        $planets = $this->db->select('SELECT p.* FROM %%PLANETS%% p
+            WHERE p.`destruyed` = 0 AND p.`b_hangar_id` != \'\'' . $this->ownerIn('p.`id_owner`', $optedIn) . ' ORDER BY p.`id`;');
+        $planets = array_values(array_filter($planets, static fn(array $planet): bool => isset($optedIn[(int) $planet['id_owner']])));
+        $users = $this->usersById(array_map('intval', array_column($planets, 'id_owner')));
         $events = [];
-        foreach ($rows as $ref) {
-            $planet = $this->db->selectSingle('SELECT * FROM %%PLANETS%% WHERE `id` = :id;', [':id' => $ref['id']]);
-            $user = $this->db->selectSingle('SELECT * FROM %%USERS%% WHERE `id` = :id;', [':id' => $planet['id_owner'] ?? 0]);
-            if (!is_array($planet) || !is_array($user)) {
+        foreach ($planets as $planet) {
+            $user = $users[(int) $planet['id_owner']] ?? null;
+            if ($user === null) {
                 continue;
             }
-            $end = $this->hangarEndTime($user, $planet);
+            try {
+                $end = $this->hangarEndTime($user, $planet);
+            } catch (\Throwable $exception) {
+                // one malformed queue must not stop the whole run
+                (new ErrorReporter($this->db, $this->configs, $this->state))->reportIsolated($exception, 'shipyard notification of planet ' . $planet['id']);
+                continue;
+            }
             if ($end === null || $end > $now || $end < $now - self::WINDOW) {
                 continue;
             }
@@ -197,6 +286,25 @@ class NotificationDetector
         }
 
         return $this->unseen($events);
+    }
+
+    /**
+     * Users rows by id, loaded with one query.
+     *
+     * @param list<int> $ids
+     * @return array<int, array<string, mixed>>
+     */
+    private function usersById(array $ids): array
+    {
+        $ids = array_values(array_unique($ids));
+        $users = [];
+        foreach (array_chunk($ids, 500) as $chunk) {
+            foreach ($this->db->select('SELECT * FROM %%USERS%% WHERE `id` IN (' . implode(',', $chunk) . ');') as $user) {
+                $users[(int) $user['id']] = $user;
+            }
+        }
+
+        return $users;
     }
 
     /**
@@ -209,8 +317,9 @@ class NotificationDetector
     public function awakeFarms(int $now): array
     {
         $tools = new SpyReportTools($this->db, $this->configs, $this->state);
-        $players = $this->db->select('SELECT u.`id`, u.`universe` FROM %%USERS%% u INNER JOIN %%USERS_SETTINGS%% s ON s.`user_id` = u.`id`
-            WHERE s.`notify_farm_awake` = 1;');
+        $optedIn = $this->optedIn('notify_farm_awake');
+        $players = $optedIn === [] ? [] : $this->db->select('SELECT u.`id`, u.`universe` FROM %%USERS%% u
+            WHERE u.`id` IN (' . implode(',', array_keys($optedIn)) . ') ORDER BY u.`id`;');
         $events = [];
         foreach ($players as $player) {
             $owners = [];

@@ -21,6 +21,15 @@ class SpyReportTools
 {
     use \App\Game\Core\GameUtilities;
 
+    /** @var array<int, float> the honor fuel factor per player, read once per instance (an instance lives for one request or cron run) */
+    private array $honorBoost = [];
+
+    /** @var array<string, int> round trip fuel per "ships:distance" */
+    private array $fuelCache = [];
+
+    /** @var array<int, array{0: int|float, 1: int|float, 2: int|float}>|null */
+    private ?array $unitCostCache = null;
+
     public function __construct(
         protected \App\Game\Core\Database $db,
         protected \App\Game\Core\ConfigRegistry $configs,
@@ -42,7 +51,7 @@ class SpyReportTools
             "SELECT m.message_id, m.message_text, m.message_time, p.id AS planet_id, p.id_owner, u.username, u.onlinetime
             FROM %%MESSAGES%% m
             INNER JOIN %%USERS_TO_MESSAGES%% um ON m.message_id = um.message_id
-            INNER JOIN %%PLANETS%% p ON m.message_group = CONCAT('m_', p.id)
+            INNER JOIN %%PLANETS%% p ON p.id = CAST(SUBSTRING(m.message_group, 3) AS UNSIGNED)
             LEFT JOIN %%USERS%% u ON u.id = p.id_owner
             WHERE m.message_type = :messageType
               AND um.user_id = :userId
@@ -133,6 +142,11 @@ class SpyReportTools
             return 0;
         }
 
+        return $this->fuelCache[$ships . ':' . $distance] ??= $this->computeRoundTripFuel($ships, $distance);
+    }
+
+    private function computeRoundTripFuel(int $ships, int $distance): int
+    {
         $fleet = [SHIP_LARGE_CARGO => $ships];
         $user = $this->player();
         $ff = $this->fleetFunctions();
@@ -144,7 +158,12 @@ class SpyReportTools
         $gameSpeed = $ff->getGameSpeedFactor();
         $duration = $ff->missionDurationFor(10, $speed, $distance, $gameSpeed, $user);
 
-        return (int) (2 * $ff->fleetConsumptionFor($fleet, $duration, $distance, $user, $gameSpeed));
+        return (int) (2 * $ff->fleetConsumptionFor($fleet, $duration, $distance, $user, $gameSpeed, $this->honorBoost($user->id)));
+    }
+
+    private function honorBoost(int $userId): float
+    {
+        return $this->honorBoost[$userId] ??= $this->honorPoints()->calculate_honorpoints_boost($userId);
     }
 
     /**
@@ -154,6 +173,9 @@ class SpyReportTools
      */
     private function unitCosts(): array
     {
+        if ($this->unitCostCache !== null) {
+            return $this->unitCostCache;
+        }
         $e = $this->elements();
         $costs = [];
         foreach (array_merge($e->ids('fleet'), $e->ids('defense')) as $id) {
@@ -161,6 +183,6 @@ class SpyReportTools
             $costs[$id] = [$cost->metal, $cost->crystal, $cost->deuterium];
         }
 
-        return $costs;
+        return $this->unitCostCache = $costs;
     }
 }

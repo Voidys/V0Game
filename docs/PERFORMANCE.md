@@ -246,3 +246,58 @@ plus `composer install --no-dev --optimize-autoloader --classmap-authoritative`.
 clear `var/game/`, reload PHP-FPM. With `validate_timestamps=0` PHP never notices edited files by itself; the game's own
 cache files are safe because they are compared by key, not by file time. `config/preload.php` loads the container preload
 file Symfony writes on cache warmup (`var/cache/prod/*.preload.php`); run `bin/console cache:warmup` before reloading.
+
+## Performance pass 3
+
+Measured on the DDEV dev box (dev mode, debug toolbar on, so absolute times are higher than in the tuned column above;
+the counts and the before/after differences are what matters). Query counts come from the MySQL general log.
+
+| Item | Before | After |
+|---|---|---|
+| `GameConfig` readers (`SessionPolicy`, `RateLimit`, `BotProtection`) on the start page | 7 queries (`config` 69 rows + `config_universe` 133 rows read again) | 5 queries: they read the `var/game/cache.config.php` file (`ConfigCache::loadRaw()`, same stamp and a module-free base fingerprint); tables only as the fallback (cache off, tests, cold cache) |
+| Notification detector | 6 users_settings joins, ~800 identical `notification_watch` rewrites per minute (profiled, seeded DB) | 1 opted-in query for all seven flags; watch rows are written only when new or the return time changed; index `planets.b_building`, `users.b_tech` for the queue finders |
+| Notification dispatch (cron) | per event: user + settings + subscriptions (3 selects), then one blocking push (or Discord, 5 s timeout) after the other | one users query for the batch, `NotificationDispatcher::notifyBatch()` loads settings and subscriptions with `IN`, pushes go through `WebPush::queueNotification()` + `flush()`, Discord posts start together and are collected afterwards; expired (404/410) subscriptions are deleted, delivered ones get one `last_used_at` UPDATE. `notify()` still works for a single call (it calls the batch path) |
+| Chat poll, idle (nothing new) | messages + deleted + 2 x unread = 4 chat queries | `latestIds()` (one grouped MAX(id) query on the `(universe, channel, id)` key) decides: no new messages -> no messages query, nothing unread -> no unread query, deleted ids only when the newest id reaches `from`; 2 chat queries on a poll with a deleted-range check, 1 without. Same JSON. Index `(universe, channel, deleted, id)`; `chat_poll` limiter 30 -> 60 per minute (two open tabs poll 15 per minute each) |
+| Admin chat reports view | 3 queries per reported message (71 for a full page) | 4 queries per page (heads, reports, messages with `IN`, one UNION for the before/after context) |
+| API `touch()` | conditional UPDATE per call (no row written within a minute, but a statement sent) | the lookup's `last_used_at` is passed in, the statement is skipped while the stamp is under `TOUCH_INTERVAL` (60 s) old; the UPDATE stays conditional for racing requests |
+| Indexes | `log_fleets` abuse aggregates scan by universe/time; users/planets queue filters scan | `log_fleets (universe, start_time)`, `planets (b_building)`, `users (b_tech)`; unused `notification_watch.user_id` dropped (migration 1795502100) |
+
+### Lean boot of the polling endpoints
+
+`#[LeanBoot(...)]` (src/Routing/LeanBoot.php) on an action lets `GameBootstrap` skip what the action does not read; every
+gate still runs (session and login, ban, universe status, `#[RequireModule]`, rate limit, CSRF). Parts: `PLANET` (no planet
+`FOR UPDATE` and no planet list), `DATA` (the element catalog is loaded only when due fleet events must be processed or
+code asks for `elements()`), `LANGUAGE` (packs are read on first access; the chat poll only returns error codes). A request
+that ends up rendering a full page after all (module off, ban, closed universe) completes the boot
+(`Singleton::$completeLean`), so those pages are the same as before. `/game/events` uses `PLANET` + `DATA`,
+`/game/chat/poll` uses `PLANET` + `DATA` + `LANGUAGE`. The payloads are byte-identical to the full boot (diffed for events
+with two flights, and for four chat poll variants).
+
+Measured (dev mode, repeated curl, median of 15 requests 1.1 s apart, logged in, `perf3/bench.sh` style: cookie jar from a
+headless login): events 55.3 -> 47.5 ms, chat poll 51.2 -> 46.0 ms (-8 / -5 ms; the dev-mode Symfony toolbar and profiler
+dominate what is left; the saving is the planet lock + list, the catalog and the language packs).
+
+### Public pages without a session (HTTP cache)
+
+`#[PublicCache(seconds)]` (src/Routing/PublicCache.php, `App\EventListener\PublicCacheListener`) marks pages that are
+the same for every anonymous visitor: news, rules, universe rules, hall of fame, battle hall, team, disclaimer, privacy
+(300 s) and the combat report `/report/{rid}` (86400 s). Anonymous means: GET/HEAD, no `2Moons` session cookie, no
+`REMEMBERME`, no `?lang=`, no fragment/XHR request. They get `Cache-Control: public, max-age=N, s-maxage=N`, an ETag (the
+page without CSP nonces and the server clock of the game env; 304 on a matching `If-None-Match`, without the CSP header so the
+browser keeps the one that matches its stored body), `Vary: Accept-Language, Cookie`, no `Set-Cookie` and no CSRF meta tag.
+The start page, login, registration and lost password carry the CSRF token and the proof-of-work form and stay private;
+error/message pages withdraw themselves (`PublicCache::withdraw()`). The anonymous report no longer starts a game session
+(it used to answer `Set-Cookie: 2Moons=deleted`).
+
+### Cron boot
+
+The CLI cron (`bin/console app:cron:run`, every minute) boots the container each run. `opcache.file_cache` keeps the
+compiled scripts between runs of the short-lived CLI process: measured 190 ms -> 115 ms per run (boot only, no job due):
+
+```sh
+* * * * * cd /path/to/v0game && php -d opcache.enable_cli=1 -d opcache.file_cache=/var/cache/v0game-opcache -d opcache.file_cache_only=0 bin/console app:cron:run
+```
+
+(the directory must exist and be writable for the cron user). The web/FPM settings listed under "Production tuning" above
+(`validate_timestamps=0`, 256 MB, `max_accelerated_files=20000`, `preload`) apply to the FPM pool only; the CLI has its own
+php.ini section.

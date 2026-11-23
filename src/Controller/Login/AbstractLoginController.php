@@ -114,6 +114,7 @@ abstract class AbstractLoginController implements GameControllerInterface, Modul
      */
     protected function messageResponse($message, $redirectButtons = null, $redirect = null, $fullSide = true): \Symfony\Component\HttpFoundation\Response
     {
+        \App\Routing\PublicCache::withdraw($this->state->request);
         $context = [
             'message'			=> $message,
             'redirectButtons'	=> $redirectButtons,

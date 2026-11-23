@@ -3,6 +3,7 @@
 namespace App\Runtime;
 
 use App\Game\Enum\AuthLevel;
+use App\Routing\LeanBoot;
 use Exception;
 use App\Game\Core\StoredData;
 use App\Game\Core\Database;
@@ -154,17 +155,28 @@ final class GameBootstrap
      */
     private function bootPlayerMode(Theme $THEME): Language
     {
-        $session    = $this->sessions()->load();
         $raportWithoutSession = $this->auth->account() === null && $this->state->request?->attributes->get('_route') === 'game_raport_show' && $this->state->runtime->mode === 'INGAME';
+        // a battle report link without login needs no game session (and so sets no cookie: the page is publicly cacheable)
+        $session    = $raportWithoutSession ? null : $this->sessions()->load();
 
         if (!$raportWithoutSession) {
             $this->syncGameSession($session);
         }
 
-        (new \App\Game\Core\GameData($this->db, $this->configs, $this->state))->load();
+        // lean polls load the element catalog only when due fleet events have to be processed
+        $lean = $this->state->lean;
+        $leanData = in_array(LeanBoot::DATA, $lean, true);
+        if (!$leanData) {
+            (new \App\Game\Core\GameData($this->db, $this->configs, $this->state))->load();
+        }
 
         if ($this->state->runtime->mode === 'INGAME' && $this->viewHelpers()->isModuleAvailable(MODULE_FLEET_EVENTS)) {
-            $this->processFleetEvents();
+            if (!$leanData || $this->fleetHandler->hasDue((int) $this->universe()->current())) {
+                if ($leanData) {
+                    (new \App\Game\Core\GameData($this->db, $this->configs, $this->state))->load();
+                }
+                $this->processFleetEvents();
+            }
         }
 
         if (!$raportWithoutSession) {
@@ -173,7 +185,14 @@ final class GameBootstrap
 
         $LNG    = new Language($this->configs, $this->state->USER['lang']);
         $this->state->LNG = $LNG;
-        $LNG->includeData(['L18N', 'INGAME', 'TECH', 'CUSTOM']);
+        if ($lean !== []) {
+            $this->state->completeLean = $this->leanCompletion($session, $LNG, $raportWithoutSession);
+        }
+        if (in_array(LeanBoot::LANGUAGE, $lean, true)) {
+            $LNG->includeDataLazily(['L18N', 'INGAME', 'TECH', 'CUSTOM']);
+        } else {
+            $LNG->includeData(['L18N', 'INGAME', 'TECH', 'CUSTOM']);
+        }
         if (!empty($this->state->USER['dpath'])) {
             $THEME->setUserTheme($this->state->USER['dpath'], $this->state->USER['css_dpath'] ?? null);
         }
@@ -183,7 +202,7 @@ final class GameBootstrap
 
         $this->gateBannedUser($LNG, $config);
 
-        if (!$raportWithoutSession) {
+        if ($session !== null) {
             $this->loadModeContext($session, $LNG);
         }
 
@@ -191,6 +210,34 @@ final class GameBootstrap
         $this->logAnalytics();
 
         return $LNG;
+    }
+
+    /**
+     * Closure that loads what a lean boot skipped, for the rare paths that render a full page or an error page (module
+     * switched off, ban, closed universe): the element catalog and, with `$withPlanet`, the locked planet and the planet
+     * list. Idempotent.
+     */
+    private function leanCompletion(?\App\Game\Core\Session $session, Language $LNG, bool $raportWithoutSession): \Closure
+    {
+        return function (bool $withPlanet) use ($session, $LNG, $raportWithoutSession): void {
+            if ($this->state->elementCatalog === null) {
+                (new \App\Game\Core\GameData($this->db, $this->configs, $this->state))->load();
+            }
+            if ($withPlanet && in_array(LeanBoot::PLANET, $this->state->lean, true)) {
+                $this->state->lean = array_values(array_diff($this->state->lean, [LeanBoot::PLANET]));
+                if (!$raportWithoutSession) {
+                    $this->loadModeContext($session, $LNG);
+                }
+            }
+        };
+    }
+
+    /** Loads the element catalog skipped by a lean boot (before an error page that may need it). */
+    private function completeLeanData(): void
+    {
+        if ($this->state->completeLean !== null) {
+            ($this->state->completeLean)(false);
+        }
     }
 
     /**
@@ -286,7 +333,7 @@ final class GameBootstrap
         }
 
         if ($banned) {
-
+            $this->completeLeanData();
             (new ShowErrorPage())->withGameServices($this->db, $this->configs, $this->state)->showError("<font size=\"6px\">" . $LNG['css_account_banned_message'] . "</font><br><br>"
             . $this->bannedExpireText($LNG, $this->viewHelpers()->formatDate($LNG['php_tdformat'], $banUntil, $this->state->USER['timezone']), $config->forum_url) . "<br><br>"
             . $LNG->format('css_account_banned_reason', $reason) . "<br><br>"
@@ -307,6 +354,13 @@ final class GameBootstrap
             $universeAmount = count($this->universe()->availableUniverses());
             if ($this->universe()->current() != $this->state->USER['universe'] && $universeAmount > 1) {
                 $this->http()->redirectToUniverse($this->state->USER['universe']);
+            }
+
+            if (in_array(LeanBoot::PLANET, $this->state->lean, true)) {
+                // lean poll: no planet lock, no planet list
+                $this->state->PLANET = [];
+
+                return;
             }
 
             $session->selectActivePlanet();
@@ -344,6 +398,9 @@ final class GameBootstrap
      */
     private function gateUniverseStatus(Language $LNG, $config, bool $raportWithoutSession): void
     {
+        if ($config->uni_status != STATUS_OPEN) {
+            $this->completeLeanData();
+        }
         if (
             ($config->uni_status == STATUS_CLOSED) && $this->state->USER['authlevel'] == AuthLevel::User->value
             && $this->state->request?->attributes->get('_page') !== 'logout' && !$raportWithoutSession

@@ -61,6 +61,12 @@ class Singleton
     /** @var array<string, float> start, end_common, db: timings in seconds */
     public array $time = [];
 
+    /** @var \Closure(bool): void|null loads what a lean boot skipped (argument: with planet and planet list); null when nothing was skipped */
+    public ?\Closure $completeLean = null;
+
+    /** @var list<string> parts of the game boot the action skips (App\Routing\LeanBoot constants) */
+    public array $lean = [];
+
     /** @var array<int|string, string>|null module constant value => name */
     public ?array $modules = null;
 

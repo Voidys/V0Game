@@ -36,6 +36,7 @@ class HofController extends AbstractLoginController
      * only universes with data; without any data the page shows an empty notice.
      */
     #[GameRoute('index', 'hall-of-fame', 'hof')]
+    #[\App\Routing\PublicCache(300)]
     public function show(): Response
     {
         $withData = $this->hallOfFame->universesWithData();

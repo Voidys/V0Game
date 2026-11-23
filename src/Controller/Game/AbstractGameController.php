@@ -676,6 +676,7 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
      */
     protected function messageResponse($message, $redirectButtons = null, $redirect = null, $fullSide = true): Response
     {
+        \App\Routing\PublicCache::withdraw($this->state->request);
         $context = [
             'message' => $message,
             'redirectButtons' => $redirectButtons,
@@ -743,6 +744,10 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
      */
     protected function layoutData(string $template): array
     {
+        // a lean-booted poll that ends up rendering a page (module off, ...) needs the full boot after all
+        if ($this->state->completeLean !== null) {
+            ($this->state->completeLean)(true);
+        }
         $LNG = $this->state->LNG;
         $THEME = $this->state->THEME;
 

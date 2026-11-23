@@ -439,8 +439,7 @@ CREATE TABLE `%PREFIX%notification_watch` (
   `fleet_id` bigint(11) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `return_time` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`fleet_id`),
-  KEY `user_id` (`user_id`)
+  PRIMARY KEY (`fleet_id`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `%PREFIX%trades` (
@@ -549,7 +548,8 @@ CREATE TABLE `%PREFIX%log_fleets` (
 	`cannotCancel` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `hasCanceled` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `BashRule` (`owner`,`end_id`,`start_time`,`mission`)
+  KEY `BashRule` (`owner`,`end_id`,`start_time`,`mission`),
+  KEY `universe_start` (`universe`,`start_time`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `%PREFIX%lostpassword` (
@@ -777,6 +777,7 @@ CREATE TABLE `%PREFIX%planets` (
   KEY `id_luna` (`id_luna`),
   KEY `id_owner` (`id_owner`),
   KEY `destruyed` (`destruyed`),
+  KEY `b_building` (`b_building`),
   UNIQUE KEY `universe` (`universe`,`galaxy`,`system`,`planet`,`planet_type`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -1050,7 +1051,8 @@ CREATE TABLE `%PREFIX%users` (
   KEY `ref_bonus` (`ref_bonus`),
   KEY `universe` (`universe`,`username`,`onlinetime`,`authlevel`),
   UNIQUE KEY `uniq_universe_username` (`universe`,`username`),
-  KEY `ally_id` (`ally_id`)
+  KEY `ally_id` (`ally_id`),
+  KEY `b_tech` (`b_tech`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `%PREFIX%users_banned` (

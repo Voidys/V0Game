@@ -26,6 +26,7 @@ class TeamController extends AbstractLoginController
     }
 
     #[GameRoute('index', 'team', 'team')]
+    #[\App\Routing\PublicCache(300)]
     public function show(): Response
     {
         return $this->renderTeam();

@@ -65,6 +65,30 @@ class ConfigRegistry
         ]));
     }
 
+    /** Fingerprint without the module list (known only after the game booted). */
+    private function baseFingerprint(): string
+    {
+        $root = $this->state->runtime->rootPath . 'src/Game/Core/Config/';
+
+        return md5(implode('|', [
+            $this->db->getDatabaseName(),
+            $this->db->getTablePrefix(),
+            SafeFile::mtime($root . 'ConfigFieldSchema.php'),
+            SafeFile::mtime($root . 'Schema'),
+        ]));
+    }
+
+    /**
+     * Raw rows for App\Runtime\GameConfig: the loaded ones, else those of a valid cache file (without building the
+     * instances); null when neither is available (the caller queries the tables).
+     *
+     * @return array{0: array<string, string>, 1: array<int, array<string, string>>}|null
+     */
+    public function rawRowsOrCached(): ?array
+    {
+        return $this->rawRows() ?? $this->cache()->loadRaw($this->cache()->stamp(), $this->baseFingerprint());
+    }
+
     /** true once the instances are built (texts loaded during the build must not ask for the config) */
     public function isLoaded(): bool
     {
@@ -168,7 +192,7 @@ class ConfigRegistry
                 'rawUniverse' => $rawUniverse,
                 'moduls' => $moduls,
             ];
-            $cache->store($stamp, $fingerprint, $data);
+            $cache->store($stamp, $fingerprint, $data, $this->baseFingerprint());
         }
 
         $this->rawGlobal = $data['rawGlobal'];

@@ -41,6 +41,11 @@ trait GameUtilities
     /** typed read-only catalog of the game elements (cost, groups, columns, ...), built once by GameData::load() */
     protected function elements(): \App\Game\Model\ElementCatalog
     {
+        if ($this->state->elementCatalog === null && $this->state->completeLean !== null) {
+            // a lean-booted request that needs the catalog after all: load it now
+            ($this->state->completeLean)(false);
+        }
+
         return $this->state->elementCatalog ?? throw new \LogicException('game data not loaded');
     }
 

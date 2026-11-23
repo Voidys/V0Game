@@ -24,4 +24,20 @@ interface NotificationTransport
 
     /** Posts a message to a Discord webhook; true when Discord accepted it. */
     public function sendDiscord(string $webhookUrl, string $content): bool;
+
+    /**
+     * Sends many Web Push messages in one go (queued, then flushed).
+     *
+     * @param array<int|string, array{subscription: array{endpoint: string, p256dh: string, auth: string}, payload: string}> $messages by caller key
+     * @return array<int|string, string> PUSH_* constant per key of $messages
+     */
+    public function sendPushBatch(array $messages): array;
+
+    /**
+     * Posts many Discord messages concurrently: all requests are started first, then the answers collected.
+     *
+     * @param array<int|string, array{webhook: string, content: string}> $messages by caller key
+     * @return array<int|string, bool> whether Discord accepted the message, per key of $messages
+     */
+    public function sendDiscordBatch(array $messages): array;
 }

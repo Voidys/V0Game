@@ -33,6 +33,8 @@ class Language implements ArrayAccess
     private string $language = '';
     /** texts were added while the config was still loading: "{game_name}" is filled in on first read */
     private bool $gameNamePending = false;
+    /** @var string[] domains whose packs are read on first use (includeDataLazily) */
+    private array $pendingFiles = [];
 
     public function __construct(
         private ConfigRegistry $configs,
@@ -104,6 +106,21 @@ class Language implements ArrayAccess
         }
     }
 
+    /** Like includeData(), but the packs are read on the first access: a request that prints no text never reads them. @param string[] $files */
+    public function includeDataLazily(array $files): void
+    {
+        $this->pendingFiles = array_merge($this->pendingFiles, $files);
+    }
+
+    private function settle(): void
+    {
+        if ($this->pendingFiles !== []) {
+            $files = $this->pendingFiles;
+            $this->pendingFiles = [];
+            $this->includeData($files);
+        }
+    }
+
     /**
      * Merges text arrays into the loaded texts (later data overrides earlier).
      *
@@ -111,6 +128,7 @@ class Language implements ArrayAccess
      */
     public function addData(array $data): void
     {
+        $this->settle();
         $this->container = array_replace_recursive($this->container, $data);
     }
 
@@ -259,6 +277,7 @@ class Language implements ArrayAccess
     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
+        $this->settle();
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -271,6 +290,7 @@ class Language implements ArrayAccess
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
+        $this->settle();
         return isset($this->container[$offset]);
     }
     /**
@@ -279,6 +299,7 @@ class Language implements ArrayAccess
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
+        $this->settle();
         unset($this->container[$offset]);
     }
     /**
@@ -287,6 +308,7 @@ class Language implements ArrayAccess
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
+        $this->settle();
         if ($this->gameNamePending && $this->configs->isLoaded()) {
             $this->gameNamePending = false;
             $this->container = $this->withGameName($this->container);

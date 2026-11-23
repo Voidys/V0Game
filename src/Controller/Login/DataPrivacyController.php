@@ -35,6 +35,7 @@ class DataPrivacyController extends AbstractLoginController
      * Renders the CMS page "dataPrivacy" in the layout of the area (login or account).
      */
     #[GameRoute('index', 'privacy', 'dataPrivacy')]
+    #[\App\Routing\PublicCache(300)]
     #[GameRoute('account', 'account/privacy', 'dataPrivacy')]
     public function show(): Response
     {

@@ -129,4 +129,48 @@ final class ConfigCacheTest extends GameTestCase
         $this->assertSame([], glob($this->dir . '*'));
         $this->assertNull($cache->load('', 'a'));
     }
+
+    private function gameConfig(ConfigRegistry $registry): \App\Runtime\GameConfig
+    {
+        return new \App\Runtime\GameConfig(
+            self::container()->get('doctrine.dbal.default_connection'),
+            self::container()->get(\App\Runtime\TableNames::class),
+            static fn(): ConfigRegistry => $registry,
+        );
+    }
+
+    public function testGameConfigReadsTheCacheFileBeforeTheGameBooted(): void
+    {
+        $writer = $this->registry();
+        $expected = $writer->get(1)->uni_name;
+        $writer->get(1)->game_name;
+
+        // a registry that has not loaded anything (the state of the session policy / rate limit listeners)
+        $cold = $this->registry();
+        $this->assertFalse($cold->isLoaded());
+        $this->db->update("UPDATE %%CONFIG_UNIVERSE%% SET `value` = 'behind the back' WHERE `uni` = 1 AND `key` = 'uni_name';");
+        $config = $this->gameConfig($cold);
+        $this->assertSame($expected, $config->get('uni_name'), 'served from the cache file, no table read');
+        $this->assertFalse($cold->isLoaded(), 'the instances were not built for it');
+    }
+
+    public function testGameConfigSeesASaveThroughTheStamp(): void
+    {
+        $writer = $this->registry();
+        $config = $writer->get(1);
+        $this->assertNotSame('', $this->gameConfig($this->registry())->get('uni_name') ?? '');
+
+        $config->uni_name = 'game config cache test';
+        $config->save();
+
+        $this->assertSame('game config cache test', $this->gameConfig($this->registry())->get('uni_name'));
+    }
+
+    public function testGameConfigFallsBackToTheTablesWithoutACache(): void
+    {
+        $registry = new ConfigRegistry($this->db, $this->state, false, $this->dir);
+        $this->db->update("UPDATE %%CONFIG_UNIVERSE%% SET `value` = 'plain read' WHERE `uni` = 1 AND `key` = 'uni_name';");
+
+        $this->assertSame('plain read', $this->gameConfig($registry)->get('uni_name'));
+    }
 }

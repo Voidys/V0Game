@@ -111,20 +111,6 @@ class OverviewController extends AbstractGameController
     }
 
     /**
-     * JSON feed of the fleet events of the overview (same table as the page): events with plain-text line, mission,
-     * own/hostile flags, origin and target, arrival timestamp and remaining seconds, the hostile count and a hash of
-     * the list. Polled by public/scripts/game/live-events.js; read only, so no token and no rate limit.
-     */
-    #[GameRoute('game', 'game/events', 'events')]
-    public function events(): Response
-    {
-        $payload = LiveEventsPayload::build($this->getFleets());
-        $payload['now'] = $this->state->runtime->timestamp;
-
-        return new JsonResponse($payload, 200, ['Cache-Control' => 'no-store']);
-    }
-
-    /**
      * Template entry of the first running construction of a planet or moon row: building id, target level, time left
      * (counted from the vacation start in vacation mode), end time, formatted time left and build mode.
      *

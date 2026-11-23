@@ -105,9 +105,15 @@ final class ApiTokens
         ];
     }
 
-    /** Records the use of a token, at most once per TOUCH_INTERVAL. */
-    public function touch(int $tokenId, int $now): void
+    /**
+     * Records the use of a token, at most once per TOUCH_INTERVAL. With the `last_used_at` the lookup already returned
+     * the statement is not even sent while the stamp is fresh (the UPDATE stays conditional for racing requests).
+     */
+    public function touch(int $tokenId, int $now, ?int $knownLastUsed = null): void
     {
+        if ($knownLastUsed !== null && $knownLastUsed > $now - self::TOUCH_INTERVAL) {
+            return;
+        }
         $this->db->update(
             'UPDATE %%API_TOKENS%% SET `last_used_at` = :now WHERE `id` = :id AND `last_used_at` <= :before;',
             [':now' => $now, ':id' => $tokenId, ':before' => $now - self::TOUCH_INTERVAL],

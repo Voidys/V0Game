@@ -19,11 +19,15 @@ class FarmListController extends AbstractGameController
     /** newest spy report messages read per request (the latest report per target is picked out of them) */
     private const MAX_REPORTS = 1500;
 
+    /** rows per page */
+    public const PAGE_SIZE = 200;
+
     private const SORTS = ['coords', 'player', 'state', 'age', 'loot', 'defense', 'fleet', 'cargos', 'distance'];
 
     /**
      * The farm list. Request (GET): sort (one of SORTS, default loot), dir (asc|desc), inactive (1 = only inactive players), max_defense
-     * (largest defense value in resource units, 0 = no limit), max_age (oldest report in hours, 0 = no limit).
+     * (largest defense value in resource units, 0 = no limit), max_age (oldest report in hours, 0 = no limit),
+     * page (1-based, PAGE_SIZE rows per page).
      */
     #[GameRoute('game', 'game/farms', 'farms')]
     public function show(): Response
@@ -39,8 +43,12 @@ class FarmListController extends AbstractGameController
             'max_age' => max(0, $input->int('max_age')),
         ];
 
-        $rows = array_values(array_filter($this->farmRows(), fn(array $row): bool => $this->passes($row, $filter)));
+        $rows = array_values(array_filter($this->farmRows($filter), fn(array $row): bool => $this->passes($row, $filter)));
         usort($rows, fn(array $a, array $b): int => ($dir === 'asc' ? 1 : -1) * ($a['sort'][$sort] <=> $b['sort'][$sort]));
+        $total = count($rows);
+        $pages = max(1, (int) ceil($total / self::PAGE_SIZE));
+        $page = min($pages, max(1, $input->int('page', 1)));
+        $rows = array_slice($rows, ($page - 1) * self::PAGE_SIZE, self::PAGE_SIZE);
 
         return $this->render('game/page.farms.default.html.twig', [
             'rows' => $rows,
@@ -48,6 +56,9 @@ class FarmListController extends AbstractGameController
             'dir' => $dir,
             'filter' => $filter,
             'sortKeys' => self::SORTS,
+            'page' => $page,
+            'pages' => $pages,
+            'total' => $total,
         ]);
     }
 
@@ -55,9 +66,10 @@ class FarmListController extends AbstractGameController
      * One row per target planet: the latest spy report of the player's own, not deleted spy report messages, analysed from the current
      * planet.
      *
+     * @param array{inactive: bool, max_defense: int, max_age: int} $filter reports that fail the age or activity filter are skipped before analysing them
      * @return list<array<string, mixed>>
      */
-    private function farmRows(): array
+    private function farmRows(array $filter): array
     {
         $USER = $this->state->USER;
         $now = $this->state->runtime->timestamp;
@@ -69,6 +81,12 @@ class FarmListController extends AbstractGameController
         foreach ($reports as $report) {
             $data = json_decode((string) $report['message_text'], true);
             if (!is_array($data) || !isset($data['targetPlanet']['galaxy'], $data['time'])) {
+                continue;
+            }
+            if ($filter['max_age'] > 0 && max(0, $now - (int) $data['time']) > $filter['max_age'] * 3600) {
+                continue;
+            }
+            if ($filter['inactive'] && ($report['onlinetime'] === null || SpyReportAnalysis::inactiveState((int) $report['onlinetime'], $now, INACTIVE, INACTIVE_LONG) === '')) {
                 continue;
             }
             $rows[$report['planet_id']] = $this->buildRow($tools, $data, $report, $now);

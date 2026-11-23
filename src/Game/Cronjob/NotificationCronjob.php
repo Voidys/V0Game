@@ -33,19 +33,41 @@ class NotificationCronjob extends AbstractCronjobTask
         ];
         $detector->markSeen($events, $now);
 
-        $dispatcher = $this->gameUtility(NotificationDispatcher::class);
+        $this->dispatch($events);
+
+        $detector->purge($now);
+    }
+
+    /**
+     * Sends the events as one batch: the receiving players (language, timezone, universe) are loaded with one query.
+     *
+     * @param list<array<string, mixed>> $events
+     */
+    private function dispatch(array $events): void
+    {
+        if ($events === []) {
+            return;
+        }
+        $ids = array_values(array_unique(array_map(static fn(array $event): int => (int) $event['user_id'], $events)));
+        $users = [];
+        foreach (array_chunk($ids, 500) as $chunk) {
+            $rows = $this->db->select('SELECT u.`id`, u.`universe`, s.`lang`, s.`timezone` FROM %%USERS%% u INNER JOIN %%USERS_SETTINGS%% s ON s.`user_id` = u.`id` WHERE u.`id` IN (' . implode(',', $chunk) . ');');
+            foreach ($rows as $row) {
+                $users[(int) $row['id']] = $row;
+            }
+        }
+        $notifications = [];
         foreach ($events as $event) {
-            $user = $this->db->selectSingle('SELECT u.`universe`, s.`lang`, s.`timezone` FROM %%USERS%% u INNER JOIN %%USERS_SETTINGS%% s ON s.`user_id` = u.`id` WHERE u.`id` = :id;', [':id' => $event['user_id']]);
-            if (!is_array($user)) {
+            $user = $users[(int) $event['user_id']] ?? null;
+            if ($user === null) {
                 continue;
             }
             $LNG = $this->language((string) $user['lang']);
             [$title, $body, $path] = $this->texts($event, $LNG, (string) $user['timezone']);
             $prefix = (int) $user['universe'] > 1 ? 'uni' . (int) $user['universe'] . '/' : '';
-            $dispatcher->notify($event['user_id'], $event['type'], $title, $body, $prefix . $path);
+            $notifications[] = ['user_id' => (int) $event['user_id'], 'type' => $event['type'], 'title' => $title, 'body' => $body, 'url' => $prefix . $path];
         }
-
-        $detector->purge($now);
+        $this->gameUtility(NotificationDispatcher::class)->notifyBatch($notifications);
     }
 
     private function language(string $code): Language

@@ -5,6 +5,7 @@ namespace App\EventListener;
 use App\Controller\GameControllerInterface;
 use App\Controller\ModuleGuard;
 use App\Routing\GameRoute;
+use App\Routing\LeanBoot;
 use App\Runtime\GameKernel;
 use App\Runtime\GameResponseFactory;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -65,9 +66,10 @@ final class GameControllerListener
 
             return;
         }
-        $event->setController(static function (...$arguments) use ($controller, $object, $kernel, $responses, $mode, $area) {
-            return $responses->run(static function () use ($controller, $object, $kernel, $arguments, $mode, $area) {
-                $kernel->boot($mode, $area);
+        $lean = $this->leanBoot($controller);
+        $event->setController(static function (...$arguments) use ($controller, $object, $kernel, $responses, $mode, $area, $lean) {
+            return $responses->run(static function () use ($controller, $object, $kernel, $arguments, $mode, $area, $lean) {
+                $kernel->boot($mode, $area, $lean);
                 $object->initialize();
                 if ($object instanceof ModuleGuard) {
                     $object->assertModuleAvailable();
@@ -76,5 +78,20 @@ final class GameControllerListener
                 return $controller(...$arguments);
             });
         });
+    }
+
+    /**
+     * Parts of the game boot the action skips (#[LeanBoot] on the action method).
+     *
+     * @return list<string>
+     */
+    private function leanBoot(mixed $controller): array
+    {
+        if (!is_array($controller)) {
+            return [];
+        }
+        $attribute = (new \ReflectionMethod($controller[0], $controller[1]))->getAttributes(LeanBoot::class)[0] ?? null;
+
+        return $attribute?->newInstance()->skip ?? [];
     }
 }
