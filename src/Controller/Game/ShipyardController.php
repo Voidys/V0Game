@@ -17,6 +17,7 @@ namespace App\Controller\Game;
 
 use App\Routing\GameRoute;
 use Symfony\Component\HttpFoundation\Response;
+use App\Game\Core\HangarOrderPlanner;
 use App\Game\Core\StoredData;
 
 /** Shipyard and defence (/game/shipyard, /game/defense): build queue, ship/defence lists, orders and hangar filters. */
@@ -72,8 +73,9 @@ class ShipyardController extends AbstractGameController
      * elements (shields). Deducts the cost, records shipyard achievements and starts the queue when it was empty.
      *
      * @param array<mixed> $fmenge
+     * @param bool $upTo the counts are target totals (owned + queued + ordered), not amounts to add
      */
-    private function buildAuftr(array $fmenge): void
+    private function buildAuftr(array $fmenge, bool $upTo = false): void
     {
         $USER = $this->state->USER;
         // Working copy: resources already committed to earlier entries of this order are not available again
@@ -104,6 +106,9 @@ class ShipyardController extends AbstractGameController
 
             $MaxElements = $this->buildFunctions()->getMaxConstructibleElements($USER, $availablePlanet, $Element);
             $Count = is_numeric($Count) ? round($Count) : 0;
+            if ($upTo) {
+                $Count = HangarOrderPlanner::upTo($Count, (float) $this->state->PLANET[$this->elements()->column($Element)], $this->queuedAmount($BuildArray, $Element));
+            }
             $Count = max(min($Count, $this->configs->get()->max_fleet_per_build), 0);
             $Count = min($Count, $MaxElements);
 
@@ -146,6 +151,23 @@ class ShipyardController extends AbstractGameController
         }
         $this->ecoObj->removeResources($this->state->PLANET['id'], $totalCostResources, $this->state->PLANET);
         $this->ecoObj->saveShipyardQueue($this->state->PLANET);
+    }
+
+    /**
+     * Units of $Element in the hangar queue entries $queue.
+     *
+     * @param array<int, array<int, mixed>> $queue
+     */
+    private function queuedAmount(array $queue, int $Element): float
+    {
+        $queued = 0.0;
+        foreach ($queue as $queueEntry) {
+            if ($queueEntry[self::QUEUE_ELEMENT_ID] == $Element) {
+                $queued += $queueEntry[self::QUEUE_AMMOUNT];
+            }
+        }
+
+        return $queued;
     }
 
     /**
@@ -225,6 +247,7 @@ class ShipyardController extends AbstractGameController
             'NotBuilding' => $NotBuilding,
             'hasShipyard' => $hasShipyard,
             'BuildList' => $buildList,
+            'queueTimeLeft' => $buildList['queue_time'] ?? 0,
             'maxlength' => strlen($this->configs->get()->max_fleet_per_build),
             'mode' => $mode,
             'SolarEnergy' => $SolarEnergy,
@@ -331,7 +354,7 @@ class ShipyardController extends AbstractGameController
 
                 return $this->redirectToHangar($mode);
             }
-            $this->buildAuftr($buildTodo);
+            $this->buildAuftr($buildTodo, $this->input()->string('orderMode') === 'upto');
             $db->commit();
 
             return $this->redirectToHangar($mode);
@@ -409,6 +432,10 @@ class ShipyardController extends AbstractGameController
         $USER = $this->state->USER;
         $elementList = [];
         $Missiles = [];
+        $queuedCounts = [];
+        foreach (!empty($this->state->PLANET['b_hangar_id']) ? StoredData::decode($this->state->PLANET['b_hangar_id']) : [] as $queueEntry) {
+            $queuedCounts[$queueEntry[self::QUEUE_ELEMENT_ID]] = ($queuedCounts[$queueEntry[self::QUEUE_ELEMENT_ID]] ?? 0) + $queueEntry[self::QUEUE_AMMOUNT];
+        }
 
         foreach ($this->elements()->ids('missile') as $elementID) {
             $Missiles[$elementID] = $this->state->PLANET[$this->elements()->column($elementID)];
@@ -453,6 +480,7 @@ class ShipyardController extends AbstractGameController
             if (isset($MaxMissiles[$Element])) {
                 $maxBuildable = min($maxBuildable, $MaxMissiles[$Element]);
             }
+            $maxBuildable = min($maxBuildable, $this->configs->get()->max_fleet_per_build);
 
             $AlreadyBuild = in_array($Element, $this->elements()->ids('one'))
                 && (isset($elementInQueue[$Element]) || $this->state->PLANET[$this->elements()->column($Element)] != 0);
@@ -469,6 +497,7 @@ class ShipyardController extends AbstractGameController
                 'elementTime' => $elementTime,
                 'buyable' => $buyable,
                 'maxBuildable' => floatToString($maxBuildable),
+                'queued' => $queuedCounts[$Element] ?? 0,
                 'AlreadyBuild' => $AlreadyBuild,
                 'requirements' => $requirementsList,
                 'fade' => $fade,

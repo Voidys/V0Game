@@ -102,12 +102,14 @@
 
 		{% set action %}
 			{% if canBuild %}
-				<form action="{{ kindUrl }}" method="post" data-keep-scroll class="card__order">
+				<form action="{{ kindUrl }}" method="post" data-keep-scroll class="card__order" data-hangar-order data-owned="{{ Element.available }}" data-queued="{{ Element.queued }}" data-max="{{ Element.maxBuildable }}" data-unit-time="{{ Element.elementTime }}" data-cost="{{ Element.costResources|json_encode }}">
 					<span class="control-group">
 						<input type="number" name="fmenge[{{ ID }}]" id="input_{{ ID }}" maxlength="{{ maxlength }}" value="0" min="0" tabindex="{{ null }}" aria-label="{{ LNG.tech[ID] }}">
-						<input type="button" value="{{ LNG.bd_max_ships }}" data-action="fill-input" data-target="input_{{ ID }}" data-value="{{ Element.maxBuildable }}" title="{{ LNG.bd_max_ships_long }}: {{ pretty_number(Element.maxBuildable) }}">
+						<input type="button" value="{{ LNG.bd_max_ships }}" data-hangar-max title="{{ LNG.bd_max_ships_long }}: {{ pretty_number(Element.maxBuildable) }}">
 					</span>
 					<input class="b colorPositive" type="submit" value="{{ LNG.bd_build_ships }}">
+					<label class="hint hangar-upto"><input type="checkbox" name="orderMode" value="upto" data-hangar-upto> {{ LNG.hq_upto }}</label>
+					<p class="hint hangar-preview" data-hangar-preview hidden></p>
 				</form>
 			{% else %}
 				{{ b.locked(LNG.bd_build_ships) }}
@@ -130,6 +132,14 @@
   {{ tooltip_templates() }}
 {% endblock %}
 {% block script %}{{ parent() }}
+	{{ data_island('hangar-order-data', {
+		queueTime: queueTimeLeft,
+		umode: umode,
+		names: {901: LNG.tech[901], 902: LNG.tech[902], 903: LNG.tech[903]},
+		preview: LNG.hq_preview,
+		current: LNG.hq_current
+	}) }}
+	<script type="module" src="./scripts/game/hangarOrder.js?v={{ asset_version }}"></script>
 	{% if BuildList %}
 	{{ data_island('shipyard-data', {data: BuildList, bdOperating: LNG.bd_operating, bdAvailable: LNG.bd_available}) }}
 	<script type="module" src="./scripts/game/shipyard.js?v={{ asset_version }}"></script>
