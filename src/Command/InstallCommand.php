@@ -17,7 +17,8 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
 
 /**
- * Command line installer: the same steps as the web wizard (App\Runtime\InstallService).
+ * Command line installer: the same steps as the web wizard (App\Runtime\InstallService), including the chat options
+ * (--chat, --chat-global/--no-chat-global, --chat-block-links/--no-chat-block-links; chat is off unless --chat).
  *
  * Phase 1 (this process): requirements, database connection, config/game.php and .env.local.
  * Phase 2 (a child process started with --finish, because the game's database connection reads
@@ -58,6 +59,9 @@ final class InstallCommand extends Command
             ->addOption('admin-email', null, InputOption::VALUE_REQUIRED, 'Administrator e-mail address')
             ->addOption('admin-password', null, InputOption::VALUE_REQUIRED, 'Administrator password (or env V0GAME_ADMIN_PASSWORD, or prompt)')
             ->addOption('bots', null, InputOption::VALUE_REQUIRED, 'Number of bots to create, 0 to 50 (0 = bots off)', null)
+            ->addOption('chat', null, InputOption::VALUE_NEGATABLE, 'Enable the in-game chat (default: off; --no-chat is the same)', null)
+            ->addOption('chat-global', null, InputOption::VALUE_NEGATABLE, 'Chat: global channel (default: on; only with --chat)', null)
+            ->addOption('chat-block-links', null, InputOption::VALUE_NEGATABLE, 'Chat: block links in the global channel (default: on; only with --chat)', null)
             ->addOption('base-url', null, InputOption::VALUE_REQUIRED, 'Public URL of the game, e.g. https://example.com')
             ->addOption('finish', null, InputOption::VALUE_NONE, 'Internal: second phase');
     }
@@ -116,6 +120,8 @@ final class InstallCommand extends Command
         }
         $checked = $game;
 
+        $chat = $this->collectChatSettings($input, $io, $interactive);
+
         $admin = $this->collectAdmin($input, $io, $ask, $interactive, $language);
         if (is_int($admin)) {
             return $admin;
@@ -137,7 +143,7 @@ final class InstallCommand extends Command
             return Command::FAILURE;
         }
 
-        return $this->runFinishPhase($io, $output, $input, $language, $checked, $adminName, $adminMail, $adminPassword, $result['generated']);
+        return $this->runFinishPhase($io, $output, $input, $language, $checked + ['chat' => $chat], $adminName, $adminMail, $adminPassword, $result['generated']);
     }
 
     /**
@@ -201,6 +207,30 @@ final class InstallCommand extends Command
     }
 
     /**
+     * Reads the chat choice: --chat / --no-chat (asked when interactive and not given, default off), then the global
+     * channel and link blocking (default on).
+     *
+     * @return array{enabled: bool, global: bool, block_links: bool}
+     */
+    private function collectChatSettings(InputInterface $input, SymfonyStyle $io, bool $interactive): array
+    {
+        $enabled = $input->getOption('chat');
+        if ($enabled === null) {
+            $enabled = $interactive && $io->confirm('Enable the in-game chat?', false);
+        }
+        $global = $input->getOption('chat-global');
+        if ($enabled && $global === null && $interactive) {
+            $global = $io->confirm('Chat: open a global channel for all players?', true);
+        }
+
+        return [
+            'enabled' => (bool) $enabled,
+            'global' => $global ?? InstallService::CHAT_DEFAULTS['chat_global'],
+            'block_links' => $input->getOption('chat-block-links') ?? InstallService::CHAT_DEFAULTS['chat_block_links'],
+        ];
+    }
+
+    /**
      * Reads the administrator (name, e-mail, password from option, environment or hidden prompt with repetition) and
      * validates it.
      *
@@ -236,8 +266,7 @@ final class InstallCommand extends Command
      * Phase 2: runs `app:install --finish` in a fresh process (so the game connects with the new .env.local) and passes
      * the settings as JSON payload in the environment. A failure removes config/game.php again.
      *
-     * @param array{error: ?string, values: array} $checked validated game settings
-     * @param array<mixed> $checked
+     * @param array<mixed> $checked validated game settings (`values`) plus the chat choice (`chat`, see collectChatSettings())
      * @return int Command::SUCCESS or FAILURE
      */
     private function runFinishPhase(SymfonyStyle $io, OutputInterface $output, InputInterface $input, string $language, array $checked, string $adminName, string $adminMail, string $adminPassword, mixed $migrationGenerated): int
@@ -247,6 +276,7 @@ final class InstallCommand extends Command
         $payload = json_encode([
             'language' => $language,
             'settings' => $checked['values'],
+            'chat' => $checked['chat'],
             'admin' => ['name' => $adminName, 'mail' => $adminMail, 'password' => $adminPassword],
             'baseUrl' => rtrim((string) ($input->getOption('base-url') ?? ''), '/'),
             'migrationGenerated' => $migrationGenerated,
@@ -298,6 +328,8 @@ final class InstallCommand extends Command
             }
 
             $this->installer->applyGameSettings($payload['settings']);
+            $chat = $payload['chat'];
+            $this->installer->applyChatSettings($chat['enabled'], $chat['global'], $chat['block_links']);
             $io->writeln(' * ' . $this->installer->lng($language)['ins_step_game'] . ' ... ok');
             $this->installer->createAdmin($payload['admin']['name'], $payload['admin']['password'], $payload['admin']['mail'], $language);
             $io->writeln(' * ' . $this->installer->lng($language)['ins_step_admin'] . ' ... ok');
@@ -329,6 +361,7 @@ final class InstallCommand extends Command
         $io->listing(array_filter([
             $payload['baseUrl'] === '' ? 'WARNING: no --base-url given, so DEFAULT_URI is not set: registration and password-reset mails are not sent until you set DEFAULT_URI in .env.local.' : null,
             'The install tool is locked.',
+            $payload['chat']['enabled'] ? sprintf('Chat is on (global channel %s, links %s).', $payload['chat']['global'] ? 'on' : 'off', $payload['chat']['block_links'] ? 'blocked' : 'allowed') : 'Chat is off; turn it on later in the administration.',
             $payload['migrationGenerated'] ? 'A migration password was generated; it is stored as "migrationpw" in config/game.php.' : null,
             'Use HTTPS in production. Change settings later in Admin - Settings.',
             'Documentation: ' . InstallService::DOCS_URL,

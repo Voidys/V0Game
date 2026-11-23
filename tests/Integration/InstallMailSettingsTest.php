@@ -94,26 +94,4 @@ final class InstallMailSettingsTest extends GameTestCase
         $this->assertNotSame('', $error);
         $this->assertStringNotContainsString('topsecret', $error);
     }
-
-    public function testMailStepRenders(): void
-    {
-        $this->service()->useLanguage('en');
-        $html = self::container()->get('twig')->render('install/ins_mail.html.twig', [
-            'currentStep' => 8,
-            'lang' => 'en',
-            'values' => ['active' => true, 'method' => 2, 'from' => 'a@example.com', 'host' => 'smtp.example.com', 'port' => '587', 'encryption' => 'tls', 'user' => 'bob', 'password' => ''],
-            'bots' => 2,
-            'error' => 'Boom',
-            'asset_version' => 1,
-        ]);
-
-        $this->assertStringContainsString('action="./?mode=install&amp;step=8"', $html);
-        $this->assertStringContainsString('name="skip"', $html);
-        $this->assertStringContainsString('name="test"', $html);
-        $this->assertStringContainsString('name="bots" value="2"', $html);
-        $this->assertMatchesRegularExpression('/<option value="tls" selected/', $html);
-        $this->assertStringContainsString('Boom', $html);
-        $this->assertDoesNotMatchRegularExpression('/name="password" value="[^"]/', $html);
-        $this->assertMatchesRegularExpression('/is-current[^>]*aria-current="step"[^>]*>\s*<span[^>]*>[^<]*<\/span><span[^>]*>E-mail/', $html);
-    }
 }

@@ -48,6 +48,8 @@ Options for the command line installer (mode server, passed to app:install)
   --game-name <name>  --language de|en  --timezone <tz>  --speed classic|fast|blitz
   --registration open|closed  --base-url <https://...>
   --admin-name <n>  --admin-email <e>  --admin-password <pw>  --bots <0..50>
+  --chat  --chat-global|--no-chat-global  --chat-block-links|--no-chat-block-links
+                          (in-game chat; off unless --chat, then global channel and link blocking default on)
   The admin password can instead be set in V0GAME_ADMIN_PASSWORD, the database
   password in V0GAME_DB_PASSWORD (a password given as an option is visible in
   the process list while the installer runs; the environment is safer).
@@ -109,6 +111,7 @@ while [ $# -gt 0 ]; do
         --db-host|--db-port|--db-user|--db-name|--db-prefix|--game-name|--language|--timezone|--speed|\
         --registration|--base-url|--admin-name|--admin-email|--bots)
             need_arg "$@"; APP_ARGS+=("$1=$2"); shift ;;
+        --chat|--no-chat|--chat-global|--no-chat-global|--chat-block-links|--no-chat-block-links) APP_ARGS+=("$1") ;;
         --db-password) need_arg "$@"; DB_PASSWORD_ARG="$2"; shift ;;
         --admin-password) need_arg "$@"; ADMIN_PASSWORD_ARG="$2"; shift ;;
         *) usage >&2; die "unknown option: $1" ;;

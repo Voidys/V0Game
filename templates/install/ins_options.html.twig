@@ -1,0 +1,90 @@
+{% extends 'install/ins_layout.html.twig' %}
+{% import 'install/ins_macros.html.twig' as m %}
+{% block heading %}{{ LNG.ins_options_head }}{% endblock %}
+{% block panel %}
+  <p>{{ LNG.ins_options_desc }}</p>
+  <form class="install-form" action="./?mode=install&amp;step=5" method="post" autocomplete="off">
+    <input type="hidden" name="post" value="1">
+
+    <fieldset>
+      <legend>{{ LNG.ins_group_chat }}</legend>
+      <label class="install-check install-field--wide"><input type="checkbox" name="chat" value="1" data-toggle-group="chat"{% if options.chat %} checked{% endif %}> <span><strong>{{ LNG.ins_chat_enable }}</strong><small class="install-hint">{{ LNG.ins_chat_enable_info }}</small></span></label>
+      <label class="install-check install-field--wide"><input type="checkbox" name="chat_global" value="1" data-toggle-member="chat"{% if options.chat_global %} checked{% endif %}> <span>{{ LNG.ins_chat_global }}<small class="install-hint">{{ LNG.ins_chat_global_info }}</small></span></label>
+      <label class="install-check install-field--wide"><input type="checkbox" name="chat_block_links" value="1" data-toggle-member="chat"{% if options.chat_block_links %} checked{% endif %}> <span>{{ LNG.ins_chat_links }}<small class="install-hint">{{ LNG.ins_chat_links_info }}</small></span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>{{ LNG.ins_group_players }}</legend>
+      <label class="install-field">{{ LNG.ins_bots }}<input type="number" name="bots" value="{{ options.bots }}" min="0" max="50"{{ m.invalid(errors, 'bots') }}><small>{{ LNG.ins_bots_info }}</small>{{ m.error(errors, 'bots') }}</label>
+    </fieldset>
+
+    <details class="install-more"{% if mail.active or errors.mail is defined or testOk %} open{% endif %}>
+      <summary>{{ LNG.ins_mail_optional }}</summary>
+      <p class="install-hint">{{ LNG.ins_mail_desc }}</p>
+      {% if errors.mail is defined %}<div class="notice notice--danger" role="alert">{{ icon('circle-alert') }}<div>{{ errors.mail }}</div></div>{% endif %}
+      {% if testOk %}<div class="notice notice--success" role="status">{{ icon('circle-check') }}<div>{{ testOk }}</div></div>{% endif %}
+      <fieldset>
+        <label class="install-check install-field--wide"><input type="checkbox" name="active" value="1" data-mail-toggle{% if mail.active %} checked{% endif %}> <span>{{ LNG.ins_mail_enable }}</span></label>
+        <label class="install-field">{{ LNG.ins_mail_method }}
+          <select name="method">
+            <option value="2"{% if mail.method == 2 %} selected{% endif %}>{{ LNG.ins_mail_method_smtp }}</option>
+            <option value="0"{% if mail.method == 0 %} selected{% endif %}>{{ LNG.ins_mail_method_php }}</option>
+          </select>
+        </label>
+        <label class="install-field">{{ LNG.ins_mail_from }}<input type="email" name="from" value="{{ mail.from }}" maxlength="255" placeholder="noreply@example.com"></label>
+        <label class="install-field">{{ LNG.ins_mail_host }}<input type="text" name="host" value="{{ mail.host }}" maxlength="255" placeholder="smtp.example.com"></label>
+        <label class="install-field">{{ LNG.ins_mail_port }}<input type="number" name="port" value="{{ mail.port }}" min="1" max="65535"></label>
+        <label class="install-field">{{ LNG.ins_mail_enc }}
+          <select name="encryption">
+            <option value=""{% if mail.encryption == '' %} selected{% endif %}>{{ LNG.ins_mail_enc_none }}</option>
+            <option value="ssl"{% if mail.encryption == 'ssl' %} selected{% endif %}>SSL</option>
+            <option value="tls"{% if mail.encryption == 'tls' %} selected{% endif %}>TLS</option>
+          </select>
+        </label>
+        <label class="install-field">{{ LNG.ins_mail_user }}<input type="text" name="user" value="{{ mail.user }}" maxlength="255" autocomplete="off"></label>
+        <label class="install-field">{{ LNG.ins_mail_pass }}<input type="password" name="password" value="" maxlength="255" autocomplete="new-password"><small>{{ LNG.ins_mail_pass_info }}</small></label>
+        <label class="install-check install-field--wide"><input type="checkbox" name="user_valid" value="1" data-mail-dependent{% if mail.user_valid %} checked{% endif %}{% if not mail.active %} disabled{% endif %}> <span>{{ LNG.ins_mail_user_valid }}<small class="install-hint">{{ LNG.ins_mail_user_valid_info }}</small></span></label>
+        <label class="install-field">{{ LNG.ins_mail_test_to }}<input type="email" name="test_to" value="{{ testTo }}" maxlength="255"></label>
+        <div class="install-field install-actions"><button type="submit" class="button" name="test" value="1" formnovalidate>{{ icon('send') }}{{ LNG.ins_mail_test_send }}</button></div>
+      </fieldset>
+    </details>
+
+    <details class="install-more"{% if errors.legal is defined %} open{% endif %}>
+      <summary>{{ LNG.ins_legal_optional }}</summary>
+      <p class="install-hint">{{ LNG.ins_legal_desc }}</p>
+      {% if errors.legal is defined %}<div class="notice notice--danger" role="alert">{{ icon('circle-alert') }}<div>{{ errors.legal }}</div></div>{% endif %}
+      <fieldset>
+        <legend>{{ LNG.ins_group_privacy }}</legend>
+        <label class="install-check install-field--wide">
+          <input type="radio" name="privacy_region" value="eu"{% if legal.privacy_region == 'eu' %} checked{% endif %}>
+          <span><strong>{{ LNG.ins_privacy_eu }}</strong><small class="install-hint">{{ LNG.ins_privacy_eu_info }}</small></span>
+        </label>
+        <label class="install-check install-field--wide">
+          <input type="radio" name="privacy_region" value="other"{% if legal.privacy_region == 'other' %} checked{% endif %}>
+          <span><strong>{{ LNG.ins_privacy_other }}</strong><small class="install-hint">{{ LNG.ins_privacy_other_info }}</small></span>
+        </label>
+        <label class="install-check install-field--wide"><input type="checkbox" name="cookie_consent" value="1"{% if legal.cookie_consent %} checked{% endif %}> <span>{{ LNG.ins_cookie_consent }}<small class="install-hint">{{ LNG.ins_cookie_consent_info }}</small></span></label>
+      </fieldset>
+      <fieldset>
+        <legend>{{ LNG.ins_group_rules }}</legend>
+        <label class="install-check install-field--wide">
+          <input type="radio" name="rules_default" value="default"{% if legal.rules_default == 'default' %} checked{% endif %}>
+          <span><strong>{{ LNG.ins_rules_default }}</strong><small class="install-hint">{{ LNG.ins_rules_default_info }}</small></span>
+        </label>
+        <label class="install-check install-field--wide">
+          <input type="radio" name="rules_default" value="blank"{% if legal.rules_default == 'blank' %} checked{% endif %}>
+          <span><strong>{{ LNG.ins_rules_blank }}</strong><small class="install-hint">{{ LNG.ins_rules_blank_info }}</small></span>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>{{ LNG.ins_group_imprint }}</legend>
+        <p class="install-field--wide install-hint">{{ LNG.ins_imprint_info }}</p>
+        <label class="install-field install-field--wide">{{ LNG.ins_imprint_mail }}<input type="email" name="disclamer_mail" value="{{ legal.disclamer_mail }}" maxlength="255"></label>
+        <label class="install-field install-field--wide">{{ LNG.ins_imprint_address }}<textarea name="disclamer_address" rows="3" maxlength="1000">{{ legal.disclamer_address }}</textarea></label>
+      </fieldset>
+      <p class="install-hint">{{ LNG.ins_legal_note }}</p>
+    </details>
+
+    <div class="install-actions"><button type="submit" class="btn--primary">{{ icon('rocket') }}{{ LNG.ins_finish }}</button></div>
+  </form>
+{% endblock %}

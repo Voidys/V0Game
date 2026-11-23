@@ -1418,3 +1418,8 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 - Channels global + alliance; `chat_global_enabled`; global filters in `ChatFilter` (word masking, generic link rule with disguise normalisation and `chat_allowed_domains`, repeat/caps/char-run checks, min account age 24 h default, min points); invisible/filler characters stripped.
 - UI: fixed desktop button + drawer entry on phones, `chat.js` short polling (4 s open, 30 s closed, paused when hidden), kebab popover per message; admin `/admin/chat` history (filters, deleted/original text, restore) and open-reports queue (oldest first, keyset paging).
 
+## 178. Installer in five steps
+
+- Web installer: requirements+licence, database (+ table build), game & admin, options (chat, global channel, link blocking, bots, mail, legal), done; inline field errors, optional fields folded, works without JS; upgrade mode unchanged.
+- `InstallService::applyChatSettings()`, chat module row created off; `app:install --chat/--no-chat --chat-global/--no-chat-global --chat-block-links/--no-chat-block-links`; `install.sh` and `docs/INSTALL.md` updated.
+

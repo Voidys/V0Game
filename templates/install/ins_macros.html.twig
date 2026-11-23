@@ -1,0 +1,3 @@
+{# inline validation: error(errors, field) prints the message under a field, invalid(errors, field) marks the input #}
+{% macro error(errors, field) %}{% if errors[field] is defined and errors[field] %}<small class="install-error" role="alert">{{ errors[field] }}</small>{% endif %}{% endmacro %}
+{% macro invalid(errors, field) %}{% if errors[field] is defined and errors[field] %} aria-invalid="true"{% endif %}{% endmacro %}

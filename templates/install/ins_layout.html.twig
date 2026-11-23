@@ -1,10 +1,10 @@
 {#
   Installer frame (fresh install): top bar with language, step list, one panel per step, footer.
-  Pages extend it and fill {% block panel %}; currentStep (0 = intro) marks the step list.
+  Pages extend it and fill {% block panel %}; currentStep (0 = intro, else 1-5 of the five stages) marks the step list.
   Styles: login.css (panels, notices, inputs) + install/installer.css (steps, checklist, form grid).
 #}
-{% set steps = {1: LNG.ins_step_licence, 2: LNG.ins_step_requirements, 3: LNG.ins_step_database, 5: LNG.ins_step_build, 6: LNG.ins_step_game, 7: LNG.ins_step_legal, 8: LNG.ins_step_mail, 9: LNG.ins_step_admin, 10: LNG.ins_step_done} %}
-{% set activeStep = (currentStep|default(0)) == 4 ? 3 : currentStep|default(0) %}
+{% set steps = {1: LNG.ins_step_requirements, 2: LNG.ins_step_database, 3: LNG.ins_step_setup, 4: LNG.ins_step_options, 5: LNG.ins_step_done} %}
+{% set activeStep = currentStep|default(0) %}
 <!doctype html>
 <html lang="{{ html_lang(lang) }}">
 <head>
@@ -45,6 +45,7 @@
           </li>
         {% endfor %}
       </ol>
+      <p class="install-progress">{{ LNG.ins_progress|replace({'%1': activeStep, '%2': steps|length}) }}</p>
     {% endif %}
 
     <section class="panel install-panel">

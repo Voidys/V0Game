@@ -2,8 +2,9 @@
 {% block heading %}{{ LNG.step3_head }}{% endblock %}
 {% block script %}<script type="module" src="../scripts/install/build.js?v={{ asset_version }}"></script>{% endblock %}
 {% block panel %}
+  {% if connected %}<div class="notice notice--success" role="status">{{ icon('circle-check') }}<div>{{ LNG.step2_db_done }}</div></div>{% endif %}
   <p>{{ LNG.ins_build_desc }}</p>
-  <ul class="install-checks install-build" data-build-url="./?mode=install&amp;step=5" data-next-url="./?mode=install&amp;step=6">
+  <ul class="install-checks install-build" data-build-url="./?mode=install&amp;step=3" data-next-url="./?mode=install&amp;step=4">
     {% for task, label in tasks %}
       <li class="is-pending" data-task="{{ task }}">
         <span class="install-build__state" aria-hidden="true"></span>
@@ -17,8 +18,8 @@
   {% endif %}
   <div class="notice notice--danger install-build__error" role="alert" hidden>{{ icon('circle-alert') }}<div></div></div>
   <div class="install-actions">
-    <a class="button install-build__back" href="./?mode=install&amp;step=3" hidden>{{ LNG.ins_back_database }}</a>
-    <button type="button" class="btn--primary install-build__start">{{ icon('hammer') }}{{ LNG.ins_build_start }}</button>
-    <noscript><a class="button btn--primary" href="./?mode=install&amp;step=5&amp;task=all">{{ LNG.ins_build_start }}</a></noscript>
+    <a class="button install-build__back" href="./?mode=install&amp;step=2"{% if not (error is defined and error) %} hidden{% endif %}>{{ LNG.ins_back_database }}</a>
+    <button type="button" class="btn--primary install-build__start" hidden>{{ icon('hammer') }}{{ LNG.ins_build_start }}</button>
+    <noscript><a class="button btn--primary" href="./?mode=install&amp;step=3&amp;task=all">{{ LNG.ins_build_start }}</a></noscript>
   </div>
 {% endblock %}

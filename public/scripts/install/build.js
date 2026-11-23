@@ -1,6 +1,6 @@
 /**
  * Installer, "build the database": runs the tasks of the list one request each
- * (`<data-build-url>&task=<name>`, JSON {ok, message}) and ticks them off; continues when all are done.
+ * (`<data-build-url>&task=<name>`, JSON {ok, message}) and ticks them off; starts by itself and continues when all are done.
  */
 const list = document.querySelector('.install-build');
 const start = document.querySelector('.install-build__start');
@@ -40,4 +40,6 @@ if (list && start) {
     }
     window.location.href = list.dataset.nextUrl;
   });
+  // nothing to confirm: start right away (without JavaScript the <noscript> link runs all tasks)
+  if (!document.querySelector('.install-build__back:not([hidden])')) start.click();
 }

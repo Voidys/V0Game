@@ -16,3 +16,14 @@ document.addEventListener('change', (event) => {
   dependent.disabled = !toggle.checked;
   if (!toggle.checked) dependent.checked = false;
 });
+
+/** Options step: the sub-options of a switch (data-toggle-group="x", members data-toggle-member="x") are only available while it is on. */
+function syncToggleGroup(toggle) {
+  for (const member of toggle.form?.querySelectorAll(`[data-toggle-member="${toggle.dataset.toggleGroup}"]`) ?? []) {
+    member.disabled = !toggle.checked;
+  }
+}
+document.addEventListener('change', (event) => {
+  if (event.target instanceof HTMLInputElement && event.target.hasAttribute('data-toggle-group')) syncToggleGroup(event.target);
+});
+document.querySelectorAll('[data-toggle-group]').forEach(syncToggleGroup);

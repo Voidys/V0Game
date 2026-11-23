@@ -5,6 +5,12 @@
   {% if botError %}
     <div class="notice notice--danger" role="alert">{{ icon('circle-alert') }}<div>{{ LNG.ins_done_bots_failed }}</div></div>
   {% endif %}
+  <h2>{{ LNG.ins_done_summary }}</h2>
+  <ul class="install-todo">
+    <li><strong>{{ gameName }}</strong> &ndash; {{ adminName }}</li>
+    <li><strong>{{ LNG.ins_group_chat }}:</strong> {% if options.chat %}{{ (options.chat_global ? LNG.ins_done_chat_global : LNG.ins_done_chat_no_global)|replace({'%s': options.chat_block_links ? LNG.ins_done_links_blocked : LNG.ins_done_links_allowed}) }}{% else %}{{ LNG.ins_done_chat_off }}{% endif %}</li>
+    <li><strong>{{ LNG.ins_step_mail }}:</strong> {{ mailOn ? LNG.ins_done_mail_on : LNG.ins_done_mail_off }}</li>
+  </ul>
   <h2>{{ LNG.ins_done_checklist }}</h2>
   <ol class="install-todo">
     <li><strong>{{ LNG.ins_done_login }}</strong> {{ LNG.ins_done_login_info|replace({'%s': adminName}) }}<br><a href="{{ adminUrl|e('html_attr') }}">{{ adminUrl }}</a></li>

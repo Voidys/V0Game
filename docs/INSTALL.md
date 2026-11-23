@@ -72,8 +72,8 @@ the user all rights on it. Write down host (often `localhost`), name, user and p
 
 ### 6. Run the setup wizard
 
-Open `https://your-domain/install/`. The wizard checks the requirements, asks for the database data, game name,
-language, speed and your administrator account, creates everything and shows you the next steps. If the check lists
+Open `https://your-domain/install/`. The wizard has five steps: server check and licence, database, game name and
+administrator account, optional features (in-game chat, bots, e-mail, legal texts), and a summary with the next steps. If the check lists
 something in red, fix it first (most often missing write permissions on `var/`, `config/`, `.env.local`: set the
 folders to 775 / the files to 664 in the file manager, or ask the hoster).
 
@@ -146,7 +146,8 @@ V0GAME_DB_PASSWORD=... V0GAME_ADMIN_PASSWORD=... bash install.sh --mode server -
 ```
 
 The `--db-*`, `--game-name`, `--language`, `--timezone`, `--speed` (`classic`, `fast`, `blitz`), `--registration`
-(`open`, `closed`), `--admin-*`, `--bots` and `--base-url` options go to `bin/console app:install`.
+(`open`, `closed`), `--admin-*`, `--bots`, `--chat`, `--chat-global`/`--no-chat-global`, `--chat-block-links`/`--no-chat-block-links` (the chat is off unless
+`--chat`) and `--base-url` options go to `bin/console app:install`.
 
 Afterwards:
 

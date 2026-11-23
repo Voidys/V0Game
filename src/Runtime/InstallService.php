@@ -24,7 +24,8 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
  * and by `bin/console app:install` (App\Command\InstallCommand).
  *
  * Order: requirements -> prepareDatabase() (connect, create the database, write config/game.php and .env.local)
- * -> runBuildTask() for every buildTasks() entry -> applyGameSettings() -> createAdmin() -> spawnBots() -> finish().
+ * -> runBuildTask() for every buildTasks() entry -> applyGameSettings() -> createAdmin() -> applyChatSettings() ->
+ * spawnBots() -> lock().
  * Everything after prepareDatabase() needs a process that started after .env.local was written (the game's
  * connection reads DATABASE_URL at start-up).
  */
@@ -227,8 +228,8 @@ final class InstallService
         $result = static function (bool $passed) use (&$checks, &$migrationpw, &$generated): array {
             return ['checks' => $checks, 'passed' => $passed, 'migrationpw' => $migrationpw, 'generated' => $generated];
         };
-        $fail = static function (string $label, string $detail) use (&$checks, $result): array {
-            $checks[] = ['label' => $label, 'ok' => false, 'detail' => $detail];
+        $fail = static function (string $label, string $detail, string $field = '') use (&$checks, $result): array {
+            $checks[] = ['label' => $label, 'ok' => false, 'detail' => $detail, 'field' => $field];
 
             return $result(false);
         };
@@ -270,7 +271,7 @@ final class InstallService
      * not already installed). On success appends the OK check.
      *
      * @param list<array{label: string, ok: bool, detail: string}> $checks collected checks (appended to)
-     * @param \Closure(string, string): array $fail records a failed check and builds the failure result
+     * @param \Closure(string, string, string=): array $fail records a failed check and builds the failure result
      * @param array<string, mixed> $fail
      * @param array<string, mixed> $form
      * @return array<mixed>|null the failure result, null when the step passed
@@ -279,18 +280,18 @@ final class InstallService
     {
         $LNG = $this->lng($locale);
 
-        $invalid = match (true) {
-            $form['host'] === '' => $LNG['ins_db_no_host'],
-            $form['dbname'] === '' => $LNG['step2_db_no_dbname'],
-            !preg_match('/^[A-Za-z0-9_\-]{1,64}$/', $form['dbname']) => $LNG['ins_db_name_invalid'],
-            strlen($form['prefix']) > 36 => $LNG['step2_db_too_long'],
-            !preg_match('/^[A-Za-z_][A-Za-z0-9_]*$/', $form['prefix']) => $LNG['step2_prefix_invalid'],
-            preg_match('/[\r\n\'"\\\\$]/', $migrationpw) === 1 => $LNG['ins_migrationpw_invalid'],
-            $this->isInstalled() => $LNG['step2_config_exists'],
-            default => null,
+        [$field, $invalid] = match (true) {
+            $form['host'] === '' => ['host', $LNG['ins_db_no_host']],
+            $form['dbname'] === '' => ['dbname', $LNG['step2_db_no_dbname']],
+            !preg_match('/^[A-Za-z0-9_\-]{1,64}$/', $form['dbname']) => ['dbname', $LNG['ins_db_name_invalid']],
+            strlen($form['prefix']) > 36 => ['prefix', $LNG['step2_db_too_long']],
+            !preg_match('/^[A-Za-z_][A-Za-z0-9_]*$/', $form['prefix']) => ['prefix', $LNG['step2_prefix_invalid']],
+            preg_match('/[\r\n\'"\\\\$]/', $migrationpw) === 1 => ['migrationpw', $LNG['ins_migrationpw_invalid']],
+            $this->isInstalled() => ['', $LNG['step2_config_exists']],
+            default => ['', null],
         };
         if ($invalid !== null) {
-            return $fail($LNG['ins_check_input'], $invalid);
+            return $fail($LNG['ins_check_input'], $invalid, $field);
         }
         $checks[] = ['label' => $LNG['ins_check_input'], 'ok' => true, 'detail' => ''];
 
@@ -301,7 +302,7 @@ final class InstallService
      * Install step "server": connects with the form values and reads the server version.
      *
      * @param list<array{label: string, ok: bool, detail: string}> $checks collected checks (appended to)
-     * @param \Closure(string, string): array $fail records a failed check and builds the failure result
+     * @param \Closure(string, string, string=): array $fail records a failed check and builds the failure result
      * @param PDO|null $pdo set to the connection on success (out parameter)
      * @param string|null $version set to the server version on success (out parameter)
      * @param array<string, mixed> $fail
@@ -319,7 +320,7 @@ final class InstallService
             ]);
             $version = (string) $pdo->query('SELECT VERSION()')->fetchColumn();
         } catch (PDOException $e) {
-            return $fail($LNG['ins_check_connect'], $this->explainConnectionError($e, $form['host'], $locale));
+            return $fail($LNG['ins_check_connect'], $this->explainConnectionError($e, $form['host'], $locale), 'user');
         }
         $checks[] = ['label' => $LNG['ins_check_connect'], 'ok' => true, 'detail' => $version];
 
@@ -330,7 +331,7 @@ final class InstallService
      * Install step "database": the database must exist or is created when `createdb` is set.
      *
      * @param list<array{label: string, ok: bool, detail: string}> $checks collected checks (appended to)
-     * @param \Closure(string, string): array $fail records a failed check and builds the failure result
+     * @param \Closure(string, string, string=): array $fail records a failed check and builds the failure result
      * @param array<string, mixed> $fail
      * @param array<string, mixed> $form
      * @return array<mixed>|null the failure result, null when the step passed
@@ -344,12 +345,12 @@ final class InstallService
         $exists->execute([$form['dbname']]);
         if ((int) $exists->fetchColumn() === 0) {
             if (!$form['createdb']) {
-                return $fail($label, $LNG['ins_db_missing']);
+                return $fail($label, $LNG['ins_db_missing'], 'dbname');
             }
             try {
                 $pdo->exec('CREATE DATABASE `' . $form['dbname'] . '` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
             } catch (PDOException $e) {
-                return $fail($label, $LNG['ins_db_create_fail'] . ' ' . $this->explainCreateError($e, $locale));
+                return $fail($label, $LNG['ins_db_create_fail'] . ' ' . $this->explainCreateError($e, $locale), 'dbname');
             }
             $checks[] = ['label' => $label, 'ok' => true, 'detail' => $LNG['ins_db_created']];
         } else {
@@ -363,7 +364,7 @@ final class InstallService
      * Install step "free of game tables": no table with the prefix may exist in the database yet.
      *
      * @param list<array{label: string, ok: bool, detail: string}> $checks collected checks (appended to)
-     * @param \Closure(string, string): array $fail records a failed check and builds the failure result
+     * @param \Closure(string, string, string=): array $fail records a failed check and builds the failure result
      * @param array<string, mixed> $fail
      * @param array<string, mixed> $form
      * @return array<mixed>|null the failure result, null when the step passed
@@ -377,7 +378,7 @@ final class InstallService
         $tables->execute([$form['dbname'], addcslashes($form['prefix'], '_%\\') . '%']);
         $tableCount = (int) $tables->fetchColumn();
         if ($tableCount > 0) {
-            return $fail($label, $LNG->format('ins_tables_exist', $tableCount));
+            return $fail($label, $LNG->format('ins_tables_exist', $tableCount), 'prefix');
         }
         $checks[] = ['label' => $label, 'ok' => true, 'detail' => ''];
 
@@ -389,7 +390,7 @@ final class InstallService
      * salt; mode 0640 because it holds secrets).
      *
      * @param list<array{label: string, ok: bool, detail: string}> $checks collected checks (appended to)
-     * @param \Closure(string, string): array $fail records a failed check and builds the failure result
+     * @param \Closure(string, string, string=): array $fail records a failed check and builds the failure result
      * @param array<string, mixed> $fail
      * @param array<string, mixed> $form
      * @return array<mixed>|null the failure result, null when the step passed
@@ -425,7 +426,7 @@ final class InstallService
      * environment defaults and, when given, DEFAULT_URI. A failed write removes config/game.php again.
      *
      * @param list<array{label: string, ok: bool, detail: string}> $checks collected checks (appended to)
-     * @param \Closure(string, string): array $fail records a failed check and builds the failure result
+     * @param \Closure(string, string, string=): array $fail records a failed check and builds the failure result
      * @param array<string, mixed> $fail
      * @param array<string, mixed> $form
      * @return array<mixed>|null the failure result, null when the step passed
@@ -580,7 +581,8 @@ final class InstallService
                         ':uni' => 1,
                         ':module' => $moduleKey,
                         ':module_name' => $moduleName,
-                        ':state' => 1,
+                        // the chat is opt-in (see applyChatSettings())
+                        ':state' => $moduleKey === MODULE_CHAT ? 0 : 1,
                     ]);
                 }
                 break;
@@ -600,7 +602,7 @@ final class InstallService
      * an http(s) URL).
      *
      * @param array<string, mixed> $input
-     * @return array{error: ?string, values: array<string, mixed>}
+     * @return array{error: ?string, field: string, values: array<string, mixed>} field = the form field of the error
      */
     public function validateGameSettings(array $input, string $locale): array
     {
@@ -622,20 +624,20 @@ final class InstallService
             $values['uni_name'] = $LNG['fcm_universe'] . ' 1';
         }
 
-        $error = match (true) {
-            $values['game_name'] === '' || mb_strlen($values['game_name']) > 64 => $LNG['ins_game_name_invalid'],
-            !isset(Theme::getAvailableCssThemes()[$values['default_theme']]) => $LNG['ins_theme_invalid'],
-            mb_strlen($values['uni_name']) > 60 => $LNG['ins_uni_name_invalid'],
-            !array_key_exists($values['language'], $this->allowedLanguages()) => $LNG['ins_language_invalid'],
-            !in_array($values['timezone'], $this->timezones(), true) => $LNG['ins_timezone_invalid'],
-            !isset(self::SPEED_PRESETS[$values['speed']]) => $LNG['ins_speed_invalid'],
-            !in_array($values['registration'], ['open', 'closed'], true) => $LNG['ins_registration_invalid'],
-            $values['bots'] < 0 || $values['bots'] > 50 => $LNG['ins_bots_invalid'],
-            $values['discord_url'] !== '' && \App\Game\Alliance\AllianceText::httpUrlOrEmpty($values['discord_url']) === '' => $LNG['ins_discord_url_invalid'],
-            default => null,
+        [$field, $error] = match (true) {
+            $values['game_name'] === '' || mb_strlen($values['game_name']) > 64 => ['game_name', $LNG['ins_game_name_invalid']],
+            !isset(Theme::getAvailableCssThemes()[$values['default_theme']]) => ['default_theme', $LNG['ins_theme_invalid']],
+            mb_strlen($values['uni_name']) > 60 => ['uni_name', $LNG['ins_uni_name_invalid']],
+            !array_key_exists($values['language'], $this->allowedLanguages()) => ['language', $LNG['ins_language_invalid']],
+            !in_array($values['timezone'], $this->timezones(), true) => ['timezone', $LNG['ins_timezone_invalid']],
+            !isset(self::SPEED_PRESETS[$values['speed']]) => ['speed', $LNG['ins_speed_invalid']],
+            !in_array($values['registration'], ['open', 'closed'], true) => ['registration', $LNG['ins_registration_invalid']],
+            $values['bots'] < 0 || $values['bots'] > 50 => ['bots', $LNG['ins_bots_invalid']],
+            $values['discord_url'] !== '' && \App\Game\Alliance\AllianceText::httpUrlOrEmpty($values['discord_url']) === '' => ['discord_url', $LNG['ins_discord_url_invalid']],
+            default => ['', null],
         };
 
-        return ['error' => $error, 'values' => $values];
+        return ['error' => $error, 'field' => $field, 'values' => $values];
     }
 
     /**
@@ -667,6 +669,46 @@ final class InstallService
         foreach ($universe as $key => $value) {
             $this->db->update($sql, [':key' => $key, ':value' => $value]);
         }
+        $this->configs->invalidateCache();
+        if ($this->configs->isLoaded()) {
+            $this->configs->reload();
+        }
+    }
+
+    /** Chat filter keys (universe config) the installer offers; the rest keeps the schema defaults. */
+    public const CHAT_DEFAULTS = ['chat' => false, 'chat_global' => true, 'chat_block_links' => true];
+
+    /**
+     * Writes the chat choice to universe 1: module MODULE_CHAT on/off, `chat_global_enabled` and `chat_block_links`
+     * (the other chat filters keep their defaults, editable in the administration). The module is off after the
+     * build, so this only ever switches it on or confirms off.
+     *
+     * @param bool $enabled the chat module
+     * @param bool $global the global channel
+     * @param bool $blockLinks block links in the global channel
+     */
+    public function applyChatSettings(bool $enabled, bool $global = true, bool $blockLinks = true): void
+    {
+        $this->db->update(
+            'UPDATE %%CONFIG_UNIVERSE_MODULES%% SET `state` = :state WHERE `uni` = 1 AND `module` = :module;',
+            [':state' => $enabled ? 1 : 0, ':module' => MODULE_CHAT],
+        );
+        $sql = 'INSERT INTO %%CONFIG_UNIVERSE%% (`uni`, `key`, `value`) VALUES (1, :key, :value) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);';
+        $this->db->insert($sql, [':key' => 'chat_global_enabled', ':value' => $global ? '1' : '0']);
+        $this->db->insert($sql, [':key' => 'chat_block_links', ':value' => $blockLinks ? '1' : '0']);
+        $this->configs->invalidateCache();
+        if ($this->configs->isLoaded()) {
+            $this->configs->reload();
+        }
+    }
+
+    /** Switches the bots of universe 1 on or off (applyGameSettings() sets it from its own `bots` value). */
+    public function applyBotsEnabled(int $count): void
+    {
+        $this->db->update(
+            'UPDATE %%CONFIG_UNIVERSE%% SET `value` = :value WHERE `uni` = 1 AND `key` = \'bots_enabled\';',
+            [':value' => $count > 0 ? '1' : '0'],
+        );
         $this->configs->invalidateCache();
         if ($this->configs->isLoaded()) {
             $this->configs->reload();

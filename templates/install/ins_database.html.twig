@@ -1,0 +1,33 @@
+{% extends 'install/ins_layout.html.twig' %}
+{% import 'install/ins_macros.html.twig' as m %}
+{% block heading %}{{ LNG.step1_head }}{% endblock %}
+{% block panel %}
+  <p>{{ LNG.ins_db_help }}</p>
+  {% if checks %}
+    {% include 'install/ins_checks.html.twig' %}
+    {% if retype %}<p class="install-hint">{{ LNG.ins_db_retype }}</p>{% endif %}
+  {% endif %}
+  <form class="install-form" action="./?mode=install&amp;step=2" method="post">
+    <input type="hidden" name="post" value="1">
+    <fieldset>
+      <legend>{{ LNG.ins_db_connection }}</legend>
+      <label class="install-field install-field--wide">{{ LNG.ins_db_host }}<input type="text" name="host" value="{{ form.host|e('html_attr') }}" required autocomplete="off"{{ m.invalid(fieldErrors, 'host') }}><small>{{ LNG.ins_db_host_info }}</small>{{ m.error(fieldErrors, 'host') }}</label>
+      <label class="install-field">{{ LNG.step1_mysql_dbuser }}<input type="text" name="user" value="{{ form.user|e('html_attr') }}" autocomplete="off"{{ m.invalid(fieldErrors, 'user') }}>{{ m.error(fieldErrors, 'user') }}</label>
+      <label class="install-field">{{ LNG.step1_mysql_dbpass }}<input type="password" name="password" value="{{ form.password|e('html_attr') }}" autocomplete="new-password"></label>
+      <label class="install-field install-field--wide">{{ LNG.step1_mysql_dbname }}<input type="text" name="dbname" value="{{ form.dbname|e('html_attr') }}" pattern="[A-Za-z0-9_\-]{1,64}" required{{ m.invalid(fieldErrors, 'dbname') }}><small>{{ LNG.ins_db_name_info }}</small>{{ m.error(fieldErrors, 'dbname') }}</label>
+      <label class="install-check install-field--wide"><input type="checkbox" name="createdb" value="1"{% if form.createdb %} checked{% endif %}> {{ LNG.ins_db_createdb }}</label>
+    </fieldset>
+    <details class="install-advanced"{% if form.port != '3306' or form.prefix != 'uni1_' or form.migrationpw or fieldErrors.prefix is defined or fieldErrors.migrationpw is defined %} open{% endif %}>
+      <summary>{{ LNG.ins_db_advanced }}</summary>
+      <fieldset>
+        <label class="install-field"><span>{{ LNG.step1_mysql_port }}</span><input type="number" name="port" value="{{ form.port|e('html_attr') }}" min="1" max="65535" required></label>
+        <label class="install-field"><span>{{ LNG.step1_mysql_prefix|trim(':') }}</span><input type="text" name="prefix" value="{{ form.prefix|e('html_attr') }}" pattern="[A-Za-z_][A-Za-z0-9_]{0,35}" required{{ m.invalid(fieldErrors, 'prefix') }}><small>{{ LNG.ins_db_prefix_info }}</small>{{ m.error(fieldErrors, 'prefix') }}</label>
+        <label class="install-field install-field--wide">{{ LNG.step1_mysql_migrationpass }}<input type="text" name="migrationpw" value="{{ form.migrationpw|e('html_attr') }}" autocomplete="off" placeholder="{{ LNG.ins_db_migrationpw_placeholder|e('html_attr') }}"{{ m.invalid(fieldErrors, 'migrationpw') }}><small>{{ LNG.ins_db_migrationpw_info }}</small>{{ m.error(fieldErrors, 'migrationpw') }}</label>
+      </fieldset>
+    </details>
+    <div class="install-actions">
+      <a class="button" href="./?mode=install&amp;step=1">{{ LNG.back }}</a>
+      <button type="submit" class="btn--primary">{{ icon('database') }}{{ LNG.ins_db_connect }}</button>
+    </div>
+  </form>
+{% endblock %}

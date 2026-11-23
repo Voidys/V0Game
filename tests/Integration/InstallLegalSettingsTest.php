@@ -69,28 +69,6 @@ final class InstallLegalSettingsTest extends GameTestCase
         $this->assertSame('', trim($pages->findExact('rules', 'en')['content']));
     }
 
-    public function testLegalStepRenders(): void
-    {
-        $this->service()->useLanguage('en');
-        $html = self::container()->get('twig')->render('install/ins_legal.html.twig', [
-            'currentStep' => 7,
-            'lang' => 'en',
-            'values' => ['privacy_region' => 'other', 'rules_default' => 'blank', 'board_enabled' => false],
-            'bots' => 3,
-            'asset_version' => 1,
-        ]);
-
-        $this->assertStringContainsString('action="./?mode=install&amp;step=7"', $html);
-        $this->assertMatchesRegularExpression('/value="other" checked/', $html);
-        $this->assertMatchesRegularExpression('/value="blank" checked/', $html);
-        $this->assertStringNotContainsString('board_enabled', $html);
-        $this->assertStringContainsString('name="disclamer_mail"', $html);
-        $this->assertStringContainsString('name="disclamer_address"', $html);
-        $this->assertStringContainsString('name="bots" value="3"', $html);
-        // licence, requirements, database, tables, game, legal, e-mail, administrator, done
-        $this->assertSame(9, substr_count($html, 'install-steps__dot"'));
-    }
-
     public function testAdminMailFillsAnEmptyImprintContact(): void
     {
         $this->service()->applyLegalSettings(['privacy_region' => 'eu', 'rules_default' => 'default', 'disclamer_mail' => '']);

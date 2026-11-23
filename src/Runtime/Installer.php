@@ -305,95 +305,100 @@ final class Installer
 
     /**
      * Fresh install, one step per request (the steps themselves are App\Runtime\InstallService, shared with
-     * `bin/console app:install`):
-     * 1 licence, 2 requirements, 3 database form, 4 connect + create the database + write the settings,
-     * 5 build the tables (task by task), 6 game settings, 7 legal settings (hosting region, rules, board),
-     * 8 e-mail (optional, SMTP or PHP mail, test mail, skippable), 9 administrator form, 10 create the administrator, done.
+     * `bin/console app:install`). Five stages in the progress bar:
+     * 1 requirements + licence, 2 database (form, connect + create + write the settings; 3 = build the tables, still
+     * stage 2), 4 game + administrator (stage 3), 5 options: chat, bots, e-mail, legal (stage 4); the options form
+     * ends with the summary page (stage 5) and locks the tool.
      */
     private function install(Language $LNG, string $enableInstallToolFile): void
     {
         $step = (int) $this->input()->int('step');
-        // the build, settings and administrator steps never run against a game that already has an administrator
-        if ($step >= 5 && $this->installer->hasAdmin()) {
+        // the build and setup steps never run against a game that already has an administrator; the options step
+        // only for the browser session that just created it
+        if (($step === 3 || $step === 4) && $this->installer->hasAdmin()) {
             $this->http()->redirectTo('./');
         }
-        $this->assign(['currentStep' => $step]);
+        if ($step === 5 && !($this->installer->hasAdmin() && $this->sessions()->load()->adminAccess == 1)) {
+            $this->http()->redirectTo('./');
+        }
+        $this->assign(['currentStep' => self::STAGE[$step] ?? 0]);
         match ($step) {
-            1 => $this->stepLicence(),
-            2 => $this->stepRequirements($LNG),
-            3 => $this->stepDatabaseForm(),
-            4 => $this->stepDatabase($LNG),
-            5 => $this->stepBuild($LNG),
-            6 => $this->stepGame($LNG),
-            7 => $this->stepLegal($LNG),
-            8 => $this->stepMail($LNG),
-            9 => $this->stepAdminForm(),
-            10 => $this->stepAdmin($LNG),
+            1 => $this->stepCheck($LNG),
+            2 => $this->stepDatabase($LNG),
+            3 => $this->stepBuild($LNG),
+            4 => $this->stepSetup($LNG),
+            5 => $this->stepOptions($LNG),
             default => $this->http()->redirectTo('./'),
         };
     }
 
-    /** Step 1: shows the licence; accepting continues with the requirements. */
-    private function stepLicence(): void
+    /** progress stage (1-5) of every install step */
+    private const STAGE = [1 => 1, 2 => 2, 3 => 2, 4 => 3, 5 => 4];
+
+    /**
+     * Step 1: requirements (a one-line "all good" with the list folded away, the full list when something fails) and
+     * the licence; accepting continues with the database.
+     */
+    private function stepCheck(Language $LNG): void
     {
-        if (isset($this->state->requestPost['post'])) {
+        $requirements = $this->installer->requirements($LNG->getLanguage());
+        $accept = true;
+        if (isset($this->state->requestPost['post']) && $requirements['passed']) {
             if (isset($this->state->requestPost['accept'])) {
                 $this->http()->redirectTo('./?mode=install&step=2');
             }
-            $this->assign(['accept' => false]);
+            $accept = false;
         }
-        // the project's licence file (GNU AGPL v3), shown as is
-        $this->assign(['licenceText' => (string) SafeFile::read($this->state->runtime->rootPath . 'LICENSE')]);
-        $this->show('ins_license');
+        $this->assign($requirements + [
+            'accept' => $accept,
+            // the project's licence file (GNU AGPL v3), shown as is
+            'licenceText' => (string) SafeFile::read($this->state->runtime->rootPath . 'LICENSE'),
+        ]);
+        $this->show('ins_check');
     }
 
-    /** Step 2: PHP/extension checks and writable paths (see InstallService::requirements()). */
-    private function stepRequirements(Language $LNG): void
-    {
-        $this->assign($this->installer->requirements($LNG->getLanguage()));
-        $this->show('ins_req');
-    }
-
-    /** Step 3: database form, prefilled from the query string or the unattended-install defaults. */
-    private function stepDatabaseForm(): void
-    {
-        $query = $this->state->requestQuery;
-        $this->assign(['form' => [
-            'host' => $query['host'] ?? (($this->defaults['DB_HOST'] ?? null) ?: 'localhost'),
-            'port' => $query['port'] ?? '3306',
-            'user' => $query['user'] ?? ($this->defaults['DB_USER'] ?? ''),
-            'password' => $this->defaults['DB_PASSWORD'] ?? '',
-            'dbname' => $query['dbname'] ?? ($this->defaults['DB_NAME'] ?? ''),
-            'prefix' => $query['prefix'] ?? 'uni1_',
-            'createdb' => !isset($query['host']) || !empty($query['createdb']),
-            'migrationpw' => $query['migrationpw'] ?? '',
-        ]]);
-        $this->show('ins_form');
-    }
-
-    /** see InstallService::prepareDatabase(); the checks are shown as a list */
+    /**
+     * Step 2: database form (prefilled from the unattended-install defaults). Posting it connects, creates the
+     * database and writes config/game.php and .env.local (see InstallService::prepareDatabase()); the result is
+     * shown above the form and next to the failing field, success continues with the build.
+     */
     private function stepDatabase(Language $LNG): void
     {
+        $post = $this->state->requestPost;
+        $posted = isset($post['post']);
         $form = [
-            'host' => trim((string) $this->input()->string('host')),
-            'port' => (string) (int) $this->input()->int('port', 3306),
-            'user' => (string) $this->input()->string('user', '', true),
-            'dbname' => trim((string) $this->input()->string('dbname', '', true)),
-            'prefix' => trim((string) $this->input()->typed('prefix', 'uni1_')),
-            'createdb' => !empty($this->state->requestPost['createdb']) ? '1' : '',
-            'migrationpw' => (string) $this->input()->string('migrationpw', '', true),
+            'host' => $posted ? trim((string) $this->input()->string('host')) : (($this->defaults['DB_HOST'] ?? null) ?: 'localhost'),
+            'port' => $posted ? (string) (int) $this->input()->int('port', 3306) : '3306',
+            'user' => $posted ? (string) $this->input()->string('user', '', true) : ($this->defaults['DB_USER'] ?? ''),
+            'dbname' => $posted ? trim((string) $this->input()->string('dbname', '', true)) : ($this->defaults['DB_NAME'] ?? ''),
+            'prefix' => $posted ? trim((string) $this->input()->typed('prefix', 'uni1_')) : 'uni1_',
+            'createdb' => $posted ? (!empty($post['createdb']) ? '1' : '') : '1',
+            'migrationpw' => $posted ? (string) $this->input()->string('migrationpw', '', true) : '',
         ];
-        $password = (string) ($this->state->requestPost['password'] ?? '');
-        // the address the installer is opened at becomes DEFAULT_URI (links in mails are built from it)
-        $request = $this->state->request ?? null;
-        $baseUrl = $request instanceof \Symfony\Component\HttpFoundation\Request ? rtrim($request->getSchemeAndHttpHost() . $request->getBasePath(), '/') : '';
-        $result = $this->installer->prepareDatabase($form, $password, $LNG->getLanguage(), $baseUrl);
-        $this->assign(['checks' => $result['checks'], 'passed' => $result['passed']]);
-        if (!$result['passed']) {
-            // the generated migration password is not carried back into the form
-            $this->assign(['back' => http_build_query(['mode' => 'install', 'step' => 3] + $form)]);
+        $checks = [];
+        $fieldErrors = [];
+        if ($posted) {
+            // the address the installer is opened at becomes DEFAULT_URI (links in mails are built from it)
+            $request = $this->state->request ?? null;
+            $baseUrl = $request instanceof \Symfony\Component\HttpFoundation\Request ? rtrim($request->getSchemeAndHttpHost() . $request->getBasePath(), '/') : '';
+            $result = $this->installer->prepareDatabase($form, (string) ($post['password'] ?? ''), $LNG->getLanguage(), $baseUrl);
+            if ($result['passed']) {
+                $this->http()->redirectTo('./?mode=install&step=3&connected=1');
+            }
+            $checks = $result['checks'];
+            foreach ($checks as $check) {
+                if (!$check['ok']) {
+                    $fieldErrors[$check['field'] ?: 'general'] = $check['detail'];
+                }
+            }
         }
-        $this->show('ins_step4');
+        $this->assign([
+            'form' => $form + ['password' => $posted ? '' : ($this->defaults['DB_PASSWORD'] ?? '')],
+            'checks' => $checks,
+            'fieldErrors' => $fieldErrors,
+            'retype' => $posted,
+        ]);
+        $this->show('ins_database');
     }
 
     /**
@@ -407,8 +412,8 @@ final class Installer
         $tasks = $this->installer->buildTasks($locale);
         $task = (string) $this->input()->string('task');
         if ($task === '') {
-            $this->assign(['tasks' => $tasks]);
-            $this->show('ins_step5');
+            $this->assign(['tasks' => $tasks, 'connected' => !empty($this->state->requestQuery['connected'])]);
+            $this->show('ins_build');
         }
 
         $run = $task === 'all' ? array_keys($tasks) : [$task];
@@ -424,13 +429,13 @@ final class Installer
             SafeFile::remove($this->state->runtime->rootPath . 'config/game.php');
             if ($task === 'all') {
                 $this->assign(['tasks' => $tasks, 'error' => $LNG['step3_db_error'] . ' ' . $e->getMessage()]);
-                $this->show('ins_step5');
+                $this->show('ins_build');
             }
             $this->sendJson(['ok' => false, 'message' => $LNG['step3_db_error'] . ' ' . $e->getMessage()]);
         }
 
         if ($task === 'all') {
-            $this->http()->redirectTo('./?mode=install&step=6');
+            $this->http()->redirectTo('./?mode=install&step=4');
         }
         $this->sendJson(['ok' => true]);
     }
@@ -447,11 +452,17 @@ final class Installer
         throw new \App\Game\Core\EndOfRequest();
     }
 
-    /** game name, theme, universe, language, timezone, speed preset, registration, e-mails and bots */
-    private function stepGame(Language $LNG): void
+    /**
+     * Step 4: game name, universe name, language and the administrator; speed, registration, time zone, theme and the
+     * rest sit in a folded "more settings" block. Posting validates everything (errors next to the fields), writes the
+     * game settings, creates the administrator, logs it in (Symfony login plus a game session with admin access) and
+     * continues with the options. The tool stays open until the options step is done.
+     */
+    private function stepSetup(Language $LNG): void
     {
         $locale = $LNG->getLanguage();
         $post = $this->state->requestPost;
+        $posted = isset($post['post']);
         $values = [
             'game_name' => $post['game_name'] ?? 'V0Game',
             'default_theme' => $post['default_theme'] ?? DEFAULT_THEME,
@@ -460,86 +471,85 @@ final class Installer
             'timezone' => $post['timezone'] ?? $this->installer->defaultTimezone(),
             'speed' => $post['speed'] ?? 'classic',
             'registration' => $post['registration'] ?? 'open',
-            'mail' => isset($post['post']) ? !empty($post['mail']) : false,
-            'bots' => $post['bots'] ?? 0,
-            'update_check' => isset($post['post']) ? !empty($post['update_check']) : true,
+            'mail' => false,
+            'bots' => 0,
+            'update_check' => $posted ? !empty($post['update_check']) : true,
             'discord_url' => $this->input()->string('discord_url'),
         ];
+        $admin = [
+            'username' => $posted ? (string) $this->input()->string('username', '', UTF8_SUPPORT) : ($this->defaults['ADMIN_NAME'] ?? ''),
+            'email' => $posted ? (string) $this->input()->string('email') : ($this->defaults['ADMIN_MAIL'] ?? ''),
+        ];
 
-        if (isset($post['post'])) {
+        $fieldErrors = [];
+        if ($posted) {
             $checked = $this->installer->validateGameSettings($values, $locale);
             $values = $checked['values'];
-            if ($checked['error'] === null) {
-                $this->installer->applyGameSettings($values);
-                $this->http()->redirectTo('./?mode=install&step=7&bots=' . $values['bots'] . '&lang=' . $values['language']);
+            if ($checked['error'] !== null) {
+                $fieldErrors[$checked['field']] = $checked['error'];
             }
-            $this->assign(['error' => $checked['error']]);
+            $password = (string) $this->input()->rawString('password');
+            $fieldErrors += $this->installer->validateAdmin($admin['username'], $password, (string) $this->input()->rawString('password_confirm'), $admin['email'], $locale);
+            if ($fieldErrors === []) {
+                $this->createGameAndAdmin($values, $admin, $password);
+                $this->http()->redirectTo('./?mode=install&step=5&lang=' . $values['language']);
+            }
         }
 
         $this->assign([
             'values' => $values,
+            'admin' => $admin + ['password' => $posted ? '' : ($this->defaults['ADMIN_PASSWORD'] ?? '')],
+            'fieldErrors' => $fieldErrors,
+            'minLength' => InstallService::MIN_PASSWORD_LENGTH,
             'themes' => Theme::getAvailableCssThemes(),
             'languages' => $this->installer->allowedLanguages(),
             'timezones' => $this->installer->timezones(),
             'speeds' => array_keys($this->installer->speedPresets()),
             'presets' => $this->installer->speedPresets(),
+            'moreOpen' => array_intersect_key($fieldErrors, array_flip(['default_theme', 'timezone', 'speed', 'registration', 'discord_url'])) !== [],
         ]);
-        $this->show('ins_game');
+        $this->show('ins_setup');
     }
 
     /**
-     * Step 7: hosting region (privacy policy), default or blank rules, community board. Passes the bots count and
-     * language of the game step on to the administrator form.
+     * Writes the validated game settings, creates the administrator in the new game and logs it in.
+     *
+     * @param array<string, mixed> $values validated game settings
+     * @param array{username: string, email: string} $admin
      */
-    private function stepLegal(Language $LNG): void
+    private function createGameAndAdmin(array $values, array $admin, string $password): void
+    {
+        $this->installer->applyGameSettings($values);
+        [$accountId, $userId] = $this->installer->createAdmin($admin['username'], $password, $admin['email'], $values['language']);
+
+        $this->state->auth->login($accountId);
+        $session = $this->sessions()->create();
+        $session->accountId = $accountId;
+        $session->userId = $userId;
+        $session->universe = $this->universe()->current();
+        $session->adminAccess = 1;
+        $session->save();
+    }
+
+    /**
+     * Step 5: optional settings in one form: chat (module, global channel, link blocking), bots, e-mail (folded; with a
+     * test mail button that re-shows the page) and legal/privacy (folded). Saving applies everything, spawns the bots,
+     * locks the tool and shows the summary with the cron line and the generated migration password.
+     */
+    private function stepOptions(Language $LNG): void
     {
         $locale = $LNG->getLanguage();
         $post = $this->state->requestPost;
-        $query = $this->state->requestQuery;
-        $values = [
-            'privacy_region' => $post['privacy_region'] ?? 'eu',
-            'rules_default' => $post['rules_default'] ?? 'default',
-            'cookie_consent' => !empty($post['cookie_consent']),
-            // stored HTML-encoded like the admin form does
-            'disclamer_mail' => $this->input()->string('disclamer_mail', isset($post['post']) ? '' : (string) ($this->defaults['ADMIN_MAIL'] ?? '')),
-            'disclamer_address' => $this->input()->string('disclamer_address', '', true),
+        $posted = isset($post['post']);
+        $flag = static fn(string $key, bool $default): bool => $posted ? !empty($post[$key]) : $default;
+        $options = [
+            'chat' => $flag('chat', InstallService::CHAT_DEFAULTS['chat']),
+            'chat_global' => $flag('chat_global', InstallService::CHAT_DEFAULTS['chat_global']),
+            'chat_block_links' => $flag('chat_block_links', InstallService::CHAT_DEFAULTS['chat_block_links']),
+            'bots' => (int) ($post['bots'] ?? 0),
         ];
-        $bots = max(0, min(50, (int) ($post['bots'] ?? $query['bots'] ?? 0)));
-
-        if (isset($post['post'])) {
-            $checked = $this->installer->validateLegalSettings($values, $locale);
-            $values = $checked['values'];
-            if ($checked['error'] === null) {
-                $this->installer->applyLegalSettings($values);
-                $this->http()->redirectTo('./?mode=install&step=8&bots=' . $bots . '&lang=' . $locale);
-            }
-            $this->assign(['error' => $checked['error']]);
-        }
-
-        $this->assign(['values' => $values, 'bots' => $bots]);
-        $this->show('ins_legal');
-    }
-
-    /**
-     * Step 8: optional e-mail setup. "Skip" leaves mail off, "Save" validates and stores the values (same keys as the
-     * admin mail category), "Test" sends a mail with the entered values and shows the result on the same page.
-     * The password is never written back into the page.
-     */
-    private function stepMail(Language $LNG): void
-    {
-        $locale = $LNG->getLanguage();
-        $post = $this->state->requestPost;
-        $query = $this->state->requestQuery;
-        $bots = max(0, min(50, (int) ($post['bots'] ?? $query['bots'] ?? 0)));
-        $next = './?mode=install&step=9&bots=' . $bots . '&lang=' . $locale;
-
-        if (isset($post['skip'])) {
-            $this->installer->applyMailSettings(['active' => false]);
-            $this->http()->redirectTo($next);
-        }
-
-        $input = [
-            'active' => isset($post['post']) ? !empty($post['active']) : false,
+        $mail = $this->installer->validateMailSettings([
+            'active' => $flag('active', false),
             'method' => $post['method'] ?? 2,
             'from' => $post['from'] ?? '',
             'host' => $post['host'] ?? '',
@@ -548,32 +558,92 @@ final class Installer
             'user' => $post['user'] ?? '',
             'password' => $post['password'] ?? '',
             'user_valid' => !empty($post['user_valid']),
-        ];
-        $checked = $this->installer->validateMailSettings($input, $locale);
-        $values = $checked['values'];
-        $result = [];
+        ], $locale);
+        $legal = $this->installer->validateLegalSettings([
+            'privacy_region' => $post['privacy_region'] ?? 'eu',
+            'rules_default' => $post['rules_default'] ?? 'default',
+            'cookie_consent' => !empty($post['cookie_consent']),
+            // stored HTML-encoded like the admin form does; the administrator's address (set up in step 4) is the default
+            'disclamer_mail' => $this->input()->string('disclamer_mail', $posted ? '' : (string) $this->db->selectSingle('SELECT `value` FROM %%CONFIG%% WHERE `key` = \'disclamer_mail\'', [], 'value')),
+            'disclamer_address' => $this->input()->string('disclamer_address', '', true),
+        ], $locale);
+        $testTo = trim((string) ($post['test_to'] ?? ''));
+        $errors = [];
+        $testOk = null;
 
         if (isset($post['test'])) {
-            $result = $this->testMail($values, trim((string) ($post['test_to'] ?? '')), $locale);
-        } elseif (isset($post['post'])) {
-            if ($checked['error'] === null) {
-                $this->installer->applyMailSettings($values);
-                $this->http()->redirectTo($next);
+            $result = $this->testMail($mail['values'], $testTo, $locale);
+            $errors['mail'] = $result['error'] ?? null;
+            $testOk = $result['testOk'] ?? null;
+        } elseif ($posted) {
+            $errors = array_filter([
+                'bots' => $options['bots'] < 0 || $options['bots'] > 50 ? $LNG['ins_bots_invalid'] : null,
+                'mail' => $mail['error'],
+                'legal' => $legal['error'],
+            ]);
+            if ($errors === []) {
+                $this->finishInstall($options, $mail['values'], $legal['values']);
             }
-            $result = ['error' => $checked['error']];
         }
 
-        $values['password'] = '';
-        $this->assign($result + [
-            'values' => $values,
-            'bots' => $bots,
-            'testTo' => trim((string) ($post['test_to'] ?? '')),
+        $mail['values']['password'] = '';
+        $this->assign([
+            'options' => $options,
+            'mail' => $mail['values'],
+            'legal' => $legal['values'],
+            'testTo' => $testTo,
+            'testOk' => $testOk,
+            'errors' => array_filter($errors),
         ]);
-        $this->show('ins_mail');
+        $this->show('ins_options');
     }
 
     /**
-     * Test mail of step 8: checks the form values and the target address, then sends.
+     * Applies the options, spawns the bots (a failure only sets a flag), locks the installer and shows the summary.
+     *
+     * @param array{chat: bool, chat_global: bool, chat_block_links: bool, bots: int} $options
+     * @param array<string, mixed> $mail validated mail values
+     * @param array<string, mixed> $legal validated legal values
+     */
+    private function finishInstall(array $options, array $mail, array $legal): never
+    {
+        // with the chat off the filter keys keep their defaults (the member switches are disabled and not posted)
+        $chat = $options['chat'];
+        $this->installer->applyChatSettings($chat, !$chat || $options['chat_global'], !$chat || $options['chat_block_links']);
+        $this->installer->applyMailSettings($mail);
+        $this->installer->applyLegalSettings($legal);
+        $this->installer->applyBotsEnabled($options['bots']);
+
+        $botsCreated = 0;
+        $botError = false;
+        try {
+            $botsCreated = $this->installer->spawnBots($options['bots']);
+        } catch (\Throwable $e) {
+            error_log('installer bots: ' . $e->getMessage());
+            $botError = true;
+        }
+
+        $this->installer->lock();
+        $this->assign([
+            'currentStep' => 5,
+            'gameName' => (string) $this->db->selectSingle('SELECT `value` FROM %%CONFIG%% WHERE `key` = \'game_name\'', [], 'value'),
+            'adminName' => (string) $this->db->selectSingle('SELECT `username` FROM %%USERS%% WHERE `authlevel` = ' . \App\Game\Enum\AuthLevel::Admin->value . ' LIMIT 1', [], 'username'),
+            'adminUrl' => $this->state->runtime->protocol . $this->state->runtime->httpHost . preg_replace('#install/?$#', '', $this->state->runtime->httpRoot) . 'admin',
+            'cronLine' => $this->installer->cronLine(),
+            'migrationPw' => $this->installer->takeGeneratedSecret(),
+            'options' => $options,
+            'mailOn' => !empty($mail['active']),
+            'botsCreated' => $botsCreated,
+            'botError' => $botError,
+            'docsUrl' => InstallService::DOCS_URL,
+            'cronDocsUrl' => InstallService::CRON_DOCS_URL,
+            'https' => $this->state->runtime->https,
+        ]);
+        $this->show('ins_done');
+    }
+
+    /**
+     * Test mail of the options step: checks the form values and the target address, then sends.
      *
      * @param array<string, mixed> $values validated mail values
      * @return array<string, string> template variables `error` or `testOk`
@@ -594,82 +664,5 @@ final class Installer
         }
 
         return ['testOk' => str_replace('%s', $to, $LNG['ins_mail_test_ok'])];
-    }
-
-    /** Step 9: administrator form (name, password, e-mail, number of bots to create, 0-50). */
-    private function stepAdminForm(): void
-    {
-        $this->assign([
-            'username' => $this->defaults['ADMIN_NAME'] ?? '',
-            'password' => $this->defaults['ADMIN_PASSWORD'] ?? '',
-            'mail' => $this->defaults['ADMIN_MAIL'] ?? '',
-            'bots' => max(0, min(50, (int) ($this->state->requestQuery['bots'] ?? 0))),
-            'minLength' => InstallService::MIN_PASSWORD_LENGTH,
-        ]);
-        $this->show('ins_acc');
-    }
-
-    /**
-     * Step 10: validates and creates the admin account, logs it in (Symfony login plus a game session with admin
-     * access), optionally spawns bots (a failure only sets a flag), locks the installer and shows the summary with the
-     * cron line and the generated migration password.
-     */
-    private function stepAdmin(Language $LNG): void
-    {
-        $locale = $LNG->getLanguage();
-        $username = $this->input()->string('username', '', UTF8_SUPPORT);
-        $password = $this->input()->rawString('password');
-        $confirm = $this->input()->rawString('password_confirm');
-        $mail = $this->input()->string('email');
-        $bots = max(0, min(50, (int) $this->input()->int('bots')));
-
-        $errors = $this->installer->validateAdmin((string) $username, (string) $password, (string) $confirm, (string) $mail, $locale);
-        if ($errors !== []) {
-            $this->assign([
-                'errors' => $errors,
-                'error' => implode(' ', $errors),
-                'username' => $username,
-                'mail' => $mail,
-                'bots' => $bots,
-                'minLength' => InstallService::MIN_PASSWORD_LENGTH,
-                'currentStep' => 9,
-            ]);
-            $this->show('ins_acc');
-        }
-
-        $language = (string) $this->db->selectSingle('SELECT `value` FROM %%CONFIG_UNIVERSE%% WHERE `uni` = 1 AND `key` = \'lang\';', [], 'value') ?: $locale;
-        [$accountId, $userId] = $this->installer->createAdmin($username, $password, $mail, $language);
-
-        // the new admin is logged in right away (Symfony login + game session with admin access)
-        $this->state->auth->login($accountId);
-        $session = $this->sessions()->create();
-        $session->accountId = $accountId;
-        $session->userId = $userId;
-        $session->universe = $this->universe()->current();
-        $session->adminAccess = 1;
-        $session->save();
-
-        $botsCreated = 0;
-        $botError = false;
-        try {
-            $botsCreated = $this->installer->spawnBots($bots);
-        } catch (\Throwable $e) {
-            error_log('installer bots: ' . $e->getMessage());
-            $botError = true;
-        }
-
-        $this->installer->lock();
-        $this->assign([
-            'adminName' => $username,
-            'adminUrl' => $this->state->runtime->protocol . $this->state->runtime->httpHost . preg_replace('#install/?$#', '', $this->state->runtime->httpRoot) . 'admin',
-            'cronLine' => $this->installer->cronLine(),
-            'migrationPw' => $this->installer->takeGeneratedSecret(),
-            'botsCreated' => $botsCreated,
-            'botError' => $botError,
-            'docsUrl' => InstallService::DOCS_URL,
-            'cronDocsUrl' => InstallService::CRON_DOCS_URL,
-            'https' => $this->state->runtime->https,
-        ]);
-        $this->show('ins_step8');
     }
 }

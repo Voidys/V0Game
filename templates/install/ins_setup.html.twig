@@ -1,0 +1,64 @@
+{% extends 'install/ins_layout.html.twig' %}
+{% import 'install/ins_macros.html.twig' as m %}
+{% block heading %}{{ LNG.ins_setup_head }}{% endblock %}
+{% block panel %}
+  <p>{{ LNG.ins_setup_desc }}</p>
+  {% if fieldErrors %}
+    <div class="notice notice--danger" role="alert">{{ icon('circle-alert') }}<div>{{ LNG.ins_form_errors }}</div></div>
+  {% endif %}
+  <form class="install-form" action="./?mode=install&amp;step=4" method="post">
+    <input type="hidden" name="post" value="1">
+    <fieldset>
+      <legend>{{ LNG.ins_group_general }}</legend>
+      <label class="install-field install-field--wide">{{ LNG.ins_game_name }}<input type="text" name="game_name" value="{{ values.game_name|e('html_attr') }}" maxlength="64" required{{ m.invalid(fieldErrors, 'game_name') }}><small>{{ LNG.ins_game_name_info }}</small>{{ m.error(fieldErrors, 'game_name') }}</label>
+      <label class="install-field">{{ LNG.ins_uni_name }}<input type="text" name="uni_name" value="{{ values.uni_name|e('html_attr') }}" maxlength="60" placeholder="{{ (LNG.fcm_universe ~ ' 1')|e('html_attr') }}"{{ m.invalid(fieldErrors, 'uni_name') }}><small>{{ LNG.ins_uni_name_info }}</small>{{ m.error(fieldErrors, 'uni_name') }}</label>
+      <label class="install-field">{{ LNG.ins_language }}
+        <select name="language"{{ m.invalid(fieldErrors, 'language') }}>
+          {% for key, name in languages %}<option value="{{ key }}"{% if key == values.language %} selected{% endif %}>{{ name }}</option>{% endfor %}
+        </select>
+        <small>{{ LNG.ins_language_info }}</small>{{ m.error(fieldErrors, 'language') }}
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>{{ LNG.ins_group_admin }}</legend>
+      <label class="install-field install-field--wide">{{ LNG.step4_admin_name|trim(':') }}<input type="text" name="username" value="{{ admin.username|e('html_attr') }}" minlength="3" maxlength="20" required autocomplete="username"{{ m.invalid(fieldErrors, 'username') }}>{% if fieldErrors.username is not defined %}<small>{{ LNG.step4_admin_name_desc }}</small>{% endif %}{{ m.error(fieldErrors, 'username') }}</label>
+      <label class="install-field install-field--wide">{{ LNG.step4_admin_mail|trim(':') }}<input type="email" name="email" value="{{ admin.email|e('html_attr') }}" required autocomplete="email"{{ m.invalid(fieldErrors, 'email') }}><small>{{ LNG.ins_admin_mail_info }}</small>{{ m.error(fieldErrors, 'email') }}</label>
+      <label class="install-field">{{ LNG.step4_admin_pass|trim(':') }}<input type="password" name="password" value="{{ admin.password|e('html_attr') }}" minlength="{{ minLength }}" maxlength="64" required autocomplete="new-password"{{ m.invalid(fieldErrors, 'password') }}></label>
+      <label class="install-field">{{ LNG.ins_admin_pass_confirm }}<input type="password" name="password_confirm" value="{{ admin.password|e('html_attr') }}" minlength="{{ minLength }}" maxlength="64" required autocomplete="new-password"></label>
+      <p class="install-field--wide install-hint">{{ LNG.ins_admin_pass_rules|replace({'%d': minLength}) }}{{ m.error(fieldErrors, 'password') }}</p>
+    </fieldset>
+    <details class="install-more"{% if moreOpen %} open{% endif %}>
+      <summary>{{ LNG.ins_more_game }}</summary>
+      <fieldset>
+        <label class="install-field install-field--wide">{{ LNG.ins_registration }}
+          <select name="registration"{{ m.invalid(fieldErrors, 'registration') }}>
+            <option value="open"{% if values.registration == 'open' %} selected{% endif %}>{{ LNG.ins_registration_open }}</option>
+            <option value="closed"{% if values.registration == 'closed' %} selected{% endif %}>{{ LNG.ins_registration_closed }}</option>
+          </select>
+          <small>{{ LNG.ins_registration_info }}</small>{{ m.error(fieldErrors, 'registration') }}
+        </label>
+        <label class="install-field install-field--wide">{{ LNG.ins_group_speed }}
+          <select name="speed"{{ m.invalid(fieldErrors, 'speed') }}>
+            {% for speed in speeds %}<option value="{{ speed }}"{% if speed == values.speed %} selected{% endif %}>{{ attribute(LNG, 'ins_speed_' ~ speed) }} - {{ attribute(LNG, 'ins_speed_' ~ speed ~ '_info') }} ({{ LNG.ins_speed_detail|replace({'%b': presets[speed].building_speed, '%f': presets[speed].fleet_speed, '%r': presets[speed].resource_multiplier}) }})</option>{% endfor %}
+          </select>
+          <small>{{ LNG.ins_speed_info }}</small>{{ m.error(fieldErrors, 'speed') }}
+        </label>
+        <label class="install-field">{{ LNG.ins_timezone }}
+          <select name="timezone"{{ m.invalid(fieldErrors, 'timezone') }}>
+            {% for zone in timezones %}<option value="{{ zone }}"{% if zone == values.timezone %} selected{% endif %}>{{ zone }}</option>{% endfor %}
+          </select>
+          <small>{{ LNG.ins_timezone_info }}</small>{{ m.error(fieldErrors, 'timezone') }}
+        </label>
+        <label class="install-field">{{ LNG.ins_default_theme }}
+          <select name="default_theme"{{ m.invalid(fieldErrors, 'default_theme') }}>
+            {% for themeKey, themeName in themes %}<option value="{{ themeKey }}"{% if themeKey == values.default_theme %} selected{% endif %}>{{ themeName }}</option>{% endfor %}
+          </select>
+          <small>{{ LNG.ins_default_theme_info }}</small>{{ m.error(fieldErrors, 'default_theme') }}
+        </label>
+        <label class="install-check install-field--wide"><input type="checkbox" name="update_check" value="1"{% if values.update_check %} checked{% endif %}> <span>{{ LNG.ins_update_check }}<small class="install-hint">{{ LNG.ins_update_check_info }}</small></span></label>
+        <label class="install-field install-field--wide">{{ LNG.ins_discord_url }}<input type="url" name="discord_url" value="{{ values.discord_url }}" maxlength="255" placeholder="https://discord.gg/..."{{ m.invalid(fieldErrors, 'discord_url') }}><small>{{ LNG.ins_discord_url_info }}</small>{{ m.error(fieldErrors, 'discord_url') }}</label>
+      </fieldset>
+    </details>
+    <div class="install-actions"><button type="submit" class="btn--primary">{{ icon('user-plus') }}{{ LNG.continue }}</button></div>
+  </form>
+{% endblock %}
