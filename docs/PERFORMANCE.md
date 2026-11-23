@@ -301,3 +301,183 @@ compiled scripts between runs of the short-lived CLI process: measured 190 ms ->
 (the directory must exist and be writable for the cron user). The web/FPM settings listed under "Production tuning" above
 (`validate_timestamps=0`, 256 MB, `max_accelerated_files=20000`, `preload`) apply to the FPM pool only; the CLI has its own
 php.ini section.
+
+## Comparison with pr0game (2026-11-23)
+
+V0Game 1.26.10 (39261fd6) plus the fixes below against pr0game at commit 2b65627 (codeberg.org/pr0game/pr0game), pr0game
+unpatched.
+
+**Setup**
+- Both run in DDEV containers on the same machine: PHP 8.4 (8.4.27 and 8.4.28), MySQL 8.4.13, production mode, the same
+  OPcache settings (DDEV defaults: 500 MB, `validate_timestamps=1`, `revalidate_freq=2`). pr0game ships PHP 8.2 and
+  MySQL 8.0; it was switched to 8.4 locally and runs without warnings. pr0game was installed with its own installer.
+- One seeded generator writes the same universe into both schemas (they are almost identical): 1001 players, 5000 planets,
+  1500 moons with mines at level 25–32 and research at 10–18, 40 alliances, 3000 buddy entries, 800 fleets in flight and
+  100k messages (8000 for the measured player, 45 % of them spy reports). Queues are stored as JSON in V0Game and as PHP
+  serialize in pr0game; columns only V0Game has keep their defaults. Speeds and universe status are equal, bots are off.
+  Statistics were built once before the dump. A spot check of planets, players, counts and an md5 over all planet levels
+  and resources matched in both databases.
+- Pages: 15 alternating requests per page and game (A/B/A/B), median and p90. Query count and DB time come from
+  `performance_schema`. The requests go to the PHP built-in server inside each container, so the times are application
+  time without the web server.
+- "Tuned" adds the V0Game-only production settings (authoritative class map, preload; see "Production tuning" above).
+- Background jobs: CLI, the seeded database restored before every run, median of 3. The due fleet events (about 270)
+  are the same set in both games.
+- Transfer: headless Chromium through Apache with TLS and php-fpm, each project with its shipped `.htaccess`. pr0game's
+  `.htaccess` configures no compression, so it was measured as shipped and again with gzip enabled at server level.
+- Phone: 390×844 viewport, 4× CPU throttle, median of 5 cold loads.
+
+**Caveats**
+- The seed has no combat report bodies, only the report messages; the fleet run fights real battles.
+- V0Game does more per request (CSRF, rate limits, game-events data island), and its pages carry more HTML.
+- V0Game's cron runner boots once a minute (`app:cron:run`, about 0.2 s with nothing due) and the fleet runner every 5 s;
+  pr0game handles both inside page requests. That background cost is not part of the page times.
+- The player card is measured as a full page in both games; V0Game opens it as a popup fragment in the game (5.8 KB,
+  about 25 ms).
+- One machine; the second round ran while the machine was noticeably slower (absolute times up to twice those of the
+  first round), so only the ratios inside a round are comparable. Differences of about 10 % on the small pages are within
+  noise (buildings: +12 % default, -6 % tuned).
+
+**First round and fixes.** The first round (same setup) showed V0Game behind on the messages list (+26 %), the fleet ship
+table (+16 %), the daily cronjob (+12 %) and the phone LCP of overview and empire (about 1.25 s against 0.57 s). Fixed:
+- messages: the per-category counts are adjusted in PHP after the listed messages are marked read instead of being
+  counted a second time, plus a covering index `users_to_messages.user_cover` (migration 1795502200);
+- fleet table: the tooltip attributes are escaped with `html` instead of `html_attr` (no numeric entity per space and
+  quote; the decoded value is the same), -11 % HTML;
+- phone LCP: the `content-in` page animation only slides, no opacity fade from 0; Chromium counts no LCP candidate until
+  the faded content has painted (overview LCP 1024 → 360 ms in a separate before/after measurement);
+- daily cronjob: indexes `buddy.owner` and `alliance_request.userID` for the per-player removals (full scans before) and
+  no second SELECT per inactive player (migration 1795502300), 1388 → 840 ms.
+
+**Results in short (second round)**
+- Game pages: geometric mean -28 % (default) and -30 % (tuned), 693 → 392 queries over all game pages.
+- Galaxy -77 %, statistics -81 %, spy reports -45 %, messages -22 %, empire -15 %.
+- Routines: statistics rebuild -77 % (7950 → 144 queries), daily cronjob -34 %, fleet events -26 %, resource update -23 %.
+- Still slower: start page +40 % (about 5 ms of Symfony and game boot), player card +24 % (full page, see caveats),
+  cleaner cronjob +35 % (deletes old messages from `users_to_messages` and `messages`, pr0game from one table).
+- Phone (4× CPU): FCP earlier in V0Game, LCP on par (overview 1000 vs 1012 ms, empire 924 vs 1052 ms).
+
+### Pages, profile "default" (median / p90 of 15 interleaved requests; queries and DB time per request)
+
+| Page | pr0game median | V0Game median | change | p90 pr0game | p90 V0Game | queries pr0game | queries V0Game | DB ms pr0game | DB ms V0Game | HTML bytes pr0game | HTML bytes V0Game | gzip pr0game | gzip V0Game |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| login/start | 12.5 ms | 17.6 ms | +40 % | 14.1 | 19.8 | 5 | 4 | 1.8 | 1.3 | 10,158 | 19,994 | 3,165 | 5,069 |
+| overview | 45.3 ms | 40.8 ms | -10 % | 51.3 | 48.9 | 46 | 28 | 23.1 | 10.7 | 220,638 | 250,728 | 19,077 | 22,606 |
+| buildings | 28.8 ms | 32.3 ms | +12 % | 33.4 | 37.9 | 38 | 22 | 15.8 | 8.2 | 117,043 | 109,448 | 8,723 | 12,585 |
+| research | 30.7 ms | 30.1 ms | -2 % | 33.8 | 31.7 | 39 | 23 | 18.0 | 8.9 | 86,398 | 101,431 | 7,363 | 11,808 |
+| shipyard | 30.9 ms | 27.3 ms | -12 % | 33.7 | 31.6 | 37 | 21 | 16.2 | 7.8 | 76,324 | 91,838 | 7,068 | 11,294 |
+| defense | 30.1 ms | 24.6 ms | -18 % | 34.4 | 32.2 | 37 | 21 | 16.2 | 7.7 | 44,300 | 76,326 | 6,040 | 10,437 |
+| galaxy (own system) | 153.0 ms | 35.1 ms | -77 % | 165.0 | 41.7 | 69 | 27 | 125.8 | 11.9 | 71,819 | 98,435 | 9,019 | 13,239 |
+| fleet step 1 (ship table) | 30.8 ms | 33.0 ms | +7 % | 36.7 | 39.4 | 41 | 25 | 16.5 | 8.5 | 168,352 | 259,962 | 14,516 | 20,989 |
+| empire | 50.8 ms | 43.3 ms | -15 % | 68.4 | 58.0 | 119 | 66 | 29.9 | 17.2 | 237,859 | 291,598 | 21,415 | 21,432 |
+| messages | 54.8 ms | 42.8 ms | -22 % | 58.5 | 51.1 | 47 | 29 | 41.6 | 23.7 | 35,038 | 57,608 | 6,282 | 8,924 |
+| messages (spy reports) | 128.5 ms | 70.7 ms | -45 % | 139.3 | 75.3 | 48 | 40 | 105.2 | 43.6 | 422,708 | 569,959 | 35,808 | 64,128 |
+| statistics | 191.9 ms | 36.3 ms | -81 % | 200.1 | 41.0 | 90 | 27 | 172.3 | 12.8 | 81,487 | 168,879 | 9,205 | 14,140 |
+| alliance | 32.7 ms | 29.4 ms | -10 % | 36.0 | 33.9 | 48 | 32 | 19.5 | 11.8 | 30,967 | 60,419 | 5,844 | 8,722 |
+| player card | 28.4 ms | 35.1 ms | +24 % | 32.2 | 37.5 | 34 | 31 | 15.9 | 11.2 | 12,732 | 54,421 | 3,101 | 8,445 |
+| admin overview | 23.0 ms | 24.8 ms | +8 % | 26.0 | 29.2 | 13 | 11 | 10.7 | 6.6 | 8,827 | 26,219 | 2,321 | 5,323 |
+
+Geometric mean of the time ratio V0Game/pr0game: all pages -23 %, game pages only -28 %. Sum of queries (game pages): pr0game 693, V0Game 392.
+
+### Pages, profile "tuned" (median / p90 of 15 interleaved requests; queries and DB time per request)
+
+| Page | pr0game median | V0Game median | change | p90 pr0game | p90 V0Game | queries pr0game | queries V0Game | DB ms pr0game | DB ms V0Game | HTML bytes pr0game | HTML bytes V0Game | gzip pr0game | gzip V0Game |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| login/start | 8.2 ms | 12.7 ms | +54 % | 9.3 | 14.3 | 5 | 4 | 1.1 | 0.9 | 10,158 | 20,011 | 3,165 | 5,086 |
+| overview | 35.8 ms | 34.6 ms | -3 % | 38.3 | 35.7 | 46 | 28 | 20.7 | 11.5 | 217,137 | 247,346 | 18,884 | 22,426 |
+| buildings | 32.8 ms | 30.9 ms | -6 % | 35.9 | 34.4 | 38 | 22 | 18.2 | 8.1 | 117,043 | 109,448 | 8,724 | 12,578 |
+| research | 30.8 ms | 28.4 ms | -8 % | 32.8 | 30.4 | 39 | 23 | 17.6 | 8.8 | 86,398 | 101,438 | 7,361 | 11,811 |
+| shipyard | 28.2 ms | 25.5 ms | -10 % | 30.9 | 27.0 | 37 | 21 | 15.6 | 7.5 | 76,324 | 91,854 | 7,068 | 11,311 |
+| defense | 28.5 ms | 24.5 ms | -14 % | 30.4 | 28.4 | 37 | 28 | 15.6 | 11.4 | 44,300 | 76,331 | 6,041 | 10,438 |
+| galaxy (own system) | 178.7 ms | 41.3 ms | -77 % | 326.7 | 83.5 | 69 | 47 | 137.2 | 18.7 | 71,819 | 98,408 | 9,019 | 13,211 |
+| fleet step 1 (ship table) | 33.7 ms | 33.8 ms | +0 % | 36.3 | 35.8 | 41 | 25 | 17.5 | 9.8 | 166,413 | 256,566 | 14,384 | 20,851 |
+| empire | 44.2 ms | 37.9 ms | -14 % | 45.1 | 42.0 | 119 | 66 | 37.2 | 17.0 | 237,862 | 291,595 | 21,403 | 21,438 |
+| messages | 60.6 ms | 50.0 ms | -18 % | 64.4 | 52.9 | 47 | 29 | 52.3 | 27.8 | 35,038 | 57,609 | 6,283 | 8,924 |
+| messages (spy reports) | 145.0 ms | 75.4 ms | -48 % | 152.9 | 83.7 | 48 | 40 | 192.9 | 57.0 | 422,708 | 569,965 | 35,805 | 64,134 |
+| statistics | 201.8 ms | 38.0 ms | -81 % | 208.2 | 44.8 | 90 | 27 | 180.0 | 13.5 | 81,487 | 168,873 | 9,204 | 14,132 |
+| alliance | 35.7 ms | 30.3 ms | -15 % | 37.9 | 36.5 | 48 | 32 | 18.8 | 12.8 | 30,967 | 60,407 | 5,839 | 8,717 |
+| player card | 27.0 ms | 30.4 ms | +13 % | 30.1 | 36.3 | 34 | 31 | 13.6 | 9.6 | 12,732 | 54,432 | 3,101 | 8,459 |
+| admin overview | 22.3 ms | 23.5 ms | +6 % | 25.0 | 26.2 | 13 | 11 | 12.4 | 6.0 | 8,827 | 26,224 | 2,320 | 5,331 |
+
+Geometric mean of the time ratio V0Game/pr0game: all pages -24 %, game pages only -30 %. Sum of queries (game pages): pr0game 693, V0Game 419.
+
+### Background routines (CLI, seeded DB restored before every run, median of 3)
+
+| Routine | pr0game | V0Game | change |
+|---|--:|--:|--:|
+| Statistics rebuild (generate + archive + records) | 3372 ms, 7950 queries | 762 ms, 144 queries | -77 % time, -98 % queries |
+| Daily cronjob | 1364 ms, 2823 queries | 907 ms, 2309 queries | -34 % time, -18 % queries |
+| Cleaner cronjob | 1600 ms, 17 queries | 2158 ms, 20 queries | +35 % time, +18 % queries |
+| Resource update of all 5000 planets (with save) | 18638 ms, 27337 queries | 14308 ms, 21382 queries | -23 % time, -22 % queries |
+| Due fleet events (about 270 events incl. battles) | 6489 ms, 14683 queries | 4800 ms, 11566 queries | -26 % time, -21 % queries |
+
+### Transfer per page, Chromium desktop, as shipped (pr0game: no compression configured in its .htaccess)
+
+| Page | cold pr0game | cold V0Game | change | requests cold pr0game / V0Game | warm pr0game | warm V0Game | change | network requests warm pr0game / V0Game |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|
+| login/start | 1032 KB | 230 KB | -78 % | 23 / 26 | 10.3 KB | 5.9 KB | -43 % | 1 / 1 |
+| overview | 1640 KB | 219 KB | -87 % | 37 / 51 | 199.5 KB | 21.8 KB | -89 % | 2 / 1 |
+| buildings | 1902 KB | 437 KB | -77 % | 55 / 61 | 115.3 KB | 13.3 KB | -88 % | 2 / 1 |
+| research | 1767 KB | 505 KB | -71 % | 48 / 62 | 85.3 KB | 12.5 KB | -85 % | 2 / 1 |
+| shipyard | 1713 KB | 460 KB | -73 % | 42 / 59 | 75.5 KB | 12.0 KB | -84 % | 2 / 1 |
+| galaxy (own system) | 1522 KB | 258 KB | -83 % | 40 / 52 | 70.9 KB | 13.9 KB | -80 % | 2 / 1 |
+| fleet step 1 (ship table) | 1459 KB | 239 KB | -84 % | 31 / 50 | 154.1 KB | 20.5 KB | -87 % | 2 / 1 |
+| empire | 1873 KB | 271 KB | -86 % | 36 / 49 | 233.3 KB | 21.9 KB | -91 % | 2 / 1 |
+| messages | 1284 KB | 199 KB | -85 % | 29 / 47 | 35.1 KB | 9.7 KB | -72 % | 2 / 1 |
+| statistics | 1353 KB | 196 KB | -86 % | 30 / 47 | 80.2 KB | 14.8 KB | -82 % | 2 / 1 |
+| alliance | 1260 KB | 190 KB | -85 % | 29 / 46 | 31.2 KB | 9.5 KB | -69 % | 2 / 1 |
+
+Cold-load split (KB; doc / css / js / image / font / other):
+
+| Page | pr0game | V0Game |
+|---|---|---|
+| login/start | 10 / 48 / 279 / 694 / 0 / 0 | 6 / 19 / 51 / 128 / 17 / 8 |
+| overview | 199 / 99 / 1048 / 293 / 0 / 0 | 22 / 78 / 53 / 41 / 17 / 8 |
+| buildings | 115 / 99 / 1047 / 640 / 0 / 0 | 13 / 78 / 49 / 272 / 17 / 8 |
+| research | 85 / 99 / 1046 / 536 / 0 / 0 | 13 / 78 / 47 / 342 / 17 / 8 |
+| shipyard | 75 / 99 / 1046 / 493 / 0 / 0 | 12 / 78 / 49 / 296 / 17 / 8 |
+| galaxy (own system) | 70 / 99 / 1056 / 252 / 45 / 0 | 14 / 78 / 55 / 86 / 17 / 8 |
+| fleet step 1 (ship table) | 154 / 99 / 1078 / 82 / 45 / 0 | 21 / 78 / 77 / 30 / 17 / 16 |
+| empire | 233 / 99 / 1247 / 293 / 0 / 0 | 22 / 78 / 116 / 30 / 17 / 8 |
+| messages | 35 / 99 / 1067 / 82 / 0 / 0 | 10 / 78 / 56 / 30 / 17 / 8 |
+| statistics | 80 / 99 / 1046 / 83 / 45 / 0 | 15 / 78 / 48 / 30 / 17 / 8 |
+| alliance | 31 / 99 / 1046 / 83 / 0 / 0 | 10 / 78 / 47 / 30 / 17 / 8 |
+
+### Transfer per page, Chromium desktop, pr0game with gzip enabled at server level (equalised)
+
+| Page | cold pr0game | cold V0Game | change | requests cold pr0game / V0Game | warm pr0game | warm V0Game | change | network requests warm pr0game / V0Game |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|
+| login/start | 803 KB | 230 KB | -71 % | 23 / 26 | 3.5 KB | 5.9 KB | +70 % | 1 / 1 |
+| overview | 620 KB | 219 KB | -65 % | 36 / 51 | 18.3 KB | 21.5 KB | +18 % | 2 / 1 |
+| buildings | 959 KB | 437 KB | -54 % | 55 / 61 | 9.6 KB | 13.3 KB | +39 % | 2 / 1 |
+| research | 853 KB | 505 KB | -41 % | 48 / 62 | 8.3 KB | 12.5 KB | +52 % | 2 / 1 |
+| shipyard | 809 KB | 460 KB | -43 % | 42 / 59 | 8.0 KB | 12.0 KB | +51 % | 2 / 1 |
+| galaxy (own system) | 618 KB | 258 KB | -58 % | 40 / 52 | 9.7 KB | 13.9 KB | +43 % | 2 / 1 |
+| fleet step 1 (ship table) | 459 KB | 239 KB | -48 % | 31 / 50 | 14.3 KB | 20.4 KB | +42 % | 2 / 1 |
+| empire | 692 KB | 271 KB | -61 % | 36 / 49 | 22.1 KB | 21.9 KB | -1 % | 2 / 1 |
+| messages | 404 KB | 199 KB | -51 % | 29 / 47 | 7.2 KB | 9.7 KB | +35 % | 2 / 1 |
+| statistics | 446 KB | 196 KB | -56 % | 30 / 47 | 9.8 KB | 14.8 KB | +51 % | 2 / 1 |
+| alliance | 399 KB | 190 KB | -52 % | 29 / 46 | 6.7 KB | 9.5 KB | +41 % | 2 / 1 |
+
+Cold-load split (KB; doc / css / js / image / font / other):
+
+| Page | pr0game | V0Game |
+|---|---|---|
+| login/start | 3 / 20 / 86 / 694 / 0 / 0 | 6 / 19 / 51 / 128 / 17 / 8 |
+| overview | 18 / 33 / 277 / 293 / 0 / 1 | 22 / 78 / 53 / 41 / 17 / 8 |
+| buildings | 9 / 33 / 277 / 640 / 0 / 1 | 13 / 78 / 49 / 272 / 17 / 8 |
+| research | 8 / 33 / 276 / 536 / 0 / 1 | 13 / 78 / 47 / 342 / 17 / 8 |
+| shipyard | 7 / 33 / 276 / 493 / 0 / 1 | 12 / 78 / 49 / 296 / 17 / 8 |
+| galaxy (own system) | 9 / 33 / 279 / 252 / 45 / 1 | 14 / 78 / 55 / 86 / 17 / 8 |
+| fleet step 1 (ship table) | 14 / 33 / 285 / 82 / 45 / 1 | 20 / 78 / 77 / 30 / 17 / 16 |
+| empire | 22 / 33 / 345 / 293 / 0 / 1 | 22 / 78 / 116 / 30 / 17 / 8 |
+| messages | 7 / 33 / 282 / 82 / 0 / 1 | 10 / 78 / 56 / 30 / 17 / 8 |
+| statistics | 9 / 33 / 276 / 83 / 45 / 1 | 15 / 78 / 48 / 30 / 17 / 8 |
+| alliance | 6 / 33 / 276 / 83 / 0 / 1 | 10 / 78 / 47 / 30 / 17 / 8 |
+
+### Front-end smoothness, phone viewport 390x844, 4x CPU throttle, median of 5 cold loads
+
+| Page | FCP pr0game | FCP V0Game | LCP pr0game | LCP V0Game | TBT pr0game | TBT V0Game | load event pr0game | load event V0Game |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|
+| overview | 836 ms | 744 ms | 1012 ms | 1000 ms | 683 ms | 838 ms | 1788 ms | 2646 ms |
+| empire | 932 ms | 824 ms | 1052 ms | 924 ms | 1156 ms | 630 ms | 2138 ms | 1901 ms |

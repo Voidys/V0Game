@@ -66,9 +66,9 @@ The game rules are the same as before; everything around them is new.
 | | |
 | --- | --- |
 | **Over 80 old game bugs fixed** | Including **3 critical** ones: a jump gate security hole, a way to duplicate ships at the repair dock, and a cleanup job that could delete every player ([the list](docs/GAMEBUGS.md)). Four more review rounds fixed many smaller glitches since ([changelog](CHANGES.md)) |
-| **Pages up to 65 % faster** | A typical game page loads about 30 % faster and asks the database half as often. With the recommended server settings, pages take about half their old time ([numbers](#performance)) |
-| **Background jobs up to 96 % faster** | Statistics, records and resource updates need a fraction of the time, so even large servers stay quick |
-| **Lighter downloads** | Images as WebP (53.7 MB → 12.7 MB), scripts 3.1 MB → 512 KB, the biggest pages about half their size |
+| **Faster than pr0game** | Measured head to head on the same server with the same late-game data: galaxy and statistics pages 4–5× faster, messages up to 45 % faster, game pages on average 28 % faster with 43 % fewer database queries. The start page and the player card are still slower ([numbers](#performance)) |
+| **Background jobs up to 77 % faster** | The statistics rebuild takes a quarter of pr0game's time, the daily job, fleet events and resource updates 23–34 % less, so even large servers stay quick |
+| **Lighter downloads** | A first visit loads 41–71 % less than pr0game (both with compression), mainly because the scripts are 3.1 MB → 512 KB without jQuery and images are WebP |
 | **Easy to set up** | A setup wizard in the browser, a ready-to-upload ZIP, and help in the admin panel when something is missing |
 
 ## Screenshots
@@ -308,9 +308,53 @@ The technical list for server admins:
 
 ## Performance
 
-The numbers behind "faster", compared with the code before the performance work. Game results are unchanged: every change was checked with crawl
+### Compared with pr0game
+
+V0Game and pr0game ([commit 2b65627](https://codeberg.org/pr0game/pr0game/commit/2b65627953f692104554c3a21e8a0f61f645c170))
+side by side on the same machine (PHP 8.4, MySQL 8.4, production mode, the same OPcache settings), each with the same
+generated universe: 1000 players, 5000 planets, 1500 moons, 40 alliances, 800 fleets in flight and 100k messages.
+Times are medians of 15 alternating requests; the method and all tables are in
+[docs/PERFORMANCE.md](docs/PERFORMANCE.md#comparison-with-pr0game-2026-11-23).
+
+| Page | pr0game | V0Game | Change | Queries pr0game → V0Game |
+| --- | ---: | ---: | ---: | ---: |
+| Start page | 12.5 ms | 17.6 ms | +40 % | 5 → 4 |
+| Overview | 45.3 ms | 40.8 ms | -10 % | 46 → 28 |
+| Buildings | 28.8 ms | 32.3 ms | +12 % | 38 → 22 |
+| Research | 30.7 ms | 30.1 ms | -2 % | 39 → 23 |
+| Shipyard | 30.9 ms | 27.3 ms | -12 % | 37 → 21 |
+| Defense | 30.1 ms | 24.6 ms | -18 % | 37 → 21 |
+| Galaxy | 153.0 ms | 35.1 ms | -77 % | 69 → 27 |
+| Fleet (ship table) | 30.8 ms | 33.0 ms | +7 % | 41 → 25 |
+| Empire | 50.8 ms | 43.3 ms | -15 % | 119 → 66 |
+| Messages | 54.8 ms | 42.8 ms | -22 % | 47 → 29 |
+| Messages, spy reports | 128.5 ms | 70.7 ms | -45 % | 48 → 40 |
+| Statistics | 191.9 ms | 36.3 ms | -81 % | 90 → 27 |
+| Alliance | 32.7 ms | 29.4 ms | -10 % | 48 → 32 |
+| Player card | 28.4 ms | 35.1 ms | +24 % | 34 → 31 |
+
+| Background job | pr0game | V0Game | Change |
+| --- | ---: | ---: | ---: |
+| Statistics rebuild | 3372 ms, 7950 queries | 762 ms, 144 queries | -77 % |
+| Daily cronjob | 1364 ms | 907 ms | -34 % |
+| Fleet events (about 270 due, with battles) | 6489 ms | 4800 ms | -26 % |
+| Resource update, 5000 planets with save | 18638 ms | 14308 ms | -23 % |
+| Cleaner cronjob | 1600 ms | 2158 ms | +35 % |
+
+**Downloads** (desktop Chromium, pr0game with gzip switched on so both are compressed): a first visit loads 41–71 % less,
+for example the overview 620 → 219 KB. Repeat visits load only the HTML, which is up to about 70 % (2–6 KB) larger in
+V0Game because it carries more on each page.
+
+**Where V0Game is behind:**
+- The start page takes about 5 ms longer: that is the fixed cost of booting Symfony and the game.
+- The player card is measured as a full page here; in the game it opens as a popup of 6 KB in about 25 ms.
+- Buildings (+12 %) and the fleet table (+7 %) are within the noise of the run: with the tuned settings both are on par or faster.
+- The cleaner cronjob deletes old messages from two tables instead of one and takes about a third longer. It runs once a day.
+
+### Compared with the code before the performance work
+
+Game results are unchanged: every change was checked with crawl
 diffs of all pages, and the statistics and resource routines were checked by running old and new code side by side.
-The method and the raw numbers are in [docs/PERFORMANCE.md](docs/PERFORMANCE.md).
 
 **Pages.** The times are medians in production mode. "Tuned" adds the OPcache and Composer settings from
 [docs/INSTALL.md](docs/INSTALL.md). The two measuring rounds ran on different machines, so the time changes combine

@@ -1442,3 +1442,11 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 - Front end: Chart.js imported on demand (empire/alliance), chart animation off, empire row groups via one `data-folded` attribute (phone 4× TBT empire 591 → 111 ms, alliance 226 → 2 ms); `module_preload()` emits `modulepreload` for the static import graph; content.css via `<link>` (wrapped in `@layer legacy.content`); 64/128 px planet thumbnails with `srcset` (902 variants); 27 animated tech GIFs as smaller animated WebP; `.htaccess` drops the gzip-mangled ETag of css/js/svg/json and marks versioned images/fonts immutable; `tools/build/precompress.sh`, `tools/images/animated-gif-to-webp.sh`; compression docs in `docs/nginx.md`.
 - Test fix: `VoteSitesTest` second token no longer collides when the first starts with `b`.
 - `install/VERSION` 1.26.10 (tag `v1.26.10`): player tools (push/Discord notifications, live event list, fleet templates and fleet save finder, raid planner and farm list, galaxy filters and marks, empire hub with resource collection, shipyard "build up to", combat report values, alliance targets/ACS board/activity/wiki, read-only player API, universe rules page), in-game chat module with filters, reports and admin review, abuse review queue, installer in five steps, accessibility pass, back-to-top button, performance pass 3 (server and browser). Upgrading runs migrations 1795500100, 1795500300, 1795500700, 1795500901, 1795501000, 1795501700, 1795502000 and 1795502100 (applied automatically by the upgrade check).
+
+## 181. Head-to-head with pr0game, slow spots fixed
+
+- Benchmark against pr0game 2b65627 on the same machine and the same seeded late-game universe (`docs/PERFORMANCE.md`, README performance section and highlights rewritten around it).
+- Messages: unread counts adjusted in PHP after the listed messages are marked read (no second count query), covering index `users_to_messages.user_cover` (migration 1795502200); list 70 → 43 ms.
+- Fleet table: tooltip/confirm attributes escaped with `html` instead of `html_attr` (-11 % HTML).
+- Phone LCP: `content-in` animation slides only, no opacity fade (overview LCP 1024 → 360 ms at 4× CPU).
+- Daily cronjob: indexes `buddy.owner` and `alliance_request.userID`, no second SELECT per inactive player (migration 1795502300); 1388 → 840 ms.
