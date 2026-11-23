@@ -1,7 +1,7 @@
 /*
  * nova: the classic skin. Dark grey panels over the space photo, vermilion accent, cyan links, Verdana, blue-black header.
  * Artwork: the "classic" set plus own resource icons (style.cfg). Accent ink darkened for contrast on #ee4d2e.
- * Tokens only; layout comes from css/app (docs/themes.md).
+ * Tokens only; layout comes from css/app.
  */
 @layer theme {
   :root {

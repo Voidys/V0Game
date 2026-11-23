@@ -2,7 +2,7 @@
  * V0Game: night-time command console. Near-black ground, three surface levels (ground, panel, raised),
  * hairline borders, one emerald accent for state. Calm: no glow, no glass, no gradients.
  * Artwork: the "nebula" set plus own planets (style.cfg). This file is the reference for new themes:
- * copy it, change the values, see docs/themes.md.
+ * copy it, change the values, see theme-contract.css.
  */
 @layer theme {
   :root {

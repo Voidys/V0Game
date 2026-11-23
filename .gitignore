@@ -56,3 +56,6 @@ composer.phar
 /public/scripts/**/*.gz
 /public/styles/**/*.br
 /public/styles/**/*.gz
+
+# local-only documentation (the admin guide lives in README.md)
+/docs/

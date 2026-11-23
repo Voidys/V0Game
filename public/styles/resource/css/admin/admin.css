@@ -1,5 +1,5 @@
 /*
- * Admin area, in the design language of the game frontend (DESIGN.md, docs/ui-layout.md): the same tokens
+ * Admin area, in the design language of the game frontend (DESIGN.md): the same tokens
  * (theme-contract.css, V0Game defaults: the admin has no player theme), top bar, side menu, panels, tables and
  * controls. Layout (top bar, filterable side navigation, content) and the building blocks the admin pages are
  * made of. Built on the tokens and layered components of app/base.css (buttons, inputs, tooltips, dialog,

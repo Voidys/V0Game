@@ -1,4 +1,4 @@
-/* Page group "overview" (overview, empire, resources): page-specific blocks only, built on ui.css (docs/ui-layout.md). Layer "pages". */
+/* Page group "overview" (overview, empire, resources): page-specific blocks only, built on ui.css. Layer "pages". */
 @layer pages {
   /* ---------------------------------------------------------------- overview: hero */
   .hero {

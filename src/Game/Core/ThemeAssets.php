@@ -25,7 +25,7 @@ use App\Runtime\SafeFile;
  *
  * A new theme overrides any image by putting a file at the same relative path into its folder, or reuses
  * existing artwork by declaring a set. tools/images/dedupe-theme-assets.php moves identical files out of the
- * theme folders into the shared folder (docs/themes.md).
+ * theme folders into the shared folder.
  *
  * The per-theme lookup map (relative path => URL) is cached in var/game/theme-assets-<theme>.php and rebuilt
  * when the modification time of one of the folders it was built from changes (a file added or removed).

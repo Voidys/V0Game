@@ -38,8 +38,7 @@ class Database
     /**
      * Isolation level of the game's connection, set right after connecting: READ COMMITTED takes no gap/next-key locks on
      * range scans (the cause of most deadlocks between page requests and fleet events). Own statement because it has no
-     * system variable that both MySQL 8 and MariaDB 10.11 know. Needs binlog_format=ROW when binary logging is on
-     * (docs/database-concurrency.md).
+     * system variable that both MySQL 8 and MariaDB 10.11 know. Needs binlog_format=ROW when binary logging is on.
      */
     public const ISOLATION_COMMAND = 'SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED';
 
@@ -144,7 +143,7 @@ class Database
      * (optional filters, dynamic column lists, IN lists). Use table('USERS') for table names, bind values with
      * createNamedParameter()/setParameter() (arrays with ArrayParameterType), quote `system` and `rank` with
      * backticks yourself, and run the result through fetchAll()/fetchRow()/fetchValue()/execute() so the query
-     * counter, DB time, row count and the debug log keep working. See docs/database.md.
+     * counter, DB time, row count and the debug log keep working.
      *
      * @throws Exception without a DBAL connection (no Symfony context)
      */

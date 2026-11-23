@@ -1,4 +1,4 @@
-/* Page group "messages-alliance": page-specific blocks only, built on ui.css (docs/ui-layout.md). Layer "pages". */
+/* Page group "messages-alliance": page-specific blocks only, built on ui.css. Layer "pages". */
 @layer pages {
   .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
   td.empty { padding: var(--space-6) var(--pad); }

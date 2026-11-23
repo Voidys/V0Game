@@ -12,7 +12,7 @@
 # dependencies with Composer and prepares the folders. Then you either run the
 # command line installer (bin/console app:install) or open the web wizard.
 # It never uses sudo on its own; if a step needs it, it tells you why and asks.
-# Full guide: docs/INSTALL.md
+# Full guide: README.md ("Quick start", "Running a server")
 set -euo pipefail
 
 REPO_URL="https://github.com/Voidys/V0Game.git"
@@ -284,7 +284,7 @@ fetch_sources() {
 }
 
 update_sources() {
-    [ -d "$DIR/.git" ] || die "$DIR is not a git checkout, so it cannot be updated by git. See 'Updating' in docs/INSTALL.md."
+    [ -d "$DIR/.git" ] || die "$DIR is not a git checkout, so it cannot be updated by git. See 'Updating' in README.md."
     say "Backup reminder: dump your database and copy config/game.php and .env.local before updating."
     confirm "Continue?" y || die "aborted"
     resolve_version
@@ -336,15 +336,15 @@ next_steps_server() {
     head1 "Next steps"
     say "1. Web server: the document root must be the folder  $ABS_DIR/public"
     say "   (never the project folder: config and source code must not be reachable)."
-    say "   nginx: example in $ABS_DIR/docs/nginx.md   Apache: DocumentRoot $ABS_DIR/public, AllowOverride All"
+    say "   nginx: example in $ABS_DIR/README.md (section nginx)   Apache: DocumentRoot $ABS_DIR/public, AllowOverride All"
     say "   (public/.htaccess does the rewriting; PHP-FPM or mod_php with PHP 8.4)."
     say "2. HTTPS: get a certificate (for example certbot --nginx / --apache) and serve the game over https."
     say "3. Cron: run  crontab -e  as the web server's user (or yours) and add"
     say "     * * * * * cd $ABS_DIR && php bin/console app:cron:run --quiet"
     say "   Without it fleets never arrive and nothing progresses. Help, also for hosting panels:"
-    say "     https://github.com/Voidys/V0Game/blob/main/docs/INSTALL.md#7-set-up-the-cron-job"
+    say "     https://github.com/Voidys/V0Game#cron-job"
     say "4. Open $url/ (the game) and $url/admin to log in as the administrator."
-    say "Details, updating and backups: $ABS_DIR/docs/INSTALL.md"
+    say "Details, updating and backups: $ABS_DIR/README.md"
 }
 
 # ---------------------------------------------------------------- modes
@@ -394,7 +394,7 @@ mode_server() {
         composer_install
         head1 "Updated"
         say "Database migrations run automatically on the next request to the site."
-        say "Check the changelog (CHANGES.md) and docs/INSTALL.md ('Updating') for notes on this version."
+        say "Check the changelog (CHANGES.md) and README.md ('Updating') for notes on this version."
         say "Clear caches if something looks odd:  cd $ABS_DIR && php bin/console cache:clear"
         return
     fi

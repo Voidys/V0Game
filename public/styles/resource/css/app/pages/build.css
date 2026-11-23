@@ -1,5 +1,5 @@
 /* Page group "build" (buildings, research, hangar, defense, repair dock, info dialogs, tech tree, alliance depot):
-   page-specific blocks only, built on ui.css (docs/ui-layout.md). Layer "pages". */
+   page-specific blocks only, built on ui.css. Layer "pages". */
 @layer pages {
   /* ---------------------------------------------------------------- filter buttons (toggle `.selected` is set by scripts) */
   .segmented > .selected {

@@ -15,7 +15,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 final class UpdateCheck
 {
     public const RELEASE_URL = 'https://api.github.com/repos/Voidys/V0Game/releases/latest';
-    public const UPDATE_DOCS_URL = InstallService::DOCS_URL . '#updating';
+    public const UPDATE_DOCS_URL = InstallService::UPDATE_DOCS_URL;
 
     private const CACHE_KEY = 'admin_update_check';
     private const TTL_OK = 6 * 3600;

@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Contracts\Service\Attribute\Required;
 
 /**
- * Social login (OAuth2 authorization code flow with PKCE) with Discord, Facebook, GitHub and Google, see docs/social-login.md.
+ * Social login (OAuth2 authorization code flow with PKCE) with Discord, Facebook, GitHub and Google. Setup: "Social login" in README.md.
  *
  * Steps: start (redirect to the provider) -> callback (state check, code exchange, user lookup) -> resolution:
  * a linked identity logs its account in; an identity that is not linked is never attached to an account by its e-mail

@@ -35,7 +35,7 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
     </FilesMatch>
     # mod_deflate appends "-gzip" to the ETag; the browser sends that back in If-None-Match, but Apache compares it with the
     # plain ETag and answers 200 with the whole body instead of 304. DeflateAlterETag NoChange fixes it, but is allowed in the
-    # server/vhost config only (docs/nginx.md, "Compression"): here the ETag of the compressible assets is dropped, the
+    # server/vhost config only (README.md, "nginx", compression): here the ETag of the compressible assets is dropped, the
     # browser revalidates with Last-Modified (If-Modified-Since -> 304) instead
     <FilesMatch "\.(css|js|mjs|svg|json)$">
         Header unset ETag

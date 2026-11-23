@@ -170,7 +170,7 @@ input.fleet-radio { width: 3.75rem; }
 /* ==================================================================== combat report
    /report/<rid> and the report modal: result hero, summary, collapsible rounds with one panel per fleet.
    Templates: game/shared.mission.raport(.rust).html.twig + the shared.mission.raport.{head,extras,macros} parts.
-   Same blocks as the game pages (docs/ui-layout.md): panels, hairline tables, uppercase muted headers, mono
+   Same blocks as the game pages: panels, hairline tables, uppercase muted headers, mono
    right-aligned numbers. The --cr-* variables derive from the theme tokens; win/loss colours come from the
    player's signal colours. Layout reacts to the width of the report (container query), so it also fits the modal. */
 .cr {

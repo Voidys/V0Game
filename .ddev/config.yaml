@@ -27,7 +27,7 @@ web_extra_daemons:
     - name: "cron"
       command: "sh -c 'while true; do php bin/console app:cron:run --quiet; sleep $((60 - $(date +%%S))); done'"
       directory: /var/www/html
-    # due fleet events (arrivals, returns) every 5 seconds, independent of page views (production: see docs/INSTALL.md)
+    # due fleet events (arrivals, returns) every 5 seconds, independent of page views (production: see "Cron job" in README.md)
     - name: "fleets"
       command: "sh -c 'while true; do php bin/console app:fleets:run --quiet; sleep 5; done'"
       directory: /var/www/html

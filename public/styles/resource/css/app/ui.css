@@ -1,7 +1,7 @@
 /*
  * Strict layout ruleset of the game content area. Every page is built from these blocks; no page sets its own
  * outer margins or paddings. Spacing comes only from the scale (--space-1..8) and --gap / --pad
- * (theme-contract.css). Rules and examples: docs/ui-layout.md.
+ * (theme-contract.css). Rules and examples: the comments in this file.
  *
  *   .content               vertical stack, gap --gap; children never set outer margins
  *   .page-head             first block: __title (h1) · __meta (muted line) · __actions (right)

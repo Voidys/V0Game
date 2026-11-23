@@ -4,7 +4,7 @@
  * derived tokens defined here, so every theme gets the same strict layout. Defaults = the V0Game theme.
  *
  * Layer "contract" sits above "base" (shared defaults of base.css, also used by admin/account) and below "theme",
- * so a theme's :root values win over these defaults. Guide: docs/themes.md.
+ * so a theme's :root values win over these defaults. Copy an existing theme to make a new one.
  */
 @layer contract {
   :root {

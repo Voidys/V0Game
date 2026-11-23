@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Writes foo.css.br / foo.css.gz (and .js, .mjs, .svg, .json) next to the static text assets in public/, for
-# nginx `brotli_static on;` / `gzip_static on;` (docs/nginx.md, "Compression"). Existing up-to-date files are kept;
+# nginx `brotli_static on;` / `gzip_static on;` (README.md, "nginx"). Existing up-to-date files are kept;
 # re-run after every deploy. Skips brotli when the `brotli` tool is missing, gzip when `gzip` is.
 # usage: tools/build/precompress.sh [dir ...]   (default: public/styles public/scripts)
 set -euo pipefail

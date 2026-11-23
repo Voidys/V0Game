@@ -1,7 +1,7 @@
 /*
  * community: community skin. Dark slate panels over the space photo, cyan accent, Verdana, blue-black header.
  * Artwork: the "nebula" set plus own resource icons (style.cfg).
- * Tokens only; layout comes from css/app (docs/themes.md).
+ * Tokens only; layout comes from css/app.
  */
 @layer theme {
   :root {

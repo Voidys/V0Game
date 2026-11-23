@@ -10,7 +10,7 @@ namespace App\Game\Core;
  * The values (casts, HTML encoding, CRLF and NUL handling, ASCII-only unless multibyte) are those of the former
  * `_GP()` function: the type of the default decides the conversion (typed()). The typed accessors add a static return type, so
  * no `(int)` / `(string)` casts are needed at the call site.
- * Strings stay HTML-encoded; templates rely on that (docs/templates.md), so never encode them again.
+ * Strings stay HTML-encoded; templates rely on that, so never encode them again.
  */
 final class RequestInput
 {
@@ -219,7 +219,7 @@ final class RequestInput
      * -> float, int -> int, string -> trimmed text with line breaks normalised, NUL removed and HTML special
      * characters encoded (ASCII only unless $multibyte; invalid UTF-8 becomes ''), array -> the same per element
      * (integers when the default array starts with 0). Missing or mistyped input returns $default.
-     * Because the value is already HTML-encoded, templates must not encode it again (see docs/templates.md).
+     * Because the value is already HTML-encoded, templates must not encode it again.
      *
      * @param mixed $default value returned when the parameter is absent; its type selects the conversion.
      * @param bool $multibyte allow UTF-8 characters in strings.

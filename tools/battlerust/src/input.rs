@@ -1,4 +1,4 @@
-//! Battle input as sent by `BattleEngineRust::createRustJson()` (see docs/battle-engine-contract.md).
+//! Battle input as sent by `BattleEngineRust::createRustJson()`.
 
 use serde::Deserialize;
 use serde_json::Value;

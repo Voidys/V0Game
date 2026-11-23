@@ -1,4 +1,4 @@
-/* Page group "misc": page-specific blocks only, built on ui.css (docs/ui-layout.md). Layer "pages".
+/* Page group "misc": page-specific blocks only, built on ui.css. Layer "pages".
    Statistics, battle hall, search, ban list, team, vote, records, settings, player card, achievements,
    changelog, rules, FAQ, advanced statistics. */
 @layer pages {

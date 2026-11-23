@@ -4,7 +4,7 @@ framework:
 
     # Reverse proxies whose X-Forwarded-* headers are trusted (client IP, scheme, host): comma separated
     # IPs/CIDRs, or "REMOTE_ADDR" for any directly connected proxy. Default: none (headers are ignored,
-    # Request::getClientIp() = the TCP peer). See docs/INSTALL.md "Security".
+    # Request::getClientIp() = the TCP peer). See "Security checklist" in README.md.
     trusted_proxies: '%env(default::SYMFONY_TRUSTED_PROXIES)%'
     trusted_headers: ['x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto', 'x-forwarded-port', 'x-forwarded-prefix']
 

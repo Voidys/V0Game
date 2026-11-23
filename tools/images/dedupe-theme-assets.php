@@ -7,7 +7,7 @@
  *   php tools/images/dedupe-theme-assets.php [--apply]
  *
  * Without --apply it only reports. Run tools/images/convert-theme-images.sh first (identical sources give
- * identical WebP files). Concept and lookup order: docs/themes.md, App\Game\Core\ThemeAssets.
+ * identical WebP files). Concept and lookup order: App\Game\Core\ThemeAssets.
  *
  *   public/styles/resource/theme-shared/common/        files held by (nearly) all themes
  *   public/styles/resource/theme-shared/sets/<set>/    artwork of a group of themes; a theme declares the sets it

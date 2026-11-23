@@ -10,7 +10,7 @@
 //! * `void battlerust_free(char *result)`: frees a result of `fight_battle_rounds` (NULL is fine).
 //! * `const char *battlerust_version(void)`: static version string.
 //!
-//! The input/output formats are documented in docs/battle-engine-contract.md.
+//! The input/output formats are documented in this crate (input.rs, output.rs).
 
 pub mod engine;
 pub mod input;

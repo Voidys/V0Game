@@ -14,7 +14,7 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
-    /** Applies TRUSTED_HOSTS (see docs/INSTALL.md): requests with another Host header are answered with 400. */
+    /** Applies TRUSTED_HOSTS (see "Security checklist" in README.md): requests with another Host header are answered with 400. */
     public function boot(): void
     {
         parent::boot();

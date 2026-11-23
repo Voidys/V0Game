@@ -1,7 +1,7 @@
 /*
  * pr0gress: square slate-blue skin. Navy and steel panels on black, mint-green accent, Yantramanav, sharp corners.
  * Artwork: own artwork incl. message icons (style.cfg). Negative red lightened for contrast.
- * Tokens only; layout comes from css/app (docs/themes.md).
+ * Tokens only; layout comes from css/app.
  */
 @layer theme {
   :root {

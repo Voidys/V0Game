@@ -1,7 +1,7 @@
 /*
  * DarkNebula: dark glass. Translucent near-black panels over the nebula photo, pale mint accent, monospace, sharp corners.
  * Artwork: the "nebula" set (style.cfg). Text brightened from 76% white to solid for contrast.
- * Tokens only; layout comes from css/app (docs/themes.md).
+ * Tokens only; layout comes from css/app.
  */
 @layer theme {
   :root {

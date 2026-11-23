@@ -41,10 +41,16 @@ final class InstallService
     ];
 
     public const MIN_PASSWORD_LENGTH = 8;
-    public const DOCS_URL = 'https://github.com/Voidys/V0Game/blob/main/docs/INSTALL.md';
+    private const README_URL = 'https://github.com/Voidys/V0Game';
 
-    /** step-by-step cron setup (hosting panel and crontab) in the install guide */
-    public const CRON_DOCS_URL = self::DOCS_URL . '#7-set-up-the-cron-job';
+    /** the install guide (Quick start) in the README */
+    public const DOCS_URL = self::README_URL . '#quick-start';
+
+    /** step-by-step cron setup (hosting panel and crontab) in the README */
+    public const CRON_DOCS_URL = self::README_URL . '#cron-job';
+
+    /** updating an existing install, in the README */
+    public const UPDATE_DOCS_URL = self::README_URL . '#updating';
 
     /** file (in var/) that carries a generated migration password from the database step to the last page */
     private const SECRET_FILE = 'var/INSTALL_SECRET';

@@ -3,7 +3,7 @@
  * Mono everywhere, cyan as the signal colour with sky links and indigo information, 3px corners, a faint
  * cyan/violet nebula behind the page.
  * Artwork: own planets and moons (planeten/), the rest from the "nebula" set (style.cfg).
- * Font: Share Tech Mono (SIL Open Font License), fonts/. Tokens only; layout comes from css/app (docs/themes.md).
+ * Font: Share Tech Mono (SIL Open Font License), fonts/. Tokens only; layout comes from css/app.
  */
 @font-face {
   font-family: "Share Tech Mono";

@@ -42,7 +42,7 @@ jobs:
             ## Installing
 
             Download `v0game-<version>.zip` below, check it against the `.sha256` file and follow
-            [docs/INSTALL.md](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/docs/INSTALL.md).
+            the [install guide in the README](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/README.md#quick-start).
             Upgrading from an older version: replace the files except `config/` and `.env.local`,
             then open the site (database migrations run automatically).
 

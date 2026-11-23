@@ -1,4 +1,4 @@
-//! Result JSON in the "Rust round log" format the combat report stores and renders (docs/battle-engine-contract.md).
+//! Result JSON in the "Rust round log" format the combat report stores and renders.
 //!
 //! Written by hand: the key order is fixed (fleets and unit types in input order, statistics in report order, maps
 //! sorted by id), whole numbers are written as integers, and no serde tree has to be built for big battles.

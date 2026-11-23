@@ -15,7 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Processes the due fleet events (arrivals, returns, stays) of all universes once, independent of page views.
  * One run is one process because the game fixes its request time once per process: the DDEV daemon and the
- * production setup call it in a short loop (every 5 seconds, see docs/INSTALL.md). Safe to run in parallel with
+ * production setup call it in a short loop (every 5 seconds, see "Cron job" in README.md). Safe to run in parallel with
  * page requests and the cron task (atomic event claims).
  */
 #[AsCommand(name: 'app:fleets:run', description: 'Processes the due fleet events of all universes')]

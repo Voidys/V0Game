@@ -12,7 +12,7 @@ use App\Game\AdvancedStats\AdvancedStatsHandler;
  * (about 2 ms) per battle. Linux x86_64 only; elsewhere BattleHandler falls back to the PHP engine.
  *
  * The library fights like BattleEngineSteemNova ship by ship with PHP's mt_rand; with useSeed() both engines produce
- * the same fight (docs/battle-engine-contract.md), which the parity tests rely on. The rounds of the library are
+ * the same fight, which the parity tests rely on. The rounds of the library are
  * only the fight; losses, debris, defense rebuild and wreck field are computed here, in the order and with the
  * random draws of the PHP engine.
  */
@@ -128,7 +128,7 @@ class BattleEngineRust extends AbstractBattleEngine
      * +10%/level weapon tech, hull = (metal+crystal)/10 with armor tech, shield with shield tech, rapid fire table,
      * bigshield/stun flags, explode threshold 0.7 for ships (ids 2xx), none for defenses), and the seed when useSeed() was
      * called. The values are NOT rounded: they are the exact numbers of the PHP engine, which seeded parity depends on.
-     * The key order is part of the format (docs/battle-engine-contract.md) and pinned by a test.
+     * The key order is part of the format and pinned by a test.
      *
      * @param array<int|string, BattleFleet> $attackers attacking fleets in firing order
      * @param array<int|string, BattleFleet> $defenders defending fleets in firing order (the planet is fleet 0)
