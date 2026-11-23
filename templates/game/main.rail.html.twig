@@ -12,7 +12,7 @@
       {% set hostile = hostileAlert and p.galaxy == hostileAlert.galaxy and p.system == hostileAlert.system and p.planet == hostileAlert.planet %}
       <li{% if p.current or hostile %} class="{{ p.current ? 'is-current' : '' }}{{ hostile ? ' is-hostile' : '' }}"{% endif %}{% if p.current %} aria-current="true"{% endif %}>
         <a href="{{ railBase }}?cp={{ p.id }}" data-tip="{{ LNG.shell_switch_to|replace({'%s': p.name}) }}">
-          <img src="{{ shell.planet_src(p.image, p.style) }}" width="44" height="44" alt="">
+          {{ shell.planet_img(p.image, p.style, 44) }}
           <span class="pl-text">
             <strong>{{ p.name }}{% if p.isMoon %} <span class="muted">({{ LNG.fcm_moon }})</span>{% endif %}</strong>
             <span class="mono muted">[{{ p.galaxy }}:{{ p.system }}:{{ p.planet }}]</span>
@@ -26,7 +26,7 @@
           </span>
         </a>
         {% if p.moon %}
-          <a class="pl-moon{% if p.moon.current %} is-current{% endif %}" href="{{ railBase }}?cp={{ p.moon.id }}" aria-label="{{ LNG.shell_moon_of|replace({'%s': p.name}) }}" data-tip="{{ LNG.shell_moon_of|replace({'%s': p.name}) }}"><img src="{{ shell.planet_src(p.moon.image, p.moon.style) }}" width="22" height="22" alt=""></a>
+          <a class="pl-moon{% if p.moon.current %} is-current{% endif %}" href="{{ railBase }}?cp={{ p.moon.id }}" aria-label="{{ LNG.shell_moon_of|replace({'%s': p.name}) }}" data-tip="{{ LNG.shell_moon_of|replace({'%s': p.name}) }}">{{ shell.planet_img(p.moon.image, p.moon.style, 22) }}</a>
         {% endif %}
       </li>
     {% endfor %}

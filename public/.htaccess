@@ -33,6 +33,17 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
     <FilesMatch "\.(gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff2?|ico|webp)$">
         Header set Cache-Control "public, max-age=31536000, stale-while-revalidate=604800"
     </FilesMatch>
+    # mod_deflate appends "-gzip" to the ETag; the browser sends that back in If-None-Match, but Apache compares it with the
+    # plain ETag and answers 200 with the whole body instead of 304. DeflateAlterETag NoChange fixes it, but is allowed in the
+    # server/vhost config only (docs/nginx.md, "Compression"): here the ETag of the compressible assets is dropped, the
+    # browser revalidates with Last-Modified (If-Modified-Since -> 304) instead
+    <FilesMatch "\.(css|js|mjs|svg|json)$">
+        Header unset ETag
+    </FilesMatch>
+    # versioned images and the icon sprite (?v=<mtime>, e.g. srcset variants, lucide.svg): immutable as well
+    <FilesMatch "\.(png|jpe?g|gif|webp|svg|woff2?)$">
+        Header set Cache-Control "public, max-age=31536000, immutable" "expr=%{QUERY_STRING} =~ /(^|&)v=/ && %{HTTP_HOST} !~ /\.ddev\.site(:[0-9]+)?$/"
+    </FilesMatch>
 </IfModule>
 
 # Theme metadata (styles/theme/*/style.cfg, settings.cfg) is read by PHP, not served

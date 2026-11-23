@@ -2,8 +2,7 @@
  * V0Game UI base: design tokens, a light reset, form controls, tables and the shared components
  * (modal, tooltip, notify, tabs, autocomplete, sortable tables). Shared by all areas.
  *
- * Everything sits in cascade layers. The game imports app/content.css into
- * "legacy.content" and the player's classic theme (styles/theme/<name>/theme.css) into "legacy.theme"
+ * Everything sits in cascade layers. app/content.css wraps itself in "legacy.content"; the player's classic theme (styles/theme/<name>/theme.css) goes into "legacy.theme"
  * (sub-layers of "legacy", declared in this order: the theme overrides content.css). Both sit above base and
  * below components: themes keep their 2Moons colours and backgrounds, shared widgets stay consistent.
  * Other areas that link these files unlayered keep their previous cascade.

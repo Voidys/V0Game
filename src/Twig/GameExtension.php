@@ -23,6 +23,7 @@ use Twig\TwigFunction;
  *   import_map()              <script type="importmap"> that versions every ES module under
  *                             public/scripts by its mtime, so modules imported by other modules
  *                             (`import './dialog.js'`) are refetched as soon as the file changes
+ *   module_preload(entries)   <link rel="modulepreload"> for the static imports of the page modules (versioned like the map)
  *   data_island(id, data)     <script type="application/json" id="id"> with the data as JSON: the way a template
  *                             hands data to its page module (read with pageData() from scripts/app/core.js).
  *                             JSON is not executed, so no nonce is needed
@@ -46,6 +47,7 @@ final class GameExtension extends AbstractExtension implements GlobalsInterface
             new TwigFunction('game_config', $this->config->get(...)),
             new TwigFunction('languages', $this->languagePacks->getNames(...)),
             new TwigFunction('import_map', $this->importMap(...)),
+            new TwigFunction('module_preload', $this->modulePreload(...)),
             new TwigFunction('data_island', $this->dataIsland(...), ['is_safe' => ['all']]),
         ];
     }
@@ -65,9 +67,57 @@ final class GameExtension extends AbstractExtension implements GlobalsInterface
      */
     public function importMap(): Markup
     {
-        static $json = null;
-        if ($json !== null) {
-            return $this->importMapTag($json);
+        return $this->importMapTag($this->moduleMap()['json']);
+    }
+
+    /**
+     * `<link rel="modulepreload">` for the static import closure of the given page modules (paths below
+     * public/scripts, e.g. `app/main.js`, `game/galaxy.js`), with the same versioned URLs the import map resolves, so
+     * the browser fetches the whole tree in parallel instead of one import level per round trip. The entries themselves
+     * are not listed (their `<script>` tags fetch them); dynamic `import()` is not followed (lazy on purpose).
+     *
+     * @param list<string> $entries
+     */
+    public function modulePreload(array $entries): Markup
+    {
+        $map = $this->moduleMap();
+        $imports = json_decode($map['json'], true)['imports'] ?? [];
+        $skip = [];
+        foreach ($entries as $entry) {
+            $skip['./scripts/' . ltrim($entry, '/')] = true;
+        }
+        $seen = [];
+        $queue = array_keys($skip);
+        while ($queue) {
+            $path = array_shift($queue);
+            foreach ($map['graph'][$path] ?? [] as $dep) {
+                if (!isset($seen[$dep])) {
+                    $seen[$dep] = true;
+                    $queue[] = $dep;
+                }
+            }
+        }
+        $html = '';
+        foreach (array_keys($seen) as $dep) {
+            if (isset($imports[$dep]) && !isset($skip[$dep])) {
+                $html .= '<link rel="modulepreload" href="' . htmlspecialchars($imports[$dep], ENT_QUOTES) . '">' . "\n  ";
+            }
+        }
+
+        return new Markup(rtrim($html), 'UTF-8');
+    }
+
+    /**
+     * The import map JSON and the static import graph (`./scripts/<file>` => the files it imports statically), built
+     * once per process and, outside debug, cached in var/game/cache.importmap.php (see importMap()).
+     *
+     * @return array{json: string, graph: array<string, list<string>>}
+     */
+    private function moduleMap(): array
+    {
+        static $map = null;
+        if ($map !== null) {
+            return $map;
         }
 
         $root = ProjectPaths::ROOT . 'public/scripts/';
@@ -75,14 +125,13 @@ final class GameExtension extends AbstractExtension implements GlobalsInterface
         $key = $this->debug ? null : $this->importMapKey($root);
         if ($key !== null && is_file($cacheFile)) {
             $cached = include $cacheFile;
-            if (is_array($cached) && ($cached['key'] ?? null) === $key && is_string($cached['json'] ?? null)) {
-                $json = $cached['json'];
-
-                return $this->importMapTag($json);
+            if (is_array($cached) && ($cached['key'] ?? null) === $key && is_string($cached['json'] ?? null) && is_array($cached['graph'] ?? null)) {
+                return $map = ['json' => $cached['json'], 'graph' => $cached['graph']];
             }
         }
 
         $imports = [];
+        $graph = [];
         $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($root, \FilesystemIterator::SKIP_DOTS));
         foreach ($files as $file) {
             if ($file->getExtension() !== 'js') {
@@ -90,18 +139,47 @@ final class GameExtension extends AbstractExtension implements GlobalsInterface
             }
             $path = './scripts/' . str_replace('\\', '/', substr($file->getPathname(), strlen($root)));
             $imports[$path] = $path . '?v=' . $file->getMTime();
+            $graph[$path] = $this->staticImports($path, (string) file_get_contents($file->getPathname()));
         }
         ksort($imports);
+        ksort($graph);
 
         $json = json_encode(['imports' => $imports], JSON_UNESCAPED_SLASHES | JSON_HEX_TAG);
         if ($key !== null) {
-            SafeFile::write($cacheFile, '<?php return ' . var_export(['key' => $key, 'json' => $json], true) . ';');
+            SafeFile::write($cacheFile, '<?php return ' . var_export(['key' => $key, 'json' => $json, 'graph' => $graph], true) . ';');
             if (function_exists('opcache_invalidate')) {
                 opcache_invalidate($cacheFile, true);
             }
         }
 
-        return $this->importMapTag($json);
+        return $map = ['json' => $json, 'graph' => $graph];
+    }
+
+    /**
+     * Relative modules a script imports statically (`import … from './x.js'`, `import './x.js'`, `export … from`), as
+     * `./scripts/...` paths. Only relative specifiers are followed (all game modules use them).
+     *
+     * @return list<string>
+     */
+    private function staticImports(string $path, string $source): array
+    {
+        $source = preg_replace('~/\*.*?\*/|(?<![:\'"])//[^\n]*~s', '', $source) ?? $source;
+        preg_match_all('~(?:^|\n)[ \t]*(?:import|export)\s+(?:[^;\'"()]*?\s+from\s*)?[\'"](\.{1,2}/[^\'"]+)[\'"]~', $source, $found);
+        $deps = [];
+        foreach ($found[1] as $specifier) {
+            $parts = explode('/', dirname($path) . '/' . $specifier);
+            $resolved = [];
+            foreach ($parts as $part) {
+                if ($part === '..') {
+                    array_pop($resolved);
+                } elseif ($part !== '.') {
+                    $resolved[] = $part;
+                }
+            }
+            $deps[] = './' . implode('/', array_slice($resolved, $resolved[0] === '.' ? 1 : 0));
+        }
+
+        return array_values(array_unique($deps));
     }
 
     /** git version plus the modification times of the script directory and its subdirectories (added/removed files) */

@@ -29,6 +29,7 @@ export function applyPageTheme() {
   const defaults = Chart.defaults;
   const scale = defaults.scale;
 
+  defaults.animation = false; // no entrance animation: it costs main-thread time for little gain
   defaults.color = muted;
   defaults.font.family = style.fontFamily;
   defaults.font.size = 12;

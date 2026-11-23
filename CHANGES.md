@@ -1423,3 +1423,21 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 - Web installer: requirements+licence, database (+ table build), game & admin, options (chat, global channel, link blocking, bots, mail, legal), done; inline field errors, optional fields folded, works without JS; upgrade mode unchanged.
 - `InstallService::applyChatSettings()`, chat module row created off; `app:install --chat/--no-chat --chat-global/--no-chat-global --chat-block-links/--no-chat-block-links`; `install.sh` and `docs/INSTALL.md` updated.
 
+## 179. Performance pass 3 (package A)
+
+- Farm list: sargable join `p.id = CAST(SUBSTRING(message_group, 3) AS UNSIGNED)` (3.9 s → 15 ms on 5000 reports), honor boost/unit costs/fuel memoised per request (`FleetMath::fleetConsumptionFor(..., ?float $honorBoost)`), filters before row building, 200 rows per page.
+- Notification cron: `finishedShipyards()` two batched queries instead of two per planet; a malformed `b_hangar_id` is logged instead of aborting the run.
+- `/game/events` moved to `LiveEventsController` with `$disableEcoSystem` (no planet lock/write per poll).
+- Scroll: `--fab-lift` set on the floating buttons only and only when it changes, back-to-top progress via `animation-timeline: scroll()` (JS fallback in 1 % steps, `scaleX` instead of width), `body:has()` rules replaced by sibling selectors / a class (phone 4× scroll restyle: buildings 1.6 → 0.08 s, empire 2.4 → 0.05 s, messages 2.6 → 0.6 s).
+- Overview page scripts versioned (`?v=`), so they get the immutable cache headers.
+
+## 180. Performance pass 3 (package B)
+
+- `GameConfig` reads from the config cache file (no `config`/`config_universe` queries per request while it is valid).
+- Indexes `log_fleets(universe,start_time)`, `planets(b_building)`, `users(b_tech)`, `chat_messages(universe,channel,deleted,id)`; `notification_watch.user_id` dropped; watch rows written only on change (migration 1795502100).
+- Notifications: opted-in sets loaded once per run, batched dispatch (`IN` queries, one web-push flush, concurrent Discord posts).
+- Chat poll early "nothing new" check (4 → 1–2 queries), `chat_poll` 60/min; admin chat reports view 71 → 4 queries; API token stamp skipped while fresh.
+- `#[LeanBoot]` for `/game/events` and `/game/chat/poll`: no planet lock/list, element catalog and language loaded lazily; all gates unchanged.
+- `#[PublicCache]` + `PublicCacheListener`: public non-game pages cacheable for anonymous visitors without session cookie, reports with ETag/304 (`-gzip`/`-br` ETag suffixes normalised).
+- Front end: Chart.js imported on demand (empire/alliance), chart animation off, empire row groups via one `data-folded` attribute (phone 4× TBT empire 591 → 111 ms, alliance 226 → 2 ms); `module_preload()` emits `modulepreload` for the static import graph; content.css via `<link>` (wrapped in `@layer legacy.content`); 64/128 px planet thumbnails with `srcset` (902 variants); 27 animated tech GIFs as smaller animated WebP; `.htaccess` drops the gzip-mangled ETag of css/js/svg/json and marks versioned images/fonts immutable; `tools/build/precompress.sh`, `tools/images/animated-gif-to-webp.sh`; compression docs in `docs/nginx.md`.
+- Test fix: `VoteSitesTest` second token no longer collides when the first starts with `b`.

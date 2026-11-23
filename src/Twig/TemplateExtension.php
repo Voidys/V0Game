@@ -49,6 +49,21 @@ final class TemplateExtension extends AbstractExtension implements GlobalsInterf
         return ThemeAssets::resolve($theme, $path);
     }
 
+    /**
+     * `srcset` of a theme WebP image URL (from theme_asset): the width variants next to it (`x-64w.webp`, written by
+     * `bin/console app:images:variants`) plus the original; null when there is none (other formats, no variants).
+     */
+    public function themeSrcset(string $url): ?string
+    {
+        if (!str_ends_with($url, '.webp') || !str_starts_with($url, './')) {
+            return null;
+        }
+        $file = \App\Runtime\ProjectPaths::ROOT . 'public/' . substr($url, 2);
+        $info = \App\Runtime\SafeFile::imageSize($file);
+
+        return $info === false ? null : \App\Content\ImageProcessor::srcset($file, $url, (int) $info[0]);
+    }
+
     /** BCP 47 tag of a language pack for <html lang> (pack `tag`, e.g. br => pt-BR, tw => zh-Hant-TW), else the pack code */
     public function htmlLang(?string $lang): string
     {
@@ -81,6 +96,7 @@ final class TemplateExtension extends AbstractExtension implements GlobalsInterf
             $functions[] = new TwigFunction($name, $callable);
         }
         $functions[] = new TwigFunction('theme_asset', $this->themeAsset(...));
+        $functions[] = new TwigFunction('theme_srcset', $this->themeSrcset(...));
         $functions[] = new TwigFunction('php_date', 'date');
         $functions[] = new TwigFunction('icon', $this->icon(...), ['is_safe' => ['all']]);
         $functions[] = new TwigFunction('html_lang', $this->htmlLang(...));

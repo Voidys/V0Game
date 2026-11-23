@@ -10,6 +10,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   {# versions all ES modules by mtime (imported modules carry no ?v=): App\\Twig\\GameExtension::importMap #}
   {{ import_map() }}
+  {# the static import tree of the entry modules, fetched in parallel instead of one import level per round trip #}
+  {% set preloadEntries = ['app/main.js'] %}
+  {% if chatEnabled|default(false) %}{% set preloadEntries = preloadEntries|merge(['game/chat.js']) %}{% endif %}
+  {% for scriptname in scripts %}{% if not (scriptname starts with '../') %}{% set preloadEntries = preloadEntries|merge(['game/' ~ scriptname]) %}{% endif %}{% endfor %}
+  {{ module_preload(preloadEntries) }}
   <meta name="theme-color" content="#0a0d11">
   {% if goto %}
     <meta http-equiv="refresh" content="{{ gotoinsec }};URL={{ goto }}">
@@ -24,7 +29,7 @@
   <link rel="stylesheet" href="./styles/resource/css/app/theme-contract.css?v={{ asset_version }}">
   <link rel="stylesheet" href="{{ themeCssPath }}?v={{ asset_version }}">
   <link rel="stylesheet" href="./styles/resource/css/app/rte.css?v={{ asset_version }}">
-  <style>@import url("./styles/resource/css/app/content.css?v={{ asset_version }}") layer(legacy.content);</style>
+  <link rel="stylesheet" href="./styles/resource/css/app/content.css?v={{ asset_version }}">
   {# strict layout ruleset, then tables/forms and app components (all layer "components") #}
   <link rel="stylesheet" href="./styles/resource/css/app/ui.css?v={{ asset_version }}">
   <link rel="stylesheet" href="./styles/resource/css/app/tables-forms.css?v={{ asset_version }}">

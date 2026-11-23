@@ -276,6 +276,10 @@ The technical list for server admins:
   - Database changes are applied automatically on the next page load.
 - **Performance:** OPcache settings (`validate_timestamps=0`), preloading and an authoritative class map are described in
   [docs/PERFORMANCE.md](docs/PERFORMANCE.md).
+- **Compression and caching:** serve brotli and precompressed `.br`/`.gz` files for CSS, JS and SVG
+  (`tools/build/precompress.sh`, nginx `brotli_static`/`gzip_static`), keep `?v=` assets `immutable`, and on Apache set
+  `DeflateAlterETag NoChange` (or keep the ETag removal of `public/.htaccess`), otherwise revalidation answers `200` instead of `304`
+  ([docs/nginx.md](docs/nginx.md#compression)).
 - **Security:** see the checklist in [docs/INSTALL.md#security-checklist](docs/INSTALL.md#security-checklist):
   - HTTPS on;
   - the document root on `public/`;

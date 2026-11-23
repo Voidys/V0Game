@@ -318,7 +318,15 @@
   }
 
   /* empire: the matrix is its own scroll box (header row stays, first column stays on phones); folded row groups */
-  .empire-table tr.hidden { display: none; }
+  .empire-table tr.hidden,
+  .empire-table[data-folded~="queues"] tr.queues,
+  .empire-table[data-folded~="chart"] tr.chart,
+  .empire-table[data-folded~="ressources"] tr.ressources,
+  .empire-table[data-folded~="buildings"] tr.buildings,
+  .empire-table[data-folded~="technology"] tr.technology,
+  .empire-table[data-folded~="ships"] tr.ships,
+  .empire-table[data-folded~="defenses"] tr.defenses,
+  .empire-table[data-folded~="missile"] tr.missile { display: none; }
   /* fits horizontally (class set by empire.js): the page scrolls and the header row sticks below the top bar;
      otherwise the table scrolls sideways only and the label column sticks */
   .table-scroll.is-fit:has(> .empire-table) { overflow: visible; }

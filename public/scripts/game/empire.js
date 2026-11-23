@@ -1,7 +1,9 @@
 // Empire page: collapsible row groups and the two score charts (points history on a log scale; score change
 // per interval as bars + line on two aligned axes). Data: <script id="empire-chart-data"> (EmpireController).
 import { on, cookie } from '../app/core.js';
-import { Chart, readChartData, applyPageTheme, hexWithAlpha, formatPoints, timeAgoTicks, tooltip } from '../app/charts.js';
+
+// Chart.js (app/charts.js) is imported only when a chart is about to be shown, see loadCharts()
+let Chart, applyPageTheme, hexWithAlpha, formatPoints, timeAgoTicks, tooltip;
 
 // one calm, colour-blind friendly palette for both charts (points = blue, the categories distinct hues)
 const COLORS = { points: '#5aa9ff', buildings: '#6fcf8e', research: '#b28cff', fleets: '#ff7a6b', defenses: '#f2c25c', up: '#6fcf8e', down: '#ff7a6b' };
@@ -11,30 +13,41 @@ const COLORS = { points: '#5aa9ff', buildings: '#6fcf8e', research: '#b28cff', f
 const GROUPS = ['queues', 'chart', 'ressources', 'buildings', 'technology', 'ships', 'defenses', 'missile'];
 const FOLDED_BY_DEFAULT = ['technology', 'ships', 'defenses', 'missile'];
 
-/** Collapses or expands a group of table rows (class = group name) and flips its arrow. */
-function showGroup(target, hidden) {
-  document.querySelectorAll('.' + target).forEach((row) => row.classList.toggle('hidden', hidden));
-  const arrow = document.getElementById(target + '-toggle');
-  if (arrow) arrow.textContent = hidden ? '▼' : '▲';
+/** The folded groups are listed in ONE attribute of the table (`data-folded="technology ships"`); the CSS hides the matching rows (tables-forms.css), so (un)folding is one style invalidation instead of one class per row. */
+function foldedGroups() {
+  return (document.querySelector('.empire-table')?.dataset.folded ?? '').split(' ').filter(Boolean);
 }
 
-/** Restores the collapsed state of all groups from localStorage (the long lists start folded until the player opens them), toggles on click and stores the checkbox settings in cookies (`data-cookie`). The chart canvases are resized after the chart group opens (they measure 0x0 while hidden). */
+/** Stores the folded groups on the table and flips the arrow of every group. */
+function setFolded(folded) {
+  const table = document.querySelector('.empire-table');
+  if (!table) return;
+  table.dataset.folded = folded.join(' ');
+  for (const target of GROUPS) {
+    const arrow = document.getElementById(target + '-toggle');
+    if (arrow) arrow.textContent = folded.includes(target) ? '▼' : '▲';
+  }
+}
+
+/** Restores the collapsed state of all groups from localStorage (the long lists start folded until the player opens them), toggles on click and stores the checkbox settings in cookies (`data-cookie`). The charts are built when their group is open and visible. */
 function initGroups() {
   fitWatch();
-  for (const target of GROUPS) {
+  const folded = GROUPS.filter((target) => {
     const stored = localStorage.getItem(target);
     // phones: the charts start folded so the planet table is on the first screen (the toggle row opens them)
     const foldedByDefault = FOLDED_BY_DEFAULT.includes(target) || (target === 'chart' && window.matchMedia('(max-width: 40rem)').matches);
-    showGroup(target, stored === null ? foldedByDefault : stored === 'true');
-  }
+    return stored === null ? foldedByDefault : stored === 'true';
+  });
+  setFolded(folded);
   on(document, 'click', '[data-toggle-rows]', (event, el) => {
     const target = el.dataset.toggleRows;
-    const hidden = !document.querySelector('.' + target)?.classList.contains('hidden');
-    showGroup(target, hidden);
+    const current = foldedGroups();
+    const hidden = !current.includes(target);
+    setFolded(hidden ? [...current, target] : current.filter((name) => name !== target));
     localStorage.setItem(target, String(hidden));
     if (target === 'chart' && !hidden) {
-      // canvases measured 0×0 while hidden
-      requestAnimationFrame(() => ['playerChart', 'playerChartBars'].forEach((id) => Chart.getChart(id)?.resize()));
+      // the charts are built on first open; canvases measured 0×0 while hidden
+      showCharts();
     }
   });
   on(document, 'input', 'input[data-cookie]', (event, input) => cookie.set(input.dataset.cookie, input.checked));
@@ -434,12 +447,49 @@ function changeChart(data) {
 
 // ------------------------------------------------------------------ start
 
-window.onPageInit(() => {
-  initGroups();
-  const data = readChartData('empire-chart-data');
-  if (data) {
+// ------------------------------------------------------------------ lazy charts
+
+let chartsLoading = null;
+
+/** imports Chart.js and the shared chart helpers once */
+function loadCharts() {
+  chartsLoading ??= import('../app/charts.js').then((charts) => {
+    ({ Chart, applyPageTheme, hexWithAlpha, formatPoints, timeAgoTicks, tooltip } = charts);
+    return charts;
+  });
+  return chartsLoading;
+}
+
+/** Builds the two charts (first call) or resizes them (after the group opened). Only while the chart group is open. */
+async function showCharts() {
+  if (foldedGroups().includes('chart')) return;
+  const el = document.getElementById('empire-chart-data');
+  if (!el) return;
+  await loadCharts();
+  if (!Chart.getChart('playerChart')) {
     applyPageTheme();
+    const data = JSON.parse(el.textContent);
+    // one task per chart, so the main thread is never blocked for both at once
+    const yieldToBrowser = () => new Promise((resolve) => setTimeout(resolve));
     pointsChart(data);
+    await yieldToBrowser();
     changeChart(data);
   }
+  requestAnimationFrame(() => ['playerChart', 'playerChartBars'].forEach((id) => Chart.getChart(id)?.resize()));
+}
+
+// ------------------------------------------------------------------ start
+
+window.onPageInit(() => {
+  initGroups();
+  const row = document.querySelector('tr.chart');
+  if (!row || !document.getElementById('empire-chart-data')) return;
+  // open group: build the charts once the row comes near the viewport (nothing is loaded while it is folded or far below)
+  const observer = new IntersectionObserver((entries) => {
+    if (entries.some((entry) => entry.isIntersecting) && !foldedGroups().includes('chart')) {
+      observer.disconnect();
+      showCharts();
+    }
+  }, { rootMargin: '200px' });
+  observer.observe(row);
 });

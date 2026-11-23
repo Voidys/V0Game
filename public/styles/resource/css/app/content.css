@@ -3,8 +3,10 @@
  * Grouped by component; selectors are the contract with the templates and the classic themes.
  * Plain values on purpose: the admin, installer and account popup link this file without base.css,
  * so design tokens (var(--space-*) etc.) are not available here.
+ * The whole file is wrapped in `@layer legacy.content` (order declared in base.css), so it can be linked with a
+ * plain <link> (discovered early) and still sits in the same cascade layer as before.
  */
-
+@layer legacy.content {
 /* ------------------------------------------------------------------ elements */
 
 input.invalid {
@@ -1411,4 +1413,4 @@ textarea {
 	.empire-table { width: max-content; min-width: 100%; }
 	.empire-table tr > :first-child { position: sticky; inset-inline-start: 0; z-index: 1; background-color: var(--tv-bg-primary, #0d1014); }
 }
-
+}

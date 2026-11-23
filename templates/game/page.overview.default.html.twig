@@ -1,11 +1,16 @@
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_overview }}{{ parent() }}{% endblock %}
 {% block script %}{{ parent() }}
-    <script type="module" src="scripts/game/overview.js"></script>
-    <script type="module" src="scripts/game/live-events.js"></script>
+    <script type="module" src="scripts/game/overview.js?v={{ asset_version }}"></script>
+    <script type="module" src="scripts/game/live-events.js?v={{ asset_version }}"></script>
 
 {% endblock %}
 {% import '_macros/ui.html.twig' as ui %}
+{# srcset/sizes attributes of a planet picture shown at `size` px (width variants next to the file, see app:images:variants) #}
+{% macro srcset(src, size) -%}
+{%- set variants = theme_srcset(src|trim) -%}
+{%- if variants %} srcset="{{ variants }}" sizes="{{ size }}px"{% endif -%}
+{%- endmacro %}
 {% macro art(image, style, enabled) -%}
 {%- if not enabled or style == 0 -%}{{ theme_asset('planeten/' ~ image ~ '.jpg') }}
 {%- elseif style == 1 -%}{{ theme_asset('planeten/varianten/v1_magic/' ~ image ~ '_v1_magic.webp') }}
@@ -44,7 +49,7 @@
             <img class="hero-art" src="{{ _self.art(planetimage, planet_style, enablePlanetStyles != 0) }}" width="200" height="200" alt="{{ planetname }}">
             {% if Moon %}
                 <a class="orbit-moon" href="{{ path('game_overview_show', {cp: Moon.id, re: 0}) }}" title="{{ Moon.name }} ({% if Moon.planet_type == 3 %}{{ LNG.ov_moon }}{% else %}{{ LNG.ov_planet }}{% endif %})">
-                    <img src="{{ _self.art(Moon.image, Moon.planet_style, enablePlanetStyles != 0) }}" width="100" height="100" alt="{{ Moon.name }} {% if Moon.planet_type == 3 %}({{ LNG.fcm_moon }}){% else %}({{ LNG.fcm_planet }}){% endif %}">
+                    <img src="{{ _self.art(Moon.image, Moon.planet_style, enablePlanetStyles != 0) }}"{{ _self.srcset(_self.art(Moon.image, Moon.planet_style, enablePlanetStyles != 0), 100) }} width="100" height="100" alt="{{ Moon.name }} {% if Moon.planet_type == 3 %}({{ LNG.fcm_moon }}){% else %}({{ LNG.fcm_planet }}){% endif %}">
                     <span class="orbit-label">{{ Moon.name }}</span>
                 </a>
             {% endif %}
@@ -170,7 +175,7 @@
                 {% set moonListed = false %}{% for PlanetRow in AllPlanets %}{% if Moon and PlanetRow.id == Moon.id %}{% set moonListed = true %}{% endif %}{% endfor %}
                 {% if Moon and not moonListed %}
                     <div class="overview-planet">
-                        <a href="{{ path('game_overview_show', {cp: Moon.id, re: 0}) }}" title="{{ Moon.name }}"><img class="planet-thumb" src="{{ _self.art(Moon.image, Moon.planet_style, enablePlanetStyles != 0) }}" width="48" height="48" alt="{{ Moon.name }}"></a>
+                        <a href="{{ path('game_overview_show', {cp: Moon.id, re: 0}) }}" title="{{ Moon.name }}"><img class="planet-thumb" src="{{ _self.art(Moon.image, Moon.planet_style, enablePlanetStyles != 0) }}"{{ _self.srcset(_self.art(Moon.image, Moon.planet_style, enablePlanetStyles != 0), 48) }} width="48" height="48" alt="{{ Moon.name }}"></a>
                         <div>
                             <strong>{{ Moon.name }}</strong> <span class="muted">({% if Moon.planet_type == 3 %}{{ LNG.ov_moon }}{% else %}{{ LNG.ov_planet }}{% endif %})</span><br>
                             {% if Moon.build %}{{ LNG.tech[Moon.build['id']] }}<span class="lvl">{{ Moon.build['level'] }}</span> <span class="timershort mono" data-umode="{{ umode }}" data-time="{{ Moon.build['timeleft'] }}">{{ Moon.build['starttime'] }}</span>{% else %}<span class="muted">{{ LNG.ov_free }}</span>{% endif %}
@@ -179,7 +184,7 @@
                 {% endif %}
                 {% for PlanetRow in AllPlanets %}
                     <div class="overview-planet">
-                        <a href="{{ path('game_overview_show', {cp: PlanetRow.id}) }}" title="{{ PlanetRow.name }}"><img class="planet-thumb" src="{{ _self.art(PlanetRow.image, PlanetRow.planet_style, enablePlanetStyles != 0) }}" width="48" height="48" alt="{{ PlanetRow.name }}"></a>
+                        <a href="{{ path('game_overview_show', {cp: PlanetRow.id}) }}" title="{{ PlanetRow.name }}"><img class="planet-thumb" src="{{ _self.art(PlanetRow.image, PlanetRow.planet_style, enablePlanetStyles != 0) }}"{{ _self.srcset(_self.art(PlanetRow.image, PlanetRow.planet_style, enablePlanetStyles != 0), 48) }} width="48" height="48" alt="{{ PlanetRow.name }}"></a>
                         <div>
                             <strong>{{ PlanetRow.name }}</strong> <span class="mono muted">[{{ PlanetRow.galaxy }}:{{ PlanetRow.system }}:{{ PlanetRow.planet }}]</span><br>
                             {% if PlanetRow.build %}{{ LNG.tech[PlanetRow.build['id']] }}{% if PlanetRow.build['mode'] == 'destroy' %} {{ LNG.bd_dismantle }}{% endif %}<span class="lvl">{{ PlanetRow.build['level'] }}</span> <span class="timershort mono" data-umode="{{ umode }}" data-time="{{ PlanetRow.build['timeleft'] }}">{{ PlanetRow.build['starttime'] }}</span>{% else %}<span class="muted">{{ LNG.ov_free }}</span>{% endif %}

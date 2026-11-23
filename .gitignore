@@ -50,3 +50,9 @@ composer.phar
 ###< phpunit/phpunit ###
 /tools/battlerust/target/
 /build/
+
+# precompressed assets (tools/build/precompress.sh)
+/public/scripts/**/*.br
+/public/scripts/**/*.gz
+/public/styles/**/*.br
+/public/styles/**/*.gz

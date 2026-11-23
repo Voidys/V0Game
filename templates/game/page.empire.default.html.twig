@@ -36,7 +36,8 @@
       <th>{{ LNG.lv_imperium_title }}</th>
       <th class="num" title="{{ LNG.lv_total }}">&Sigma; / &Oslash;</th>
       {% for image in empireList.image %}
-        <th class="num"><a href="{{ path('game_overview_show', {cp: image.id}) }}" title="{{ empireList.name[image.id] }}"><img width="28" height="28" loading="lazy" decoding="async" alt="" src="{{ _self.art(image.picture, image.planet_style, enablePlanetStyles != 0) }}"><span>{{ empireList.name[image.id] }}</span></a></th>
+        {% set artSrc = _self.art(image.picture, image.planet_style, enablePlanetStyles != 0)|trim %}{% set artSet = theme_srcset(artSrc) %}
+        <th class="num"><a href="{{ path('game_overview_show', {cp: image.id}) }}" title="{{ empireList.name[image.id] }}"><img width="28" height="28" loading="lazy" decoding="async" alt="" src="{{ artSrc }}"{% if artSet %} srcset="{{ artSet }}" sizes="28px"{% endif %}><span>{{ empireList.name[image.id] }}</span></a></th>
       {% endfor %}
     </tr>
     </thead>

@@ -16,6 +16,7 @@ use App\Runtime\SafeFile;
  *                                    public/styles/resource/theme-shared/sets/<set>/
  *   3. the files every theme has in common
  *                                    public/styles/resource/theme-shared/common/
+ *   A GIF with a WebP of the same name in the same folder is answered by the WebP (animated copy, smaller).
  *   Each folder is tried with the exact path first, then with the extension replaced by .webp (images are
  *   shipped as WebP, templates may still ask for x.gif / x.jpg / x.png).
  *   4. nothing found: the theme path is returned, so a missing image shows up as before (404).
@@ -108,8 +109,11 @@ final class ThemeAssets
         foreach (self::chain($theme) as [$dir, $url]) {
             $files = self::scan($dir, '', $dirs);
             $aliases = self::moonAliases($files);
+            $present = array_flip($files);
             foreach ($files as $rel) {
-                $map[$rel] ??= $url . $rel;
+                // an animated `x.webp` made from `x.gif` (tools/images/animated-gif-to-webp.sh) answers for the GIF (when smaller), which stays as the original
+                $webp = str_ends_with($rel, '.gif') ? substr($rel, 0, -4) . '.webp' : null;
+                $map[$rel] ??= $url . ($webp !== null && isset($present[$webp]) && filesize($dir . $webp) < filesize($dir . $rel) ? $webp : $rel);
             }
             foreach ($aliases as $virtual => $rel) {
                 $map[$virtual] ??= $url . $rel;
@@ -178,7 +182,7 @@ final class ThemeAssets
 
     /**
      * Files below $dir as relative paths. WebP copies of static images (`foo.png.webp`, made by
-     * app:images:webp and picked by the web server) are no assets of their own.
+     * app:images:webp and picked by the web server) and width variants (`foo-64w.webp`, app:images:variants) are no assets of their own.
      *
      * @param array<string, int> $dirs collects every folder with its mtime
      * @return list<string>
@@ -200,7 +204,7 @@ final class ThemeAssets
             $path = $rel . $entry;
             if (is_dir($dir . '/' . $path)) {
                 array_push($found, ...self::scan($dir, $path . '/', $dirs));
-            } elseif (!preg_match('/\.(png|jpe?g|gif)\.webp$/i', $entry)) {
+            } elseif (!preg_match('/\.(png|jpe?g|gif)\.webp$/i', $entry) && !preg_match('/-\d+w\.webp$/i', $entry)) {
                 $found[] = $path;
             }
         }

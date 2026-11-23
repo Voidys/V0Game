@@ -6,3 +6,9 @@
   {%- else -%}{{ theme_asset('planeten/' ~ image ~ '.jpg') }}
   {%- endif -%}
 {%- endmacro %}
+{# planet/moon picture at `size` px: width variants (64w/128w) in srcset, the original as fallback #}
+{% macro planet_img(image, style, size) -%}
+  {%- set src = _self.planet_src(image, style)|trim -%}
+  {%- set variants = theme_srcset(src) -%}
+  <img src="{{ src }}"{% if variants %} srcset="{{ variants }}" sizes="{{ size }}px"{% endif %} width="{{ size }}" height="{{ size }}" alt="">
+{%- endmacro %}
