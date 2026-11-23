@@ -79,10 +79,11 @@ class GalaxyRows
                 m.`temp_min` as m_temp_min, m.`last_update` as m_last_update, s.`total_points`, s.`total_rank`, a.`id` as allyid,
                 a.`ally_tag`, a.`ally_web`, a.`ally_members`, a.`ally_name`, allys.`total_rank` as ally_rank,
                 (a.`ally_owner`=u.`id`) as is_leader, a.`ally_owner_range`, r.`DIPLOMATIC` as is_diplo,
-                COUNT(buddy.`id`) as buddy, d.`level` as diploLevel 
+                COUNT(buddy.`id`) as buddy, d.`level` as diploLevel, w.`created` as wf_created, w.`ships` as wf_ships
             FROM %%PLANETS%% p
             LEFT JOIN %%USERS%% u ON p.`id_owner` = u.`id`
             LEFT JOIN %%PLANETS%% m ON m.`id` = p.`id_luna`
+            LEFT JOIN %%PLANET_WRECKFIELD%% w ON w.`planetID` = p.`id`
             LEFT JOIN %%STATPOINTS%% s ON s.`id_owner` = u.`id` AND s.`stat_type` = :statTypeUser
             LEFT JOIN %%ALLIANCE%% a ON a.`id` = u.`ally_id`
             LEFT JOIN %%ALLIANCE_RANK%% as r ON r.`allianceID` = u.`ally_id` AND r.`rankID` = u.`ally_rank_id`
@@ -134,6 +135,7 @@ class GalaxyRows
             $this->getPlanetData();
             $this->getAllianceData();
             $this->getDebrisData();
+            $this->getWreckData();
             $this->getMoonData();
             $this->getActionButtons();
             $this->getSpyReportIndicator();
@@ -319,6 +321,14 @@ class GalaxyRows
                 'class'  => $Class,
             ];
         }
+    }
+
+    /** Whether the planet has a live (younger than 72 h) wreck field while the repair dock module is on. */
+    private function getWreckData(): void
+    {
+        $this->galaxyData[$this->galaxyRow['planet']]['wreck'] = $this->module(MODULE_REPAIR_DOCK)
+            && !empty($this->galaxyRow['wf_ships'])
+            && $this->galaxyRow['wf_created'] > $this->state->runtime->timestamp - TIME_72_HOURS;
     }
 
     private function getDebrisData(): void

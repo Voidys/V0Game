@@ -25,6 +25,19 @@
     <span class="toolbar__spacer"></span>
     <span class="galaxy-toolbar__keys">{{ LNG.gl_keys_hint }}</span>
   </form>
+  <div id="galaxy-filters" class="toolbar galaxy-filters" role="group" aria-label="{{ LNG.gl_flt_title }}">
+    <span class="galaxy-nav__label">{{ icon('filter') }} {{ LNG.gl_flt_title }}</span>
+    <label class="galaxy-check"><input type="checkbox" data-filter="inactive"> {{ LNG.gl_flt_inactive }}</label>
+    <label class="galaxy-check"><input type="checkbox" data-filter="range"> {{ LNG.gl_flt_range }}</label>
+    <label class="galaxy-check"><input type="checkbox" data-filter="moon"> {{ LNG.gl_flt_moon }}</label>
+    <label class="galaxy-check"><input type="checkbox" data-filter="hideVacation"> {{ LNG.gl_flt_hide_vacation }}</label>
+    <label class="galaxy-check">{{ LNG.gl_flt_debris }} <input type="number" min="0" step="1000" class="galaxy-debris-min" data-filter="debris" aria-label="{{ LNG.gl_flt_debris }}"></label>
+    <button type="button" data-action="galaxy-filter-reset">{{ LNG.gl_flt_reset }}</button>
+    <span class="galaxy-filters__sep"></span>
+    <label class="galaxy-check"><input type="checkbox" data-filter="hlMine"> {{ LNG.gl_hl_mine }}</label>
+    <label class="galaxy-check"><input type="checkbox" data-filter="hlBuddies"> {{ LNG.gl_hl_buddies }}</label>
+    <button type="button" data-action="galaxy-marks-clear">{{ LNG.gl_hl_clear }}</button>
+  </div>
   <div id="galaxy-status" class="textForBlind" role="status" aria-live="polite"></div>
   {% include 'game/galaxy.system.html.twig' %}
 

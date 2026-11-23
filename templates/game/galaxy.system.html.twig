@@ -52,7 +52,7 @@
               <td colspan="6" class="galaxy-free-note">{{ colonizable[planet.planet_position] == 'colorPositive' ? LNG.gl_colonizable : LNG.gl_not_colonizable }}</td>
             </tr>
           {% elseif currentPlanet.destroyed == true %}
-            <tr class="is-empty" data-info="p_{{ planet.planet_position }}">
+            <tr class="is-empty" data-info="p_{{ planet.planet_position }}" data-filterable data-debris="{{ currentPlanet.flags.debris }}">
               <td class="ctr galaxy-pos galaxy-pos--{{ colonizable[planet.planet_position] == 'colorPositive' ? 'free' : 'blocked' }} {{ colonizable[planet.planet_position] }} tooltip_sticky" tabindex="-1" {{ tooltip(include('game/tooltip.galaxy.colonizable.html.twig')) }}>{{ planet.planet_position }}</td>
               <td colspan="2" class="galaxy-free-note">{{ LNG.gl_planet_destroyed }}</td>
               <td colspan="4" class="galaxy-debris">
@@ -65,7 +65,8 @@
               </td>
             </tr>
           {% else %}
-            <tr class="{{ currentPlanet.ownPlanet ? 'is-own' : '' }}" data-info="p_{{ planet.planet_position }}">
+            {% set rowFlags = currentPlanet.flags %}
+            <tr class="{{ currentPlanet.ownPlanet ? 'is-own' : '' }}" data-info="p_{{ planet.planet_position }}" data-filterable data-player="{{ currentPlanet.user.id }}" data-ally="{{ currentPlanet.alliance ? currentPlanet.alliance.id : 0 }}" data-debris="{{ rowFlags.debris }}" data-flags="{{ rowFlags.inactive ? 'inactive ' : '' }}{{ rowFlags.inRange ? 'range ' : '' }}{{ rowFlags.moon ? 'moon ' : '' }}{{ rowFlags.vacation ? 'vacation ' : '' }}{{ currentPlanet.user.isBuddy ? 'buddy ' : '' }}{{ currentPlanet.ownPlanet or (currentPlanet.alliance and 'member' in currentPlanet.alliance.class) ? 'mine' : '' }}">
               <td class="ctr galaxy-pos galaxy-pos--{{ currentPlanet.ownPlanet ? 'own' : 'taken' }} {{ colonizable[planet.planet_position] }} tooltip_sticky" tabindex="-1" {{ tooltip(include('game/tooltip.galaxy.colonizable.html.twig')) }}>{{ planet.planet_position }}</td>
               <td class="galaxy-planet">
                 <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.missions.html.twig', {'details': currentPlanet.planet, 'missions': currentPlanet.missions})) }}>
@@ -85,7 +86,9 @@
                     <img src="{{ theme_asset('planeten/debris.jpg') }}" height="22" width="22" alt="">
                     <span>{{ shortly_number(currentPlanet.debris.metal) }} / {{ shortly_number(currentPlanet.debris.crystal) }}</span>
                   </a>
+                  {% if rowFlags.recyclers > 0 %}<span class="galaxy-recyclers" title="{{ LNG.gl_recyclers_needed }}">&times;{{ shortly_number(rowFlags.recyclers) }}</span>{% endif %}
                 {% endif %}
+                {% if currentPlanet.wreck %}<span class="galaxy-wreck tag tag--info" title="{{ LNG.gl_wreck_present }}">{{ icon('wrench') }}</span>{% endif %}
               </td>
               <td class="galaxy-player">
                 <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.player.html.twig')) }}>
@@ -94,12 +97,14 @@
                 {% if currentPlanet.user.is_leader %}{% set tt_rank %}<table class='w-100'><tr><th colspan='2' class='text-center'>{{ currentPlanet.user.ally_owner_range }}</th></tr><tr><td class='transparent'>{{ currentPlanet.alliance.name }}</td></tr></table>{% endset %}<a class="tooltip galaxy-rank-leader" {{ tooltip(tt_rank) }}>{{ icon('trophy') }}</a>{% endif %}
                 {% if currentPlanet.user.is_diplo %}{% set tt_rank %}<table class='w-100'><tr><th colspan='2' class='text-center'>{{ LNG.al_rank_diplo }}</th></tr><tr><td class='transparent'>{{ currentPlanet.alliance.name }}</td></tr></table>{% endset %}<a class="tooltip galaxy-rank-diplo" {{ tooltip(tt_rank) }}>{{ icon('handshake') }}</a>{% endif %}
                 {% for class in currentPlanet.user.class %}<span class="tag tag--{{ statusTag[class] ?? 'muted' }} galaxy-short-{{ class }} galaxy-short" title="{{ ShortStatus[class] }}">{{ ShortStatus[class] }}</span>{% endfor %}
+                <button type="button" class="galaxy-mark" data-action="galaxy-mark" data-kind="p" data-id="{{ currentPlanet.user.id }}" aria-label="{{ LNG.gl_mark_player }}" data-tip="{{ LNG.gl_mark_player }}">{{ icon('star') }}</button>
               </td>
               <td class="galaxy-alliance-cell">
                 {% if currentPlanet.alliance %}
                   <a allyid="{{ currentPlanet.alliance.id }}" class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.alliance.html.twig')) }}>
                     <span class="{% for class in currentPlanet.alliance.class %}galaxy-alliance-{{ class }} {% endfor %}galaxy-alliance">[{{ currentPlanet.alliance.tag }}]</span>
                   </a>
+                  <button type="button" class="galaxy-mark" data-action="galaxy-mark" data-kind="a" data-id="{{ currentPlanet.alliance.id }}" aria-label="{{ LNG.gl_mark_alliance }}" data-tip="{{ LNG.gl_mark_alliance }}">{{ icon('star') }}</button>
                 {% endif %}
               </td>
               <td class="act galaxy-actions">

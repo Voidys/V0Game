@@ -22,6 +22,7 @@ use App\Routing\GameRoute;
 use App\Game\AdvancedStats\AdvancedStatsEnum;
 use App\Game\AdvancedStats\AdvancedStatsHandler;
 use App\Game\Core\GalaxyRows;
+use App\Game\Core\GalaxyRowFlags;
 
 /** Galaxy view: planets, debris and players of one solar system. */
 #[\App\Controller\RequireModule('MODULE_RESEARCH')]
@@ -91,8 +92,13 @@ class GalaxyController extends AbstractGameController
         $Result	= $galaxyRows->getGalaxyData();
 
         $recyclerCount = 0;
+        $recyclerCapacity = 0;
         foreach ($e->shipTypeIds(SHIP_TYPE_RECYCLER) as $elementID) {
             $recyclerCount += $this->state->PLANET[$e->column($elementID)];
+            $recyclerCapacity = $recyclerCapacity ?: $e->capacity($elementID);
+        }
+        foreach ($Result as $position => $row) {
+            $Result[$position]['flags'] = GalaxyRowFlags::compute($row, $recyclerCapacity);
         }
 
         return [

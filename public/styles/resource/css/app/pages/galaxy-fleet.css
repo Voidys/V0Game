@@ -65,6 +65,29 @@
   .galaxy-sync__upload { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--c-muted); font-size: var(--fs-sm); }
   .galaxy-missile:not(:has(#missileForm:not([hidden]))) { display: none; }
 
+  /* filters, marks, inline debris extras (galaxy.js) */
+  .galaxy-filters { gap: var(--space-2) var(--space-4); font-size: var(--fs-sm); }
+  .galaxy-filters .galaxy-nav__label { color: var(--c-muted); font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; }
+  .galaxy-filters .icon { inline-size: 1rem; block-size: 1rem; vertical-align: -0.15em; }
+  .galaxy-check { display: inline-flex; align-items: center; gap: var(--space-2); }
+  .galaxy-filters .galaxy-debris-min { inline-size: 6.5rem; }
+  .galaxy-filters__sep { inline-size: 1px; block-size: 1.25rem; background: var(--c-border); }
+  .galaxy-table tr.is-dim > td { opacity: 0.35; }
+  .galaxy-table tr.is-hl > td { background: var(--tint); }
+  .galaxy-mark { padding: 0; border: 0; background: none; color: var(--c-muted); opacity: 0.45; cursor: pointer; line-height: 1; vertical-align: middle; margin-inline-start: var(--space-1); }
+  .galaxy-mark .icon { inline-size: 0.9rem; block-size: 0.9rem; }
+  .galaxy-mark:hover, .galaxy-mark:focus-visible { opacity: 1; color: var(--c-accent); }
+  .galaxy-table td[data-mark="1"] { --mark: #e0a030; }
+  .galaxy-table td[data-mark="2"] { --mark: #d0504a; }
+  .galaxy-table td[data-mark="3"] { --mark: #4aa860; }
+  .galaxy-table td[data-mark="4"] { --mark: #4a8fd8; }
+  .galaxy-table td[data-mark="5"] { --mark: #a060d0; }
+  .galaxy-table td[data-mark]:not([data-mark=""]) { background: color-mix(in oklab, var(--mark) 22%, transparent); box-shadow: inset 3px 0 0 var(--mark); }
+  .galaxy-table td[data-mark]:not([data-mark=""]) .galaxy-mark { opacity: 1; color: var(--mark); }
+  .galaxy-recyclers { margin-inline-start: var(--space-2); font-size: var(--fs-xs); color: var(--c-muted); }
+  .galaxy-wreck { margin-inline-start: var(--space-2); vertical-align: middle; }
+  .galaxy-wreck .icon { inline-size: 0.85rem; block-size: 0.85rem; }
+
   /* galaxy tooltips */
   .tt-galaxy { inline-size: 15rem; border-collapse: collapse; font-size: var(--fs-sm); }
   .tt-galaxy th { padding: var(--space-2) var(--space-3); text-align: start; font-weight: 600; background: var(--c-bg-2); border-block-end: 1px solid var(--c-border); }

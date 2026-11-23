@@ -359,6 +359,70 @@ const annotateHover = (id, element) => {
   element.setAttribute('data-tooltip-content', `${html}</table>`);
 };
 
+/** Number of mark colours (CSS: [data-mark="1".."5"] in galaxy-fleet.css). */
+const MARK_COLORS = 5;
+const defaultFilters = { inactive: false, range: false, moon: false, hideVacation: false, debris: 0, hlMine: false, hlBuddies: false };
+let filters = { ...defaultFilters, ...galaxyStore.get('filters', {}) };
+/** Marked players / alliances: { p: { id: colour 1..5 }, a: { id: colour } }, per universe. */
+const marks = { p: {}, a: {}, ...galaxyStore.get('marks', {}) };
+
+/** Whether a row (data-flags token list, data-debris sum) passes every active filter. */
+const rowMatches = (row) => {
+  const flags = (row.dataset.flags ?? '').split(' ');
+  if (filters.inactive && !flags.includes('inactive')) return false;
+  if (filters.range && !flags.includes('range')) return false;
+  if (filters.moon && !flags.includes('moon')) return false;
+  if (filters.hideVacation && flags.includes('vacation')) return false;
+  if (filters.debris > 0 && Number(row.dataset.debris ?? 0) < filters.debris) return false;
+  return true;
+};
+
+/** Dims the non-matching rows (they stay in place) and applies the marks and the alliance / buddy highlight of the shown system. */
+const applyView = () => {
+  const anyFilter = filters.inactive || filters.range || filters.moon || filters.hideVacation || filters.debris > 0;
+  for (const row of qsa('#galaxy-view tr[data-filterable]')) {
+    row.classList.toggle('is-dim', anyFilter && !rowMatches(row));
+    const flags = (row.dataset.flags ?? '').split(' ');
+    row.classList.toggle('is-hl', (filters.hlMine && flags.includes('mine')) || (filters.hlBuddies && flags.includes('buddy')));
+    const player = row.querySelector('.galaxy-player');
+    const ally = row.querySelector('.galaxy-alliance-cell');
+    if (player) player.dataset.mark = marks.p[row.dataset.player] ?? '';
+    if (ally) ally.dataset.mark = marks.a[row.dataset.ally] ?? '';
+  }
+};
+
+/** Writes the filter controls from the stored state (the controls sit outside the swapped view). */
+const syncFilterControls = () => {
+  for (const input of qsa('#galaxy-filters [data-filter]')) {
+    const key = input.dataset.filter;
+    if (input.type === 'checkbox') input.checked = !!filters[key];
+    else input.value = filters[key] > 0 ? filters[key] : '';
+  }
+};
+
+const initFilters = () => {
+  const bar = document.getElementById('galaxy-filters');
+  if (!bar) return;
+  syncFilterControls();
+  bar.addEventListener('input', (event) => {
+    const input = event.target.closest('[data-filter]');
+    if (!input) return;
+    filters[input.dataset.filter] = input.type === 'checkbox' ? input.checked : Math.max(0, parseInt(input.value, 10) || 0);
+    galaxyStore.set('filters', filters);
+    applyView();
+  });
+  applyView();
+};
+
+/** Cycles the mark colour of a player / alliance: none, 1 .. MARK_COLORS, none. */
+const cycleMark = (kind, id) => {
+  const next = ((marks[kind][id] ?? 0) + 1) % (MARK_COLORS + 1);
+  if (next) marks[kind][id] = next;
+  else delete marks[kind][id];
+  galaxyStore.set('marks', marks);
+  applyView();
+};
+
 /** Adds the stored positions to the player tooltips of the shown system and hooks its sync / export / import / reset buttons. */
 const bindView = () => {
   document.getElementById('gala_upload').addEventListener('change', onImportChange);
@@ -370,6 +434,7 @@ const bindView = () => {
   for (const username of qsa('.galaxy-username')) {
     annotateHover(username.getAttribute('playerid'), username.parentElement);
   }
+  applyView();
 };
 
 /** One-time page setup: the sync button (it sits in the navigation form, outside the swapped view), the form submit, history. */
@@ -393,11 +458,12 @@ const init = () => {
     else window.location.reload();
   });
   bindView();
+  initFilters();
 };
 
 window.onPageInit(init);
 
-/** Keyboard navigation of the galaxy view: A / D or left / right arrows change the system, W / S or up / down the galaxy. */
+/** Keyboard navigation of the galaxy view: A / D or left / right arrows change the system, W / S or up / down the galaxy (not while focus is in a text, number or select field). */
 const KEY_DIRECTIONS = {
   a: 'systemLeft',
   ArrowLeft: 'systemLeft',
@@ -412,7 +478,7 @@ const KEY_DIRECTIONS = {
 /** true while the player types text (message dialogs, search fields): the letters are not navigation then */
 const isTyping = (target) => target instanceof Element
   && (target.closest('textarea, select, [contenteditable]') !== null
-    || (target instanceof HTMLInputElement && !['number', 'button', 'submit', 'checkbox', 'radio'].includes(target.type)));
+    || (target instanceof HTMLInputElement && !['button', 'submit', 'checkbox', 'radio'].includes(target.type)));
 
 document.addEventListener('keydown', (event) => {
   const direction = event.repeat || event.ctrlKey || event.metaKey || event.altKey || isTyping(event.target) ? undefined : KEY_DIRECTIONS[event.key];
@@ -427,6 +493,19 @@ registerActions({
     document.getElementById('galaxy_form').elements.system.value = link.dataset.system;
     navigate(() => formQuery());
     return false;
+  },
+  'galaxy-mark': (button) => cycleMark(button.dataset.kind, button.dataset.id),
+  'galaxy-marks-clear': () => {
+    marks.p = {};
+    marks.a = {};
+    galaxyStore.set('marks', marks);
+    applyView();
+  },
+  'galaxy-filter-reset': () => {
+    filters = { ...defaultFilters, hlMine: filters.hlMine, hlBuddies: filters.hlBuddies };
+    galaxyStore.set('filters', filters);
+    syncFilterControls();
+    applyView();
   },
   'galaxy-mission': (link) => doit(link.dataset.mission, link.dataset.planet),
   'missile-form': (link) => {
