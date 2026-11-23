@@ -184,6 +184,7 @@ class MissionCaseSpy extends MissionFunctions implements MissionInterface
         $reportData = [
             'targetUserName'    => $targetUser['username'],
             'time'              => $this->_fleet['stay_time'],
+            'targetInactive'    => $targetUser['onlinetime'] < $this->_fleet['stay_time'] - INACTIVE, // for the farm list's "woke up" marker
             'stbEnabled'        => $stbSettings['stb_enabled'],
             'danger'            => $danger,
             'dangerClass'       => $dangerClass,

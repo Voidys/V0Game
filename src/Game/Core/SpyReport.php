@@ -18,7 +18,7 @@ class SpyReport
     private const CACHE_TTL = 43200;
 
     /** bump when the cached value layout or what the render depends on changes */
-    private const CACHE_VERSION = 1;
+    private const CACHE_VERSION = 2;
 
     private ?string $renderStamp = null;
 
@@ -71,6 +71,10 @@ class SpyReport
             $this->state->THEME?->getImageThemeName() ?? '',
             $USER['timezone'] ?? '',
             $USER['decimal_separator'] ?? '',
+            // the raid tools show the age and the fuel from the current planet: refresh them every 15 minutes and per planet / drive tech
+            intdiv($this->state->runtime->timestamp, 900),
+            $this->state->PLANET['id'] ?? 0,
+            ($USER['combustion_tech'] ?? 0) . '/' . ($USER['impulse_motor_tech'] ?? 0) . '/' . ($USER['hyperspace_motor_tech'] ?? 0) . '/' . ($USER['spio_anz'] ?? 1),
             md5($MessageText),
         ]));
     }
@@ -136,8 +140,24 @@ class SpyReport
             'title'        => $title,
             'dpath'        => $THEME->getTheme(),
             'themeCssPath' => $THEME->getThemeCssPath(),
+            'tools'        => $this->tools($reportData),
         ]));
 
         return \App\View\HtmlWhitespace::trim($html);
+    }
+
+    /**
+     * Raid planning numbers of the report (SpyReportTools) for the template; null when the report has no coordinates.
+     *
+     * @param array<string, mixed> $reportData
+     * @return array<string, mixed>|null
+     */
+    private function tools(array $reportData): ?array
+    {
+        if (!isset($reportData['targetPlanet']['galaxy'], $reportData['time']) || empty($this->state->PLANET)) {
+            return null;
+        }
+
+        return (new SpyReportTools($this->db, $this->configs, $this->state))->analyse($reportData);
     }
 }

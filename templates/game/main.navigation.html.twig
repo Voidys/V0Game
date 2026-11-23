@@ -34,6 +34,9 @@
   {% if isModuleAvailable(constant('MODULE_MESSAGES')) %}
     {{ nav.link(path('game_messages_show'), 'mail', LNG.lm_messages, currentPage == 'messages', new_message > 0 ? new_message : null, '', 'is-accent') }}
   {% endif %}
+  {% if isModuleAvailable(constant('MODULE_MESSAGES')) and (not noobInterface or not tutorial) %}
+    {{ nav.link(path('game_farms_show'), 'crosshair', LNG.lm_farms, currentPage == 'farms') }}
+  {% endif %}
   {% if isModuleAvailable(constant('MODULE_MISSION_TRADE')) and (not noobInterface or not tutorial) %}
     {{ nav.link(path('game_market_place_show'), 'store', LNG.lm_marketplace, currentPage in ['marketplace', 'fleetdealer']) }}
   {% endif %}

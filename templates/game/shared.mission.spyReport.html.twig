@@ -2,6 +2,40 @@
 	<div class="spyRaportHead" coords="{{ targetPlanet.galaxy }}:{{ targetPlanet.system }}:{{ targetPlanet.planet }}">
 		<a href="game/galaxy/{{ targetPlanet.galaxy }}/{{ targetPlanet.system }}">{{ title }}</a>
 	</div>
+{% if tools %}
+	{% set mission = targetPlanet.planet_type < 4 ? 1 : 20 %}
+	{% set targetQuery = 'galaxy=' ~ targetPlanet.galaxy ~ '&planet=' ~ targetPlanet.planet ~ '&planettype=' ~ targetPlanet.planet_type %}
+	<div class="spyRaportContainer spyTools">
+		<div class="spyRaportContainerHead">{{ LNG.spy_tools_head }}</div>
+		<div class="spyRaportContainerRow clearfix">
+			<div class="spyRaportContainerCell">{{ LNG.spy_tools_loot }}</div>
+			<div class="spyRaportContainerCell" title="{{ LNG.tech[901] }} {{ pretty_number(tools.loot.metal) }} / {{ LNG.tech[902] }} {{ pretty_number(tools.loot.crystal) }} / {{ LNG.tech[903] }} {{ pretty_number(tools.loot.deuterium) }}">{{ pretty_number(tools.lootTotal) }}</div>
+			<div class="spyRaportContainerCell">{{ LNG.spy_tools_cargos }}</div>
+			<div class="spyRaportContainerCell">{{ pretty_number(tools.small) }} {{ LNG.spy_small_transporter }}<br>{{ pretty_number(tools.large) }} {{ LNG.spy_large_transporter }}</div>
+		</div>
+		<div class="spyRaportContainerRow clearfix">
+			<div class="spyRaportContainerCell">{{ LNG.spy_tools_fuel }}</div>
+			<div class="spyRaportContainerCell">{{ pretty_number(tools.fuel) }}</div>
+			<div class="spyRaportContainerCell">{{ LNG.spy_tools_net }}</div>
+			<div class="spyRaportContainerCell {{ tools.net >= 0 ? 'colorPositive' : 'colorNegative' }}">{{ pretty_number(tools.net) }}</div>
+		</div>
+		<div class="spyRaportContainerRow clearfix">
+			<div class="spyRaportContainerCell">{{ LNG.spy_tools_defense_value }}</div>
+			<div class="spyRaportContainerCell">{{ pretty_number(tools.fleetValue + tools.defenseValue) }}</div>
+			<div class="spyRaportContainerCell">{{ LNG.spy_tools_age }}</div>
+			<div class="spyRaportContainerCell">{% if tools.age >= 86400 %}{{ tools.age // 86400 }}d {% endif %}{{ (tools.age % 86400) // 3600 }}h {{ (tools.age % 3600) // 60 }}m</div>
+		</div>
+		<div class="spyRaportContainerRow clearfix">
+			<div class="spyRaportContainerCell spy-cell-half">
+				<a class="button" href="{{ path('game_fleet_step1_show') }}?{{ targetQuery }}&amp;system={{ targetPlanet.system }}&amp;target_mission={{ mission }}&amp;ships=203:{{ tools.large }}">{{ icon('crosshair') }} {{ LNG.spy_tools_attack }}</a>
+			</div>
+			<div class="spyRaportContainerCell spy-cell-half">
+				<a class="button" href="{{ path('game_fleet_step1_show') }}?{{ targetQuery }}&amp;system={{ targetPlanet.system }}&amp;target_mission={{ targetPlanet.planet_type < 4 ? 6 : 21 }}&amp;ships=210:{{ tools.spyShips }}">{{ LNG.spy_tools_respy }}</a>
+			</div>
+		</div>
+		<div>{{ LNG.spy_tools_note }}</div>
+	</div>
+{% endif %}
     {% if stbEnabled %}
 		<div class="spyRaportContainer" name="scavengeruwu">
 			<div class="spyRaportContainerHead">

@@ -19,8 +19,8 @@ final class SpyMissionTest extends GameTestCase
 {
     // GOLDEN-BEGIN
     private const GOLDEN = [
-        'big tech report' => ['stbEnabled' => 0, 'danger' => 15, 'dangerClass' => 'danger', 'smallCargoNeeded' => 2, 'largeCargoNeeded' => 1, 'energy' => 0, 'energyClass' => '', 'spyData' => [900 => [901 => 5000, 902 => 3000, 903 => 1000], 200 => [202 => 3], 400 => [], 0 => [1 => 4], 100 => [106 => 1]], 'repair_order' => [], 'targetChance' => 0, 'totalShipDefCount' => 3, 'isBattleSim' => true],
-        'no tech report' => ['stbEnabled' => 0, 'danger' => 15, 'dangerClass' => 'danger', 'smallCargoNeeded' => 2, 'largeCargoNeeded' => 1, 'energy' => 0, 'energyClass' => '', 'spyData' => [900 => [901 => 5000, 902 => 3000, 903 => 1000], 200 => [202 => 3], 400 => []], 'repair_order' => [], 'targetChance' => 0, 'totalShipDefCount' => 3, 'isBattleSim' => true],
+        'big tech report' => ['stbEnabled' => 0, 'danger' => 15, 'dangerClass' => 'danger', 'smallCargoNeeded' => 2, 'largeCargoNeeded' => 1, 'energy' => 0, 'energyClass' => '', 'spyData' => [900 => [901 => 5000, 902 => 3000, 903 => 1000], 200 => [202 => 3], 400 => [], 0 => [1 => 4], 100 => [106 => 1]], 'repair_order' => [], 'targetChance' => 0, 'totalShipDefCount' => 3, 'isBattleSim' => true, 'targetInactive' => false],
+        'no tech report' => ['stbEnabled' => 0, 'danger' => 15, 'dangerClass' => 'danger', 'smallCargoNeeded' => 2, 'largeCargoNeeded' => 1, 'energy' => 0, 'energyClass' => '', 'spyData' => [900 => [901 => 5000, 902 => 3000, 903 => 1000], 200 => [202 => 3], 400 => []], 'repair_order' => [], 'targetChance' => 0, 'totalShipDefCount' => 3, 'isBattleSim' => true, 'targetInactive' => false],
         'debris of shot down probes' => [0.0, 30000.0],
     ];
     // GOLDEN-END
