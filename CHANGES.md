@@ -1392,3 +1392,21 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 - Account area (lobby, account settings, logged-in board, account popups) loads the theme contract, so the player's skin applies there as in the game; saving the skin in the game settings also writes it to the account (`SettingsUpdater`), migration `1795450000` takes the current game skin over for existing accounts. base.css defaults are the V0Game palette instead of pr0 orange (pages without a theme), installer and the PHP error page use the contract + V0Game theme, installer.css on theme tokens (it still read the removed `--nova-*` variables).
 - European Portuguese (`pt`) redone from English: casual *tu*, Portugal vocabulary, 118 missing FAQ answers written, rules text translated (was English), Cyrillic/English leftovers and broken machine phrases removed, time zone names translated.
 - `install/VERSION` 1.26.9 (tag `v1.26.9`): every button readable in every theme (also in popups), the player's skin also on the account pages and the logged-in board, V0Game palette as the default everywhere (installer, error page), European Portuguese redone. Upgrading runs migration 1795450000 (applied automatically by the upgrade check).
+
+## 176. Modern quality of life: notifications, live events, raid tools, alliance tools, api, review queue
+
+- Web push (`minishlink/web-push`, VAPID keys generated lazily into global config) + per-user Discord webhook: `NotificationDispatcher`, `NotificationDetector`, `NotificationCronjob` (every minute; hostile fleets, espionage, returned fleets, finished queues, farms that woke up), `PushController`, `public/sw.js`, `public/scripts/app/push.js`; prefs `users_settings.notify_*`, tables `push_subscriptions`, `notification_events`, `notification_watch` (migrations 1795500100, 1795500901).
+- Settings: notifications section, `number_format` (abbreviated numbers via `ViewHelpers::displayNumber()` / `display_number`), vacation minimum/earliest end shown, link to the api page.
+- Overview: `/game/events` JSON (`LiveEventsPayload`), `live-events.js` polls while visible, re-renders from a `<template>`, hostile count in the title.
+- Fleet: templates (`fleet_templates`, `FleetTemplateStore`, migration 1795500300), `ships=id:n,…` step 1 preset (`ShipPreset`, `planettype` alias), fleet save suggestions (ajax `fleet-save`), "arrive at" speed picker in step 2 (`speedPlan()`).
+- Spy reports: raid planner block (`SpyReportAnalysis`, `SpyReportTools`: loot, cargos, fuel, profit, values, age, send/re-spy links), `targetInactive` stored in new reports; farm list `/game/farms` with i/I and "woke up" markers.
+- Galaxy: client filters (inactive, in range, debris, moon, vacation), player/alliance marks in localStorage, recyclers needed and wreck marker (`GalaxyRowFlags`).
+- Empire: per-planet queues with countdowns, resource collection to one planet with preview and post/redirect/get (`ResourceCollector`, `ResourceCollectionDispatcher` through the regular `FleetDispatch`).
+- Shipyard/defense: "build up to X" (`HangarOrderPlanner`, `orderMode=upto`), max button capped by `max_fleet_per_build`, cost/time/finish preview (`hangarOrder.js`).
+- Combat reports: loss values per player/side, profit, copy public link, "simulate again" with attacker `boost` % (`CombatReportValue`).
+- Alliance: target list with claims, ACS overview, activity buckets, wiki pages, diplomacy expiry (rights `TARGETS`/`ACTIVITY`/`WIKI`, tables `alliance_targets`, `alliance_pages`, `diplo.expires_at`, daily expiry step; migration 1795501000).
+- Read-only api: personal tokens (`api_tokens`, sha256, max 5, scopes), `/game/api`, `/api/v1/{me,empire,reports/spy,reports/combat}` with bearer auth and a 60/min limiter (migration 1795500700).
+- Universe rules: `UniverseRules` service, settings section on `/game/rules` and public `/rules/universe`.
+- Admin: abuse review queue (`SuspicionScore`, `AbuseReviewService`, hourly `AbuseReviewCronjob`, `/admin/abuse/reviews`, universe setting `abuse_review_threshold`; migration 1795501700).
+- Accessibility: drawer focus trap/inert/escape, more `g+…` shortcuts (g+o fixed), install-app button, reduced motion for shell parts.
+- Tests: test players spread over 400 systems per galaxy (the old 100 ran out), new unit/integration tests per feature.
