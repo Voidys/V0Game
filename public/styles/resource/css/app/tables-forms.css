@@ -322,6 +322,8 @@
   /* fits horizontally (class set by empire.js): the page scrolls and the header row sticks below the top bar;
      otherwise the table scrolls sideways only and the label column sticks */
   .table-scroll.is-fit:has(> .empire-table) { overflow: visible; }
+  /* the flush panel scrolls sideways (ui.css) and would become the sticky header's scroll box: open it while the table fits */
+  .panel--flush:has(> .table-scroll.is-fit > .empire-table) { overflow: visible; }
   .table-scroll:not(.is-fit) > .empire-table tr > :first-child {
     position: sticky; inset-inline-start: 0; z-index: 1;
     background-color: var(--theme-panel, var(--tv-bg-primary, #0d1014));

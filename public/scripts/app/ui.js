@@ -409,10 +409,16 @@ function fabAboveFooter() {
   const footer = qs('footer.footer');
   if (!fab || !footer) return;
   let queued = false;
+  let last = -1;
   const update = () => {
     queued = false;
-    const lift = Math.max(0, window.innerHeight - footer.getBoundingClientRect().top);
-    document.documentElement.style.setProperty('--fab-lift', `${Math.round(lift)}px`);
+    const lift = Math.round(Math.max(0, window.innerHeight - footer.getBoundingClientRect().top));
+    if (lift === last) return;
+    last = lift;
+    // set on the floating buttons only (not :root): a root custom property restyles the whole page every scroll frame
+    for (const el of [fab, qs('[data-scroll-top]')]) {
+      if (el) el.style.setProperty('--fab-lift', `${lift}px`);
+    }
   };
   const schedule = () => {
     if (!queued) {
@@ -424,6 +430,49 @@ function fabAboveFooter() {
   window.addEventListener('resize', schedule);
   // content loaded or folded later moves the footer without a scroll
   if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(document.body);
+  update();
+}
+
+/** "back to top" button: shown after scrolling down a bit, its outline fills with the scroll progress (--scroll, 0..1) */
+function scrollTopButton() {
+  const button = qs('[data-scroll-top]');
+  if (!button) return;
+  // phones: a page action (.page-fab) keeps its place, the arrow sits above it (class instead of a body:has() rule,
+  // which would restyle the whole page on every change of the button)
+  if (qs('.page-fab')) button.classList.add('is-above-fab');
+  const root = document.documentElement;
+  let queued = false;
+  let lastProgress = '';
+  // the CSS scroll timeline draws the progress line by itself (game.css); only older browsers need --scroll
+  const cssTimeline = window.CSS?.supports?.('animation-timeline: scroll()') ?? false;
+  const update = () => {
+    queued = false;
+    const max = root.scrollHeight - window.innerHeight;
+    const y = window.scrollY;
+    const hidden = y < Math.min(400, window.innerHeight * 0.6) || max <= 0;
+    if (button.hidden !== hidden) button.hidden = hidden;
+    if (hidden || cssTimeline) return;
+    // 1 % steps: the progress line (transform only) is restyled at most 100 times over a whole page
+    const progress = max > 0 ? Math.min(1, y / max).toFixed(2) : '0';
+    if (progress !== lastProgress) {
+      lastProgress = progress;
+      button.style.setProperty('--scroll', progress);
+    }
+  };
+  window.addEventListener('scroll', () => {
+    if (!queued) {
+      queued = true;
+      requestAnimationFrame(update);
+    }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  button.addEventListener('click', () => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    // keyboard users continue at the top of the page instead of at the hidden button
+    const main = qs('#content');
+    if (main) main.focus({ preventScroll: true });
+  });
   update();
 }
 
@@ -476,6 +525,7 @@ export function initUi() {
   userMenu();
   tabbarKeyboard();
   fabAboveFooter();
+  scrollTopButton();
   scrollActiveSectionTab();
   topbarHeight();
   automationReport();

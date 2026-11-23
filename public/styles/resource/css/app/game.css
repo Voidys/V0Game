@@ -928,3 +928,74 @@ input.fleet-amount::placeholder { opacity: 1; }
   .content .check-hit { display: inline-flex; align-items: center; justify-content: center; min-inline-size: 2.75rem; min-block-size: 2.75rem; margin-block: -0.5rem; }
   .hero-orbit a.orbit-moon::after { content: ""; position: absolute; inset: -0.625rem; }
 }
+
+/* ------------------------------------------------------------------------------------ back to top
+   Bottom right; stacks above the chat button (desktop) or above the tab bar / page action (phones), steps aside
+   while the chat panel or the menu is open. Chamfered frame, an accent line along the bottom edge shows the scroll progress (--scroll from ui.js). */
+.scroll-top {
+  --size: 2.5rem;
+  contain: layout paint;
+  position: fixed;
+  inset-inline-end: max(var(--space-4), env(safe-area-inset-right, 0px));
+  inset-block-end: var(--space-4);
+  z-index: 44;
+  display: grid;
+  place-items: center;
+  inline-size: var(--size);
+  block-size: var(--size);
+  padding: 0;
+  --cut: 0.55rem;
+  color: var(--theme-muted);
+  /* the ground is the frame colour, ::before paints the face 1px inside: a chamfered outline */
+  background: var(--theme-line-strong);
+  border: 0;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease), translate var(--t-fast) var(--ease);
+}
+.scroll-top[hidden] { display: none; }
+.scroll-top::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--theme-raised);
+  clip-path: polygon(calc(var(--cut) - 0.4px) 0, 100% 0, 100% calc(100% - var(--cut) + 0.4px), calc(100% - var(--cut) + 0.4px) 100%, 0 100%, 0 calc(var(--cut) - 0.4px));
+  transition: background-color var(--t-fast) var(--ease);
+}
+.scroll-top .icon { position: relative; }
+.scroll-top::after {
+  /* accent trace of the scroll progress on top of the outline */
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-end: 0;
+  inline-size: 100%;
+  block-size: 2px;
+  transform: scaleX(var(--scroll, 0));
+  transform-origin: left center;
+}
+/* where supported the progress line follows the page scroll on its own (no script, no restyle per frame) */
+@supports (animation-timeline: scroll()) {
+  .scroll-top::after { animation: scroll-top-progress linear both; animation-timeline: scroll(root block); }
+  @keyframes scroll-top-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  background: var(--theme-accent);
+  box-shadow: 0 0 6px color-mix(in oklab, var(--theme-accent) 60%, transparent);
+}
+.scroll-top:hover, .scroll-top:focus-visible { color: var(--theme-accent); background: color-mix(in oklab, var(--theme-accent) 55%, var(--theme-line-strong)); translate: 0 -2px; }
+.scroll-top:hover::before, .scroll-top:focus-visible::before { background: var(--theme-hover); }
+.chat-fab ~ .scroll-top { inset-block-end: calc(var(--space-4) + var(--control-h) + var(--space-2)); }
+#chat-panel:not([hidden]) ~ .scroll-top { visibility: hidden; }
+@media (max-width: 60rem) {
+  .scroll-top {
+    --size: 2.75rem;
+    inset-block-end: max(calc(var(--tabbar-h) + var(--safe-b) + var(--space-3)), calc(var(--fab-lift, 0px) + var(--space-3)));
+  }
+  /* the chat button is hidden on phones; a page action (.page-fab) keeps its place, the arrow sits above it */
+  .chat-fab ~ .scroll-top { inset-block-end: max(calc(var(--tabbar-h) + var(--safe-b) + var(--space-3)), calc(var(--fab-lift, 0px) + var(--space-3))); }
+  .scroll-top.is-above-fab { inset-block-end: max(calc(var(--tabbar-h) + var(--safe-b) + var(--space-3) + 3rem + var(--space-2)), calc(var(--fab-lift, 0px) + var(--space-3) + 3rem + var(--space-2))); }
+  body.sidebar-open .scroll-top, body.kb-open .scroll-top { visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top { transition: none; }
+  .scroll-top:hover, .scroll-top:focus-visible { translate: none; }
+}

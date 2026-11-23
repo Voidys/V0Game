@@ -76,6 +76,10 @@
 <div class="sidebar-backdrop" aria-hidden="true"></div>
 {% include 'game/main.tabbar.html.twig' %}
 {% if chatEnabled %}{% include 'game/chat.widget.html.twig' %}{% endif %}
+{# after the chat widget: the button's position follows .chat-fab / the open panel through sibling selectors (no body:has()) #}
+<button type="button" class="scroll-top" data-scroll-top aria-label="{{ LNG.ui_scroll_top }}" title="{{ LNG.ui_scroll_top }}" hidden>
+  {{ icon('chevron-up') }}
+</button>
 
 {% if loginNotice %}
   {# once per login (AbstractGameController::newMessagesNotice); the top bar badge keeps the count afterwards #}

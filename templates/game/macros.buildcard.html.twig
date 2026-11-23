@@ -81,7 +81,7 @@
 #}
 {% macro card(ID, Element, o) %}
   {% import _self as b %}
-  <article class="card infos{% if o.cls is defined %} {{ o.cls }}{% endif %}{% if o.locked|default(false) %} is-locked unavailable{% endif %}{% if o.queued|default(false) %} is-queued{% endif %}"{% if o.domId is defined %} id="{{ o.domId }}"{% endif %} style="--i: {{ o.index|default(0) }}">
+  <article class="card infos{% if o.cls is defined %} {{ o.cls }}{% endif %}{% if o.locked|default(false) %} is-locked unavailable{% endif %}{% if o.queued|default(false) %} is-queued{% endif %}"{% if o.domId is defined %} id="{{ o.domId }}"{% endif %}>
     <a href="#" class="card__art" data-action="dialog-info" data-id="{{ ID }}" tabindex="-1" aria-hidden="true">
       <img src="{{ theme_asset('gebaeude/' ~ ID ~ '.gif') }}" alt="" width="120" height="120" loading="lazy" decoding="async">
       {% if o.chip is defined %}{{ o.chip }}{% elseif o.level is defined and o.level is not null %}
