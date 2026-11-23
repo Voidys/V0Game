@@ -119,6 +119,8 @@ All of them, desktop and phone, are in [`public/styles/resource/images/login/scr
 - **Privacy and security:**
   - no Google services: no Analytics, and a self-hosted bot check instead of reCAPTCHA;
   - a modern, secure login, and every page is protected against code injected by other players;
+  - optional social login: players sign in or register with Discord, Google, GitHub or Facebook (each off by default,
+    switched on under **Admin → Social login**); an existing account is only linked after its password was entered once;
   - the installer creates all secrets for you.
 
 The full list, step by step, is in the **[changelog](CHANGES.md)**.
@@ -222,7 +224,8 @@ Then open **https://v0game.ddev.site/install/**. DDEV runs the cron job by itsel
 3. **Check the settings** under **Admin → Settings**: game name, universe speed, registration, and e-mail (needed for
    password resets and account activation).
 4. **Optional:** add bots under **Admin → Bots** so the universe does not feel empty, write the rules and imprint
-   under **Admin → Content**, post a first news entry.
+   under **Admin → Content**, post a first news entry, and let players sign in with Discord, Google, GitHub or Facebook
+   under **Admin → Social login** ([setup](#social-login)).
 5. **Invite your players.** They register on the start page.
 
 Keep backups of the database and of `config/game.php` ([how](docs/INSTALL.md#backups)).
@@ -280,6 +283,15 @@ The technical list for server admins:
   (`tools/build/precompress.sh`, nginx `brotli_static`/`gzip_static`), keep `?v=` assets `immutable`, and on Apache set
   `DeflateAlterETag NoChange` (or keep the ETag removal of `public/.htaccess`), otherwise revalidation answers `200` instead of `304`
   ([docs/nginx.md](docs/nginx.md#compression)).
+- <a id="social-login"></a>**Social login** (Discord, Google, GitHub, Facebook; all off by default):
+  1. set `DEFAULT_URI=https://your-domain` in `.env.local` (the callback addresses are built from it);
+  2. create an OAuth app at the provider and enter its callback address `https://your-domain/login/<provider>/callback`
+     (shown in **Admin → Social login**);
+  3. paste client ID and secret into **Admin → Social login** and switch the provider on.
+
+  A login whose e-mail matches an existing account is never linked automatically: the owner confirms with the account
+  password once. Players can connect or disconnect providers in their account settings. Scopes, provider links and the
+  exact flow: [docs/social-login.md](docs/social-login.md).
 - **Security:** see the checklist in [docs/INSTALL.md#security-checklist](docs/INSTALL.md#security-checklist):
   - HTTPS on;
   - the document root on `public/`;
