@@ -166,7 +166,7 @@ abstract class GameTestCase extends TestCase
         $n = ++self::$positionCounter;
         $name = 'tester' . $n;
         $accountId = $accounts->createAccount($name, self::$passwordHash ??= password_hash('secret', PASSWORD_BCRYPT, ['cost' => 4]), $name . '@example.com', 'en');
-        [$userId, $planetId] = $players->createPlayer($accountId, 1, $name, 'en', 1 + intdiv($n, 100), 1 + ($n % 100), 8);
+        [$userId, $planetId] = $players->createPlayer($accountId, 1, $name, 'en', 1 + intdiv($n, 400) % 9, 1 + ($n % 400), 8);
 
         $this->createdPlayers[] = [(int) $accountId, (int) $userId];
         foreach (['users' => [$user, $userId], 'planets' => [$planet, $planetId]] as $table => [$values, $id]) {
