@@ -1,0 +1,92 @@
+{% import '_macros/ui.html.twig' as ui -%}
+{% extends layout_template %}
+{% block title %}{{ LNG.api_title }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.api_title, 'key-round', LNG.api_intro) }}{% endblock %}
+{% block content %}
+{% if apiNotice %}<p class="panel panel__body colorNegative">{{ apiNotice }}</p>{% endif %}
+{% if apiNewToken %}
+<section class="panel">
+	{{ ui.panel_head(LNG.api_new_token) }}
+	<div class="panel__body">
+		<p><code>{{ apiNewToken }}</code></p>
+		<p class="hint">{{ LNG.api_new_token_hint }}</p>
+	</div>
+</section>
+{% endif %}
+
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.api_tokens, apiTokens|length ~ ' / ' ~ apiMax) }}
+	{% if apiTokens %}
+	<table class="data">
+		<thead>
+			<tr>
+				<th>{{ LNG.api_name }}</th>
+				<th>{{ LNG.api_scopes }}</th>
+				<th>{{ LNG.api_created }}</th>
+				<th>{{ LNG.api_last_used }}</th>
+				<th class="act"></th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for token in apiTokens %}
+			<tr>
+				<td>{{ token.name }}</td>
+				<td>{% for scope in token.scopes %}<span class="tag">{{ scope }}</span> {% endfor %}</td>
+				<td>{{ token.created }}</td>
+				<td>{{ token.used ?: '-' }}</td>
+				<td class="act">
+					<form action="{{ path('game_api_revoke') }}" method="post">
+						<input type="hidden" name="id" value="{{ token.id }}">
+						<button type="submit" class="btn--danger" data-confirm="{{ LNG.api_revoke_confirm|e('html_attr') }}">{{ LNG.api_revoke }}</button>
+					</form>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<p class="empty">{{ LNG.api_none }}</p>
+	{% endif %}
+</section>
+
+{% if apiTokens|length < apiMax %}
+<form class="panel" action="{{ path('game_api_create') }}" method="post">
+	{{ ui.panel_head(LNG.api_create) }}
+	<table class="form-table">
+		<tr>
+			<td><label for="api_name">{{ LNG.api_name }}</label></td>
+			<td><input type="text" id="api_name" name="name" maxlength="40" required></td>
+		</tr>
+		<tr>
+			<td>{{ LNG.api_scopes }}</td>
+			<td>
+				{% for scope in apiScopes %}
+				<label><input type="checkbox" name="scopes[]" value="{{ scope }}"{% if loop.first %} checked{% endif %}> {{ scope }}: {{ attribute(LNG, 'api_scope_' ~ scope) }}</label><br>
+				{% endfor %}
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="form-actions"><button type="submit" class="btn--primary">{{ LNG.api_create }}</button></td>
+		</tr>
+	</table>
+</form>
+{% endif %}
+
+<section class="panel">
+	{{ ui.panel_head(LNG.api_docs) }}
+	<div class="panel__body">
+		<p>{{ LNG.api_docs_intro }}</p>
+		<pre><code>curl -H "Authorization: Bearer v0_..." {{ apiBase }}/me
+curl -H "Authorization: Bearer v0_..." {{ apiBase }}/empire
+curl -H "Authorization: Bearer v0_..." "{{ apiBase }}/reports/spy?since=1700000000&amp;limit=10"
+curl -H "Authorization: Bearer v0_..." "{{ apiBase }}/reports/combat?limit=10"</code></pre>
+		<ul>
+			<li><code>GET /me</code>: {{ LNG.api_doc_me }}</li>
+			<li><code>GET /empire</code> (empire): {{ LNG.api_doc_empire }}</li>
+			<li><code>GET /reports/spy</code>, <code>GET /reports/combat</code> (reports): {{ LNG.api_doc_reports }}</li>
+		</ul>
+		<p>{{ LNG.api_doc_limits }}</p>
+	</div>
+</section>
+{% endblock %}

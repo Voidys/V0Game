@@ -57,6 +57,11 @@ framework:
             policy: sliding_window
             limit: 60
             interval: '1 minute'
+        # read-only player API (App\Controller\Api\ApiController): 60 requests per minute and token
+        api_token:
+            policy: sliding_window
+            limit: 60
+            interval: '1 minute'
         # CSP violation reports (App\Controller\CspReportController): per client IP
         csp_report:
             policy: sliding_window

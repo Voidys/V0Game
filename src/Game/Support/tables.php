@@ -20,6 +20,7 @@ $prefix = $database['tableprefix'];
 
 // Data Tabells
 $dbTableNames   = [
+    'API_TOKENS'              => $prefix . 'api_tokens',
     'ACCOUNTS'                => $prefix . 'accounts',
     'ACCOUNTS_BANNED'         => $prefix . 'accounts_banned',
     'ACCOUNTS_SOCIAL'         => $prefix . 'accounts_social',
