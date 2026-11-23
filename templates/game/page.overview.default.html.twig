@@ -2,6 +2,7 @@
 {% block title %}{{ LNG.lm_overview }}{{ parent() }}{% endblock %}
 {% block script %}{{ parent() }}
     <script type="module" src="scripts/game/overview.js"></script>
+    <script type="module" src="scripts/game/live-events.js"></script>
 
 {% endblock %}
 {% import '_macros/ui.html.twig' as ui %}
@@ -84,14 +85,14 @@
     </div>
 
     <div class="grid-3 overview-activity">
-        <section class="panel overview-events{% if hostileCount %} is-hostile{% endif %}" id="events-accordion">
+        <section class="panel overview-events{% if hostileCount %} is-hostile{% endif %}" id="events-accordion" data-events-url="{{ path('game_events_show') }}" data-hostile-label="{{ LNG.ov_event_hostile }}">
             <header class="panel__head">
-                <h2>{% if hostileCount %}{{ icon('triangle-alert') }} {% endif %}{{ LNG.ov_events }}</h2>
-                <span>{% if fleets %}{{ fleets|length }} &middot; <span class="fleets" data-fleet-time="{{ nextRest }}">{{ getRestTimeFormat(nextRest) }}</span>{% else %}0{% endif %}{% if hostileCount %} &middot; <span class="tag tag--neg">{{ LNG.ov_event_hostile }} {{ hostileCount }}</span>{% endif %}</span>
+                <h2><span data-live-alert{% if not hostileCount %} hidden{% endif %}>{{ icon('triangle-alert') }} </span>{{ LNG.ov_events }}</h2>
+                <span data-live-meta>{% if fleets %}{{ fleets|length }} &middot; <span class="fleets" data-fleet-time="{{ nextRest }}">{{ getRestTimeFormat(nextRest) }}</span>{% else %}0{% endif %}{% if hostileCount %} &middot; <span class="tag tag--neg">{{ LNG.ov_event_hostile }} {{ hostileCount }}</span>{% endif %}</span>
             </header>
-            <ul class="event-list" id="hidden-div2">
+            <ul class="event-list" id="hidden-div2" data-live-list>
                 {% for index, fleet in fleets %}
-                    <li{% if fleet.hostile %} class="event-list__hostile"{% endif %}>
+                    <li{% if fleet.hostile %} class="event-list__hostile"{% endif %} data-event-key="{{ index }}">
                         <span class="event-list__icon" aria-hidden="true">{{ icon(fleet.hostile ? 'triangle-alert' : 'rocket') }}</span>
                         <span class="event-list__text">
                             {% if fleet.hostile %}<span class="tag tag--neg">{{ LNG.ov_event_hostile }}</span> {% endif %}<span id="fleettext_{{ index }}">{{ fleet.text }}</span>
@@ -105,6 +106,23 @@
                     <li class="empty">{{ LNG.ov_no_fleets }}</li>
                 {% endfor %}
             </ul>
+            {# row skeletons of public/scripts/game/live-events.js (filled with textContent) #}
+            <template id="live-event-row">
+                <li data-event-key="">
+                    <span class="event-list__icon" aria-hidden="true">
+                        <span data-icon="hostile">{{ icon('triangle-alert') }}</span><span data-icon="own">{{ icon('rocket') }}</span>
+                    </span>
+                    <span class="event-list__text">
+                        <span class="tag tag--neg" data-field="tag" hidden>{{ LNG.ov_event_hostile }}</span>
+                        <span data-field="text"></span>
+                    </span>
+                    <span class="event-list__time">
+                        <span class="fleets" data-fleet-end-time="" data-fleet-time=""></span>
+                        <span class="statictimer" data-time=""></span>
+                    </span>
+                </li>
+            </template>
+            <template id="live-event-empty"><li class="empty">{{ LNG.ov_no_fleets }}</li></template>
         </section>
 
         <section class="panel">

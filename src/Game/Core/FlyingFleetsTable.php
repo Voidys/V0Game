@@ -314,6 +314,26 @@ class FlyingFleetsTable
             'resttime'      => $Rest,
             // someone else's fleet heading for one of the viewer's planets with a hostile mission (attack, ACS attack, spy, destroy, missile)
             'hostile'       => $FleetState == 0 && $fleetRow['owner'] != $this->userId && $fleetRow['target_owner'] == $this->userId && in_array((int) $fleetRow['mission'], [1, 2, 6, 9, 10], true),
+            // structured facts for the live event feed (LiveEventsPayload)
+            'id'            => (int) $fleetRow['id'],
+            'mission'       => (int) $fleetRow['mission'],
+            'returning'     => $FleetState == 1,
+            'own'           => $fleetRow['owner'] == $this->userId,
+            'cssClass'      => preg_match('/^<span class="([A-Za-z0-9_ -]*)">/', $EventString, $m) ? $m[1] : '',
+            'origin'        => [
+                'galaxy' => (int) $fleetRow['start_galaxy'],
+                'system' => (int) $fleetRow['start_system'],
+                'planet' => (int) $fleetRow['start_planet'],
+                'type'   => (int) $fleetRow['start_type'],
+                'name'   => (string) ($fleetRow['own_planetname'] ?? ''),
+            ],
+            'target'        => [
+                'galaxy' => (int) $fleetRow['end_galaxy'],
+                'system' => (int) $fleetRow['end_system'],
+                'planet' => (int) $fleetRow['end_planet'],
+                'type'   => (int) $fleetRow['end_type'],
+                'name'   => (string) ($fleetRow['target_planetname'] ?? ''),
+            ],
         ];
     }
 

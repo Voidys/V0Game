@@ -73,6 +73,9 @@
   .event-list li:first-child { border-block-start: 0; }
   .event-list li.empty { display: block; }
   .event-list__hostile { border-inline-start-color: var(--c-negative); background: color-mix(in oklab, var(--c-negative) 10%, transparent); }
+  .event-list__new { animation: event-flash 1.6s ease-out 2; }
+  @keyframes event-flash { 50% { background: color-mix(in oklab, var(--c-negative) 35%, transparent); } }
+  @media (prefers-reduced-motion: reduce) { .event-list__new { animation: none; } }
   .event-list__icon { display: inline-flex; color: var(--c-muted); }
   .event-list__hostile .event-list__icon { color: var(--c-negative); }
   .event-list__text { min-inline-size: 0; overflow-wrap: anywhere; font-size: var(--fs-sm); }

@@ -25,6 +25,8 @@ use App\Game\Core\StoredData;
 use App\Game\AdvancedStats\AdvancedStatsEnum;
 use App\Game\AdvancedStats\AdvancedStatsHandler;
 use App\Game\Core\FlyingFleetsTable;
+use App\Game\Core\LiveEventsPayload;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Game\Core\Universe;
 
 /**
@@ -106,6 +108,20 @@ class OverviewController extends AbstractGameController
             'catchUp'                   => $LNG->format('sys_catchup', round((1 - $this->protectionRules()->catchUpFactorFor($this->player())) * 100, 2)),
             'outlawTime'                => $outlawTime,
         ]);
+    }
+
+    /**
+     * JSON feed of the fleet events of the overview (same table as the page): events with plain-text line, mission,
+     * own/hostile flags, origin and target, arrival timestamp and remaining seconds, the hostile count and a hash of
+     * the list. Polled by public/scripts/game/live-events.js; read only, so no token and no rate limit.
+     */
+    #[GameRoute('game', 'game/events', 'events')]
+    public function events(): Response
+    {
+        $payload = LiveEventsPayload::build($this->getFleets());
+        $payload['now'] = $this->state->runtime->timestamp;
+
+        return new JsonResponse($payload, 200, ['Cache-Control' => 'no-store']);
     }
 
     /**
