@@ -1,0 +1,40 @@
+{# Universe settings as tables per group (App\Game\Core\UniverseRules); labels live in the public domain (ur_*) #}
+{% if universeRules %}
+<section class="panel universe-rules">
+  <header class="panel__head"><h2>{{ LNG.ur_title }}</h2></header>
+  <div class="panel__body">
+    <p>{{ LNG.ur_intro }}</p>
+    {% for group in universeRules %}
+    <h3>{{ LNG[group.label] }}</h3>
+    <table class="data">
+      <tbody>
+      {% for row in group.rows %}
+        <tr>
+          <th scope="row">{{ LNG[row.label] }}</th>
+          <td>
+          {%- if row.unit == 'bool' -%}
+            {{ row.value ? LNG.ur_yes : LNG.ur_no }}
+          {%- elseif row.unit == 'text' -%}
+            {{ LNG[row.value] }}
+          {%- elseif row.unit == 'x' -%}
+            {{ row.value|number_format(row.value == row.value|round ? 0 : 2, ',', '.') }}&times;
+          {%- elseif row.unit == '%' -%}
+            {{ row.value }}&nbsp;%
+          {%- elseif row.unit == 'hours' -%}
+            {{ row.value }}&nbsp;{{ LNG.ur_unit_hours }}
+          {%- elseif row.unit == 'days' -%}
+            {{ row.value }}&nbsp;{{ LNG.ur_unit_days }}
+          {%- elseif row.unit == 'points' -%}
+            {{ row.value|number_format(0, ',', '.') }}&nbsp;{{ LNG.ur_unit_points }}
+          {%- else -%}
+            {{ row.value is same as(row.value|round) ? row.value|number_format(0, ',', '.') : row.value }}
+          {%- endif -%}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

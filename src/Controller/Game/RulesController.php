@@ -27,17 +27,19 @@ class RulesController extends AbstractGameController
 {
     private \App\Content\ContentPages $contentPages;
     private \App\Content\HtmlContent $htmlContent;
+    private \App\Game\Core\UniverseRules $universeRules;
 
     #[\Symfony\Contracts\Service\Attribute\Required]
-    public function setContentPages(\App\Content\ContentPages $contentPages, \App\Content\HtmlContent $htmlContent): void
+    public function setContentPages(\App\Content\ContentPages $contentPages, \App\Content\HtmlContent $htmlContent, \App\Game\Core\UniverseRules $universeRules): void
     {
+        $this->universeRules = $universeRules;
         $this->contentPages = $contentPages;
         $this->htmlContent = $htmlContent;
     }
 
     /**
      * Rules page: the same CMS page as the public /rules (edited row, else the default text unless blank rules were
-     * chosen) in the player's language; empty rules show a notice.
+     * chosen) in the player's language; empty rules show a notice. Above it the universe settings (UniverseRules).
      */
     #[GameRoute('game', 'game/rules', 'rules')]
     public function show(): Response
@@ -50,6 +52,7 @@ class RulesController extends AbstractGameController
             // sanitized CMS HTML (ContentPages) or the trusted default template
             'rules' => $empty ? '' : new \Twig\Markup($page['content'], 'UTF-8'),
             'rulesEmpty' => $empty,
+            'universeRules' => $this->universeRules->groups(),
         ]);
     }
 }

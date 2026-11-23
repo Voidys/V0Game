@@ -97,6 +97,7 @@ services:
     App\Game\Core\ConfigRegistry:
         arguments:
             $cacheEnabled: '%app.config_cache%'
+    App\Game\Core\UniverseRules: ~
     App\Game\Core\DeviceLinks:
         arguments:
             $secret: '%kernel.secret%'

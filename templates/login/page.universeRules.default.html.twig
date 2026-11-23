@@ -1,0 +1,5 @@
+{% extends layout_template %}
+{% block title %}{{ LNG.ur_title }}{{ parent() }}{% endblock %}
+{% block content %}
+{% include 'game/_universe_rules.html.twig' %}
+{% endblock %}

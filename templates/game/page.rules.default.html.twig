@@ -3,6 +3,7 @@
 {% block title %}{{ LNG.lm_rules }}{{ parent() }}{% endblock %}
 {% block pagehead %}{{ ui.page_head(LNG.lm_rules, 'scroll-text') }}{% endblock %}
 {% block content %}
+  {% include 'game/_universe_rules.html.twig' %}
   <section class="panel">
     <div class="panel__body text-panel">
     {% if rulesEmpty %}

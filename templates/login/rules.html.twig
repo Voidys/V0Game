@@ -4,6 +4,7 @@
 {% block title %}{{ page_title|e }}{% endblock %}
 {% block script %}<script type="module" src="scripts/game/toc.js?v={{ asset_version }}"></script>{% endblock %}
 {% block content %}
+<p><a href="{{ path('login_universe_rules_show') }}">{{ LNG.ur_title }}</a></p>
 {% if rules_empty %}
   <div class="notice notice--info" role="status">{{ icon('info') }}<div>{{ rules_empty_text }}</div></div>
 {% else %}
