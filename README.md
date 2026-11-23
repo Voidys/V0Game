@@ -99,6 +99,14 @@ All of them, desktop and phone, are in [`public/styles/resource/images/login/scr
   - quick jump with Ctrl+K (pages, planets, coordinates), keyboard shortcuts, tooltips everywhere;
   - eight themes (new: VoidVerse) that only set colours, fonts and images (a new theme is a short file, see `docs/themes.md`),
     popups as modals, clean web addresses (`/game/fleet` instead of `game.php?page=fleet`).
+- **Player tools:**
+  - push and Discord notifications for attacks, spies, returning fleets, finished queues and farms that wake up;
+  - a live event list, fleet templates, a fleet save finder and an "arrive at" speed picker;
+  - a raid planner in every spy report and a farm list, galaxy filters and marks, an empire hub that collects resources;
+  - "build up to X" in the shipyard, combat reports with losses and profit, a read-only API for your own tools;
+  - every universe setting on one page (`/rules/universe`).
+- **Alliances and chat:** shared target lists, an ACS board, an activity overview, alliance wiki pages, pacts that expire,
+  and an optional in-game chat (global and alliance channels, filters, reports, admin review), switched on in the admin panel.
 - **Community:**
   - a built-in board with posts, votes and threaded comments;
   - news with drafts, scheduling and images;
