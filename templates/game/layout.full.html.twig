@@ -75,6 +75,7 @@
 </div>
 <div class="sidebar-backdrop" aria-hidden="true"></div>
 {% include 'game/main.tabbar.html.twig' %}
+{% if chatEnabled %}{% include 'game/chat.widget.html.twig' %}{% endif %}
 
 {% if loginNotice %}
   {# once per login (AbstractGameController::newMessagesNotice); the top bar badge keeps the count afterwards #}

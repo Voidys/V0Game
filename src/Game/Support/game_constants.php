@@ -148,6 +148,7 @@ const MODULE_TUTORIAL_REWARDS = 54;
 const MODULE_HONORPOINTS = 55;               // Honorpoints for players
 const MODULE_PIRATE_BASES = 56;              // Pirate Bases Cronjob and related features
 const MODULE_VOTING = 57;                    // Vote sites with rewards (vote_sites, vote_log)
+const MODULE_CHAT = 58;                      // In-game chat (chat_messages), separate from the player messages
 
 // module id => name map: GameBootstrap::registerModules()
 

@@ -172,6 +172,11 @@ final class LoginFormAuthenticator extends AbstractAuthenticator implements Auth
     /** visitors without login on a protected page: start page with "session expired" */
     public function start(Request $request, ?AuthenticationException $authException = null): Response
     {
+        // the chat polls in the background: a JSON 401 instead of the start page (the script stops and asks for a reload)
+        if (preg_match('#^/(uni\d+/)?game/chat/#', $request->getPathInfo()) === 1) {
+            return new \Symfony\Component\HttpFoundation\JsonResponse(['error' => 'session'], Response::HTTP_UNAUTHORIZED);
+        }
+
         return new RedirectResponse($this->directory($request) . '?code=3');
     }
 

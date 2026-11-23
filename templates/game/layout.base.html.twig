@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="./styles/resource/css/app/pages/{{ pageCss }}.css?v={{ asset_version }}">
   {% endfor %}
   <link rel="stylesheet" href="./styles/resource/css/app/game.css?v={{ asset_version }}">
+  {% if chatEnabled|default(false) %}<link rel="stylesheet" href="./styles/resource/css/app/chat.css?v={{ asset_version }}">{% endif %}
   {# the player's signal colours win over theme and base styles. A colour still at its factory default is not
      emitted as a custom property: the theme may set --signal-* itself (fallbacks = the factory values) #}
   {% set sigPos = signalColors.colorPositive|default('') %}
@@ -109,6 +110,7 @@
   }) }}
 
   <script type="module" src="./scripts/app/main.js?v={{ asset_version }}"></script>
+  {% if chatEnabled|default(false) %}<script type="module" src="./scripts/game/chat.js?v={{ asset_version }}"></script>{% endif %}
   {# page scripts are ES modules; vendor libraries (../base/...) stay classic, deferred keeps the order #}
   {% for scriptname in scripts %}
     {% if scriptname starts with '../' %}

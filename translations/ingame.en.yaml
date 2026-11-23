@@ -1976,3 +1976,48 @@ notif_vac_min: 'Minimum vacation duration: %s.'
 notif_vac_earliest: 'If you start it now, you can end it at the earliest on %s.'
 notif_vac_remaining: 'You can end vacation mode in %s.'
 notif_vac_ended: 'The minimum duration has passed: you can end vacation mode now.'
+chat_title: 'Chat'
+chat_open: 'Open chat'
+chat_close: 'Close chat'
+chat_global: 'Global'
+chat_alliance: 'Alliance'
+chat_placeholder: 'Write a message'
+chat_send: 'Send'
+chat_empty: 'No messages yet.'
+chat_no_alliance: 'You are not in an alliance.'
+chat_err_empty: 'Write something first.'
+chat_err_rate: 'Slow down a little, you are sending too fast.'
+chat_err_muted: 'You are muted in the chat.'
+chat_err_banned: 'Banned players cannot chat.'
+chat_err_channel: 'This channel is not available to you.'
+chat_err_network: 'Could not reach the server, retrying.'
+chat_delete: 'Delete message'
+chat_mute: 'Mute player for 24 hours'
+chat_mute_confirm: 'Mute this player in the chat for 24 hours?'
+chat_unread: 'unread messages'
+chat_new: 'New message from %s'
+chat_more: "More"
+chat_block: "Block player"
+chat_report: "Report"
+chat_report_title: "Report message"
+chat_report_reason: "Reason"
+chat_report_comment: "Comment (optional)"
+chat_report_submit: "Send report"
+chat_cancel: "Cancel"
+chat_reason_spam: "Spam"
+chat_reason_insult: "Insult or harassment"
+chat_reason_cheating: "Cheating or advertising"
+chat_reason_other: "Other"
+chat_reported: "Thanks, the message was reported."
+chat_blocked: "Player blocked."
+chat_err_link: "Links are not allowed in the global chat."
+chat_err_caps: "Please do not write in capitals."
+chat_err_duplicate: "You already wrote that."
+chat_err_age: "Your account is too new to write in the global chat."
+chat_err_points: "You need more points to write in the global chat."
+chat_err_global_off: "The global chat is switched off."
+chat_err_reported: "You already reported this message."
+chat_err_unknown: "This message is not available."
+chat_err_limit: "Your block list is full."
+chat_err_report_limit: "You have too many open reports, please wait until they are handled."
+chat_err_session: "Session expired, please reload the page."

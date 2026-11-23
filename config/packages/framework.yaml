@@ -52,6 +52,25 @@ framework:
             policy: sliding_window
             limit: '%app.pm_rate_limit%'
             interval: '%app.pm_rate_interval%'
+        # in-game chat (App\Community\Chat): at least 3 seconds between two messages and at most 5 per 30 seconds, per player
+        chat_gap:
+            policy: sliding_window
+            limit: 1
+            interval: '3 seconds'
+        chat_burst:
+            policy: sliding_window
+            limit: 5
+            interval: '30 seconds'
+        # background poll of the chat (App\Security\GameRateLimits): per player; an open chat polls 15 times a minute per tab
+        chat_poll:
+            policy: sliding_window
+            limit: 60
+            interval: '1 minute'
+        # reports of chat messages: per player
+        chat_report:
+            policy: sliding_window
+            limit: 5
+            interval: '10 minutes'
         # postbacks of the vote sites (App\Controller\VoteCallbackController): per client IP
         vote_callback:
             policy: sliding_window

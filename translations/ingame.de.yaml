@@ -1971,3 +1971,48 @@ notif_vac_min: 'Mindestdauer des Urlaubsmodus: %s.'
 notif_vac_earliest: 'Wenn du ihn jetzt startest, kannst du ihn frühestens am %s beenden.'
 notif_vac_remaining: 'Du kannst den Urlaubsmodus in %s beenden.'
 notif_vac_ended: 'Die Mindestdauer ist vorbei: Du kannst den Urlaubsmodus jetzt beenden.'
+chat_title: 'Chat'
+chat_open: 'Chat öffnen'
+chat_close: 'Chat schließen'
+chat_global: 'Global'
+chat_alliance: 'Allianz'
+chat_placeholder: 'Nachricht schreiben'
+chat_send: 'Senden'
+chat_empty: 'Noch keine Nachrichten.'
+chat_no_alliance: 'Du bist in keiner Allianz.'
+chat_err_empty: 'Schreib zuerst etwas.'
+chat_err_rate: 'Etwas langsamer bitte, du sendest zu schnell.'
+chat_err_muted: 'Du bist im Chat stummgeschaltet.'
+chat_err_banned: 'Gesperrte Spieler können nicht chatten.'
+chat_err_channel: 'Dieser Kanal steht dir nicht zur Verfügung.'
+chat_err_network: 'Server nicht erreichbar, neuer Versuch folgt.'
+chat_delete: 'Nachricht löschen'
+chat_mute: 'Spieler 24 Stunden stummschalten'
+chat_mute_confirm: 'Diesen Spieler 24 Stunden im Chat stummschalten?'
+chat_unread: 'ungelesene Nachrichten'
+chat_new: 'Neue Nachricht von %s'
+chat_more: "Mehr"
+chat_block: "Spieler blockieren"
+chat_report: "Melden"
+chat_report_title: "Nachricht melden"
+chat_report_reason: "Grund"
+chat_report_comment: "Kommentar (optional)"
+chat_report_submit: "Meldung senden"
+chat_cancel: "Abbrechen"
+chat_reason_spam: "Spam"
+chat_reason_insult: "Beleidigung oder Belästigung"
+chat_reason_cheating: "Cheating oder Werbung"
+chat_reason_other: "Sonstiges"
+chat_reported: "Danke, die Nachricht wurde gemeldet."
+chat_blocked: "Spieler blockiert."
+chat_err_link: "Links sind im globalen Chat nicht erlaubt."
+chat_err_caps: "Bitte nicht in Großbuchstaben schreiben."
+chat_err_duplicate: "Das hast du bereits geschrieben."
+chat_err_age: "Dein Account ist zu neu für den globalen Chat."
+chat_err_points: "Du brauchst mehr Punkte für den globalen Chat."
+chat_err_global_off: "Der globale Chat ist abgeschaltet."
+chat_err_reported: "Du hast diese Nachricht bereits gemeldet."
+chat_err_unknown: "Diese Nachricht ist nicht verfügbar."
+chat_err_limit: "Deine Blockliste ist voll."
+chat_err_report_limit: "Du hast zu viele offene Meldungen, bitte warte, bis sie bearbeitet sind."
+chat_err_session: "Sitzung abgelaufen, bitte lade die Seite neu."

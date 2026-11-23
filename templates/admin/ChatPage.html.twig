@@ -1,0 +1,111 @@
+{% include 'admin/overall_header.html.twig' %}
+{% macro name(row) %}{% if row.ally_tag %}[{{ row.ally_tag }}] {% endif %}{{ row.username }}{% endmacro %}
+<div class="stack">
+  <nav class="tabs">
+    <a href="{{ path('admin_chat_show') }}"{% if view == 'history' %} aria-current="page"{% endif %}>{{ LNG.chat_admin_history }}</a>
+    <a href="{{ path('admin_chat_show', {view: 'reports'}) }}"{% if view == 'reports' %} aria-current="page"{% endif %}>{{ LNG.chat_admin_reports }}{% if openReports > 0 %} <span class="badge badge--danger">{{ openReports }}</span>{% endif %}</a>
+  </nav>
+
+  <p class="muted small">{{ LNG.format('chat_admin_info', retentionDays) }}</p>
+
+  {% if view == 'reports' %}
+  {% if reported %}
+    {% for entry in reported %}
+    {% set m = entry.message %}
+    <section class="card">
+      <header class="card__head">
+        <h2 class="card__title">{{ icon('flag') }}{{ _self.name(m) }}</h2>
+        <div class="card__actions"><span class="badge badge--danger">{{ entry.count }}</span></div>
+      </header>
+      <div class="card__body stack">
+        <p>{{ m.message }}{% if m.deleted %} <span class="badge badge--muted">{{ LNG.chat_admin_deleted }}</span>{% endif %}</p>
+        <p class="muted small">{{ m.date }} · {{ m.channel == 'global' ? LNG.chat_global : m.channel }}</p>
+        <div class="table-wrap"><table class="data data--compact">
+          <thead><tr><th>{{ LNG.chat_admin_reporter }}</th><th>{{ LNG.chat_admin_reason }}</th><th>{{ LNG.chat_admin_comment }}</th></tr></thead>
+          <tbody>{% for r in entry.reports %}<tr><td>{{ r.reporter }}</td><td>{{ attribute(LNG, 'chat_reason_' ~ r.reason) }}</td><td>{{ r.comment }}</td></tr>{% endfor %}</tbody>
+        </table></div>
+        <details>
+          <summary>{{ LNG.chat_admin_context }}</summary>
+          <ol class="stack small">
+            {% for c in entry.before %}<li class="muted"><span class="nowrap">{{ c.date }}</span> <strong>{{ _self.name(c) }}</strong> {{ c.message }}</li>{% endfor %}
+            <li><span class="nowrap">{{ m.date }}</span> <strong>{{ _self.name(m) }}</strong> <mark>{{ m.message }}</mark></li>
+            {% for c in entry.after %}<li class="muted"><span class="nowrap">{{ c.date }}</span> <strong>{{ _self.name(c) }}</strong> {{ c.message }}</li>{% endfor %}
+          </ol>
+        </details>
+        <form action="{{ path('admin_chat_act') }}" method="post" class="toolbar">
+          {{ csrf_field() }}
+          <input type="hidden" name="id" value="{{ m.id }}"><input type="hidden" name="back" value="reports">
+          <button type="submit" name="do" value="delete" class="btn btn--danger">{{ icon('trash-2') }}{{ LNG.chat_admin_delete }}</button>
+          <button type="submit" name="do" value="dismiss" class="btn">{{ icon('x') }}{{ LNG.chat_admin_dismiss }}</button>
+          <span class="toolbar__spacer"></span>
+          <a class="btn" href="{{ path('admin_account_editor_tab', {tab: 'personal', id: m.user_id}) }}">{{ icon('user') }}{{ LNG.chat_admin_player }}</a>
+          <a class="btn" href="{{ path('admin_ban_players') }}">{{ icon('ban') }}{{ LNG.chat_admin_ban }}</a>
+        </form>
+      </div>
+    </section>
+    {% endfor %}
+    {% if next %}<p><a class="btn" href="{{ path('admin_chat_show', {view: 'reports', after: next}) }}">{{ LNG.chat_admin_older }}</a></p>{% endif %}
+  {% else %}
+    <section class="card"><div class="card__body"><div class="empty">{{ icon('shield-check') }}<p>{{ LNG.chat_admin_no_reports }}</p></div></div></section>
+  {% endif %}
+  {% else %}
+  <form method="get" action="{{ path('admin_chat_show') }}" class="toolbar">
+    <input type="search" name="name" value="{{ filters.name }}" placeholder="{{ LNG.chat_admin_player }}" aria-label="{{ LNG.chat_admin_player }}">
+    <input type="search" name="text" value="{{ filters.text }}" placeholder="{{ LNG.chat_admin_text }}" aria-label="{{ LNG.chat_admin_text }}">
+    <input type="date" name="from" value="{{ filters.from }}" aria-label="{{ LNG.chat_admin_from }}">
+    <input type="date" name="to" value="{{ filters.to }}" aria-label="{{ LNG.chat_admin_to }}">
+    <input type="number" name="ally" value="{{ ally ?: '' }}" min="1" placeholder="{{ LNG.chat_admin_alliance_id }}" aria-label="{{ LNG.chat_admin_alliance_id }}" class="narrow">
+    <label><input type="checkbox" name="deleted" value="1"{% if filters.deleted %} checked{% endif %}> {{ LNG.chat_admin_deleted_only }}</label>
+    <button type="submit" class="btn">{{ icon('search') }}{{ LNG.chat_admin_filter }}</button>
+  </form>
+
+  <section class="card">
+    <header class="card__head">
+      <h2 class="card__title">{{ icon('messages-square') }}{{ ally ? LNG.chat_alliance ~ ' #' ~ ally : LNG.chat_global }}</h2>
+      <div class="card__actions"><span class="badge badge--muted">{{ rows|length }}</span></div>
+    </header>
+    <div class="card__body">
+      {% if rows %}
+      <div class="table-wrap">
+        <table class="data data--compact">
+          <thead><tr><th>{{ LNG.chat_admin_time }}</th><th>{{ LNG.chat_admin_player }}</th><th>{{ LNG.chat_admin_message }}</th><th class="actions"></th></tr></thead>
+          <tbody>
+            {% for r in rows %}
+            <tr{% if r.deleted %} class="is-muted"{% endif %}>
+              <td class="nowrap">{{ r.date }}</td>
+              <td>{% if r.ally_tag %}[{{ r.ally_tag }}] {% endif %}<a href="{{ path('admin_account_editor_tab', {tab: 'personal', id: r.user_id}) }}">{{ r.username }}</a></td>
+              <td>
+                {% if r.deleted %}<del>{{ r.message }}</del> <span class="badge badge--muted">{{ LNG.chat_admin_deleted }}</span>
+                  <span class="muted small">{{ r.deleted_by_name ?: '-' }}, {{ r.deletedDate }}</span>
+                {% else %}{{ r.message }}{% endif %}
+                {% if r.original_message is not null %}<br><span class="muted small">{{ LNG.chat_admin_original }}: {{ r.original_message }}</span>{% endif %}
+              </td>
+              <td class="actions">
+                <form action="{{ path('admin_chat_act') }}" method="post">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="id" value="{{ r.id }}">
+                  <input type="hidden" name="ally" value="{{ ally }}"><input type="hidden" name="name" value="{{ filters.name }}"><input type="hidden" name="text" value="{{ filters.text }}">
+                  <input type="hidden" name="from" value="{{ filters.from }}"><input type="hidden" name="to" value="{{ filters.to }}"><input type="hidden" name="deleted" value="{{ filters.deleted ? 1 : 0 }}">
+                  {% if r.deleted %}
+                    <button type="submit" name="do" value="restore" class="btn btn--small">{{ icon('undo-2') }}{{ LNG.chat_admin_restore }}</button>
+                  {% else %}
+                    <button type="submit" name="do" value="delete" class="btn btn--small btn--danger">{{ icon('trash-2') }}{{ LNG.chat_admin_delete }}</button>
+                  {% endif %}
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if next %}
+      <p><a class="btn" href="{{ path('admin_chat_show', {ally: ally ?: null, name: filters.name ?: null, text: filters.text ?: null, from: filters.from ?: null, to: filters.to ?: null, deleted: filters.deleted ? 1 : null, before: next}) }}">{{ LNG.chat_admin_older }}</a></p>
+      {% endif %}
+      {% else %}
+      <div class="empty">{{ icon('messages-square') }}<p>{{ LNG.chat_admin_none }}</p></div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+</div>
+{% include 'admin/overall_footer.html.twig' %}

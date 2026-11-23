@@ -75,6 +75,20 @@ final class GameRateLimitsTest extends GameTestCase
         }
     }
 
+    public function testChatPollHasItsOwnBucket(): void
+    {
+        $poll = new RateLimiterFactory(['id' => 'poll', 'policy' => 'sliding_window', 'limit' => 3, 'interval' => '1 minute'], new InMemoryStorage());
+        $bucket = new RateLimiterFactory(['id' => 'b', 'policy' => 'token_bucket', 'limit' => 5, 'rate' => ['interval' => '1 second', 'amount' => 1]], new InMemoryStorage());
+        $limits = new GameRateLimits($bucket, $bucket, $bucket, self::container()->get(CsrfPolicy::class), true, $poll);
+        $request = $this->request('game_chat_poll', \App\Controller\Game\ChatController::class, 'GET');
+        for ($i = 0; $i < 3; $i++) {
+            $this->assertNull($limits->check($request, 42), "poll $i");
+        }
+        $this->assertNotNull($limits->check($request, 42), 'the fourth poll within a minute is refused');
+        $this->assertNull($limits->check($request, 43), 'per player');
+        $this->assertNull($limits->check($this->request('game_overview_show', OverviewController::class, 'GET'), 42), 'other pages unaffected');
+    }
+
     public function testPlainReadsAreNotCounted(): void
     {
         $limits = $this->limits();

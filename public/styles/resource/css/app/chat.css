@@ -1,0 +1,175 @@
+/*
+ * In-game chat (module MODULE_CHAT): the fixed button (desktop), the panel (full-screen on phones) and its messages.
+ * Layer "components"; colours, radius, spacing and motion only from the tokens of theme-contract.css.
+ */
+@layer components {
+  .chat-fab {
+    position: fixed;
+    inset-block-end: var(--space-4);
+    inset-inline-end: var(--space-4);
+    z-index: 45;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding-inline: var(--space-3);
+    background: var(--theme-raised);
+    color: var(--theme-text);
+    border: 1px solid var(--theme-line-strong);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: border-color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
+  }
+  .chat-fab:hover { background: var(--theme-hover); border-color: var(--theme-field-line); }
+  .chat-fab[aria-expanded="true"] .icon { color: var(--theme-accent); }
+
+  .chat-badge {
+    min-inline-size: 1.1rem;
+    padding: 0 0.25rem;
+    background: var(--theme-accent);
+    color: var(--theme-accent-ink);
+    border-radius: var(--r);
+    font: 700 0.6875rem / 1.1rem var(--font-mono);
+    text-align: center;
+  }
+  .chat-badge[hidden] { display: none; }
+
+  .chat {
+    position: fixed;
+    inset-block-end: calc(var(--space-4) + var(--control-h) + var(--space-2));
+    inset-inline-end: var(--space-4);
+    z-index: 46;
+    display: flex;
+    flex-direction: column;
+    inline-size: min(24rem, calc(100vw - 2 * var(--space-4)));
+    block-size: min(32rem, calc(100dvh - var(--topbar-h) - 2 * var(--space-6)));
+    background: var(--theme-panel);
+    border: 1px solid var(--theme-line-strong);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    animation: chat-in var(--t-med) var(--ease-out);
+  }
+  .chat[hidden] { display: none; }
+  @keyframes chat-in { from { opacity: 0; translate: 0 0.5rem; } }
+
+  .chat__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-2) 0 var(--space-3);
+    border-block-end: 1px solid var(--theme-line);
+  }
+  .chat__title { margin: 0; font-size: var(--fs-md); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--theme-muted); }
+  .chat__tabs { display: flex; flex: 1; gap: var(--space-1); margin-inline-start: var(--space-2); }
+  .chat__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    block-size: var(--control-h);
+    padding-inline: var(--space-3);
+    background: none;
+    border: 0;
+    border-block-end: 2px solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--theme-muted);
+    cursor: pointer;
+  }
+  .chat__tab[aria-selected="true"] { color: var(--theme-text); border-block-end-color: var(--theme-accent); }
+
+  .chat__list {
+    flex: 1;
+    min-block-size: 0;
+    margin: 0;
+    padding: var(--space-2) var(--space-3);
+    list-style: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .chat__msg {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "time user more" "text text text";
+    column-gap: var(--space-2);
+    padding-block: var(--space-1);
+    font-size: var(--fs-sm);
+  }
+  .chat__time { grid-area: time; color: var(--theme-muted); font-size: var(--fs-xs); }
+  .chat__user { grid-area: user; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+  .chat__msg.is-own .chat__user { color: var(--theme-accent); }
+  .chat__text { grid-area: text; overflow-wrap: anywhere; white-space: pre-wrap; }
+  .chat__empty { padding-block: var(--space-4); text-align: center; }
+  /* "more" button: occupies its cell all the time (no layout shift), shows on row hover / focus */
+  .chat__more {
+    grid-area: more;
+    align-self: center;
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    block-size: 1.25rem;
+    min-block-size: 0;
+    margin: 0;
+    padding: 0 var(--space-1);
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: var(--theme-muted);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity var(--t-fast) var(--ease);
+  }
+  .chat__msg:hover .chat__more, .chat__more:focus-visible, .chat__msg:focus-within .chat__more { opacity: 1; }
+  .chat__more:hover { color: var(--theme-text); }
+  @media (hover: none) { .chat__more { opacity: 1; } }
+
+  .chat-menu { inline-size: 17rem; }
+  .chat-menu > button { justify-content: flex-start; block-size: auto; min-block-size: var(--control-h); text-align: start; white-space: normal; }
+
+  .chat-report {
+    inline-size: min(24rem, calc(100vw - 2rem));
+    padding: var(--space-4);
+    background: var(--theme-panel);
+    color: var(--theme-text);
+    border: 1px solid var(--theme-line-strong);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+  }
+  .chat-report::backdrop { background: rgb(0 0 0 / 0.55); }
+  .chat-report form { display: grid; gap: var(--space-2); }
+  .chat-report label { color: var(--theme-muted); font-size: var(--fs-sm); }
+  .chat-report textarea { resize: vertical; }
+  .chat-report__actions { display: flex; justify-content: flex-end; gap: var(--space-2); }
+
+  .chat__status { margin: 0; padding-inline: var(--space-3); min-block-size: 1.25rem; font-size: var(--fs-xs); color: var(--theme-warn); }
+  .chat__form { display: flex; gap: var(--space-2); padding: var(--space-2) var(--space-3) var(--space-3); border-block-start: 1px solid var(--theme-line); }
+  .chat__input { flex: 1; min-inline-size: 0; }
+  .chat__send span { display: none; }
+
+  @media (max-width: 60rem) {
+    .chat-fab { display: none; }
+    .chat {
+      inset: 0;
+      inline-size: auto;
+      block-size: auto;
+      padding-block-start: env(safe-area-inset-top, 0px);
+      padding-block-end: env(safe-area-inset-bottom, 0px);
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      z-index: 70;
+    }
+    .chat__tab, .chat .icon-btn { min-block-size: var(--tap-min); min-inline-size: var(--tap-min); }
+    .chat__input { font-size: 1rem; min-block-size: var(--tap-min); }
+    .chat__send { min-block-size: var(--tap-min); }
+    .chat__more { opacity: 1; min-block-size: var(--tap-min); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chat { animation: none; }
+    .chat-fab { transition: none; }
+  }
+}
+
+/* the fixed button is for wide screens, so the menu entry is for phones (unlayered: the shell's nav rules are too) */
+@media (min-width: 60.0625rem) {
+  .sidenav [data-chat-toggle] { display: none; }
+}

@@ -1410,3 +1410,11 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 - Admin: abuse review queue (`SuspicionScore`, `AbuseReviewService`, hourly `AbuseReviewCronjob`, `/admin/abuse/reviews`, universe setting `abuse_review_threshold`; migration 1795501700).
 - Accessibility: drawer focus trap/inert/escape, more `g+…` shortcuts (g+o fixed), install-app button, reduced motion for shell parts.
 - Tests: test players spread over 400 systems per galaxy (the old 100 ran out), new unit/integration tests per feature.
+
+## 177. In-game chat module
+
+- `MODULE_CHAT` (58, off by default): table `chat_messages` (separate from player messages) and `chat_reports`, migration 1795502000; `App\Community\Chat` (send/poll/report/block), `ChatRetention` (7 days, 2000 per channel, stale reports dismissed after 30 days) in the daily cronjob.
+- Game `ChatController`: poll (JSON, no session write, `chat_poll` 30/min, 401 JSON when logged out), send (limiters `chat_gap` 1/3 s, `chat_burst` 5/30 s), report (`chat_report` 5/10 min, max 20 open), block, moderator delete/mute (right + admin log).
+- Channels global + alliance; `chat_global_enabled`; global filters in `ChatFilter` (word masking, generic link rule with disguise normalisation and `chat_allowed_domains`, repeat/caps/char-run checks, min account age 24 h default, min points); invisible/filler characters stripped.
+- UI: fixed desktop button + drawer entry on phones, `chat.js` short polling (4 s open, 30 s closed, paused when hidden), kebab popover per message; admin `/admin/chat` history (filters, deleted/original text, restore) and open-reports queue (oldest first, keyset paging).
+

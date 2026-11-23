@@ -50,6 +50,7 @@ class DailyCronjob extends AbstractCronjobTask
         $this->eraseIPAdresses();
         $this->purgeDevices();
         $this->purgeVoteLog();
+        $this->purgeChat();
         $this->cleanAccountsValid();
         $this->expireAllianceTreaties();
     }
@@ -102,6 +103,14 @@ class DailyCronjob extends AbstractCronjobTask
     public function purgeVoteLog(): void
     {
         (new \App\Community\VoteSites($this->db))->purge($this->state->runtime->timestamp);
+    }
+
+    /**
+     * Deletes chat messages older than 7 days and keeps the newest 2000 per chat channel.
+     */
+    public function purgeChat(): void
+    {
+        (new \App\Community\ChatRetention($this->db))->purge($this->state->runtime->timestamp);
     }
 
     /**

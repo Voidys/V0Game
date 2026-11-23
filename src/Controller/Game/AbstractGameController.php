@@ -290,10 +290,31 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
             'communityNav' => $this->communityNav(!empty($tutorialDetails['id'] ?? null)),
             'tutorial' => !$tutorialDetails || empty($tutorialDetails) ? false : $tutorialDetails,
             'noobInterface' => $this->state->USER['noob_interface'],
+            ...$this->chatNavigation($config),
             'voteNav' => $this->viewHelpers()->isModuleAvailable(MODULE_VOTING) && (new \App\Community\VoteSites($this->db))->hasActive((int) $this->state->USER['universe']),
         ];
     }
 
+
+    /**
+     * Chat entries of the layout: the chat is available while the module is on and the player has a channel (global
+     * channel on, or an alliance).
+     *
+     * @return array<string, mixed>
+     */
+    private function chatNavigation(\App\Game\Core\Config $config): array
+    {
+        $global = \App\Game\Chat\ChatSettings::fromConfig($config)->globalEnabled;
+        $alliance = (int) ($this->state->USER['ally_id'] ?? 0) > 0;
+
+        return [
+            'chatGlobal' => $global,
+            'chatEnabled' => $this->viewHelpers()->isModuleAvailable(MODULE_CHAT) && ($global || $alliance),
+            'chatAlliance' => $alliance,
+            'chatUserId' => (int) $this->state->USER['id'],
+            'chatMaxLength' => \App\Community\Chat::MAX_LENGTH,
+        ];
+    }
 
     /**
      * Options of the planet selector ("name (Moon) [g:s:p]" per planet id). Ends the request with the banned message for

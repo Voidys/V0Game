@@ -165,7 +165,8 @@ class Session
      */
     private function isRaportView(): bool
     {
-        return $this->manager->gameState()->request?->attributes->get('_route') === 'game_raport_show'
+        // the public report view and the chat poll (a background request) are not player activity: nothing is written
+        return in_array($this->manager->gameState()->request?->attributes->get('_route'), ['game_raport_show', 'game_chat_poll'], true)
             && $this->manager->gameState()->runtime->mode === 'INGAME';
     }
 

@@ -31,6 +31,9 @@ final class GameRateLimits
         'game_fleet_step1_check_target', 'game_fleet_step2_check_resources', 'game_messages_load_user',
     ];
 
+    /** the chat poll (a read in the background): its own generous bucket, 60 per minute (an open chat polls 15 per minute per tab) */
+    private const CHAT_POLL_ROUTE = 'game_chat_poll';
+
     /** route names that can be opened without a login */
     private const ANONYMOUS_ROUTES = ['game_raport_show', 'account_board_show', 'account_board_post'];
 
@@ -46,6 +49,8 @@ final class GameRateLimits
         private readonly CsrfPolicy $policy,
         #[Autowire('%app.game_rate_limit.enabled%')]
         private readonly bool $enabled,
+        #[Autowire(service: 'limiter.chat_poll', lazy: true)]
+        private readonly ?RateLimiterFactoryInterface $chatPoll = null,
     ) {}
 
     /**
@@ -64,7 +69,9 @@ final class GameRateLimits
             return null;
         }
 
-        if ($area === 'game' && in_array($request->attributes->get('_route'), self::EXPENSIVE_ROUTES, true)) {
+        if ($area === 'game' && $request->attributes->get('_route') === self::CHAT_POLL_ROUTE && $this->chatPoll !== null) {
+            $factory = $this->chatPoll;
+        } elseif ($area === 'game' && in_array($request->attributes->get('_route'), self::EXPENSIVE_ROUTES, true)) {
             $factory = $this->reads;
         } elseif ($this->policy->requiresToken($request)) {
             $factory = $this->actions;

@@ -57,6 +57,9 @@
   {% if game_config('board_enabled', '1') != '0' %}
     {{ nav.link(path('account_board_show'), 'messages-square', LNG.lm_board, false, null, ' target="_blank" rel="noopener"') }}
   {% endif %}
+  {% if chatEnabled %}
+    {{ nav.link('#', 'messages-square', LNG.chat_title, false, null, ' data-chat-toggle role="button" aria-controls="chat-panel"') }}
+  {% endif %}
   {% if voteNav %}
     {{ nav.link(path('game_vote_show'), 'gift', LNG.lm_vote, currentPage == 'vote') }}
   {% endif %}

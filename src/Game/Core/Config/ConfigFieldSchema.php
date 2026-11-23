@@ -154,6 +154,7 @@ class ConfigFieldSchema
             (new Schema\UniExpeditionParametersFields())->fields($LNG),
             (new Schema\UniAttacksFields())->fields($LNG),
             (new Schema\UniPiratebaseFields())->fields($LNG),
+            (new Schema\UniChatFields())->fields($LNG),
             (new Schema\UniTraderFields())->fields($LNG),
             (new Schema\UniNewsFields())->fields($LNG),
             (new Schema\UniRefFields())->fields($LNG),

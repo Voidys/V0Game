@@ -1,0 +1,88 @@
+{# In-game chat (module MODULE_CHAT): desktop button, panel (full-screen on phones, opened from the menu entry), driven by scripts/game/chat.js. Messages are rendered by the script with textContent only. #}
+<button type="button" class="chat-fab" data-chat-toggle aria-controls="chat-panel" aria-expanded="false">
+  {{ icon('messages-square') }}<span>{{ LNG.chat_title }}</span><b class="chat-badge" data-chat-badge hidden></b>
+</button>
+
+<section class="chat" id="chat-panel" role="dialog" aria-modal="false" aria-labelledby="chat-title" hidden>
+  <header class="chat__head">
+    <h2 class="chat__title" id="chat-title">{{ LNG.chat_title }}</h2>
+    <div class="chat__tabs" role="tablist" aria-label="{{ LNG.chat_title }}">
+      {% if chatGlobal %}
+        <button type="button" role="tab" class="chat__tab" data-chat-tab="global" aria-selected="true" id="chat-tab-global">{{ LNG.chat_global }}<b class="chat-badge" data-chat-tab-badge="global" hidden></b></button>
+      {% endif %}
+      {% if chatAlliance %}
+        <button type="button" role="tab" class="chat__tab" data-chat-tab="alliance" aria-selected="false" id="chat-tab-alliance" tabindex="-1">{{ LNG.chat_alliance }}<b class="chat-badge" data-chat-tab-badge="alliance" hidden></b></button>
+      {% endif %}
+    </div>
+    <button type="button" class="icon-btn" data-chat-close aria-label="{{ LNG.chat_close }}">{{ icon('x') }}</button>
+  </header>
+  <ol class="chat__list" data-chat-list role="log" aria-live="polite" aria-relevant="additions" tabindex="0"></ol>
+  <p class="chat__status" data-chat-status role="status"></p>
+  <form class="chat__form" data-chat-form autocomplete="off">
+    <input type="text" class="chat__input" data-chat-input maxlength="{{ chatMaxLength }}" placeholder="{{ LNG.chat_placeholder }}" aria-label="{{ LNG.chat_placeholder }}" enterkeyhint="send">
+    <button type="submit" class="btn btn--primary chat__send" aria-label="{{ LNG.chat_send }}">{{ icon('send') }}<span>{{ LNG.chat_send }}</span></button>
+  </form>
+</section>
+
+<div class="pop pop-menu chat-menu" popover id="chat-menu" role="menu" data-chat-menu>
+  <button type="button" role="menuitem" data-chat-menu-action="block">{{ icon('ban') }}<span>{{ LNG.chat_block }}</span></button>
+  <button type="button" role="menuitem" data-chat-menu-action="report">{{ icon('flag') }}<span>{{ LNG.chat_report }}</span></button>
+  <button type="button" role="menuitem" data-chat-menu-action="delete" data-chat-mod>{{ icon('trash-2') }}<span>{{ LNG.chat_delete }}</span></button>
+  <button type="button" role="menuitem" data-chat-menu-action="mute" data-chat-mod>{{ icon('ban') }}<span>{{ LNG.chat_mute }}</span></button>
+</div>
+
+<dialog class="chat-report" data-chat-report aria-labelledby="chat-report-title">
+  <form method="dialog" data-chat-report-form>
+    <h2 id="chat-report-title" class="chat__title">{{ LNG.chat_report_title }}</h2>
+    <label for="chat-report-reason">{{ LNG.chat_report_reason }}</label>
+    <select id="chat-report-reason" name="reason">
+      {% for reason in ['spam', 'insult', 'cheating', 'other'] %}<option value="{{ reason }}">{{ attribute(LNG, 'chat_reason_' ~ reason) }}</option>{% endfor %}
+    </select>
+    <label for="chat-report-comment">{{ LNG.chat_report_comment }}</label>
+    <textarea id="chat-report-comment" name="comment" rows="3" maxlength="200"></textarea>
+    <p class="chat__status" data-chat-report-status role="status"></p>
+    <div class="chat-report__actions">
+      <button type="button" class="btn" data-chat-report-cancel>{{ LNG.chat_cancel }}</button>
+      <button type="submit" class="btn btn--primary">{{ LNG.chat_report_submit }}</button>
+    </div>
+  </form>
+</dialog>
+
+{{ data_island('chat-config', {
+  poll: path('game_chat_poll'),
+  send: path('game_chat_send'),
+  delete: path('game_chat_delete'),
+  mute: path('game_chat_mute'),
+  uid: chatUserId,
+  alliance: chatAlliance,
+  global: chatGlobal,
+  report: path('game_chat_report'),
+  block: path('game_chat_block'),
+  texts: {
+    empty: LNG.chat_empty,
+    errEmpty: LNG.chat_err_empty,
+    errRate: LNG.chat_err_rate,
+    errMuted: LNG.chat_err_muted,
+    errBanned: LNG.chat_err_banned,
+    errChannel: LNG.chat_err_channel,
+    errNetwork: LNG.chat_err_network,
+    del: LNG.chat_delete,
+    mute: LNG.chat_mute,
+    muteConfirm: LNG.chat_mute_confirm,
+    unread: LNG.chat_unread,
+    more: LNG.chat_more,
+    reported: LNG.chat_reported,
+    blocked: LNG.chat_blocked,
+    errLink: LNG.chat_err_link,
+    errCaps: LNG.chat_err_caps,
+    errDuplicate: LNG.chat_err_duplicate,
+    errAge: LNG.chat_err_age,
+    errPoints: LNG.chat_err_points,
+    errGlobalOff: LNG.chat_err_global_off,
+    errReported: LNG.chat_err_reported,
+    errUnknown: LNG.chat_err_unknown,
+    errLimit: LNG.chat_err_limit,
+    errReportLimit: LNG.chat_err_report_limit,
+    errSession: LNG.chat_err_session
+  }
+}) }}

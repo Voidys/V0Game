@@ -37,6 +37,7 @@ class UniverseRules
         MODULE_SIMULATOR => 'ur_mod_simulator',
         MODULE_TUTORIAL => 'ur_mod_tutorial',
         MODULE_VOTING => 'ur_mod_voting',
+        MODULE_CHAT => 'ur_mod_chat',
     ];
 
     public function __construct(private ConfigRegistry $configs) {}
