@@ -8,8 +8,26 @@
 {%- else -%}{{ theme_asset('planeten/varianten/v3_voronoi/' ~ image ~ '_v3_voronoi.webp') }}
 {%- endif -%}
 {% endmacro %}
+{% macro left(seconds, umode) -%}
+{%- if umode -%}{{ getRestTimeFormat(seconds) }}{%- else -%}<span class="countdown mono" data-time="{{ seconds }}"></span>{%- endif -%}
+{%- endmacro %}
 {% block pagehead %}{{ ui.page_head(LNG.lm_empire, 'globe', LNG.lv_planet ~ ' ' ~ currentPlanetCount ~ ' / ' ~ maxPlanetCount) }}{% endblock %}
 {% block content %}
+  <section class="panel empire-collect">
+    {{ ui.panel_head(LNG.emp_collect_title) }}
+    <form class="panel__body toolbar" method="get" action="{{ path('game_empire_preview') }}">
+      <label>{{ LNG.emp_collect_target }}
+        <select name="target">
+          {% for t in collectTargets %}<option value="{{ t.id }}"{% if t.id == collectDefaultTarget %} selected{% endif %}>{{ t.name }} [{{ t.galaxy }}:{{ t.system }}:{{ t.planet }}]{% if t.type == 3 %} ({{ LNG.fcm_moon }}){% endif %}</option>{% endfor %}
+        </select>
+      </label>
+      <label><input type="checkbox" name="metal" value="1" checked> {{ LNG.tech[901] }}</label>
+      <label><input type="checkbox" name="crystal" value="1" checked> {{ LNG.tech[902] }}</label>
+      <label><input type="checkbox" name="deuterium" value="1" checked> {{ LNG.tech[903] }}</label>
+      <label>{{ LNG.emp_collect_keep }} <input type="number" name="keep" value="0" min="0" step="1000" class="num"></label>
+      <button type="submit" class="btn--primary">{{ icon('truck') }}<span>{{ LNG.emp_collect_preview }}</span></button>
+    </form>
+  </section>
   <section class="panel panel--flush">
   <div class="table-scroll">
   <table class="empire-table data">
@@ -23,6 +41,41 @@
     </tr>
     </thead>
     <tbody>
+    <tr class="group"><th colspan="{{ colspan }}">
+      <span data-toggle-rows="queues"><span id="queues-toggle">▲</span> {{ LNG.emp_queues }}</span>
+    </th></tr>
+    <tr class="queues">
+      <td>{{ LNG.lv_buildings }}</td>
+      <td class="num">{{ empireList.queueBuilding|filter(q => q)|length }}</td>
+      {% for planetID, q in empireList.queueBuilding %}
+        <td class="num">{% if q %}<a href="{{ path('game_buildings_show', {cp: planetID}) }}">{{ LNG.tech[q.id] }} <span class="lvl">{{ q.level }}</span></a><br>{{ _self.left(q.left, umode) }}{% if q.more > 0 %}<br><span class="colorNeutral" title="{{ LNG.emp_queue_total }}">+{{ q.more }} &middot; {{ _self.left(q.total, umode) }}</span>{% endif %}{% else %}<span class="colorNeutral">-</span>{% endif %}</td>
+      {% endfor %}
+    </tr>
+    <tr class="queues">
+      <td>{{ LNG.lm_research }}</td>
+      <td class="num">{% if research %}{{ LNG.tech[research.id] }} <span class="lvl">{{ research.level }}</span><br>{{ _self.left(research.left, umode) }}{% else %}<span class="colorNeutral">-</span>{% endif %}</td>
+      {% for planetID, q in empireList.queueBuilding %}
+        <td class="num">{% if research and research.planet == planetID %}<a href="{{ path('game_research_show', {cp: planetID}) }}">{{ LNG.tech[research.id] }} <span class="lvl">{{ research.level }}</span></a><br>{{ _self.left(research.left, umode) }}{% else %}<span class="colorNeutral">-</span>{% endif %}</td>
+      {% endfor %}
+    </tr>
+    <tr class="queues">
+      <td>{{ LNG.lm_shipshard }}</td>
+      <td class="num">{{ empireList.queueShipyard|filter(q => q)|length }}</td>
+      {% for planetID, q in empireList.queueShipyard %}
+        <td class="num">{% if q %}<a href="{{ path('game_shipyard_show', {kind: 'shipyard', cp: planetID}) }}">{{ LNG.tech[q.id] }} <span class="lvl">{{ pretty_number(q.amount) }}</span></a><br>{{ _self.left(q.left, umode) }}{% if q.more > 0 %}<br><span class="colorNeutral" title="{{ LNG.emp_queue_total }}">+{{ q.more }} &middot; {{ _self.left(q.total, umode) }}</span>{% endif %}{% else %}<span class="colorNeutral">-</span>{% endif %}</td>
+      {% endfor %}
+    </tr>
+    <tr class="queues">
+      <td>{{ LNG.emp_open }}</td>
+      <td class="num">-</td>
+      {% for planetID, q in empireList.queueBuilding %}
+        <td class="num empire-links">
+          <a href="{{ path('game_buildings_show', {cp: planetID}) }}" title="{{ LNG.lm_buildings }}">{{ icon('hammer', LNG.lm_buildings) }}</a>
+          <a href="{{ path('game_research_show', {cp: planetID}) }}" title="{{ LNG.lm_research }}">{{ icon('flask-conical', LNG.lm_research) }}</a>
+          <a href="{{ path('game_shipyard_show', {kind: 'shipyard', cp: planetID}) }}" title="{{ LNG.lm_shipshard }}">{{ icon('rocket', LNG.lm_shipshard) }}</a>
+        </td>
+      {% endfor %}
+    </tr>
     <tr class="group"><th colspan="{{ colspan }}">
       <span data-toggle-rows="chart"><span id="chart-toggle">▲</span> {{ LNG.lm_statistics }}</span>
     </th></tr>

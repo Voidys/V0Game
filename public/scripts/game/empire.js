@@ -8,7 +8,7 @@ const COLORS = { points: '#5aa9ff', buildings: '#6fcf8e', research: '#b28cff', f
 
 // ------------------------------------------------------------------ collapsible row groups
 
-const GROUPS = ['chart', 'ressources', 'buildings', 'technology', 'ships', 'defenses', 'missile'];
+const GROUPS = ['queues', 'chart', 'ressources', 'buildings', 'technology', 'ships', 'defenses', 'missile'];
 const FOLDED_BY_DEFAULT = ['technology', 'ships', 'defenses', 'missile'];
 
 /** Collapses or expands a group of table rows (class = group name) and flips its arrow. */

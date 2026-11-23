@@ -27,6 +27,8 @@ use App\Game\Core\ResourceUpdate;
 use App\Game\Core\Statbuilder;
 use App\Game\Model\Planet;
 use App\Game\Model\User;
+use App\Game\Core\ResourceCollector;
+use App\Game\Fleet\ResourceCollectionDispatcher;
 
 /** Empire overview: resources, buildings, research and fleet of all planets (or moons) plus score charts. */
 #[\App\Controller\RequireModule('MODULE_IMPERIUM')]
@@ -86,6 +88,7 @@ class EmpireController extends AbstractGameController
             }
 
             $this->addTechColumns($planetList, $Planet, $userModel, $planetModel);
+            $this->addQueueColumns($planetList, $Planet);
         }
 
         $avgBuildings = $this->averageBuildings($sumBuildings);
@@ -99,6 +102,10 @@ class EmpireController extends AbstractGameController
 
         return $this->render('game/page.empire.default.html.twig', $researchQueue + [
             'colspan'                       => count($PLANETS) + 2,
+            'research'                      => $this->researchEntry(),
+            'collectTargets'                => $this->collectTargets($PLANETS),
+            'collectDefaultTarget'          => (int) $this->state->USER['id_planet'],
+            'umode'                         => (int) $this->state->USER['urlaubs_modus'],
             'chartPoints'                   => $chartPoints,
             'empireList'                    => $planetList,
             'avgBuildings'                  => $avgBuildings,
@@ -440,5 +447,242 @@ class EmpireController extends AbstractGameController
         }
 
         return $avgBuildings;
+    }
+
+    /**
+     * Adds the running construction and the shipyard queue of the planet: first entry (id, level or amount, seconds left),
+     * number of further entries and the seconds until the whole queue is done. Entries are `false` when the queue is empty.
+     *
+     * @param array<string, mixed> $planetList template matrix, extended in place
+     * @param array<string, mixed> $Planet recalculated planet row
+     */
+    private function addQueueColumns(array &$planetList, array $Planet): void
+    {
+        $now = $this->state->runtime->timestamp;
+        $USER = $this->state->USER;
+        $planetList['queueBuilding'][$Planet['id']] = false;
+        $planetList['queueShipyard'][$Planet['id']] = false;
+
+        if (!empty($Planet['b_building']) && !empty($Planet['b_building_id'])) {
+            $queue = StoredData::decode($Planet['b_building_id']);
+            $left = $USER['urlaubs_modus'] ? $Planet['b_building'] - $USER['urlaubs_start'] : $Planet['b_building'] - $now;
+            $last = end($queue);
+            $planetList['queueBuilding'][$Planet['id']] = [
+                'id' => $queue[0][0],
+                'level' => $queue[0][1],
+                'left' => max(0, $left),
+                'more' => count($queue) - 1,
+                'total' => max(0, $left + (isset($last[3]) && count($queue) > 1 ? $last[3] - $Planet['b_building'] : 0)),
+            ];
+        }
+
+        if (!empty($Planet['b_hangar_id'])) {
+            $queue = StoredData::decode($Planet['b_hangar_id']);
+            $total = -$Planet['b_hangar'];
+            foreach ($queue as $item) {
+                $total += $this->buildFunctions()->getBuildingTime($USER, $Planet, $item[0]) * $item[1];
+            }
+            $first = $this->buildFunctions()->getBuildingTime($USER, $Planet, $queue[0][0]) * $queue[0][1] - $Planet['b_hangar'];
+            $planetList['queueShipyard'][$Planet['id']] = [
+                'id' => $queue[0][0],
+                'amount' => $queue[0][1],
+                'left' => max(0, $first),
+                'more' => count($queue) - 1,
+                'total' => max(0, $total),
+            ];
+        }
+    }
+
+    /**
+     * The running research (global for the player): tech id, target level, seconds left and the planet whose lab runs it; false when idle.
+     *
+     * @return array{id: int, level: int, left: int, planet: int}|false
+     */
+    private function researchEntry(): array|false
+    {
+        $USER = $this->state->USER;
+        if (empty($USER['b_tech_id']) || empty($USER['b_tech_queue'])) {
+            return false;
+        }
+        $queue = StoredData::decode($USER['b_tech_queue']);
+        $left = $USER['urlaubs_modus'] ? $USER['b_tech'] - $USER['urlaubs_start'] : $USER['b_tech'] - $this->state->runtime->timestamp;
+
+        return ['id' => $queue[0][0], 'level' => $queue[0][1], 'left' => max(0, $left), 'planet' => (int) ($USER['b_tech_planet'] ?: $queue[0][4])];
+    }
+
+    /**
+     * Destination choices of the collection form.
+     *
+     * @param list<array<string, mixed>> $planets
+     * @return list<array{id: int, name: string, galaxy: int, system: int, planet: int, type: int}>
+     */
+    private function collectTargets(array $planets): array
+    {
+        return array_map(static fn(array $p): array => [
+            'id' => (int) $p['id'], 'name' => (string) $p['name'], 'galaxy' => (int) $p['galaxy'], 'system' => (int) $p['system'],
+            'planet' => (int) $p['planet'], 'type' => (int) $p['planet_type'],
+        ], $planets);
+    }
+
+    /**
+     * Preview of the resource collection: which cargo ships every other planet would send, with cargo, fuel and arrival
+     * time. Read-only. Request: target (planet id), metal/crystal/deuterium (1 = collect), keep (deuterium kept per source).
+     */
+    #[GameRoute('game', 'game/empire/collect', 'empire', 'preview')]
+    public function preview(): Response
+    {
+        $planets = $this->recalculatePlanets();
+        $request = $this->collectRequest($planets);
+        if ($request === null) {
+            return $this->redirectToRoute('game_empire_show');
+        }
+        $rows = $this->collectRows($planets, $request);
+
+        return $this->render('game/page.empire.collect.html.twig', [
+            'request' => $request,
+            'rows' => $rows,
+            'sendable' => count(array_filter($rows, static fn(array $row): bool => $row['status'] === 'ok')),
+            'umode' => (int) $this->state->USER['urlaubs_modus'],
+            'result' => null,
+        ]);
+    }
+
+    /**
+     * Executes the collection: plans again from the current state (the posted values only name the target, resources and
+     * chosen sources) and sends every chosen source through the regular fleet dispatch. The outcome is kept in the
+     * session and shown by result() (post/redirect/get). Request: as preview(), plus sources[] (planet ids).
+     */
+    #[GameRoute('game', 'game/empire/collect', 'empire', 'run', ['POST'])]
+    public function run(): Response
+    {
+        $planets = $this->recalculatePlanets();
+        $request = $this->collectRequest($planets);
+        if ($request === null) {
+            return $this->redirectToRoute('game_empire_show');
+        }
+        $chosen = $this->input()->intList('sources');
+        $dispatcher = new ResourceCollectionDispatcher($this->db, $this->configs, $this->state, $this->fleetCaps);
+        $target = $request['target'];
+        $results = [];
+        foreach ($this->collectRows($planets, $request) as $row) {
+            if (!in_array($row['id'], $chosen, true)) {
+                continue;
+            }
+            $outcome = $row['status'] === 'ok'
+                ? $dispatcher->send($row['planetRow'], $target, $row['plan'])
+                : ['ok' => false, 'message' => '', 'arrival' => ''];
+            $results[] = ['id' => $row['id'], 'name' => $row['name'], 'coords' => $row['coords'], 'status' => $outcome['ok'] ? 'sent' : ($row['status'] === 'ok' ? 'refused' : $row['status']),
+                'message' => $outcome['message'], 'arrival' => $outcome['arrival'], 'cargo' => $row['plan']['cargo'] ?? [], 'ships' => $row['plan']['ships'] ?? []];
+        }
+        $session = $this->sessions()->load();
+        $session->empireCollect = ['target' => $target['name'], 'results' => $results];
+        $session->save();
+
+        return $this->redirectToRoute('game_empire_result');
+    }
+
+    /** Outcome of the last collection run (per source: sent with arrival time, or the reason it was not). */
+    #[GameRoute('game', 'game/empire/collect/result', 'empire', 'result')]
+    public function result(): Response
+    {
+        $outcome = $this->sessions()->load()->empireCollect;
+        if (!is_array($outcome)) {
+            return $this->redirectToRoute('game_empire_show');
+        }
+
+        return $this->render('game/page.empire.collect.html.twig', ['result' => $outcome, 'request' => null, 'rows' => [], 'sendable' => 0, 'umode' => 0]);
+    }
+
+    /**
+     * Reads the collection form: the destination (one of the player's planets or moons, default the main planet), the
+     * resources to take and the deuterium to keep on every source.
+     *
+     * @param list<array<string, mixed>> $planets
+     * @return array{target: array<string, mixed>, include: array<int, bool>, keep: int}|null null when the destination is not the player's
+     */
+    private function collectRequest(array $planets): ?array
+    {
+        $targetId = $this->input()->int('target', (int) $this->state->USER['id_planet']);
+        $target = null;
+        foreach ($planets as $planet) {
+            if ((int) $planet['id'] === $targetId) {
+                $target = $planet;
+            }
+        }
+        if ($target === null) {
+            return null;
+        }
+        $include = [901 => $this->input()->bool('metal'), 902 => $this->input()->bool('crystal'), 903 => $this->input()->bool('deuterium')];
+        if (!in_array(true, $include, true)) {
+            $include = [901 => true, 902 => true, 903 => true];
+        }
+
+        return ['target' => $target, 'include' => $include, 'keep' => max(0, (int) $this->input()->bigNumber('keep'))];
+    }
+
+    /**
+     * One row per planet other than the destination: the planned transport (ResourceCollector) or why there is none
+     * (no cargo ships, nothing to take, no fuel, no free fleet slot). Free slots are handed out in planet order.
+     *
+     * @param list<array<string, mixed>> $planets recalculated planet rows
+     * @param array{target: array<string, mixed>, include: array<int, bool>, keep: int} $request
+     * @return list<array<string, mixed>> id, name, coords, status (ok|no_ships|no_resources|no_fuel|no_slot|vacation), plan, planRow, arrival
+     */
+    private function collectRows(array $planets, array $request): array
+    {
+        $target = $request['target'];
+        $userModel = $this->models()->user($this->state->USER);
+        $slots = $this->fleetFunctions()->maxFleetSlotsFor($userModel) - $this->fleetFunctions()->getCurrentFleets((int) $this->state->USER['id']);
+        $e = $this->elements();
+        $capacity = [ResourceCollector::LARGE_CARGO => $e->capacity(ResourceCollector::LARGE_CARGO), ResourceCollector::SMALL_CARGO => $e->capacity(ResourceCollector::SMALL_CARGO)];
+        $rows = [];
+        foreach ($planets as $planet) {
+            if ($planet['id'] == $target['id']) {
+                continue;
+            }
+            $row = ['id' => (int) $planet['id'], 'name' => $planet['name'], 'planetRow' => $planet, 'plan' => null, 'arrival' => '', 'duration' => 0,
+                'coords' => '[' . $planet['galaxy'] . ':' . $planet['system'] . ':' . $planet['planet'] . ']', 'type' => (int) $planet['planet_type']];
+            $row['status'] = $this->state->USER['urlaubs_modus'] ? 'vacation' : $this->planSource($row, $target, $request, $capacity, $userModel);
+            if ($row['status'] === 'ok' && $slots-- < 1) {
+                $row['status'] = 'no_slot';
+            }
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
+
+    /**
+     * Plans one source into $row (plan, duration, arrival) and returns the status.
+     *
+     * @param array<string, mixed> $row collection row, filled in place
+     * @param array<string, mixed> $target
+     * @param array<int, int|float> $capacity
+     */
+    private function planSource(array &$row, array $target, array $request, array $capacity, User $userModel): string
+    {
+        $planet = $row['planetRow'];
+        $e = $this->elements();
+        $ships = [ResourceCollector::LARGE_CARGO => (int) $planet[$e->column(ResourceCollector::LARGE_CARGO)], ResourceCollector::SMALL_CARGO => (int) $planet[$e->column(ResourceCollector::SMALL_CARGO)]];
+        $stock = [901 => $planet[$e->column(901)], 902 => $planet[$e->column(902)], 903 => $planet[$e->column(903)]];
+        $distance = $this->fleetFunctions()->getTargetDistance([$planet['galaxy'], $planet['system'], $planet['planet']], [$target['galaxy'], $target['system'], $target['planet']]);
+        $speedFactor = $this->fleetFunctions()->getGameSpeedFactor();
+        $duration = function (array $fleet) use ($distance, $speedFactor, $userModel): int {
+            return $this->fleetFunctions()->missionDurationFor(100, $this->fleetFunctions()->fleetMaxSpeedFor($fleet, $userModel), $distance, $speedFactor, $userModel);
+        };
+        $fuelFor = fn(array $fleet): float => $this->fleetFunctions()->fleetConsumptionFor($fleet, $duration($fleet), $distance, $userModel, $speedFactor);
+
+        if (array_sum($ships) < 1) {
+            return 'no_ships';
+        }
+        $plan = ResourceCollector::plan($stock, $ships, $capacity, $request['include'], $request['keep'], $fuelFor);
+        if ($plan === null) {
+            return array_sum(array_intersect_key($stock, array_filter($request['include']))) < 1 ? 'no_resources' : 'no_fuel';
+        }
+        $row['plan'] = $plan;
+        $row['duration'] = $duration($plan['ships']);
+        $row['arrival'] = $this->viewHelpers()->formatDate($this->state->LNG['php_tdformat'], $this->state->runtime->timestamp + $row['duration'], $this->state->USER['timezone']);
+
+        return 'ok';
     }
 }

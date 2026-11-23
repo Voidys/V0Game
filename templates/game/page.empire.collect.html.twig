@@ -1,0 +1,77 @@
+{% extends layout_template %}
+{% block title %}{{ LNG.emp_collect_title }}{{ parent() }}{% endblock %}
+{% import '_macros/ui.html.twig' as ui %}
+{% macro cargo(plan) -%}
+{%- for id in [901, 902, 903] %}{% if plan.cargo[id] > 0 %}<span class="nowrap">{{ LNG.tech[id] }} {{ pretty_number(plan.cargo[id]) }}</span> {% endif %}{% endfor -%}
+{%- endmacro %}
+{% macro ships(plan) -%}
+{%- for id, count in plan.ships %}<span class="nowrap">{{ pretty_number(count) }}&times; {{ LNG.tech[id] }}</span> {% endfor -%}
+{%- endmacro %}
+{% block pagehead %}
+  {% set actions %}<a class="btn" href="{{ path('game_empire_show') }}">{{ icon('arrow-left') }} <span>{{ LNG.lm_empire }}</span></a>{% endset %}
+  {{ ui.page_head(LNG.emp_collect_title, 'truck', result ? LNG.emp_collect_result_meta|replace({'%t': result.target}) : LNG.emp_collect_preview_meta|replace({'%t': request.target.name}), actions) }}
+{% endblock %}
+{% block content %}
+  {% if result %}
+    <section class="panel panel--flush">
+      <div class="table-scroll">
+        <table class="data">
+          <thead><tr><th>{{ LNG.lv_planet }}</th><th>{{ LNG.emp_collect_status }}</th><th>{{ LNG.emp_collect_cargo }}</th><th>{{ LNG.emp_collect_arrival }}</th></tr></thead>
+          <tbody>
+            {% for r in result.results %}
+              <tr>
+                <td>{{ r.name }} <span class="mono">{{ r.coords }}</span></td>
+                <td>
+                  {% if r.status == 'sent' %}<span class="tag tag--pos">{{ LNG.emp_collect_sent }}</span>
+                  {% elseif r.status == 'refused' %}<span class="tag tag--neg">{{ LNG.emp_collect_refused }}</span> {{ r.message }}
+                  {% else %}<span class="tag tag--warn">{{ attribute(LNG, 'emp_collect_' ~ r.status) }}</span>{% endif %}
+                </td>
+                <td>{% if r.ships %}{{ _self.ships(r) }}<br>{{ _self.cargo(r) }}{% else %}-{% endif %}</td>
+                <td class="num">{{ r.arrival ?: '-' }}</td>
+              </tr>
+            {% else %}
+              <tr><td colspan="4"><p class="empty">{{ LNG.emp_collect_none_selected }}</p></td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <footer class="panel__foot"><a class="btn" href="{{ path('game_fleet_table_show') }}">{{ icon('rocket') }} <span>{{ LNG.lm_fleet }}</span></a></footer>
+    </section>
+  {% else %}
+    <form method="post" action="{{ path('game_empire_run') }}">
+      <input type="hidden" name="target" value="{{ request.target.id }}">
+      <input type="hidden" name="keep" value="{{ request.keep }}">
+      {% if request.include[901] %}<input type="hidden" name="metal" value="1">{% endif %}
+      {% if request.include[902] %}<input type="hidden" name="crystal" value="1">{% endif %}
+      {% if request.include[903] %}<input type="hidden" name="deuterium" value="1">{% endif %}
+      <section class="panel panel--flush">
+        <div class="table-scroll">
+          <table class="data">
+            <thead><tr><th></th><th>{{ LNG.lv_planet }}</th><th>{{ LNG.emp_collect_ships }}</th><th>{{ LNG.emp_collect_cargo }}</th><th class="num">{{ LNG.emp_collect_fuel|capitalize }}</th><th class="num">{{ LNG.emp_collect_arrival }}</th></tr></thead>
+            <tbody>
+              {% for r in rows %}
+                <tr>
+                  <td>{% if r.status == 'ok' %}<input type="checkbox" name="sources[]" value="{{ r.id }}" checked aria-label="{{ r.name }}">{% endif %}</td>
+                  <td>{{ r.name }} <span class="mono">{{ r.coords }}</span></td>
+                  {% if r.status == 'ok' %}
+                    <td>{{ _self.ships(r.plan) }}</td>
+                    <td>{{ _self.cargo(r.plan) }}</td>
+                    <td class="num">{{ pretty_number(r.plan.fuel|round(0, 'ceil')) }}</td>
+                    <td class="num">{{ r.arrival }}<br><span class="colorNeutral">{{ getRestTimeFormat(r.duration) }}</span></td>
+                  {% else %}
+                    <td colspan="4"><span class="tag tag--warn">{{ attribute(LNG, 'emp_collect_' ~ r.status) }}</span></td>
+                  {% endif %}
+                </tr>
+              {% else %}
+                <tr><td colspan="6"><p class="empty">{{ LNG.emp_collect_no_sources }}</p></td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <footer class="panel__foot">
+          {% if sendable > 0 %}<button type="submit" class="btn--primary">{{ icon('send') }}<span>{{ LNG.emp_collect_send }}</span></button>{% endif %}
+        </footer>
+      </section>
+    </form>
+  {% endif %}
+{% endblock %}

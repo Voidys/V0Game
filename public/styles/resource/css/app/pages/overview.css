@@ -206,6 +206,10 @@
   }
   .empire-table tr.group [data-toggle-rows] { cursor: pointer; }
   .empire-table .group__opts { float: inline-end; font-weight: 400; display: inline-flex; gap: var(--space-3); align-items: center; }
+  .empire-links { white-space: nowrap; }
+  .empire-links a { display: inline-flex; padding: var(--space-1); }
+  .empire-collect .toolbar { gap: var(--space-3); }
+  .empire-collect input[type="number"] { inline-size: 7rem; }
   .empire-table td .colorNeutral, .empire-table td .colorPositive, .empire-table td .colorNegative { font-size: var(--fs-sm); }
 
   /* ---------------------------------------------------------------- resources */
