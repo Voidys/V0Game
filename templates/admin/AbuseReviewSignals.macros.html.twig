@@ -1,0 +1,9 @@
+{# signal chips of a review: signals.parts = points per signal #}
+{% macro chips(signals) %}
+  {% for key, points in signals.parts|default({}) %}
+    <span class="badge {{ key in ['ip', 'device'] ? 'badge--danger' : (key in ['multi', 'transfer', 'trades'] ? 'badge--warn' : 'badge--muted') }}">{{ attribute(LNG, 'abuse_review_sig_' ~ key) }} +{{ points }}</span>
+  {% else %}<span class="muted">-</span>{% endfor %}
+{% endmacro %}
+{% macro status(status) %}
+  <span class="badge {{ status == 'open' ? 'badge--warn' : (status == 'confirmed' ? 'badge--danger' : 'badge--muted') }}">{{ attribute(LNG, 'abuse_review_status_' ~ status) }}</span>
+{% endmacro %}

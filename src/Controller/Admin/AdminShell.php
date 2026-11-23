@@ -71,6 +71,7 @@ final class AdminShell
                 ['active', '', 'mu_vaild_users', 'ShowActivePage', 'admin_active_show'],
                 ['multiIP', '', 'mu_multiip_page', 'ShowMultiIPPage', 'admin_multi_ip_show'],
                 ['abuseReport', '', 'abuse_menu', 'ShowAbuseReportPage', 'admin_abuse_report_show'],
+                ['abuseReviews', '', 'abuse_reviews_menu', 'ShowAbuseReportPage', 'admin_abuse_reviews_show'],
                 ['comments', '', 'adm_comments', 'ShowMultiIPPage', 'admin_comments_show'],
                 ['analytics', '', 'adm_analytics', 'ShowMultiIPPage', 'admin_analytics_show'],
             ]],

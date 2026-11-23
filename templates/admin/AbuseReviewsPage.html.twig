@@ -1,0 +1,56 @@
+{% include 'admin/overall_header.html.twig' %}
+{% import 'admin/AbuseReviewSignals.macros.html.twig' as sig %}
+{% macro sortlink(label, key, sort, dir, status) %}
+  {% set next = sort == key and dir == 'desc' ? 'asc' : 'desc' %}
+  <a href="{{ path('admin_abuse_reviews_show', {status: status, sort: key, dir: next}) }}">{{ label }}{% if sort == key %} {{ dir == 'desc' ? '▼' : '▲' }}{% endif %}</a>
+{% endmacro %}
+<div class="stack">
+  <nav class="tabs">
+    {% for s in ['all'] | merge(statuses) %}
+      <a href="{{ path('admin_abuse_reviews_show', {status: s, sort: sort, dir: dir}) }}"{% if status == s or (s == 'all' and status not in statuses) %} aria-current="page"{% endif %}>{{ s == 'all' ? LNG.abuse_review_all : attribute(LNG, 'abuse_review_status_' ~ s) }}</a>
+    {% endfor %}
+  </nav>
+
+  <p class="muted small">{{ LNG.format('abuse_reviews_info', threshold) }}</p>
+
+  <section class="card">
+    <header class="card__head">
+      <h2 class="card__title">{{ icon('shield-alert') }}{{ LNG.abuse_reviews_title }}</h2>
+      <div class="card__actions"><span class="badge badge--muted">{{ reviews|length }}</span></div>
+    </header>
+    <div class="card__body">
+      {% if reviews %}
+      <div class="table-wrap">
+        <table class="data data--compact">
+          <thead><tr>
+            <th class="num">{{ _self.sortlink(LNG.abuse_review_score, 'score', sort, dir, status) }}</th>
+            <th>{{ _self.sortlink(LNG.abuse_review_pair, 'pair', sort, dir, status) }}</th>
+            <th>{{ LNG.abuse_review_signals }}</th>
+            <th>{{ _self.sortlink(LNG.abuse_review_status, 'status', sort, dir, status) }}</th>
+            <th>{{ _self.sortlink(LNG.abuse_review_updated, 'updated', sort, dir, status) }}</th>
+            <th class="actions"></th>
+          </tr></thead>
+          <tbody>
+            {% for r in reviews %}
+            <tr>
+              <td class="num"><strong>{{ r.score }}</strong></td>
+              <td>
+                <a href="{{ path('admin_account_data_detail', {id_u: r.user_a}) }}">{{ r.nameA }}</a> /
+                <a href="{{ path('admin_account_data_detail', {id_u: r.user_b}) }}">{{ r.nameB }}</a>
+              </td>
+              <td>{{ sig.chips(r.signals) }}</td>
+              <td>{{ sig.status(r.status) }}</td>
+              <td class="nowrap">{{ r.updatedDate }}</td>
+              <td class="actions"><a class="btn btn--small" href="{{ path('admin_abuse_reviews_detail', {id: r.id}) }}">{{ icon('eye') }}{{ LNG.abuse_review_open }}</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="empty">{{ icon('shield-check') }}<p>{{ LNG.abuse_review_none }}</p></div>
+      {% endif %}
+    </div>
+  </section>
+</div>
+{% include 'admin/overall_footer.html.twig' %}

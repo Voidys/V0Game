@@ -153,6 +153,13 @@ final class UniAttacksFields
                 'default' => 3,
                 'min' => 0,
             ],
+            'abuse_review_threshold' => [
+                'type' => ConfigFieldSchema::TYPE_NUMBER,
+                'transform' => 'int',
+                'default' => 50,
+                'min' => 1,
+                'max' => 100,
+            ],
         ];
     }
 }

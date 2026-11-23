@@ -1,0 +1,88 @@
+{% include 'admin/overall_header.html.twig' %}
+{% import 'admin/AbuseReviewSignals.macros.html.twig' as sig %}
+{% macro player(id, name) %}<a href="{{ path('admin_account_data_detail', {id_u: id}) }}">{{ name }}</a>{% endmacro %}
+<div class="stack">
+  <section class="card">
+    <header class="card__head">
+      <h2 class="card__title">{{ icon('shield-alert') }}{{ review.nameA }} / {{ review.nameB }}</h2>
+      <div class="card__actions">{{ sig.status(review.status) }} <span class="badge badge--muted">{{ LNG.abuse_review_score }} {{ review.score }}</span></div>
+    </header>
+    <div class="card__body">
+      <dl class="kv">
+        <dt>{{ LNG.abuse_review_signals }}</dt><dd>{{ sig.chips(review.signals) }}</dd>
+        <dt>{{ LNG.abuse_review_updated }}</dt><dd>{{ review.updatedDate }}</dd>
+        {% if review.reviewer %}<dt>{{ LNG.abuse_review_reviewer }}</dt><dd>{{ review.reviewer }} ({{ review.reviewedDate }})</dd>{% endif %}
+      </dl>
+      <div class="quick-links">
+        <a class="quick-link" href="{{ path('admin_ban_players') }}">{{ icon('ban') }}<span>{{ LNG.abuse_review_to_ban }}</span></a>
+        <a class="quick-link" href="{{ path('admin_multi_ip_show') }}">{{ icon('users') }}<span>{{ LNG.abuse_review_to_multi }}</span></a>
+        <a class="quick-link" href="{{ path('admin_abuse_reviews_show') }}">{{ icon('arrow-left') }}<span>{{ LNG.abuse_review_back }}</span></a>
+      </div>
+    </div>
+  </section>
+
+  <form action="{{ path('admin_abuse_reviews_act', {id: review.id}) }}" method="post" class="card">
+    {{ csrf_field() }}
+    <header class="card__head"><h2 class="card__title">{{ icon('pencil') }}{{ LNG.abuse_review_actions }}</h2></header>
+    <div class="card__body form-grid">
+      <div class="field-row">
+        <label for="review-note">{{ LNG.abuse_review_note }}</label>
+        <div class="field-control"><textarea id="review-note" name="note" rows="4" maxlength="2000">{{ review.note }}</textarea></div>
+      </div>
+      <div class="toolbar">
+        <button type="submit" name="do" value="note" class="btn">{{ icon('save') }}{{ LNG.abuse_review_save_note }}</button>
+        <span class="toolbar__spacer"></span>
+        {% if review.status != 'dismissed' %}<button type="submit" name="do" value="dismiss" class="btn">{{ icon('x') }}{{ LNG.abuse_review_dismiss }}</button>{% endif %}
+        {% if review.status != 'confirmed' %}<button type="submit" name="do" value="confirm" class="btn btn--danger">{{ icon('check') }}{{ LNG.abuse_review_confirm }}</button>{% endif %}
+        {% if review.status == 'confirmed' %}<button type="submit" name="do" value="actioned" class="btn--primary">{{ icon('circle-check') }}{{ LNG.abuse_review_mark_actioned }}</button>{% endif %}
+        {% if review.status != 'open' %}<button type="submit" name="do" value="reopen" class="btn">{{ icon('refresh-cw') }}{{ LNG.abuse_review_reopen }}</button>{% endif %}
+      </div>
+    </div>
+  </form>
+
+  <section class="card">
+    <header class="card__head"><h2 class="card__title">{{ icon('arrow-left-right') }}{{ LNG.abuse_transfers }}</h2></header>
+    <div class="card__body">
+      <p class="muted small">{{ LNG.format('abuse_review_window', days) }}</p>
+      {% if evidence.transfers %}
+      <div class="table-wrap"><table class="data data--compact">
+        <thead><tr><th>{{ LNG.abuse_from }}</th><th>{{ LNG.abuse_to }}</th><th class="num">{{ LNG.abuse_count }}</th><th class="num">{{ LNG.abuse_sent }}</th><th class="num">{{ LNG.abuse_back }}</th><th class="num">{{ LNG.abuse_net }}</th><th>{{ LNG.abuse_last }}</th></tr></thead>
+        <tbody>{% for row in evidence.transfers %}<tr>
+          <td>{{ _self.player(row.from, row.fromName) }}</td><td>{{ _self.player(row.to, row.toName) }}</td>
+          <td class="num">{{ row.count }}</td><td class="num">{{ pretty_number(row.sent) }}</td>
+          <td class="num">{{ pretty_number(row.back) }}</td><td class="num"><strong>{{ pretty_number(row.net) }}</strong></td>
+          <td class="nowrap">{{ row.lastDate }}</td>
+        </tr>{% endfor %}</tbody>
+      </table></div>
+      {% else %}<div class="empty">{{ icon('arrow-left-right') }}<p>{{ LNG.abuse_none }}</p></div>{% endif %}
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card__head"><h2 class="card__title">{{ icon('shuffle') }}{{ LNG.abuse_trades }}</h2></header>
+    <div class="card__body">
+      {% if evidence.trades %}
+      <div class="table-wrap"><table class="data data--compact">
+        <thead><tr><th>{{ LNG.abuse_giver }}</th><th>{{ LNG.abuse_receiver }}</th><th class="num">{{ LNG.abuse_count }}</th><th class="num">{{ LNG.abuse_net }}</th><th class="num">{{ LNG.abuse_ratio }}</th><th>{{ LNG.abuse_last }}</th></tr></thead>
+        <tbody>{% for row in evidence.trades %}<tr>
+          <td>{{ _self.player(row.giver, row.giverName) }}</td><td>{{ _self.player(row.receiver, row.receiverName) }}</td>
+          <td class="num">{{ row.count }}</td><td class="num">{{ pretty_number(row.net) }}</td>
+          <td class="num">{% if row.ratio is null %}n/a{% else %}{{ row.ratio|number_format(2) }}{% endif %}{% if row.outlier %} <span class="badge badge--warn">{{ LNG.abuse_outlier }}</span>{% endif %}</td>
+          <td class="nowrap">{{ row.lastDate }}</td>
+        </tr>{% endfor %}</tbody>
+      </table></div>
+      {% else %}<div class="empty">{{ icon('shuffle') }}<p>{{ LNG.abuse_none }}</p></div>{% endif %}
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card__head"><h2 class="card__title">{{ icon('network') }}{{ LNG.abuse_review_cluster }}</h2></header>
+    <div class="card__body">
+      {% if evidence.cluster %}
+        <p>{% for m in evidence.cluster.members %}{{ _self.player(m.id, m.name) }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+        <p class="muted small">{{ LNG.abuse_net }}: {{ pretty_number(evidence.cluster.value) }} · {{ LNG.abuse_count }}: {{ evidence.cluster.flows }}</p>
+      {% else %}<div class="empty">{{ icon('network') }}<p>{{ LNG.abuse_none }}</p></div>{% endif %}
+    </div>
+  </section>
+</div>
+{% include 'admin/overall_footer.html.twig' %}

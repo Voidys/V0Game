@@ -98,6 +98,18 @@ final class AbuseReportQuery
         ];
     }
 
+    /**
+     * Link markers between two players (same flags as the report rows) plus their names.
+     *
+     * @return array{ip: bool, subnet: bool, multi: bool, multiKnown: bool, device: bool, names: array<int, string>}
+     */
+    public function pairLinks(int $universe, int $a, int $b): array
+    {
+        $links = $this->linkData([$a, $b], $universe);
+
+        return $this->compare($links, $a, $b) + ['names' => $links['names']];
+    }
+
     /** @return array{metal: float, crystal: float, deuterium: float} value of one unit in metal units */
     public function weights(int $universe): array
     {
