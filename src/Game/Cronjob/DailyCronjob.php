@@ -153,18 +153,14 @@ class DailyCronjob extends AbstractCronjobTask
     public function emptyInactiveAllianceAndBuddy(int $universe): void
     {
         if ($this->viewHelpers()->isModuleAvailable(MODULE_EMPTY_BUDDY, $universe)) {
-            $db = $this->db;
-            $sql = "SELECT u.id FROM %%USERS%% AS u WHERE urlaubs_modus = 0 AND onlinetime < :inactive AND universe = :universe;";
-            $players = $db->select($sql, [
+            $sql = "SELECT u.id, u.ally_id FROM %%USERS%% AS u WHERE urlaubs_modus = 0 AND onlinetime < :inactive AND universe = :universe;";
+            $players = $this->db->select($sql, [
                 ':inactive' => $this->state->runtime->timestamp - INACTIVE,
                 ':universe' => $universe,
             ]);
             foreach ($players as $player) {
-                $sql = 'SELECT id, ally_id FROM %%USERS%% WHERE id = :userId;';
-                $userData = $db->selectSingle($sql, [
-                    ':userId'   => $player['id'],
-                ]);
-                $this->playerDeletion()->removeFromAlliance($userData);
+                // id and ally_id come from the list query: leaving an alliance only changes the player's own row
+                $this->playerDeletion()->removeFromAlliance($player);
                 $this->playerDeletion()->removeFromBuddy($player['id']);
             }
         }

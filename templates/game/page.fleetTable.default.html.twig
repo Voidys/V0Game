@@ -39,7 +39,7 @@
           <td class="fleet-col-mission ctr fl-mission">
             {% set tt_res %}<table class='tt-fleet-res'><tr><td>{{ LNG['tech'][901] }}</td><td>{{ FlyingFleetRow.metal }}</td></tr><tr><td>{{ LNG['tech'][902] }}</td><td>{{ FlyingFleetRow.crystal }}</td></tr><tr><td>{{ LNG['tech'][903] }}</td><td>{{ FlyingFleetRow.deuterium }}</td></tr></table>{% endset %}
             <a
-              data-tooltip-content="{{ tt_res|e('html_attr') }}"
+              data-tooltip-content="{{ tt_res|e('html') }}"
               class="tooltip">
                 {{ LNG["type_mission_#{FlyingFleetRow.mission}"] }}
             </a>
@@ -53,7 +53,7 @@
           </td>
           {% set tt_ships %}<table><tr><th colspan='2' class='text-center'>{{ LNG.fl_info_detail }}</th></tr>{% for shipID, shipCount in FlyingFleetRow.FleetList %}<tr><td class='transparent'>{{ LNG.tech[shipID] }}:</td><td class='transparent'>{{ shipCount }}</td></tr>{% endfor %}</table>{% endset %}
           <td class="num fl-amount" data-label="{{ LNG.fl_ammount }}"><a class="tooltip_sticky"
-                 data-tooltip-content="{{ tt_ships|e('html_attr') }}">{{ FlyingFleetRow.amount }}</a>
+                 data-tooltip-content="{{ tt_ships|e('html') }}">{{ FlyingFleetRow.amount }}</a>
           </td>
           <td class="num fl-res" data-label="{{ LNG.fl_resources }}">
             {% if FlyingFleetRow.metal + FlyingFleetRow.crystal + FlyingFleetRow.deuterium > 0 %}
@@ -80,7 +80,7 @@
               {% if not isVacation and FlyingFleetRow.state != 1 and FlyingFleetRow.no_returnable != 1 %}
                 <form action="{{ path('game_fleet_table_recall') }}" method="post">
                   <input name="fleetID" value="{{ FlyingFleetRow.id }}" type="hidden">
-                  <input value="{{ LNG.fl_send_back }}" type="submit" data-confirm="{{ LNG.fl_recall_confirm|replace({'%s': FlyingFleetRow.recallTime})|e('html_attr') }}" data-confirm-tpl="{{ LNG.fl_recall_confirm|e('html_attr') }}">
+                  <input value="{{ LNG.fl_send_back }}" type="submit" data-confirm="{{ LNG.fl_recall_confirm|replace({'%s': FlyingFleetRow.recallTime})|e('html') }}" data-confirm-tpl="{{ LNG.fl_recall_confirm|e('html') }}">
                 </form>
                 <span class="aborttime" title="{{ LNG.fl_recall_return }}" starttime="{{ FlyingFleetRow.startTimestamp }}"></span>
                   {% if FlyingFleetRow.mission == 1 %}

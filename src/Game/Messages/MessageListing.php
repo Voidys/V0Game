@@ -401,8 +401,8 @@ class MessageListing
             );
         }
 
-        // counted after the listed messages were marked as read
-        $this->typeCounts = null;
+        // the listed messages count as read now: adjust the cached counts instead of counting again
+        $this->markCountsRead($data['rows']);
         $CategoryList = $this->categoryList();
 
         return [
@@ -412,6 +412,22 @@ class MessageListing
             'page' => $data['page'],
             'maxPage' => $data['maxPage'],
         ];
+    }
+
+    /**
+     * Lowers the cached unread counts by the unread messages among $rows (they were just marked as read).
+     *
+     * @param list<array<string, mixed>> $rows message rows of the page
+     */
+    private function markCountsRead(array $rows): void
+    {
+        $counts = $this->typeCounts();
+        foreach ($rows as $row) {
+            if ((int) $row['message_unread'] === 1 && isset($counts[$row['message_type']])) {
+                $counts[$row['message_type']]['unread'] = max(0, (int) $counts[$row['message_type']]['unread'] - 1);
+            }
+        }
+        $this->typeCounts = $counts;
     }
 
     /**

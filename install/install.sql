@@ -233,7 +233,8 @@ CREATE TABLE `%PREFIX%alliance_request` (
   `allianceID` int(10) unsigned NOT NULL,
   `time` int(11) NOT NULL,
   PRIMARY KEY (`applyID`),
-  KEY `allianceID` (`allianceID`,`userID`)
+  KEY `allianceID` (`allianceID`,`userID`),
+  KEY `userID` (`userID`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `%PREFIX%buddy` (
@@ -243,7 +244,8 @@ CREATE TABLE `%PREFIX%buddy` (
   `universe` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `universe` (`universe`),
-  KEY `sender` (`sender`,`owner`)
+  KEY `sender` (`sender`,`owner`),
+  KEY `owner` (`owner`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `%PREFIX%buddy_request` (
@@ -1270,6 +1272,7 @@ CREATE TABLE `%PREFIX%users_to_messages` (
   PRIMARY KEY (`id`),
   UNIQUE(`message_id`, `user_id`, `sender_id`, `forwarder_id`),
   KEY `user_unread` (`user_id`, `message_unread`, `deleted_at`),
+  KEY `user_cover` (`user_id`, `deleted_at`, `message_id`, `message_unread`, `message_favorite`),
   FOREIGN KEY (`message_id`) REFERENCES `%PREFIX%messages`(`message_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   FOREIGN KEY (`user_id`) REFERENCES `%PREFIX%users`(`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   FOREIGN KEY (`sender_id`) REFERENCES `%PREFIX%users`(`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
