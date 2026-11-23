@@ -102,6 +102,14 @@ class SettingsUpdater
         'publish_achievement' => ['publish_achievement', 0],
         'colonyWarn' => ['colonyWarn', 0],
         'noob_interface' => ['noob_interface', 0],
+        'notify_attack' => ['notifyAttack', 0],
+        'notify_spy' => ['notifySpy', 0],
+        'notify_fleet_return' => ['notifyFleetReturn', 0],
+        'notify_queue_build' => ['notifyQueueBuild', 0],
+        'notify_queue_research' => ['notifyQueueResearch', 0],
+        'notify_queue_shipyard' => ['notifyQueueShipyard', 0],
+        'notify_farm_awake' => ['notifyFarmAwake', 0],
+        'number_format' => ['numberFormat', 0],
     ];
 
     public function __construct(
@@ -120,7 +128,7 @@ class SettingsUpdater
         $LNG = $this->state->LNG;
         $THEME = $this->state->THEME;
         $form = $this->readForm();
-        $values = $form['values'];
+        $values = $form['values'] + ['notify_discord_webhook' => $this->notifyWebhook()];
         $discord_id = $form['discord_id'];
         $discord_hook = $form['discord_hook'];
         $username = $form['username'];
@@ -195,6 +203,21 @@ class SettingsUpdater
         $db->commit();
 
         $this->miscAchievements()->checkSettingsAchievements($this->state->USER['id'], $recordsOptIn);
+    }
+
+    /**
+     * The player's own Discord webhook for notifications (empty = none), read unencoded.
+     *
+     * @throws SettingsRefused when it is not a discord.com / discordapp.com webhook URL
+     */
+    private function notifyWebhook(): string
+    {
+        $hook = trim($this->input()->rawString('notifyDiscordWebhook'));
+        if ($hook !== '' && (strlen($hook) > 255 || !Discord::isAllowedWebhook($hook))) {
+            throw new SettingsRefused($this->state->LNG['op_discord_hook_invalid']);
+        }
+
+        return $hook;
     }
 
     /**

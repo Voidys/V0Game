@@ -101,6 +101,25 @@ class ViewHelpers
         }
     }
 
+    /** True when the player chose abbreviated numbers (settings: number format 1, e.g. 1.2 Mio instead of 1.234.567). */
+    public function abbreviatedNumbers(): bool
+    {
+        return (int) ($this->state->USER['number_format'] ?? 0) === 1;
+    }
+
+    /**
+     * Number for big tables (statistics, ...): the full number with separators, or with the number format setting the
+     * abbreviated one (three significant digits). Never use it for input fields: they need the raw value.
+     */
+    public function displayNumber($number, $dec = 0)
+    {
+        if (!is_numeric($number) || !$this->abbreviatedNumbers()) {
+            return $this->prettyNumber($number, $dec);
+        }
+
+        return $this->shortlyNumber($number, null, true);
+    }
+
     /**
      * Compact number (÷1000 steps with the language's suffixes from NumberAbbreviation, e.g. 1.2 Mio); a decimal is
      * shown for non-integer values below 100 when $decimal is not given.
@@ -161,7 +180,7 @@ class ViewHelpers
     public function compactNumber($number): string
     {
         $number = (float) $number;
-        if (abs($number) < 100000) {
+        if (abs($number) < ($this->abbreviatedNumbers() ? 1000 : 100000)) {
             return $this->prettyNumber($number);
         }
         $negate = $number < 0 ? '-' : '';

@@ -179,6 +179,12 @@ trait GameUtilities
         return $this->gameUtilityInstances[Discord::class] ??= new Discord($this->configs, $this->state);
     }
 
+    /** player notifications (Web Push, Discord): `notify($userId, $type, $title, $body, $url)` */
+    protected function notifications(): \App\Game\Notifications\NotificationDispatcher
+    {
+        return $this->gameUtility(\App\Game\Notifications\NotificationDispatcher::class);
+    }
+
     protected function viewHelpers(): ViewHelpers
     {
         return $this->gameUtility(ViewHelpers::class);

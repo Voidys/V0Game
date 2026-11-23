@@ -35,6 +35,7 @@
         "doctrine/doctrine-bundle": "^3.4",
         "dragonmantank/cron-expression": "^3.3",
         "erusev/parsedown": "^1.7.2",
+        "minishlink/web-push": "^11.0",
         "phpmailer/phpmailer": "^7.0",
         "symfony/console": "8.1.*",
         "symfony/dotenv": "8.1.*",

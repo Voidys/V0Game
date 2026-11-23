@@ -5,6 +5,7 @@
 {% block content %}
 <section class="panel">
 	{{ ui.panel_head(LNG.op_vacation_mode_active_message, vacationUntil) }}
+	<div class="panel__body"><p class="hint">{% if canVacationDisbaled %}{{ LNG.notif_vac_ended }}{% else %}{{ LNG.notif_vac_remaining|format(vacationRemaining)|raw }}{% endif %} {{ LNG.notif_vac_min|format(vacationMinTime)|raw }}</p></div>
 	<div class="panel__body toolbar">
 		<form action="{{ path('game_settings_toggle_vacation') }}" method="post" class="control-group">
 			<input name="vacation" type="submit" value="{{ LNG.op_end_vacation_mode }}" {% if not canVacationDisbaled %}disabled{% endif %}> <img src="./styles/resource/images/admin/i.webp" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{{ LNG.op_activate_vacation_mode_descrip }}">

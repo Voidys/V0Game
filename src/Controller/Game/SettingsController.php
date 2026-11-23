@@ -46,6 +46,8 @@ class SettingsController extends AbstractGameController
                 'vacationUntil'         => $this->viewHelpers()->formatDate($LNG['php_tdformat'], $USER['urlaubs_until'], $USER['timezone']),
                 'delete'                => $USER['db_deaktjava'],
                 'canVacationDisbaled'   => $USER['urlaubs_until'] < $this->state->runtime->timestamp,
+                'vacationRemaining'     => $this->viewHelpers()->prettyTime(max(0, $USER['urlaubs_until'] - $this->state->runtime->timestamp)),
+                'vacationMinTime'       => $this->viewHelpers()->prettyTime($this->configs->get()->vmode_min_time),
             ]);
         } else {
             $db = $this->db;
@@ -66,6 +68,7 @@ class SettingsController extends AbstractGameController
                 ...$this->interfaceSettings($USER),
                 'missionPrios' => $missionprios,
                 ...$this->hangarSettings($USER),
+                ...$this->notificationSettings($USER),
             ]);
         }
     }
@@ -98,6 +101,10 @@ class SettingsController extends AbstractGameController
                 'ImageSkins' => Theme::getAvailableImageThemes(),
                 'CssSkins' => Theme::getAvailableCssThemes(),
                 'lang' => $LNG->getLanguageOptions(),
+                'numberFormats' => [
+                    0 => $LNG['notif_numfmt_full'],
+                    1 => $LNG['notif_numfmt_short'],
+                ],
             ],
         ];
     }
@@ -188,6 +195,33 @@ class SettingsController extends AbstractGameController
             'missing_requirements_opacity'  => $USER['missing_requirements_opacity'],
             'missing_resources_opacity'     => $USER['missing_resources_opacity'],
             'hide_useless'                  => $USER['hide_useless'],
+        ];
+    }
+
+    /**
+     * Notification preferences and webhook, the number format and the vacation timing hints (minimum duration, earliest end if started now).
+     *
+     * @param array<string, mixed> $USER
+     * @return array<string, mixed>
+     */
+    private function notificationSettings(array $USER): array
+    {
+        $minTime = (int) $this->configs->get()->vmode_min_time;
+
+        return [
+            'notify' => [
+                'notifyAttack' => $USER['notify_attack'],
+                'notifySpy' => $USER['notify_spy'],
+                'notifyFleetReturn' => $USER['notify_fleet_return'],
+                'notifyQueueBuild' => $USER['notify_queue_build'],
+                'notifyQueueResearch' => $USER['notify_queue_research'],
+                'notifyQueueShipyard' => $USER['notify_queue_shipyard'],
+                'notifyFarmAwake' => $USER['notify_farm_awake'],
+            ],
+            'notifyDiscordWebhook'          => $USER['notify_discord_webhook'],
+            'numberFormat'                  => $USER['number_format'],
+            'vacationMinTime'               => $this->viewHelpers()->prettyTime($minTime),
+            'vacationEarliestEnd'           => $this->viewHelpers()->formatDate($this->state->LNG['php_tdformat'], $this->state->runtime->timestamp + $minTime, $USER['timezone']),
         ];
     }
 

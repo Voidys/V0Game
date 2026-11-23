@@ -246,7 +246,7 @@ class StatisticsController extends AbstractGameController
                 'is_leader'         => $StatRow['is_leader'],
                 'is_diplo'          => $StatRow['is_diplo'],
                 'ally_owner_range'  => $StatRow['ally_owner_range'],
-                'points'            => $this->viewHelpers()->prettyNumber($StatRow[$Points]),
+                'points'            => $this->viewHelpers()->displayNumber($StatRow[$Points]),
                 'allyid'            => $StatRow['ally_id'],
                 'allyClass'         => $this->allyClass($StatRow),
                 'rank'              => $StatRow[$Rank],
@@ -381,8 +381,8 @@ class StatisticsController extends AbstractGameController
                 'name'          => $StatRow['ally_name'],
                 'members'       => $StatRow['ally_members'],
                 'rank'          => $StatRow[$Rank],
-                'mppoints'      => $this->viewHelpers()->prettyNumber(floor($StatRow[$Points] / (max($StatRow['ally_active'], 1)))),
-                'points'        => $this->viewHelpers()->prettyNumber($StatRow[$Points]),
+                'mppoints'      => $this->viewHelpers()->displayNumber(floor($StatRow[$Points] / (max($StatRow['ally_active'], 1)))),
+                'points'        => $this->viewHelpers()->displayNumber($StatRow[$Points]),
                 'ranking'       => $StatRow[$OldRank] - $StatRow[$Rank],
             ];
         }

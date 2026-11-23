@@ -13,6 +13,7 @@
 		<button type="button" class="tabs__tab" role="tab" id="settings-tab-galaxy" data-tab="galaxy" aria-controls="settings-panel-galaxy" aria-selected="false" tabindex="-1">{{ LNG.op_galaxy_settings }}</button>
 		<button type="button" class="tabs__tab" role="tab" id="settings-tab-colors" data-tab="colors" aria-controls="settings-panel-colors" aria-selected="false" tabindex="-1">{{ LNG.own_colors }}</button>
 		<button type="button" class="tabs__tab" role="tab" id="settings-tab-fleet" data-tab="fleet" aria-controls="settings-panel-fleet" aria-selected="false" tabindex="-1">{{ LNG.fleetPrio }}</button>
+		<button type="button" class="tabs__tab" role="tab" id="settings-tab-notify" data-tab="notify" aria-controls="settings-panel-notify" aria-selected="false" tabindex="-1">{{ LNG.notif_section }}</button>
 		<button type="button" class="tabs__tab tabs__tab--danger" role="tab" id="settings-tab-danger" data-tab="danger" aria-controls="settings-panel-danger" aria-selected="false" tabindex="-1">{{ LNG.op_vacation_delete_mode }}</button>
 	</div>
 	<form id="settings-form" class="stack" action="{{ path('game_settings_send') }}" method="post">
@@ -32,6 +33,9 @@
 				<tr>
 					<td><label for="set_username">{{ LNG.op_username }}</label></td>
 					<td>{% if changeNickTime < 0 %}<input id="set_username" name="username" value="{{ username }}" type="text" maxlength="32">{% else %}{{ username }}{% endif %}</td>
+				</tr>
+				<tr>
+					<td colspan="2"><a href="{{ path('game_api_show') }}">{{ icon('key-round') }} {{ LNG.api_title }}</a></td>
 				</tr>
 				{% if userAuthlevel > 0 %}
 					<tr>
@@ -66,6 +70,10 @@
 				<tr>
 					<td><label for="set_decimalSeparator">{{ LNG.op_decimal_separator }}</label></td>
 					<td>{{ forms.html_options({'id': 'set_decimalSeparator', 'name': 'decimalSeparator', 'options': Selectors.decimalSeparators, 'selected': decimalSeparator}) }}</td>
+				</tr>
+				<tr>
+					<td><label for="set_numberFormat">{{ LNG.notif_numfmt_label }}</label></td>
+					<td>{{ forms.html_options({'id': 'set_numberFormat', 'name': 'numberFormat', 'options': Selectors.numberFormats, 'selected': numberFormat}) }}</td>
 				</tr>
 				<tr>
 					<td><label for="set_planetSort">{{ LNG.op_sort_planets_by }}</label></td>
@@ -595,6 +603,49 @@
 		</tbody>
 	</table>
 	</section>
+	<section class="panel panel--flush tabs__panel" role="tabpanel" id="settings-panel-notify" aria-labelledby="settings-tab-notify" data-tab="notify" tabindex="0" hidden>
+	{{ ui.panel_head(LNG.notif_section) }}
+	<table class="form-table">
+		<tbody>
+				<tr>
+					<th colspan="2">{{ LNG.notif_channels }}</th>
+				</tr>
+				<tr>
+					<td>{{ LNG.notif_push_label }}</td>
+					<td>
+						<span class="control-group" data-push-box data-sw-url="{{ basepath }}sw.js" data-key-url="{{ path('game_push_key') }}" data-subscribe-url="{{ path('game_push_subscribe') }}" data-unsubscribe-url="{{ path('game_push_unsubscribe') }}"
+							data-on="{{ LNG.notif_push_on|e('html_attr') }}" data-off="{{ LNG.notif_push_off|e('html_attr') }}" data-unsupported="{{ LNG.notif_push_unsupported|e('html_attr') }}" data-denied="{{ LNG.notif_push_denied|e('html_attr') }}" data-failed="{{ LNG.notif_push_failed|e('html_attr') }}">
+							<button type="button" data-push-toggle data-enable="{{ LNG.notif_push_enable|e('html_attr') }}" data-disable="{{ LNG.notif_push_disable|e('html_attr') }}">{{ LNG.notif_push_enable }}</button>
+							<span class="hint" data-push-status role="status"></span>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="set_notifyDiscordWebhook">{{ LNG.notif_discord_webhook }}</label></td>
+					<td><input id="set_notifyDiscordWebhook" name="notifyDiscordWebhook" value="{{ notifyDiscordWebhook }}" type="url" maxlength="255" placeholder="https://discord.com/api/webhooks/..." autocomplete="off"></td>
+				</tr>
+				<tr>
+					<td>{{ LNG.notif_test_label }}</td>
+					<td>
+						<span class="control-group" data-push-test-box data-url="{{ path('game_push_test') }}" data-sent="{{ LNG.notif_test_sent|e('html_attr') }}" data-none="{{ LNG.notif_test_none|e('html_attr') }}">
+							<button type="button" data-push-test>{{ LNG.notif_test_button }}</button>
+							<span class="hint" data-push-test-status role="status"></span>
+						</span>
+						<p class="hint">{{ LNG.notif_test_hint }}</p>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">{{ LNG.notif_events }}</th>
+				</tr>
+{% for field, label in {notifyAttack: 'notif_pref_attack', notifySpy: 'notif_pref_spy', notifyFleetReturn: 'notif_pref_fleet_return', notifyQueueBuild: 'notif_pref_queue_build', notifyQueueResearch: 'notif_pref_queue_research', notifyQueueShipyard: 'notif_pref_queue_shipyard', notifyFarmAwake: 'notif_pref_farm_awake'} %}
+				<tr>
+					<td><label for="set_{{ field }}">{{ LNG[label] }}</label></td>
+					<td><input id="set_{{ field }}" name="{{ field }}" type="checkbox" value="1" {% if notify[field] == 1 %}checked="checked" {% endif %}></td>
+				</tr>
+{% endfor %}
+		</tbody>
+	</table>
+	</section>
 	<div class="panel panel__foot settings-bar">
 		<span class="hint">{{ LNG.op_save_hint }}</span>
 		<strong class="settings-dirty" data-dirty-bar data-one="{{ LNG.op_unsaved_one|e('html_attr') }}" data-many="{{ LNG.op_unsaved_many|e('html_attr') }}" role="status" hidden><span data-dirty-count></span></strong>
@@ -604,6 +655,7 @@
 	<section class="panel tabs__panel" role="tabpanel" id="settings-panel-danger" aria-labelledby="settings-tab-danger" data-tab="danger" tabindex="0" hidden>
 	{{ ui.panel_head(LNG.op_vacation_delete_mode) }}
 	<div class="panel__body toolbar danger-zone" id="danger">
+		<p class="hint">{{ LNG.notif_vac_min|format(vacationMinTime)|raw }} {{ LNG.notif_vac_earliest|format(vacationEarliestEnd)|raw }}</p>
 		<form action="{{ path('game_settings_toggle_vacation') }}" method="post" class="control-group">
 			<input name="vacation" type="submit" class="btn--danger" value="{{ LNG.op_activate_vacation_mode }}" data-confirm="{{ LNG.op_activate_vacation_mode_confirm|e('html_attr') }}"> <img src="./styles/resource/images/admin/i.webp" width="16" height="16" alt="" class="inline tooltip" data-tooltip-content="{{ LNG.op_activate_vacation_mode_descrip }}">
 		</form>
@@ -617,4 +669,5 @@
 {% block script %}{{ parent() }}
 <script type="module" src="./scripts/app/tabs.js?v={{ asset_version }}"></script>
 <script type="module" src="./scripts/game/settings.js?v={{ asset_version }}"></script>
+<script type="module" src="./scripts/app/push.js?v={{ asset_version }}"></script>
 {% endblock %}

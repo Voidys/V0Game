@@ -366,6 +366,34 @@ CREATE TABLE `%PREFIX%fleets` (
   KEY `group` (`group`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+CREATE TABLE `%PREFIX%push_subscriptions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `endpoint` varchar(512) NOT NULL,
+  `p256dh` varchar(255) NOT NULL,
+  `auth` varchar(255) NOT NULL,
+  `created_at` int(10) unsigned NOT NULL DEFAULT 0,
+  `last_used_at` int(10) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `endpoint` (`endpoint`),
+  KEY `user_id` (`user_id`)
+) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `%PREFIX%notification_events` (
+  `event_key` varchar(80) NOT NULL,
+  `created_at` int(10) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`event_key`),
+  KEY `created_at` (`created_at`)
+) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `%PREFIX%notification_watch` (
+  `fleet_id` bigint(11) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `return_time` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`fleet_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 CREATE TABLE `%PREFIX%trades` (
   `seller_fleet_id`  bigint(11) unsigned NOT NULL DEFAULT 0,
   `buyer_fleet_id`  bigint(11) unsigned DEFAULT NULL,
@@ -1079,6 +1107,15 @@ CREATE TABLE `%PREFIX%users_settings` (
   `missing_requirements_opacity` tinyint unsigned NOT NULL DEFAULT 1,
   `missing_resources_opacity` tinyint unsigned NOT NULL DEFAULT 0,
   `hide_useless` tinyint(1) NOT NULL DEFAULT 0,
+  `notify_attack` tinyint(1) NOT NULL DEFAULT 1,
+  `notify_spy` tinyint(1) NOT NULL DEFAULT 0,
+  `notify_fleet_return` tinyint(1) NOT NULL DEFAULT 0,
+  `notify_queue_build` tinyint(1) NOT NULL DEFAULT 0,
+  `notify_queue_research` tinyint(1) NOT NULL DEFAULT 0,
+  `notify_queue_shipyard` tinyint(1) NOT NULL DEFAULT 0,
+  `notify_farm_awake` tinyint(1) NOT NULL DEFAULT 0,
+  `notify_discord_webhook` varchar(255) NOT NULL DEFAULT '',
+  `number_format` tinyint(1) NOT NULL DEFAULT 0,
   `hangar_filters` varchar(512) NOT NULL DEFAULT '["civil","military","all"]',
   `hangar_filters_enabled` tinyint(1) NOT NULL DEFAULT 0,
   `enable_planet_styles` tinyint NOT NULL DEFAULT 1,
@@ -1553,7 +1590,8 @@ INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`,
 (NULL, 'pirates', 0, '0', '2', '*', '*', '0', 'PirateSpawnerCronjob', 0, NULL),
 (NULL, 'disposable_email_domains', 1, '0', '3', '*', '*', '*', 'DisposableEmailDomainsCronjob', 0, NULL),
 (NULL, 'bots', 1, '*', '*', '*', '*', '*', 'BotCronjob', 0, NULL),
-(NULL, 'fleets', 1, '*', '*', '*', '*', '*', 'FleetEventCronjob', 0, NULL);
+(NULL, 'fleets', 1, '*', '*', '*', '*', '*', 'FleetEventCronjob', 0, NULL),
+(NULL, 'notifications', 1, '*', '*', '*', '*', '*', 'NotificationCronjob', 0, NULL);
 
 INSERT INTO `%PREFIX%ticket_category` (`categoryID`, `name`) VALUES
 (1, 'Support'),

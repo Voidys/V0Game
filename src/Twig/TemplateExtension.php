@@ -64,6 +64,7 @@ final class TemplateExtension extends AbstractExtension implements GlobalsInterf
             'pretty_number' => $this->viewHelpers->prettyNumber(...),
             'shortly_number' => $this->viewHelpers->shortlyNumber(...),
             'compact_number' => $this->viewHelpers->compactNumber(...),
+            'display_number' => $this->viewHelpers->displayNumber(...),
             'millions_number' => $this->viewHelpers->millionsNumber(...),
             'isModuleAvailable' => $this->viewHelpers->isModuleAvailable(...),
         ];

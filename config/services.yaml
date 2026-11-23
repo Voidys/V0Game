@@ -111,6 +111,14 @@ services:
     App\Game\Core\FlyingFleetHandler:
         lazy: true
 
+    # Player notifications (Web Push + Discord): the dispatcher is also built by hand through GameUtilities::notifications()
+    App\Game\Notifications\:
+        resource: '../src/Game/Notifications/'
+        exclude: '../src/Game/Notifications/NotificationTransport.php'
+    App\Game\Notifications\NotificationTransport: '@App\Game\Notifications\HttpNotificationTransport'
+    App\Game\Notifications\NotificationDispatcher:
+        public: true
+
     # Cronjob tasks (schedules in table cronjobs) are services, resolved by Cronjob::execute()
     App\Game\Cronjob\:
         resource: '../src/Game/Cronjob/'

@@ -280,7 +280,7 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
             'username' => $this->state->USER['username'],
             'avatar' => $avatar,
             'resourceTable' => $resourceTable,
-            'shortlyNumber' => $themeSettings['TOPNAV_SHORTLY_NUMBER'],
+            'shortlyNumber' => $themeSettings['TOPNAV_SHORTLY_NUMBER'] || $this->viewHelpers()->abbreviatedNumbers(),
             'uni_status' => $config->uni_status,
             'hasBoard' => true,
             'hasAdminAccess' => !empty($this->sessions()->load()->adminAccess),
