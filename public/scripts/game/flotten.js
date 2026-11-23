@@ -620,6 +620,166 @@ const setCargoPreset = (type, galaxy, system, planet, planetType, metal, crystal
   }
 };
 
+// ---------------------------------------------------------------------------------------- templates and fleet save (step 1)
+
+/** Replaces the children of `list` with entries built by `build` (text only, never markup). */
+const fillList = (list, items, build) => list.replaceChildren(...items.map(build));
+
+/** Draws the stored templates: name (applies it: step 1 reloads with `ships=` and the current target) and a delete button. */
+const renderTemplates = (templates) => {
+  const list = document.getElementById('tpl-list');
+  if (templates.length === 0) {
+    const none = document.createElement('li');
+    none.textContent = texts.tplNone;
+    list.replaceChildren(none);
+    return;
+  }
+  fillList(list, templates, (template) => {
+    const item = document.createElement('li');
+    const apply = document.createElement('a');
+    apply.href = '#';
+    apply.textContent = template.name;
+    apply.title = texts.tplApply;
+    apply.dataset.action = 'tpl-apply';
+    apply.dataset.ships = template.ships;
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'link';
+    remove.textContent = texts.tplDelete;
+    remove.dataset.action = 'tpl-delete';
+    remove.dataset.id = template.id;
+    item.append(apply, ' ', remove);
+    return item;
+  });
+};
+
+/** Applies a template: reload step 1 with its ships (the server caps them at what the planet holds), keeping target and mission. */
+const applyTemplate = (link) => {
+  removeBeforeUnload();
+  const query = new URLSearchParams({
+    ships: link.dataset.ships, galaxy: field('galaxy').value, system: field('system').value, planet: field('planet').value,
+    type: field('type').value, target_mission: document.querySelector('#form input[name="target_mission"]')?.value ?? -1,
+  });
+  document.location.href = `${new URL(urls.step1, document.location.href).pathname}?${query}`;
+};
+
+const showTemplateError = (message) => {
+  const error = document.getElementById('tpl-error');
+  error.hidden = !message;
+  error.textContent = message ?? '';
+};
+
+/** Saves the current selection under the typed name (the CSRF token is added by app/csrf.js). Returns false (no native submit). */
+const saveTemplate = () => {
+  const name = document.getElementById('tpl-name');
+  post(urls.tplSave, { token, name: name.value }, 'json').then((answer) => {
+    showTemplateError(answer.ok ? '' : answer.error);
+    if (answer.ok) {
+      name.value = '';
+      renderTemplates(answer.templates);
+    }
+  });
+  return false;
+};
+
+const deleteTemplate = (button) => {
+  post(urls.tplDelete, { id: button.dataset.id }, 'json').then((answer) => renderTemplates(answer.templates));
+};
+
+/** Asks the server for the slowest safe parking places and lists them; a click fills target, mission and speed 10 %. */
+const findFleetSave = () => {
+  const list = document.getElementById('save-choices');
+  getJSON(`${urls.fleetSave}?token=${encodeURIComponent(token)}`).then(({ choices }) => {
+    if (choices.length === 0) {
+      const none = document.createElement('li');
+      none.textContent = texts.saveNone;
+      list.replaceChildren(none);
+      return;
+    }
+    fillList(list, choices, (choice) => {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = '#';
+      link.dataset.action = 'fleet-save-use';
+      Object.assign(link.dataset, { galaxy: choice.galaxy, system: choice.system, planet: choice.planet, type: choice.type, mission: choice.mission, speed: choice.speed });
+      link.textContent = fill(texts.saveChoice, choice.name, `[${choice.galaxy}:${choice.system}:${choice.planet}]`, clock(choice.duration), pretty_number(choice.fuel));
+      item.append(link);
+      return item;
+    });
+  });
+};
+
+/** Takes a fleet save suggestion over: target, speed and the deploy mission (the mission list of step 2 then preselects it). */
+const useFleetSave = (link) => {
+  setTarget(link.dataset.galaxy, link.dataset.system, link.dataset.planet, link.dataset.type);
+  field('speed').value = link.dataset.speed;
+  document.querySelector('#form input[name="target_mission"]').value = link.dataset.mission;
+  updateVars();
+};
+
+// ---------------------------------------------------------------------------------------- arrival time picker (step 2)
+
+/** Seconds as h:mm:ss. */
+const clock = (seconds) => `${Math.floor(seconds / 3600)}:${dezInt(Math.floor(seconds % 3600 / 60), 2)}:${dezInt(Math.floor(seconds % 60), 2)}`;
+
+/** `%s` placeholders of a translated text filled in order. */
+const fill = (text, ...values) => values.reduce((out, value) => out.replace('%s', value), String(text ?? ''));
+
+/** Speed step (1 = 10 % ... 10 = 100 %) picked for the wanted arrival, null without a usable input. */
+let arriveStep = null;
+
+/**
+ * "Arrive at": from the per-speed durations of the server (`speedPlan`, same formula as the dispatch) picks the highest affordable speed step
+ * that arrives no earlier than the wanted time and shows its arrival and the difference. When no step is late enough the slowest one is
+ * shown, when even the fastest is too late the fastest.
+ */
+const updateArriveAt = () => {
+  const input = document.getElementById('arrive-at');
+  const apply = document.getElementById('arrive-apply');
+  const row = document.getElementById('arrive-result-row');
+  const wantedMs = input.value ? new Date(input.value).getTime() : NaN;
+  arriveStep = null;
+  apply.hidden = true;
+  row.hidden = Number.isNaN(wantedMs);
+  if (Number.isNaN(wantedMs)) {
+    return;
+  }
+  const wait = (wantedMs - now().getTime()) / 1000;
+  const steps = Object.keys(fleetPage.speedPlan).map(Number).filter((step) => fleetPage.speedPlan[step].affordable).sort((a, b) => b - a);
+  const late = steps.filter((step) => fleetPage.speedPlan[step].duration >= wait);
+  const notes = [];
+  if (steps.length === 0) {
+    document.getElementById('arrive-result').textContent = '-';
+    return;
+  }
+  arriveStep = late.length > 0 ? late[0] : steps[steps.length - 1];
+  if (late.length === 0) {
+    notes.push(texts.arriveTooEarly);
+  } else if (late[0] === steps[0] && fleetPage.speedPlan[late[0]].duration > wait + 1) {
+    notes.push(texts.arriveTooLate);
+  }
+  const plan = fleetPage.speedPlan[arriveStep];
+  const arrival = new Date(now().getTime() + plan.duration * 1000);
+  const diff = Math.round(plan.duration - wait);
+  const diffText = diff === 0 ? texts.arriveExact : fill(diff > 0 ? texts.arriveLater : texts.arriveEarlier, clock(Math.abs(diff)));
+  document.getElementById('arrive-result').textContent = [fill(texts.arriveSpeed, arriveStep * 10, arrival.toLocaleString(), diffText), ...notes].join(' ');
+  if (arriveStep !== Number(fleetPage.speedStep)) {
+    apply.hidden = false;
+  }
+};
+
+/** Reloads step 2 with the picked speed (same token, target and mission; the server recomputes everything). */
+const applyArriveSpeed = () => {
+  if (arriveStep === null) {
+    return;
+  }
+  removeBeforeUnload();
+  const url = new URL(urls.step2, document.location.href);
+  const query = new URLSearchParams({ token, galaxy: fleetPage.target[0], system: fleetPage.target[1], planet: fleetPage.target[2], type: fleetPage.target[3],
+    target_mission: document.querySelector('input[name="mission"]:checked')?.value ?? fleetPage.targetMission, speed: arriveStep, group: fleetPage.group ?? 0 });
+  document.location.href = `${url.pathname}?${query}`;
+};
+
 // ---------------------------------------------------------------------------------------- steps
 
 /** Fleet steps reserve the fleet on the server; leaving the page without sending releases it again through a beacon (`fleetStepAjax`). These three functions manage that listener. */
@@ -842,6 +1002,13 @@ registerActions({
   'save-shortcuts': () => saveShortcuts(),
   'add-shortcut': () => addShortcut(),
   'check-resources': () => checkResources(),
+  'tpl-save': () => saveTemplate(),
+  'tpl-apply': (link) => applyTemplate(link),
+  'tpl-delete': (button) => deleteTemplate(button),
+  'fleet-save': () => findFleetSave(),
+  'fleet-save-use': (link) => useFleetSave(link),
+  'arrive-at': () => updateArriveAt(),
+  'arrive-apply': () => applyArriveSpeed(),
   'check-hold': (radio) => { checkHold(Number(radio.dataset.mission)); showMissionInSummary(radio); updateSendGate(); },
   'calc-capacity': () => { calculateTransportCapacity(); },
   'max-trade-offer': () => maxTradeOffer(),
@@ -874,6 +1041,7 @@ window.onPageInit(() => {
 
 window.onPageInit(() => {
   if (fleetPage.step === 1) {
+    renderTemplates(fleetPage.templates ?? []);
     addBeforeUnload();
     updateVars();
     fleetTime();

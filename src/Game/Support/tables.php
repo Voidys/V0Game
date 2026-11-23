@@ -52,6 +52,7 @@ $dbTableNames   = [
     'EXPEDITION_USER_DECK'    => $prefix . 'expedition_user_deck',
     'FLEETS'                  => $prefix . 'fleets',
     'FLEETS_EVENT'            => $prefix . 'fleet_event',
+    'FLEET_TEMPLATES'         => $prefix . 'fleet_templates',
     'LOG'                     => $prefix . 'log',
     'HONOR_FIGHTS'            => $prefix . 'honor_fights',
     'USER_DEVICES'            => $prefix . 'user_devices',

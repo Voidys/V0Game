@@ -88,6 +88,14 @@
           <td>{{ LNG.fl_return_home }}</td>
           <td class="num"><span id="ret_time"></span></td>
         </tr>
+        <tr>
+          <td><label for="arrive-at">{{ LNG.fl_arrive_at }}</label></td>
+          <td class="num"><input type="datetime-local" step="1" id="arrive-at" class="fleet-arrive" data-on-input="arrive-at"> <a href="#" data-action="arrive-apply" id="arrive-apply" hidden>{{ LNG.fl_arrive_apply }}</a></td>
+        </tr>
+        <tr id="arrive-result-row" hidden>
+          <td>{{ LNG.fl_arrive_result }}</td>
+          <td class="num" id="arrive-result" aria-live="polite">-</td>
+        </tr>
       </table>
     </section>
   </div>
@@ -164,10 +172,14 @@
 	tradeMarket: tradeMarket,
 	targetMission: mission,
 	protection: protection,
-	texts: {noCargo: LNG.fl_no_noresource},
 	fleet: FleetList,
 	target: [galaxy, system, planet, type],
+	speedStep: speedStep,
+	group: groupId,
+	speedPlan: speedPlan,
+	texts: {noCargo: LNG.fl_no_noresource, arriveTooEarly: LNG.fl_arrive_too_early, arriveTooLate: LNG.fl_arrive_too_late, arriveEarlier: LNG.fl_arrive_earlier, arriveLater: LNG.fl_arrive_later, arriveExact: LNG.fl_arrive_exact, arriveSpeed: LNG.fl_arrive_speed},
 	urls: {
+		step2: path('game_fleet_step2_show'),
 		checkResources: path('game_fleet_step2_check_resources'),
 		release: path('game_fleet_step_ajax_show'),
 		fleetTable: path('game_fleet_table_show')

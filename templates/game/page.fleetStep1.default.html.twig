@@ -67,6 +67,33 @@
 	</table>
 	</section>
 
+	<section class="panel panel--flush" id="fleet-tools">
+	{{ ui.panel_head(LNG.fl_tpl_title) }}
+	<table class="form-table">
+		<tr>
+			<td><label for="tpl-name">{{ LNG.fl_tpl_save_current }}</label></td>
+			<td>
+				<span class="control-group">
+				<input type="text" id="tpl-name" form="tpl-form" maxlength="40" placeholder="{{ LNG.fl_tpl_name }}">
+				<button type="submit" form="tpl-form" class="link">{{ LNG.fl_tpl_save }}</button>
+				</span>
+				<span class="reason reason--bad" id="tpl-error" role="alert" hidden></span>
+			</td>
+		</tr>
+		<tr>
+			<td>{{ LNG.fl_tpl_apply }}</td>
+			<td><ul id="tpl-list" class="stack"></ul></td>
+		</tr>
+		<tr>
+			<td>{{ LNG.fl_save_title }}</td>
+			<td>
+				<button type="button" class="link" data-action="fleet-save">{{ LNG.fl_save_find }}</button>
+				<ul id="save-choices" class="stack" aria-live="polite"></ul>
+			</td>
+		</tr>
+	</table>
+	</section>
+
 <section class="panel panel--flush">
 {{ ui.panel_head(LNG.fl_system_places) }}
 <table class="table-fixed">
@@ -183,6 +210,7 @@
 	{% endif %}
 	<div class="panel fleet-dock"><footer class="panel__foot"><a class="btn-back" href="{{ path('game_fleet_table_show', backQuery) }}#{{ backHash }}">{{ icon('arrow-left') }}{{ LNG.sys_back }}</a><input type="submit" value="{{ LNG.fl_continue }}"></footer></div>
 </form>
+<form id="tpl-form" data-on-submit="tpl-save" hidden></form>
 {% endblock %}
 {% block script %}{{ parent() }}
 {{ data_island('fleet-data', {
@@ -191,10 +219,17 @@
 	honorboost: honorboost,
 	config: config,
 	token: token,
-	texts: {coordRange: LNG.fl_coord_range},
+	templates: templates,
+	maxTemplates: maxTemplates,
+	currentShips: currentShips,
+	texts: {coordRange: LNG.fl_coord_range, tplApply: LNG.fl_tpl_apply_one, tplDelete: LNG.fl_tpl_delete, tplNone: LNG.fl_tpl_none, saveNone: LNG.fl_save_none, saveUse: LNG.fl_save_use, saveChoice: LNG.fl_save_choice},
 	urls: {
 		checkTarget: path('game_fleet_step1_check_target'),
 		saveShortcuts: path('game_fleet_step1_save_shortcuts'),
+		step1: path('game_fleet_step1_show'),
+		tplSave: path('game_fleet_step_ajax_template_save'),
+		tplDelete: path('game_fleet_step_ajax_template_delete'),
+		fleetSave: path('game_fleet_step_ajax_fleet_save'),
 		release: path('game_fleet_step_ajax_show'),
 		fleetTable: path('game_fleet_table_show')
 	}

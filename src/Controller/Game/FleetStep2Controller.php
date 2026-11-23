@@ -113,15 +113,37 @@ class FleetStep2Controller extends AbstractGameController
         $variables = $this->formVariables($questionList, $fleetData, $consumption, $targetMission, $MissionOutput, $tradeMarket, $token, $duration, $fleet[$token]['predefinedResources']);
 
         return $this->render('game/page.fleetStep2.default.html.twig', [
-            'galaxy' => $targetGalaxy,
-            'system' => $targetSystem,
-            'planet' => $targetPlanet,
-            'type' => $targetType,
+            'galaxy' => $targetGalaxy, 'system' => $targetSystem, 'planet' => $targetPlanet, 'type' => $targetType,
             'targetName' => (string) ($targetPlanetData['name'] ?? ''),
             'targetOwner' => (string) ($targetPlanetData['owner_name'] ?? ''),
             'protection' => $this->protectionNotice((int) ($targetPlanetData['id_owner'] ?? 0)),
             'FleetList' => $fleetArray,
+            'speedStep' => (int) $fleetSpeed, 'groupId' => $fleetGroupPublicId,
+            'speedPlan' => $this->speedPlan($fleetArray, (int) $MaxFleetSpeed, (int) $distance),
         ] + $variables);
+    }
+
+    /**
+     * Flight time and fuel at every speed step (for the "arrive at" picker of the form), through the same functions the
+     * dispatch uses.
+     *
+     * @param array<int, int|float> $fleetArray ship id => count
+     * @return array<int, array{duration: int, fuel: int, affordable: bool}> speed step (1 = 10 % ... 10 = 100 %) => plan
+     */
+    private function speedPlan(array $fleetArray, int $maxFleetSpeed, int $distance): array
+    {
+        $functions = $this->fleetFunctions();
+        $gameSpeed = $functions->getGameSpeedFactor();
+        $userModel = $this->models()->user($this->state->USER);
+        $plan = [];
+        foreach (array_keys(FleetFunctions::$allowedSpeed) as $step) {
+            $duration = $functions->missionDurationFor($step, $maxFleetSpeed, $distance, $gameSpeed, $userModel);
+            $fuel = $functions->fleetConsumptionFor($fleetArray, $duration, $distance, $userModel, $gameSpeed);
+            $plan[$step] = ['duration' => $duration, 'fuel' => (int) round($fuel), 'affordable' => $fuel <= $this->state->PLANET['deuterium']];
+        }
+        ksort($plan);
+
+        return $plan;
     }
 
     /**

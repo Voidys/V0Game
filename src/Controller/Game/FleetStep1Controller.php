@@ -17,6 +17,8 @@ namespace App\Controller\Game;
 
 use Symfony\Component\HttpFoundation\Response;
 use App\Routing\GameRoute;
+use App\Fleet\FleetTemplateStore;
+use App\Fleet\ShipPreset;
 use App\Game\Core\FleetFunctions;
 use App\Game\Core\Session;
 use App\Game\Core\Universe;
@@ -35,7 +37,7 @@ class FleetStep1Controller extends AbstractGameController
 
     /**
      * Fleet dispatch step 1. Request: ship<id> = counts of the ships to send (solar satellites ignored; none selected goes back to the fleet page),
-     * galaxy/system/planet/type (preset target, default the player's next other planet, else the current planet), target_mission, met_storage/krist_storage/deut_storage (preset cargo).
+     * ships (compact preset `202:50,210:2`, used when no ship<id> is given), galaxy/system/planet/type (preset target, default the player's next other planet, else the current planet), target_mission, met_storage/krist_storage/deut_storage (preset cargo).
      * Stores the chosen fleet in the game session under a new random token (used by steps 2 and 3), refuses ships the planet does not have, and renders the
      * target form with speed choices, coordinate shortcuts, own planets, usable alliance combat groups, the pirate base and the universe geometry for
      * the flight time preview.
@@ -118,6 +120,9 @@ class FleetStep1Controller extends AbstractGameController
             'typeSelect'    => [1 => $LNG['type_planet_1'], 2 => $LNG['type_planet_2'], 3 => $LNG['type_planet_3']],
             'fleetdata'     => $FleetData,
             'config'        => $this->universeGeometry(),
+            'templates'     => (new FleetTemplateStore($this->db))->all((int) $USER['id']),
+            'maxTemplates'  => FleetTemplateStore::MAX_PER_USER,
+            'currentShips'  => ShipPreset::format($Fleet),
         ]);
     }
 
@@ -175,6 +180,17 @@ class FleetStep1Controller extends AbstractGameController
 
             $Fleet[$ShipID] = $amount;
             $FleetRoom += $e->capacity($ShipID) * $amount;
+        }
+
+        // no ship<id> chosen: the preset link parameter ships=202:50,210:2 (capped at what the planet holds)
+        if ($Fleet === [] && ($preset = ShipPreset::parse($this->input()->rawString('ships'), ShipPreset::flyable($e->ids('fleet')))) !== null) {
+            foreach ($preset as $ShipID => $count) {
+                $amount = min($count, (int) $this->state->PLANET[$e->column($ShipID)]);
+                if ($amount >= 1) {
+                    $Fleet[$ShipID] = $amount;
+                    $FleetRoom += $e->capacity($ShipID) * $amount;
+                }
+            }
         }
 
         return [$Fleet, $FleetRoom];
@@ -402,7 +418,7 @@ class FleetStep1Controller extends AbstractGameController
             $this->input()->int('galaxy', (int) ($default['galaxy'] ?? $PLANET['galaxy'])),
             $this->input()->int('system', (int) ($default['system'] ?? $PLANET['system'])),
             $this->input()->int('planet', (int) ($default['planet'] ?? $PLANET['planet'])),
-            $this->input()->int('type', (int) ($default['type'] ?? $PLANET['planet_type'])),
+            $this->input()->int('type', $this->input()->int('planettype', (int) ($default['type'] ?? $PLANET['planet_type']))),
         ];
     }
 
