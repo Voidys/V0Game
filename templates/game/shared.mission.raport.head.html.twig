@@ -65,6 +65,54 @@
 		</div>
 	</section>
 
+	{% if valueSummary %}
+	<section class="cr-card cr-value" aria-labelledby="cr-value-title">
+		<h3 class="cr-card__title" id="cr-value-title">{{ icon('chart-pie') }}{{ LNG.cr_value }}</h3>
+		<div class="cr-scroll">
+			<table class="cr-table">
+				<thead>
+					<tr>
+						<th scope="col">{{ LNG.cr_value_who }}</th>
+						<th scope="col" class="num">{{ LNG.cr_value_units }}</th>
+						<th scope="col" class="num">{{ LNG.tech[901] }}</th>
+						<th scope="col" class="num">{{ LNG.tech[902] }}</th>
+						<th scope="col" class="num">{{ LNG.tech[903] }}</th>
+						<th scope="col" class="num">{{ LNG.cr_value_total }}</th>
+					</tr>
+				</thead>
+				{% for side, data in valueSummary.sides %}
+				<tbody>
+					{% for name, l in data.players %}
+					<tr>
+						<th scope="row">{{ side == 'attacker' ? icon('swords') : icon('shield') }}{{ reduced ? '' : name }}</th>
+						<td class="num">{{ pretty_number(l.units) }}</td>
+						<td class="num">{{ pretty_number(l.metal) }}</td>
+						<td class="num">{{ pretty_number(l.crystal) }}</td>
+						<td class="num">{{ pretty_number(l.deuterium) }}</td>
+						<td class="num"><span class="{{ l.total > 0 ? 'cr-loss' : 'cr-none' }}">{{ pretty_number(l.total) }}</span></td>
+					</tr>
+					{% endfor %}
+					<tr class="cr-value__sum">
+						<th scope="row">{{ side == 'attacker' ? LNG.sys_attack_attacker_pos : LNG.sys_attack_defender_pos }} &Sigma;</th>
+						<td class="num">{{ pretty_number(data.total.units) }}</td>
+						<td class="num">{{ pretty_number(data.total.metal) }}</td>
+						<td class="num">{{ pretty_number(data.total.crystal) }}</td>
+						<td class="num">{{ pretty_number(data.total.deuterium) }}</td>
+						<td class="num"><strong>{{ pretty_number(data.total.total) }}</strong></td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+		<dl class="cr-stat__list cr-value__profit">
+			<div><dt>{{ LNG.cr_debris }}</dt><dd>{{ pretty_number(valueSummary.debrisValue) }}</dd></div>
+			<div><dt>{{ LNG.cr_loot }}</dt><dd>{{ pretty_number(valueSummary.lootValue) }}</dd></div>
+			<div><dt>{{ LNG.cr_profit }}</dt><dd><strong class="{{ valueSummary.profit >= 0 ? 'cr-ok' : 'cr-bad' }}">{% if valueSummary.profit >= 0 %}+{% else %}&minus;{% endif %}{{ pretty_number(valueSummary.profit|abs) }}</strong></dd></div>
+		</dl>
+		<p class="cr-stat__text cr-unit">{{ LNG.cr_profit_note }}</p>
+	</section>
+	{% endif %}
+
 	{% if debrisTotal > 0 or Raport.additionalInfo or Raport.wreckfield_created %}
 	<ul class="cr-notes">
 		{% if debrisTotal > 0 %}<li>{{ icon('refresh-cw') }}<span>{{ LNG.format('bs_derbis_raport', pretty_number(ceil(debrisTotal / recCapacity)), LNG['tech'][constant('SHIP_RECYCLER')]) }}</span></li>{% endif %}
@@ -73,11 +121,21 @@
 	</ul>
 	{% endif %}
 
+	<p class="cr-share">
+		<button type="button" class="button" data-copy-url="{{ shareUrl }}" data-copied="{{ LNG.cr_link_copied|e('html_attr') }}" title="{{ LNG.cr_share_hint|e('html_attr') }}">{{ icon('link') }}<span>{{ LNG.cr_copy_link }}</span></button>
+	</p>
+
 	{% if actions %}
 	<nav class="cr-actions" aria-label="{{ LNG.cr_actions|e('html_attr') }}">
 		{% if actions.debris > 0 %}<a class="button" href="{{ path('game_fleet_table_show', {galaxy: actions.galaxy, system: actions.system, planet: actions.planet, planettype: 2, target_mission: 8}) }}">{{ icon('refresh-cw') }}{{ LNG.type_mission_8 }}</a>{% endif %}
 		{% if not actions.moon %}<a class="button" href="{{ path('game_fleet_table_show', {galaxy: actions.galaxy, system: actions.system, planet: actions.planet, planettype: actions.type, target_mission: 1}) }}">{{ icon('swords') }}{{ LNG.cr_attack_again }}</a>{% endif %}
 		<a class="button" href="{{ path('game_galaxy_show', {galaxy: actions.galaxy, system: actions.system}) }}">{{ icon('galaxy') }}{{ LNG.pl_galaxy_view }}</a>
-		<a class="button" href="{{ path('game_battle_simulator_show', actions.sim) }}">{{ icon('crosshair') }}{{ LNG.cr_simulate }}</a>
 	</nav>
+	<form class="cr-simagain" method="get" action="{{ path('game_battle_simulator_show') }}">
+		{% for name, amount in actions.sim.fields %}<input type="hidden" name="{{ name }}" value="{{ amount }}">{% endfor %}
+		<input type="hidden" name="slots" value="{{ actions.sim.slots }}">
+		<label for="cr-boost">{{ LNG.cr_boost }}</label>
+		<input type="number" id="cr-boost" name="boost" min="0" max="1000" step="1" value="0" inputmode="numeric"> <span class="cr-unit">%</span>
+		<button type="submit" class="button">{{ icon('crosshair') }}{{ LNG.cr_simulate_again }}</button>
+	</form>
 	{% endif %}

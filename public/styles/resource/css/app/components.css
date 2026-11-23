@@ -679,3 +679,13 @@ input.fleet-radio { width: 3.75rem; }
 	.section-tabs__tab { min-block-size: var(--tap-min, 2.75rem); scroll-snap-align: start; }
 }
 }
+
+/* ---- combat report: loss value, share, simulate again */
+.cr-share { margin: 0; }
+.cr-share .button { display: inline-flex; align-items: center; gap: var(--space-1); }
+.cr-simagain { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.cr-simagain input[type="number"] { inline-size: 5.5rem; }
+.cr-simagain .button { display: inline-flex; align-items: center; gap: var(--space-1); }
+.cr-value__sum th, .cr-value__sum td { border-block-start: 1px solid var(--cr-line, currentColor); }
+.cr-value__profit { margin-block-start: var(--space-3); }
+.cr-value th .icon { margin-inline-end: var(--space-1); }

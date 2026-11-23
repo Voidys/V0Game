@@ -18,6 +18,7 @@
 namespace App\Controller\Game;
 
 use Symfony\Component\HttpFoundation\Response;
+use App\Game\Core\CombatReportValue;
 use App\Routing\GameRoute;
 use App\Game\Core\BattleReportStore;
 use App\Game\BattleEngine\BattleFleet;
@@ -450,6 +451,9 @@ class BattleSimulatorController extends AbstractGameController
             }
         } else {
             $BattleArray = $this->input()->stringTree('battleinput');
+            // "simulate again" from a combat report: raise the attacker's ships by a percentage (0 to 1000)
+            $boost = max(0, min(1000, $this->input()->int('boost', 0)));
+            $BattleArray = CombatReportValue::boostAttackers($BattleArray, $e->ids('fleet'), $boost);
         }
 
         if ($action == 'moreslots') {

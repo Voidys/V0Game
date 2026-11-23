@@ -45,7 +45,7 @@
 			{% for Player in RoundInfo[side] %}{% for ShipData in Player.ships %}{% set sum = sum + ShipData[0] %}{% endfor %}{% endfor %}
 			{% set sums = sums|merge({(side): sum}) %}
 		{% endfor %}
-		<details class="cr-round"{% if loop.last %} open{% endif %}>
+		<details class="cr-round"{% if loop.first or loop.last %} open{% endif %}>
 			<summary>{{ cr.round_title(Round == 0 ? LNG.cr_start : LNG.sys_attack_round ~ ' ' ~ Round, sums.attacker, sums.defender) }}</summary>
 			<div class="cr-round__body">
 				{% for side in ['attacker', 'defender'] %}
@@ -106,4 +106,8 @@
 		{% endfor %}
 	</section>
 </article>
+{% endblock %}
+
+{% block script %}{{ parent() }}
+<script type="module" src="./scripts/game/raportshare.js?v={{ asset_version }}"></script>
 {% endblock %}

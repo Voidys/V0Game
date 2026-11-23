@@ -20,6 +20,7 @@ namespace App\Controller\Game;
 use App\Routing\GameRoute;
 use App\Game\Enum\AuthLevel;
 use Symfony\Component\HttpFoundation\Response;
+use App\Game\Core\CombatReportValue;
 use App\Game\Core\StoredData;
 use App\Game\Enum\PlanetType;
 
@@ -111,10 +112,40 @@ class RaportController extends AbstractGameController
             'Info'          => $Info,
             'pageTitle'     => $LNG['sys_mess_attack_report'],
             'recCapacity'   => $e->capacity(SHIP_RECYCLER),
+            'valueSummary'  => $showDetails ? $this->valueSummary($combatReport, $reportData['battleengine'] === 'rust') : null,
+            'shareUrl'      => $this->routeUrl('game_raport_show', ['raport' => $RID]),
             'actions'       => $isParticipant ? $this->participantActions($combatReport, $reportData['battleengine'] === 'rust') : null,
         ];
 
         return $this->render($reportData['battleengine'] === 'rust' ? 'game/shared.mission.raport.rust.html.twig' : 'game/shared.mission.raport.html.twig', $context);
+    }
+
+    /**
+     * Loss summary of both sides in resource value (per player and in total) plus the attacker's profit; fuel is not part of
+     * the report and therefore skipped.
+     *
+     * @param array<string, mixed> $report decoded report
+     * @return array<string, mixed>
+     */
+    private function valueSummary(array $report, bool $rust): array
+    {
+        $e = $this->elements();
+        $prices = [];
+        foreach (array_merge($e->ids('fleet'), $e->ids('defense')) as $id) {
+            $cost = $e->cost($id);
+            $prices[$id] = [$cost->metal, $cost->crystal, $cost->deuterium];
+        }
+        $calc = new CombatReportValue($prices);
+        $sides = $calc->sideLosses($rust ? CombatReportValue::fleetsFromRust($report) : CombatReportValue::fleetsFromClassic($report));
+        $debris = $report['debris'] ?? [];
+        $loot = ($report['result'] ?? null) == ATTACKER ? ($report['steal'] ?? []) : [];
+
+        return [
+            'sides'       => $sides,
+            'debrisValue' => CombatReportValue::resourceValue($debris),
+            'lootValue'   => CombatReportValue::resourceValue($loot),
+            'profit'      => CombatReportValue::attackerProfit($loot, $debris, (float) ($sides['attacker']['total']['total'] ?? 0)),
+        ];
     }
 
     /** Whether the defender column of a report row lists at least one player id (not for simulations and expeditions). */
@@ -167,7 +198,7 @@ class RaportController extends AbstractGameController
      * fleets at the start of the fight.
      *
      * @param array<string, mixed> $report decoded report
-     * @return array{slots: int, battleinput: array<int, array<int, array<int, int|float>>>}
+     * @return array{slots: int, battleinput: array<int, array<int, array<int, int|float>>>, fields: array<string, int|float>}
      */
     private function simulatorPrefill(array $report, bool $rust): array
     {
@@ -183,7 +214,16 @@ class RaportController extends AbstractGameController
             $battleinput[$slot] = [$sides[0][$slot] ?? [], $sides[1][$slot] ?? []];
         }
 
-        return ['slots' => $slots, 'battleinput' => $battleinput];
+        $fields = [];
+        foreach ($battleinput as $slot => $pair) {
+            foreach ($pair as $side => $row) {
+                foreach ($row as $unitId => $amount) {
+                    $fields["battleinput[$slot][$side][$unitId]"] = $amount;
+                }
+            }
+        }
+
+        return ['slots' => $slots, 'battleinput' => $battleinput, 'fields' => $fields];
     }
 
     /**
