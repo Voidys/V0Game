@@ -66,6 +66,7 @@
   .pop-menu > a:hover, .pop-menu > button:hover { background: var(--c-panel-2); color: var(--c-text); }
   .pop-menu > a .icon, .pop-menu > button .icon { color: var(--c-muted); }
   .pop-menu kbd { margin-inline-start: auto; }
+  .pop-menu [hidden] { display: none; }
   .pop-menu hr { margin: var(--space-1) 0; border: 0; border-block-start: 1px solid var(--c-border); }
   .pop-menu .pop-head { justify-content: flex-start; margin-block-end: var(--space-1); }
 

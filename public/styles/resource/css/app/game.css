@@ -773,7 +773,8 @@ kbd {
   .resource__bar, .resource__body { min-inline-size: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .content, .alert, .alert__body > .icon, .sidenav, .resource__bar::after { animation: none !important; transition: none !important; }
+  .content, .alert, .alert__body > .icon, .sidenav, .resource__bar::after, .skip-link, .sidebar-backdrop, .tabbar__item, .tabbar__item .icon { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
 }
 
 

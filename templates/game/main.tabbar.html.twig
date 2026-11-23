@@ -1,7 +1,7 @@
 {# Phones: bottom tab bar in thumb reach (game.css, shown ≤ 60rem). The last tab opens the menu as a bottom sheet. #}
 {% set tbPage = (app.request.attributes.get('_page') ?: 'overview')|lower %}
 {% set tbAlerts = (new_message|default(0)) + (new_allyrequests|default(0)) + (new_buddyrequests|default(0)) %}
-<nav class="tabbar" aria-label="{{ LNG.ui_menu }}">
+<nav class="tabbar" aria-label="{{ LNG.ui_nav_quick }}">
   <a class="tabbar__item" href="{{ path('game_overview_show') }}"{% if tbPage in ['overview', 'tutorial'] %} aria-current="page"{% endif %}>{{ icon('layout-dashboard') }}<span>{{ LNG.lm_overview }}</span></a>
   <a class="tabbar__item" href="{{ path('game_buildings_show') }}"{% if tbPage in ['buildings', 'research', 'shipyard', 'repairdock', 'techtree'] %} aria-current="page"{% endif %}>{{ icon('building-2') }}<span>{{ LNG.lm_buildings }}</span></a>
   <a class="tabbar__item" href="{{ path('game_galaxy_show') }}"{% if tbPage == 'galaxy' %} aria-current="page"{% endif %}>{{ icon('galaxy') }}<span>{{ LNG.lm_galaxy }}</span></a>

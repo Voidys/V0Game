@@ -1,9 +1,10 @@
 /**
  * Global keyboard shortcuts and the shortcut sheet (a <dialog> built here, opened by "?" and
- * [data-action="shortcuts"]): Ctrl/Cmd+K and "/" open the command palette, "g" then "o" / "b" / "g" follows the
- * overview / buildings / galaxy link of the side navigation. "[" and "]" (previous/next planet) live in ui.js.
+ * [data-action="shortcuts"]): Ctrl/Cmd+K and "/" open the command palette, "g" then "o" / "e" / "b" / "r" / "s" / "g" / "f" /
+ * "m" follows the overview / empire / buildings / research / shipyard / galaxy / fleet / messages link of the side navigation. "[" and "]" (previous/next planet) live in ui.js.
  * Descriptions come from the `ui` object of the game-env island (shortcuts_title, shortcuts_palette, shortcuts_go_overview,
- * shortcuts_go_buildings, shortcuts_go_galaxy, shortcuts_planets, shortcuts_help), English fallbacks otherwise.
+ * shortcuts_go_empire, shortcuts_go_buildings, shortcuts_go_research, shortcuts_go_shipyard, shortcuts_go_galaxy, shortcuts_go_fleet,
+ * shortcuts_go_messages, shortcuts_planets, shortcuts_help), English fallbacks otherwise.
  */
 import { pageData } from './core.js';
 import { togglePalette, paletteIsOpen, navLinkFor } from './palette.js';
@@ -12,19 +13,30 @@ const FALLBACK = {
   shortcuts_title: 'Keyboard shortcuts',
   shortcuts_palette: 'Command palette',
   shortcuts_go_overview: 'Go to overview',
+  shortcuts_go_empire: 'Go to empire',
   shortcuts_go_buildings: 'Go to buildings',
+  shortcuts_go_research: 'Go to research',
+  shortcuts_go_shipyard: 'Go to shipyard',
   shortcuts_go_galaxy: 'Go to galaxy',
+  shortcuts_go_fleet: 'Go to fleet',
+  shortcuts_go_messages: 'Go to messages',
   shortcuts_planets: 'Previous / next planet',
   shortcuts_help: 'This sheet',
 };
 const text = (key) => pageData('game-env').ui?.[key] ?? FALLBACK[key];
 
-const GO = { o: 'overview', b: 'buildings', g: 'galaxy' };
+// last path segment of the nav link; the overview lives at /game
+const GO = { o: 'game', e: 'empire', b: 'buildings', r: 'research', s: 'shipyard', g: 'galaxy', f: 'fleet', m: 'messages' };
 const ROWS = [
   ['shortcuts_palette', [['Ctrl', 'K'], ['/']]],
   ['shortcuts_go_overview', [['G', 'O']]],
+  ['shortcuts_go_empire', [['G', 'E']]],
   ['shortcuts_go_buildings', [['G', 'B']]],
+  ['shortcuts_go_research', [['G', 'R']]],
+  ['shortcuts_go_shipyard', [['G', 'S']]],
   ['shortcuts_go_galaxy', [['G', 'G']]],
+  ['shortcuts_go_fleet', [['G', 'F']]],
+  ['shortcuts_go_messages', [['G', 'M']]],
   ['shortcuts_planets', [['['], [']']]],
   ['shortcuts_help', [['?']]],
 ];
@@ -41,7 +53,8 @@ function buildSheet() {
   const title = document.createElement('h2');
   title.className = 'sheet-title';
   title.textContent = text('shortcuts_title');
-  sheet.setAttribute('aria-label', title.textContent);
+  title.id = 'shortcuts-title';
+  sheet.setAttribute('aria-labelledby', title.id);
   const rows = document.createElement('dl');
   rows.className = 'shortcuts';
   for (const [key, combos] of ROWS) {

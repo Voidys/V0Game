@@ -53,7 +53,7 @@
 </ul>
 
 <div class="topbar-tools">
-  <button class="search-btn" type="button" data-action="palette" data-tip="{{ LNG.shell_jump_tip }}" data-tip-kbd="Ctrl K">
+  <button class="search-btn" type="button" data-action="palette" aria-label="{{ LNG.shell_jump }}" data-tip="{{ LNG.shell_jump_tip }}" data-tip-kbd="Ctrl K">
     {{ icon('search') }}<span>{{ LNG.shell_jump }}</span><kbd>Ctrl K</kbd>
   </button>
   {% if isModuleAvailable(constant('MODULE_MESSAGES')) %}
@@ -98,6 +98,7 @@
   {% if authlevel > 0 %}
     <a href="./admin" data-tip="{{ LNG.lm_administration }} ({{ version }})">{{ icon('shield-alert') }}<span>{{ LNG.lm_administration }}</span></a>
   {% endif %}
+  <button type="button" data-install-app hidden>{{ icon('hard-drive-download') }}<span>{{ LNG.shell_install_app }}</span></button>
   <button type="button" data-action="shortcuts">{{ icon('circle-help') }}<span>{{ LNG.shell_shortcuts }}</span><kbd>?</kbd></button>
   <hr>
   <a data-method="post" class="is-danger" href="{{ path('game_logout_show') }}">{{ icon('log-out') }}<span>{{ LNG.lm_logout }}</span></a>

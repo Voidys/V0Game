@@ -288,18 +288,77 @@ function keepScroll() {
   }
 }
 
-/** mobile: the menu button opens the sidebar as a bottom sheet / drawer */
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled], [type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+/**
+ * mobile: the menu button opens the sidebar as a bottom sheet / drawer. While open the page behind is inert (the tab bar
+ * with the toggle stays reachable), Tab wraps inside the sheet and the toggle, Escape and the backdrop close it and the focus
+ * returns to the toggle that opened it (body scroll is locked by CSS via body.sidebar-open).
+ */
 function sidebarToggle() {
-  const setOpen = (open) => {
+  const sidenav = qs('.sidenav');
+  const behind = qsa('.topbar, .notices, .content, .footer, .rail');
+  let opener = null;
+  const visible = (el) => el.getClientRects().length > 0 && getComputedStyle(el).visibility !== 'hidden';
+  const setOpen = (open, refocus = true) => {
+    if (open === document.body.classList.contains('sidebar-open')) return;
     document.body.classList.toggle('sidebar-open', open);
+    behind.forEach((el) => { el.inert = open; });
     qsa('[data-sidebar-toggle][aria-expanded]').forEach((button) => button.setAttribute('aria-expanded', String(open)));
+    if (open) {
+      const first = sidenav && qsa(FOCUSABLE, sidenav).find(visible);
+      requestAnimationFrame(() => (first ?? sidenav)?.focus({ preventScroll: true }));
+    } else if (refocus && opener?.isConnected) {
+      opener.focus({ preventScroll: true });
+    }
   };
-  on(document, 'click', '[data-sidebar-toggle]', () => setOpen(!document.body.classList.contains('sidebar-open')));
-  on(document, 'click', '.sidebar-backdrop', () => setOpen(false));
-  on(document, 'click', '.sidenav [data-action="popup"], .sidenav [data-dialog]', () => setOpen(false));
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') setOpen(false);
+  on(document, 'click', '[data-sidebar-toggle]', (event, button) => {
+    const open = !document.body.classList.contains('sidebar-open');
+    if (open) opener = button;
+    setOpen(open);
   });
+  on(document, 'click', '.sidebar-backdrop', () => setOpen(false));
+  on(document, 'click', '.sidenav [data-action="popup"], .sidenav [data-dialog]', () => setOpen(false, false));
+  document.addEventListener('keydown', (event) => {
+    if (!document.body.classList.contains('sidebar-open')) return;
+    if (event.key === 'Escape' && !document.querySelector('dialog[open], :popover-open')) {
+      setOpen(false);
+    } else if (event.key === 'Tab' && sidenav) {
+      const stops = [...qsa(FOCUSABLE, sidenav), ...qsa('[data-sidebar-toggle]')].filter(visible);
+      const at = stops.indexOf(document.activeElement);
+      if (stops.length === 0) return;
+      if (event.shiftKey && at <= 0) {
+        event.preventDefault();
+        stops.at(-1).focus();
+      } else if (!event.shiftKey && (at === -1 || at === stops.length - 1)) {
+        event.preventDefault();
+        stops[0].focus();
+      }
+    }
+  });
+  // back on a wide screen the sidebar is permanent: drop the open state
+  window.matchMedia('(min-width: 60.0625rem)').addEventListener('change', (event) => { if (event.matches) setOpen(false, false); });
+}
+
+/** "Install app" menu entries ([data-install-app], hidden) appear when the browser offers installation (beforeinstallprompt) */
+function installApp() {
+  let deferred = null;
+  const buttons = qsa('[data-install-app]');
+  if (buttons.length === 0) return;
+  const setHidden = (hidden) => buttons.forEach((button) => { button.hidden = hidden; });
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferred = event;
+    setHidden(false);
+  });
+  window.addEventListener('appinstalled', () => { deferred = null; setHidden(true); });
+  buttons.forEach((button) => button.addEventListener('click', async () => {
+    if (!deferred) return;
+    const prompt = deferred;
+    deferred = null;
+    setHidden(true);
+    try { await prompt.prompt(); } catch { /* prompt already used */ }
+  }));
 }
 
 /** top bar user menu: button toggles the panel; Escape, outside click and activating an item close it */
@@ -413,6 +472,7 @@ export function initUi() {
   selectNumberInputs();
   keepScroll();
   sidebarToggle();
+  installApp();
   userMenu();
   tabbarKeyboard();
   fabAboveFooter();
