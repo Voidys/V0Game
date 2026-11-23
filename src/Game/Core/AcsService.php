@@ -38,6 +38,42 @@ class AcsService
     }
 
     /**
+     * Running ACS groups (arrival still ahead) in which a member of the alliance is the leader or invited, with the
+     * target coordinates and the participants (invited players and whether they already committed a fleet).
+     *
+     * @return list<array<string, mixed>> id, name, ankunft, galaxy, system, planet, planet_type, participants
+     *         (list of username, ally_id, fleet: 1 = fleet in the group)
+     */
+    public function groupsForAlliance(int $allianceId): array
+    {
+        $groups = $this->db->select(
+            'SELECT DISTINCT acs.`id`, acs.`name`, acs.`ankunft`, planet.`galaxy`, planet.`system`, planet.`planet`, planet.`planet_type`
+            FROM %%AKS%% acs
+            INNER JOIN %%USERS_TO_ACS%% invited ON invited.`acsID` = acs.`id`
+            INNER JOIN %%USERS%% member ON member.`id` = invited.`userID` AND member.`ally_id` = :allianceId
+            LEFT JOIN %%PLANETS%% planet ON planet.`id` = acs.`target`
+            WHERE acs.`ankunft` >= :now
+            ORDER BY acs.`ankunft` ASC;',
+            [':allianceId' => $allianceId, ':now' => $this->state->runtime->timestamp],
+        );
+
+        foreach ($groups as &$group) {
+            $group['participants'] = $this->db->select(
+                'SELECT u.`username`, u.`ally_id`,
+                    EXISTS (SELECT 1 FROM %%FLEETS%% f WHERE f.`group` = :acsId AND f.`owner` = u.`id`) AS fleet
+                FROM %%USERS_TO_ACS%% invited
+                INNER JOIN %%USERS%% u ON u.`id` = invited.`userID`
+                WHERE invited.`acsID` = :acsId
+                ORDER BY u.`username` ASC;',
+                [':acsId' => $group['id']],
+            );
+        }
+        unset($group);
+
+        return $groups;
+    }
+
+    /**
      * Postpones a whole ACS group by $timeDifference seconds: the group's arrival, every flight's arrival/stay/return
      * time and event time, and the fleet log copies.
      *

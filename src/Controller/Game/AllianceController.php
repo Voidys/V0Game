@@ -757,6 +757,7 @@ class AllianceController extends AbstractGameController
 
         return $this->render('game/page.alliance.admin.diplomacy.default.html.twig', [
             'diploList' => $this->alliance()->diplomacy()->overview($this->allianceData),
+            'diploExpires' => $this->alliance()->diplomacy()->expiries($this->allianceData),
         ]);
     }
 
@@ -829,9 +830,10 @@ class AllianceController extends AbstractGameController
         $id = $this->input()->string('ally_id', '', UTF8_SUPPORT);
         $level = $this->input()->int('level');
         $text = $this->input()->string('text', '', true);
+        $expiresDays = $this->input()->int('expires');
 
         try {
-            $this->alliance()->diplomacy()->create($this->allianceData, $id, $level, $text);
+            $this->alliance()->diplomacy()->create($this->allianceData, $id, $level, $text, $expiresDays);
         } catch (AllianceException $exit) {
             return $this->exitWith($exit);
         }

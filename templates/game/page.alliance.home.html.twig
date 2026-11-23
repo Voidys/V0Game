@@ -3,6 +3,10 @@
 {% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
 {% block pagehead %}
 {% set actions %}
+	<a class="btn" href="{{ path('game_alliance_targets') }}">{{ icon('crosshair') }} {{ LNG.alt_targets }}</a>
+	<a class="btn" href="{{ path('game_alliance_acs') }}">{{ icon('swords') }} {{ LNG.alt_acs }}</a>
+	{% if rights.ACTIVITY %}<a class="btn" href="{{ path('game_alliance_activity') }}">{{ icon('activity') }} {{ LNG.alt_activity }}</a>{% endif %}
+	<a class="btn" href="{{ path('game_alliance_wiki') }}">{{ icon('book-open') }} {{ LNG.alt_wiki }}</a>
 	{% if rights.MEMBERLIST %}<a class="btn" href="{{ path('game_alliance_member_list') }}">{{ icon('users') }} {{ LNG.al_user_list }}</a>{% endif %}
 	{% if rights.ROUNDMAIL %}<a class="btn" href="{{ path('game_alliance_circular') }}" data-dialog="" data-dialog-width="650">{{ icon('megaphone') }} {{ LNG.al_send_circular_message }}</a>{% endif %}
 	{% if rights.ADMIN or rights.DIPLOMATIC or rights.RANKS or rights.MANAGEUSERS %}<a class="btn btn--primary" href="{{ path('game_alliance_admin') }}">{{ icon('settings') }} {{ LNG.al_manage_alliance }}</a>{% endif %}

@@ -23,6 +23,9 @@ final class AllianceRights
         'DIPLOMATIC',
         'RANKS',
         'MANAGEUSERS',
+        'TARGETS',
+        'ACTIVITY',
+        'WIKI',
     ];
 
     /** @return array<string, bool> every right set to $value (leader: all true, no rank: all false) */

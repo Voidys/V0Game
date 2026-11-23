@@ -1,0 +1,38 @@
+{% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
+{% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}{% include 'game/shared.alliance.toolsNav.html.twig' %}{% if canEdit %}<a class="btn btn--primary" href="{{ path('game_alliance_wiki_new') }}">{{ icon('plus') }} {{ LNG.alt_wiki_new }}</a>{% endif %}{% endset %}
+{{ ui.page_head(LNG.alt_wiki, 'book-open', LNG.alt_wiki_info, actions) }}
+{% endblock %}
+{% block content %}
+<div class="grid-2">
+	<section class="panel panel--flush">
+		{{ ui.panel_head(LNG.alt_wiki_pages, pages|length) }}
+		{% if pages %}
+		<table class="data"><tbody>
+			{% for p in pages %}
+			<tr><td><a href="{{ path('game_alliance_wiki_page', {id: p.id}) }}">{{ p.title }}</a></td><td class="ctr hint"><span class="registerTime" data-time="{{ p.updated_at }}">{{ p.updated_at }}</span></td></tr>
+			{% endfor %}
+		</tbody></table>
+		{% else %}
+		<p class="empty">{{ LNG.alt_wiki_empty }}</p>
+		{% endif %}
+	</section>
+	{% if page %}
+	<section class="panel">
+		<header class="panel__head"><h2>{{ page.title }}</h2>
+			{% if canEdit %}<span>
+				<a class="btn btn-sm" href="{{ path('game_alliance_wiki_edit', {id: page.id}) }}">{{ icon('pencil', LNG.alt_wiki_edit) }}</a>
+				<a class="btn btn-sm" data-method="post" href="{{ path('game_alliance_wiki_delete', {id: page.id}) }}" data-confirm-danger data-confirm="{{ LNG.alt_wiki_delete_confirm|e('html_attr') }}">{{ icon('x', LNG.al_dlte) }}</a>
+			</span>{% endif %}
+		</header>
+		<div class="panel__body bbcode">{{ page.rendered }}</div>
+		<footer class="panel__foot hint">{{ LNG.alt_wiki_updated_by }} {{ page.editor }}</footer>
+	</section>
+	{% endif %}
+</div>
+{% endblock %}
+{% block script %}{{ parent() }}
+<script type="module" src="./scripts/game/alliance.js?v={{ asset_version }}"></script>
+{% endblock %}

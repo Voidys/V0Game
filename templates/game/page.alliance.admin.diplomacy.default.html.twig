@@ -14,7 +14,7 @@
 		<tbody>
 		{% for diploID, diploName in diploAlliances %}
 		<tr>
-			<td>{{ diploName }}</td>
+			<td>{{ diploName }}{% if diploExpires[diploID] is defined %} <span class="hint">({{ LNG.alt_diplo_until }} <span class="registerTime" data-time="{{ diploExpires[diploID] }}">{{ diploExpires[diploID] }}</span>)</span>{% endif %}</td>
 			<td class="act">
 				{% if diploMode == constant('App\\Game\\Enum\\DiploType::War').value %}
 				<a class="btn btn-sm" href="{{ path('game_alliance_admin_diplomacy_create', {diploMode: constant('App\\Game\\Enum\\DiploType::Peace').value, id: diploID}) }}" data-dialog="" data-dialog-width="650" title="{{ LNG.al_diplo_create|e('html_attr') }}">{{ icon('x', LNG.al_diplo_create) }}</a>

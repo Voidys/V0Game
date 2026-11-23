@@ -79,6 +79,24 @@ class AllianceMessenger
         }
     }
 
+    /**
+     * Tells the receivers that a treaty ran out (written in each receiver's language, sender: the alliance system).
+     *
+     * @param list<array{id: int|string, lang: string}> $receivers
+     */
+    public function treatyExpired(array $receivers, int $level, string $labelOne, string $labelTwo): void
+    {
+        foreach ($receivers as $receiver) {
+            $lang = $this->playerLookup()->getLanguage($receiver['lang']);
+            $this->sendSystem(
+                $receiver['id'],
+                $lang,
+                $lang['alt_diplo_expired'],
+                $lang->formatHtml('alt_diplo_expired_mes', $lang['al_diplo_level'][$level], $labelOne, $labelTwo),
+            );
+        }
+    }
+
     /** Tells a kicked member that he was removed from the alliance. */
     public function memberKicked(int|string $userId, string $label): void
     {

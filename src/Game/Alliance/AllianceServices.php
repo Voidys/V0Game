@@ -66,6 +66,21 @@ class AllianceServices
         return $this->instances[AllianceStatistics::class] ??= new AllianceStatistics($this->db, $this->configs, $this->state, $this->repository());
     }
 
+    public function targets(): AllianceTargetService
+    {
+        return $this->instances[AllianceTargetService::class] ??= new AllianceTargetService($this->db, $this->configs, $this->state);
+    }
+
+    public function activity(): AllianceActivityService
+    {
+        return $this->instances[AllianceActivityService::class] ??= new AllianceActivityService($this->db, $this->configs, $this->state);
+    }
+
+    public function wiki(): AllianceWikiService
+    {
+        return $this->instances[AllianceWikiService::class] ??= new AllianceWikiService($this->db, $this->configs, $this->state);
+    }
+
     public function pages(): AlliancePages
     {
         return $this->instances[AlliancePages::class] ??= new AlliancePages($this->db, $this->configs, $this->state, $this->repository(), $this->statistics(), $this->diplomacy(), $this->memberLists());

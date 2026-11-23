@@ -1,0 +1,6 @@
+{# tool links of the alliance pages (targets, ACS, activity, notes); needs `nav` (activity, wikiEdit) #}
+<a class="btn" href="{{ path('game_alliance_show') }}">{{ icon('arrow-left') }} {{ LNG.al_back }}</a>
+<a class="btn" href="{{ path('game_alliance_targets') }}">{{ icon('crosshair') }} {{ LNG.alt_targets }}</a>
+<a class="btn" href="{{ path('game_alliance_acs') }}">{{ icon('swords') }} {{ LNG.alt_acs }}</a>
+{% if nav.activity %}<a class="btn" href="{{ path('game_alliance_activity') }}">{{ icon('activity') }} {{ LNG.alt_activity }}</a>{% endif %}
+<a class="btn" href="{{ path('game_alliance_wiki') }}">{{ icon('book-open') }} {{ LNG.alt_wiki }}</a>

@@ -1,0 +1,17 @@
+{% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
+{% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}{% include 'game/shared.alliance.toolsNav.html.twig' %}{% endset %}
+{{ ui.page_head(page.id ? LNG.alt_wiki_edit : LNG.alt_wiki_new, 'pencil', null, actions) }}
+{% endblock %}
+{% block content %}
+<section class="panel">
+	<form class="panel__body stack" action="{{ path('game_alliance_wiki_save') }}" method="post">
+		<input type="hidden" name="id" value="{{ page.id }}">
+		<label>{{ LNG.alt_wiki_title }} <input type="text" name="title" maxlength="100" class="control-wide" value="{{ page.title }}" required></label>
+		<label>{{ LNG.alt_wiki_body }} <textarea name="body" rows="18" maxlength="20000">{{ page.body }}</textarea></label>
+		<div><button type="submit" class="btn btn--primary">{{ LNG.al_save }}</button></div>
+	</form>
+</section>
+{% endblock %}

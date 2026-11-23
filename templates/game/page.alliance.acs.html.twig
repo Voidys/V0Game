@@ -1,0 +1,27 @@
+{% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
+{% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}{% include 'game/shared.alliance.toolsNav.html.twig' %}{% endset %}
+{{ ui.page_head(LNG.alt_acs, 'swords', LNG.alt_acs_info, actions) }}
+{% endblock %}
+{% block content %}
+{% for g in groups %}
+<section class="panel panel--flush">
+	<header class="panel__head">
+		<h2>{{ g.name }}</h2>
+		<a class="btn btn-sm" href="{{ path('game_fleet_table_show', {galaxy: g.galaxy, system: g.system, planet: g.planet, planettype: g.planet_type, target_mission: 2}) }}">{{ icon('log-in') }} {{ LNG.alt_acs_join }}</a>
+	</header>
+	<div class="panel__body">
+		<dl class="kv">
+			<dt>{{ LNG.alt_acs_target }}</dt><dd class="mono"><a href="{{ path('game_galaxy_show', {galaxy: g.galaxy, system: g.system}) }}">[{{ g.galaxy }}:{{ g.system }}:{{ g.planet }}]</a></dd>
+			<dt>{{ LNG.alt_acs_arrival }}</dt><dd><span class="countdown" data-time="{{ g.remaining }}"></span></dd>
+			<dt>{{ LNG.alt_acs_participants }}</dt>
+			<dd>{% for p in g.participants %}<span class="tag {{ p.fleet ? 'tag--pos' : '' }}" title="{{ (p.fleet ? LNG.alt_acs_committed : LNG.alt_acs_invited)|e('html_attr') }}">{{ p.username }}</span> {% endfor %}</dd>
+		</dl>
+	</div>
+</section>
+{% else %}
+<section class="panel"><p class="empty">{{ LNG.alt_acs_empty }}</p></section>
+{% endfor %}
+{% endblock %}

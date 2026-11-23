@@ -256,7 +256,9 @@ class AllianceDiplomacyService
                 ':allianceId2'  => $targetAlliance['id'],
             ]);
         } else {
-            $sql = "UPDATE %%DIPLO%% SET `accept` = 1, `request_time` = :request_time
+            // a treaty proposed with a duration runs that long from the acceptance on (assignments run left to right)
+            $sql = "UPDATE %%DIPLO%% SET `expires_at` = IF(`expires_at` IS NULL, NULL, :request_time + (`expires_at` - `request_time`)),
+                `accept` = 1, `request_time` = :request_time
                 WHERE `id` = :id AND `owner_2` = :allianceId";
             $db->update($sql, [
                 ':allianceId'   => $alliance['id'],
@@ -362,9 +364,10 @@ class AllianceDiplomacyService
      * @param int|string $id    id of the other alliance
      * @param int|string $level treaty level (DIPLO_*)
      * @param string $text      free text sent with the request
+     * @param int $expiresDays  optional duration of the treaty in days (1..365, 0 = unlimited; not for war and peace)
      * @throws AllianceException home on an invalid level; json error for unknown/duplicate/own alliance
      */
-    public function create(array $alliance, int|string $id, int|string $level, string $text): void
+    public function create(array $alliance, int|string $id, int|string $level, string $text, int $expiresDays = 0): void
     {
         $USER = $this->state->USER;
         $LNG = $this->state->LNG;
@@ -430,8 +433,9 @@ class AllianceDiplomacyService
             );
         }
 
+        $expiresDays = in_array($level, [DiploType::War->value, DiploType::Peace->value], true) ? 0 : max(0, min(365, $expiresDays));
         $sql = "INSERT INTO %%DIPLO%% SET owner_1 = :allianceId, owner_2 = :allianceTargetID, level	= :level,"
-            . " accept = :accept, accept_text = :text, universe = :universe, request_time = :request_time";
+            . " accept = :accept, accept_text = :text, universe = :universe, request_time = :request_time, expires_at = :expires";
         $this->db->insert($sql, [
             ':allianceId' => $USER['ally_id'],
             ':allianceTargetID' => $targetAlliance['id'],
@@ -440,7 +444,58 @@ class AllianceDiplomacyService
             ':text' => $text,
             ':universe' => $this->universe()->current(),
             ':request_time' => $this->state->runtime->timestamp,
+            ':expires' => $expiresDays > 0 ? $this->state->runtime->timestamp + $expiresDays * 86400 : null,
         ]);
+    }
+
+    /**
+     * End dates of the alliance's treaties for the diplomacy page.
+     *
+     * @param array<string, mixed> $alliance
+     * @return array<int, int> treaty id => expiry time stamp (only treaties with an end date)
+     */
+    public function expiries(array $alliance): array
+    {
+        $rows = $this->db->select(
+            'SELECT id, expires_at FROM %%DIPLO%% WHERE expires_at IS NOT NULL AND (owner_1 = :id OR owner_2 = :id);',
+            [':id' => $alliance['id']],
+        );
+
+        return array_column($rows, 'expires_at', 'id');
+    }
+
+    /**
+     * Ends every treaty whose end date has passed (the daily cleanup): the row is deleted and, when the treaty was
+     * in force, all members of both alliances get a system message in their language. Expired open requests vanish silently.
+     * Does not depend on a logged-in player.
+     *
+     * @return int number of treaties removed
+     */
+    public function expireTreaties(): int
+    {
+        $rows = $this->db->select(
+            'SELECT d.id, d.owner_1, d.owner_2, d.level, d.accept, a1.ally_tag AS tag_1, a1.ally_name AS name_1,
+                a2.ally_tag AS tag_2, a2.ally_name AS name_2
+            FROM %%DIPLO%% d
+            INNER JOIN %%ALLIANCE%% a1 ON a1.id = d.owner_1
+            INNER JOIN %%ALLIANCE%% a2 ON a2.id = d.owner_2
+            WHERE d.expires_at IS NOT NULL AND d.expires_at <= :now AND d.level NOT IN (:war, :peace);',
+            [':now' => $this->state->runtime->timestamp, ':war' => DiploType::War->value, ':peace' => DiploType::Peace->value],
+        );
+
+        foreach ($rows as $row) {
+            $this->db->delete('DELETE FROM %%DIPLO%% WHERE id = :id;', [':id' => $row['id']]);
+            if ($row['accept'] == 1) {
+                $this->messenger->treatyExpired(
+                    $this->repository->messageReceivers((int) $row['owner_2'], (int) $row['owner_1']),
+                    (int) $row['level'],
+                    '[' . $row['tag_1'] . '] ' . $row['name_1'],
+                    '[' . $row['tag_2'] . '] ' . $row['name_2'],
+                );
+            }
+        }
+
+        return count($rows);
     }
 
     /**

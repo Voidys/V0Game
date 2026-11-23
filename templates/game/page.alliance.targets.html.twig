@@ -1,0 +1,79 @@
+{% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
+{% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}{% include 'game/shared.alliance.toolsNav.html.twig' %}{% endset %}
+{{ ui.page_head(LNG.alt_targets, 'crosshair', LNG.alt_targets_info, actions) }}
+{% endblock %}
+{% block content %}
+<section class="panel">
+	{{ ui.panel_head(LNG.alt_target_add) }}
+	<form class="panel__body" action="{{ path('game_alliance_target_add') }}" method="post">
+		<div class="row">
+			<label>{{ LNG.alt_galaxy }} <input type="number" name="galaxy" min="1" max="{{ maxGalaxy }}" value="1" required></label>
+			<label>{{ LNG.alt_system }} <input type="number" name="system" min="1" max="{{ maxSystem }}" value="1" required></label>
+			<label>{{ LNG.alt_planet }} <input type="number" name="planet" min="1" max="{{ maxPlanets }}" value="1" required></label>
+			<label>{{ LNG.alt_type }}
+				<select name="planet_type">
+					<option value="1">{{ LNG.alt_type_planet }}</option>
+					<option value="3">{{ LNG.alt_type_moon }}</option>
+					<option value="2">{{ LNG.alt_type_debris }}</option>
+				</select>
+			</label>
+			<label>{{ LNG.alt_note }} <input type="text" name="note" maxlength="{{ noteLength }}" class="control-wide"></label>
+			<button type="submit" class="btn btn--primary">{{ icon('plus') }} {{ LNG.alt_target_add }}</button>
+		</div>
+	</form>
+</section>
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.alt_targets, targets|length) }}
+	{% if targets %}
+	<table class="data">
+		<thead><tr>
+			<th class="ctr">{{ LNG.al_coords }}</th>
+			<th>{{ LNG.alt_owner }}</th>
+			<th>{{ LNG.alt_note }}</th>
+			<th>{{ LNG.alt_claim }}</th>
+			<th class="act"></th>
+		</tr></thead>
+		<tbody>
+		{% for t in targets %}
+		<tr>
+			<td class="ctr mono"><a href="{{ path('game_galaxy_show', {galaxy: t.galaxy, system: t.system}) }}">[{{ t.galaxy }}:{{ t.system }}:{{ t.planet }}]</a> <span class="hint">{{ t.planet_type == 3 ? LNG.alt_type_moon : (t.planet_type == 2 ? LNG.alt_type_debris : '') }}</span></td>
+			<td>
+				{% if t.owner_name %}{{ t.owner_name }}{% if t.planet_name %} <span class="hint">({{ t.planet_name }})</span>{% endif %}
+				{% if t.inactive == 1 %} <span class="tag tag--warn" title="{{ LNG.alt_inactive_title|e('html_attr') }}">i</span>{% elseif t.inactive == 2 %} <span class="tag tag--neg" title="{{ LNG.alt_inactive_long_title|e('html_attr') }}">I</span>{% endif %}
+				{% else %}<span class="hint">{{ LNG.alt_no_planet }}</span>{% endif %}
+			</td>
+			<td>{{ t.note }}<br><span class="hint">{{ LNG.alt_added_by }} {{ t.adder }}</span></td>
+			<td>
+				{% if t.claimed_by %}
+				<span class="tag tag--warn">{{ icon('lock') }} {{ t.claimer }}</span>
+				<span class="hint countdown" data-time="{{ t.claimed_until - now }}"></span>
+				{% else %}
+				<form action="{{ path('game_alliance_target_claim', {id: t.id}) }}" method="post" class="inline">
+					<select name="hours" aria-label="{{ LNG.alt_claim_hours|e('html_attr') }}">
+						{% for h in claimHours %}<option value="{{ h }}">{{ h }} {{ LNG.alt_hours_short }}</option>{% endfor %}
+					</select>
+					<button type="submit" class="btn btn-sm">{{ icon('lock') }} {{ LNG.alt_claim }}</button>
+				</form>
+				{% endif %}
+			</td>
+			<td class="act">
+				<a class="btn btn-sm" href="{{ path('game_fleet_table_show', {galaxy: t.galaxy, system: t.system, planet: t.planet, planettype: t.planet_type, target_mission: 1}) }}" title="{{ LNG.alt_attack|e('html_attr') }}">{{ icon('swords', LNG.alt_attack) }}</a>
+				{% if t.claimed_by and (t.claimed_by == selfId or canManage) %}
+				<a class="btn btn-sm" data-method="post" href="{{ path('game_alliance_target_unclaim', {id: t.id}) }}" title="{{ LNG.alt_unclaim|e('html_attr') }}">{{ icon('ban', LNG.alt_unclaim) }}</a>
+				{% endif %}
+				{% if canManage or t.added_by == selfId %}
+				<a class="btn btn-sm" data-method="post" href="{{ path('game_alliance_target_delete', {id: t.id}) }}" data-confirm-danger data-confirm="{{ LNG.alt_target_delete_confirm|e('html_attr') }}" title="{{ LNG.al_dlte|e('html_attr') }}">{{ icon('x', LNG.al_dlte) }}</a>
+				{% endif %}
+			</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<p class="empty">{{ LNG.alt_targets_empty }}</p>
+	{% endif %}
+</section>
+{% endblock %}

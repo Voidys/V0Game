@@ -1,0 +1,23 @@
+{% extends layout_template %}
+{% import '_macros/ui.html.twig' as ui %}
+{% block title %}{{ LNG.lm_alliance }}{{ parent() }}{% endblock %}
+{% block pagehead %}
+{% set actions %}{% include 'game/shared.alliance.toolsNav.html.twig' %}{% endset %}
+{{ ui.page_head(LNG.alt_activity, 'activity', LNG.alt_activity_info, actions) }}
+{% endblock %}
+{% block content %}
+{% set tagClass = {now: 'tag--pos', hour: 'tag--pos', day: 'tag--warn', week: 'tag--warn', older: 'tag--neg'} %}
+<div class="grid-2">
+{% for bucket in buckets %}
+	<section class="panel panel--flush">
+		{{ ui.panel_head(attribute(LNG, 'alt_bucket_' ~ bucket), grid[bucket]|length) }}
+		<div class="panel__body">
+			{% for m in grid[bucket] %}<a class="tag {{ tagClass[bucket] }}" href="#" data-action="dialog-playercard" data-id="{{ m.id }}">{{ m.username }}</a> {% else %}<span class="hint">-</span>{% endfor %}
+		</div>
+	</section>
+{% endfor %}
+</div>
+{% endblock %}
+{% block script %}{{ parent() }}
+<script type="module" src="./scripts/game/alliance.js?v={{ asset_version }}"></script>
+{% endblock %}
