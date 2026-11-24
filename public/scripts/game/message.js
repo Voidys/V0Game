@@ -23,8 +23,8 @@ const rememberCategory = (category) => {
 
 /**
  * Category preferences of the message page (localStorage): "open all categories" and "remember last category". Without a
- * `category` in the URL it redirects to the remembered category or to 100 (all) according to the switches; with one it
- * remembers it. The two switches exclude each other. Reads/writes localStorage, may replace the location.
+ * `category` in the URL it redirects to the remembered category or to 100 (all) according to the switches, else to the
+ * first category with unread messages; with one it remembers it. The two switches exclude each other. Reads/writes localStorage, may replace the location.
  */
 const initCategoryPreferences = () => {
   const openAll = localStorage.getItem(OPEN_ALL_KEY) === '1';
@@ -50,6 +50,15 @@ const initCategoryPreferences = () => {
 
     if (openAll) {
       url.searchParams.set('category', '100');
+      window.location.replace(url.toString());
+      return;
+    }
+
+    // neither switch is on: open the first category that has unread messages (never "all", favourites or search)
+    const unread = qsa('[data-message-category].has-unread')
+      .find((chip) => !['100', '998', '999'].includes(chip.dataset.messageCategory));
+    if (unread && !url.searchParams.has('searchtext')) {
+      url.searchParams.set('category', unread.dataset.messageCategory);
       window.location.replace(url.toString());
       return;
     }
@@ -719,6 +728,15 @@ window.onPageInit(() => {
   const active = cats?.querySelector('.mail-cat.is-active');
   if (cats && active && cats.scrollWidth > cats.clientWidth) {
     cats.scrollLeft = active.offsetLeft - (cats.clientWidth - active.offsetWidth) / 2;
+  }
+  // edge fades only where the strip continues (CSS reads the two classes)
+  if (cats) {
+    const fades = () => {
+      cats.classList.toggle('is-scrolled-start', cats.scrollLeft > 4);
+      cats.classList.toggle('is-scrolled-end', cats.scrollLeft + cats.clientWidth >= cats.scrollWidth - 4);
+    };
+    cats.addEventListener('scroll', fades, { passive: true });
+    fades();
   }
   for (const checkbox of document.querySelectorAll('input[name*="messageID"]')) {
     checkbox.addEventListener('change', () => {

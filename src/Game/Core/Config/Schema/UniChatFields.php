@@ -56,6 +56,13 @@ final class UniChatFields
                     'min' => 0,
                     'default' => 0,
                 ],
+                'chat_global_slowmode' => [
+                    'type' => ConfigFieldSchema::TYPE_NUMBER,
+                    'transform' => 'int',
+                    'min' => 0,
+                    'max' => 3600,
+                    'default' => 0,
+                ],
             ],
         ];
     }

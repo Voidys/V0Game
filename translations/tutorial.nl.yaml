@@ -17,6 +17,7 @@ tutorial_goal:
     '3': Stuur een alliantiesollicitatie
 tutorial_goals_header: 'Doelen:'
 tutorial_goals_ignore: (negeren)
+tutorial_goto: "Naar de pagina"
 tutorial_rewards_header: 'Beloningen:'
 tutorial_text:
   step0: 'Welkom bij {game_name}!<br><br>
@@ -32,7 +33,7 @@ tutorial_text:
   step2: 'Samen spelen is leuker. De meeste spelers hangen rond op onze Discord, waar je antwoorden krijgt en medespelers vindt.<br>
 
     Kom je er nog niet uit? Dan kun je hier ook een supportticket openen.'
-  step3: "Andere spelers plunderen is een tweede manier om aan grondstoffen te komen - en het kan jou ook overkomen. Bouw dus je eerste verdediging!<br>\nZelfs een kleine verdediging beschermt je productie 's nachts.<br><br>\nAantallen alleen beslissen een gevecht niet; de samenstelling van de aanvallende vloot telt ook mee.<br>\nAanvallers moeten door je verdediging heen voordat ze kunnen plunderen, en elk schip dat ze daarvoor moeten sturen verlaagt hun winst en kan ze meer schepen kosten.<br>\nBouw verdediging in het menu <b>Verdediging</b>. Je hebt een werf nodig (die op haar beurt een robotfabriek vereist) en wat deuterium.<br><br>\nHier is het bijbehorende artikel in de wiki: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Verdedigingsinstallaties</a>"
+  step3: "Andere spelers plunderen is een tweede manier om aan grondstoffen te komen - en het kan jou ook overkomen. Bouw dus je eerste verdediging!<br>\nZelfs een kleine verdediging beschermt je productie 's nachts.<br><br>\nAantallen alleen beslissen een gevecht niet; de samenstelling van de aanvallende vloot telt ook mee.<br>\nAanvallers moeten door je verdediging heen voordat ze kunnen plunderen, en elk schip dat ze daarvoor moeten sturen verlaagt hun winst en kan ze meer schepen kosten.<br>\nBouw verdediging op de <b>Werf</b>, op het tabblad <b>Verdediging</b>. Je hebt een werf nodig (die op haar beurt een robotfabriek vereist) en wat deuterium.<br><br>\nHier is het bijbehorende artikel in de wiki: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Verdedigingsinstallaties</a>"
   step4: 'Houd je voorraad op peil door je mijnen uit te breiden!<br>
 
     Gebouwen, schepen, verdediging en onderzoek worden na verloop van tijd duurder, dus je productie moet meegroeien. Open nu Gebouwen en upgrade je mijnen zodra je de grondstoffen hebt.'

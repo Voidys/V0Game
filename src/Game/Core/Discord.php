@@ -29,16 +29,10 @@ class Discord
         $this->httpClient = $httpClient ?? HttpClient::create();
     }
 
-    /** Only https://discord.com|discordapp.com (also ptb./canary.) /api/webhooks/... URLs are posted to (no SSRF via hooks). */
+    /** Only https://discord.com|discordapp.com (also ptb./canary.) /api/webhooks/{id}/{token} URLs, no query/fragment/port/userinfo (no SSRF via hooks). */
     public static function isAllowedWebhook(string $url): bool
     {
-        $parts = parse_url($url);
-        if ($parts === false || ($parts['scheme'] ?? '') !== 'https' || isset($parts['user']) || isset($parts['pass']) || isset($parts['port'])) {
-            return false;
-        }
-
-        return preg_match('/^(?:(?:ptb|canary)\.)?discord(?:app)?\.com$/i', $parts['host'] ?? '') === 1
-            && str_starts_with($parts['path'] ?? '', '/api/webhooks/');
+        return preg_match('#^https://(?:discord\.com|discordapp\.com|ptb\.discord\.com|canary\.discord\.com)/api/webhooks/\d{1,25}/[A-Za-z0-9_-]{20,100}$#D', $url) === 1;
     }
 
     /**
@@ -158,6 +152,7 @@ class Discord
         try {
             $this->httpClient->request('POST', $webHookUrl, [
                 'max_redirects' => 0,
+                'timeout' => 5,
                 'headers' => ['Content-type' => 'application/json'],
                 'body' => $this->buildPayload($message),
             ])->getStatusCode();

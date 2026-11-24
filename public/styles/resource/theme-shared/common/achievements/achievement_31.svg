@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+  <rect width="108" height="108" fill="#fff"/>
+  <g transform="translate(0.4 6.3) scale(0.99)">
+  <path d="M14 82q40-14 80 0v6H14z" fill="#c9c9c9" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M54 80q-6-22 4-40" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M58 42q-8-14-26-10q12 0 18 14M58 42q8-14 26-10q-12 0-18 14M58 42q-14-4-22 6q12-6 22 0M58 42q14-4 22 6q-12-6-22 0M58 42q-2-10 2-18q4 8 0 18" fill="#111" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="64" cy="48" r="4" fill="#6b6b6b"/><circle cx="52" cy="50" r="4" fill="#6b6b6b"/>
+  <circle cx="84" cy="24" r="9" fill="#fff" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <path d="M84 8v2M95 17l-2 1M95 31l-2-1M73 31l2-1" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M18 70q6-10 14-8" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <rect x="24" y="68" width="20" height="8" rx="3" fill="#fff" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-8 34 72)"/>
+  <text x="22" y="40" font-family="system-ui, sans-serif" font-weight="800" font-size="12" text-anchor="middle" fill="#6b6b6b">Z</text>
+  <text x="30" y="32" font-family="system-ui, sans-serif" font-weight="800" font-size="9" text-anchor="middle" fill="#6b6b6b">z</text>
+  </g>
+</svg>

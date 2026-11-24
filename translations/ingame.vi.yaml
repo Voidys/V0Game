@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': Chúc mừng năm mới!
   '55': Huyền thoại sống
+  '56': 'Động cơ warp'
+  '57': 'Nhà vẽ bản đồ sao'
+  '58': 'Bác học'
+  '59': 'Kỹ sư vạn năng'
+  '60': 'Kẻ tích trữ'
+  '61': 'Tín đồ mặt trời'
+  '62': 'Full house'
+  '63': 'Nông dân kho chứa'
+  '64': 'Đế chế khai mỏ'
+  '65': 'Học sinh giỏi'
+  '66': 'Ông trùm chợ'
+  '67': 'David đấu Goliath'
+  '68': 'Chiến thắng hoàn hảo'
+  '69': 'Hủy diệt lẫn nhau'
+  '70': 'Thị trấn ma'
+  '71': 'Phát bắn may mắn'
+  '72': 'Pháo hoa'
+  '73': 'Phản gián'
+  '74': 'Vua cướp biển'
+  '75': 'Lao công vũ trụ'
+  '76': 'Thợ lặn xác tàu'
+  '77': 'Đáng kính'
+  '78': 'Bị truy nã'
+  '79': 'Người chơi đồng đội'
+  '80': 'Gì cũng thấy rồi'
+  '81': 'Sói biển già'
+  '82': 'Thợ săn người ngoài hành tinh'
+  '83': 'Thợ săn kho báu'
+  '84': 'Đường dài'
+  '85': 'Ngày nhuận'
+  '86': 'Thứ Sáu ngày 13'
+  '87': 'Chính ngọ'
+  '88': 'Chuyến du hành lớn'
+  '89': 'Tốt nghiệp'
+  '90': 'Nhà ngoại giao'
+  '91': 'Sử gia'
+  '92': 'Bạn qua thư'
+  '93': 'Hoàng đế thiên hà'
+  '94': 'Hạm đội lớn'
+  '95': 'Chúa tể thuộc địa'
+  '96': 'Người hoàn thiện'
 Achievement_text:
-  '1': Bạn có cả một đêm cho riêng mình mà không bắn trúng phát nào.
+  '1': 'Cho 5 đòn tấn công của bạn đáp xuống giữa nửa đêm và 6 giờ sáng trong cùng một đêm mà không thắng đòn nào.'
   '2': Bạn có hạm đội bay liên tục suốt 90 ngày.
   '3': Bạn mất hạm đội khi ngôn ngữ đang đặt là "Tiếng Pháp".
   '4': Nghiên cứu Công nghệ ion cấp 10.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Hạm đội của bạn bị hố đen phá hủy trong chuyến thám hiểm đầu tiên.
   '13': Gửi hạm đội đi khi chỉ còn chưa đến 5 giây trước khi cuộc tấn công đang tới đổ bộ.
   '14': Mất 10 hạm đội vào hố đen. Hư vô đang đói.
-  '15': Không tạo được mặt trăng ở một hành tinh sau 10 lần thử. Chúc may mắn lần sau.
+  '15': 'Không nhận được mặt trăng đầu tiên sau 10 trận chiến với tỉ lệ mặt trăng tối đa.'
   '16': Hơn 250 tàu tái chế của bạn trở về tay trắng.
   '17': Xếp ít nhất 5000 Bệ phóng tên lửa vào một lệnh xây duy nhất.
   '18': Đốt 5 triệu deuterium làm nhiên liệu trên một hành tinh trong vòng 24 giờ.
@@ -111,6 +152,47 @@ Achievement_text:
   '53': Giữ cấp cao nhất ở 5 nghiên cứu cùng lúc.
   '54': Canh giờ một cuộc tấn công vào người chơi đang hoạt động để đổ bộ lúc 01/01 00:00:00.
   '55': Thành tựu đặc biệt
+  '56': 'Đạt cấp 15 động cơ siêu không gian.'
+  '57': 'Đạt cấp 15 thiên văn vật lý.'
+  '58': 'Nghiên cứu mọi công nghệ (trừ graviton) ít nhất một lần.'
+  '59': 'Đưa mọi nghiên cứu (trừ graviton) lên cấp 10.'
+  '60': 'Sở hữu 1.000.000.000 của một tài nguyên trên một hành tinh hoặc mặt trăng.'
+  '61': 'Có 1000 vệ tinh mặt trời cùng lúc trên một hành tinh.'
+  '62': 'Xây kín mọi ô của một hành tinh có ít nhất 250 ô.'
+  '63': 'Nâng kho kim loại, tinh thể và deuterium lên cấp 15 trên một hành tinh.'
+  '64': 'Có mỏ kim loại cấp 30 trở lên trên 9 hành tinh.'
+  '65': 'Bắt đầu một lệnh xây dựng kéo dài hơn 30 ngày.'
+  '66': 'Để người chơi khác mua 50 lời chào bán của bạn trên chợ.'
+  '67': 'Thắng một trận phòng thủ trước kẻ tấn công có giá trị ít nhất gấp 10 lần hạm đội và phòng thủ của bạn (kẻ tấn công có giá trị ít nhất 1.000.000 tài nguyên).'
+  '68': 'Thắng một trận tấn công tiêu diệt ít nhất 1000 đơn vị địch mà không mất đơn vị nào.'
+  '69': 'Kết thúc một trận hòa sau số hiệp tối đa, mỗi bên mất ít nhất 10.000 đơn vị.'
+  '70': 'Bị tấn công trên một hành tinh không có tàu và phòng thủ, nên kẻ tấn công không cướp được gì.'
+  '71': 'Nhận một mặt trăng từ trận đánh chỉ có 1 % cơ hội ra mặt trăng.'
+  '72': 'Tiêu diệt ít nhất 100 đơn vị phòng thủ bằng một đòn tên lửa liên hành tinh.'
+  '73': 'Tiêu diệt ít nhất 100 tàu do thám địch trong một trận đánh trên hành tinh của bạn.'
+  '74': 'Cướp tổng cộng 1.000.000.000 tài nguyên.'
+  '75': 'Tái chế tổng cộng 1.000.000.000 tài nguyên.'
+  '76': 'Sửa chữa tổng cộng 1000 tàu từ bãi đổ nát.'
+  '77': 'Kiếm 1000 điểm danh dự.'
+  '78': 'Lần đầu tiên trở thành kẻ ngoài vòng pháp luật.'
+  '79': 'Tham gia với tư cách người tấn công trong 25 đòn tấn công liên hợp thắng lợi.'
+  '80': 'Trải qua mọi kết quả viễn chinh có thể có ít nhất một lần.'
+  '81': 'Gửi 1000 chuyến viễn chinh.'
+  '82': 'Thắng một trận viễn chinh trước hạm đội người ngoài hành tinh lớn.'
+  '83': 'Tìm thấy lượng tài nguyên lớn trong 50 chuyến viễn chinh.'
+  '84': 'Gửi một hạm đội bay một chiều hơn 24 giờ.'
+  '85': 'Cho một hạm đội đến đích vào ngày 29 tháng 2.'
+  '86': 'Mất toàn bộ hạm đội tấn công vào Thứ Sáu ngày 13.'
+  '87': 'Cho hai đòn tấn công của bạn (không phải liên hợp) đáp xuống cùng một mục tiêu trong cùng một giây.'
+  '88': 'Có cùng lúc các hạm đội đang bay tới mọi thiên hà của vũ trụ.'
+  '89': 'Hoàn thành hướng dẫn.'
+  '90': 'Có cùng lúc hiệp ước đang hiệu lực với 3 liên minh khác (mọi thành viên liên minh đều nhận được).'
+  '91': 'Tạo 5 trang wiki của liên minh.'
+  '92': 'Có 10 lời mời kết bạn được chấp nhận.'
+  '93': 'Đứng số 1 bảng xếp hạng tổng điểm trong 7 ngày liên tiếp.'
+  '94': 'Có cùng lúc 100 Tử tinh trên một hành tinh hoặc mặt trăng.'
+  '95': 'Chiếm mọi vị trí hành tinh mà thiên văn vật lý của bạn cho phép (ít nhất 9), mỗi hành tinh có ít nhất 200 ô.'
+  '96': 'Sở hữu thêm 50 thành tựu khác.'
 ach_filter_all: Tất cả
 ach_filter_locked: Đã khóa
 ach_filter_unlocked: Đã mở khóa
@@ -193,6 +275,7 @@ Advanced_Stats:
   moons_lost: Mặt trăng đã mất
   moons_received: Mặt trăng đã nhận
   outlaw_activations: Số lần kích hoạt ngoài vòng pháp luật
+  alliance_pages_created: 'Số trang wiki liên minh đã tạo'
   planets_created: Hành tinh đã thực dân hóa
   planets_deleted: Hành tinh đã bỏ
   raided_crystal: Tinh thể đã cướp
@@ -200,6 +283,7 @@ Advanced_Stats:
   raided_metal: Kim loại đã cướp
   recycled_crystal: Tinh thể đã tái chế
   recycled_metal: Kim loại đã tái chế
+  acs_wins: 'Số đòn tấn công ACS thắng với vai trò bên tấn công'
   set_sail_wins: Trận thắng khi bật giao diện SetSail
   stolen_crystal: Tinh thể đã lấy
   stolen_deuterium: Deuterium đã lấy
@@ -326,6 +410,14 @@ al_manage_members: Thành viên
 al_manage_options: Tùy chọn
 al_manage_ranks: Cấp bậc
 al_manage_request_min_points: Điểm tối thiểu
+al_chat_slowmode: "Chế độ chậm của chat"
+al_chat_slowmode_info: "Khoảng cách tối thiểu giữa hai tin nhắn của một thành viên trong chat liên minh (bạn là trưởng nên được miễn)."
+al_chat_slowmode_off: "Tắt"
+al_chat_slowmode_10: "10 giây"
+al_chat_slowmode_30: "30 giây"
+al_chat_slowmode_60: "1 phút"
+al_chat_slowmode_120: "2 phút"
+al_chat_slowmode_300: "5 phút"
 al_manage_requests: Đơn xin gia nhập
 al_member: Tên
 al_member_since: Gia nhập
@@ -709,6 +801,8 @@ fl_sac_of_fleet: Hạm đội ACS
 fl_select_all_ships: Tất cả tàu
 fl_selected_resources: Tài nguyên đã chọn
 fl_send_back: Quay về
+fl_send_again: "Gửi lại"
+fl_send_again_title: "Chuẩn bị hạm đội mới với cùng tàu, mục tiêu và nhiệm vụ"
 fl_send_fleet: Gửi hạm đội
 fl_ship_available: Tàu khả dụng
 fl_ship_type: Loại tàu
@@ -966,6 +1060,7 @@ market_p_msg_wrong_resource_type: Chào bán này yêu cầu loại tài nguyên
 market_p_offer_type: Loại chào bán
 market_p_ratio: Tỷ lệ
 market_p_submit: Mua ngay!
+market_not_enough_stock: "Hành tinh này không đủ tài nguyên cho lời đề nghị này."
 market_p_to_duration: Bay đến
 market_ship_as_first: 'Chọn loại tàu để giao dịch:'
 Messages: Tin nhắn
@@ -1401,7 +1496,7 @@ tkb_month: tháng
 tkb_only: chỉ
 tkb_owners: Người dùng tham gia
 tkb_platz: Hạng
-tkb_self: chỉ của bạn
+tkb_self: "Các trận của tôi"
 tkb_timeframe: Khoảng thời gian
 tkb_top: Sảnh chiến đấu
 tkb_units: Đơn vị
@@ -1573,6 +1668,7 @@ mg_quick_delete_older: "Xóa tin cũ hơn %d ngày"
 mg_confirm_delete_read: "Xóa tất cả tin nhắn đã đọc của mục này? Tin yêu thích được giữ lại."
 mg_confirm_delete_older: "Xóa tất cả tin nhắn của mục này cũ hơn %d ngày? Tin yêu thích được giữ lại."
 mg_spy_again: "Do thám lại"
+mg_send_fleet: "Gửi hạm đội đến đây"
 fl_change_target: "Đổi mục tiêu"
 mg_group_mark: "Đánh dấu đã đọc"
 mg_group_delete: "Xóa"
@@ -1597,6 +1693,7 @@ al_find_none_yet: "Chưa có liên minh nào trong vũ trụ này."
 al_no_inside_text: "Chưa có văn bản dành cho thành viên."
 bd_needs: 'Cần'
 bd_missing: 'Thiếu'
+bd_locked_group: "Bị khóa ({n})"
 honorfights: "Trận chiến danh dự"
 pl_block_head: "Chặn"
 pl_block_hint: "Có hiệu lực ngay, không cần nút Lưu."
@@ -1668,6 +1765,9 @@ shell_jump: Chuyển đến…
 shell_jump_tip: Chuyển đến trang, hành tinh hoặc tọa độ
 shell_switch_planet: Đổi hành tinh
 shell_switch_to: Chuyển sang %s
+shell_build_running: "Đang xây dựng"
+shell_idle_build: "Hàng đợi xây dựng trống"
+shell_idle_shipyard: "Xưởng đóng tàu trống"
 shell_moon_of: Mặt trăng của %s
 shell_fields: ô
 shell_slots_tip: Đã dùng %1 trên %2 vị trí hành tinh
@@ -1716,3 +1816,8 @@ rec_hidden_holder: "hidden"
 rec_hidden_holder_info: "The record holder does not show their name in the records."
 rec_pending: "New record – counted at the next statistics update."
 rec_you: "You (not counted yet)"
+lm_queues: "Hàng đợi"
+queues_idle: "Trống"
+queues_intro: "Hàng đợi xây dựng, xưởng đóng tàu và nghiên cứu của mọi hành tinh và mặt trăng trong một cái nhìn."
+chat_err_slow: "Chế độ chậm đang bật: vui lòng đợi thêm %s giây."
+chat_slow_hint: "Chế độ chậm: mỗi %s giây một tin nhắn."

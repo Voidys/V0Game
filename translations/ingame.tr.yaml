@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': Mutlu yıllar!
   '55': Yaşayan efsane
+  '56': 'Warp motoru'
+  '57': 'Yıldız haritacısı'
+  '58': 'Çok bilmiş'
+  '59': 'Her şeyin mühendisi'
+  '60': 'Istifçi'
+  '61': 'Güneşe tapan'
+  '62': 'Full house'
+  '63': 'Silo çiftçisi'
+  '64': 'Madencilik imparatorluğu'
+  '65': 'Çalışkan öğrenci'
+  '66': 'Pazar ustası'
+  '67': 'David''e karşı Goliath'
+  '68': 'Kusursuz zafer'
+  '69': 'Karşılıklı yıkım'
+  '70': 'Hayalet kasaba'
+  '71': 'Şans vuruşu'
+  '72': 'Havai fişek'
+  '73': 'Karşı casusluk'
+  '74': 'Korsan kral'
+  '75': 'Uzay çöpçüsü'
+  '76': 'Enkaz dalgıcı'
+  '77': 'Onurlu'
+  '78': 'Aranıyor'
+  '79': 'Takım oyuncusu'
+  '80': 'Her şeyi gördüm'
+  '81': 'Deniz kurdu'
+  '82': 'Uzaylı avcısı'
+  '83': 'Hazine avcısı'
+  '84': 'Uzun yol'
+  '85': 'Artık gün'
+  '86': '13. Cuma'
+  '87': 'Öğle vakti'
+  '88': 'Büyük tur'
+  '89': 'Mezun'
+  '90': 'Diplomat'
+  '91': 'Vakanüvis'
+  '92': 'Mektup arkadaşı'
+  '93': 'Galaktik imparator'
+  '94': 'Armada'
+  '95': 'Koloni lordu'
+  '96': 'Tamamlayıcı'
 Achievement_text:
-  '1': Bütün bir gece sana kaldı ama tek bir atış bile yapamadın.
+  '1': 'Aynı gece gece yarısı ile sabah 6 arasında 5 saldırının ulaşmasını sağla ve hiçbirini kazanma.'
   '2': 90 gün boyunca durmadan hareket halinde filolarının oldu.
   '3': Dilin “Fransızca” iken filonu kaybettin.
   '4': İyon Tekniğini 10. seviyeye araştır.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': İlk keşif seferinde filon bir kara delik tarafından yok edildi.
   '13': Gelen bir saldırının varmasına 5 saniyeden az kalmışken filonu uzağa gönder.
   '14': 10 filoyu kara deliklere kaybet. Boşluk aç.
-  '15': Bir gezegende 10 denemede ay oluşturamadın. Bir dahaki sefere şansın yaver gider.
+  '15': 'En yüksek ay şansıyla girdiğin 10 savaşta ilk ayını elde edemeyeceksin.'
   '16': 250'den fazla Geri Dönüşümcün boş döndü.
   '17': Tek bir inşa emrinde en az 5000 Roketatar sıraya al.
   '18': 24 saat içinde tek bir gezegende yakıt olarak 5 milyon deuterium yak.
@@ -199,6 +240,7 @@ Advanced_Stats:
   moons_lost: Kaybedilen aylar
   moons_received: Devralınan aylar
   outlaw_activations: Kanun kaçağı etkinleştirmeleri
+  alliance_pages_created: 'Oluşturulan ittifak wiki sayfaları'
   planets_created: Kolonileştirilen gezegenler
   planets_deleted: Terk edilen gezegenler
   raided_crystal: Yağmalanan kristal
@@ -206,6 +248,7 @@ Advanced_Stats:
   raided_metal: Yağmalanan metal
   recycled_crystal: Geri dönüştürülen kristal
   recycled_metal: Geri dönüştürülen metal
+  acs_wins: 'Saldıran olarak kazanılan ACS saldırıları'
   set_sail_wins: SetSail teması açıkken kazanılan savaşlar
   stolen_crystal: Çalınan kristal
   stolen_deuterium: Çalınan deuterium
@@ -332,6 +375,14 @@ al_manage_members: Üyeleri yönet
 al_manage_options: Seçenekler
 al_manage_ranks: Rütbeler
 al_manage_request_min_points: En az puan
+al_chat_slowmode: "Sohbet yavaş modu"
+al_chat_slowmode_info: "Bir üyenin ittifak sohbetinde iki mesajı arasındaki en kısa süre (lider olarak sen muafsın)."
+al_chat_slowmode_off: "Kapalı"
+al_chat_slowmode_10: "10 saniye"
+al_chat_slowmode_30: "30 saniye"
+al_chat_slowmode_60: "1 dakika"
+al_chat_slowmode_120: "2 dakika"
+al_chat_slowmode_300: "5 dakika"
 al_manage_requests: Başvurular
 al_member: Ad
 al_member_since: Katılma tarihi
@@ -715,6 +766,8 @@ fl_sac_of_fleet: İSS filosu
 fl_select_all_ships: Tüm gemiler
 fl_selected_resources: Seçilen kaynaklar
 fl_send_back: Geri çağır
+fl_send_again: "Tekrar gönder"
+fl_send_again_title: "Aynı gemiler, hedef ve görevle yeni bir filo hazırla"
 fl_send_fleet: Filo gönder
 fl_ship_available: Mevcut gemiler
 fl_ship_type: Gemi türü
@@ -972,6 +1025,7 @@ market_p_msg_wrong_resource_type: Bu teklif geçersiz bir kaynak istiyor.
 market_p_offer_type: Teklif türü
 market_p_ratio: Oran
 market_p_submit: Şimdi satın al!
+market_not_enough_stock: "Bu gezegende bu teklif için gereken hammaddeler yok."
 market_p_to_duration: Varışa
 market_ship_as_first: 'Ticaret için gemi türünü seç:'
 Messages: Mesajlar
@@ -1407,7 +1461,7 @@ tkb_month: ay
 tkb_only: yalnızca
 tkb_owners: Katılan oyuncular
 tkb_platz: Sıra
-tkb_self: yalnızca kendi
+tkb_self: "Savaşlarım"
 tkb_timeframe: Zaman aralığı
 tkb_top: Savaş Salonu
 tkb_units: Birimler
@@ -1579,6 +1633,7 @@ mg_quick_delete_older: "%d günden eskileri sil"
 mg_confirm_delete_read: "Bu kategorideki tüm okunmuş mesajlar silinsin mi? Favoriler korunur."
 mg_confirm_delete_older: "Bu kategorideki %d günden eski tüm mesajlar silinsin mi? Favoriler korunur."
 mg_spy_again: "Tekrar casusluk yap"
+mg_send_fleet: "Filoyu buraya gönder"
 fl_change_target: "Hedefi değiştir"
 mg_group_mark: "Okundu olarak işaretle"
 mg_group_delete: "Sil"
@@ -1603,6 +1658,7 @@ al_find_none_yet: "Bu evrende henüz ittifak yok."
 al_no_inside_text: "Henüz üyelere özel metin yok."
 bd_needs: 'Gerekli'
 bd_missing: 'Eksik'
+bd_locked_group: "Kilitli ({n})"
 honorfights: "Onur savaşları"
 pl_block_head: "Engelle"
 pl_block_hint: "Hemen etkili olur, Kaydet düğmesi yok."
@@ -1674,6 +1730,9 @@ shell_jump: Git…
 shell_jump_tip: Bir sayfaya, gezegene veya koordinata git
 shell_switch_planet: Gezegen değiştir
 shell_switch_to: '%s gezegenine geç'
+shell_build_running: "İnşaat sürüyor"
+shell_idle_build: "İnşaat sırası boş"
+shell_idle_shipyard: "Tersane boş"
 shell_moon_of: '%s Ayı'
 shell_fields: alan
 shell_slots_tip: '%1 / %2 gezegen yuvası dolu'
@@ -1722,3 +1781,8 @@ rec_hidden_holder: "hidden"
 rec_hidden_holder_info: "The record holder does not show their name in the records."
 rec_pending: "New record – counted at the next statistics update."
 rec_you: "You (not counted yet)"
+lm_queues: "Sıralar"
+queues_idle: "Boş"
+queues_intro: "Tüm gezegenlerin ve ayların inşaat, tersane ve araştırma sıraları tek bakışta."
+chat_err_slow: "Yavaş mod açık: lütfen %s saniye daha bekle."
+chat_slow_hint: "Yavaş mod: her %s saniyede bir mesaj."

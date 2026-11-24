@@ -41,6 +41,30 @@ class AllianceMemberLists
     }
 
     /**
+     * Activity summary for the alliance home page, one query: the number of members online (idle under 4 minutes, the
+     * "online" tag of the member list) and the $limit most recently active members with their idle minutes.
+     *
+     * @param array<string, mixed> $alliance
+     * @return array{online: int, top: list<array{id: int|string, username: string, onlinetime: int}>}
+     */
+    public function activitySummary(array $alliance, int $limit = 8): array
+    {
+        $online = 0;
+        $top = [];
+        foreach ($this->repository->memberActivity($alliance['id']) as $row) {
+            $minutes = (int) $this->idleMinutes($row);
+            if ($minutes < 4) {
+                $online++;
+            }
+            if (count($top) < $limit) {
+                $top[] = ['id' => $row['id'], 'username' => $row['username'], 'onlinetime' => $minutes];
+            }
+        }
+
+        return ['online' => $online, 'top' => $top];
+    }
+
+    /**
      * The lists of the alliances this alliance is "wing" of (we are the wing: their members form our "main" lists).
      *
      * @param array<string, mixed> $alliance

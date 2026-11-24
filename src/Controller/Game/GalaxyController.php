@@ -202,7 +202,7 @@ class GalaxyController extends AbstractGameController
         $USER = $this->state->USER;
         if ($galaxy != $this->state->PLANET['galaxy'] || $system != $this->state->PLANET['system']) {
             if ($this->state->PLANET['deuterium'] < $config->deuterium_cost_galaxy) {
-                $this->miscAchievements()->checkGalaxyAchievements($USER['id']);
+                $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkGalaxyAchievements($USER['id']));
                 return $this->messageResponse($LNG['gl_no_deuterium_to_view_galaxy'], [[
                     'label'	=> $LNG['sys_back'],
                     'url'	=> $this->router->generate('game_galaxy_show'),

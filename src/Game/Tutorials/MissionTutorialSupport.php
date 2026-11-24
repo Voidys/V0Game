@@ -57,9 +57,27 @@ class MissionTutorialSupport extends AbstractTutorialSupport
                 'owned'         => $owned,
                 'fullfilled'    => $goalRow['ammount'] <= $owned,
                 'skippable'     => $goalRow['skippable'] == 1,
+                'target'        => $this->goalTarget((int) $elementID),
             ];
         }
         return $goals;
+    }
+
+    /**
+     * Page of a mission goal: the galaxy view for missions started from a target, the fleet page for the rest; owned ships are built in the shipyard.
+     *
+     * @return array{route: string, params: array<string, string>}|null
+     */
+    protected function goalTarget(int $elementID): ?array
+    {
+        if ($this->elements()->isFleet($elementID)) {
+            return parent::goalTarget($elementID);
+        }
+
+        return match (Mission::tryFrom($elementID)) {
+            Mission::Attack, Mission::Spy, Mission::Colonisation, Mission::Recycling => ['route' => 'game_galaxy_show', 'params' => []],
+            default => ['route' => 'game_fleet_table_show', 'params' => []],
+        };
     }
 
     /**

@@ -156,7 +156,7 @@
             <span class="mail__details" id="msgdetails_{{ Message.id }}"{% if spyCollapsed %} style="display: none;"{% endif %}>
               <span class="mail__from">{{ Message.from|legacy_markup }}</span>
               {% set subjectIsType = (Message.subject|striptags|trim|lower) == (LNG.mg_type[Message.type]|striptags|trim|lower) %}
-              <strong class="mail__subject"{% if subjectIsType %} hidden{% endif %}>{% if Message.forwarded %}<span class="mail__fw">FW:</span> {% endif %}{# raw: subjects are stored encoded; system and admin subjects carry markup #}{{ Message.subject|raw }}</strong>
+              <strong class="mail__subject"{% if subjectIsType %} hidden{% endif %}>{% if Message.forwarded %}<span class="mail__fw">FW:</span> {% endif %}{# raw: subjects are stored encoded; system and admin subjects carry markup #}{{ Message.subject|raw|link_coords(0, LNG.mg_send_fleet) }}</strong>
             </span>
             {% if Message.type == constant('App\\Game\\Enum\\MessageType::SpyReport').value %}
               <span id="spytitle_{{ Message.id }}" class="mail__subject spy-report-collapsed-title"{% if not spyCollapsed %} style="display: none;"{% endif %}>{{ Message.spyTitle }}</span>
@@ -183,7 +183,7 @@
           </span>
         </div>
         <div class="mail__body" id="msgcontent_{{ Message.id }}"{% if spyCollapsed %} style="display: none;"{% endif %}>
-          {{ Message.text|legacy_markup }}
+          {{ Message.text|legacy_markup|link_coords(Message.type == constant('App\\Game\\Enum\\MessageType::SpyReport').value ? 1 : 0, LNG.mg_send_fleet) }}
         </div>
       </div>
     {% endfor %}

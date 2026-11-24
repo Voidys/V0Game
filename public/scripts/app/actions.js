@@ -162,6 +162,9 @@ registerActions({
     qsa(hide).forEach((row) => { row.style.display = button.hasAttribute('data-show') ? 'none' : ''; });
     if (show) qsa(show).forEach((row) => { row.style.display = ''; });
     qsa(`[data-filter-group="${filterGroup}"]`).forEach((other) => other.classList.toggle('selected', other === button));
+    if (button.id && filterGroup) {
+      try { localStorage.setItem(`filter:${window.location.pathname}:${filterGroup}`, button.id); } catch (e) { /* storage unavailable */ }
+    }
   },
   /** missile silo information page: destroy the missiles typed into .missile fields */
   'destroy-missiles': (button) => { DestroyMissiles(button.dataset.url); },
@@ -187,7 +190,20 @@ function initMarkup(root) {
   });
 }
 
-ready(() => initMarkup(document));
+/** brings back the filter button chosen last on this page (see filter-rows) */
+function restoreRowFilters() {
+  const groups = new Set(qsa('[data-action="filter-rows"][data-filter-group]').map((button) => button.dataset.filterGroup));
+  groups.forEach((group) => {
+    let stored = null;
+    try { stored = localStorage.getItem(`filter:${window.location.pathname}:${group}`); } catch (e) { /* storage unavailable */ }
+    const button = stored ? document.getElementById(stored) : null;
+    if (button && button.dataset.filterGroup === group && !button.classList.contains('selected')) {
+      registry.get('filter-rows')(button);
+    }
+  });
+}
+
+ready(() => { initMarkup(document); restoreRowFilters(); });
 document.addEventListener('modal:load', (event) => initMarkup(event.detail.root));
 
 /** collapse/expand the rows with class `target` ("hidden" class), the arrow ▲/▼ is #<target>-toggle */

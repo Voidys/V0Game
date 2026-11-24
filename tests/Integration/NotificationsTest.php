@@ -113,11 +113,11 @@ final class NotificationsTest extends GameTestCase
         $transport = $this->transport();
         $dispatcher = $this->dispatcher($transport);
 
-        $this->setPrefs((int) $user['id'], ['notify_discord_webhook' => 'https://evil.test/api/webhooks/1/x']);
+        $this->setPrefs((int) $user['id'], ['notify_discord_webhook' => 'https://evil.test/api/webhooks/1/abcdefghij0123456789_-AB']);
         $dispatcher->notify((int) $user['id'], NotificationDispatcher::TYPE_ATTACK, 'Attack', 'Body', 'game');
         self::assertSame([], $transport->discord);
 
-        $this->setPrefs((int) $user['id'], ['notify_discord_webhook' => 'https://discord.com/api/webhooks/1/x']);
+        $this->setPrefs((int) $user['id'], ['notify_discord_webhook' => 'https://discord.com/api/webhooks/1/abcdefghij0123456789_-AB']);
         $dispatcher->notify((int) $user['id'], NotificationDispatcher::TYPE_ATTACK, 'Attack', 'Body', 'game');
         self::assertCount(1, $transport->discord);
         self::assertStringContainsString('Attack', $transport->discord[0][1]);
@@ -138,7 +138,7 @@ final class NotificationsTest extends GameTestCase
         [$b] = $this->createPlayer();
         $this->subscribe((int) $a['id'], 'https://push.example/a');
         $this->subscribe((int) $b['id'], 'https://push.example/b');
-        $this->setPrefs((int) $b['id'], ['notify_discord_webhook' => 'https://discord.com/api/webhooks/1/x']);
+        $this->setPrefs((int) $b['id'], ['notify_discord_webhook' => 'https://discord.com/api/webhooks/1/abcdefghij0123456789_-AB']);
         $transport = new class implements NotificationTransport {
             public int $batches = 0;
             public int $discordBatches = 0;

@@ -20,6 +20,7 @@ namespace App\Controller\Game;
 use App\Game\Enum\PlanetType;
 use App\Game\Enum\MessageType;
 use App\Game\Enum\Mission;
+use App\Fleet\ShipPreset;
 use Doctrine\DBAL\ArrayParameterType;
 use Symfony\Component\HttpFoundation\Response;
 use App\Game\Core\Universe;
@@ -386,6 +387,7 @@ class FleetTableController extends AbstractGameController
         return $this->render('game/page.fleetTable.default.html.twig', [
             'FleetsOnPlanet'        => $FleetsOnPlanet,
             'FlyingFleetList'       => $FlyingFleetList,
+            'colors'                => $USER['colors'],
             'activeExpedition'      => $activeExpedition,
             'maxExpedition'         => $maxExpedition,
             'currentPlanetCount'    => $currentPlanetCount,
@@ -492,12 +494,62 @@ class FleetTableController extends AbstractGameController
                 // when a recall now would bring the fleet home (the same rule as FleetLauncher::sendFleetBack())
                 'recallTime'        => $this->viewHelpers()->formatDate($LNG['php_tdformat'], $recallTimestamp, $USER['timezone']),
                 'FleetList'         => $FleetList[$fleetsRow['id']],
+                'cssClass'          => $this->missionColorClass((int) $fleetsRow['mission'], (int) $fleetsRow['status']),
+                'repeatQuery'       => $this->repeatQuery($fleetsRow, $FleetList[$fleetsRow['id']]),
             ];
         }
 
         ksort($FlyingFleetList);
 
         return [$FlyingFleetList, $activeFleetSlots];
+    }
+
+    /**
+     * The player's own mission colour class of a fleet (the same classes the overview event list uses): the mission colour
+     * on the way out, the return colour when coming home or holding.
+     */
+    private function missionColorClass(int $mission, int $status): string
+    {
+        if ($status !== FLEET_OUTWARD) {
+            return $mission === Mission::Colonisation->value ? 'colorMission7OwnReturn' : 'colorMissionReturnOwn';
+        }
+        $number = match ($mission) {
+            Mission::PiratebaseAttack->value => Mission::Attack->value,
+            Mission::PiratebaseSpy->value => Mission::Spy->value,
+            Mission::PiratebaseRecycling->value => Mission::Recycling->value,
+            default => $mission,
+        };
+
+        return in_array($number, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17], true) ? 'colorMission' . $number . 'Own' : '';
+    }
+
+    /**
+     * Step-1 query that prefills a new dispatch like the given fleet (same ships, target and mission), or null for missions
+     * that make no sense to repeat (ACS join, colonisation, missiles). Step 1 caps the ships by what the planet holds.
+     *
+     * @param array<string, mixed> $fleetsRow fleet row
+     * @param array<int, int|float> $ships ship id => count
+     * @return array<string, int|string>|null
+     */
+    private function repeatQuery(array $fleetsRow, array $ships): ?array
+    {
+        $mission = (int) $fleetsRow['mission'];
+        if (in_array($mission, [Mission::Acs->value, Mission::Colonisation->value, Mission::Missile->value], true)) {
+            return null;
+        }
+        $preset = ShipPreset::format(array_filter($ships, static fn($count, $id): bool => (int) $id !== 212 && $count > 0, ARRAY_FILTER_USE_BOTH));
+        if ($preset === '') {
+            return null;
+        }
+
+        return [
+            'ships' => $preset,
+            'galaxy' => (int) $fleetsRow['end_galaxy'],
+            'system' => (int) $fleetsRow['end_system'],
+            'planet' => (int) $fleetsRow['end_planet'],
+            'planettype' => (int) $fleetsRow['end_type'],
+            'target_mission' => $mission,
+        ];
     }
 
     /**

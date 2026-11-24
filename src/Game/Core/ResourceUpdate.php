@@ -181,10 +181,33 @@ class ResourceUpdate
 
             if ($SAVE === true) {
                 $this->SavePlanetToDB($this->st->user, $this->st->planet);
+                $this->checkPlanetAchievements((int) $PLANET['last_update']);
             }
         }
 
         return $this->ReturnVars();
+    }
+
+    /**
+     * Achievement checks after a saved update: stock based ones (in memory) and the energy deficit tracking, which writes
+     * planets.low_energy_since only when the deficit starts or ends.
+     */
+    private function checkPlanetAchievements(int $previousUpdate): void
+    {
+        $this->achievementGuard()->run(function () use ($previousUpdate): void {
+            $planet = $this->st->planet;
+            $userId = (int) $this->st->user['id'];
+            $achievements = $this->planetRessAchievements();
+            $achievements->checkPlanetStockAchievements($planet, $userId);
+
+            if (isset($planet['low_energy_since'])) {
+                $since = $achievements->trackLowEnergy($planet, $userId, (int) $this->st->time, $previousUpdate);
+                if ($since !== (int) $planet['low_energy_since']) {
+                    $this->st->planet['low_energy_since'] = $since;
+                    $this->persistence()->saveLowEnergySince((int) $planet['id'], $since);
+                }
+            }
+        });
     }
 
     /**

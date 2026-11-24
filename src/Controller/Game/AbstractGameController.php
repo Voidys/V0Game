@@ -358,8 +358,12 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
         $elements = $this->elements();
         $terraformer = $elements->column(TERRAFORMER);
         $moonBase = $elements->column(MOONBASE);
+        $shipyard = $elements->column(SHIPYARD);
         $extra = [];
-        $sql = "SELECT id, id_luna, field_current, field_max, `" . $terraformer . "` AS terraformer, `" . $moonBase . "` AS moonbase
+        // one query for all planets: fields plus the status markers (idle queues, full storage)
+        $sql = "SELECT id, id_luna, field_current, field_max, `" . $terraformer . "` AS terraformer, `" . $moonBase . "` AS moonbase,
+            `" . $shipyard . "` AS shipyard, b_hangar_id, last_update, metal, crystal, deuterium, metal_max, crystal_max, deuterium_max,
+            metal_perhour, crystal_perhour, deuterium_perhour
             FROM %%PLANETS%% WHERE id_owner = :userId AND destruyed = 0;";
         foreach ($this->db->select($sql, [':userId' => $this->state->USER['id']]) as $row) {
             $extra[$row['id']] = $row;
@@ -390,6 +394,7 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
                 'fields' => (int) ($more['field_current'] ?? 0),
                 'fieldsMax' => (int) (($more['field_max'] ?? 0) + floor(($more['terraformer'] ?? 0) * FIELDS_BY_TERRAFORMER) + ($more['moonbase'] ?? 0) * FIELDS_BY_MOONBASIS_LEVEL),
                 'build' => $build,
+                'status' => $this->planetStatus($row, $more, $now),
                 'moon' => null,
                 'lunaId' => (int) ($more['id_luna'] ?? 0),
             ];
@@ -413,6 +418,37 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
         }
 
         return $list;
+    }
+
+    /**
+     * Status markers of one planet for the planet lists: building queue idle, shipyard idle (null without a shipyard),
+     * resources whose storage is full (stock projected from the last update) and the seconds until the building finishes.
+     *
+     * @param array<string, mixed> $row reduced planet row of the user's planet list
+     * @param array<string, mixed> $more extra columns of the same planet (planetList query)
+     *
+     * @return array{buildIdle: bool, shipIdle: bool|null, full: list<string>, buildLeft: int|null}
+     */
+    private function planetStatus(array $row, array $more, int $now): array
+    {
+        $buildLeft = !empty($row['b_building']) && !empty($row['b_building_id']) && $row['b_building'] > $now
+            ? (int) $row['b_building'] - $now : null;
+        $hours = max(0, $now - (int) ($more['last_update'] ?? $now)) / 3600;
+        $full = [];
+        foreach (['metal', 'crystal', 'deuterium'] as $res) {
+            $max = (float) ($more[$res . '_max'] ?? 0);
+            $stock = (float) ($more[$res] ?? 0) + max(0.0, (float) ($more[$res . '_perhour'] ?? 0)) * $hours;
+            if ($max > 0 && $stock >= $max) {
+                $full[] = $res;
+            }
+        }
+
+        return [
+            'buildIdle' => $buildLeft === null,
+            'shipIdle' => (int) ($more['shipyard'] ?? 0) > 0 ? empty($more['b_hangar_id']) : null,
+            'full' => $full,
+            'buildLeft' => $buildLeft,
+        ];
     }
 
     /**

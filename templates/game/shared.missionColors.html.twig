@@ -1,0 +1,11 @@
+{# Mission colour classes (.colorMission*Own/Foreign) of the player's settings. Needs: colors.
+   Event colours: a colour still at its factory default is left to the theme (--colorMission*, fallback = the default),
+   a colour the player changed is emitted as a custom property and wins in every theme #}
+{% set factoryColors = {'colorMission2friend': '#ff00ff', 'colorMission1Own': '#66cc33', 'colorMission2Own': '#339966', 'colorMission3Own': '#5bf1c2', 'colorMission4Own': '#cf79de', 'colorMission5Own': '#80a0c0', 'colorMission6Own': '#ffcc66', 'colorMission7Own': '#c1c1c1', 'colorMission7OwnReturn': '#cf79de', 'colorMission8Own': '#ceff68', 'colorMission9Own': '#ffff99', 'colorMission10Own': '#ffcc66', 'colorMission15Own': '#5bf1c2', 'colorMission16Own': '#5bf1c2', 'colorMission17Own': '#5bf1c2', 'colorMissionReturnOwn': '#6e8eea', 'colorMission1Foreign': '#ff0000', 'colorMission2Foreign': '#aa0000', 'colorMission3Foreign': '#00ff00', 'colorMission4Foreign': '#ad57bc', 'colorMission5Foreign': '#3399cc', 'colorMission6Foreign': '#ff6600', 'colorMission7Foreign': '#00ff00', 'colorMission8Foreign': '#acdd46', 'colorMission9Foreign': '#dddd77', 'colorMission10Foreign': '#ff6600', 'colorMission15Foreign': '#39d0a0', 'colorMission16Foreign': '#39d0a0', 'colorMission17Foreign': '#39d0a0', 'colorMissionReturnForeign': '#6e8eea', 'colorStaticTimer': '#ffff00'} %}
+<style>
+    {% set customColors %}{% for key, factory in factoryColors %}{% if colors[key]|default(factory)|lower != factory %}--{{ key }}: {{ colors[key] }};{% endif %}{% endfor %}{% endset %}
+    {% if customColors|trim %}:root { {{ customColors }} }{% endif %}
+    {% for key, factory in factoryColors %}
+    .{{ key == 'colorStaticTimer' ? 'statictimer' : key }} { color: var(--{{ key }}, {{ colors[key]|default(factory) }}); }
+    {% endfor %}
+</style>

@@ -69,9 +69,25 @@ class RenameTutorialSupport extends AbstractTutorialSupport
                 'owned'         => $owned,
                 'fullfilled'    => $goalRow['ammount'] <= $owned,
                 'skippable'     => $goalRow['skippable'] == 1,
+                'target'        => $this->goalTarget((int) $elementID),
             ];
         }
         return $goals;
+    }
+
+    /**
+     * Page of a goal: overview (rename the planet), buddy list or alliance page.
+     *
+     * @return array{route: string, params: array<string, string>}|null
+     */
+    protected function goalTarget(int $elementID): ?array
+    {
+        return match ($elementID) {
+            1 => ['route' => 'game_overview_show', 'params' => []],
+            2 => ['route' => 'game_buddy_list_show', 'params' => []],
+            3 => ['route' => 'game_alliance_show', 'params' => []],
+            default => null,
+        };
     }
 
     /**

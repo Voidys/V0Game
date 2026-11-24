@@ -279,6 +279,9 @@ class BuddyListController extends AbstractGameController
             ':id'       => $id,
         ]);
 
+        $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkBuddyAchievements((int) $USER['id']));
+        $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkBuddyAchievements((int) $sender['sender']));
+
         $Friend_LNG = $LNG;
 
         if ($USER['lang'] != $sender['lang']) {

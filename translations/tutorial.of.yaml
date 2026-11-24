@@ -19,6 +19,7 @@ tutorial_goal:
     '3': Stelle eine Allianzanfrage
 tutorial_goals_header: 'Aufgabne:'
 tutorial_goals_ignore: (scheiß druff)
+tutorial_goto: "Zur Seidn"
 tutorial_rewards_header: 'Belohnungne:'
 tutorial_text:
   step0: "Willkommen bei {game_name}!<br><br>\r\nMit diesem Tutorial werden dir die Grundlagen des Spiels gezeigt.<br>\r\nOft wird auf unser Wiki für Zusatzinformationen verwiesen, da nicht alle Aspekte des Spiels im Tutorial erklärt werden können. \r\nAuf das Wiki kannst du jederzeit über das Menü auf der linken Seite zugreifen.<br>\r\nDu kannst das Tutorial jederzeit überspringen, aber es lässt sich dann nicht wieder starten.<br><br>\r\nViel Erfolg, Imperator!"
@@ -41,8 +42,8 @@ tutorial_text:
     Schiff was der Angreifer mit senden muss, verringert seinen Gewinn und
     erhöht eventuell seinen Verlust durch kaputte Schiffe.<br>
 
-    Verteidigungsanlagen werden im <b>Verteidigung</b>-Menü mit einer
-    Schiffswerft gebaut. Diese wiederum bedingt eine Roboterfabrik und Deuterium
+    Verteidigungsanlagen werden in der <b>Schiffswerft</b> im Reiter
+    <b>Verteidigung</b> gebaut. Diese wiederum bedingt eine Roboterfabrik und Deuterium
     für den Bau.<br><br>
 
     Hier noch der passende Artikel im Wiki: 

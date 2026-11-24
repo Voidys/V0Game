@@ -138,9 +138,34 @@ abstract class AbstractTutorialSupport
                 'owned'         => $owned,
                 'fullfilled'    => $goalRow['ammount'] <= $owned,
                 'skippable'     => $goalRow['skippable'] == 1,
+                'target'        => $this->goalTarget((int) $elementID),
             ];
         }
         return $goals;
+    }
+
+    /**
+     * Page where the goal is done, as a route for the "go there" link of the tutorial box (null: no link).
+     *
+     * @return array{route: string, params: array<string, string>}|null
+     */
+    protected function goalTarget(int $elementID): ?array
+    {
+        $elements = $this->elements();
+        if ($elements->isBuilding($elementID)) {
+            return ['route' => 'game_buildings_show', 'params' => []];
+        }
+        if ($elements->isResearch($elementID)) {
+            return ['route' => 'game_research_show', 'params' => []];
+        }
+        if ($elements->isFleet($elementID)) {
+            return ['route' => 'game_shipyard_show', 'params' => ['kind' => 'shipyard']];
+        }
+        if ($elements->isDefense($elementID) || $elements->isMissile($elementID)) {
+            return ['route' => 'game_shipyard_show', 'params' => ['kind' => 'defense']];
+        }
+
+        return null;
     }
 
     /**
@@ -282,6 +307,10 @@ abstract class AbstractTutorialSupport
             } elseif (array_key_exists($column, $this->planet)) {
                 $this->db->updateRows('PLANETS', [], ['id' => $this->planet['id']], [], [$column => $rewardRow['ammount']]);
             }
+        }
+
+        if (!$this->hasNext()) {
+            $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkTutorialAchievement((int) $this->user['id']));
         }
     }
 

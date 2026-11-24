@@ -377,8 +377,18 @@ const rowMatches = (row) => {
   return true;
 };
 
+/** Shows the number of active filters and highlights in the summary of the filter box (it may be folded on phones). */
+const updateFilterCount = () => {
+  const badge = document.getElementById('galaxy-filter-count');
+  if (!badge) return;
+  const count = ['inactive', 'range', 'moon', 'hideVacation', 'hlMine', 'hlBuddies'].filter((key) => filters[key]).length + (filters.debris > 0 ? 1 : 0);
+  badge.textContent = String(count);
+  badge.hidden = count === 0;
+};
+
 /** Dims the non-matching rows (they stay in place) and applies the marks and the alliance / buddy highlight of the shown system. */
 const applyView = () => {
+  updateFilterCount();
   const anyFilter = filters.inactive || filters.range || filters.moon || filters.hideVacation || filters.debris > 0;
   for (const row of qsa('#galaxy-view tr[data-filterable]')) {
     row.classList.toggle('is-dim', anyFilter && !rowMatches(row));
@@ -404,6 +414,8 @@ const initFilters = () => {
   const bar = document.getElementById('galaxy-filters');
   if (!bar) return;
   syncFilterControls();
+  const box = document.getElementById('galaxy-filter-box');
+  if (box && window.matchMedia('(max-width: 40rem)').matches) box.open = false;
   bar.addEventListener('input', (event) => {
     const input = event.target.closest('[data-filter]');
     if (!input) return;

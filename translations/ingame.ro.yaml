@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': La mulți ani!
   '55': Legendă vie
+  '56': 'Motor warp'
+  '57': 'Cartograful stelelor'
+  '58': 'Polihistor'
+  '59': 'Inginer al tuturor'
+  '60': 'Acumulator'
+  '61': 'Adorator al soarelui'
+  '62': 'Casă plină'
+  '63': 'Fermier de silozuri'
+  '64': 'Imperiu minier'
+  '65': 'Șmecher de școală'
+  '66': 'Magnat al pieței'
+  '67': 'David împotriva lui Goliat'
+  '68': 'Victorie perfectă'
+  '69': 'Distrugere reciprocă'
+  '70': 'Oraș fantomă'
+  '71': 'Lovitură norocoasă'
+  '72': 'Artificii'
+  '73': 'Contraspionaj'
+  '74': 'Regele piraților'
+  '75': 'Măturător spațial'
+  '76': 'Scafandru de epave'
+  '77': 'Onorabil'
+  '78': 'Căutat'
+  '79': 'Jucător de echipă'
+  '80': 'Am văzut tot'
+  '81': 'Lup de mare'
+  '82': 'Vânător de extratereștri'
+  '83': 'Vânător de comori'
+  '84': 'Cursă lungă'
+  '85': 'Zi bisectă'
+  '86': 'Vineri 13'
+  '87': 'Ora prânzului'
+  '88': 'Marele tur'
+  '89': 'Absolvent'
+  '90': 'Diplomat'
+  '91': 'Cronicar'
+  '92': 'Prieten de corespondență'
+  '93': 'Împărat galactic'
+  '94': 'Armadă'
+  '95': 'Stăpân colonial'
+  '96': 'Completist'
 Achievement_text:
-  '1': Ai avut o noapte întreagă doar pentru tine și n-ai reușit nicio lovitură.
+  '1': 'Fă ca 5 atacuri ale tale să aterizeze între miezul nopții și ora 6 dimineața în aceeași noapte, fără să câștigi vreunul.'
   '2': Ai avut flote în mișcare non-stop timp de 90 de zile.
   '3': 'Ți-ai pierdut flota în timp ce limba ta era setată pe „franceză”.'
   '4': Cercetează Tehnologia ionică nivelul 10.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Flota ta a fost distrusă de o gaură neagră în prima ta expediție.
   '13': Trimite-ți flota în altă parte cu mai puțin de 5 secunde înainte să lovească un atac care sosește.
   '14': Pierde 10 flote în găuri negre. Vidul îi e foame.
-  '15': Nu reuși să creezi o lună la o planetă după 10 încercări. Mai mult noroc data viitoare.
+  '15': 'Nu obține prima ta lună în 10 lupte cu șansa maximă de lună.'
   '16': Mai mult de 250 dintre reciclatoarele tale s-au întors goale.
   '17': Pune în coadă cel puțin 5000 de Lansatoare de rachete într-o singură comandă de construcție.
   '18': Arde 5 milioane de deuteriu drept combustibil pe o singură planetă în 24 de ore.
@@ -114,6 +155,47 @@ Achievement_text:
   '53': Ține nivelul maxim la 5 cercetări în același timp.
   '54': 'Sincronizează un atac asupra unui jucător activ ca să lovească pe 01.01 00:00:00.'
   '55': Realizare specială
+  '56': 'Atinge nivelul 15 la propulsia hiperspațială.'
+  '57': 'Atinge nivelul 15 la astrofizică.'
+  '58': 'Cercetează fiecare tehnologie (în afară de graviton) cel puțin o dată.'
+  '59': 'Adu fiecare cercetare (în afară de graviton) la nivelul 10.'
+  '60': 'Deține 1.000.000.000 dintr-o singură resursă pe o planetă sau o lună.'
+  '61': 'Ai 1000 de sateliți solari în același timp pe o planetă.'
+  '62': 'Construiește pe fiecare câmp al unei planete cu cel puțin 250 de câmpuri.'
+  '63': 'Adu depozitele de metal, cristal și deuteriu la nivelul 15 pe o planetă.'
+  '64': 'Ai o mină de metal de nivel 30 sau mai mare pe 9 planete.'
+  '65': 'Pornește o singură comandă de construcție care durează mai mult de 30 de zile.'
+  '66': 'Fă ca alți jucători să cumpere 50 dintre ofertele tale de pe piață.'
+  '67': 'Câștigă o apărare împotriva atacatorilor care valorează cel puțin de 10 ori flota și apărarea ta (atacatori de cel puțin 1.000.000 de resurse).'
+  '68': 'Câștigă un atac în care distrugi cel puțin 1000 de unități inamice fără să pierzi nicio unitate.'
+  '69': 'Încheie o luptă la egalitate după numărul maxim de runde, fiecare parte pierzând cel puțin 10.000 de unități.'
+  '70': 'Fii atacat pe o planetă fără nave și fără apărare, astfel încât atacatorul să nu jefuiască nimic.'
+  '71': 'Primește o lună dintr-o luptă care avea doar 1 % șansă de lună.'
+  '72': 'Distruge cel puțin 100 de unități de apărare cu un singur atac cu rachete interplanetare.'
+  '73': 'Distruge cel puțin 100 de sonde de spionaj inamice într-o luptă pe planeta ta.'
+  '74': 'Jefuiește în total 1.000.000.000 de resurse.'
+  '75': 'Reciclează în total 1.000.000.000 de resurse.'
+  '76': 'Repară în total 1000 de nave din câmpuri de epave.'
+  '77': 'Câștigă 1000 de puncte de onoare.'
+  '78': 'Devino proscris pentru prima dată.'
+  '79': 'Participă ca atacator la 25 de atacuri comune câștigate.'
+  '80': 'Trăiește fiecare rezultat posibil al unei expediții cel puțin o dată.'
+  '81': 'Trimite 1000 de expediții.'
+  '82': 'Câștigă o luptă de expediție împotriva unei flote extraterestre mari.'
+  '83': 'Găsește cantități mari de resurse în 50 de expediții.'
+  '84': 'Trimite o flotă într-un zbor dus de peste 24 de ore.'
+  '85': 'Fă ca o flotă să ajungă la țintă pe 29 februarie.'
+  '86': 'Pierde o flotă de atac întreagă într-o vineri 13.'
+  '87': 'Fă ca două dintre atacurile tale (fără atac comun) să aterizeze pe aceeași țintă în aceeași secundă.'
+  '88': 'Ai simultan flote în drum spre fiecare galaxie a universului.'
+  '89': 'Termină tutorialul.'
+  '90': 'Ai simultan pacte active cu alte 3 alianțe (toți membrii alianței îl primesc).'
+  '91': 'Creează 5 pagini wiki ale alianței.'
+  '92': 'Ai 10 cereri de prietenie acceptate.'
+  '93': 'Fii numărul 1 în clasamentul punctelor totale 7 zile la rând.'
+  '94': 'Ai simultan 100 de Stele ale Morții pe o planetă sau o lună.'
+  '95': 'Ocupă fiecare slot de planetă permis de astrofizica ta (cel puțin 9), fiecare planetă cu cel puțin 200 de câmpuri.'
+  '96': 'Deține alte 50 de realizări.'
 ach_filter_all: Toate
 ach_filter_locked: Blocate
 ach_filter_unlocked: Deblocate
@@ -196,6 +278,7 @@ Advanced_Stats:
   moons_lost: Luni pierdute
   moons_received: Luni primite
   outlaw_activations: Activări de haiduc
+  alliance_pages_created: 'Pagini wiki de alianță create'
   planets_created: Planete colonizate
   planets_deleted: Planete abandonate
   raided_crystal: Cristal jefuit
@@ -203,6 +286,7 @@ Advanced_Stats:
   raided_metal: Metal jefuit
   recycled_crystal: Cristal reciclat
   recycled_metal: Metal reciclat
+  acs_wins: 'Atacuri SAC câștigate ca atacator'
   set_sail_wins: Lupte câștigate cu tema SetSail activă
   stolen_crystal: Cristal furat
   stolen_deuterium: Deuteriu furat
@@ -342,6 +426,14 @@ al_manage_members: Membri
 al_manage_options: Opțiuni
 al_manage_ranks: Ranguri
 al_manage_request_min_points: Puncte min.
+al_chat_slowmode: "Mod lent al chatului"
+al_chat_slowmode_info: "Timpul minim dintre două mesaje ale unui membru în chatul alianței (tu, ca lider, ești scutit)."
+al_chat_slowmode_off: "Oprit"
+al_chat_slowmode_10: "10 secunde"
+al_chat_slowmode_30: "30 de secunde"
+al_chat_slowmode_60: "1 minut"
+al_chat_slowmode_120: "2 minute"
+al_chat_slowmode_300: "5 minute"
 al_manage_requests: Cereri de aderare
 al_member: Nume
 al_member_since: S-a alăturat
@@ -735,6 +827,8 @@ fl_sac_of_fleet: Flotă ACS
 fl_select_all_ships: Toate navele
 fl_selected_resources: Resurse selectate
 fl_send_back: Întoarcere
+fl_send_again: "Trimite din nou"
+fl_send_again_title: "Pregătește o flotă nouă cu aceleași nave, aceeași țintă și aceeași misiune"
 fl_send_fleet: Trimite flota
 fl_ship_available: Nave disponibile
 fl_ship_type: Tip de navă
@@ -995,6 +1089,7 @@ market_p_msg_wrong_resource_type: Această ofertă cere o resursă invalidă.
 market_p_offer_type: Tipul ofertei
 market_p_ratio: Raport
 market_p_submit: Cumpără acum!
+market_not_enough_stock: "Această planetă nu are resursele pentru această ofertă."
 market_p_to_duration: Zbor spre
 market_ship_as_first: 'Alege tipul de navă pentru comerț:'
 Messages: Mesaje
@@ -1430,7 +1525,7 @@ tkb_month: lună
 tkb_only: doar
 tkb_owners: Utilizatori implicați
 tkb_platz: Loc
-tkb_self: doar proprii
+tkb_self: "Luptele mele"
 tkb_timeframe: Interval de timp
 tkb_top: Sala bătăliilor
 tkb_units: Unități
@@ -1605,6 +1700,7 @@ mg_quick_delete_older: "Șterge mai vechi de %d zile"
 mg_confirm_delete_read: "Ștergi toate mesajele citite din această categorie? Favoritele sunt păstrate."
 mg_confirm_delete_older: "Ștergi toate mesajele din această categorie mai vechi de %d zile? Favoritele sunt păstrate."
 mg_spy_again: "Spionează din nou"
+mg_send_fleet: "Trimite flota aici"
 fl_change_target: "Schimbă ținta"
 mg_group_mark: "Marchează ca citit"
 mg_group_delete: "Șterge"
@@ -1629,6 +1725,7 @@ al_find_none_yet: "Încă nu există alianțe în acest univers."
 al_no_inside_text: "Încă nu există text pentru membri."
 bd_needs: 'Necesită'
 bd_missing: 'Lipsește'
+bd_locked_group: "Blocat ({n})"
 honorfights: "Lupte de onoare"
 pl_block_head: "Blochează"
 pl_block_hint: "Are efect imediat, nu există buton Salvează."
@@ -1700,6 +1797,9 @@ shell_jump: "Sari la…"
 shell_jump_tip: "Sari la o pagină, planetă sau coordonate"
 shell_switch_planet: "Schimbă planeta"
 shell_switch_to: "Treci la %s"
+shell_build_running: "Construcție în curs"
+shell_idle_build: "Coada de construcție este goală"
+shell_idle_shipyard: "Șantierul naval este liber"
 shell_moon_of: "Luna lui %s"
 shell_fields: "câmpuri"
 shell_slots_tip: "%1 din %2 sloturi de planetă folosite"
@@ -1748,3 +1848,8 @@ rec_hidden_holder: "ascuns"
 rec_hidden_holder_info: "Deținătorul recordului nu își arată numele în recorduri."
 rec_pending: "Record nou – contorizat la următoarea actualizare a statisticilor."
 rec_you: "Tu (încă necontorizat)"
+lm_queues: "Cozi"
+queues_idle: "Liber"
+queues_intro: "Cozile de construcție, șantier naval și cercetare ale tuturor planetelor și lunilor dintr-o privire."
+chat_err_slow: "Modul lent este activ: mai așteaptă %s secunde."
+chat_slow_hint: "Mod lent: un mesaj la fiecare %s secunde."

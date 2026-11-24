@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace App\Game\Alliance;
 
+use App\Game\Achievements\AchievementGuard;
+use App\Game\Achievements\MiscAchievement;
+use App\Game\AdvancedStats\AdvancedStatsEnum;
+use App\Game\AdvancedStats\AdvancedStatsHandler;
 use App\Game\Core\ConfigRegistry;
 use App\Game\Core\Database;
 use App\Game\Core\Singleton;
@@ -18,6 +22,9 @@ class AllianceWikiService
     public const MAX_PAGES = 30;
     public const TITLE_LENGTH = 100;
     public const BODY_LENGTH = 20000;
+
+    /** Minimum page text length for a created page to count towards the Chronicler achievement (91). */
+    private const MIN_ACHIEVEMENT_BODY = 200;
 
     public function __construct(
         protected Database $db,
@@ -84,7 +91,16 @@ class AllianceWikiService
             [':alliance' => $allianceId, ':title' => $title, ':body' => $body, ':user' => $userId, ':now' => $now],
         );
 
-        return (int) $this->db->lastInsertId();
+        $pageId = (int) $this->db->lastInsertId();
+        // Chronicler counts only real pages, not one-letter stubs
+        if (mb_strlen(trim($body)) >= self::MIN_ACHIEVEMENT_BODY) {
+            (new AdvancedStatsHandler($this->db, $this->configs, $this->state))->increment($userId, AdvancedStatsEnum::ALLIANCE_PAGES_CREATED);
+            (new AchievementGuard($this->db, $this->configs, $this->state))->run(
+                fn() => (new MiscAchievement($this->db, $this->configs, $this->state))->checkWikiAchievements($userId),
+            );
+        }
+
+        return $pageId;
     }
 
     /** Deletes a page of the alliance. */

@@ -20,6 +20,7 @@ final class SectionGroupsExtension extends AbstractExtension
     private const GROUPS = [
         'empire' => [
             ['empire', 'game_empire_show', [], 'globe', 'lm_empire', MODULE_IMPERIUM, 11],
+            ['queues', 'game_queues_show', [], 'list', 'lm_queues', MODULE_IMPERIUM, 11],
             ['resources', 'game_resources_show', [], 'chart-column', 'lm_resources', MODULE_RESSOURCE_LIST, 0],
         ],
         'research' => [

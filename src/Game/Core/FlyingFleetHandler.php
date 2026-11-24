@@ -44,6 +44,8 @@ use App\Game\Missions\MissionInterface;
  */
 class FlyingFleetHandler
 {
+    use GameUtilities;
+
     public function __construct(
         private Database $db,
         private ConfigRegistry $configs,
@@ -186,6 +188,8 @@ class FlyingFleetHandler
             [':fleetId' => $fleetRow['id'], ':token' => $this->token],
         );
         if (empty($locked)) {
+            $this->achievementGuard()->run(fn() => $this->fleetAchievements()->onFleetGone((int) $fleetRow['owner'], (int) $fleetRow['id']));
+
             return;
         }
 
@@ -213,6 +217,8 @@ class FlyingFleetHandler
             ':fleetId' => $fleetRow['id'],
             ':token' => $this->token,
         ]);
+
+        $this->achievementGuard()->run(fn() => $this->fleetAchievements()->onEvent($fleetRow));
     }
 
     /** Mission class of a mission id, null for an unknown mission (its fleet is deleted). */

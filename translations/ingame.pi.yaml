@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': Frohes neues!
   '55': Lebende Legende
+  '56': 'Warpantrieb'
+  '57': 'Sternenkartograf'
+  '58': 'Universalgelehrter'
+  '59': 'Ingenieur für alles'
+  '60': 'Hamsterer'
+  '61': 'Sonnenanbeter'
+  '62': 'Volles Haus'
+  '63': 'Silobauer'
+  '64': 'Minenimperium'
+  '65': 'Streber'
+  '66': 'Marktmacher'
+  '67': 'David gegen Goliath'
+  '68': 'Makelloser Sieg'
+  '69': 'Gegenseitig zerstörte Welten'
+  '70': 'Geisterstadt'
+  '71': 'Glückstreffer'
+  '72': 'Feuerwerk'
+  '73': 'Spionageabwehr'
+  '74': 'Piratenkönig'
+  '75': 'Weltraum-Hausmeister'
+  '76': 'Wracktaucher'
+  '77': 'Ehrenwert'
+  '78': 'Gesucht'
+  '79': 'Teamplayer'
+  '80': 'Alles gesehen'
+  '81': 'Alter Seebär'
+  '82': 'Alienjäger'
+  '83': 'Schatzsucher'
+  '84': 'Langstrecke'
+  '85': 'Schalttag'
+  '86': 'Freitag der 13.'
+  '87': 'High Noon'
+  '88': 'Große Tour'
+  '89': 'Absolvent'
+  '90': 'Diplomat'
+  '91': 'Chronist'
+  '92': 'Brieffreund'
+  '93': 'Galaktischer Kaiser'
+  '94': 'Armada'
+  '95': 'Kolonialherrscher'
+  '96': 'Komplettist'
 Achievement_text:
-  '1': Du hast dir eine Nacht, um die Ohren geschlagen und keinen Schuss gelandet.
+  '1': 'Lass 5 Angriffe zwischen Mitternacht und 6 Uhr in einer Nacht landen, ohne einen einzigen zu gewinnen.'
   '2': Du hattest die letzten 90 Tage permanent laufende Flottenbewegungen.
   '3': Du hast deine Flotte verloren, während deine Spracheinstellungen auf "Französisch" eingestellt waren.
   '4': Erforsche Schießpulvertechnik 10.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Deine Flotte wurde in deiner ersten Expedition durch ein schwarzes Loch zerstört.
   '13': Sende deine Flotte weg, während ein einfliegender Angriff weniger als 5 Sekunden Restzeit hat.
   '14': Du hast 10 Flotten an schwarze Löcher verloren.
-  '15': Verbrate 10 MVs in einem Hafen ohne eine Insel zu bekommen
+  '15': 'Kriech in 10 Gefechten mit maximaler Mondchance kein''n ersten Mond, arrr.'
   '16': Mehr als 250 deiner Wracktaucher sind ohne Ladung zurückgekehrt
   '17': Gebe mit einem Bauauftrag mindestens 5000 12-Pfünder in Produktion.
   '18': Ver(b)rauche innerhalb von 24h 5 Millionen Rum in einem Hafen in Form von Treibstoffkosten.
@@ -111,6 +152,47 @@ Achievement_text:
   '53': Habe in 5 Forschungen gleichzeitig die höchste Stufe.
   '54': Time einen Angriff auf einen aktiven Spieler auf den 01.01. 00:00:00
   '55': Sonderachievement
+  '56': 'Erreiche Hyperraumantrieb Stufe 15.'
+  '57': 'Erreiche Astrophysik Stufe 15.'
+  '58': 'Erforsche jede Technologie (außer Festung) mindestens einmal.'
+  '59': 'Bringe jede Forschung (außer Festung) auf Stufe 10.'
+  '60': 'Besitze 1.000.000.000 eines einzelnen Rohstoffs auf einem Planeten oder Insel.'
+  '61': 'Habe 1000 Solarsatelliten gleichzeitig auf einem Planeten.'
+  '62': 'Bebaue jedes Feld eines Planeten mit mindestens 250 Feldern.'
+  '63': 'Baue Holz-, Gold- und Rumspeicher auf einem Planeten auf Stufe 15 aus.'
+  '64': 'Habe auf 9 Planeten eine Holzmine ab Stufe 30.'
+  '65': 'Starte einen einzelnen Bauauftrag, der länger als 30 Tage dauert.'
+  '66': 'Lass 50 deiner Marktangebote von anderen Spielern kaufen.'
+  '67': 'Gewinne eine Verteidigung gegen Angreifer, die mindestens das Zehnfache deiner Flotte und Verteidigung wert sind (Angreifer ab 1.000.000 Ressourcen Wert).'
+  '68': 'Gewinne einen Angriff, bei dem mindestens 1000 gegnerische Einheiten zerstört werden und du keine einzige Einheit verlierst.'
+  '69': 'Kämpfe ein Unentschieden nach der maximalen Rundenzahl, wobei jede Seite mindestens 10.000 Einheiten verliert.'
+  '70': 'Werde auf einem Planeten ohne Schiffe und Verteidigung angegriffen, sodass der Angreifer nichts plündert.'
+  '71': 'Erhalte einen Insel aus einem Kampf, der nur 1 % Inselchance hatte.'
+  '72': 'Zerstöre mit einem einzigen Interplanetarraketen-Angriff mindestens 100 Verteidigungseinheiten.'
+  '73': 'Zerstöre in einem Kampf auf deinem Planeten mindestens 100 gegnerische Spähpapageien.'
+  '74': 'Erbeute insgesamt 1.000.000.000 Ressourcen.'
+  '75': 'Recycle insgesamt 1.000.000.000 Ressourcen.'
+  '76': 'Repariere insgesamt 1000 Schiffe aus Treibgutfeldern.'
+  '77': 'Verdiene 1000 Ehrenpunkte.'
+  '78': 'Werde zum ersten Mal zum Gesetzlosen.'
+  '79': 'Nimm als Angreifer an 25 gewonnenen Verbandsangriffen teil.'
+  '80': 'Erlebe jeden möglichen Expeditionsausgang mindestens einmal.'
+  '81': 'Schicke 1000 Expeditionen los.'
+  '82': 'Gewinne einen Expeditionskampf gegen eine große Alienflotte.'
+  '83': 'Finde bei 50 Expeditionen große Mengen an Rohstoffen.'
+  '84': 'Schicke eine Flotte auf einen Hinflug von mehr als 24 Stunden.'
+  '85': 'Lass eine Flotte am 29. Februar ihr Ziel erreichen.'
+  '86': 'Verliere an einem Freitag, dem 13., eine ganze Angriffsflotte.'
+  '87': 'Lass zwei deiner Angriffe (ohne Verband) in derselben Sekunde auf demselben Ziel landen.'
+  '88': 'Habe gleichzeitig Flotten zu jeder Galaxie des Universums unterwegs.'
+  '89': 'Schließe das Tutorial ab.'
+  '90': 'Habe gleichzeitig aktive Bündnisse mit 3 anderen Allianzen (alle Allianzmitglieder erhalten es).'
+  '91': 'Erstelle 5 Wiki-Seiten deiner Allianz.'
+  '92': 'Habe 10 angenommene Freundschaftsanfragen.'
+  '93': 'Sei an 7 aufeinanderfolgenden Tagen Platz 1 in der Gesamtwertung.'
+  '94': 'Habe gleichzeitig 100 Schwimmende Festungen auf einem Planeten oder Insel.'
+  '95': 'Besetze jeden Planetenplatz, den deine Astrophysik erlaubt (mindestens 9), jeden Planeten mit mindestens 200 Feldern.'
+  '96': 'Besitze 50 andere Achievements.'
 ach_filter_all: Alle
 ach_filter_locked: Gesperrt
 ach_filter_unlocked: Freigeschaltet
@@ -193,6 +275,7 @@ Advanced_Stats:
   moons_lost: Monde verloren
   moons_received: Erhaltene Inseln
   outlaw_activations: Vogelfrei Aktivierungen
+  alliance_pages_created: 'Allianz-Wikiseiten gekritzelt'
   planets_created: Planeten kolonisiert
   planets_deleted: Planeten aufgegeben
   raided_crystal: Geplündertes Gold
@@ -200,6 +283,7 @@ Advanced_Stats:
   raided_metal: Geplündertes Holz
   recycled_crystal: Recyceltes Gold
   recycled_metal: Recyceltes Holz
+  acs_wins: 'Gewonnene Verbandsangriffe als Angreifer, arrr'
   set_sail_wins: Gewonnene Kämpfe mit SetSails Theme
   stolen_crystal: Gestohlenes Gold
   stolen_deuterium: Gestohlener Rum
@@ -328,6 +412,14 @@ al_manage_members: Mitglieder verwalten
 al_manage_options: Optionen
 al_manage_ranks: Ränge verwalten
 al_manage_request_min_points: Mindestpunktzahl
+al_chat_slowmode: "Chat-Flautenmodus"
+al_chat_slowmode_info: "Mindestabstand zwischen zwei Nachrichten eines Besatzungsmitglieds im Allianz-Chat (du als Käpt'n bist ausgenommen)."
+al_chat_slowmode_off: "Aus"
+al_chat_slowmode_10: "10 Sekunden"
+al_chat_slowmode_30: "30 Sekunden"
+al_chat_slowmode_60: "1 Minute"
+al_chat_slowmode_120: "2 Minuten"
+al_chat_slowmode_300: "5 Minuten"
 al_manage_requests: Bewerbungen
 al_member: Name
 al_member_since: Beigetreten
@@ -709,6 +801,8 @@ fl_sac_of_fleet: Flotten-AKS
 fl_select_all_ships: Alle Schiffe
 fl_selected_resources: Ausgewählte Rohstoffe Laden
 fl_send_back: Zurück
+fl_send_again: "Nochmal auslaufen"
+fl_send_again_title: "Neue Flotte mit denselben Schiffen, demselben Ziel und Auftrag klarmachen"
 fl_send_fleet: Flotte verschicken
 fl_ship_available: Verfügbar
 fl_ship_type: Schiffstyp
@@ -966,6 +1060,7 @@ market_p_msg_wrong_resource_type: Dieses Angebot verlangt eine ungültige Ressou
 market_p_offer_type: Art des Angebots
 market_p_ratio: Wechselkurs
 market_p_submit: Handel annehmen!
+market_not_enough_stock: "Auf diesem Hafen fehlen die Rohstoffe für dieses Angebot, Landratte!"
 market_p_to_duration: Flug nach
 market_ship_as_first: Schiffstyp wählen für den Handel
 Messages: Nachrichten
@@ -1397,7 +1492,7 @@ tkb_month: Monat
 tkb_only: anzeigen
 tkb_owners: Beteiligte
 tkb_platz: Platz
-tkb_self: eigene
+tkb_self: "Meine Seegefechte"
 tkb_timeframe: Zeitfenster
 tkb_top: Battle Hall
 tkb_units: Units
@@ -1569,6 +1664,7 @@ mg_quick_delete_older: "Älter als %d Tage löschen"
 mg_confirm_delete_read: "Alle gelesenen Nachrichten dieser Kategorie löschen? Favoriten bleiben erhalten."
 mg_confirm_delete_older: "Alle Nachrichten dieser Kategorie, die älter als %d Tage sind, löschen? Favoriten bleiben erhalten."
 mg_spy_again: "Erneut spionieren"
+mg_send_fleet: "Flotte hierher schicken"
 fl_change_target: "Ziel ändern"
 mg_group_mark: "Mark as read, matey"
 mg_group_delete: "Sink"
@@ -1593,6 +1689,7 @@ al_find_none_yet: "In diesem Universum gibt es noch keine Allianzen."
 al_no_inside_text: "Noch kein Text für Mitglieder."
 bd_needs: 'Benötigt'
 bd_missing: 'Es fehlt'
+bd_locked_group: "Verriegelt ({n})"
 honorfights: "Ehrenkämpfe"
 pl_block_head: "Blockieren"
 pl_block_hint: "Wirkt sofort, ein Speichern-Button ist nicht nötig."
@@ -1664,6 +1761,9 @@ shell_jump: Spring zu…
 shell_jump_tip: Zu Seite, Hafen oder Koordinaten springen
 shell_switch_planet: Hafen wechseln
 shell_switch_to: Wechseln zu %s
+shell_build_running: "Bauauftrag läuft"
+shell_idle_build: "Bauschlange leer"
+shell_idle_shipyard: "Werft leer"
 shell_moon_of: Insel von %s
 shell_fields: Felder
 shell_slots_tip: '%1 von %2 Hafenplätzen belegt'
@@ -1712,3 +1812,8 @@ rec_hidden_holder: "hidden"
 rec_hidden_holder_info: "The record holder does not show their name in the records."
 rec_pending: "New record – counted at the next statistics update."
 rec_you: "You (not counted yet)"
+lm_queues: "Warteschlangen"
+queues_idle: "Leer"
+queues_intro: "Bau-, Werft- und Forschungsaufträge aller Häfen und Inseln auf einen Blick."
+chat_err_slow: "Flautenmodus aktiv: bitte warte noch %s Sekunden, Landratte."
+chat_slow_hint: "Flautenmodus: eine Nachricht alle %s Sekunden."

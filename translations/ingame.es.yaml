@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': ¡Feliz Año Nuevo!
   '55': Leyenda viva
+  '56': 'Motor de salto'
+  '57': 'Cartógrafo estelar'
+  '58': 'Erudito'
+  '59': 'Ingeniero de todo'
+  '60': 'Acaparador'
+  '61': 'Adorador del sol'
+  '62': 'Casa llena'
+  '63': 'Granjero de silos'
+  '64': 'Imperio minero'
+  '65': 'Empollón'
+  '66': 'Magnate del mercado'
+  '67': 'David contra Goliat'
+  '68': 'Victoria impecable'
+  '69': 'Destrucción mutua'
+  '70': 'Pueblo fantasma'
+  '71': 'Tiro de suerte'
+  '72': 'Fuegos artificiales'
+  '73': 'Contraespionaje'
+  '74': 'Rey pirata'
+  '75': 'Barrendero espacial'
+  '76': 'Buceador de naufragios'
+  '77': 'Honorable'
+  '78': 'Se busca'
+  '79': 'Jugador de equipo'
+  '80': 'Lo he visto todo'
+  '81': 'Lobo de mar'
+  '82': 'Cazador de alienígenas'
+  '83': 'Cazatesoros'
+  '84': 'Largo viaje'
+  '85': 'Año bisiesto'
+  '86': 'Viernes 13'
+  '87': 'Sin piedad'
+  '88': 'Gran gira'
+  '89': 'Graduado'
+  '90': 'Diplomático'
+  '91': 'Cronista'
+  '92': 'Amigo por correspondencia'
+  '93': 'Emperador galáctico'
+  '94': 'Armada'
+  '95': 'Señor colonial'
+  '96': 'Completista'
 Achievement_text:
-  '1': Tuviste toda la noche para ti y no acertaste ni un solo disparo.
+  '1': 'Consigue que 5 ataques tuyos aterricen entre medianoche y las 6 de la mañana en una misma noche sin ganar ninguno.'
   '2': Tuviste flotas en movimiento sin parar durante 90 días.
   '3': Perdiste tu flota con el idioma configurado en «francés».
   '4': Investiga la tecnología iónica 10.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Un agujero negro destruyó tu flota en tu primera expedición.
   '13': Aleja tu flota cuando falten menos de 5 segundos para que llegue un ataque.
   '14': Pierde 10 flotas en agujeros negros. El vacío tiene hambre.
-  '15': No consigas crear una luna en un planeta tras 10 intentos. A la próxima habrá más suerte.
+  '15': 'No consigas tu primera luna en 10 combates con la probabilidad máxima de luna.'
   '16': Más de 250 de tus recicladores han vuelto vacíos.
   '17': Pon en cola al menos 5000 lanzamisiles en una sola orden de construcción.
   '18': Quema 5 millones de deuterio como combustible en un solo planeta en 24 horas.
@@ -111,6 +152,47 @@ Achievement_text:
   '53': Ten el nivel máximo en 5 investigaciones al mismo tiempo.
   '54': Sincroniza un ataque a un jugador activo para que llegue el 01/01 a las 00:00:00.
   '55': Logro especial
+  '56': 'Alcanza el nivel 15 del motor de hiperespacio.'
+  '57': 'Alcanza el nivel 15 de astrofísica.'
+  '58': 'Investiga todas las tecnologías (salvo gravitón) al menos una vez.'
+  '59': 'Lleva todas las investigaciones (salvo gravitón) al nivel 10.'
+  '60': 'Ten 1.000.000.000 de un solo recurso en un planeta o luna.'
+  '61': 'Ten 1000 satélites solares a la vez en un planeta.'
+  '62': 'Construye en todos los campos de un planeta con al menos 250 campos.'
+  '63': 'Sube los almacenes de metal, cristal y deuterio al nivel 15 en un planeta.'
+  '64': 'Ten una mina de metal de nivel 30 o más en 9 planetas.'
+  '65': 'Inicia una única orden de construcción que dure más de 30 días.'
+  '66': 'Consigue que otros jugadores compren 50 de tus ofertas del mercado.'
+  '67': 'Gana una defensa contra atacantes que valgan al menos 10 veces tu flota y defensa (atacantes de al menos 1.000.000 de recursos).'
+  '68': 'Gana un ataque que destruya al menos 1000 unidades enemigas sin perder ninguna unidad.'
+  '69': 'Empata un combate tras el máximo de rondas, perdiendo cada bando al menos 10.000 unidades.'
+  '70': 'Sé atacado en un planeta sin naves ni defensa, de modo que el atacante no saquee nada.'
+  '71': 'Consigue una luna de un combate que solo tenía un 1 % de probabilidad de luna.'
+  '72': 'Destruye al menos 100 unidades de defensa con un solo ataque de misiles interplanetarios.'
+  '73': 'Destruye al menos 100 sondas de espionaje enemigas en un combate en tu planeta.'
+  '74': 'Saquea 1.000.000.000 de recursos en total.'
+  '75': 'Recicla 1.000.000.000 de recursos en total.'
+  '76': 'Repara 1000 naves de campos de escombros en total.'
+  '77': 'Consigue 1000 puntos de honor.'
+  '78': 'Conviértete en proscrito por primera vez.'
+  '79': 'Participa como atacante en 25 ataques de flota conjunta ganados.'
+  '80': 'Vive cada posible resultado de expedición al menos una vez.'
+  '81': 'Envía 1000 expediciones.'
+  '82': 'Gana un combate de expedición contra una gran flota alienígena.'
+  '83': 'Encuentra grandes cantidades de recursos en 50 expediciones.'
+  '84': 'Envía una flota en un viaje de ida de más de 24 horas.'
+  '85': 'Haz que una flota llegue a su destino el 29 de febrero.'
+  '86': 'Pierde toda una flota atacante un viernes 13.'
+  '87': 'Haz aterrizar dos de tus ataques (sin flota conjunta) sobre el mismo objetivo en el mismo segundo.'
+  '88': 'Ten flotas en camino a todas las galaxias del universo a la vez.'
+  '89': 'Completa el tutorial.'
+  '90': 'Ten pactos activos con 3 otras alianzas a la vez (todos los miembros de la alianza lo reciben).'
+  '91': 'Crea 5 páginas wiki de la alianza.'
+  '92': 'Ten 10 solicitudes de amistad aceptadas.'
+  '93': 'Sé el número 1 de la clasificación de puntos totales durante 7 días seguidos.'
+  '94': 'Ten 100 Estrellas de la Muerte a la vez en un planeta o luna.'
+  '95': 'Ocupa todas las posiciones de planeta que permite tu astrofísica (al menos 9), cada planeta con al menos 200 campos.'
+  '96': 'Consigue otros 50 logros.'
 ach_filter_all: Todos
 ach_filter_locked: Bloqueados
 ach_filter_unlocked: Desbloqueados
@@ -193,6 +275,7 @@ Advanced_Stats:
   moons_lost: Lunas perdidas
   moons_received: Lunas recibidas
   outlaw_activations: Activaciones de forajidos
+  alliance_pages_created: 'Páginas wiki de alianza creadas'
   planets_created: Planetas colonizados
   planets_deleted: Planetas abandonados
   raided_crystal: Cristal saqueado
@@ -200,6 +283,7 @@ Advanced_Stats:
   raided_metal: Metal saqueado
   recycled_crystal: Cristal reciclado
   recycled_metal: Metal reciclado
+  acs_wins: 'Ataques SAC ganados como atacante'
   set_sail_wins: Combates ganados con el tema SetSail activo
   stolen_crystal: Cristal robado
   stolen_deuterium: Deuterio robado
@@ -326,6 +410,14 @@ al_manage_members: Miembros
 al_manage_options: Opciones
 al_manage_ranks: Rangos
 al_manage_request_min_points: Puntos mín.
+al_chat_slowmode: "Modo lento del chat"
+al_chat_slowmode_info: "Tiempo mínimo entre dos mensajes de un miembro en el chat de la alianza (tú, como líder, estás exento)."
+al_chat_slowmode_off: "Desactivado"
+al_chat_slowmode_10: "10 segundos"
+al_chat_slowmode_30: "30 segundos"
+al_chat_slowmode_60: "1 minuto"
+al_chat_slowmode_120: "2 minutos"
+al_chat_slowmode_300: "5 minutos"
 al_manage_requests: Solicitudes
 al_member: Nombre
 al_member_since: Miembro desde
@@ -709,6 +801,8 @@ fl_sac_of_fleet: Flota SAC
 fl_select_all_ships: Todas las naves
 fl_selected_resources: Recursos seleccionados
 fl_send_back: Retirar
+fl_send_again: "Enviar de nuevo"
+fl_send_again_title: "Preparar una nueva flota con las mismas naves, el mismo objetivo y la misma misión"
 fl_send_fleet: Enviar flota
 fl_ship_available: Disponibles
 fl_ship_type: Tipo de nave
@@ -966,6 +1060,7 @@ market_p_msg_wrong_resource_type: Esta oferta pide un recurso no válido.
 market_p_offer_type: Tipo de oferta
 market_p_ratio: Proporción
 market_p_submit: ¡Comprar ahora!
+market_not_enough_stock: "Este planeta no tiene los recursos para esta oferta."
 market_p_to_duration: Vuelo a
 market_ship_as_first: 'Elige el tipo de nave para el comercio:'
 Messages: Mensajes
@@ -1397,7 +1492,7 @@ tkb_month: mes
 tkb_only: solo
 tkb_owners: Participantes
 tkb_platz: Puesto
-tkb_self: solo propios
+tkb_self: "Mis batallas"
 tkb_timeframe: Periodo
 tkb_top: Salón de batallas
 tkb_units: Unidades
@@ -1569,6 +1664,7 @@ mg_quick_delete_older: "Borrar con más de %d días"
 mg_confirm_delete_read: "¿Borrar todos los mensajes leídos de esta categoría? Los favoritos se conservan."
 mg_confirm_delete_older: "¿Borrar todos los mensajes de esta categoría con más de %d días? Los favoritos se conservan."
 mg_spy_again: "Espiar de nuevo"
+mg_send_fleet: "Enviar flota aquí"
 fl_change_target: "Cambiar destino"
 mg_group_mark: "Marcar como leído"
 mg_group_delete: "Borrar"
@@ -1593,6 +1689,7 @@ al_find_none_yet: "Todavía no hay alianzas en este universo."
 al_no_inside_text: "Todavía no hay texto para los miembros."
 bd_needs: 'Requiere'
 bd_missing: 'Falta'
+bd_locked_group: "Bloqueado ({n})"
 honorfights: "Combates honorables"
 pl_block_head: "Bloquear"
 pl_block_hint: "Surte efecto de inmediato, no hay botón Guardar."
@@ -1664,6 +1761,9 @@ shell_jump: Ir a…
 shell_jump_tip: Ir a una página, planeta o coordenadas
 shell_switch_planet: Cambiar de planeta
 shell_switch_to: Cambiar a %s
+shell_build_running: "Construcción en curso"
+shell_idle_build: "Cola de construcción libre"
+shell_idle_shipyard: "Hangar libre"
 shell_moon_of: Luna de %s
 shell_fields: casillas
 shell_slots_tip: '%1 de %2 posiciones de planeta ocupadas'
@@ -1712,3 +1812,8 @@ rec_hidden_holder: "hidden"
 rec_hidden_holder_info: "The record holder does not show their name in the records."
 rec_pending: "New record – counted at the next statistics update."
 rec_you: "You (not counted yet)"
+lm_queues: "Colas"
+queues_idle: "Libre"
+queues_intro: "Colas de construcción, hangar e investigación de todos los planetas y lunas de un vistazo."
+chat_err_slow: "Modo lento activo: espera %s segundos más."
+chat_slow_hint: "Modo lento: un mensaje cada %s segundos."

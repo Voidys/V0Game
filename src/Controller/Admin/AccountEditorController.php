@@ -17,6 +17,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Game\Admin\AccountEditor\AchievementsTab;
 use App\Game\Admin\AccountEditor\AlliancesTab;
 use App\Game\Admin\AccountEditor\BuildingsTab;
 use App\Game\Admin\AccountEditor\DefensesTab;
@@ -49,8 +50,8 @@ class AccountEditorController extends AbstractAdminController
      * One tab of the account editor: checks that the acting admin may edit the target (staff boundary), then the tab shows
      * its form (GET) or applies it (POST, with a message page).
      */
-    #[GameRoute('admin', 'admin/accounts/edit/{tab}', 'accountEditor', 'tab', requirements: ['tab' => 'resources|ships|defenses|buildings|researchs|personal|planets|alliances'])]
-    #[GameRoute('admin', 'admin/accounts/edit/{tab}', 'accountEditor', 'save', ['POST'], ['tab' => 'resources|ships|defenses|buildings|researchs|personal|planets|alliances'])]
+    #[GameRoute('admin', 'admin/accounts/edit/{tab}', 'accountEditor', 'tab', requirements: ['tab' => 'resources|ships|defenses|buildings|researchs|personal|planets|alliances|achievements'])]
+    #[GameRoute('admin', 'admin/accounts/edit/{tab}', 'accountEditor', 'save', ['POST'], ['tab' => 'resources|ships|defenses|buildings|researchs|personal|planets|alliances|achievements'])]
     public function tab(): Response
     {
         $name = $this->input()->string('tab');
@@ -68,6 +69,7 @@ class AccountEditorController extends AbstractAdminController
             'personal' => PersonalTab::class,
             'planets' => PlanetsTab::class,
             'alliances' => AlliancesTab::class,
+            'achievements' => AchievementsTab::class,
             default => throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException(),
         };
 
@@ -88,6 +90,7 @@ class AccountEditorController extends AbstractAdminController
         switch ($tab) {
             case 'researchs':
             case 'personal':
+            case 'achievements':
                 $userIds[] = $id;
                 break;
             case 'resources':

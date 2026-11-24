@@ -2,6 +2,7 @@
 
 namespace App\Game\Alliance;
 
+use App\Community\Chat;
 use App\Game\Core\ConfigRegistry;
 use App\Game\Core\Database;
 use App\Game\Core\GameUtilities;
@@ -46,7 +47,7 @@ class AllianceSettingsService
      *
      * @param array<string, mixed> $alliance current alliance row
      * @param array<string, mixed> $input    owner_range, web, image, request_notallow, ally_max_members,
-     *                                       request_min_points, stats, diplo, ally_tag, ally_name, text, textMode
+     *                                       request_min_points, stats, diplo, ally_tag, ally_name, text, textMode, chat_slowmode (only for the leader, null = unchanged)
      * @return array<string, mixed> the alliance row with the new values (for re-rendering the page)
      * @throws AllianceException message page (back to the admin page) on invalid or duplicate name/tag
      */
@@ -71,6 +72,11 @@ class AllianceSettingsService
         $alliance['ally_request_min_points'] = $input['request_min_points'];
         $alliance['ally_stats'] = $input['stats'];
         $alliance['ally_diplo'] = $input['diplo'];
+        // the chat slow mode is the leader's alone: the controller passes it only for him, and only listed values count
+        $slow = $input['chat_slowmode'] ?? null;
+        if ($slow !== null && in_array((int) $slow, Chat::ALLIANCE_SLOWMODES, true)) {
+            $alliance['chat_slowmode'] = (int) $slow;
+        }
 
         $alliance = $this->applyTagAndName($alliance, $input, $back);
 
@@ -96,7 +102,8 @@ class AllianceSettingsService
 			ally_max_members = :AllianceMaxMember,
 			ally_request_min_points = :AllianceRequestMinPoints,
 			ally_stats = :AllianceStats,
-			ally_diplo = :AllianceDiplo
+			ally_diplo = :AllianceDiplo,
+			chat_slowmode = :ChatSlowmode
 			WHERE id = :AllianceID;";
 
         $db->update($sql, [
@@ -110,6 +117,7 @@ class AllianceSettingsService
             ':AllianceRequestMinPoints' => $alliance['ally_request_min_points'],
             ':AllianceStats' => $alliance['ally_stats'],
             ':AllianceDiplo' => $alliance['ally_diplo'],
+            ':ChatSlowmode' => (int) ($alliance['chat_slowmode'] ?? 0),
             ':AllianceID' => $alliance['id'],
             ':text' => $input['text'],
         ]);

@@ -268,6 +268,10 @@ class AllianceDiplomacyService
         }
 
         $isWar = $targetAlliance['diplo'] == DiploType::War->value;
+        if (!$isWar) {
+            $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkDiplomacyAchievements((int) $alliance['id']));
+            $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkDiplomacyAchievements((int) $targetAlliance['id']));
+        }
         $this->messenger->sendDiplomatic(
             $this->bothSides($targetAlliance, $alliance),
             $alliance['ally_tag'],

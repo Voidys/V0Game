@@ -181,6 +181,7 @@ class MissionCaseTrade extends MissionFunctions implements MissionInterface
      */
     public function EndStayEvent()
     {
+        $this->achievementGuard()->run(fn() => $this->fleetAchievements()->onOfferExpired($this->_fleet));
         $this->setState(FLEET_RETURN);
         $this->SaveFleet();
     }

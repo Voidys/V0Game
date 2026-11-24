@@ -28,6 +28,7 @@
   }
   .battle-link { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); text-decoration: none; }
   .battle-link:is(:hover, :focus-visible) span { color: var(--c-accent); }
+  .battle-link :is(.colorPositive, .colorNegative) a { color: inherit; }
   .battle-link__vs { inline-size: 1rem; block-size: 1rem; flex: none; color: var(--c-muted); }
 
   /* ------------------------------------------------------------------ search */
@@ -138,4 +139,11 @@
 
   /* ------------------------------------------------------------------ player card */
   .ach-icons + .empty { padding: 0; }
+
+  /* ------------------------------------------------------------------ api page, market */
+  .api-docs :is(code, pre) { white-space: pre-wrap; overflow-wrap: anywhere; }
+  .api-docs li { min-inline-size: 0; }
+  .market-list thead th { white-space: normal; }
+  tr.trade-unaffordable > td:not(.act) { opacity: 0.5; }
+  tr.trade-unaffordable .market_buy_button { opacity: 0.6; }
 }

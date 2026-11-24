@@ -145,7 +145,7 @@ class ShipyardController extends AbstractGameController
                 $availablePlanet[$this->elements()->column($resourceId)] -= $amount;
             }
 
-            $this->miscAchievements()->checkShipyardAchievements($USER['id'], $Count, $Element);
+            $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkShipyardAchievements($USER['id'], $Count, $Element));
             $BuildArray[] = [$Element, $Count];
             $this->state->PLANET['b_hangar_id'] = StoredData::encode($BuildArray);
         }

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+  <rect width="108" height="108" fill="#fff"/>
+  <path d="M14 60l16-6 14 4 8-10 12 4 4 8-12 6-16-2z" fill="#c9c9c9" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 54l6 8M52 48l4 12M68 52l-4 10" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M60 72l12-4 14 6-4 10-14-2z" fill="#c9c9c9" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 73l4 8" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M20 72l-4 8M34 68l-2 10M50 70l2 9" fill="none" stroke="#6b6b6b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M36 34a18 10 0 0 1 36 0q0 5-8 5h-20q-8 0-8-5z" fill="#111"/>
+  <path d="M54 24v-5" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M44 31q8-4 16-1" fill="none" stroke="#6b6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M40 46q14 9 28 0" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M44 46l-3 6M64 46l3 6" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M80 22l10 10-4 4-10-10z" fill="#c9c9c9" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M78 28l-6 4" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

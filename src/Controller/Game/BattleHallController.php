@@ -68,6 +68,35 @@ class BattleHallController extends AbstractGameController
     }
 
     /**
+     * Players of the listed reports for the name links: report id => role (1 attacker, 2 defender) => list of id/name.
+     * @param array<int, string> $rids
+     * @return array<string, array<int, array<int, array{id:int, name:string}>>>
+     */
+    private function participantsByReport(array $rids): array
+    {
+        if ($rids === []) {
+            return [];
+        }
+        $rows = $this->db->fetchAll(
+            $this->db->qb()
+                ->select('tu.rid', 'tu.uid', 'tu.role', "IF(tu.username = '', u.username, tu.username) AS name")
+                ->from($this->db->table('TOPKB_USERS'), 'tu')
+                ->leftJoin('tu', $this->db->table('USERS'), 'u', 'u.id = tu.uid')
+                ->where('tu.rid IN (:rids)')
+                ->setParameter('rids', $rids, \Doctrine\DBAL\ArrayParameterType::STRING),
+        );
+        $result = [];
+        foreach ($rows as $row) {
+            if ($row['name'] === null || $row['name'] === '') {
+                continue;
+            }
+            $result[$row['rid']][(int) $row['role']][] = ['id' => (int) $row['uid'], 'name' => $row['name']];
+        }
+
+        return $result;
+    }
+
+    /**
      * Hall of fame of the biggest battles with filters. Request: memorial (1 memorial battles only), timeframe, diplomacy, galaxy.
      */
     #[GameRoute('game', 'game/battle-hall', 'battleHall')]
@@ -106,6 +135,12 @@ class BattleHallController extends AbstractGameController
         }
 
         $Selectors = $this->assembleSelectors();
+        $participants = $this->participantsByReport(array_column($TopKBList, 'rid'));
+        foreach ($TopKBList as &$entry) {
+            $entry['attackers'] = $participants[$entry['rid']][1] ?? [];
+            $entry['defenders'] = $participants[$entry['rid']][2] ?? [];
+        }
+        unset($entry);
 
         return $this->render('game/page.battleHall.default.html.twig', [
             'TopKBList'		=> $TopKBList,

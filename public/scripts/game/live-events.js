@@ -45,7 +45,10 @@ function buildRow(template, event, highlight) {
   if (event.hostile) row.querySelector('[data-field="tag"]').hidden = false;
   const text = row.querySelector('[data-field="text"]');
   text.textContent = event.text;
-  if (/^[A-Za-z0-9_ -]+$/.test(event.class)) text.className = event.class;
+  if (/^[A-Za-z0-9_ -]+$/.test(event.class)) {
+    text.className = event.class;
+    row.classList.add(...event.class.split(/\s+/).filter(Boolean));
+  }
   const remaining = event.rest + elapsed();
   const left = row.querySelector('.fleets');
   left.dataset.fleetEndTime = String(event.arrival);

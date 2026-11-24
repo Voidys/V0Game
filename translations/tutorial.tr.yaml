@@ -17,6 +17,7 @@ tutorial_goal:
     '3': Bir ittifaka başvur
 tutorial_goals_header: 'Hedefler:'
 tutorial_goals_ignore: (yok say)
+tutorial_goto: "Sayfaya git"
 tutorial_rewards_header: 'Ödüller:'
 tutorial_text:
   step0: '{game_name}''e hoş geldin!<br><br>
@@ -32,7 +33,7 @@ tutorial_text:
   step2: 'Birlikte oynamak daha eğlenceli. Çoğu oyuncu Discord sunucumuzda takılıyor; orada sorularına cevap bulabilir ve birlikte oynayacak insanlar tanıyabilirsin.<br>
   
     Hâlâ takıldın mı? Buradan destek bileti de açabilirsin.'
-  step3: "Başka oyuncuların gezegenlerini yağmalamak kaynak kazanmanın bir yolu daha - ve aynısı sana da yapılabilir. O yüzden ilk savunmanı kur!<br>\nKüçük bir savunma bile üretimini gece boyunca korur.<br><br>\nSavaşı yalnızca sayılar belirlemez; saldıran filonun bileşimi de önemlidir.<br>\nSaldırganlar yağmalamadan önce savunmanı aşmak zorundadır; göndermek zorunda kaldıkları her gemi kazançlarını azaltır ve daha fazla gemi kaybetmelerine yol açabilir.<br>\nSavunma yapılarını <b>Savunma</b> menüsünden kurarsın. Bunun için bir Tersane (o da Robot Fabrikası ister) ve biraz Deuterium gerekir.<br><br>\nWiki'deki ilgili makale: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Savunma yapıları</a>"
+  step3: "Başka oyuncuların gezegenlerini yağmalamak kaynak kazanmanın bir yolu daha - ve aynısı sana da yapılabilir. O yüzden ilk savunmanı kur!<br>\nKüçük bir savunma bile üretimini gece boyunca korur.<br><br>\nSavaşı yalnızca sayılar belirlemez; saldıran filonun bileşimi de önemlidir.<br>\nSaldırganlar yağmalamadan önce savunmanı aşmak zorundadır; göndermek zorunda kaldıkları her gemi kazançlarını azaltır ve daha fazla gemi kaybetmelerine yol açabilir.<br>\nSavunma yapılarını <b>Tersane</b>'de <b>Savunma</b> sekmesinden kurarsın. Bunun için bir Tersane (o da Robot Fabrikası ister) ve biraz Deuterium gerekir.<br><br>\nWiki'deki ilgili makale: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Savunma yapıları</a>"
   step4: 'Madenlerini geliştirerek kaynak akışını canlı tut!<br>
   
     Binalar, gemiler, savunmalar ve araştırmalar zamanla pahalılaşır; bu yüzden üretiminin de onlarla birlikte büyümesi gerekir. Şimdi Binalar menüsünü aç ve kaynakların yettiği her an madenlerini yükselt.'

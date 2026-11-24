@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+<rect width="108" height="108" fill="#fff"/>
+<path d="M77.6 54.8L83.6 58.9L80.5 68.6L73.2 68.4L72.2 69.7L74.7 76.5L66.4 82.6L60.7 78.1L59.1 78.6L57.1 85.6L46.9 85.6L44.9 78.6L43.3 78.1L37.6 82.6L29.3 76.5L31.8 69.7L30.8 68.4L23.5 68.6L20.4 58.9L26.4 54.8L26.4 53.2L20.4 49.1L23.5 39.4L30.8 39.6L31.8 38.3L29.3 31.5L37.6 25.4L43.3 29.9L44.9 29.4L46.9 22.4L57.1 22.4L59.1 29.4L60.7 29.9L66.4 25.4L74.7 31.5L72.2 38.3L73.2 39.6L80.5 39.4L83.6 49.1L77.6 53.2Z" fill="#6b6b6b" stroke="#111" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="52" cy="54" r="12" fill="#fff" stroke="#111" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(54 54) rotate(45)">
+<path d="M-4 -26H4V26H-4Z" fill="#c9c9c9" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M-11 -40h8v6h6v-6h8v14q0 8-11 8t-11-8Z" fill="#c9c9c9" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M-11 40h8v-6h6v6h8v-14q0-8-11-8t-11 8Z" fill="#c9c9c9" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

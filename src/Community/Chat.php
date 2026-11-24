@@ -32,6 +32,7 @@ final class Chat
     public const ERR_BANNED = 'banned';
     public const ERR_MUTED = 'muted';
     public const ERR_RATE = 'rate';
+    public const ERR_SLOW = 'slow';
     public const ERR_GLOBAL_OFF = 'global_off';
     public const ERR_AGE = 'age';
     public const ERR_POINTS = 'points';
@@ -48,6 +49,8 @@ final class Chat
     public const MAX_BLOCKS = 200;
     /** a message equal to one of the sender's last 3 global messages within this many seconds is refused */
     public const DUPLICATE_WINDOW = 60;
+    /** seconds between two messages an alliance leader may choose as the slow mode of the alliance channel (0 = off) */
+    public const ALLIANCE_SLOWMODES = [0, 10, 30, 60, 120, 300];
 
     public function __construct(
         private readonly Database $db,
@@ -99,7 +102,7 @@ final class Chat
      * account age / points minimum and the text filter).
      *
      * @param array<string, mixed> $user the player row (id, universe, username, ally_id, bana, chat_muted_until, register_time, total_points)
-     * @return array{id: int}|array{error: string} the new message id, or the error code
+     * @return array{id: int}|array{error: string, wait?: int} the new message id, or the error code (`slow` also gives the seconds to wait)
      */
     public function send(array $user, string $channelName, string $text, int $now, ?ChatSettings $settings = null): array
     {
@@ -135,6 +138,10 @@ final class Chat
             $original = $filtered['text'] !== $text ? $text : null;
             $text = $filtered['text'];
         }
+        $wait = $this->slowModeWait($user, $channel, $settings, $now);
+        if ($wait > 0) {
+            return ['error' => self::ERR_SLOW, 'wait' => $wait];
+        }
         $key = (string) (int) $user['id'];
         if (!$this->gap->create($key)->consume()->isAccepted() || !$this->burst->create($key)->consume()->isAccepted()) {
             return ['error' => self::ERR_RATE];
@@ -156,6 +163,61 @@ final class Chat
         ]);
 
         return ['id' => $this->db->lastInsertId()];
+    }
+
+    /**
+     * The slow mode that applies to a player in the channels he may read, in seconds between two messages (0 = off or
+     * exempt: moderators, the alliance owner in his alliance channel).
+     *
+     * @param array<string, mixed> $user
+     * @return array<string, int> by client channel name
+     */
+    public function slowModes(array $user, ChatSettings $settings): array
+    {
+        $modes = [];
+        if ($settings->globalEnabled) {
+            $modes[self::GLOBAL] = $this->isModerator($user) ? 0 : $settings->globalSlowmode;
+        }
+        if ((int) ($user['ally_id'] ?? 0) > 0) {
+            $alliance = $this->allianceChat((int) $user['ally_id']);
+            $exempt = $this->isModerator($user) || (int) ($alliance['ally_owner'] ?? 0) === (int) $user['id'];
+            $modes[self::ALLIANCE] = $exempt ? 0 : (int) ($alliance['chat_slowmode'] ?? 0);
+        }
+
+        return $modes;
+    }
+
+    /**
+     * Seconds the sender still has to wait before his next message in the channel (0 = may post). Moderators and, in
+     * the alliance channel, the alliance owner are exempt.
+     *
+     * @param array<string, mixed> $user the player row (id, universe, ally_id, authlevel)
+     */
+    private function slowModeWait(array $user, string $channel, ChatSettings $settings, int $now): int
+    {
+        if ($channel === self::GLOBAL) {
+            $slow = $settings->globalSlowmode;
+        } else {
+            $alliance = $this->allianceChat((int) $user['ally_id']);
+            $slow = (int) ($alliance['chat_slowmode'] ?? 0);
+            if ((int) ($alliance['ally_owner'] ?? 0) === (int) $user['id']) {
+                return 0;
+            }
+        }
+        if ($slow <= 0 || $this->isModerator($user)) {
+            return 0;
+        }
+        $last = (int) $this->db->selectSingle('SELECT MAX(`created_at`) AS t FROM %%CHAT_MESSAGES%% WHERE `universe` = :universe AND `channel` = :channel AND `user_id` = :user;', [
+            ':universe' => (int) $user['universe'], ':channel' => $channel, ':user' => (int) $user['id'],
+        ], 't');
+
+        return max(0, $last + $slow - $now);
+    }
+
+    /** @return array<string, mixed>|false owner and slow mode of an alliance */
+    private function allianceChat(int $allyId): array|false
+    {
+        return $this->db->selectSingle('SELECT `ally_owner`, `chat_slowmode` FROM %%ALLIANCE%% WHERE `id` = :id;', [':id' => $allyId]);
     }
 
     /** Account age and points minimum of the global channel: the error code, null when the player may post. */

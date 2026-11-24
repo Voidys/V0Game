@@ -22,7 +22,7 @@ final class DiscordTest extends TestCase
     /** @var list<array{method: string, url: string, options: array<string, mixed>}> */
     private array $requests = [];
 
-    private function discord(MockResponse $response, string $hook = 'https://discord.com/api/webhooks/1/abc'): Discord
+    private function discord(MockResponse $response, string $hook = 'https://discord.com/api/webhooks/1/abcdefghij0123456789_-AB'): Discord
     {
         $registry = $this->createStub(ConfigRegistry::class);
         $config = new Config(['game_name' => 'V0Game', 'discord_logs_hook' => $hook], $registry);
@@ -42,7 +42,7 @@ final class DiscordTest extends TestCase
 
         self::assertCount(1, $this->requests);
         self::assertSame('POST', $this->requests[0]['method']);
-        self::assertSame('https://discord.com/api/webhooks/1/abc', $this->requests[0]['url']);
+        self::assertSame('https://discord.com/api/webhooks/1/abcdefghij0123456789_-AB', $this->requests[0]['url']);
         self::assertContains('Content-type: application/json', $this->requests[0]['options']['headers']);
         self::assertSame(
             ['content' => "**cron**\n```successful: 1\nlist: [1,2]\n```", 'username' => 'V0Game', 'tts' => false, 'allowed_mentions' => ['parse' => []], 'embeds' => []],
@@ -75,7 +75,7 @@ final class DiscordTest extends TestCase
 
     public function testAllowlist(): void
     {
-        foreach (['https://discord.com/api/webhooks/1/a', 'https://discordapp.com/api/webhooks/1/a', 'https://ptb.discord.com/api/webhooks/1/a', 'https://canary.discord.com/api/webhooks/1/a'] as $url) {
+        foreach (['https://discord.com/api/webhooks/1/abcdefghij0123456789_-AB', 'https://discordapp.com/api/webhooks/1/abcdefghij0123456789_-AB', 'https://ptb.discord.com/api/webhooks/1/abcdefghij0123456789_-AB', 'https://canary.discord.com/api/webhooks/1/abcdefghij0123456789_-AB'] as $url) {
             self::assertTrue(Discord::isAllowedWebhook($url), $url);
         }
         self::assertFalse(Discord::isAllowedWebhook('https://evil.discord.com.test/api/webhooks/1'));

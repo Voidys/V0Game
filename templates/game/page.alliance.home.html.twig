@@ -62,6 +62,22 @@
 			</div>
 		</section>
 		<section class="panel">
+			{{ ui.panel_head(LNG.al_ally_info_members) }}
+			<div class="panel__body">
+				{% if activity %}
+				<p class="hint"><span class="tag tag--pos">{{ activity.online }} {{ LNG.al_memberlist_on }}</span> / {{ ally_members }}</p>
+				<ul class="stack">
+					{% for member in activity.top %}
+					<li class="toolbar"><a href="#" data-action="dialog-playercard" data-id="{{ member.id }}">{{ member.username }}</a><span class="toolbar__spacer"></span>{% if member.onlinetime < 4 %}<span class="tag tag--pos">{{ LNG.al_memberlist_on }}</span>{% elseif member.onlinetime <= 60 %}<span class="tag tag--warn">{{ member.onlinetime }} {{ LNG.al_memberlist_min }}</span>{% else %}<span class="tag tag--neg">{{ LNG.al_memberlist_off }}</span>{% endif %}</li>
+					{% endfor %}
+				</ul>
+				{% else %}
+				<p class="hint">{{ ally_members }} / {{ ally_max_members }}</p>
+				{% endif %}
+				{% if rights.MEMBERLIST %}<p><a href="{{ path('game_alliance_member_list') }}">{{ LNG.al_user_list }} &rarr;</a></p>{% endif %}
+			</div>
+		</section>
+		<section class="panel">
 			{{ ui.panel_head(LNG.al_diplo) }}
 			<div class="panel__body">
 				{% if diplomats %}

@@ -151,7 +151,7 @@ class PlayerMessenger
         }
 
         foreach ($userId as $receiverId) {
-            $this->playerUtilAchievements()->checkPlayerUtilAchievements36($receiverId, $text);
+            $this->achievementGuard()->run(fn() => $this->playerUtilAchievements()->checkPlayerUtilAchievements36($receiverId, $text));
         }
     }
 

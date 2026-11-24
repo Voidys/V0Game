@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': Šťastný nový rok!
   '55': Živoucí legenda
+  '56': 'Warp pohon'
+  '57': 'Hvězdný kartograf'
+  '58': 'Všeználek'
+  '59': 'Inženýr všeho'
+  '60': 'Hamoun'
+  '61': 'Uctívač slunce'
+  '62': 'Plný dům'
+  '63': 'Silový farmář'
+  '64': 'Důlní impérium'
+  '65': 'Šprt'
+  '66': 'Tržní magnát'
+  '67': 'David proti Goliášovi'
+  '68': 'Bezchybné vítězství'
+  '69': 'Vzájemné zničení'
+  '70': 'Město duchů'
+  '71': 'Šťastný zásah'
+  '72': 'Ohňostroj'
+  '73': 'Kontrarozvědka'
+  '74': 'Pirátský král'
+  '75': 'Vesmírný popelář'
+  '76': 'Potápěč u vraků'
+  '77': 'Čestný'
+  '78': 'Hledaný'
+  '79': 'Týmový hráč'
+  '80': 'Už jsem viděl všechno'
+  '81': 'Mořský vlk'
+  '82': 'Lovec vetřelců'
+  '83': 'Lovec pokladů'
+  '84': 'Dlouhá trasa'
+  '85': 'Přestupný den'
+  '86': 'Pátek třináctého'
+  '87': 'Přesně v poledne'
+  '88': 'Velké turné'
+  '89': 'Absolvent'
+  '90': 'Diplomat'
+  '91': 'Kronikář'
+  '92': 'Přítel na dopisování'
+  '93': 'Galaktický císař'
+  '94': 'Armáda'
+  '95': 'Koloniální vládce'
+  '96': 'Perfekcionista'
 Achievement_text:
-  '1': Měl jsi celou noc pro sebe a nevystřelil jsi ani jednou.
+  '1': 'Nech dopadnout 5 svých útoků mezi půlnocí a šestou ráno během jedné noci, aniž bys jediný vyhrál.'
   '2': Měl jsi flotily nepřetržitě na cestě 90 dní.
   '3': 'Přišel jsi o flotilu, zatímco jsi měl nastavený jazyk „francouzština“.'
   '4': Vyzkoumej iontovou technologii 10.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Tvou flotilu při první expedici zničila černá díra.
   '13': Pošli flotilu pryč méně než 5 sekund před dopadem příchozího útoku.
   '14': Přijď o 10 flotil kvůli černým dírám. Prázdnota má hlad.
-  '15': Nepodaří se ti vytvořit měsíc u planety ani na 10 pokusů. Příště štěstí.
+  '15': 'Nezískej svůj první měsíc za 10 bojů při maximální šanci na měsíc.'
   '16': Více než 250 tvých recyklátorů se vrátilo s prázdnou.
   '17': Zařaď do jedné stavební zakázky alespoň 5000 raketometů.
   '18': Spal 5 milionů deuteria jako palivo na jedné planetě během 24 hodin.
@@ -114,6 +155,47 @@ Achievement_text:
   '53': Měj nejvyšší úroveň v 5 výzkumech současně.
   '54': 'Načasuj útok na aktivního hráče tak, aby dopadl 1. 1. v 00:00:00.'
   '55': Zvláštní úspěch
+  '56': 'Dosáhni úrovně 15 hyperprostorového pohonu.'
+  '57': 'Dosáhni úrovně 15 astrofyziky.'
+  '58': 'Vyzkoumej každou technologii (kromě gravitonu) alespoň jednou.'
+  '59': 'Dostaň každý výzkum (kromě gravitonu) na úroveň 10.'
+  '60': 'Měj 1 000 000 000 jedné suroviny na jedné planetě nebo měsíci.'
+  '61': 'Měj 1000 solárních satelitů najednou na jedné planetě.'
+  '62': 'Zastav každé pole planety s alespoň 250 poli.'
+  '63': 'Vylepši sklady kovu, krystalu a deuteria na úroveň 15 na jedné planetě.'
+  '64': 'Měj na 9 planetách důl na kov úrovně 30 nebo vyšší.'
+  '65': 'Zadej jednu stavební zakázku, která trvá déle než 30 dní.'
+  '66': 'Nech 50 svých nabídek na trhu koupit jinými hráči.'
+  '67': 'Vyhraj obranu proti útočníkům v hodnotě alespoň 10násobku tvé flotily a obrany (útočníci v hodnotě alespoň 1 000 000 surovin).'
+  '68': 'Vyhraj útok, při kterém zničíš alespoň 1000 nepřátelských jednotek a neztratíš ani jednu jednotku.'
+  '69': 'Skonči souboj remízou po maximálním počtu kol, přičemž každá strana ztratí alespoň 10 000 jednotek.'
+  '70': 'Buď napaden na planetě bez lodí a obrany, takže útočník nic nevyplení.'
+  '71': 'Získej měsíc ze souboje, který měl jen 1 % šanci na měsíc.'
+  '72': 'Znič jedním útokem meziplanetárních raket alespoň 100 obranných jednotek.'
+  '73': 'Znič v jednom souboji na své planetě alespoň 100 nepřátelských špionážních sond.'
+  '74': 'Vyplení celkem 1 000 000 000 surovin.'
+  '75': 'Recykluj celkem 1 000 000 000 surovin.'
+  '76': 'Oprav celkem 1000 lodí z polí trosek.'
+  '77': 'Získej 1000 bodů cti.'
+  '78': 'Staň se poprvé psancem.'
+  '79': 'Zúčastni se jako útočník 25 vyhraných společných útoků.'
+  '80': 'Zažij každý možný výsledek expedice alespoň jednou.'
+  '81': 'Pošli 1000 expedic.'
+  '82': 'Vyhraj expediční souboj proti velké cizí flotile.'
+  '83': 'Najdi na 50 expedicích velké množství surovin.'
+  '84': 'Pošli flotilu na cestu tam delší než 24 hodin.'
+  '85': 'Nech flotilu dorazit k cíli 29. února.'
+  '86': 'Přijď v pátek třináctého o celou útočnou flotilu.'
+  '87': 'Nech dva své útoky (mimo společný útok) dopadnout na stejný cíl ve stejnou sekundu.'
+  '88': 'Měj současně flotily na cestě do každé galaxie vesmíru.'
+  '89': 'Dokonči tutoriál.'
+  '90': 'Měj současně aktivní smlouvy se 3 dalšími aliancemi (dostanou ho všichni členové aliance).'
+  '91': 'Vytvoř 5 wiki stránek aliance.'
+  '92': 'Měj 10 přijatých žádostí o přátelství.'
+  '93': 'Buď 7 dní po sobě číslo 1 v žebříčku celkových bodů.'
+  '94': 'Měj současně 100 Hvězd smrti na jedné planetě nebo měsíci.'
+  '95': 'Obsaď všechny planetární sloty, které tvá astrofyzika dovoluje (alespoň 9), každou planetu s alespoň 200 poli.'
+  '96': 'Získej dalších 50 úspěchů.'
 ach_filter_all: Vše
 ach_filter_locked: Zamčené
 ach_filter_unlocked: Odemčené
@@ -196,6 +278,7 @@ Advanced_Stats:
   moons_lost: Ztracené měsíce
   moons_received: Získané měsíce
   outlaw_activations: Aktivace psance
+  alliance_pages_created: 'Vytvořené wiki stránky aliance'
   planets_created: Kolonizované planety
   planets_deleted: Opuštěné planety
   raided_crystal: Vyloupený krystal
@@ -203,6 +286,7 @@ Advanced_Stats:
   raided_metal: Vyloupený kov
   recycled_crystal: Recyklovaný krystal
   recycled_metal: Recyklovaný kov
+  acs_wins: 'Vyhrané útoky SAC jako útočník'
   set_sail_wins: Vyhrané souboje s aktivním motivem SetSail
   stolen_crystal: Ukradený krystal
   stolen_deuterium: Ukradené deuterium
@@ -342,6 +426,14 @@ al_manage_members: Členové
 al_manage_options: Možnosti
 al_manage_ranks: Hodnosti
 al_manage_request_min_points: Min. bodů
+al_chat_slowmode: "Pomalý režim chatu"
+al_chat_slowmode_info: "Minimální doba mezi dvěma zprávami člena v chatu aliance (ty jako vedoucí jsi vyňat)."
+al_chat_slowmode_off: "Vypnuto"
+al_chat_slowmode_10: "10 sekund"
+al_chat_slowmode_30: "30 sekund"
+al_chat_slowmode_60: "1 minuta"
+al_chat_slowmode_120: "2 minuty"
+al_chat_slowmode_300: "5 minut"
 al_manage_requests: Přihlášky
 al_member: Jméno
 al_member_since: Vstoupil
@@ -735,6 +827,8 @@ fl_sac_of_fleet: Flotila ACS
 fl_select_all_ships: Všechny lodě
 fl_selected_resources: Vybrané suroviny
 fl_send_back: Odvolat
+fl_send_again: "Poslat znovu"
+fl_send_again_title: "Připravit novou flotilu se stejnými loděmi, cílem a misí"
 fl_send_fleet: Poslat flotilu
 fl_ship_available: Dostupné lodě
 fl_ship_type: Typ lodi
@@ -995,6 +1089,7 @@ market_p_msg_wrong_resource_type: Tahle nabídka žádá neplatnou surovinu.
 market_p_offer_type: Typ nabídky
 market_p_ratio: Poměr
 market_p_submit: Koupit hned!
+market_not_enough_stock: "Na této planetě nejsou suroviny pro tuto nabídku."
 market_p_to_duration: Let do
 market_ship_as_first: 'Vyber typ lodi pro obchod:'
 Messages: Zprávy
@@ -1430,7 +1525,7 @@ tkb_month: měsíc
 tkb_only: jen
 tkb_owners: Zapojení uživatelé
 tkb_platz: Pořadí
-tkb_self: jen vlastní
+tkb_self: "Moje bitvy"
 tkb_timeframe: Časové období
 tkb_top: Bojová síň
 tkb_units: Jednotky
@@ -1605,6 +1700,7 @@ mg_quick_delete_older: "Smazat starší než %d dní"
 mg_confirm_delete_read: "Smazat všechny přečtené zprávy této kategorie? Oblíbené zůstanou."
 mg_confirm_delete_older: "Smazat všechny zprávy této kategorie starší než %d dní? Oblíbené zůstanou."
 mg_spy_again: "Znovu špehovat"
+mg_send_fleet: "Poslat sem flotilu"
 fl_change_target: "Změnit cíl"
 mg_group_mark: "Označit jako přečtené"
 mg_group_delete: "Smazat"
@@ -1629,6 +1725,7 @@ al_find_none_yet: "V tomto vesmíru zatím nejsou žádné aliance."
 al_no_inside_text: "Zatím žádný text pro členy."
 bd_needs: 'Potřebuje'
 bd_missing: 'Chybí'
+bd_locked_group: "Uzamčeno ({n})"
 honorfights: "Čestné souboje"
 pl_block_head: "Blokovat"
 pl_block_hint: "Projeví se okamžitě, není tu tlačítko Uložit."
@@ -1700,6 +1797,9 @@ shell_jump: "Skočit na…"
 shell_jump_tip: "Skoč na stránku, planetu nebo souřadnice"
 shell_switch_planet: "Přepnout planetu"
 shell_switch_to: "Přepnout na %s"
+shell_build_running: "Probíhá stavba"
+shell_idle_build: "Fronta staveb je prázdná"
+shell_idle_shipyard: "Loděnice je prázdná"
 shell_moon_of: "Měsíc planety %s"
 shell_fields: "polí"
 shell_slots_tip: "Využito %1 z %2 slotů planet"
@@ -1748,3 +1848,8 @@ rec_hidden_holder: "skrytý"
 rec_hidden_holder_info: "Držitel rekordu nezobrazuje své jméno v rekordech."
 rec_pending: "Nový rekord – započítá se při další aktualizaci statistik."
 rec_you: "Ty (zatím nezapočítáno)"
+lm_queues: "Fronty"
+queues_idle: "Volné"
+queues_intro: "Stavební, loděnicové a výzkumné fronty všech planet a měsíců na první pohled."
+chat_err_slow: "Pomalý režim je zapnutý: počkej ještě %s s."
+chat_slow_hint: "Pomalý režim: jedna zpráva každých %s sekund."

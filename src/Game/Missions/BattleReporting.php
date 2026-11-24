@@ -152,6 +152,8 @@ trait BattleReporting
             ':galaxy'	=> $this->_fleet['end_galaxy'],
             ':result'   => $combatResult->won,
         ]);
+
+        $this->achievementGuard()->run(fn() => $this->battleAchievements()->checkBattleHallAchievements($combatResult));
     }
 
     /**

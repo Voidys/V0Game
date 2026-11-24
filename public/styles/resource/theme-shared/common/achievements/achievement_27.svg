@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+  <rect width="108" height="108" fill="#fff"/>
+  <path d="M54 22c-8-6-22-2-24 8-8 2-12 10-8 18-4 8 0 16 8 18 2 8 10 12 18 8 8 4 16 0 18-8 8-2 12-10 8-18 4-8 0-16-8-18-2-10-12-14-12-8z" fill="#c9c9c9" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M54 22v54" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M54 36q-10 0-12 8M54 50q-8 0-12 6M54 62q-8 0-10 8M54 40q10 0 12 8M54 54q8 0 12 6M54 66q6 0 10 6" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="42" cy="44" r="3" fill="#111"/><circle cx="42" cy="56" r="3" fill="#111"/><circle cx="44" cy="70" r="3" fill="#111"/><circle cx="66" cy="48" r="3" fill="#111"/><circle cx="66" cy="60" r="3" fill="#111"/><circle cx="64" cy="72" r="3" fill="#111"/>
+  <path d="M30 30l-8-6M78 30l8-6" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M20 16l1.2 2.8 2.8 1.2-2.8 1.2-1.2 2.8-1.2-2.8-2.8-1.2 2.8-1.2z" fill="#111"/>
+  <path d="M90 16l1.2 2.8 2.8 1.2-2.8 1.2-1.2 2.8-1.2-2.8-2.8-1.2 2.8-1.2z" fill="#111"/>
+  <path d="M44 84h20" fill="none" stroke="#6b6b6b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

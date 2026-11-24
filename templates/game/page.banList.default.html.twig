@@ -24,7 +24,7 @@
 			<tr>
 				<td>{{ banRow.from }}</td>
 				<td>{{ banRow.to }}</td>
-				<td>{{ banRow.player }}</td>
+				<td>{% if banRow.playerId %}<a href="#" data-action="dialog-playercard" data-id="{{ banRow.playerId }}">{{ banRow.player }}</a>{% else %}{{ banRow.player }}{% endif %}</td>
 				<td><a href="mailto:{{ banRow.mail }}" title="{{ banRow.info }}">{{ banRow.admin }}</a></td>
 				<td>{{ banRow.theme }}</td>
 			</tr>

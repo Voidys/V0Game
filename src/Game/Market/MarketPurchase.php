@@ -528,6 +528,7 @@ class MarketPurchase
             ':fleetId'  => $FleetID,
             ':buyerFleetId' => $buyerfleet,
         ]);
+        $this->achievementGuard()->run(fn() => $this->fleetAchievements()->onOfferBought($fleetResult, (int) $this->state->USER['id']));
     }
 
     /**

@@ -17,6 +17,7 @@ tutorial_goal:
     '3': 发送联盟申请
 tutorial_goals_header: 目标：
 tutorial_goals_ignore: （忽略）
+tutorial_goto: "前往页面"
 tutorial_rewards_header: 奖励：
 tutorial_text:
   step0: '欢迎来到 {game_name}！<br><br>
@@ -48,7 +49,7 @@ tutorial_text:
 
     进攻者必须先突破你的防御才能掠夺，而他们每多派一艘舰船，利润就会减少，还可能损失更多舰船。<br>
 
-    在<b>防御</b>菜单中建造防御设施。你需要造船厂（它又需要机器人工厂）和一些重氢。<br><br>
+    在<b>造船厂</b>的<b>防御</b>标签页中建造防御设施。你需要造船厂（它又需要机器人工厂）和一些重氢。<br><br>
 
     维基中的相关文章：
 

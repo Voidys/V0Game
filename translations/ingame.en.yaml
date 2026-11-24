@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': Happy new year!
   '55': Living legend
+  '56': 'Warp drive'
+  '57': 'Star cartographer'
+  '58': 'Polymath'
+  '59': 'Engineer of everything'
+  '60': 'Hoarder'
+  '61': 'Sun worshipper'
+  '62': 'Full house'
+  '63': 'Silo farmer'
+  '64': 'Mining empire'
+  '65': 'Overachiever'
+  '66': 'Market maker'
+  '67': 'David vs Goliath'
+  '68': 'Flawless victory'
+  '69': 'Mutual destruction'
+  '70': 'Ghost town'
+  '71': 'Lucky shot'
+  '72': 'Fireworks'
+  '73': 'Counterintelligence'
+  '74': 'Pirate king'
+  '75': 'Space janitor'
+  '76': 'Wreck diver'
+  '77': 'Honourable'
+  '78': 'Wanted'
+  '79': 'Team player'
+  '80': 'Seen it all'
+  '81': 'Old salt'
+  '82': 'Alien hunter'
+  '83': 'Treasure hunter'
+  '84': 'Long haul'
+  '85': 'Leap day'
+  '86': 'Friday the 13th'
+  '87': 'High noon'
+  '88': 'Grand tour'
+  '89': 'Graduate'
+  '90': 'Diplomat'
+  '91': 'Chronicler'
+  '92': 'Pen pal'
+  '93': 'Galactic emperor'
+  '94': 'Armada'
+  '95': 'Colonial overlord'
+  '96': 'Completionist'
 Achievement_text:
-  '1': You had a whole night to yourself and didn't land a single shot.
+  '1': 'Have 5 attacks land between midnight and 6 am in one night without winning a single one.'
   '2': You had fleets in motion non-stop for 90 days.
   '3': 'You lost your fleet while your language was set to "French".'
   '4': Research Ion Technology 10.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Your fleet was destroyed by a black hole during your first expedition.
   '13': Send your fleet away with less than 5 seconds left before an incoming attack lands.
   '14': Lose 10 fleets to black holes. The void is hungry.
-  '15': Fail to create a moon at a planet after 10 tries. Better luck next time.
+  '15': 'Fail to get your first moon in 10 fights at the maximum moon chance.'
   '16': More than 250 of your recyclers came back empty.
   '17': Queue at least 5000 Missile Launchers in a single build order.
   '18': Burn 5 million deuterium as fuel on a single planet within 24 hours.
@@ -114,6 +155,47 @@ Achievement_text:
   '53': Hold the top level in 5 researches at the same time.
   '54': 'Time an attack on an active player to land at 01/01 00:00:00.'
   '55': Special Achievement
+  '56': 'Reach hyperspace drive level 15.'
+  '57': 'Reach astrophysics level 15.'
+  '58': 'Research every technology (except graviton) at least once.'
+  '59': 'Bring every research (except graviton) to level 10.'
+  '60': 'Hold 1,000,000,000 of a single resource on one planet or moon.'
+  '61': 'Have 1000 solar satellites on one planet at the same time.'
+  '62': 'Build on every field of a planet with at least 250 fields.'
+  '63': 'Upgrade the metal, crystal and deuterium storage to level 15 on one planet.'
+  '64': 'Have a metal mine of level 30 or higher on 9 planets.'
+  '65': 'Start a single building order that takes more than 30 days.'
+  '66': 'Have 50 of your marketplace offers bought by other players.'
+  '67': 'Win a defense against attackers worth at least 10 times your fleet and defense (attackers worth at least 1,000,000 resources).'
+  '68': 'Win an attack that destroys at least 1000 enemy units without losing a single unit.'
+  '69': 'Fight a draw after the maximum number of rounds, with each side losing at least 10,000 units.'
+  '70': 'Get attacked on a planet with no ships and no defense, so the attacker loots nothing.'
+  '71': 'Get a moon from a fight that only had a 1 % moon chance.'
+  '72': 'Destroy at least 100 defense units with a single interplanetary missile strike.'
+  '73': 'Destroy at least 100 enemy espionage probes in one fight on your planet.'
+  '74': 'Raid 1,000,000,000 resources in total.'
+  '75': 'Recycle 1,000,000,000 resources in total.'
+  '76': 'Repair 1000 ships from wreck fields in total.'
+  '77': 'Earn 1000 honour points.'
+  '78': 'Become an outlaw for the first time.'
+  '79': 'Take part as an attacker in 25 won ACS attacks.'
+  '80': 'Experience every possible expedition outcome at least once.'
+  '81': 'Send 1000 expeditions.'
+  '82': 'Win an expedition fight against a large alien fleet.'
+  '83': 'Find large amounts of resources on 50 expeditions.'
+  '84': 'Send a fleet on a one-way flight of more than 24 hours.'
+  '85': 'Have a fleet arrive at its target on 29 February.'
+  '86': 'Lose a whole attacking fleet on a Friday the 13th.'
+  '87': 'Land two of your (non-ACS) attacks on the same target in the same second.'
+  '88': 'Have fleets flying to every galaxy of the universe at the same time.'
+  '89': 'Finish the tutorial.'
+  '90': 'Have active pacts with 3 other alliances at once (all alliance members get it).'
+  '91': 'Create 5 alliance wiki pages.'
+  '92': 'Have 10 accepted buddy requests.'
+  '93': 'Be number 1 in the total points ranking on 7 consecutive days.'
+  '94': 'Have 100 Death Stars on one planet or moon at the same time.'
+  '95': 'Occupy every planet slot your astrophysics allows (at least 9), each planet with at least 200 fields.'
+  '96': 'Hold 50 other achievements.'
 ach_filter_all: All
 ach_filter_locked: Locked
 ach_filter_unlocked: Unlocked
@@ -196,6 +278,7 @@ Advanced_Stats:
   moons_lost: Moons lost
   moons_received: Moons received
   outlaw_activations: Outlaw activations
+  alliance_pages_created: Alliance wiki pages created
   planets_created: Planets colonized
   planets_deleted: Planets abandoned
   raided_crystal: Looted crystal
@@ -203,6 +286,7 @@ Advanced_Stats:
   raided_metal: Looted metal
   recycled_crystal: Recycled crystal
   recycled_metal: Recycled metal
+  acs_wins: Won ACS attacks as attacker
   set_sail_wins: Fights won with the SetSail theme active
   stolen_crystal: Stolen crystal
   stolen_deuterium: Stolen deuterium
@@ -342,6 +426,14 @@ al_manage_members: Members
 al_manage_options: Options
 al_manage_ranks: Ranks
 al_manage_request_min_points: Min. points
+al_chat_slowmode: "Chat slow mode"
+al_chat_slowmode_info: "Minimum time between two messages of a member in the alliance chat (you, as leader, are exempt)."
+al_chat_slowmode_off: "Off"
+al_chat_slowmode_10: "10 seconds"
+al_chat_slowmode_30: "30 seconds"
+al_chat_slowmode_60: "1 minute"
+al_chat_slowmode_120: "2 minutes"
+al_chat_slowmode_300: "5 minutes"
 al_manage_requests: Applications
 al_member: Name
 al_member_since: Joined
@@ -738,6 +830,8 @@ fl_sac_of_fleet: ACS fleet
 fl_select_all_ships: All ships
 fl_selected_resources: Selected resources
 fl_send_back: Return
+fl_send_again: Send again
+fl_send_again_title: Prepare a new fleet with the same ships, target and mission
 fl_send_fleet: Send fleet
 fl_ship_available: Ships available
 fl_ship_type: Ship type
@@ -998,6 +1092,7 @@ market_p_msg_wrong_resource_type: This offer asks for an invalid resource.
 market_p_offer_type: Offer type
 market_p_ratio: Ratio
 market_p_submit: Buy now!
+market_not_enough_stock: 'This planet does not have the resources for this offer.'
 market_p_to_duration: Flight to
 market_ship_as_first: 'Choose ship type for trade:'
 Messages: Messages
@@ -1433,7 +1528,7 @@ tkb_month: month
 tkb_only: only
 tkb_owners: Users involved
 tkb_platz: Rank
-tkb_self: own only
+tkb_self: My battles
 tkb_timeframe: Timeframe
 tkb_top: Battle Hall
 tkb_units: Units
@@ -1608,6 +1703,7 @@ mg_quick_delete_older: "Delete older than %d days"
 mg_confirm_delete_read: "Delete all read messages of this category? Favourites are kept."
 mg_confirm_delete_older: "Delete all messages of this category older than %d days? Favourites are kept."
 mg_spy_again: "Spy again"
+mg_send_fleet: "Send fleet here"
 fl_change_target: "Change target"
 mg_group_mark: "Mark as read"
 mg_group_delete: "Delete"
@@ -1632,6 +1728,7 @@ al_find_none_yet: "There are no alliances in this universe yet."
 al_no_inside_text: "No text for members yet."
 bd_needs: 'Needs'
 bd_missing: 'Missing'
+bd_locked_group: 'Locked ({n})'
 honorfights: "Honor fights"
 pl_block_head: "Block"
 pl_block_hint: "Takes effect immediately, there is no Save button."
@@ -1703,6 +1800,9 @@ shell_jump: "Jump to…"
 shell_jump_tip: "Jump to a page, planet or coordinates"
 shell_switch_planet: "Switch planet"
 shell_switch_to: "Switch to %s"
+shell_build_running: "Construction running"
+shell_idle_build: "Building queue idle"
+shell_idle_shipyard: "Shipyard idle"
 shell_moon_of: "Moon of %s"
 shell_fields: "fields"
 shell_slots_tip: "%1 of %2 planet slots used"
@@ -1847,6 +1947,9 @@ farm_page_of: "Page %d of %d (%d targets)"
 farm_page_nav: "Farm list pages"
 farm_none: "No spy reports yet. Spy on a planet from the galaxy view and it shows up here."
 emp_queues: "Queues"
+lm_queues: "Queues"
+queues_idle: "Idle"
+queues_intro: "Construction, shipyard and research queues of all planets and moons at a glance."
 emp_queue_total: "Further entries and time until the whole queue is done"
 emp_open: "Open"
 emp_collect_title: "Collect resources"
@@ -1915,7 +2018,7 @@ alt_bucket_hour: 'Under 1 hour'
 alt_bucket_day: 'Under 24 hours'
 alt_bucket_week: 'Under 7 days'
 alt_bucket_older: 'Longer ago'
-alt_wiki: 'Notes'
+alt_wiki: 'Wiki'
 alt_wiki_info: 'Pages for your alliance: rules, plans, intel.'
 alt_wiki_pages: 'Pages'
 alt_wiki_new: 'New page'
@@ -2025,4 +2128,6 @@ chat_err_unknown: "This message is not available."
 chat_err_limit: "Your block list is full."
 chat_err_report_limit: "You have too many open reports, please wait until they are handled."
 chat_err_session: "Session expired, please reload the page."
+chat_err_slow: "Slow mode is on: please wait %s more seconds."
+chat_slow_hint: "Slow mode: one message every %s seconds."
 ui_scroll_top: "Back to top"

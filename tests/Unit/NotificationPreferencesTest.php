@@ -17,16 +17,24 @@ final class NotificationPreferencesTest extends TestCase
     /** @return iterable<string, array{string, bool}> */
     public static function webhooks(): iterable
     {
-        yield 'discord.com' => ['https://discord.com/api/webhooks/123/abc_DEF-1', true];
-        yield 'discordapp.com' => ['https://discordapp.com/api/webhooks/123/abc', true];
-        yield 'canary' => ['https://canary.discord.com/api/webhooks/1/x', true];
+        yield 'discord.com' => ['https://discord.com/api/webhooks/123/abcdefghij0123456789_-AB', true];
+        yield 'discordapp.com' => ['https://discordapp.com/api/webhooks/123/abcdefghij0123456789_-AB', true];
+        yield 'canary' => ['https://canary.discord.com/api/webhooks/1/abcdefghij0123456789_-AB', true];
         yield 'empty' => ['', false];
-        yield 'http' => ['http://discord.com/api/webhooks/1/x', false];
-        yield 'other host' => ['https://example.com/api/webhooks/1/x', false];
-        yield 'lookalike host' => ['https://discord.com.evil.test/api/webhooks/1/x', false];
-        yield 'userinfo trick' => ['https://discord.com@evil.test/api/webhooks/1/x', false];
+        yield 'http' => ['http://discord.com/api/webhooks/1/abcdefghij0123456789_-AB', false];
+        yield 'other host' => ['https://example.com/api/webhooks/1/abcdefghij0123456789_-AB', false];
+        yield 'lookalike host' => ['https://discord.com.evil.test/api/webhooks/1/abcdefghij0123456789_-AB', false];
+        yield 'userinfo trick' => ['https://discord.com@evil.test/api/webhooks/1/abcdefghij0123456789_-AB', false];
         yield 'wrong path' => ['https://discord.com/channels/1/2', false];
-        yield 'port' => ['https://discord.com:8443/api/webhooks/1/x', false];
+        yield 'path traversal' => ['https://discord.com/api/webhooks/../../x', false];
+        yield 'dot segments' => ['https://discord.com/api/webhooks/1/../abcdefghij0123456789_-AB', false];
+        yield 'query' => ['https://discord.com/api/webhooks/1/abcdefghij0123456789_-AB?x=1', false];
+        yield 'fragment' => ['https://discord.com/api/webhooks/1/abcdefghij0123456789_-AB#x', false];
+        yield 'short token' => ['https://discord.com/api/webhooks/1/abc', false];
+        yield 'non numeric id' => ['https://discord.com/api/webhooks/abc/abcdefghij0123456789_-AB', false];
+        yield 'trailing newline' => ["https://discord.com/api/webhooks/1/abcdefghij0123456789_-AB
+", false];
+        yield 'port' => ['https://discord.com:8443/api/webhooks/1/abcdefghij0123456789_-AB', false];
     }
 
     #[DataProvider('webhooks')]

@@ -508,6 +508,7 @@ body.admin {
 .field-control > input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"]),
 .field-control > select,
 .field-control > textarea { flex: 1 1 14rem; max-width: 36rem; }
+.field-control > select { min-width: 0; }
 .field-help { grid-column: 2; color: var(--c-muted); font-size: var(--fs-sm); }
 .field-help:empty { display: none; }
 .field { display: grid; gap: var(--space-1); min-width: 0; }

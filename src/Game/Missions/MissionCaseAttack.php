@@ -133,10 +133,12 @@ class MissionCaseAttack extends AbstractBattleMission
 
         $moons_received = $this->statsHandler->getValue($targetUser['id'], AdvancedStatsEnum::MOONS_RECEIVED);
         $additionalChance = 0;
+        $triesWithThisFight = null;
         if ($config->cascading_moon_chance > 0 && $chanceCreateMoon == $maxMoonChance && $moons_received == 0) {
             $trys = $this->statsHandler->getValue($targetUser['id'], AdvancedStatsEnum::FIRST_MOON_TRYS);
             $additionalChance = $config->cascading_moon_chance * $trys;
             $this->statsHandler->increment($targetUser['id'], AdvancedStatsEnum::FIRST_MOON_TRYS, 1);
+            $triesWithThisFight = $trys + 1;
         }
 
         $reportInfo = [
@@ -153,6 +155,7 @@ class MissionCaseAttack extends AbstractBattleMission
             'fleetDestroySuccess'   => null,
         ];
 
+        $moonId = false;
         $randChance = $this->roll(1, 100);
         if ($randChance <= $chanceCreateMoon + $additionalChance) {
             $LNG = $this->getLanguage($targetUser['lang']);
@@ -170,6 +173,7 @@ class MissionCaseAttack extends AbstractBattleMission
             if ($moonId) {
                 $reportInfo['moonName'] = $LNG['type_planet_3'];
                 $this->statsHandler->increment($targetUser['id'], AdvancedStatsEnum::MOONS_RECEIVED, 1);
+                $this->achievementGuard()->run(fn() => $this->battleAchievements()->checkMoonAchievements(array_keys($userAttack), $chanceCreateMoon + $additionalChance));
                 foreach ($userAttack as $attackerId => $fleet) {
                     $this->statsHandler->setTimestamp($attackerId, AdvancedStatsEnum::FIRST_MOON, $this->_fleet['arrival_time']);
                     $this->statsHandler->increment($attackerId, AdvancedStatsEnum::MOONS_CREATED, 1);
@@ -181,6 +185,10 @@ class MissionCaseAttack extends AbstractBattleMission
                     }
                 }
             }
+        }
+
+        if ($triesWithThisFight !== null && !$moonId) {
+            $this->achievementGuard()->run(fn() => $this->fleetAchievements()->checkMoonTries($targetUser['id'], $triesWithThisFight, $moons_received));
         }
 
         return [$reportInfo, $planetDebris];

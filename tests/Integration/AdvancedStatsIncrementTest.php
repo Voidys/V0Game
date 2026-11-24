@@ -25,4 +25,25 @@ final class AdvancedStatsIncrementTest extends GameTestCase
 
         $this->assertEquals(20, $stats->getValue((int) $user['id'], AdvancedStatsEnum::KBMETAL));
     }
+
+    public function testCounterThresholdsGrantAchievements(): void
+    {
+        [$user] = $this->createPlayer();
+        $userId = (int) $user['id'];
+        $stats = new AdvancedStatsHandler($this->db, $this->configs, $this->state);
+        $achievements = new \App\Game\Core\Achievement($this->db, $this->configs, $this->state);
+
+        $stats->increment($userId, AdvancedStatsEnum::RAIDED_METAL, 600000000);
+        $this->assertFalse($achievements->checkAchievement($userId, 74));
+        $stats->increment($userId, AdvancedStatsEnum::RAIDED_DEUTERIUM, 400000000);
+        $this->assertTrue($achievements->checkAchievement($userId, 74));
+
+        $stats->increment($userId, AdvancedStatsEnum::OUTLAW_ACTIVATIONS);
+        $this->assertTrue($achievements->checkAchievement($userId, 78));
+
+        $stats->increment($userId, AdvancedStatsEnum::EXPO_COUNT, 999);
+        $this->assertFalse($achievements->checkAchievement($userId, 81));
+        $stats->increment($userId, AdvancedStatsEnum::EXPO_COUNT);
+        $this->assertTrue($achievements->checkAchievement($userId, 81));
+    }
 }

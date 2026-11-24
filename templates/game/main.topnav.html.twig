@@ -75,7 +75,7 @@
       {% for p in planetList %}{% if p.id == pid %}{% set entry = p %}{% elseif p.moon and p.moon.id == pid %}{% set entry = p.moon %}{% endif %}{% endfor %}
       <li role="presentation"><button type="button" role="option" data-planet-goto="{{ pid }}" aria-selected="{{ pid == current_pid ? 'true' : 'false' }}">
         {% if entry %}{{ shell.planet_img(entry.image, entry.style, 28) }}{% else %}<span></span>{% endif %}
-        <strong>{{ entry ? entry.name : pname }}{% if entry and entry.isMoon %} <span class="muted">({{ LNG.fcm_moon }})</span>{% endif %}</strong>
+        <span class="pm-text"><strong>{{ entry ? entry.name : pname }}{% if entry and entry.isMoon %} <span class="muted">({{ LNG.fcm_moon }})</span>{% endif %}</strong>{% if entry %}{{ shell.status(entry) }}{% endif %}</span>
         {% if entry %}<span class="mono muted">{{ entry.galaxy }}:{{ entry.system }}:{{ entry.planet }}</span>{% endif %}
       </button></li>
     {% endfor %}

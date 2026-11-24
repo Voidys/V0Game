@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': Gelukkig nieuwjaar!
   '55': Levende legende
+  '56': 'Warpaandrijving'
+  '57': 'Sterrenkaartenmaker'
+  '58': 'Universeel geleerde'
+  '59': 'Ingenieur van alles'
+  '60': 'Hamsteraar'
+  '61': 'Zonaanbidder'
+  '62': 'Volle bak'
+  '63': 'Siloboer'
+  '64': 'Mijnenimperium'
+  '65': 'Stuudje'
+  '66': 'Marktmeester'
+  '67': 'David tegen Goliath'
+  '68': 'Vlekkeloze overwinning'
+  '69': 'Wederzijdse vernietiging'
+  '70': 'Spookstad'
+  '71': 'Gelukstreffer'
+  '72': 'Vuurwerk'
+  '73': 'Contraspionage'
+  '74': 'Piratenkoning'
+  '75': 'Ruimteschoonmaker'
+  '76': 'Wrakduiker'
+  '77': 'Eervol'
+  '78': 'Gezocht'
+  '79': 'Teamspeler'
+  '80': 'Alles gezien'
+  '81': 'Oude zeebonk'
+  '82': 'Alienjager'
+  '83': 'Schatzoeker'
+  '84': 'Lange afstand'
+  '85': 'Schrikkeldag'
+  '86': 'Vrijdag de 13e'
+  '87': 'High noon'
+  '88': 'Grote tour'
+  '89': 'Afgestudeerd'
+  '90': 'Diplomaat'
+  '91': 'Kroniekschrijver'
+  '92': 'Penvriend'
+  '93': 'Galactische keizer'
+  '94': 'Armada'
+  '95': 'Koloniaal heerser'
+  '96': 'Completist'
 Achievement_text:
-  '1': Je had een hele nacht voor jezelf en hebt geen enkel schot gelost.
+  '1': 'Laat 5 aanvallen van jou in één nacht tussen middernacht en 6 uur ''s ochtends landen zonder er één te winnen.'
   '2': Je had 90 dagen lang non-stop vloten onderweg.
   '3': Je verloor je vloot terwijl je taal op "Frans" stond.
   '4': Onderzoek Iontechniek 10.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Je vloot werd tijdens je eerste expeditie door een zwart gat vernietigd.
   '13': Stuur je vloot weg met minder dan 5 seconden voordat een binnenkomende aanval aankomt.
   '14': Verlies 10 vloten aan zwarte gaten. De leegte heeft honger.
-  '15': Slaag er na 10 pogingen niet in een maan bij een planeet te maken. Volgende keer meer geluk.
+  '15': 'Krijg je eerste maan niet in 10 gevechten met de maximale maankans.'
   '16': Meer dan 250 van je recyclers kwamen leeg terug.
   '17': Zet minstens 5000 raketwerpers in één bouwopdracht in de wachtrij.
   '18': Verstook 5 miljoen deuterium als brandstof op één planeet binnen 24 uur.
@@ -111,6 +152,47 @@ Achievement_text:
   '53': Houd tegelijk het hoogste niveau in 5 onderzoeken.
   '54': Time een aanval op een actieve speler zo dat hij op 01/01 00:00:00 aankomt.
   '55': Speciale prestatie
+  '56': 'Bereik hyperruimteaandrijving niveau 15.'
+  '57': 'Bereik astrofysica niveau 15.'
+  '58': 'Onderzoek elke technologie (behalve graviton) minstens één keer.'
+  '59': 'Breng elk onderzoek (behalve graviton) naar niveau 10.'
+  '60': 'Bezit 1.000.000.000 van één grondstof op één planeet of maan.'
+  '61': 'Heb 1000 zonne-energiesatellieten tegelijk op één planeet.'
+  '62': 'Bebouw elk veld van een planeet met minstens 250 velden.'
+  '63': 'Breng de metaal-, kristal- en deuteriumopslag naar niveau 15 op één planeet.'
+  '64': 'Heb op 9 planeten een metaalmijn van niveau 30 of hoger.'
+  '65': 'Start één bouwopdracht die langer dan 30 dagen duurt.'
+  '66': 'Laat 50 van je marktaanbiedingen door andere spelers kopen.'
+  '67': 'Win een verdediging tegen aanvallers die minstens 10 keer je vloot en verdediging waard zijn (aanvallers van minstens 1.000.000 grondstoffen).'
+  '68': 'Win een aanval waarbij minstens 1000 vijandelijke eenheden worden vernietigd zonder zelf één eenheid te verliezen.'
+  '69': 'Speel gelijk na het maximale aantal rondes, waarbij elke kant minstens 10.000 eenheden verliest.'
+  '70': 'Word aangevallen op een planeet zonder schepen en verdediging, zodat de aanvaller niets buit maakt.'
+  '71': 'Krijg een maan uit een gevecht met slechts 1 % maankans.'
+  '72': 'Vernietig met één interplanetaire raketaanval minstens 100 verdedigingseenheden.'
+  '73': 'Vernietig in één gevecht op je planeet minstens 100 vijandelijke spionagesondes.'
+  '74': 'Buit in totaal 1.000.000.000 grondstoffen.'
+  '75': 'Recycle in totaal 1.000.000.000 grondstoffen.'
+  '76': 'Repareer in totaal 1000 schepen uit puinvelden.'
+  '77': 'Verdien 1000 eerepunten.'
+  '78': 'Word voor het eerst een vogelvrije.'
+  '79': 'Neem als aanvaller deel aan 25 gewonnen gezamenlijke aanvallen.'
+  '80': 'Beleef elke mogelijke expeditie-uitkomst minstens één keer.'
+  '81': 'Stuur 1000 expedities.'
+  '82': 'Win een expeditiegevecht tegen een grote alienvloot.'
+  '83': 'Vind bij 50 expedities grote hoeveelheden grondstoffen.'
+  '84': 'Stuur een vloot op een enkele reis van meer dan 24 uur.'
+  '85': 'Laat een vloot op 29 februari zijn doel bereiken.'
+  '86': 'Verlies op een vrijdag de 13e een complete aanvalsvloot.'
+  '87': 'Laat twee van je aanvallen (zonder gezamenlijke aanval) in dezelfde seconde op hetzelfde doel landen.'
+  '88': 'Heb tegelijkertijd vloten onderweg naar elke galaxy van het universum.'
+  '89': 'Voltooi de tutorial.'
+  '90': 'Heb tegelijkertijd actieve verdragen met 3 andere allianties (alle alliantieleden krijgen het).'
+  '91': 'Maak 5 wikipagina''s van je alliantie.'
+  '92': 'Heb 10 geaccepteerde vriendschapsverzoeken.'
+  '93': 'Sta 7 dagen achter elkaar op nummer 1 van de totaalranglijst.'
+  '94': 'Heb tegelijkertijd 100 Death Stars op één planeet of maan.'
+  '95': 'Bezet elk planeetslot dat je astrofysica toestaat (minstens 9), elke planeet met minstens 200 velden.'
+  '96': 'Bezit 50 andere prestaties.'
 ach_filter_all: Alles
 ach_filter_locked: Vergrendeld
 ach_filter_unlocked: Ontgrendeld
@@ -193,6 +275,7 @@ Advanced_Stats:
   moons_lost: Manen verloren
   moons_received: Manen ontvangen
   outlaw_activations: Vogelvrij-activeringen
+  alliance_pages_created: 'Aangemaakte alliantiewikipagina''s'
   planets_created: Planeten gekoloniseerd
   planets_deleted: Planeten verlaten
   raided_crystal: Kristal geplunderd
@@ -200,6 +283,7 @@ Advanced_Stats:
   raided_metal: Metaal geplunderd
   recycled_crystal: Kristal gerecycled
   recycled_metal: Metaal gerecycled
+  acs_wins: 'Gewonnen ACS-aanvallen als aanvaller'
   set_sail_wins: Gevechten gewonnen met actief SetSail-thema
   stolen_crystal: Gestolen kristal
   stolen_deuterium: Gestolen deuterium
@@ -326,6 +410,14 @@ al_manage_members: Leden
 al_manage_options: Opties
 al_manage_ranks: Rangen
 al_manage_request_min_points: Min. punten
+al_chat_slowmode: "Chat slowmode"
+al_chat_slowmode_info: "Minimale tijd tussen twee berichten van een lid in de alliantiechat (jij bent als leider uitgezonderd)."
+al_chat_slowmode_off: "Uit"
+al_chat_slowmode_10: "10 seconden"
+al_chat_slowmode_30: "30 seconden"
+al_chat_slowmode_60: "1 minuut"
+al_chat_slowmode_120: "2 minuten"
+al_chat_slowmode_300: "5 minuten"
 al_manage_requests: Sollicitaties
 al_member: Naam
 al_member_since: Lid sinds
@@ -709,6 +801,8 @@ fl_sac_of_fleet: ACS-vloot
 fl_select_all_ships: Alle schepen
 fl_selected_resources: Geselecteerde grondstoffen
 fl_send_back: Terugroepen
+fl_send_again: "Opnieuw sturen"
+fl_send_again_title: "Een nieuwe vloot voorbereiden met dezelfde schepen, hetzelfde doel en dezelfde missie"
 fl_send_fleet: Vloot versturen
 fl_ship_available: Beschikbare schepen
 fl_ship_type: Scheepstype
@@ -966,6 +1060,7 @@ market_p_msg_wrong_resource_type: Deze aanbieding vraagt om een ongeldige gronds
 market_p_offer_type: Aanbiedingstype
 market_p_ratio: Verhouding
 market_p_submit: Nu kopen!
+market_not_enough_stock: "Deze planeet heeft de grondstoffen voor dit aanbod niet."
 market_p_to_duration: Vlucht naar
 market_ship_as_first: 'Kies het scheepstype voor de handel:'
 Messages: Berichten
@@ -1401,7 +1496,7 @@ tkb_month: maand
 tkb_only: alleen
 tkb_owners: Betrokken gebruikers
 tkb_platz: Rang
-tkb_self: alleen eigen
+tkb_self: "Mijn gevechten"
 tkb_timeframe: Periode
 tkb_top: Gevechtshal
 tkb_units: Eenheden
@@ -1573,6 +1668,7 @@ mg_quick_delete_older: "Ouder dan %d dagen wissen"
 mg_confirm_delete_read: "Alle gelezen berichten van deze categorie wissen? Favorieten blijven bewaard."
 mg_confirm_delete_older: "Alle berichten van deze categorie ouder dan %d dagen wissen? Favorieten blijven bewaard."
 mg_spy_again: "Opnieuw spioneren"
+mg_send_fleet: "Vloot hierheen sturen"
 fl_change_target: "Doel wijzigen"
 mg_group_mark: "Als gelezen markeren"
 mg_group_delete: "Verwijderen"
@@ -1597,6 +1693,7 @@ al_find_none_yet: "Er zijn nog geen allianties in dit universum."
 al_no_inside_text: "Nog geen tekst voor leden."
 bd_needs: 'Vereist'
 bd_missing: 'Ontbreekt'
+bd_locked_group: "Vergrendeld ({n})"
 honorfights: "Eregevechten"
 pl_block_head: "Blokkeren"
 pl_block_hint: "Werkt direct, er is geen Opslaan-knop."
@@ -1668,6 +1765,9 @@ shell_jump: Ga naar…
 shell_jump_tip: Ga naar een pagina, planeet of coördinaten
 shell_switch_planet: Planeet wisselen
 shell_switch_to: Wisselen naar %s
+shell_build_running: "Bouwopdracht loopt"
+shell_idle_build: "Bouwwachtrij leeg"
+shell_idle_shipyard: "Werf leeg"
 shell_moon_of: Maan van %s
 shell_fields: velden
 shell_slots_tip: '%1 van %2 planeetplaatsen bezet'
@@ -1716,3 +1816,8 @@ rec_hidden_holder: "hidden"
 rec_hidden_holder_info: "The record holder does not show their name in the records."
 rec_pending: "New record – counted at the next statistics update."
 rec_you: "You (not counted yet)"
+lm_queues: "Wachtrijen"
+queues_idle: "Leeg"
+queues_intro: "Bouw-, werf- en onderzoekswachtrijen van alle planeten en manen in één oogopslag."
+chat_err_slow: "Slowmode is actief: wacht nog %s seconden."
+chat_slow_hint: "Slowmode: één bericht per %s seconden."

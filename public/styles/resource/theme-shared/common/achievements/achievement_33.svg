@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+<rect width="108" height="108" fill="#fff"/>
+<g transform="matrix(1.000 0 0 1.000 -0.6 5.6)">
+<rect x="20" y="44" width="68" height="44" rx="7" fill="#c9c9c9" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M40 44V36q0-5 5-5h18q5 0 5 5v8" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M40 44V88M68 44V88" fill="none" stroke="#6b6b6b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="48" y="60" width="12" height="10" rx="2" fill="#fff" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 56h8M76 56h8" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 30Q38 14 62 18" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M58 8L72 18L58 26Z" fill="#111" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="78" cy="28" r="0.1" fill="#111" />
+<path d="M84 19L85.8 24.2L91 26L85.8 27.8L84 33L82.2 27.8L77 26L82.2 24.2Z" fill="#111"/>
+</g>
+</svg>

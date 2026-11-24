@@ -297,6 +297,7 @@ enum AdvancedStatsEnum
     case FIRST_MOON_TRYS;
     case DESTROY_MOON_RIPS_LOST;
     case SET_SAIL_WINS;
+    case ACS_WINS;
 
     case WONS;
     case LOOS;
@@ -477,6 +478,8 @@ enum AdvancedStatsEnum
     case EXPO_FIRST_903;
 
     case OUTLAW_ACTIVATIONS;
+
+    case ALLIANCE_PAGES_CREATED;
 
     private static function getEnumByName(string $enumName): ?self
     {

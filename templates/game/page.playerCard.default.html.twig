@@ -176,8 +176,8 @@
 	{{ ui.panel_head(LNG.Achievements) }}
 	<div class="panel__body ach-icons">
 		{% for achievement in achievements %}
-			<img class="achievement-icon" src="{{ theme_asset('achievements/' ~ achievement.image ~ '.jpg') }}" data-action="dialog-ach" data-id="{{ achievement.id }}" title="{{ LNG.Achievement_names[achievement.id] }}" alt="{{ achievement.name }}">
-			{% include 'game/shared.achievementInfo.html.twig' with {id: achievement.id, image: theme_asset('achievements/' ~ achievement.image ~ '.jpg')} only %}
+			<img class="achievement-icon" src="{{ theme_asset('achievements/' ~ achievement.image ~ '.svg') }}" data-action="dialog-ach" data-id="{{ achievement.id }}" title="{{ LNG.Achievement_names[achievement.id] }}" alt="{{ achievement.name }}">
+			{% include 'game/shared.achievementInfo.html.twig' with {id: achievement.id, image: theme_asset('achievements/' ~ achievement.image ~ '.svg')} only %}
 		{% endfor %}
 	</div>
 </section>

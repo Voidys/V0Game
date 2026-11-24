@@ -332,6 +332,7 @@ class FleetLauncher
         $statsHandler->increment($fleetStartOwner, AdvancedStatsEnum::USED_FUEL, $consumption);
 
         $this->insertFleetLog($fleetId, $flight, $fleetResource);
+        $this->achievementGuard()->run(fn() => $this->fleetAchievements()->onDispatch($fleetStartOwner, $fleetStartPlanetID, $fleetMission, $this->state->runtime->timestamp, $arrivalTime, $consumption, $this->universe()->current()));
 
         return $fleetId;
     }

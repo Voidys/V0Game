@@ -24,12 +24,11 @@
         <div class="universe-card__actions">
           <form action="{{ path('account_account_send') }}" method="post">
             <input type="hidden" name="userID" value="{{ universe["user_id"] }}">
-            {% if universe["uni_status"] == constant('STATUS_OPEN') or universe["uni_status"] == constant('STATUS_LOGIN_ONLY') or universe["authlevel"] == constant('App\\Game\\Enum\\AuthLevel::Admin').value %}
+            {% if universe["uni_status"] == constant('STATUS_OPEN') or universe["uni_status"] == constant('STATUS_LOGIN_ONLY') or universe["authlevel"] == constant('App\\Game\\Enum\\AuthLevel::Admin').value or authlevel == constant('App\\Game\\Enum\\AuthLevel::Admin').value %}
               <input type="hidden" name="action" value="login">
               <input class="btn btn--primary" value="{{ LNG["Play"] }}" type="submit">
             {% else %}
-              <input type="hidden" name="action" value="logout">
-              <button class="btn">{{ LNG["uni_status_regclosed_gameclosed"] }}</button>
+              <button type="button" class="btn" disabled aria-disabled="true">{{ LNG["uni_status_regclosed_gameclosed"] }}</button>
             {% endif %}
           </form>
         </div>

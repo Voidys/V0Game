@@ -322,7 +322,12 @@ class AllianceController extends AbstractGameController
 
     private function homeAlliance(): Response
     {
-        return $this->render('game/page.alliance.home.html.twig', $this->alliance()->pages()->home($this->allianceData));
+        // names and online state of the members only with the rights of the member list (same gate as there)
+        $activity = $this->rights['ONLINESTATE'] && $this->rights['MEMBERLIST']
+            ? $this->alliance()->memberLists()->activitySummary($this->allianceData)
+            : null;
+
+        return $this->render('game/page.alliance.home.html.twig', $this->alliance()->pages()->home($this->allianceData) + ['activity' => $activity]);
     }
 
     /**
@@ -450,6 +455,7 @@ class AllianceController extends AbstractGameController
             'request_min_points' => $this->input()->int('request_min_points'),
             'stats' => $this->input()->int('stats'),
             'diplo' => $this->input()->int('diplo'),
+            'chat_slowmode' => $this->isLeader() && $this->input()->has('chat_slowmode') ? $this->input()->int('chat_slowmode') : null,
             'ally_tag' => $this->input()->string('ally_tag', (string) $this->allianceData['ally_tag'], UTF8_SUPPORT),
             'ally_name' => $this->input()->string('ally_name', (string) $this->allianceData['ally_name'], UTF8_SUPPORT),
             'text' => $this->input()->string('text', '', true),
@@ -462,6 +468,12 @@ class AllianceController extends AbstractGameController
         }
 
         return $this->adminOverviewPage($textMode, $input['text']);
+    }
+
+    /** the founder of the alliance (the only one who may change the chat slow mode) */
+    private function isLeader(): bool
+    {
+        return $this->allianceData && $this->allianceData['ally_owner'] == $this->state->USER['id'];
     }
 
     /** the settings form of the admin overview with `$text` in the text area of `$textMode` */
@@ -485,7 +497,25 @@ class AllianceController extends AbstractGameController
             'ally_owner_range' => $this->allianceData['ally_owner_range'],
             'ally_stats_data' => $this->allianceData['ally_stats'],
             'ally_diplo_data' => $this->allianceData['ally_diplo'],
+            'isLeader' => $this->isLeader(),
+            'chatSlowmodes' => $this->slowmodeChoices(),
+            'ally_chat_slowmode' => (int) ($this->allianceData['chat_slowmode'] ?? 0),
         ]);
+    }
+
+    /** @return array<int, string> the slow mode choices (seconds => label) */
+    private function slowmodeChoices(): array
+    {
+        $LNG = $this->state->LNG;
+
+        return [
+            0 => $LNG['al_chat_slowmode_off'],
+            10 => $LNG['al_chat_slowmode_10'],
+            30 => $LNG['al_chat_slowmode_30'],
+            60 => $LNG['al_chat_slowmode_60'],
+            120 => $LNG['al_chat_slowmode_120'],
+            300 => $LNG['al_chat_slowmode_300'],
+        ];
     }
 
     /** disband the alliance (leader only, silently ignored otherwise) */

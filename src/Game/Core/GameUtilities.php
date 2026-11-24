@@ -76,6 +76,11 @@ trait GameUtilities
         return $this->gameUtility(\App\Game\Core\Player\PlanetReshuffle::class);
     }
 
+    protected function queueOverview(): \App\Game\Core\Player\QueueOverview
+    {
+        return $this->gameUtility(\App\Game\Core\Player\QueueOverview::class);
+    }
+
     protected function planetQueries(): \App\Game\Core\Player\PlanetQueries
     {
         return $this->gameUtility(\App\Game\Core\Player\PlanetQueries::class);
@@ -225,6 +230,11 @@ trait GameUtilities
         return $this->gameUtility(SpyReport::class);
     }
 
+    protected function achievementGuard(): \App\Game\Achievements\AchievementGuard
+    {
+        return $this->gameUtility(\App\Game\Achievements\AchievementGuard::class);
+    }
+
     protected function battleAchievements(): \App\Game\Achievements\BattleAchievement
     {
         return $this->gameUtility(\App\Game\Achievements\BattleAchievement::class);
@@ -238,6 +248,11 @@ trait GameUtilities
     protected function planetRessAchievements(): \App\Game\Achievements\PlanetRessAchievement
     {
         return $this->gameUtility(\App\Game\Achievements\PlanetRessAchievement::class);
+    }
+
+    protected function fleetAchievements(): \App\Game\Achievements\FleetAchievement
+    {
+        return $this->gameUtility(\App\Game\Achievements\FleetAchievement::class);
     }
 
     protected function playerUtilAchievements(): \App\Game\Achievements\PlayerUtilAchievement

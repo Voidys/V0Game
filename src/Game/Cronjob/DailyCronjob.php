@@ -53,6 +53,7 @@ class DailyCronjob extends AbstractCronjobTask
         $this->purgeChat();
         $this->cleanAccountsValid();
         $this->expireAllianceTreaties();
+        $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkEmperorAchievements());
     }
 
     /**

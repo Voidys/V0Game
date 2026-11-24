@@ -1450,3 +1450,45 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 - Fleet table: tooltip/confirm attributes escaped with `html` instead of `html_attr` (-11 % HTML).
 - Phone LCP: `content-in` animation slides only, no opacity fade (overview LCP 1024 → 360 ms at 4× CPU).
 - Daily cronjob: indexes `buddy.owner` and `alliance_request.userID`, no second SELECT per inactive player (migration 1795502300); 1388 → 840 ms.
+
+## 182. QoL review 2: fleet loop, planet status, queues page, message coords, alliance members
+
+- Fixes: fleet step 2 no longer overflows on phones/under the right rail, sticky send bar and protection toast keep inputs and buttons free; destination step summary fills the return time (`flotten.js fleetTime()`); galaxy action icons no longer clip at 1024–1440 px; `/game/api` code blocks wrap; build-card requirement tags, market headers and empire toggles wrap instead of clipping.
+- Fleet: "send again" per own flying fleet (step 1 prefilled via `ships=`, target, mission; not for ACS join, colonisation, missiles; `FleetTableController::repeatQuery()`); mission colour edge on fleet table and overview event rows (`shared.missionColors.html.twig`); flight time next to own planets/shortcuts in step 1, follows the speed (`showTargetTimes()`).
+- Galaxy on phones: filters folded into `<details>` with an active-filter count, rows with name + alliance tag on one line.
+- Planet list (side panel + top-bar popover): status icons for idle building queue, idle shipyard, full storage (stock projected from `last_update`) and the next build finish, from the existing planet-list query (`AbstractGameController::planetStatus()`).
+- New page `/game/queues` (empire tabs): account research plus construction and shipyard queue of every planet and moon with countdowns; queue logic moved from `EmpireController` into `App\Game\Core\Player\QueueOverview` (`queueOverview()` accessor).
+- Messages: open on the saved category or the first one with unread mail; unread chips first on phones with scroll-edge fades; coordinates get a "send fleet here" icon at render time, plain ones also a galaxy link (`CoordinateLinker`, Twig filter `link_coords`, stored text untouched).
+- Alliance: members panel on the home page (online count, 8 most recently active, same ONLINESTATE + MEMBERLIST gate as the member list, one query); wiki labelled "Wiki" instead of "Notizen"; tools nav marks the current page.
+- Tutorial: open by default for the first steps, two-line title on phones, goals link to their page, step 3 names the shipyard's defense tab.
+- Remembered per browser: build/research/shipyard filter (per path), market ratios; unaffordable market offers dimmed. Locked ships/defense folded into "Locked (n)" on phones (`lockedFold.js`).
+- Ban list and battle hall link player names to the card; the battle hall's own-fights filter is labelled "My battles".
+- Lobby: closed universes show a disabled "closed" button (admins can still enter); the account language follows the player's game language (settings save, universe entry).
+- New ingame/tutorial keys in all 22 locales.
+
+## 183. Chat slow mode
+
+- Global channel: universe setting `chat_global_slowmode` (seconds between two messages of a player, 0 = off, max 3600; Admin → universe settings, chat).
+- Alliance channel: `alliance.chat_slowmode` (off, 10 s, 30 s, 1, 2, 5 min), set by the alliance leader only in the alliance settings (checked server-side, values from `Chat::ALLIANCE_SLOWMODES`); migration 1795502400 also adds index `chat_messages.channel_user` for the last-message lookup.
+- `Chat::send()` refuses with `slow` + seconds to wait; moderators and the leader in his own alliance channel are exempt. Poll returns `slow` per channel; the widget shows a hint and counts the send button down.
+
+## 184. Achievements: every one earnable, 41 new ones, SVG artwork
+
+- The 17 achievements without a trigger now have one (`NOT_IMPLEMENTED_ACHIEVEMENTS` is empty): 1 (5 night attacks without a win, `users.night_attacks(_date)`), 2 (90 days of fleets in motion, `users.fleets_moving_since`), 13 (fleet leaves < 5 s before a hostile landing), 15 (10 fights at maximum moon chance without a first moon), 18 (5 M deuterium fuel from one planet in 24 h, table `fuel_log`), 29/30 (5-player ACS), 41 (market offer open 7 days), 42 (4 battle hall losses), 44 (7 days below 100 % energy, `planets.low_energy_since`), 46 (missiles hit the bash limit), 50 (satellites lost with graviton energy), 53 (top records in 5 researches, after the records build), 54 (attack at 01‑01 00:00:00); 8, 11 and 55 are granted by admins (new account editor tab "Achievements": grant/revoke with log entry, `Achievement::removeAchievement()`).
+- 41 new achievements 56–96 (migration 1795502500): research (hyperspace drive 15, astrophysics 15, all researches ≥ 1 / ≥ 10), economy (1 bn on a planet, 1000 satellites, full 250-field planet, storages 15, 9 metal mines 30, 30-day build order, 50 market sales), combat (David vs Goliath, flawless victory, mutual destruction, ghost town, 1 % moon, 100 defenses by one missile strike, 100 probes shot down, 1 bn raided / recycled, 1000 ships repaired, 1000 honour points, outlaw, 25 ACS wins), expeditions (all outcomes, 1000 expeditions, large aliens beaten, 50 large finds), timing (24 h flight, leap day, Friday the 13th, two attacks in the same second, fleets to every galaxy), social (tutorial, 3 pacts, 5 wiki pages, 10 buddies) and long-term (rank 1 for 7 days, 100 Death Stars, all colony slots with 200 fields, 50 achievements).
+- Hooks: `BattleAchievement` (battle, battle hall, moon roll, missiles, expedition fights), `PlanetRessAchievement` (research/building/shipyard completion, saved resource updates — in-memory checks with a per-request held cache), new `FleetAchievement` (dispatch, fleet events, market), `MiscAchievement::checkStatAchievements` (advanced stats thresholds), records/statistics/daily cronjobs, tutorial, diplomacy, wiki, buddies; Completionist inside `Achievement::setAchievement()`. New counters `ACS_WINS`, `ALLIANCE_PAGES_CREATED`, `users.market_sales` (migrations 1795502520/30/40).
+- All 96 achievement images redrawn as SVG (white 12 px margin, monochrome ink), templates load `.svg`; the WebP files are gone.
+- Names/texts in all 22 locales, admin keys in all admin locales.
+
+## 185. Audit round 5: achievements guarded, web push fixed, SSRF closed
+
+- Achievement checks run through `AchievementGuard::run()` (all ~45 call sites): a failing check is logged to `var/log/game.log` and swallowed so it can never roll back a battle, fleet event, purchase or cron job; deadlocks and lock wait timeouts (`Database::isRetryable`) are rethrown.
+- Achievement fixes: Wreck diver counts only ship repairs (`REPAIRED_2xx`), index `users_to_topkb (uid, role)` for the battle hall check (migration 1795502550), achievement 15 evaluated after a failed moon roll, held-cache only caches DB-confirmed holds, level checks use ≥ (existing players qualify on their next completion), Full house planets only, Einstein needs records ≥ 10, Grand tour needs ≥ 3 galaxies.
+- Anti-alt: Market maker ignores purchases between linked accounts, Pen pal ignores linked buddies (`AccountLinks::linked()`), Diplomat counts alliances with ≥ 5 members, Chronicler counts pages with ≥ 200 characters.
+- Web push actually sends: `nyholm/psr7` added, explicit `Psr18Client` (timeout 5 s, no redirects); the old third constructor argument was a TypeError in web-push v11. Send failures are logged.
+- SSRF: push endpoints must be on a known push service (`PushEndpoint::isAllowed`, no IP literals/ports/userinfo), stored rows are re-validated before sending; Discord webhooks match a strict pattern, 5 s timeout.
+- `CoordinateLinker` leaves text with a stray `<` alone; `QueueOverview` guards malformed queue data.
+
+## 186. Release 1.26.11
+
+- `install/VERSION` 1.26.11 (tag `v1.26.11`): QoL review 2 (fleet step 2 on phones, send again, mission colours, flight times, galaxy phone fold, planet status markers, all-planet queues page, message coordinate links, alliance members panel, tutorial links; step 182), chat slow mode (183), every achievement earnable plus 41 new ones with SVG artwork and an admin grant tab (184), audit round 5 fixes (185). Migrations 1795502400–1795502550 run on the first request after the update.

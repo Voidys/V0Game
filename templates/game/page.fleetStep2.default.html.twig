@@ -88,15 +88,12 @@
           <td>{{ LNG.fl_return_home }}</td>
           <td class="num"><span id="ret_time"></span></td>
         </tr>
-        <tr>
-          <td><label for="arrive-at">{{ LNG.fl_arrive_at }}</label></td>
-          <td class="num"><input type="datetime-local" step="1" id="arrive-at" class="fleet-arrive" data-on-input="arrive-at"> <a href="#" data-action="arrive-apply" id="arrive-apply" hidden>{{ LNG.fl_arrive_apply }}</a></td>
-        </tr>
-        <tr id="arrive-result-row" hidden>
-          <td>{{ LNG.fl_arrive_result }}</td>
-          <td class="num" id="arrive-result" aria-live="polite">-</td>
-        </tr>
       </table>
+      <div class="panel__body fleet-arrive-box">
+        <label for="arrive-at">{{ LNG.fl_arrive_at }}</label>
+        <span class="control-group"><input type="datetime-local" step="1" id="arrive-at" class="fleet-arrive" data-on-input="arrive-at"> <a href="#" data-action="arrive-apply" id="arrive-apply" hidden>{{ LNG.fl_arrive_apply }}</a></span>
+        <div id="arrive-result-row" hidden><span class="fleet-arrive-box__label">{{ LNG.fl_arrive_result }}</span> <span id="arrive-result" aria-live="polite">-</span></div>
+      </div>
     </section>
   </div>
   {% if Exchange %}

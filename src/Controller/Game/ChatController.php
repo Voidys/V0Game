@@ -87,7 +87,7 @@ class ChatController extends AbstractGameController
         $input = $this->input();
         $global = $this->settings()->globalEnabled;
 
-        $response = ['messages' => [], 'deleted' => [], 'unread' => [], 'latest' => [], 'mod' => $this->isModerator()];
+        $response = ['messages' => [], 'deleted' => [], 'unread' => [], 'latest' => [], 'mod' => $this->isModerator(), 'slow' => $this->chat->slowModes($user, $this->settings())];
         $active = $input->string('channel');
         $activeChannel = null;
         if ($active !== '') {
@@ -139,7 +139,11 @@ class ChatController extends AbstractGameController
     {
         $result = $this->chat->send($this->state->USER, $this->input()->string('channel'), $this->input()->rawString('message'), $this->state->runtime->timestamp, $this->settings());
 
-        return $this->json(isset($result['error']) ? ['error' => $result['error']] : ['ok' => true, 'id' => $result['id']]);
+        if (isset($result['error'])) {
+            return $this->json(isset($result['wait']) ? ['error' => $result['error'], 'wait' => $result['wait']] : ['error' => $result['error']]);
+        }
+
+        return $this->json(['ok' => true, 'id' => $result['id']]);
     }
 
     /** Moderators only: deletes the message `id` (it disappears for everyone on their next poll). */

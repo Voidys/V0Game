@@ -73,7 +73,7 @@
 	{% endif %}
 
 	{% set kindUrl = path('game_shipyard_order', {kind: mode == 'defense' ? 'defense' : 'shipyard'}) %}
-	<div class="build-grid">
+	<div class="build-grid" data-locked-label="{{ LNG.bd_locked_group }}">
 	{% for ID, Element in elementList %}
 		{% set sub %}<span id="val_{{ ID }}" class="card__owned">{% if Element.available != 0 %} ({{ LNG.bd_available }} {{ pretty_number(Element.available) }}){% endif %}</span>{% endset %}
 
@@ -119,6 +119,7 @@
 		{{ b.card(ID, Element, {
 			domId: 's' ~ ID,
 			index: loop.index0,
+			cls: Element.requirements ? 'is-reqlocked' : '',
 			locked: Element.fade,
 			chip: '',
 			sub: sub,
@@ -144,6 +145,7 @@
 	{{ data_island('shipyard-data', {data: BuildList, bdOperating: LNG.bd_operating, bdAvailable: LNG.bd_available}) }}
 	<script type="module" src="./scripts/game/shipyard.js?v={{ asset_version }}"></script>
 	{% endif %}
+	<script type="module" src="./scripts/game/lockedFold.js?v={{ asset_version }}"></script>
 	{% if mode == "fleet" and hangarFiltersEnabled %}
 	<script type="module" src="./scripts/game/hangarFilter.js?v={{ asset_version }}"></script>
 	{% endif %}

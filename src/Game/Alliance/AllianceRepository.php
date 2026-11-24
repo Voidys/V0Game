@@ -195,6 +195,15 @@ class AllianceRepository
         ]);
     }
 
+    /** @return list<array{id: int|string, username: string, onlinetime: int|string}> id, name and last activity of all members, most recently active first */
+    public function memberActivity(int|string $allianceId): array
+    {
+        return $this->db->select(
+            'SELECT `id`, `username`, `onlinetime` FROM %%USERS%% WHERE `ally_id` = :AllianceID ORDER BY `onlinetime` DESC, `username` ASC;',
+            [':AllianceID' => $allianceId],
+        );
+    }
+
     /** Recomputes alliance.ally_members from the users table (after somebody left or was kicked). */
     public function recountMembers(int|string $allianceId): void
     {

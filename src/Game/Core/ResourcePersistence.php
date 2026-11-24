@@ -149,7 +149,7 @@ class ResourcePersistence
                             $temp_planet = $PLANET;
                             $temp_planet[$column] = $Count;
                             //  Check for achievement 28: Build all Moon storages to level 3
-                            $this->planetRessAchievements()->checkPlanetRessAchievements28($temp_planet, $elements->columnMap(), $USER['id']);
+                            $this->achievementGuard()->run(fn() => $this->planetRessAchievements()->checkPlanetRessAchievements28($temp_planet, $elements->columnMap(), $USER['id']));
                         }
                     } else {
                         $buildQueries[] = ', p.' . $column . ' = p.' . $column . ' + :' . $column;
@@ -159,9 +159,12 @@ class ResourcePersistence
                             $params[':' . $column] = floatToString($Count);
                         }
                     }
+                    if ($Element < 100) {
+                        $this->checkPlanetBuildingAchievements($USER, $PLANET, $Element, $Count);
+                    }
                     // Check for ship achievements
                     if ($Element >= 200 && $Element < 300) {
-                        $this->planetRessAchievements()->checkPlanetRessAchievementsShips($Element, $USER['id']);
+                        $this->achievementGuard()->run(fn() => $this->planetRessAchievements()->checkPlanetRessAchievementsShips($Element, $USER['id']));
                     }
                     // Update Builded stats for ships, def and rockets
                     if ($Element >= 200 && $Element < 900) {
@@ -179,7 +182,7 @@ class ResourcePersistence
                     $params[':' . $column] = floatToString($Count);
 
                     // Check for research achievements
-                    $this->planetRessAchievements()->checkPlanetRessAchievementsResearch($Element, $USER['id'], $Count);
+                    $this->achievementGuard()->run(fn() => $this->planetRessAchievements()->checkPlanetRessAchievementsResearch($Element, $USER['id'], $Count, $USER));
                     // Update First stats timestams
                     $statsUpdateFirst[] = [AdvancedStatsEnum::getFirst($Element), $time];
                 }
@@ -192,6 +195,24 @@ class ResourcePersistence
             'statsRepaired' => $statsUpdateRepaired,
             'statsFirst' => $statsUpdateFirst,
         ];
+    }
+
+    /**
+     * Mining empire (64) and Colonial overlord (95) after a building level was set on a planet (not written yet).
+     *
+     * @param array<string, mixed> $USER
+     * @param array<string, mixed> $PLANET
+     */
+    private function checkPlanetBuildingAchievements(array $USER, array $PLANET, int $element, float|int $level): void
+    {
+        if ($PLANET['planet_type'] != PlanetType::Planet->value) {
+            return;
+        }
+        $PLANET[$this->elements()->column($element)] = $level;
+        if ($element == metal_mine && $level >= 30) {
+            $this->achievementGuard()->run(fn() => $this->planetRessAchievements()->checkMiningEmpire($USER['id'], $PLANET['id']));
+        }
+        $this->achievementGuard()->run(fn() => $this->planetRessAchievements()->checkColonialOverlord($USER['id'], $USER, $PLANET));
     }
 
     /**
@@ -223,6 +244,17 @@ class ResourcePersistence
 		u.b_tech_queue = :b_tech_queue
 		' . implode("\n", $columns) . '
 		WHERE p.id = :planetId AND u.id = :userId;';
+    }
+
+    /**
+     * Writes planets.low_energy_since (the start of a continuous energy deficit, 0 = none); only called when the value flips.
+     */
+    public function saveLowEnergySince(int $planetId, int $since): void
+    {
+        $this->db->update('UPDATE %%PLANETS%% SET low_energy_since = :since WHERE id = :planetId;', [
+            ':since' => $since,
+            ':planetId' => $planetId,
+        ]);
     }
 
     /**

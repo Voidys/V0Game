@@ -263,24 +263,8 @@ const DEUTERIUM_PROC_TECH = 133;
 const FUEL_EFFICIENCY_TECH = 134;
 const GRAVITON_TECH = 199;
 
-//achievements
-const NOT_IMPLEMENTED_ACHIEVEMENTS = [
-    1,
-    2,
-    11,
-    13,
-    15,
-    18,
-    29,
-    30,
-    41,
-    42,
-    44,
-    46,
-    50,
-    53,
-    54,
-];
+//achievements (ids hidden on the achievements page; every achievement has a trigger now, 8/11/55 are granted by admins)
+const NOT_IMPLEMENTED_ACHIEVEMENTS = [];
 
 //battle
 const REAL_FIGHT = 1;

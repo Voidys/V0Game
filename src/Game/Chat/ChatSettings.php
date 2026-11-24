@@ -16,6 +16,7 @@ final class ChatSettings
         public readonly ChatFilter $filter = new ChatFilter(),
         public readonly int $minAccountAgeHours = 0,
         public readonly int $minPoints = 0,
+        public readonly int $globalSlowmode = 0,
     ) {}
 
     /** account age (hours) required for the global channel when the universe has no setting yet; also the schema default */
@@ -33,6 +34,7 @@ final class ChatSettings
             ),
             (int) ($config->chat_min_account_age_hours ?? self::DEFAULT_MIN_ACCOUNT_AGE_HOURS),
             (int) ($config->chat_min_points ?? 0),
+            max(0, min(3600, (int) ($config->chat_global_slowmode ?? 0))),
         );
     }
 }

@@ -18,6 +18,7 @@
   </header>
   <ol class="chat__list" data-chat-list role="log" aria-live="polite" aria-relevant="additions" tabindex="0"></ol>
   <p class="chat__status" data-chat-status role="status"></p>
+  <p class="chat__hint muted" data-chat-slow hidden></p>
   <form class="chat__form" data-chat-form autocomplete="off">
     <input type="text" class="chat__input" data-chat-input maxlength="{{ chatMaxLength }}" placeholder="{{ LNG.chat_placeholder }}" aria-label="{{ LNG.chat_placeholder }}" enterkeyhint="send">
     <button type="submit" class="btn btn--primary chat__send" aria-label="{{ LNG.chat_send }}">{{ icon('send') }}<span>{{ LNG.chat_send }}</span></button>
@@ -83,6 +84,8 @@
     errUnknown: LNG.chat_err_unknown,
     errLimit: LNG.chat_err_limit,
     errReportLimit: LNG.chat_err_report_limit,
-    errSession: LNG.chat_err_session
+    errSession: LNG.chat_err_session,
+    errSlow: LNG.chat_err_slow,
+    slowHint: LNG.chat_slow_hint
   }
 }) }}

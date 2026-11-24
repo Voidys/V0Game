@@ -1,0 +1,60 @@
+{% extends layout_template %}
+{% block title %}{{ LNG.lm_queues }}{{ parent() }}{% endblock %}
+{% import '_macros/ui.html.twig' as ui %}
+{% import 'game/_shell.macros.html.twig' as shell %}
+{% macro left(seconds, umode) -%}
+{%- if umode -%}{{ getRestTimeFormat(seconds) }}{%- else -%}<span class="countdown mono" data-time="{{ seconds }}"></span>{%- endif -%}
+{%- endmacro %}
+{% macro entry(q, href, amount, umode) %}
+  {% import _self as qm %}
+  {% if q %}
+    <a class="queue-entry" href="{{ href }}"><strong>{{ LNG.tech[q.id] }} <span class="lvl">{{ amount }}</span></strong></a>
+    <span class="queue-time">{{ qm.left(q.left, umode) }}</span>
+    {% if q.more > 0 %}<span class="queue-more muted" title="{{ LNG.emp_queue_total }}">+{{ q.more }} &middot; {{ qm.left(q.total, umode) }}</span>{% endif %}
+  {% else %}
+    <span class="muted queue-idle">{{ LNG.queues_idle }}</span>
+  {% endif %}
+{% endmacro %}
+{% block pagehead %}{{ ui.page_head(LNG.lm_queues, 'list', LNG.queues_intro) }}{% endblock %}
+{% block content %}
+  <section class="panel">
+    {{ ui.panel_head(LNG.lm_research) }}
+    <div class="panel__body queue-research">
+      {% if research %}
+        <a class="queue-entry" href="{{ path('game_research_show', {cp: research.planet}) }}"><strong>{{ LNG.tech[research.id] }} <span class="lvl">{{ research.level }}</span></strong></a>
+        <span class="queue-time">{{ _self.left(research.left, umode) }}</span>
+      {% else %}
+        <a class="queue-idle" href="{{ path('game_research_show') }}">{{ LNG.queues_idle }}</a>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="panel panel--flush">
+    {{ ui.panel_head(LNG.lm_buildings ~ ' / ' ~ LNG.lm_shipshard) }}
+    <ul class="queue-list">
+      {% for r in rows %}
+        <li class="queue-row{% if r.current %} is-current{% endif %}">
+          <a class="queue-planet" href="{{ path('game_overview_show', {cp: r.id}) }}">
+            {{ shell.planet_img(r.image, enablePlanetStyles ? r.style : 0, 36) }}
+            <span class="pl-text">
+              <strong>{{ r.name }}{% if r.isMoon %} <span class="muted">({{ LNG.fcm_moon }})</span>{% endif %}</strong>
+              <span class="mono muted">[{{ r.galaxy }}:{{ r.system }}:{{ r.planet }}]</span>
+            </span>
+          </a>
+          <div class="queue-cell">
+            <span class="queue-label muted">{{ icon('hammer') }}{{ LNG.lm_buildings }}</span>
+            {{ _self.entry(r.building, path('game_buildings_show', {cp: r.id}), r.building ? r.building.level : 0, umode) }}
+          </div>
+          <div class="queue-cell">
+            <span class="queue-label muted">{{ icon('rocket') }}{{ LNG.lm_shipshard }}</span>
+            {% if r.hasShipyard or r.shipyard %}
+              {{ _self.entry(r.shipyard, path('game_shipyard_show', {kind: 'shipyard', cp: r.id}), r.shipyard ? pretty_number(r.shipyard.amount) : 0, umode) }}
+            {% else %}
+              <span class="muted queue-idle">-</span>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

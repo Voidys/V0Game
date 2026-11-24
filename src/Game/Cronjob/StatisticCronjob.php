@@ -32,5 +32,6 @@ class StatisticCronjob extends AbstractCronjobTask
         $stat->generateStats();
         $stat->archiveStats();
         $stat->buildRecords();
+        $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkRecordAchievements());
     }
 }

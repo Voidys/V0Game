@@ -49,6 +49,7 @@ class AdvancedStatsHandler
             ':statkey'      => $statKey->name,
             ':statvalue'    => $value,
         ]);
+        $this->checkAchievements($userId, $statKey);
     }
 
     /**
@@ -110,6 +111,17 @@ class AdvancedStatsHandler
             ':username'     => $username,
             ':statvalue'    => $timestamp,
         ]);
+        $this->checkAchievements($userId, $statKey);
+    }
+
+    /**
+     * Counter achievements (see MiscAchievement::checkStatAchievements()); only for the counters they depend on.
+     */
+    private function checkAchievements(int $userId, AdvancedStatsEnum $statKey): void
+    {
+        if (\App\Game\Achievements\MiscAchievement::watchesStat($statKey)) {
+            $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkStatAchievements($userId, $statKey));
+        }
     }
 
     /**

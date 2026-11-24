@@ -68,6 +68,37 @@ class Achievement
             ':achievementID' => $achievementID,
             ':date'			=> $this->state->runtime->timestamp,
         ]);
+
+        // Completionist(96): 50 other achievements; 96 itself does not count (and setting it again is a no-op insert)
+        if ($achievementID !== 96 && $this->db->rowCount() > 0) {
+            $this->achievementGuard()->run(function () use ($db, $userID): void {
+                $held = (int) $db->selectSingle(
+                    "SELECT COUNT(*) AS c FROM %%USERS_TO_ACHIEVEMENTS%% WHERE userID = :userID AND achievementID != 96;",
+                    [':userID' => $userID],
+                    'c',
+                );
+                if ($held >= 50) {
+                    $this->setAchievement($userID, 96);
+                }
+            });
+        }
+    }
+
+    /**
+     * Take back an achievement from a User (admin revoke). Returns whether the user had it.
+     *
+     * @param int $userID        The id of the User
+     * @param int $achievementID The id of the Achievement
+     */
+    public function removeAchievement(int $userID, int $achievementID): bool
+    {
+        $sql = "DELETE FROM %%USERS_TO_ACHIEVEMENTS%% WHERE userID = :userID AND achievementID = :achievementID;";
+        $this->db->delete($sql, [
+            ':userID'        => $userID,
+            ':achievementID' => $achievementID,
+        ]);
+
+        return $this->db->rowCount() > 0;
     }
 
     /**

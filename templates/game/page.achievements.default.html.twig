@@ -20,7 +20,7 @@
 
   <ul class="grid-auto ach-grid">
     {% for achievement in achievements %}
-      {% set image = theme_asset('achievements/achievement_' ~ achievement.id ~ '.jpg') %}
+      {% set image = theme_asset('achievements/achievement_' ~ achievement.id ~ '.svg') %}
       <li class="panel ach-card{% if achievement.unlocked %} is-unlocked{% endif %}" data-state="{{ achievement.unlocked ? 'unlocked' : 'locked' }}">
         <button type="button" class="ach-card__button" data-action="dialog-ach" data-id="{{ achievement.id }}" title="{{ LNG.Achievement_text[achievement.id]|striptags }}">
           <img class="ach-card__image" src="{{ image }}" alt="" width="56" height="56" loading="lazy">

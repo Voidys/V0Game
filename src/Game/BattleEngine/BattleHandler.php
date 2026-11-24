@@ -152,7 +152,7 @@ class BattleHandler
             $DATA['rounds'] = $rounds;
         }
         if ($battleType == REAL_FIGHT) {
-            $this->battleAchievements()->checkBattleAchievements($reportInfo, $combatResult, $DATA);
+            $this->achievementGuard()->run(fn() => $this->battleAchievements()->checkBattleAchievements($reportInfo, $combatResult, $DATA, $attackers, $defenders));
 
             if ($this->viewHelpers()->isModuleAvailable(MODULE_HONORPOINTS)) {
                 $DATA['honorpoints'] = $this->calculateHonorPoints($combatResult);
@@ -160,7 +160,7 @@ class BattleHandler
         }
 
         if ($battleType == EXPO_FIGHT) {
-            $this->battleAchievements()->checkExpoBattleAchievements($reportInfo, $combatResult);
+            $this->achievementGuard()->run(fn() => $this->battleAchievements()->checkExpoBattleAchievements($reportInfo, $combatResult));
         }
 
         return $DATA;

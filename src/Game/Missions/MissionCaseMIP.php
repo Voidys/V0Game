@@ -103,7 +103,8 @@ class MissionCaseMIP extends MissionFunctions implements MissionInterface
         $senderData['MSG'] = false;
         $targetData['MSG'] = false;
 
-        $this->resolveHit($senderData, $targetData, $targetDefensive, $primaryTarget);
+        $destroyed = $this->resolveHit($senderData, $targetData, $targetDefensive, $primaryTarget);
+        $this->achievementGuard()->run(fn() => $this->battleAchievements()->checkMissileAchievements($this->_fleet, $destroyed));
 
         $sql = 'SELECT `name` FROM %%PLANETS%% WHERE `id` = :planetId;';
         $planetName	= $this->db->selectSingle($sql, [
@@ -184,11 +185,13 @@ class MissionCaseMIP extends MissionFunctions implements MissionInterface
      * @param array<string, mixed> $targetData target planet/owner data (counts, defence_tech, LNG, MSG), MSG is set
      * @param array<int, int|string> $targetDefensive defense counts without the interceptors, by element id
      * @param int $primaryTarget element id hit first
+     * @return int number of defense units destroyed by the strike
      */
-    private function resolveHit(array &$senderData, array &$targetData, array $targetDefensive, int $primaryTarget): void
+    private function resolveHit(array &$senderData, array &$targetData, array $targetDefensive, int $primaryTarget): int
     {
         $e = $this->elements();
         $db = $this->db;
+        $destroyed = 0;
 
         if ($targetData[$e->column(INTERCEPTOR_MISSILE)] >= $this->_fleet['ship_amount']) {
             $senderData['MSG'] 	= $senderData['LNG']['sys_irak_no_att'];
@@ -228,6 +231,7 @@ class MissionCaseMIP extends MissionFunctions implements MissionInterface
                     $senderData['MSG'] 	.= sprintf('%s (- %d)<br>', $senderData['LNG']['tech'][$Element], $destroy);
                     $targetData['MSG']	.= sprintf('%s (- %d)<br>', $targetData['LNG']['tech'][$Element], $destroy);
 
+                    $destroyed += (int) $destroy;
                     $this->deduct($targetData['id'], (int) $Element, $destroy);
                     $this->statsHandler->updateDestroyedAdvancedStats($this->_fleet['owner'], $this->_fleet['target_owner'], $Element, $destroy);
                 }
@@ -238,6 +242,8 @@ class MissionCaseMIP extends MissionFunctions implements MissionInterface
                 $targetData['MSG']	= $targetData['LNG']['sys_irak_no_def'];
             }
         }
+
+        return $destroyed;
     }
 
     /**

@@ -1,6 +1,7 @@
-{# tool links of the alliance pages (targets, ACS, activity, notes); needs `nav` (activity, wikiEdit) #}
+{# tool links of the alliance pages (targets, ACS, activity, wiki); needs `nav` (activity, wikiEdit); the current page is marked #}
+{% set navRoute = app.request.attributes.get('_route') %}
 <a class="btn" href="{{ path('game_alliance_show') }}">{{ icon('arrow-left') }} {{ LNG.al_back }}</a>
-<a class="btn" href="{{ path('game_alliance_targets') }}">{{ icon('crosshair') }} {{ LNG.alt_targets }}</a>
-<a class="btn" href="{{ path('game_alliance_acs') }}">{{ icon('swords') }} {{ LNG.alt_acs }}</a>
-{% if nav.activity %}<a class="btn" href="{{ path('game_alliance_activity') }}">{{ icon('activity') }} {{ LNG.alt_activity }}</a>{% endif %}
-<a class="btn" href="{{ path('game_alliance_wiki') }}">{{ icon('book-open') }} {{ LNG.alt_wiki }}</a>
+<a class="btn{% if navRoute == 'game_alliance_targets' %} btn--primary{% endif %}" href="{{ path('game_alliance_targets') }}"{% if navRoute == 'game_alliance_targets' %} aria-current="page"{% endif %}>{{ icon('crosshair') }} {{ LNG.alt_targets }}</a>
+<a class="btn{% if navRoute starts with 'game_alliance_acs' %} btn--primary{% endif %}" href="{{ path('game_alliance_acs') }}"{% if navRoute starts with 'game_alliance_acs' %} aria-current="page"{% endif %}>{{ icon('swords') }} {{ LNG.alt_acs }}</a>
+{% if nav.activity %}<a class="btn{% if navRoute starts with 'game_alliance_activity' %} btn--primary{% endif %}" href="{{ path('game_alliance_activity') }}"{% if navRoute starts with 'game_alliance_activity' %} aria-current="page"{% endif %}>{{ icon('activity') }} {{ LNG.alt_activity }}</a>{% endif %}
+<a class="btn{% if navRoute starts with 'game_alliance_wiki' %} btn--primary{% endif %}" href="{{ path('game_alliance_wiki') }}"{% if navRoute starts with 'game_alliance_wiki' %} aria-current="page"{% endif %}>{{ icon('book-open') }} {{ LNG.alt_wiki }}</a>

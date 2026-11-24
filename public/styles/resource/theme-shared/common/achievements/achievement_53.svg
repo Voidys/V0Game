@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+<rect width="108" height="108" fill="#fff"/>
+<g transform="matrix(0.927 0 0 0.927 3.9 3.3)">
+<path d="M54 12C34 12 26 26 26 38c0 12 8 16 12 24v8H70v-8c4-8 12-12 12-24C82 26 74 12 54 12Z" fill="#fff" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40" y="70" width="28" height="10" rx="3" fill="#c9c9c9" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44 87H64" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="54" cy="40" rx="17" ry="6" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="54" cy="40" rx="17" ry="6" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" transform="rotate(60 54 40)"/>
+<ellipse cx="54" cy="40" rx="17" ry="6" fill="none" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-60 54 40)"/>
+<circle cx="54" cy="40" r="4" fill="#111" />
+<path d="M16 17L17.2 20.8L21 22L17.2 23.2L16 27L14.8 23.2L11 22L14.8 20.8Z" fill="#111"/>
+<path d="M92 17L93.2 20.8L97 22L93.2 23.2L92 27L90.8 23.2L87 22L90.8 20.8Z" fill="#111"/>
+<path d="M94 47L95.2 50.8L99 52L95.2 53.2L94 57L92.8 53.2L89 52L92.8 50.8Z" fill="#111"/>
+<path d="M14 47L15.2 50.8L19 52L15.2 53.2L14 57L12.8 53.2L9 52L12.8 50.8Z" fill="#111"/>
+<path d="M54 89L55.2 92.8L59 94L55.2 95.2L54 99L52.8 95.2L49 94L52.8 92.8Z" fill="#111"/>
+</g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+<rect width="108" height="108" fill="#fff"/>
+<g transform="matrix(1.000 0 0 1.000 -2.0 7.8)">
+<circle cx="56" cy="54" r="30" fill="#fff" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="56" cy="54" r="21" fill="#c9c9c9" stroke="#6b6b6b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(56 56) rotate(0) scale(1.05)">
+<path d="M0 -14L5 -4L12 6V10L5 6L3 12H-3L-5 6L-12 10V6L-5 -4Z" fill="#c9c9c9" stroke="#111" stroke-width="2.380952380952381" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="0" cy="-3" r="2.5" fill="#fff" stroke="#111" stroke-width="1.67"/>
+<path d="M0 3V9" stroke="#6b6b6b" stroke-width="2.38" stroke-linecap="round"/>
+</g>
+<path d="M18 22V38q0 6 5 6t5-6V22M23 22V84" fill="none" stroke="#111" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M94 22q-10 8-8 28h8V84" fill="none" stroke="#111" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M74 22L75.5 26.5L80 28L75.5 29.5L74 34L72.5 29.5L68 28L72.5 26.5Z" fill="#111"/>
+<path d="M44 18q-4-6 0-10M54 18q-4-6 0-10" fill="none" stroke="#6b6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

@@ -250,7 +250,7 @@ class MissionFunctions
                 $recCount += $shipAmount;
             }
         }
-        $this->miscAchievements()->checkRecAchievements($this->_fleet['owner'], $collectedGoods, $recCount);
+        $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkRecAchievements($this->_fleet['owner'], $collectedGoods, $recCount));
     }
 
     /**

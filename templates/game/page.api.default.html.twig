@@ -7,7 +7,7 @@
 {% if apiNewToken %}
 <section class="panel">
 	{{ ui.panel_head(LNG.api_new_token) }}
-	<div class="panel__body">
+	<div class="panel__body api-docs">
 		<p><code>{{ apiNewToken }}</code></p>
 		<p class="hint">{{ LNG.api_new_token_hint }}</p>
 	</div>
@@ -75,7 +75,7 @@
 
 <section class="panel">
 	{{ ui.panel_head(LNG.api_docs) }}
-	<div class="panel__body">
+	<div class="panel__body api-docs">
 		<p>{{ LNG.api_docs_intro }}</p>
 		<pre><code>curl -H "Authorization: Bearer v0_..." {{ apiBase }}/me
 curl -H "Authorization: Bearer v0_..." {{ apiBase }}/empire

@@ -120,7 +120,12 @@
   .card__watch.is-on .icon { fill: currentColor; }
   .card__desc { font-size: var(--fs-sm); color: var(--c-muted); }
   .card__reqs { display: flex; flex-wrap: wrap; gap: var(--space-1); margin: 0; padding: 0; list-style: none; }
-  .card__reqs .tag { text-decoration: none; }
+  .card__reqs > li { min-inline-size: 0; max-inline-size: 100%; }
+  .card__reqs .tag { text-decoration: none; white-space: normal; overflow-wrap: anywhere; }
+  /* phones: locked hangar entries folded into one group (scripts/game/lockedFold.js) */
+  .locked-fold { margin-block-start: var(--space-3); }
+  .locked-fold > summary { cursor: pointer; padding: var(--space-2) var(--pad); color: var(--c-muted); background: var(--tint); }
+  .locked-fold > .build-grid { margin-block-start: var(--space-3); }
   .card__body > .card__tools { display: flex; flex-wrap: wrap; align-content: start; gap: var(--space-1) var(--space-3); font-size: var(--fs-sm); }
   .card__tools .build-meta__destroy { cursor: pointer; color: var(--c-muted); }
   .card__tools .build-meta__destroy:hover { color: var(--c-negative); }

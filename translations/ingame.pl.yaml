@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': Szczęśliwego nowego roku!
   '55': Żywa legenda
+  '56': 'Napęd warp'
+  '57': 'Kartograf gwiazd'
+  '58': 'Erudyta'
+  '59': 'Inżynier wszystkiego'
+  '60': 'Chomik'
+  '61': 'Czciciel słońca'
+  '62': 'Pełny dom'
+  '63': 'Rolnik silosów'
+  '64': 'Imperium górnicze'
+  '65': 'Prymus'
+  '66': 'Magnat targowiska'
+  '67': 'Dawid kontra Goliat'
+  '68': 'Bezbłędne zwycięstwo'
+  '69': 'Wzajemne zniszczenie'
+  '70': 'Miasto duchów'
+  '71': 'Szczęśliwy strzał'
+  '72': 'Fajerwerki'
+  '73': 'Kontrwywiad'
+  '74': 'Król piratów'
+  '75': 'Kosmiczny woźny'
+  '76': 'Nurek wraków'
+  '77': 'Honorowy'
+  '78': 'Poszukiwany'
+  '79': 'Gracz zespołowy'
+  '80': 'Widziałem wszystko'
+  '81': 'Wilk morski'
+  '82': 'Łowca kosmitów'
+  '83': 'Łowca skarbów'
+  '84': 'Daleka trasa'
+  '85': 'Dzień przestępny'
+  '86': 'Piątek trzynastego'
+  '87': 'W samo południe'
+  '88': 'Wielka trasa'
+  '89': 'Absolwent'
+  '90': 'Dyplomata'
+  '91': 'Kronikarz'
+  '92': 'Przyjaciel korespondencyjny'
+  '93': 'Galaktyczny cesarz'
+  '94': 'Armada'
+  '95': 'Kolonialny władca'
+  '96': 'Kompletista'
 Achievement_text:
-  '1': Miałeś całą noc dla siebie i nie oddałeś ani jednego strzału.
+  '1': 'Spraw, by 5 twoich ataków wylądowało między północą a 6 rano w jedną noc, nie wygrywając żadnego.'
   '2': Przez 90 dni bez przerwy miałeś floty w ruchu.
   '3': Straciłeś flotę, gdy językiem gry był „francuski”.
   '4': Zbadaj Technologię Jonową 10.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Twoja flota została zniszczona przez czarną dziurę podczas pierwszej ekspedycji.
   '13': Wyślij flotę w drogę, gdy do uderzenia nadlatującego ataku zostało mniej niż 5 sekund.
   '14': Strać 10 flot w czarnych dziurach. Pustka jest głodna.
-  '15': Nie uda ci się stworzyć księżyca przy planecie po 10 próbach. Następnym razem się uda.
+  '15': 'Nie zdobądź swojego pierwszego księżyca w 10 walkach przy maksymalnej szansie na księżyc.'
   '16': Ponad 250 twoich recyklerów wróciło puste.
   '17': Zleć w jednym zamówieniu budowy co najmniej 5000 Wyrzutni Rakiet.
   '18': Spal 5 milionów deuterium jako paliwo na jednej planecie w ciągu 24 godzin.
@@ -111,6 +152,47 @@ Achievement_text:
   '53': Miej najwyższy poziom w 5 badaniach jednocześnie.
   '54': Zgraj atak na aktywnego gracza tak, żeby uderzył 01.01. o 00:00:00.
   '55': Osiągnięcie specjalne
+  '56': 'Osiągnij 15. poziom napędu nadprzestrzennego.'
+  '57': 'Osiągnij 15. poziom astrofizyki.'
+  '58': 'Zbadaj każdą technologię (poza grawitonem) co najmniej raz.'
+  '59': 'Wybadaj każde badanie (poza grawitonem) do poziomu 10.'
+  '60': 'Zgromadź 1 000 000 000 jednego surowca na jednej planecie lub księżycu.'
+  '61': 'Miej jednocześnie 1000 satelitów słonecznych na jednej planecie.'
+  '62': 'Zabuduj każde pole planety mającej co najmniej 250 pól.'
+  '63': 'Rozbuduj magazyny metalu, kryształu i deuteru do poziomu 15 na jednej planecie.'
+  '64': 'Miej na 9 planetach kopalnię metalu poziomu 30 lub wyższego.'
+  '65': 'Zleć jedno zlecenie budowy trwające dłużej niż 30 dni.'
+  '66': 'Spraw, by inni gracze kupili 50 twoich ofert z targowiska.'
+  '67': 'Wygraj obronę przeciwko atakującym wartym co najmniej 10 razy więcej niż twoja flota i obrona (atakujący warci co najmniej 1 000 000 surowców).'
+  '68': 'Wygraj atak, w którym zniszczysz co najmniej 1000 jednostek wroga, nie tracąc żadnej jednostki.'
+  '69': 'Zakończ walkę remisem po maksymalnej liczbie rund, a każda strona niech straci co najmniej 10 000 jednostek.'
+  '70': 'Zostań zaatakowany na planecie bez statków i obrony, tak że atakujący niczego nie zrabuje.'
+  '71': 'Zdobądź księżyc z walki, która miała tylko 1 % szansy na księżyc.'
+  '72': 'Zniszcz jednym atakiem rakiet międzyplanetarnych co najmniej 100 jednostek obrony.'
+  '73': 'Zniszcz w jednej walce na swojej planecie co najmniej 100 wrogich sond szpiegowskich.'
+  '74': 'Zrabuj łącznie 1 000 000 000 surowców.'
+  '75': 'Przetwórz łącznie 1 000 000 000 surowców.'
+  '76': 'Napraw łącznie 1000 statków z pól zniszczeń.'
+  '77': 'Zdobądź 1000 punktów honoru.'
+  '78': 'Zostań po raz pierwszy banitą.'
+  '79': 'Weź udział jako atakujący w 25 wygranych atakach zespołowych.'
+  '80': 'Przeżyj każdy możliwy wynik wyprawy co najmniej raz.'
+  '81': 'Wyślij 1000 wypraw.'
+  '82': 'Wygraj walkę podczas wyprawy z dużą flotą obcych.'
+  '83': 'Znajdź duże ilości surowców podczas 50 wypraw.'
+  '84': 'Wyślij flotę w lot w jedną stronę trwający ponad 24 godziny.'
+  '85': 'Spraw, by flota dotarła do celu 29 lutego.'
+  '86': 'Strać całą flotę atakującą w piątek trzynastego.'
+  '87': 'Spraw, by dwa twoje ataki (poza zespołowym) wylądowały na tym samym celu w tej samej sekundzie.'
+  '88': 'Miej jednocześnie floty lecące do każdej galaktyki wszechświata.'
+  '89': 'Ukończ samouczek.'
+  '90': 'Miej jednocześnie aktywne pakty z 3 innymi sojuszami (dostają go wszyscy członkowie sojuszu).'
+  '91': 'Utwórz 5 stron wiki sojuszu.'
+  '92': 'Miej 10 przyjętych zaproszeń do znajomych.'
+  '93': 'Bądź numerem 1 w rankingu punktów ogółem przez 7 dni z rzędu.'
+  '94': 'Miej jednocześnie 100 Gwiazd Śmierci na jednej planecie lub księżycu.'
+  '95': 'Zajmij każdy slot planety, na który pozwala twoja astrofizyka (co najmniej 9), każda planeta z co najmniej 200 polami.'
+  '96': 'Zdobądź 50 innych osiągnięć.'
 ach_filter_all: Wszystkie
 ach_filter_locked: Zablokowane
 ach_filter_unlocked: Odblokowane
@@ -193,6 +275,7 @@ Advanced_Stats:
   moons_lost: Księżyce utracone
   moons_received: Otrzymane księżyce
   outlaw_activations: Aktywacje statusu banity
+  alliance_pages_created: 'Utworzone strony wiki sojuszu'
   planets_created: Planety skolonizowane
   planets_deleted: Planety porzucone
   raided_crystal: Zrabowane kryształy
@@ -200,6 +283,7 @@ Advanced_Stats:
   raided_metal: Zrabowany metal
   recycled_crystal: Kryształ z recyklingu
   recycled_metal: Metal z recyklingu
+  acs_wins: 'Wygrane ataki ACS jako atakujący'
   set_sail_wins: Wygrane walki przy aktywnym motywie SetSail
   stolen_crystal: Skradzione kryształy
   stolen_deuterium: Skradzione deuterium
@@ -326,6 +410,14 @@ al_manage_members: Członkowie
 al_manage_options: Opcje
 al_manage_ranks: Rangi
 al_manage_request_min_points: Min. punktów
+al_chat_slowmode: "Tryb powolny czatu"
+al_chat_slowmode_info: "Minimalny odstęp między dwiema wiadomościami członka na czacie sojuszu (ty jako przywódca jesteś zwolniony)."
+al_chat_slowmode_off: "Wyłączony"
+al_chat_slowmode_10: "10 sekund"
+al_chat_slowmode_30: "30 sekund"
+al_chat_slowmode_60: "1 minuta"
+al_chat_slowmode_120: "2 minuty"
+al_chat_slowmode_300: "5 minut"
 al_manage_requests: Podania
 al_member: Nazwa
 al_member_since: Dołączył(a)
@@ -709,6 +801,8 @@ fl_sac_of_fleet: Flota AKS
 fl_select_all_ships: Wszystkie statki
 fl_selected_resources: Wybrane surowce
 fl_send_back: Zawróć
+fl_send_again: "Wyślij ponownie"
+fl_send_again_title: "Przygotuj nową flotę z tymi samymi statkami, celem i misją"
 fl_send_fleet: Wyślij flotę
 fl_ship_available: Dostępne statki
 fl_ship_type: Typ statków
@@ -966,6 +1060,7 @@ market_p_msg_wrong_resource_type: Ta oferta wymaga nieprawidłowego surowca.
 market_p_offer_type: Rodzaj oferty
 market_p_ratio: Przelicznik
 market_p_submit: Kup teraz!
+market_not_enough_stock: "Ta planeta nie ma surowców na tę ofertę."
 market_p_to_duration: Lot do
 market_ship_as_first: 'Wybierz typ statku do handlu:'
 Messages: Wiadomości
@@ -1397,7 +1492,7 @@ tkb_month: miesiąc
 tkb_only: tylko
 tkb_owners: Zaangażowani gracze
 tkb_platz: Miejsce
-tkb_self: tylko własne
+tkb_self: "Moje bitwy"
 tkb_timeframe: Okres
 tkb_top: Hala bitew
 tkb_units: Jednostki
@@ -1569,6 +1664,7 @@ mg_quick_delete_older: "Usuń starsze niż %d dni"
 mg_confirm_delete_read: "Usunąć wszystkie przeczytane wiadomości z tej kategorii? Ulubione zostaną zachowane."
 mg_confirm_delete_older: "Usunąć wszystkie wiadomości z tej kategorii starsze niż %d dni? Ulubione zostaną zachowane."
 mg_spy_again: "Szpieguj ponownie"
+mg_send_fleet: "Wyślij tu flotę"
 fl_change_target: "Zmień cel"
 mg_group_mark: "Oznacz jako przeczytane"
 mg_group_delete: "Usuń"
@@ -1593,6 +1689,7 @@ al_find_none_yet: "W tym wszechświecie nie ma jeszcze sojuszy."
 al_no_inside_text: "Brak jeszcze tekstu dla członków."
 bd_needs: 'Wymaga'
 bd_missing: 'Brakuje'
+bd_locked_group: "Zablokowane ({n})"
 honorfights: "Walki honorowe"
 pl_block_head: "Blokowanie"
 pl_block_hint: "Działa natychmiast, nie ma przycisku Zapisz."
@@ -1664,6 +1761,9 @@ shell_jump: Przejdź do…
 shell_jump_tip: Przejdź do strony, planety lub współrzędnych
 shell_switch_planet: Zmień planetę
 shell_switch_to: Przełącz na %s
+shell_build_running: "Trwa budowa"
+shell_idle_build: "Kolejka budowy pusta"
+shell_idle_shipyard: "Stocznia pusta"
 shell_moon_of: Księżyc planety %s
 shell_fields: pól
 shell_slots_tip: 'Zajęte miejsca na planety: %1 z %2'
@@ -1712,3 +1812,8 @@ rec_hidden_holder: "hidden"
 rec_hidden_holder_info: "The record holder does not show their name in the records."
 rec_pending: "New record – counted at the next statistics update."
 rec_you: "You (not counted yet)"
+lm_queues: "Kolejki"
+queues_idle: "Pusto"
+queues_intro: "Kolejki budowy, stoczni i badań wszystkich planet i księżyców w jednym miejscu."
+chat_err_slow: "Tryb powolny jest włączony: poczekaj jeszcze %s s."
+chat_slow_hint: "Tryb powolny: jedna wiadomość co %s s."

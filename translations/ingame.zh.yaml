@@ -55,8 +55,49 @@ Achievement_names:
   '53': 爱因斯坦
   '54': 新年快乐！
   '55': 活着的传奇
+  '56': '曲速引擎'
+  '57': '星图绘制者'
+  '58': '博学者'
+  '59': '万能工程师'
+  '60': '囤积狂'
+  '61': '太阳崇拜者'
+  '62': '满堂红'
+  '63': '仓库农夫'
+  '64': '矿业帝国'
+  '65': '卷王'
+  '66': '市场大亨'
+  '67': '大卫对战歌利亚'
+  '68': '完美胜利'
+  '69': '同归于尽'
+  '70': '鬼城'
+  '71': '幸运一击'
+  '72': '烟花'
+  '73': '反间谍'
+  '74': '海盗王'
+  '75': '太空清洁工'
+  '76': '残骸潜水员'
+  '77': '荣誉之士'
+  '78': '通缉犯'
+  '79': '团队玩家'
+  '80': '阅尽世事'
+  '81': '老水手'
+  '82': '外星猎人'
+  '83': '寻宝者'
+  '84': '长途跋涉'
+  '85': '闰日'
+  '86': '13号星期五'
+  '87': '正午决斗'
+  '88': '环球之旅'
+  '89': '毕业生'
+  '90': '外交官'
+  '91': '编年史家'
+  '92': '笔友'
+  '93': '银河皇帝'
+  '94': '无敌舰队'
+  '95': '殖民领主'
+  '96': '完美主义者'
 Achievement_text:
-  '1': 你独自拥有整整一夜，却一发炮弹也没打中。
+  '1': '在同一个夜晚，让你的 5 次攻击在午夜到早上 6 点之间抵达，并且一次都没有获胜。'
   '2': 你的舰队连续 90 天不间断地在飞行。
   '3': 你在语言设置为“法语”时损失了舰队。
   '4': 研究离子技术 10 级。
@@ -70,7 +111,7 @@ Achievement_text:
   '12': 你的舰队在首次远征中被黑洞吞没。
   '13': 在来袭的攻击落地前不到 5 秒时把舰队送走。
   '14': 有 10 支舰队被黑洞吞噬。虚空是饥饿的。
-  '15': 在一颗星球上尝试 10 次仍没能造出月球。下次好运。
+  '15': '在最高月球概率下战斗 10 次，仍未获得第一颗月球。'
   '16': 你有超过 250 艘回收船空手而归。
   '17': 在一次建造中排入至少 5000 个导弹发射器。
   '18': 在 24 小时内，在同一颗星球上把 500 万重氢当燃料烧掉。
@@ -195,6 +236,7 @@ Advanced_Stats:
   moons_lost: 失去的月球
   moons_received: 获得的月球
   outlaw_activations: 法外之徒激活次数
+  alliance_pages_created: '创建的联盟维基页面'
   planets_created: 殖民的星球
   planets_deleted: 放弃的星球
   raided_crystal: 掠夺的晶体
@@ -202,6 +244,7 @@ Advanced_Stats:
   raided_metal: 掠夺的金属
   recycled_crystal: 回收的晶体
   recycled_metal: 回收的金属
+  acs_wins: '以攻击方身份赢得的联合攻击'
   set_sail_wins: 启用“扬帆起航”主题时赢得的战斗
   stolen_crystal: 被盗的晶体
   stolen_deuterium: 被盗的重氢
@@ -328,6 +371,14 @@ al_manage_members: 成员
 al_manage_options: 选项
 al_manage_ranks: 职位
 al_manage_request_min_points: 最低积分
+al_chat_slowmode: "聊天慢速模式"
+al_chat_slowmode_info: "联盟聊天中，成员两条消息之间的最短间隔（作为盟主的你不受限制）。"
+al_chat_slowmode_off: "关闭"
+al_chat_slowmode_10: "10 秒"
+al_chat_slowmode_30: "30 秒"
+al_chat_slowmode_60: "1 分钟"
+al_chat_slowmode_120: "2 分钟"
+al_chat_slowmode_300: "5 分钟"
 al_manage_requests: 申请
 al_member: 名称
 al_member_since: 加入时间
@@ -711,6 +762,8 @@ fl_sac_of_fleet: 联合攻击舰队
 fl_select_all_ships: 所有舰船
 fl_selected_resources: 已选资源
 fl_send_back: 召回
+fl_send_again: "再次派遣"
+fl_send_again_title: "以相同的舰船、目标和任务准备新舰队"
 fl_send_fleet: 派出舰队
 fl_ship_available: 可用舰船
 fl_ship_type: 舰船类型
@@ -968,6 +1021,7 @@ market_p_msg_wrong_resource_type: 这个报价要求的资源类型无效。
 market_p_offer_type: 报价类型
 market_p_ratio: 比率
 market_p_submit: 立即购买！
+market_not_enough_stock: "这个星球的资源不足以接受此报价。"
 market_p_to_duration: 前往飞行
 market_ship_as_first: 选择用于交易的舰船类型：
 Messages: 消息
@@ -1403,7 +1457,7 @@ tkb_month: 月
 tkb_only: 仅
 tkb_owners: 参与用户
 tkb_platz: 排名
-tkb_self: 仅自己的
+tkb_self: "我的战斗"
 tkb_timeframe: 时间范围
 tkb_top: 战斗大厅
 tkb_units: 单位
@@ -1575,6 +1629,7 @@ mg_quick_delete_older: "删除超过%d天的"
 mg_confirm_delete_read: "删除此分类中所有已读消息？收藏的消息将保留。"
 mg_confirm_delete_older: "删除此分类中超过%d天的所有消息？收藏的消息将保留。"
 mg_spy_again: "再次侦查"
+mg_send_fleet: "派遣舰队到此"
 fl_change_target: "更改目标"
 mg_group_mark: "标记为已读"
 mg_group_delete: "删除"
@@ -1599,6 +1654,7 @@ al_find_none_yet: "这个宇宙中还没有联盟。"
 al_no_inside_text: "暂无成员专属文本。"
 bd_needs: '需要'
 bd_missing: '缺少'
+bd_locked_group: "已锁定（{n}）"
 honorfights: "荣誉战斗"
 pl_block_head: "屏蔽"
 pl_block_hint: "立即生效，无需点击保存。"
@@ -1670,6 +1726,9 @@ shell_jump: 跳转到…
 shell_jump_tip: 跳转到页面、星球或坐标
 shell_switch_planet: 切换星球
 shell_switch_to: 切换到 %s
+shell_build_running: "建造进行中"
+shell_idle_build: "建造队列空闲"
+shell_idle_shipyard: "船厂空闲"
 shell_moon_of: '%s 的月球'
 shell_fields: 空地
 shell_slots_tip: 已使用 %1 / %2 个星球位置
@@ -1718,3 +1777,8 @@ rec_hidden_holder: "hidden"
 rec_hidden_holder_info: "The record holder does not show their name in the records."
 rec_pending: "New record – counted at the next statistics update."
 rec_you: "You (not counted yet)"
+lm_queues: "队列"
+queues_idle: "空闲"
+queues_intro: "一览所有星球和月球的建造、船厂和研究队列。"
+chat_err_slow: "慢速模式已开启：请再等 %s 秒。"
+chat_slow_hint: "慢速模式：每 %s 秒可发送一条消息。"

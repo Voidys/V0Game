@@ -1,0 +1,60 @@
+{% import '_macros/forms.html.twig' as forms -%}
+{% include 'admin/overall_header.html.twig' %}
+<div class="stack">
+<nav class="tabs" aria-label="{{ LNG.ad_editor_title }}">
+  <a href="{{ path('admin_account_editor_show') }}">{{ icon('layout-dashboard') }}{{ LNG.ad_editor_title }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'buildings'}) }}">{{ icon('building-2') }}{{ LNG.ad_editor_buildings }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'ships'}) }}">{{ icon('rocket') }}{{ LNG.ad_editor_ships }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'defenses'}) }}">{{ icon('shield') }}{{ LNG.ad_editor_defenses }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'researchs'}) }}">{{ icon('flask-conical') }}{{ LNG.ad_editor_researchs }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'resources'}) }}">{{ icon('database') }}{{ LNG.ad_editor_resources }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'planets'}) }}">{{ icon('orbit') }}{{ LNG.ad_editor_planets }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'personal'}) }}">{{ icon('user') }}{{ LNG.ad_editor_personal }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'alliances'}) }}">{{ icon('handshake') }}{{ LNG.ad_editor_alliances }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'achievements'}) }}" aria-current="page">{{ icon('award') }}{{ LNG.ad_editor_achievements }}</a>
+</nav>
+  <form action="" method="post">
+    <div class="stack">
+      <section class="card">
+        <header class="card__head"><h2 class="card__title">{{ icon('award') }}{{ LNG.ad_ach_title }}</h2></header>
+        <div class="card__body">
+          <div class="notice notice--info">{{ icon('info') }}<div>{{ LNG.ad_ach_hint }}</div></div>
+          <div class="form-grid">
+            <div class="field-row">
+              <label for="ae-id">{{ LNG.input_id_user }}</label>
+              <div class="field-control"><input id="ae-id" name="id" type="text" inputmode="numeric" value="{{ playerId }}" required></div>
+            </div>
+            <div class="field-row">
+              <label for="ae-achievement">{{ LNG.ad_ach_select }}</label>
+              <div class="field-control">{{ forms.html_options({'name': 'achievement', 'id': 'ae-achievement', 'options': achievementOptions}) }}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="form-actions">
+        <button type="submit" name="grant" value="1" class="btn--primary">{{ icon('plus') }}{{ LNG.ad_ach_grant }}</button>
+        <button type="submit" name="revoke" value="1">{{ icon('minus') }}{{ LNG.ad_ach_revoke }}</button>
+      </div>
+      {% if playerId > 0 %}
+      <section class="card card--flush">
+        <header class="card__head"><h2 class="card__title">{{ LNG.ad_ach_list }}</h2></header>
+        {% if heldAchievements is empty %}
+          <div class="card__body muted">{{ LNG.ad_ach_none }}</div>
+        {% else %}
+        <div class="table-wrap">
+          <table class="data data--compact">
+            <thead><tr><th class="num">{{ LNG.ad_number }}</th><th>{{ LNG.ad_ach_select }}</th><th>{{ LNG.ad_ach_date }}</th></tr></thead>
+            <tbody>
+              {% for a in heldAchievements %}
+              <tr><td class="num muted">{{ a.id }}</td><td>{{ a.name }}</td><td>{{ a.date }}</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+      </section>
+      {% endif %}
+    </div>
+  </form>
+</div>
+{% include 'admin/overall_footer.html.twig' %}

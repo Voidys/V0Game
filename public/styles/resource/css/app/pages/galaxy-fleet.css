@@ -20,7 +20,7 @@
 
   /* ---------------------------------------------------------------- galaxy: system table */
   .galaxy-table td { white-space: nowrap; }
-  @media (max-width: 40rem) { .galaxy-table td { white-space: normal; } }
+  @media (max-width: 80rem) { .galaxy-table :is(td, th) { white-space: normal; } .galaxy-table .galaxy-planet a { flex-wrap: wrap; } }
   .galaxy-table tr.is-own > td { background: var(--tint); }
   .galaxy-table tr.is-empty > td { color: color-mix(in oklab, var(--c-muted) 70%, transparent); }
   .galaxy-table .galaxy-pos { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
@@ -45,7 +45,7 @@
   .galaxy-rank-leader .icon, .galaxy-rank-diplo .icon { inline-size: 1rem; block-size: 1rem; vertical-align: -0.15em; }
   .galaxy-alliance-cell { font-family: var(--font-mono); color: var(--c-muted); }
   .galaxy-friend { color: var(--c-positive); }
-  .galaxy-actions__list { display: inline-flex; gap: var(--space-1); }
+  .galaxy-actions__list { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: var(--space-1); max-inline-size: 9.5rem; }
   .galaxy-action {
     position: relative; display: inline-grid; place-items: center; inline-size: 1.75rem; block-size: 1.75rem;
     border-radius: var(--r); color: var(--c-muted); transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
@@ -66,6 +66,12 @@
   .galaxy-missile:not(:has(#missileForm:not([hidden]))) { display: none; }
 
   /* filters, marks, inline debris extras (galaxy.js) */
+  .galaxy-filter-box > summary { display: flex; align-items: center; gap: var(--space-2); cursor: pointer; padding-block: var(--space-1); list-style: none; }
+  .galaxy-filter-box > summary::-webkit-details-marker { display: none; }
+  .galaxy-filter-box > summary::after { content: ""; inline-size: 0.45rem; block-size: 0.45rem; margin-inline-start: auto; border: solid var(--c-muted); border-width: 0 0.125rem 0.125rem 0; rotate: 45deg; transition: rotate var(--t-fast) var(--ease); }
+  .galaxy-filter-box[open] > summary::after { rotate: -135deg; }
+  .galaxy-filter-box > summary.galaxy-nav__label { color: var(--c-muted); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .galaxy-filter-count { font-family: var(--font-mono); }
   .galaxy-filters { gap: var(--space-2) var(--space-4); font-size: var(--fs-sm); }
   .galaxy-filters .galaxy-nav__label { color: var(--c-muted); font-size: var(--fs-xs); letter-spacing: 0.06em; text-transform: uppercase; }
   .galaxy-filters .icon { inline-size: 1rem; block-size: 1rem; vertical-align: -0.15em; }
@@ -112,15 +118,14 @@
     .galaxy-sync__upload { flex-wrap: wrap; inline-size: 100%; white-space: normal; }
     .galaxy-sync__upload input { max-inline-size: 100%; }
 
-    /* occupied position */
+    /* occupied position: planet + moon, player + alliance tag + debris on one line, the actions right-aligned below */
     .galaxy-table tbody tr {
       display: grid;
-      grid-template-columns: 2rem minmax(0, 1fr) auto;
+      grid-template-columns: 2rem minmax(0, max-content) minmax(0, 1fr) auto;
       grid-template-areas:
-        "pos planet moon"
-        "pos player player"
-        "pos alliance debris"
-        "actions actions actions";
+        "pos planet planet moon"
+        "pos player alliance debris"
+        "actions actions actions actions";
       align-items: center;
       gap: var(--space-1) var(--space-3);
       padding: var(--space-3) var(--pad);
@@ -136,13 +141,13 @@
     .galaxy-table .galaxy-planet a span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .galaxy-table .galaxy-moon { grid-area: moon; justify-self: end; }
     .galaxy-table .galaxy-player { grid-area: player; }
-    .galaxy-table .galaxy-alliance-cell { grid-area: alliance; font-size: var(--fs-sm); }
+    .galaxy-table .galaxy-alliance-cell { grid-area: alliance; min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); }
     .galaxy-table .galaxy-debris { grid-area: debris; justify-self: end; font-size: var(--fs-sm); }
-    .galaxy-table .galaxy-actions { grid-area: actions; margin-block-start: var(--space-2); }
+    .galaxy-table .galaxy-actions { grid-area: actions; margin-block-start: var(--space-1); justify-self: end; }
     .galaxy-table .galaxy-actions:not(:has(a)) { display: none; }
-    /* the actions share the row evenly (7 fit on one line at 360px+), wrapping only on very small screens */
-    .galaxy-table .galaxy-actions__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(2.5rem, 1fr)); gap: var(--space-1); }
-    .galaxy-table .galaxy-action { inline-size: auto; block-size: 2.75rem; border: 1px solid var(--c-border); background: var(--c-bg-2); }
+    /* action icons: touch-sized, right-aligned */
+    .galaxy-table .galaxy-actions__list { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.125rem; max-inline-size: none; }
+    .galaxy-table .galaxy-action { inline-size: 2.75rem; block-size: 2.75rem; border: 1px solid var(--c-border); background: var(--c-bg-2); }
 
     /* free / destroyed positions, pirate base, the extra rows: one slim line */
     .galaxy-table tr:is(.is-empty, .galaxy-pirate) {
@@ -162,15 +167,35 @@
     .galaxy-sync #gala_reset { grid-column: 1 / -1; }
     .galaxy-sync button { inline-size: 100%; }
 
-    .fleet-dock .panel__foot { padding: var(--space-2) var(--space-3); }
+    .fleet-dock .panel__foot { flex-wrap: wrap; padding: var(--space-2) var(--space-3); }
     .fleet-dock .panel__foot :is(input[type="submit"], button) { flex: 1 1 auto; }
+    /* the refusal notice gets its own line above Back / Send, so the bar stays two short rows */
+    .fleet-dock .reason { flex: 1 0 100%; order: -1; margin: 0; font-size: var(--fs-sm); }
+    /* focused fields scroll clear of the docked bar and the tab bar */
+    html:has(.fleet-dock) { scroll-padding-block-end: calc(var(--tabbar-h, 0px) + 7rem); }
   }
 
   /* ---------------------------------------------------------------- fleet: shared bits */
   .fleet-dock { position: sticky; inset-block-end: var(--space-3); z-index: 5; box-shadow: 0 -0.5rem 1.5rem rgb(0 0 0 / 0.35); }
   .fleet-dock .panel__foot { align-items: center; }
   .fleet-dock .reason { margin-inline-end: auto; }
+  /* mission colour of a flying fleet (the player's colorMission* class sets the cell colour): coloured left edge and label */
+  .flyingFleets td.fl-mission[class*="colorMission"] { border-inline-start: 0.1875rem solid currentColor; }
+  .flyingFleets td.fl-mission[class*="colorMission"] .tooltip { color: inherit; }
+  .fleet-repeat { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--fs-sm); white-space: nowrap; }
+  .fleet-repeat .icon { inline-size: 0.95rem; block-size: 0.95rem; }
+  /* wide layout: icon only (label for screen readers), the order column is already the widest; phones show the text */
+  td.fl-act .fleet-repeat > span { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  @media (max-width: 43.6875rem) { .flyingFleets tr.fleet-row > td.fl-act { block-size: auto; min-block-size: 0; } td.fl-act .fleet-repeat > span { position: static; inline-size: auto; block-size: auto; overflow: visible; clip-path: none; } }
+  .fleet-eta { margin-inline-start: var(--space-2); color: var(--c-muted); font: var(--fs-xs) var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
   .fleet-split { align-items: stretch; }
+  .fleet-split > .panel { min-inline-size: 0; }
+  .fleet-split .panel > table { inline-size: 100%; }
+  /* arrival picker under the resource table: label, field, result stack inside the panel width */
+  .fleet-arrive-box { display: grid; gap: var(--space-2); border-block-start: 1px solid var(--c-border); }
+  .fleet-arrive-box label, .fleet-arrive-box__label { color: var(--c-muted); font-size: var(--fs-sm); }
+  .fleet-arrive-box .control-group { display: flex; flex-wrap: wrap; }
+  .fleet-arrive { max-inline-size: 100%; }
   .fleet-stay { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); border-block-start: 1px solid var(--c-border); }
   .fleet-stay:has(#stay[style*="none"]) { display: none; }
   .mission-list { padding: var(--pad); }

@@ -5,7 +5,9 @@ namespace App\Game\Notifications;
 use Minishlink\WebPush\Subscription;
 use Minishlink\WebPush\WebPush;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use App\Runtime\ProjectPaths;
 use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\HttpClient\Psr18Client;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Throwable;
 
@@ -31,6 +33,9 @@ class HttpNotificationTransport implements NotificationTransport
     /** Signs and sends the message; HTTP 404/410 of the push service means PUSH_GONE, every other failure PUSH_ERROR. */
     public function sendPush(array $subscription, string $payload): string
     {
+        if (!PushEndpoint::isAllowed((string) $subscription['endpoint'])) {
+            return self::PUSH_GONE;
+        }
         try {
             $report = $this->webPush()->sendOneNotification(
                 Subscription::create([
@@ -39,7 +44,9 @@ class HttpNotificationTransport implements NotificationTransport
                 ]),
                 $payload,
             );
-        } catch (Throwable) {
+        } catch (Throwable $e) {
+            $this->logFailure('push', $e);
+
             return self::PUSH_ERROR;
         }
         if ($report->isSuccess()) {
@@ -61,14 +68,18 @@ class HttpNotificationTransport implements NotificationTransport
             $webPush = $this->webPush();
             foreach ($messages as $key => $message) {
                 $subscription = $message['subscription'];
+                if (!PushEndpoint::isAllowed((string) $subscription['endpoint'])) {
+                    $results[$key] = self::PUSH_GONE;
+                    continue;
+                }
                 try {
                     $webPush->queueNotification(Subscription::create([
                         'endpoint' => $subscription['endpoint'],
                         'keys' => ['p256dh' => $subscription['p256dh'], 'auth' => $subscription['auth']],
                     ]), $message['payload']);
                     $byEndpoint[$subscription['endpoint']] = $key;
-                } catch (Throwable) {
-                    // stays PUSH_ERROR
+                } catch (Throwable $e) {
+                    $this->logFailure('push queue', $e);
                 }
             }
             foreach ($webPush->flush() as $report) {
@@ -82,8 +93,9 @@ class HttpNotificationTransport implements NotificationTransport
                     $results[$key] = self::PUSH_GONE;
                 }
             }
-        } catch (Throwable) {
+        } catch (Throwable $e) {
             // whatever was not reported stays PUSH_ERROR
+            $this->logFailure('push flush', $e);
         }
 
         return $results;
@@ -144,6 +156,20 @@ class HttpNotificationTransport implements NotificationTransport
             'subject' => str_starts_with($this->siteUri, 'https://') ? $this->siteUri : 'mailto:noreply@localhost.invalid',
             'publicKey' => $keys['publicKey'],
             'privateKey' => $keys['privateKey'],
-        ]], ['TTL' => 3600], 8);
+        ]], ['TTL' => 3600], new Psr18Client(HttpClient::create([
+            'timeout' => 5,
+            'max_duration' => 10,
+            'max_redirects' => 0,
+        ])));
+    }
+
+    /** One line in var/log/game.log per failure (sending itself never throws). */
+    private function logFailure(string $what, Throwable $e): void
+    {
+        $file = ProjectPaths::ROOT . 'var/log/game.log';
+        if (is_writable($file) || (!file_exists($file) && is_writable(dirname($file)))) {
+            @file_put_contents($file, date('[d-M-Y H:i:s]') . ' NOTIFICATION ' . $what . ' failed: ' . $e::class . ': '
+                . str_replace(["\r", "\n"], ' ', strip_tags($e->getMessage())) . "\r\n", FILE_APPEND);
+        }
     }
 }

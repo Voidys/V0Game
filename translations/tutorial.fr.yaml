@@ -18,6 +18,7 @@ tutorial_goal:
     '3': Envoie une candidature à une alliance
 tutorial_goals_header: 'Objectifs :'
 tutorial_goals_ignore: (ignorer)
+tutorial_goto: "Aller à la page"
 tutorial_rewards_header: 'Récompenses :'
 tutorial_text:
   step0: "Bienvenue sur {game_name} !<br><br>\r\nCe court tutoriel te présente les\
@@ -45,7 +46,7 @@ tutorial_text:
     \ nombre ne fait pas tout : la composition de la flotte attaquante compte aussi.<br>\r\
     \nLes attaquants doivent franchir ta défense avant de piller, et chaque vaisseau\
     \ qu’ils doivent envoyer réduit leur profit et peut leur coûter d’autres vaisseaux.<br>\r\
-    \nLes défenses se construisent dans le menu <b>Défense</b>. Il te faut un chantier\
+    \nLes défenses se construisent dans le <b>Chantier spatial</b>, onglet <b>Défense</b>. Il te faut un chantier\
     \ spatial (qui exige lui-même une usine de robots) et un peu de deutérium.<br><br>\r\
     \nVoici l’article correspondant du wiki : \r\n<a href=\"{wiki_url}/wiki/En/Verteidigung\"\
     \ target=\"_blank\">Installations de défense</a>"

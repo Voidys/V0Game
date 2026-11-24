@@ -394,7 +394,7 @@ class BotActions
         $queue[] = [$element, $count];
         $planet['b_hangar_id'] = StoredData::encode($queue);
 
-        $this->miscAchievements()->checkShipyardAchievements($this->user['id'], $count, $element);
+        $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkShipyardAchievements($this->user['id'], $count, $element));
         $this->eco->removeResources($planet['id'], $cost, $planet);
         $this->eco->saveShipyardQueue($planet);
 

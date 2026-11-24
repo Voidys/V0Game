@@ -135,7 +135,7 @@ class PlanetManager
         $hpGala = $db->selectSingle($sql, [
             ':userId' => $userId,
         ], 'galaxy');
-        $this->playerUtilAchievements()->checkPlayerUtilAchievements40($isHome, $hpGala, $userId, $galaxy, $config);
+        $this->achievementGuard()->run(fn() => $this->playerUtilAchievements()->checkPlayerUtilAchievements40($isHome, $hpGala, $userId, $galaxy, $config));
         $minTemperature = $maxTemperature - 40;
 
         $diameter = (int) floor(1000 * sqrt($maxFields));
@@ -147,7 +147,7 @@ class PlanetManager
             $name = $isHome ? $LNG['fcm_mainplanet'] : $LNG['fcp_colony'];
         }
 
-        return $this->insertPlanetRow([
+        return $this->afterColonyCreated($this->insertPlanetRow([
             ':name'                     => $name,
             ':universe'                 => $universe,
             ':userId'                   => $userId,
@@ -168,7 +168,19 @@ class PlanetManager
             ':deuterium_start'          => $config->deuterium_start,
             ':deuteriumBonusPercent'    => $deuteriumBonusPercent,
             ':creation_time'            => $this->state->runtime->timestamp,
-        ]);
+        ]), $isHome, $maxFields, $userId);
+    }
+
+    /**
+     * Colonial overlord (achievement 95) check for a freshly created colony that already has at least 200 fields.
+     */
+    private function afterColonyCreated(int $planetId, bool $isHome, int|float $maxFields, int $userId): int
+    {
+        if (!$isHome && $maxFields >= 200) {
+            $this->achievementGuard()->run(fn() => $this->planetRessAchievements()->checkColonialOverlord($userId));
+        }
+
+        return $planetId;
     }
 
     /**
@@ -502,7 +514,7 @@ class PlanetManager
                 ':planetId' => $planetId,
             ]);
         } else {
-            $this->playerUtilAchievements()->checkPlayerUtilAchievementsDeletion($planetData, $planetId);
+            $this->achievementGuard()->run(fn() => $this->playerUtilAchievements()->checkPlayerUtilAchievementsDeletion($planetData, $planetId));
             $sql = 'UPDATE %%PLANETS%% SET `destruyed` = :time WHERE `id` = :planetID;';
             $db->update($sql, [
                 ':time'   => $this->state->runtime->timestamp + 86400,

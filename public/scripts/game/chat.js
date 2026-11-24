@@ -34,7 +34,11 @@ if (panel && config.poll) {
     read: { global: Number.isInteger(saved.read?.global) ? saved.read.global : null, alliance: Number.isInteger(saved.read?.alliance) ? saved.read.alliance : null },
     unread: { global: 0, alliance: 0 },
     mod: false,
+    slow: { global: 0, alliance: 0 },
   };
+  /** per channel: epoch ms until which the next message is refused (slow mode countdown) */
+  const until = { global: 0, alliance: 0 };
+  let ticker = null;
   const messages = { global: [], alliance: [] };
   let timer = null;
   let busy = false;
@@ -120,6 +124,32 @@ if (panel && config.poll) {
 
   const setStatus = (text) => { status.textContent = text; };
 
+  const slowHint = qs('[data-chat-slow]', panel);
+  const sendButton = qs('button[type=submit]', form);
+  const sendLabel = qs('span', sendButton);
+  const sendText = sendLabel.textContent;
+
+  /** slow mode hint of the open channel and the send button countdown */
+  const renderSlow = () => {
+    const seconds = state.slow[state.channel] ?? 0;
+    slowHint.hidden = seconds <= 0;
+    slowHint.textContent = seconds > 0 ? config.texts.slowHint.replace('%s', String(seconds)) : '';
+    const left = Math.ceil((until[state.channel] - Date.now()) / 1000);
+    sendButton.disabled = left > 0;
+    sendLabel.textContent = left > 0 ? `${left} s` : sendText;
+    if (left <= 0 && ticker !== null && Object.values(until).every((t) => t <= Date.now())) {
+      clearInterval(ticker);
+      ticker = null;
+    }
+  };
+
+  /** the next message of a channel is allowed in `seconds` seconds: disable the button and count down */
+  const startCooldown = (channel, seconds) => {
+    until[channel] = Date.now() + seconds * 1000;
+    if (ticker === null) ticker = setInterval(renderSlow, 500);
+    renderSlow();
+  };
+
   const lastId = (channel) => messages[channel].at(-1)?.id ?? 0;
 
   const renderBadges = () => {
@@ -199,6 +229,8 @@ if (panel && config.poll) {
   /** merge a poll answer: new messages, deleted ids, unread counts, starting points of channels never read */
   const apply = (data, channel, wasOpen) => {
     state.mod = Boolean(data.mod);
+    state.slow = { global: data.slow?.global ?? 0, alliance: data.slow?.alliance ?? 0 };
+    renderSlow();
     for (const [name, id] of Object.entries(data.latest ?? {})) {
       if (state.read[name] === null) state.read[name] = id;
     }
@@ -271,6 +303,7 @@ if (panel && config.poll) {
       if (on && focus) tab.focus();
     });
     renderAll();
+    renderSlow();
     persist();
     renderBadges();
     schedule(0);
@@ -323,7 +356,7 @@ if (panel && config.poll) {
 
   // ------------------------------------------------------------------------------------ sending, moderation
 
-  const errorText = (code) => ({
+  const errorText = (code, wait = 0) => ({
     empty: config.texts.errEmpty,
     rate: config.texts.errRate,
     muted: config.texts.errMuted,
@@ -340,21 +373,26 @@ if (panel && config.poll) {
     limit: config.texts.errLimit,
     report_limit: config.texts.errReportLimit,
     session: config.texts.errSession,
-  })[code] ?? config.texts.errNetwork;
+    slow: config.texts.errSlow,
+  })[code]?.replace('%s', String(wait)) ?? config.texts.errNetwork;
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const text = input.value.trim();
-    if (text === '' || form.dataset.sending) return;
+    if (text === '' || form.dataset.sending || sendButton.disabled) return;
     form.dataset.sending = '1';
     try {
-      const data = await post(config.send, { channel: state.channel, message: text }, 'json');
+      const channel = state.channel;
+      const data = await post(config.send, { channel, message: text }, 'json');
       if (data.ok) {
         input.value = '';
         setStatus('');
+        const seconds = state.slow[channel] ?? 0;
+        if (seconds > 0) startCooldown(channel, seconds);
         schedule(0);
       } else {
-        setStatus(errorText(data.error));
+        if (data.error === 'slow' && data.wait > 0) startCooldown(channel, data.wait);
+        setStatus(errorText(data.error, data.wait));
       }
     } catch {
       setStatus(config.texts.errNetwork);

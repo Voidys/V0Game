@@ -39,6 +39,32 @@ const updateVars = (resetAcs = true) => {
     field('type').disabled = false;
   }
   refreshFormData();
+  showTargetTimes();
+};
+
+/** Flight time as h:mm:ss. */
+const formatFlightTime = (seconds) => {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds - hours * 3600) / 60);
+  return `${hours}:${dezInt(minutes, 2)}:${dezInt(seconds - hours * 3600 - minutes * 60, 2)}`;
+};
+
+/** Step 1: shows the one-way flight time at the selected speed behind every own-planet, shortcut and special-place target link. */
+const showTargetTimes = () => {
+  if (fleetPage.step !== 1) {
+    return;
+  }
+  for (const link of qsa('a[data-action="set-target"]')) {
+    let label = link.nextElementSibling;
+    if (!label?.classList.contains('fleet-eta')) {
+      label = document.createElement('span');
+      label.className = 'fleet-eta';
+      label.title = document.getElementById('duration')?.closest('tr')?.firstElementChild?.textContent ?? '';
+      link.after(label);
+    }
+    const [galaxy, system, planet] = [link.dataset.galaxy, link.dataset.system, link.dataset.planet];
+    label.textContent = formatFlightTime(Math.floor(getRawDuration(getDistance(galaxy, system, planet))));
+  }
 };
 
 /** Distance along a ring (linear distance below half of `max`, else the way around), in steps. */
@@ -54,13 +80,13 @@ const ringSteps = (from, to, max) => {
  *
  * @returns int
  */
-const getDistance = () => {
+const getDistance = (galaxy = field('galaxy').value, system = field('system').value, planet = field('planet').value) => {
   const thisGalaxy = Number(data.planet.galaxy);
   const thisSystem = Number(data.planet.system);
   const thisPlanet = Number(data.planet.planet);
-  const targetGalaxy = Number(field('galaxy').value);
-  const targetSystem = Number(field('system').value);
-  const targetPlanet = Number(field('planet').value);
+  const targetGalaxy = Number(galaxy);
+  const targetSystem = Number(system);
+  const targetPlanet = Number(planet);
 
   if (thisGalaxy !== targetGalaxy) {
     if (config.uni_type == 2) {
@@ -91,9 +117,9 @@ const getDistance = () => {
  * Floored by getDuration(); the floored seconds feed the deuterium preview, like FleetMath::missionDurationFor().
  * Keep in sync with FleetMath::getMissionDuration().
  */
-const getRawDuration = () => {
+const getRawDuration = (distance = dataFlyDistance) => {
   const sp = Number(field('speed').value);
-  const duration = ((3500 / (sp * 0.1) * Math.pow(dataFlyDistance * 10 / data.maxspeed, 0.5) + 10) / data.gamespeed) * data.fleetspeedfactor;
+  const duration = ((3500 / (sp * 0.1) * Math.pow(distance * 10 / data.maxspeed, 0.5) + 10) / data.gamespeed) * data.fleetspeedfactor;
   return Math.max(duration, data.fleetMinDuration);
 };
 
@@ -211,6 +237,7 @@ const fleetTime = () => {
   document.getElementById('arrival').innerHTML = getFormatedDate(now().getTime() + 1000 * dataFlyTime, env.tdformat);
   document.getElementById('return').innerHTML = getFormatedDate(now().getTime() + 1000 * endtime, env.tdformat);
   setSummaryArrival(document.getElementById('arrival').textContent);
+  setSummaryReturn(document.getElementById('return').textContent);
 };
 
 /** Integer of a cargo field (NaN when empty). */

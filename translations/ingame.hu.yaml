@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': Boldog új évet!
   '55': Élő legenda
+  '56': 'Warp hajtómű'
+  '57': 'Csillagtérképész'
+  '58': 'Polihisztor'
+  '59': 'Mindenhez értő mérnök'
+  '60': 'Felhalmozó'
+  '61': 'Napimádó'
+  '62': 'Full house'
+  '63': 'Silógazda'
+  '64': 'Bányabirodalom'
+  '65': 'Stréber'
+  '66': 'Piaci nagyvad'
+  '67': 'Dávid és Góliát'
+  '68': 'Hibátlan győzelem'
+  '69': 'Kölcsönös pusztítás'
+  '70': 'Szellemváros'
+  '71': 'Szerencsés lövés'
+  '72': 'Tűzijáték'
+  '73': 'Kémelhárítás'
+  '74': 'Kalózkirály'
+  '75': 'Űrtakarító'
+  '76': 'Roncsbúvár'
+  '77': 'Becsületes'
+  '78': 'Körözött'
+  '79': 'Csapatjátékos'
+  '80': 'Mindent láttam'
+  '81': 'Vén tengeri medve'
+  '82': 'Idegenvadász'
+  '83': 'Kincsvadász'
+  '84': 'Hosszú út'
+  '85': 'Szökőnap'
+  '86': 'Péntek 13.'
+  '87': 'Dél van'
+  '88': 'Nagy körút'
+  '89': 'Végzett'
+  '90': 'Diplomata'
+  '91': 'Krónikás'
+  '92': 'Levelezőtárs'
+  '93': 'Galaktikus császár'
+  '94': 'Armada'
+  '95': 'Gyarmati úr'
+  '96': 'Teljességre törő'
 Achievement_text:
-  '1': Egy egész éjszakád volt, és egyetlen lövést sem találtál be.
+  '1': 'Landoljon 5 támadásod éjfél és hajnali 6 között ugyanazon az éjszakán úgy, hogy egyiket sem nyered meg.'
   '2': 90 napig megállás nélkül mozgásban voltak a flottáid.
   '3': 'Elvesztetted a flottádat, miközben a nyelved „francia” volt.'
   '4': Kutasd ki az Ionizációs technikát a 10. szintre.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Az első expedíciód során egy fekete lyuk megsemmisítette a flottádat.
   '13': Küldd el a flottádat, amikor 5 másodpercnél kevesebb van hátra egy beérkező támadásig.
   '14': Veszíts el 10 flottát fekete lyukakban. Az űr éhes.
-  '15': Ne sikerüljön Holdat létrehozni egy bolygónál 10 próbálkozás után. Legközelebb több szerencsét.
+  '15': 'Ne szerezd meg az első Holdadat 10 csatában a maximális Hold esély mellett.'
   '16': Több mint 250 Szemetesed tért vissza üresen.
   '17': Állíts sorba legalább 5000 Rakétakilövőt egyetlen építési megbízásban.
   '18': Égess el 5 millió deutériumot üzemanyagként egyetlen bolygón 24 órán belül.
@@ -114,6 +155,47 @@ Achievement_text:
   '53': Tartsd a csúcsszintet 5 kutatásban egyszerre.
   '54': 'Időzíts egy támadást egy aktív játékosra úgy, hogy 01/01 00:00:00-kor érkezzen.'
   '55': Különleges teljesítmény
+  '56': 'Érd el a hipertér-hajtómű 15. szintjét.'
+  '57': 'Érd el az asztrofizika 15. szintjét.'
+  '58': 'Kutass ki minden technológiát (a graviton kivételével) legalább egyszer.'
+  '59': 'Vidd minden kutatást (a graviton kivételével) a 10. szintre.'
+  '60': 'Birtokolj 1 000 000 000 egyetlen nyersanyagból egy bolygón vagy holdon.'
+  '61': 'Legyen egyszerre 1000 napenergia-műholdad egy bolygón.'
+  '62': 'Építs be egy legalább 250 mezős bolygó minden mezőjét.'
+  '63': 'Fejleszd a fém-, kristály- és deutériumraktárt 15. szintre egy bolygón.'
+  '64': 'Legyen 9 bolygón 30. vagy magasabb szintű fémbányád.'
+  '65': 'Indíts egyetlen, 30 napnál tovább tartó építési megbízást.'
+  '66': 'Vegyék meg más játékosok 50 piaci ajánlatodat.'
+  '67': 'Nyerj védekezést olyan támadók ellen, akik legalább 10-szer annyit érnek, mint a flottád és védelmed (legalább 1 000 000 nyersanyag értékű támadók).'
+  '68': 'Nyerj meg egy támadást, amelyben legalább 1000 ellenséges egységet semmisítesz meg, és egyet sem veszítesz.'
+  '69': 'Végezz döntetlennel egy csatát a maximális körszám után úgy, hogy mindkét oldal legalább 10 000 egységet veszít.'
+  '70': 'Támadjanak meg egy hajók és védelem nélküli bolygódon, így a támadó semmit sem fosztogat.'
+  '71': 'Szerezz holdat egy olyan csatából, amelynek csak 1 % esélye volt holdra.'
+  '72': 'Semmisíts meg legalább 100 védelmi egységet egyetlen bolygóközi rakétatámadással.'
+  '73': 'Semmisíts meg legalább 100 ellenséges kémszondát egy csatában a bolygódon.'
+  '74': 'Fosztogass összesen 1 000 000 000 nyersanyagot.'
+  '75': 'Hasznosíts újra összesen 1 000 000 000 nyersanyagot.'
+  '76': 'Javíts meg összesen 1000 hajót rommezőkből.'
+  '77': 'Szerezz 1000 becsületpontot.'
+  '78': 'Válj először törvényen kívülivé.'
+  '79': 'Vegyél részt támadóként 25 megnyert szövetséges támadásban.'
+  '80': 'Éld át az összes lehetséges expedíciós kimenetelt legalább egyszer.'
+  '81': 'Indíts 1000 expedíciót.'
+  '82': 'Nyerj meg egy expedíciós csatát egy nagy idegen flotta ellen.'
+  '83': 'Találj nagy mennyiségű nyersanyagot 50 expedíción.'
+  '84': 'Küldj egy flottát több mint 24 órás odaútra.'
+  '85': 'Érjen célba egy flottád február 29-én.'
+  '86': 'Veszítsd el egy teljes támadó flottádat péntek 13-án.'
+  '87': 'Landoljon két támadásod (szövetséges támadás nélkül) ugyanazon a célponton ugyanabban a másodpercben.'
+  '88': 'Legyen egyszerre flottád úton az univerzum minden galaxisába.'
+  '89': 'Fejezd be a bevezetőt.'
+  '90': 'Legyen egyszerre aktív szerződésed 3 másik szövetséggel (a szövetség minden tagja megkapja).'
+  '91': 'Hozz létre 5 szövetségi wikioldalt.'
+  '92': 'Legyen 10 elfogadott barátkérelmed.'
+  '93': 'Légy 7 egymást követő napon az első az összpontszám-ranglistán.'
+  '94': 'Legyen egyszerre 100 Halálcsillagod egy bolygón vagy holdon.'
+  '95': 'Foglald el minden bolygóhelyet, amit az asztrofizikád megenged (legalább 9), mindegyiket legalább 200 mezős bolygóval.'
+  '96': 'Birtokolj 50 másik teljesítményt.'
 ach_filter_all: Mind
 ach_filter_locked: Zárolt
 ach_filter_unlocked: Feloldott
@@ -196,6 +278,7 @@ Advanced_Stats:
   moons_lost: Elvesztett holdak
   moons_received: Kapott holdak
   outlaw_activations: Törvényenkívüli-aktiválások
+  alliance_pages_created: 'Létrehozott szövetségi wikioldalak'
   planets_created: Gyarmatosított bolygók
   planets_deleted: Elhagyott bolygók
   raided_crystal: Zsákmányolt kristály
@@ -203,6 +286,7 @@ Advanced_Stats:
   raided_metal: Zsákmányolt fém
   recycled_crystal: Hasznosított kristály
   recycled_metal: Hasznosított fém
+  acs_wins: 'Megnyert ACS támadások támadóként'
   set_sail_wins: A SetSail témával megnyert csaták
   stolen_crystal: Ellopott kristály
   stolen_deuterium: Ellopott deutérium
@@ -343,6 +427,14 @@ al_manage_members: Tagok
 al_manage_options: Beállítások
 al_manage_ranks: Rangok
 al_manage_request_min_points: Min. pontok
+al_chat_slowmode: "Chat lassú mód"
+al_chat_slowmode_info: "Két üzenet közötti minimális idő egy tag számára a szövetségi chaten (te vezetőként mentesülsz)."
+al_chat_slowmode_off: "Ki"
+al_chat_slowmode_10: "10 másodperc"
+al_chat_slowmode_30: "30 másodperc"
+al_chat_slowmode_60: "1 perc"
+al_chat_slowmode_120: "2 perc"
+al_chat_slowmode_300: "5 perc"
 al_manage_requests: Jelentkezések
 al_member: Név
 al_member_since: Csatlakozott
@@ -736,6 +828,8 @@ fl_sac_of_fleet: ACS-flotta
 fl_select_all_ships: Minden hajó
 fl_selected_resources: Kiválasztott nyersanyagok
 fl_send_back: Visszahívás
+fl_send_again: "Küldés újra"
+fl_send_again_title: "Új flotta előkészítése ugyanazokkal a hajókkal, céllal és küldetéssel"
 fl_send_fleet: Flotta küldése
 fl_ship_available: Elérhető hajók
 fl_ship_type: Hajótípus
@@ -996,6 +1090,7 @@ market_p_msg_wrong_resource_type: Ez az ajánlat érvénytelen nyersanyagot kér
 market_p_offer_type: Ajánlat típusa
 market_p_ratio: Arány
 market_p_submit: Vedd meg most!
+market_not_enough_stock: "Ezen a bolygón nincs meg a nyersanyag ehhez az ajánlathoz."
 market_p_to_duration: Repülés ide
 market_ship_as_first: 'Válaszd ki a hajótípust a kereskedéshez:'
 Messages: Üzenetek
@@ -1431,7 +1526,7 @@ tkb_month: hónap
 tkb_only: csak
 tkb_owners: Érintett felhasználók
 tkb_platz: Helyezés
-tkb_self: csak saját
+tkb_self: "Saját csatáim"
 tkb_timeframe: Időszak
 tkb_top: Csatacsarnok
 tkb_units: Egységek
@@ -1606,6 +1701,7 @@ mg_quick_delete_older: "%d napnál régebbiek törlése"
 mg_confirm_delete_read: "Törlöd a kategória összes olvasott üzenetét? A kedvencek megmaradnak."
 mg_confirm_delete_older: "Törlöd a kategória %d napnál régebbi üzeneteit? A kedvencek megmaradnak."
 mg_spy_again: "Kémkedés újra"
+mg_send_fleet: "Flotta küldése ide"
 fl_change_target: "Célpont módosítása"
 mg_group_mark: "Olvasottnak jelölés"
 mg_group_delete: "Törlés"
@@ -1630,6 +1726,7 @@ al_find_none_yet: "Ebben az univerzumban még nincsenek szövetségek."
 al_no_inside_text: "Még nincs szöveg a tagoknak."
 bd_needs: 'Kell'
 bd_missing: 'Hiányzik'
+bd_locked_group: "Zárolva ({n})"
 honorfights: "Becsületcsaták"
 pl_block_head: "Tiltás"
 pl_block_hint: "Azonnal érvénybe lép, nincs Mentés gomb."
@@ -1701,6 +1798,9 @@ shell_jump: "Ugrás…"
 shell_jump_tip: "Ugrás egy oldalra, bolygóra vagy koordinátákra"
 shell_switch_planet: "Bolygóváltás"
 shell_switch_to: "Váltás ide: %s"
+shell_build_running: "Építés folyamatban"
+shell_idle_build: "Az építési sor üres"
+shell_idle_shipyard: "A hajógyár üres"
 shell_moon_of: "%s Holdja"
 shell_fields: "mező"
 shell_slots_tip: "%1 / %2 bolygóhely használatban"
@@ -1749,3 +1849,8 @@ rec_hidden_holder: "rejtett"
 rec_hidden_holder_info: "A rekorder nem mutatja a nevét a rekordokban."
 rec_pending: "Új rekord – a következő statisztikafrissítéskor számítjuk be."
 rec_you: "Te (még nincs beszámítva)"
+lm_queues: "Sorok"
+queues_idle: "Üres"
+queues_intro: "Az összes bolygó és hold építési, hajógyári és kutatási sorai egy pillantásra."
+chat_err_slow: "A lassú mód aktív: várj még %s másodpercet."
+chat_slow_hint: "Lassú mód: %s másodpercenként egy üzenet."

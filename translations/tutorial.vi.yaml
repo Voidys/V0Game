@@ -17,6 +17,7 @@ tutorial_goal:
     '3': Gửi đơn xin gia nhập liên minh
 tutorial_goals_header: 'Mục tiêu:'
 tutorial_goals_ignore: (bỏ qua)
+tutorial_goto: "Đến trang"
 tutorial_rewards_header: 'Phần thưởng:'
 tutorial_text:
   step0: |-
@@ -29,7 +30,7 @@ tutorial_text:
   step2: |-
     Chơi cùng nhau vui hơn. Hầu hết người chơi tụ tập trên Discord của chúng tôi, nơi bạn có thể được giải đáp và tìm người chơi cùng.<br>
     Vẫn bí? Bạn cũng có thể mở một yêu cầu hỗ trợ tại đây.
-  step3: "Cướp hành tinh của người chơi khác là một cách khác để kiếm tài nguyên - và bạn cũng có thể bị cướp. Vì vậy hãy xây phòng thủ đầu tiên của bạn!<br>\nDù chỉ là phòng thủ nhỏ cũng bảo vệ sản lượng của bạn qua đêm.<br><br>\nChỉ riêng con số không quyết định trận đánh; thành phần của hạm đội tấn công cũng quan trọng.<br>\nKẻ tấn công phải vượt qua phòng thủ của bạn mới cướp được, và mỗi con tàu họ phải gửi đều cắt giảm lợi nhuận và có thể khiến họ mất thêm tàu.<br>\nXây phòng thủ trong menu <b>Phòng thủ</b>. Bạn cần một Xưởng đóng tàu (mà muốn có lại cần Nhà máy robot) và một ít Deuterium.<br><br>\nĐây là bài viết tương ứng trong wiki: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Công trình phòng thủ</a>"
+  step3: "Cướp hành tinh của người chơi khác là một cách khác để kiếm tài nguyên - và bạn cũng có thể bị cướp. Vì vậy hãy xây phòng thủ đầu tiên của bạn!<br>\nDù chỉ là phòng thủ nhỏ cũng bảo vệ sản lượng của bạn qua đêm.<br><br>\nChỉ riêng con số không quyết định trận đánh; thành phần của hạm đội tấn công cũng quan trọng.<br>\nKẻ tấn công phải vượt qua phòng thủ của bạn mới cướp được, và mỗi con tàu họ phải gửi đều cắt giảm lợi nhuận và có thể khiến họ mất thêm tàu.<br>\nXây phòng thủ trong <b>Xưởng đóng tàu</b>, tab <b>Phòng thủ</b>. Bạn cần một Xưởng đóng tàu (mà muốn có lại cần Nhà máy robot) và một ít Deuterium.<br><br>\nĐây là bài viết tương ứng trong wiki: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Công trình phòng thủ</a>"
   step4: |-
     Giữ cho nguồn cung luôn chảy bằng cách mở rộng mỏ!<br>
     Công trình, tàu, phòng thủ và nghiên cứu ngày càng đắt, nên sản lượng của bạn phải tăng theo. Hãy mở Công trình ngay và nâng cấp mỏ mỗi khi đủ tài nguyên.

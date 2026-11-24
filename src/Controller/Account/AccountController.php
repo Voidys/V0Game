@@ -73,6 +73,11 @@ class AccountController extends AbstractAccountController
     /** Switches the session to the player and universe (admin access is dropped) and redirects to /game. */
     private function enterUniverse(int $userID, mixed $universe): Response
     {
+        // the lobby speaks the language of the player the account entered last
+        $this->db->update(
+            'UPDATE %%ACCOUNTS%% a INNER JOIN %%USERS_SETTINGS%% us ON us.`user_id` = :userId SET a.`lang` = us.`lang` WHERE a.`id` = :accountId AND us.`lang` != \'\';',
+            [':userId' => $userID, ':accountId' => $this->state->ACCOUNT['id']],
+        );
         $session	= $this->sessions()->create();
         $session->userId		= $userID;
         $session->universe      = $universe;

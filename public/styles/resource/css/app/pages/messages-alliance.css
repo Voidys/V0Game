@@ -21,6 +21,9 @@
     color: var(--c-muted); font-size: var(--fs-sm);
     transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
   }
+  .mail-coord-fleet { display: inline-flex; vertical-align: -0.15em; margin-inline-start: 0.2em; color: var(--c-muted); }
+  .mail-coord-fleet .icon { inline-size: 0.95em; block-size: 0.95em; }
+  .mail-coord-fleet:hover { color: var(--c-accent, currentColor); }
   .mail-cat__name { flex: 1 1 auto; min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .mail-cat__count { flex: none; display: inline-flex; align-items: baseline; gap: var(--space-1); }
   @media (max-width: 40rem) {
@@ -38,7 +41,11 @@
       padding-inline: var(--pad);
       mask-image: linear-gradient(90deg, #000 calc(100% - 2.5rem), transparent);
     }
+    .mail-cats.is-scrolled-start { mask-image: linear-gradient(90deg, transparent, #000 2.5rem, #000 calc(100% - 2.5rem), transparent); }
+    .mail-cats.is-scrolled-end { mask-image: linear-gradient(90deg, transparent, #000 2.5rem); }
     .mail-cats::-webkit-scrollbar { display: none; }
+    /* unread categories first (stable within the group), so they are never hidden behind the scroll */
+    .mail-cat.has-unread { order: -1; }
     .mail-cat { flex: none; min-block-size: 2.75rem; scroll-snap-align: start; }
     .mail-cat__name { overflow: visible; }
     .mail-cat__count .mono { display: none; }

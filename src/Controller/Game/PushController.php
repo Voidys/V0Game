@@ -4,6 +4,7 @@ namespace App\Controller\Game;
 
 use App\Game\Core\Discord;
 use App\Game\Notifications\NotificationDispatcher;
+use App\Game\Notifications\PushEndpoint;
 use App\Game\Notifications\VapidKeys;
 use App\Routing\GameRoute;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,7 +35,7 @@ class PushController extends AbstractGameController
         $p256dh = trim($this->input()->rawString('p256dh'));
         $auth = trim($this->input()->rawString('auth'));
         if (
-            !str_starts_with($endpoint, 'https://') || strlen($endpoint) > 512
+            !PushEndpoint::isAllowed($endpoint)
             || $p256dh === '' || strlen($p256dh) > 255 || $auth === '' || strlen($auth) > 255
         ) {
             return $this->jsonResponse(['ok' => false]);

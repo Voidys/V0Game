@@ -220,7 +220,7 @@ class MissionCaseExpedition extends MissionFunctions implements MissionInterface
         $label = $LNG['Advanced_Stats']['expo_black_hole'];
         $this->statsHandler->increment($this->_fleet['owner'], AdvancedStatsEnum::EXPO_BLACK_HOLE, 1);
         $this->statsHandler->setTimestamp($this->_fleet['owner'], AdvancedStatsEnum::FIRST_EXPO_BLACK_HOLE, $this->_fleet['stay_time']);
-        $this->miscAchievements()->checkExpoAchievements($this->_fleet['owner']);
+        $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkExpoAchievements($this->_fleet['owner']));
 
         return ['message' => $message, 'color' => 'red', 'label' => $label, 'factor' => 0];
     }

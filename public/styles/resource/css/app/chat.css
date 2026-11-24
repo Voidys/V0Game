@@ -141,6 +141,7 @@
   .chat-report__actions { display: flex; justify-content: flex-end; gap: var(--space-2); }
 
   .chat__status { margin: 0; padding-inline: var(--space-3); min-block-size: 1.25rem; font-size: var(--fs-xs); color: var(--theme-warn); }
+  .chat__hint { margin: 0; padding-inline: var(--space-3); font-size: var(--fs-xs); }
   .chat__form { display: flex; gap: var(--space-2); padding: var(--space-2) var(--space-3) var(--space-3); border-block-start: 1px solid var(--theme-line); }
   .chat__input { flex: 1; min-inline-size: 0; }
   .chat__send span { display: none; }

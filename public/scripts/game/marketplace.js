@@ -89,6 +89,59 @@ const setReferenceRatioInputs = (ratios) => {
 
 let workingReferenceRatios = null;
 
+const RATIO_STORAGE_KEY = 'market:ratios';
+
+/** Remembers the reference ratios (and the chosen baseline) of this browser. */
+const saveReferenceRatios = () => {
+  const baseline = qs('.ratioBaseline.selected')?.dataset.resource ?? null;
+  try {
+    localStorage.setItem(RATIO_STORAGE_KEY, JSON.stringify({ baseline, ...inputReferenceRatios() }));
+  } catch (e) { /* storage unavailable */ }
+};
+
+/** Puts the remembered baseline or own ratios back into the inputs. */
+const restoreReferenceRatios = () => {
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(RATIO_STORAGE_KEY)); } catch (e) { /* ignore */ }
+  if (!saved) return;
+  if (saved.baseline && scaleOfficialReferenceTo(saved.baseline)) {
+    normalizeReferenceTo(saved.baseline);
+    return;
+  }
+  const ratios = { metal: saved.metal, crystal: saved.crystal, deuterium: saved.deuterium };
+  if (![ratios.metal, ratios.crystal, ratios.deuterium].every((value) => Number.isFinite(value) && value > 0)) return;
+  qsa('.ratioBaseline').forEach((el) => el.classList.remove('selected'));
+  workingReferenceRatios = ratios;
+  setReferenceRatioInputs(ratios);
+};
+
+/** Stock of the current planet from the resource bar (0 when not shown). */
+const stockOf = (name) => Number(document.getElementById(`current_${name}`)?.dataset.real) || 0;
+
+/**
+ * Dims the offers whose price the current planet cannot pay (purely visual: the server decides on buying). The cost resource
+ * ids come from the cell classes, 1 metal, 2 crystal, 3 deuterium.
+ */
+const markUnaffordable = () => {
+  const names = { 1: 'metal', 2: 'crystal', 3: 'deuterium' };
+  const hint = pageData('market-data').unaffordableText;
+  qsa('table#tradeList tbody tr, table#tradeFleetList tbody tr').forEach((row) => {
+    const amountCell = qs('.wanted-resource-amount', row);
+    const typeCell = qs('[class*="wanted-resource-"][data-resource-id]', row);
+    if (!amountCell || !typeCell || row.classList.contains('trade-disallowed')) return;
+    const amount = parseInt(amountCell.textContent.replace(/\D/g, ''), 10) || 0;
+    const short = amount > stockOf(names[typeCell.dataset.resourceId]);
+    row.classList.toggle('trade-unaffordable', short);
+    if (short) {
+      row.setAttribute('aria-disabled', 'true');
+      if (hint) row.title = hint;
+    } else {
+      row.removeAttribute('aria-disabled');
+      row.removeAttribute('title');
+    }
+  });
+};
+
 /** Baseline button: sets the working ratios to the official ones expressed relative to `resource`, updates inputs and highlighting, repaints the offers. */
 const normalizeReferenceTo = (resource) => {
   const ratios = scaleOfficialReferenceTo(resource);
@@ -99,6 +152,7 @@ const normalizeReferenceTo = (resource) => {
   setReferenceRatioInputs(ratios);
   qsa('.ratioBaseline').forEach((el) => el.classList.remove('selected'));
   qsa(`.ratioBaseline[data-resource="${resource}"]`).forEach((el) => el.classList.add('selected'));
+  saveReferenceRatios();
   calculateRatios();
 };
 
@@ -258,23 +312,27 @@ window.onPageInit(() => {
     input.addEventListener('input', () => {
       qsa('.ratioBaseline').forEach((el) => el.classList.remove('selected'));
       workingReferenceRatios = inputReferenceRatios();
+      saveReferenceRatios();
       calculateRatios();
     });
     input.addEventListener('change', () => {
       input.value = formatReferenceRatio(input.value);
       workingReferenceRatios = inputReferenceRatios();
+      saveReferenceRatios();
       calculateRatios();
     });
   }
   for (const button of qsa('.ratioBaseline')) {
     button.addEventListener('click', () => normalizeReferenceTo(button.dataset.resource));
   }
+  restoreReferenceRatios();
   const selectedBaseline = qs('.ratioBaseline.selected')?.dataset.resource;
   const selectedRatios = selectedBaseline ? scaleOfficialReferenceTo(selectedBaseline) : null;
   if (selectedRatios) {
     workingReferenceRatios = selectedRatios;
   }
   calculateRatios();
+  markUnaffordable();
   prepareSorting();
   initMarketBoxes();
 });

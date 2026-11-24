@@ -17,6 +17,7 @@ tutorial_goal:
     '3': Envia uma candidatura a uma aliança
 tutorial_goals_header: 'Objetivos:'
 tutorial_goals_ignore: (ignorar)
+tutorial_goto: "Ir para a página"
 tutorial_rewards_header: 'Recompensas:'
 tutorial_text:
   step0: |-
@@ -29,7 +30,7 @@ tutorial_text:
   step2: |-
     Jogar é mais divertido em conjunto. A maioria dos jogadores está no nosso Discord, onde podes obter respostas e encontrar gente para jogar.<br>
     Ainda estás com dúvidas? Também podes abrir aqui um pedido de suporte.
-  step3: "Pilhar os planetas de outros jogadores é outra forma de obter recursos – e também te pode acontecer a ti. Por isso, constrói a tua primeira defesa!<br>\nMesmo uma defesa pequena protege a tua produção durante a noite.<br><br>\nOs números sozinhos não decidem uma batalha; a composição da frota atacante também conta.<br>\nOs atacantes têm de ultrapassar a tua defesa antes de pilharem, e cada nave que tenham de enviar reduz o lucro e pode custar-lhes mais naves.<br>\nConstrói defesas no menu <b>Defesas</b>. Precisas de um Hangar (que por sua vez precisa de uma Fábrica de Robots) e de algum deutério.<br><br>\nAqui tens o artigo correspondente na wiki: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Instalações de defesa</a>"
+  step3: "Pilhar os planetas de outros jogadores é outra forma de obter recursos – e também te pode acontecer a ti. Por isso, constrói a tua primeira defesa!<br>\nMesmo uma defesa pequena protege a tua produção durante a noite.<br><br>\nOs números sozinhos não decidem uma batalha; a composição da frota atacante também conta.<br>\nOs atacantes têm de ultrapassar a tua defesa antes de pilharem, e cada nave que tenham de enviar reduz o lucro e pode custar-lhes mais naves.<br>\nConstrói defesas no <b>Hangar</b>, no separador <b>Defesas</b>. Precisas de um Hangar (que por sua vez precisa de uma Fábrica de Robots) e de algum deutério.<br><br>\nAqui tens o artigo correspondente na wiki: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Instalações de defesa</a>"
   step4: |-
     Mantém os recursos a fluir expandindo as tuas minas!<br>
     Edifícios, naves, defesas e pesquisas ficam mais caros com o tempo, por isso a tua produção tem de crescer a par. Abre agora Edifícios e melhora as minas sempre que tiveres recursos.

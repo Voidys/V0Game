@@ -81,6 +81,12 @@
 		<td><label for="f_request_min_points">{{ LNG.al_manage_request_min_points }}</label></td>
 		<td><input type="number" min="0" id="f_request_min_points" name="request_min_points" value="{{ ally_request_min_points }}"></td>
 	</tr>
+	{% if isLeader and chatEnabled %}
+	<tr>
+		<td><label for="f_chat_slowmode">{{ LNG.al_chat_slowmode }}</label></td>
+		<td>{{ forms.html_options({'id': 'f_chat_slowmode', 'name': 'chat_slowmode', 'options': chatSlowmodes, 'selected': ally_chat_slowmode}) }}<p class="hint">{{ LNG.al_chat_slowmode_info }}</p></td>
+	</tr>
+	{% endif %}
 	<tr>
 		<td colspan="2" class="form-actions">
 			<input type="reset" value="{{ LNG.al_circular_reset }}">

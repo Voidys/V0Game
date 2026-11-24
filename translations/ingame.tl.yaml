@@ -55,8 +55,49 @@ Achievement_names:
   '53': Einstein
   '54': Manigong Bagong Taon!
   '55': Buhay na alamat
+  '56': 'Warp drive'
+  '57': 'Taga-mapa ng mga bituin'
+  '58': 'Maraming alam'
+  '59': 'Inhinyero ng lahat'
+  '60': 'Ipon-ipon'
+  '61': 'Sumasamba sa araw'
+  '62': 'Full house'
+  '63': 'Magsasaka ng silo'
+  '64': 'Imperyo ng minahan'
+  '65': 'Teacher''s pet'
+  '66': 'Hari ng palengke'
+  '67': 'David laban kay Goliath'
+  '68': 'Walang gasgas na panalo'
+  '69': 'Sabay na pagkawasak'
+  '70': 'Bayang multo'
+  '71': 'Swerteng tira'
+  '72': 'Paputok'
+  '73': 'Kontra-espiya'
+  '74': 'Hari ng mga pirata'
+  '75': 'Janitor ng kalawakan'
+  '76': 'Maninisid ng mga wasak'
+  '77': 'Kagalang-galang'
+  '78': 'Wanted'
+  '79': 'Team player'
+  '80': 'Nakita ko na lahat'
+  '81': 'Matandang mandaragat'
+  '82': 'Mangangaso ng alien'
+  '83': 'Taga-hanap ng kayamanan'
+  '84': 'Malayong biyahe'
+  '85': 'Leap day'
+  '86': 'Biyernes 13'
+  '87': 'High noon'
+  '88': 'Malaking tour'
+  '89': 'Graduate'
+  '90': 'Diplomat'
+  '91': 'Tagatala'
+  '92': 'Kaibigan sa sulat'
+  '93': 'Emperador ng galaxy'
+  '94': 'Armada'
+  '95': 'Panginoon ng kolonya'
+  '96': 'Kumpletista'
 Achievement_text:
-  '1': Isang buong gabi ang hawak mo at wala kang naitamang isa mang putok.
+  '1': 'Magpalapag ng 5 sa mga atake mo sa pagitan ng hatinggabi at 6 ng umaga sa iisang gabi nang walang napapanalunan.'
   '2': Walang tigil na may mga fleet kang gumagalaw sa loob ng 90 araw.
   '3': Nawala ang fleet mo habang naka-set sa "French" ang wika mo.
   '4': I-research ang Ion Technology 10.
@@ -70,7 +111,7 @@ Achievement_text:
   '12': Nawasak ng black hole ang fleet mo sa una mong expedition.
   '13': Paalisin ang fleet mo na wala pang 5 segundo ang natitira bago tumama ang paparating na atake.
   '14': Mawalan ng 10 fleet sa mga black hole. Gutom ang kawalan.
-  '15': Mabigong makagawa ng buwan sa isang planeta pagkatapos ng 10 subok. Susunod, baka palarin ka na.
+  '15': 'Mabigong makuha ang iyong unang buwan sa 10 laban na may pinakamataas na tsansa ng buwan.'
   '16': Mahigit 250 sa mga recycler mo ang bumalik na walang laman.
   '17': Mag-queue ng hindi bababa sa 5000 Missile Launcher sa iisang build order.
   '18': Sunugin ang 5 milyong deuterium bilang fuel sa iisang planeta sa loob ng 24 oras.
@@ -111,6 +152,47 @@ Achievement_text:
   '53': Hawakan ang pinakamataas na level sa 5 research nang sabay-sabay.
   '54': I-time ang atake sa aktibong manlalaro para tumama sa 01/01 00:00:00.
   '55': Espesyal na Achievement
+  '56': 'Abutin ang level 15 ng hyperspace drive.'
+  '57': 'Abutin ang level 15 ng astrophysics.'
+  '58': 'Saliksikin ang bawat teknolohiya (maliban sa graviton) kahit isang beses.'
+  '59': 'Dalhin ang bawat saliksik (maliban sa graviton) sa level 10.'
+  '60': 'Magkaroon ng 1,000,000,000 ng iisang resource sa isang planeta o buwan.'
+  '61': 'Magkaroon ng 1000 solar satellite nang sabay sa isang planeta.'
+  '62': 'Tayuan ang bawat field ng isang planetang may hindi bababa sa 250 field.'
+  '63': 'I-upgrade ang imbakan ng metal, crystal at deuterium sa level 15 sa isang planeta.'
+  '64': 'Magkaroon ng metal mine na level 30 o higit pa sa 9 na planeta.'
+  '65': 'Magsimula ng iisang utos sa pagtatayo na tumatagal nang mahigit 30 araw.'
+  '66': 'Mabili ng ibang manlalaro ang 50 sa mga alok mo sa palengke.'
+  '67': 'Manalo sa depensa laban sa mga umaatake na may halagang hindi bababa sa 10 beses ng armada at depensa mo (halaga ng umaatake na hindi bababa sa 1,000,000 resources).'
+  '68': 'Manalo sa isang atake na nagwasak ng hindi bababa sa 1000 yunit ng kaaway nang walang nawawalang yunit sa iyo.'
+  '69': 'Magtapos sa tabla ang laban pagkatapos ng pinakamaraming round, at bawat panig ay nawalan ng hindi bababa sa 10,000 yunit.'
+  '70': 'Maatake sa planetang walang barko at depensa, kaya walang nakukuhang loot ang umaatake.'
+  '71': 'Magkaroon ng buwan mula sa laban na 1 % lang ang tsansa ng buwan.'
+  '72': 'Wasakin ang hindi bababa sa 100 yunit ng depensa gamit ang isang interplanetary missile strike.'
+  '73': 'Wasakin ang hindi bababa sa 100 espiyang probe ng kaaway sa isang laban sa planeta mo.'
+  '74': 'Mag-raid ng kabuuang 1,000,000,000 resources.'
+  '75': 'Mag-recycle ng kabuuang 1,000,000,000 resources.'
+  '76': 'Kumpunihin ang kabuuang 1000 barko mula sa mga wreck field.'
+  '77': 'Makakuha ng 1000 honour points.'
+  '78': 'Maging outlaw sa unang pagkakataon.'
+  '79': 'Sumali bilang umaatake sa 25 napanalunang ACS na atake.'
+  '80': 'Maranasan ang bawat posibleng kalalabasan ng ekspedisyon kahit isang beses.'
+  '81': 'Magpadala ng 1000 ekspedisyon.'
+  '82': 'Manalo sa laban sa ekspedisyon laban sa malaking armada ng alien.'
+  '83': 'Makahanap ng malaking dami ng resources sa 50 ekspedisyon.'
+  '84': 'Magpadala ng armada sa isang one-way na biyaheng mahigit 24 oras.'
+  '85': 'Makarating ang isang armada sa target nito sa 29 Pebrero.'
+  '86': 'Mawala ang buong umaatakeng armada sa isang Biyernes 13.'
+  '87': 'Magpalapag ng dalawa sa mga atake mo (hindi ACS) sa iisang target sa iisang segundo.'
+  '88': 'Magkaroon ng mga armadang patungo sa bawat galaxy ng uniberso nang sabay.'
+  '89': 'Tapusin ang tutorial.'
+  '90': 'Magkaroon ng aktibong pakto sa 3 ibang alyansa nang sabay (lahat ng miyembro ng alyansa ay makakakuha).'
+  '91': 'Gumawa ng 5 wiki page ng alyansa.'
+  '92': 'Magkaroon ng 10 tinanggap na friend request.'
+  '93': 'Maging numero 1 sa kabuuang ranking ng puntos sa 7 magkakasunod na araw.'
+  '94': 'Magkaroon ng 100 Death Star nang sabay sa isang planeta o buwan.'
+  '95': 'Okupahan ang bawat planet slot na pinapayagan ng astrophysics mo (hindi bababa sa 9), bawat planeta ay may hindi bababa sa 200 field.'
+  '96': 'Magkaroon ng 50 pang achievement.'
 ach_filter_all: Lahat
 ach_filter_locked: Naka-lock
 ach_filter_unlocked: Na-unlock
@@ -193,6 +275,7 @@ Advanced_Stats:
   moons_lost: Mga buwang nawala
   moons_received: Mga buwang natanggap
   outlaw_activations: Mga pag-activate ng outlaw
+  alliance_pages_created: 'Mga ginawang wiki page ng alyansa'
   planets_created: Mga planetang na-colonize
   planets_deleted: Mga planetang iniwan
   raided_crystal: Crystal na nadambong
@@ -200,6 +283,7 @@ Advanced_Stats:
   raided_metal: Metal na nadambong
   recycled_crystal: Crystal na na-recycle
   recycled_metal: Metal na na-recycle
+  acs_wins: 'Mga napanalunang ACS na atake bilang umaatake'
   set_sail_wins: Mga laban na napanalunan habang aktibo ang SetSail theme
   stolen_crystal: Crystal na ninakaw
   stolen_deuterium: Deuterium na ninakaw
@@ -326,6 +410,14 @@ al_manage_members: Mga Miyembro
 al_manage_options: Mga Opsyon
 al_manage_ranks: Mga Rank
 al_manage_request_min_points: Min. puntos
+al_chat_slowmode: "Slow mode ng chat"
+al_chat_slowmode_info: "Pinakamababang pagitan ng dalawang mensahe ng isang miyembro sa alliance chat (ikaw, bilang lider, ay hindi sakop)."
+al_chat_slowmode_off: "Naka-off"
+al_chat_slowmode_10: "10 segundo"
+al_chat_slowmode_30: "30 segundo"
+al_chat_slowmode_60: "1 minuto"
+al_chat_slowmode_120: "2 minuto"
+al_chat_slowmode_300: "5 minuto"
 al_manage_requests: Mga Application
 al_member: Pangalan
 al_member_since: Sumali
@@ -709,6 +801,8 @@ fl_sac_of_fleet: ACS fleet
 fl_select_all_ships: Lahat ng barko
 fl_selected_resources: Mga napiling resource
 fl_send_back: Pabalikin
+fl_send_again: "Ipadala muli"
+fl_send_again_title: "Maghanda ng bagong fleet na may parehong mga barko, target at misyon"
 fl_send_fleet: Ipadala ang fleet
 fl_ship_available: Mga available na barko
 fl_ship_type: Uri ng barko
@@ -966,6 +1060,7 @@ market_p_msg_wrong_resource_type: Humihingi ang alok na ito ng hindi valid na re
 market_p_offer_type: Uri ng alok
 market_p_ratio: Ratio
 market_p_submit: Bilhin na!
+market_not_enough_stock: "Walang sapat na resources ang planetang ito para sa alok na ito."
 market_p_to_duration: Biyahe papunta
 market_ship_as_first: 'Pumili ng uri ng barko para sa trade:'
 Messages: Mga Mensahe
@@ -1397,7 +1492,7 @@ tkb_month: buwan
 tkb_only: lang
 tkb_owners: Mga kasaling user
 tkb_platz: Rank
-tkb_self: sarili lang
+tkb_self: "Aking mga laban"
 tkb_timeframe: Yugto ng panahon
 tkb_top: Battle Hall
 tkb_units: Mga Unit
@@ -1569,6 +1664,7 @@ mg_quick_delete_older: "Burahin ang mas luma sa %d araw"
 mg_confirm_delete_read: "Burahin ang lahat ng nabasang mensahe sa kategoryang ito? Mananatili ang mga paborito."
 mg_confirm_delete_older: "Burahin ang lahat ng mensahe sa kategoryang ito na mas luma sa %d araw? Mananatili ang mga paborito."
 mg_spy_again: "Mag-espiya muli"
+mg_send_fleet: "Magpadala ng fleet dito"
 fl_change_target: "Palitan ang target"
 mg_group_mark: "Markahan bilang nabasa"
 mg_group_delete: "Burahin"
@@ -1593,6 +1689,7 @@ al_find_none_yet: "Wala pang alyansa sa uniberso na ito."
 al_no_inside_text: "Wala pang teksto para sa mga miyembro."
 bd_needs: 'Kailangan'
 bd_missing: 'Kulang'
+bd_locked_group: "Naka-lock ({n})"
 honorfights: "Mga marangal na laban"
 pl_block_head: "I-block"
 pl_block_hint: "Epektibo agad, walang Save button."
@@ -1664,6 +1761,9 @@ shell_jump: Pumunta sa…
 shell_jump_tip: Pumunta sa isang pahina, planeta o coordinates
 shell_switch_planet: Magpalit ng planeta
 shell_switch_to: Lumipat sa %s
+shell_build_running: "Tumatakbo ang konstruksiyon"
+shell_idle_build: "Walang laman ang building queue"
+shell_idle_shipyard: "Walang laman ang Shipyard"
 shell_moon_of: Buwan ng %s
 shell_fields: mga field
 shell_slots_tip: '%1 sa %2 na planet slot ang gamit'
@@ -1712,3 +1812,8 @@ rec_hidden_holder: "hidden"
 rec_hidden_holder_info: "The record holder does not show their name in the records."
 rec_pending: "New record – counted at the next statistics update."
 rec_you: "You (not counted yet)"
+lm_queues: "Mga queue"
+queues_idle: "Walang laman"
+queues_intro: "Mga queue ng konstruksiyon, shipyard at research ng lahat ng planeta at buwan sa isang tingin."
+chat_err_slow: "Naka-on ang slow mode: maghintay pa ng %s segundo."
+chat_slow_hint: "Slow mode: isang mensahe bawat %s segundo."

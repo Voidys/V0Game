@@ -28,6 +28,7 @@ trait BanListPage
         foreach ($banResult as $banRow) {
             $banList[] = [
                 'player' => $banRow['who'],
+                'playerId' => (int) $banRow['user_id'],
                 'theme' => $banRow['theme'],
                 'from' => $this->viewHelpers()->formatDate($LNG['php_tdformat'], $banRow['time'], $timezone),
                 'to' => $this->viewHelpers()->formatDate($LNG['php_tdformat'], $banRow['longer'], $timezone),

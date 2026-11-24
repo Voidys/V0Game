@@ -66,6 +66,7 @@ $dbTableNames   = [
     'HONOR_FIGHTS'            => $prefix . 'honor_fights',
     'USER_DEVICES'            => $prefix . 'user_devices',
     'LOG_FLEETS'              => $prefix . 'log_fleets',
+    'FUEL_LOG'                => $prefix . 'fuel_log',
     'LOSTPASSWORD'            => $prefix . 'lostpassword',
     'NEWS'                    => $prefix . 'news',
     'HALL_OF_FAME'            => $prefix . 'hall_of_fame',

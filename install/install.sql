@@ -169,6 +169,7 @@ CREATE TABLE `%PREFIX%alliance` (
   `ally_universe` tinyint(3) unsigned NOT NULL,
   `ally_max_members` int(5) unsigned NOT NULL DEFAULT 20,
   `ally_events` varchar(55) NOT NULL DEFAULT '',
+  `chat_slowmode` smallint(5) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `ally_tag` (`ally_tag`),
   KEY `ally_name` (`ally_name`),
@@ -460,6 +461,13 @@ CREATE TABLE `%PREFIX%trades` (
 	PRIMARY KEY (`seller_fleet_id`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+CREATE TABLE `%PREFIX%fuel_log` (
+  `planet_id` int(11) unsigned NOT NULL,
+  `hour` int(11) unsigned NOT NULL,
+  `amount` double(50,0) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`planet_id`, `hour`)
+) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 CREATE TABLE `%PREFIX%fleet_event` (
   `fleetID` int(11) NOT NULL,
   `time` int(11) NOT NULL,
@@ -711,6 +719,7 @@ CREATE TABLE `%PREFIX%planets` (
   `deuterium_bonus_percent` float(5,3) unsigned NOT NULL DEFAULT 0,
   `energy_used` double(50,0) NOT NULL DEFAULT '0',
   `energy` double(50,0) unsigned NOT NULL DEFAULT '0',
+  `low_energy_since` int(11) unsigned NOT NULL DEFAULT 0,
   `metal_mine` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `crystal_mine` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `deuterium_sintetizer` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -1007,6 +1016,8 @@ CREATE TABLE `%PREFIX%users` (
   `rebuild_protection` int(11) unsigned NOT NULL DEFAULT 0,
   `rebuild_protection_attackers` text,
   `rebuild_protection_locked_until` int(11) unsigned NOT NULL DEFAULT 0,
+  `night_attacks_date` int(11) unsigned NOT NULL DEFAULT 0,
+  `night_attacks` smallint(6) NOT NULL DEFAULT 0,
   `urlaubs_modus` tinyint(1) NOT NULL DEFAULT '0',
   `urlaubs_until` int(11) NOT NULL DEFAULT '0',
   `urlaubs_start` int(11) NOT NULL DEFAULT '0',
@@ -1048,6 +1059,8 @@ CREATE TABLE `%PREFIX%users` (
   `outlaw_time` int(11) unsigned NOT NULL DEFAULT 0,
   `wreckfield_cooldown_until` int(11) unsigned NOT NULL DEFAULT 0,
   `chat_muted_until` int(11) unsigned NOT NULL DEFAULT 0,
+  `fleets_moving_since` int(11) unsigned NOT NULL DEFAULT 0,
+  `market_sales` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `authlevel` (`authlevel`),
   KEY `ref_bonus` (`ref_bonus`),
@@ -1220,6 +1233,7 @@ CREATE TABLE `%PREFIX%chat_messages` (
   PRIMARY KEY (`id`),
   KEY `channel` (`universe`, `channel`, `id`),
   KEY `channel_deleted` (`universe`, `channel`, `deleted`, `id`),
+  KEY `channel_user` (`universe`, `channel`, `user_id`, `created_at`),
   KEY `created_at` (`created_at`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -1255,7 +1269,8 @@ CREATE TABLE `%PREFIX%users_to_topkb` (
   `uid` int(11) NOT NULL,
   `username` varchar(128) NOT NULL,
   `role` tinyint(1) NOT NULL,
-  KEY `rid` (`rid`,`role`)
+  KEY `rid` (`rid`,`role`),
+  KEY `uid` (`uid`,`role`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `%PREFIX%users_to_messages` (
@@ -1567,7 +1582,48 @@ INSERT INTO `%PREFIX%achievements` (`id`, `name`, `image`) VALUES
 (52, 'Megalomania', 'achievement_52'),
 (53, 'Einstein', 'achievement_53'),
 (54, 'Happy New Year!', 'achievement_54'),
-(55, 'Living Legend', 'achievement_55');
+(55, 'Living Legend', 'achievement_55'),
+(56, 'Warp drive', 'achievement_56'),
+(57, 'Star cartographer', 'achievement_57'),
+(58, 'Polymath', 'achievement_58'),
+(59, 'Engineer of everything', 'achievement_59'),
+(60, 'Hoarder', 'achievement_60'),
+(61, 'Sun worshipper', 'achievement_61'),
+(62, 'Full house', 'achievement_62'),
+(63, 'Silo farmer', 'achievement_63'),
+(64, 'Mining empire', 'achievement_64'),
+(65, 'Overachiever', 'achievement_65'),
+(66, 'Market maker', 'achievement_66'),
+(67, 'David vs Goliath', 'achievement_67'),
+(68, 'Flawless victory', 'achievement_68'),
+(69, 'Mutual destruction', 'achievement_69'),
+(70, 'Ghost town', 'achievement_70'),
+(71, 'Lucky shot', 'achievement_71'),
+(72, 'Fireworks', 'achievement_72'),
+(73, 'Counterintelligence', 'achievement_73'),
+(74, 'Pirate king', 'achievement_74'),
+(75, 'Space janitor', 'achievement_75'),
+(76, 'Wreck diver', 'achievement_76'),
+(77, 'Honourable', 'achievement_77'),
+(78, 'Wanted', 'achievement_78'),
+(79, 'Team player', 'achievement_79'),
+(80, 'Seen it all', 'achievement_80'),
+(81, 'Old salt', 'achievement_81'),
+(82, 'Alien hunter', 'achievement_82'),
+(83, 'Treasure hunter', 'achievement_83'),
+(84, 'Long haul', 'achievement_84'),
+(85, 'Leap day', 'achievement_85'),
+(86, 'Friday the 13th', 'achievement_86'),
+(87, 'High noon', 'achievement_87'),
+(88, 'Grand tour', 'achievement_88'),
+(89, 'Graduate', 'achievement_89'),
+(90, 'Diplomat', 'achievement_90'),
+(91, 'Chronicler', 'achievement_91'),
+(92, 'Pen pal', 'achievement_92'),
+(93, 'Galactic emperor', 'achievement_93'),
+(94, 'Armada', 'achievement_94'),
+(95, 'Colonial overlord', 'achievement_95'),
+(96, 'Completionist', 'achievement_96');
 
 INSERT INTO `%PREFIX%planet_data` (`universe`, `planet_position`, `temp_min`, `temp_max`, `fields_min`, `fields_max`, `metalBonusPercent`, `crystalBonusPercent`, `deuteriumBonusPercent`) VALUES
 (0, 1,   220,  260,     96,   172,   0,   0,    0),

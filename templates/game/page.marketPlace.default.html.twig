@@ -292,5 +292,5 @@
 </div>
 {% endblock %}
 {% block script %}{{ parent() }}
-{{ data_island('market-data', {confirmText: LNG.market_confirm_are_you_sure}) }}
+{{ data_island('market-data', {confirmText: LNG.market_confirm_are_you_sure, unaffordableText: LNG.market_not_enough_stock}) }}
 {% endblock %}

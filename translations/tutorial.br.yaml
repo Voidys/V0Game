@@ -17,6 +17,7 @@ tutorial_goal:
     '3': Envie uma candidatura para uma aliança
 tutorial_goals_header: 'Objetivos:'
 tutorial_goals_ignore: (ignorar)
+tutorial_goto: "Ir para a página"
 tutorial_rewards_header: 'Recompensas:'
 tutorial_text:
   step0: |-
@@ -29,7 +30,7 @@ tutorial_text:
   step2: |-
     Jogar é mais divertido junto. A maioria dos jogadores fica no nosso Discord, onde você tira dúvidas e encontra gente para jogar.<br>
     Ainda travado? Você também pode abrir um ticket de suporte aqui.
-  step3: "Saquear os planetas dos outros é outro jeito de conseguir recursos, e isso também pode acontecer com você. Então construa a sua primeira defesa!<br>\nAté uma defesa pequena protege a sua produção durante a noite.<br><br>\nSó os números não decidem uma luta; a composição da frota atacante também conta.<br>\nOs atacantes precisam passar pela sua defesa antes de saquear, e cada nave que eles precisam mandar diminui o lucro e pode custar mais naves.<br>\nConstrua defesas no menu <b>Defesa</b>. Você precisa de um Hangar (que por sua vez precisa de uma Fábrica de Robôs) e de um pouco de Deutério.<br><br>\nAqui está o artigo correspondente na wiki: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Instalações de defesa</a>"
+  step3: "Saquear os planetas dos outros é outro jeito de conseguir recursos, e isso também pode acontecer com você. Então construa a sua primeira defesa!<br>\nAté uma defesa pequena protege a sua produção durante a noite.<br><br>\nSó os números não decidem uma luta; a composição da frota atacante também conta.<br>\nOs atacantes precisam passar pela sua defesa antes de saquear, e cada nave que eles precisam mandar diminui o lucro e pode custar mais naves.<br>\nConstrua defesas no <b>Hangar</b>, na aba <b>Defesa</b>. Você precisa de um Hangar (que por sua vez precisa de uma Fábrica de Robôs) e de um pouco de Deutério.<br><br>\nAqui está o artigo correspondente na wiki: \n<a href=\"{wiki_url}/wiki/En/Verteidigung\" target=\"_blank\">Instalações de defesa</a>"
   step4: |-
     Mantenha os suprimentos fluindo expandindo as suas minas!<br>
     Edifícios, naves, defesas e pesquisas ficam mais caros com o tempo, então a sua produção precisa crescer junto. Abra Edifícios agora e melhore as minas sempre que tiver recursos.

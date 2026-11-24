@@ -12,3 +12,15 @@
   {%- set variants = theme_srcset(src) -%}
   <img src="{{ src }}"{% if variants %} srcset="{{ variants }}" sizes="{{ size }}px"{% endif %} width="{{ size }}" height="{{ size }}" alt="">
 {%- endmacro %}
+{# Status markers of a planet/moon in the planet lists: idle building queue, idle shipyard, full storage, next building finish (planetList status). #}
+{% macro status(p) -%}
+  {%- set s = p.status -%}
+  {%- if s and (s.buildIdle or s.shipIdle or s.full or s.buildLeft) -%}
+  <span class="pl-status">
+    {%- if s.buildLeft %}<span class="pl-flag is-run" title="{{ LNG.shell_build_running }}">{{ icon('hammer', LNG.shell_build_running) }}<span class="countdown mono" data-time="{{ s.buildLeft }}"></span></span>
+    {%- elseif s.buildIdle %}<span class="pl-flag is-idle" title="{{ LNG.shell_idle_build }}">{{ icon('hammer', LNG.shell_idle_build) }}</span>{% endif -%}
+    {%- if s.shipIdle %}<span class="pl-flag is-idle" title="{{ LNG.shell_idle_shipyard }}">{{ icon('rocket', LNG.shell_idle_shipyard) }}</span>{% endif -%}
+    {%- if s.full %}<span class="pl-flag is-full" title="{{ LNG.ui_storage_full }}">{{ icon('database', LNG.ui_storage_full) }}</span>{% endif -%}
+  </span>
+  {%- endif -%}
+{%- endmacro %}

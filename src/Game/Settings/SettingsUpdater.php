@@ -189,11 +189,11 @@ class SettingsUpdater
             'hangar_filters' => $form['hangarFilters'],
             'messages_per_page' => $messagesPerPage,
         ], $adminprotection, $discord_id, $discord_hook);
-        // the account area (lobby, account settings, board) wears the same skin as the game
+        // the account area (lobby, account settings, board) wears the same skin and language as the game
         $db->update(
             'UPDATE %%ACCOUNTS%% a INNER JOIN %%ACCOUNTS_TO_USERS%% atu ON atu.account_id = a.id AND atu.end_time = 0'
-            . ' SET a.dpath = :dpath, a.css_dpath = :cssDpath WHERE atu.user_id = :userId;',
-            [':dpath' => $imageTheme, ':cssDpath' => $cssTheme, ':userId' => $this->state->USER['id']],
+            . ' SET a.dpath = :dpath, a.css_dpath = :cssDpath, a.lang = :lang WHERE atu.user_id = :userId;',
+            [':dpath' => $imageTheme, ':cssDpath' => $cssTheme, ':lang' => $language, ':userId' => $this->state->USER['id']],
         );
 
         $this->state->USER['dpath'] = $imageTheme;
@@ -202,7 +202,7 @@ class SettingsUpdater
 
         $db->commit();
 
-        $this->miscAchievements()->checkSettingsAchievements($this->state->USER['id'], $recordsOptIn);
+        $this->achievementGuard()->run(fn() => $this->miscAchievements()->checkSettingsAchievements($this->state->USER['id'], $recordsOptIn));
     }
 
     /**

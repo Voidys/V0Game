@@ -23,6 +23,7 @@
             {% else %}
               <span class="pl-note muted">{{ p.fields }} / {{ p.fieldsMax }} {{ LNG.shell_fields }}</span>
             {% endif %}
+            {{ shell.status(p) }}
           </span>
         </a>
         {% if p.moon %}

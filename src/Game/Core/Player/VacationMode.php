@@ -96,7 +96,7 @@ class VacationMode
                 $PLANET['last_update'] = $this->state->runtime->timestamp - 1;
                 $PLANET['eco_hash'] = '';
                 [$USER, $PLANET] = $PlanetRess->CalcResource($USER, $PLANET, true);
-                $this->playerUtilAchievements()->checkPlayerUtilAchievements33($USER['id']);
+                $this->achievementGuard()->run(fn() => $this->playerUtilAchievements()->checkPlayerUtilAchievements33($USER['id']));
             }
 
             foreach ($PlanetsRAW as $CPLANET) {
@@ -318,7 +318,7 @@ class VacationMode
             $PLANET['metal_perhour'] = '0';
             $PLANET['crystal_perhour'] = '0';
             $PLANET['deuterium_perhour'] = '0';
-            $this->playerUtilAchievements()->checkPlayerUtilAchievements31($USER['id']);
+            $this->achievementGuard()->run(fn() => $this->playerUtilAchievements()->checkPlayerUtilAchievements31($USER['id']));
         }
     }
 }

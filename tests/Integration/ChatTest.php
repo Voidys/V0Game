@@ -246,12 +246,50 @@ final class ChatTest extends GameTestCase
         $this->assertNull($this->db->selectSingle('SELECT `original_message` FROM %%CHAT_MESSAGES%% WHERE `id` = :id;', [':id' => $ally], 'original_message'));
     }
 
+    public function testGlobalSlowModeRefusesTooQuickMessagesAndExemptsModerators(): void
+    {
+        $chat = $this->chat();
+        $settings = new ChatSettings(minAccountAgeHours: 0, globalSlowmode: 30);
+        $user = $this->player();
+        $mod = $this->player(['authlevel' => 1]);
+
+        $this->assertArrayHasKey('id', $chat->send($user, 'global', 'first', self::NOW, $settings));
+        $this->assertSame(['error' => Chat::ERR_SLOW, 'wait' => 20], $chat->send($user, 'global', 'second', self::NOW + 10, $settings));
+        $this->assertArrayHasKey('id', $chat->send($user, 'global', 'third', self::NOW + 30, $settings));
+        $this->assertArrayHasKey('id', $chat->send($mod, 'global', 'one', self::NOW, $settings));
+        $this->assertArrayHasKey('id', $chat->send($mod, 'global', 'two', self::NOW + 1, $settings));
+        $this->assertSame(['global' => 30], $chat->slowModes($user, $settings));
+        $this->assertSame(['global' => 0], $chat->slowModes($mod, $settings));
+    }
+
+    public function testAllianceSlowModeAppliesToMembersButNotToTheOwner(): void
+    {
+        $chat = $this->chat();
+        $owner = $this->player();
+        $member = $this->player();
+        $this->db->insert('INSERT INTO %%ALLIANCE%% (`ally_name`, `ally_tag`, `ally_owner`, `ally_universe`, `chat_slowmode`) VALUES (:n, :t, :o, 1, 60);', [
+            ':n' => 'slowmode test', ':t' => 'slow', ':o' => (int) $owner['id'],
+        ]);
+        $allyId = $this->db->lastInsertId();
+        $this->db->update('UPDATE %%USERS%% SET `ally_id` = :a WHERE `id` IN (:o, :m);', [':a' => $allyId, ':o' => (int) $owner['id'], ':m' => (int) $member['id']]);
+        $owner['ally_id'] = $member['ally_id'] = $allyId;
+
+        $this->assertArrayHasKey('id', $chat->send($member, 'alliance', 'hello', self::NOW));
+        $this->assertSame(['error' => Chat::ERR_SLOW, 'wait' => 40], $chat->send($member, 'alliance', 'again', self::NOW + 20));
+        $this->assertArrayHasKey('id', $chat->send($member, 'alliance', 'later', self::NOW + 60));
+        $this->assertArrayHasKey('id', $chat->send($owner, 'alliance', 'a', self::NOW));
+        $this->assertArrayHasKey('id', $chat->send($owner, 'alliance', 'b', self::NOW + 1));
+        $this->assertSame(60, $chat->slowModes($member, new ChatSettings())['alliance']);
+        $this->assertSame(0, $chat->slowModes($owner, new ChatSettings())['alliance']);
+    }
+
     public function testSettingsReadTheConfigWithDefaults(): void
     {
         $settings = ChatSettings::fromConfig($this->configs->get(1));
         $this->assertTrue($settings->globalEnabled);
         $this->assertSame(0, $settings->minPoints);
         $this->assertSame(24, $settings->minAccountAgeHours, 'new default: a day old account');
+        $this->assertSame(0, $settings->globalSlowmode);
     }
 
     public function testReportValidationDuplicatesAndVisibility(): void

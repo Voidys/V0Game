@@ -1,5 +1,6 @@
 {% import '_macros/forms.html.twig' as forms -%}
 {% import '_macros/ui.html.twig' as ui -%}
+{% macro players(list, fallback, cls) %}{% if list %}<span class="{{ cls }}">{% for p in list %}{% if not loop.first %} &amp; {% endif %}<a href="#" data-action="dialog-playercard" data-id="{{ p.id }}">{{ p.name }}</a>{% endfor %}</span>{% else %}<span class="{{ cls }}">{{ fallback }}</span>{% endif %}{% endmacro %}
 {% extends layout_template %}
 {% block title %}{{ LNG.lm_topkb }}{{ parent() }}{% endblock %}
 {% block pagehead %}{{ ui.page_head(LNG.tkb_top, 'trophy', LNG.tkb_gratz) }}{% endblock %}
@@ -29,11 +30,11 @@
 				<tr>
 					<td class="num">{% if loop.index <= 3 %}<span class="badge{% if loop.index == 1 %} badge--accent{% endif %}">{{ loop.index }}</span>{% else %}{{ loop.index }}{% endif %}</td>
 					<td>
-						<a class="battle-link" href="{{ path('game_raport_show', {raport: row.rid}) }}" target="_blank" rel="noopener">
-							<span class="{{ attackerClass }}">{{ row.attacker }}</span>
-							{{ icon('swords', null, 'battle-link__vs') }}
-							<span class="{{ defenderClass }}">{{ row.defender }}</span>
-						</a>
+						<span class="battle-link">
+							{{ _self.players(row.attackers, row.attacker, attackerClass) }}
+							<a href="{{ path('game_raport_show', {raport: row.rid}) }}" target="_blank" rel="noopener" aria-label="{{ LNG.tkb_datum }}">{{ icon('swords', null, 'battle-link__vs') }}</a>
+							{{ _self.players(row.defenders, row.defender, defenderClass) }}
+						</span>
 					</td>
 					<td>{{ row.date }}</td>
 					<td class="num">{{ pretty_number(row.units) }}</td>

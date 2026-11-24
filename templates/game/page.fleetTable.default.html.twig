@@ -10,6 +10,7 @@
   <div class="globalWarning" role="alert" id="fleet-notice">{{ icon('triangle-alert') }}<span>{{ notice }}</span></div>
   {% endif %}
   {# experience points and cargo capacity per ship type for the live sums (scripts/game/fleetTable.js) #}
+  {% include 'game/shared.missionColors.html.twig' %}
   {% set ships = [] %}
   {% for elementID, fleetArray in shiptypes %}
     {% set ships = ships|merge([{id: fleetArray.id, expo: fleetArray.expo, capacity: fleetArray.capacity}]) %}
@@ -36,7 +37,7 @@
       {% for FlyingFleetRow in FlyingFleetList %}
         <tr class="fleet-row">
           <td class="fleet-col-id ctr">{{ loop.index }}</td>
-          <td class="fleet-col-mission ctr fl-mission">
+          <td class="fleet-col-mission ctr fl-mission{% if FlyingFleetRow.cssClass %} {{ FlyingFleetRow.cssClass }}{% endif %}">
             {% set tt_res %}<table class='tt-fleet-res'><tr><td>{{ LNG['tech'][901] }}</td><td>{{ FlyingFleetRow.metal }}</td></tr><tr><td>{{ LNG['tech'][902] }}</td><td>{{ FlyingFleetRow.crystal }}</td></tr><tr><td>{{ LNG['tech'][903] }}</td><td>{{ FlyingFleetRow.deuterium }}</td></tr></table>{% endset %}
             <a
               data-tooltip-content="{{ tt_res|e('html') }}"
@@ -92,6 +93,9 @@
                   {% endif %}
               {% else %}
                 &nbsp;-&nbsp;
+              {% endif %}
+              {% if FlyingFleetRow.repeatQuery and not isVacation %}
+                <a class="fleet-repeat" href="{{ path('game_fleet_step1_show', FlyingFleetRow.repeatQuery) }}" title="{{ LNG.fl_send_again_title }}">{{ icon('refresh-cw') }}<span>{{ LNG.fl_send_again }}</span></a>
               {% endif %}
           </td>
         </tr>
