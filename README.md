@@ -7,6 +7,7 @@ in alliances.
 
 [![CI](https://github.com/Voidys/V0Game/actions/workflows/ci.yml/badge.svg)](https://github.com/Voidys/V0Game/actions/workflows/ci.yml)
 [![Latest release](https://img.shields.io/github/v/release/Voidys/V0Game?label=release&color=blue)](https://github.com/Voidys/V0Game/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/Voidys/V0Game/total?color=blue)](https://github.com/Voidys/V0Game/releases)
 [![License: AGPL v3](https://img.shields.io/badge/license-AGPL--3.0-green)](LICENSE)
 [![PHP 8.4](https://img.shields.io/badge/PHP-8.4-777BB4?logo=php&logoColor=white)](https://www.php.net/)
 [![Symfony 8.1](https://img.shields.io/badge/Symfony-8.1-000000?logo=symfony&logoColor=white)](https://symfony.com/)
