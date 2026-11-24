@@ -55,14 +55,11 @@ echo "==> installing production dependencies"
 echo "==> removing development-only files"
 # Allowlist: everything at the top level that is not listed here is dropped.
 KEEP=" bin config install licenses public src templates translations vendor var CHANGES.md LICENSE README.md \
-composer.json composer.lock symfony.lock .env install.sh docs stats "
+composer.json composer.lock symfony.lock .env install.sh stats "
 for entry in "$STAGE"/* "$STAGE"/.[!.]*; do
     [ -e "$entry" ] || continue
     case "$KEEP" in *" $(basename "$entry") "*) ;; *) rm -rf "$entry" ;; esac
 done
-# docs: only what an admin needs
-find "$STAGE/docs" -mindepth 1 -maxdepth 1 \
-    ! -name INSTALL.md ! -name nginx.md ! -name PERFORMANCE.md -exec rm -rf {} +
 # vendor: tests, docs and VCS metadata of packages (not needed at runtime)
 find "$STAGE/vendor" -type d \( -iname tests -o -iname test -o -iname .git -o -iname .github \) -prune -exec rm -rf {} + 2>/dev/null || true
 rm -f "$STAGE/config/game.php"
