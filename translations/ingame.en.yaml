@@ -1619,8 +1619,11 @@ fl_cargo_needed: needed
 fl_cargo_select: select
 fl_cargo_current_planet: Current planet
 ui_skip_to_content: Skip to content
-ui_watch: Watch
+ui_watch: 'Watch: show missing resources and send them here'
 ui_unwatch: Stop watching
+ui_watch_missing: 'Missing:'
+ui_watch_transport: Transport here
+ui_watch_ready: Ready to build
 ui_message_tools: Search, filters and actions
 ui_menu: Menu
 ui_rank: Rank

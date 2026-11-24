@@ -1501,3 +1501,12 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 - Fairness: shared envelope across all bots (`Raid/BotEnvelope`: raids and probes per human per 24 h, shared cooldown, no second bot attack in flight), threats read like the overview event list, pact/buddy/alliance recheck at send and before impact, scout radius capped (`bots_scout_range_max`), re-spy jitter, personal timezone per bot (`BotSchedule`), fleetsave sized to the real offline time, single-planet fleetsave via slow expedition, defense only if it finishes before impact plus rebuild after hits, unidentified attack fleets treated as hostile; `llm_advice` wired.
 - Behaviours (switches, on in hard/brutal): learning loss multiplier (`RaidLearning`), grudges + revenge (`bot_relations.grudge`, migration 1795502610), raids from the nearest planet/moon, recycling (`BotRecycling`), bot ACS (`BotAcs`, counted as one attack by the envelope), moons as fleetsave/launch points, missiles on blocking defense (`BotMissiles`), late-game warmonger, war-fleet goal scaling with aggression and points.
 - Admin labels in all locales; tests `BotSettingsTest`, `BotScheduleTest`, `BotFairnessTest`, `BotBehavioursTest`.
+
+## 188. Watch star does something visible, even form controls
+
+- Watch star on building/research cards: the "on" colour finally shows (unlayered `.card__watch` colour in game.css beat it), the watched card shows the missing resources or "ready to build" and a "Transport here" link that opens fleet step 1 on the own planet/moon holding most of the shortfall (`cp=`), with that planet's cargo ships prefilled (`CargoShortfall` trait, shared with the fleet page's cargo calculator); scroll position kept on toggle; tooltips explain it (all locales).
+- Form controls: inputs, selects and buttons use one exact height (`block-size: var(--control-h)`, small buttons `--control-h-sm`) in game, account, admin and login; single-line selects share one chevron; toolbar labels and controls are centred (empire collect row); simulator 28 px desktop / 40 px touch; phone overflow fixed on the expedition deck admin page. Swept ~140 GET routes at 1440/390 px.
+
+## 189. Release 1.26.13
+
+- `install/VERSION` 1.26.13 (tag `v1.26.13`): bot difficulty presets, fair-play envelope and switchable behaviours (step 187, migration 1795502610), watch star and even form controls (188).

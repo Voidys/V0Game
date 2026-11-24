@@ -1585,8 +1585,11 @@ fl_cargo_needed: cần
 fl_cargo_select: chọn
 fl_cargo_current_planet: Hành tinh hiện tại
 ui_skip_to_content: Chuyển đến nội dung
-ui_watch: Theo dõi
+ui_watch: 'Theo dõi: hiển thị tài nguyên còn thiếu và gửi đến đây'
 ui_unwatch: Bỏ theo dõi
+ui_watch_missing: 'Còn thiếu:'
+ui_watch_transport: Vận chuyển đến đây
+ui_watch_ready: Sẵn sàng xây dựng
 ui_message_tools: Tìm kiếm, bộ lọc và thao tác
 ui_menu: Menu
 ui_rank: Hạng

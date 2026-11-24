@@ -19,6 +19,7 @@ namespace App\Controller\Game;
 
 use App\Game\Enum\PlanetType;
 use App\Routing\GameRoute;
+use App\Controller\Shared\CargoShortfall;
 use Symfony\Component\HttpFoundation\Response;
 use App\Game\Core\StoredData;
 use App\Game\Core\FormulaEvaluator;
@@ -29,6 +30,8 @@ use App\Game\Model\User;
 #[\App\Controller\RequireModule('MODULE_BUILDING')]
 class BuildingsController extends AbstractGameController
 {
+    use CargoShortfall;
+
     private const QUEUE_ELEMENT_ID = 0;
     private const QUEUE_LEVEL = 1;
     private const QUEUE_ELEMENT_TIME = 2;
@@ -444,6 +447,7 @@ class BuildingsController extends AbstractGameController
             'isCatchUp'         => $config->catch_up,
             'catchUp'           => $LNG->format('sys_catchup', round((1 - $catchupFactor) * 100, 2)),
             'watch'             => $this->state->PLANET['watch_id'],
+            'watchTarget' => $this->watchTarget(),
             'planet_field_current' => $this->state->PLANET['field_current'],
             'planet_field_max'     => $this->planetQueries()->maxFieldsFor($planetModel),
         ]);
@@ -656,6 +660,7 @@ class BuildingsController extends AbstractGameController
             'infoEnergy'        => $infoEnergy,
             'costResources'     => $costResources,
             'costOverflow'      => $costOverflow,
+            'shortfall'         => $Element == $this->state->PLANET['watch_id'] ? $this->watchedShortfall($costOverflow) : null,
             'elementTime'       => $elementTime,
             'destroyResources'  => $destroyResources,
             'destroyTime'       => $destroyTime,

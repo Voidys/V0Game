@@ -1585,8 +1585,11 @@ fl_cargo_needed: nodig
 fl_cargo_select: kiezen
 fl_cargo_current_planet: Huidige planeet
 ui_skip_to_content: Naar de inhoud
-ui_watch: Volgen
+ui_watch: 'Volgen: toon ontbrekende grondstoffen en stuur ze hierheen'
 ui_unwatch: Niet meer volgen
+ui_watch_missing: 'Ontbreekt:'
+ui_watch_transport: Hierheen transporteren
+ui_watch_ready: Klaar om te bouwen
 ui_message_tools: Zoeken, filters en acties
 ui_menu: Menu
 ui_rank: Rang

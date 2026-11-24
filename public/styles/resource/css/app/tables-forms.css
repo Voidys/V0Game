@@ -122,14 +122,17 @@
       select
     ) {
     box-sizing: border-box;
-    min-height: var(--control-h);
+    block-size: var(--control-h);
     margin: 0;
-    padding: 0 var(--space-3);
+    padding-block: 0;
+    padding-inline: var(--space-3);
     border-color: var(--theme-field-line, var(--c-border-strong));
     border-radius: var(--radius-sm);
     text-align: start;
     vertical-align: middle;
   }
+  :is(.content, .modal) select:not([multiple], [size]) { padding-inline-end: 2rem; }
+  :is(.content, .modal) :is(input[type="file"], select:is([multiple], [size])) { block-size: auto; padding-block: var(--space-1); }
   :is(.content, .modal) :is(input, select):is(:focus) { border-color: var(--focus-color); }
 
   :is(.content, .modal) :is(input[type="number"], input.num) {
@@ -161,11 +164,11 @@
   }
 
   :is(.content, .modal) :is(button, input[type="submit"], input[type="button"], input[type="reset"], .button, .btn) {
-    min-height: var(--control-h);
+    block-size: var(--control-h);
     margin: 0;
     vertical-align: middle;
   }
-  :is(.content, .modal) :is(.btn--small, .btn-sm) { min-height: var(--control-h-sm, 1.75rem); }
+  :is(.content, .modal) :is(.btn--small, .btn-sm):is(button, input, a, .btn, .button) { block-size: var(--control-h-sm, 1.75rem); }
 
   :is(.content, .modal) :is(input[type="checkbox"], input[type="radio"]) {
     margin: 0 var(--space-1);

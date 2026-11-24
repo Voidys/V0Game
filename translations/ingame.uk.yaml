@@ -1548,8 +1548,11 @@ fl_cargo_needed: потрібно
 fl_cargo_select: вибрати
 fl_cargo_current_planet: Поточна планета
 ui_skip_to_content: Перейти до вмісту
-ui_watch: Стежити
+ui_watch: 'Стежити: показати бракуючі ресурси та надіслати їх сюди'
 ui_unwatch: Не стежити
+ui_watch_missing: 'Бракує:'
+ui_watch_transport: Надіслати сюди
+ui_watch_ready: Готово до будівництва
 ui_message_tools: Пошук, фільтри та дії
 ui_menu: Меню
 ui_rank: Місце

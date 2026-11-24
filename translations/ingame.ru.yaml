@@ -1581,8 +1581,11 @@ fl_cargo_needed: нужно
 fl_cargo_select: выбрать
 fl_cargo_current_planet: Текущая планета
 ui_skip_to_content: Перейти к содержимому
-ui_watch: Следить
+ui_watch: 'Следить: показать недостающие ресурсы и отправить их сюда'
 ui_unwatch: Не следить
+ui_watch_missing: 'Не хватает:'
+ui_watch_transport: Отправить сюда
+ui_watch_ready: Готово к постройке
 ui_message_tools: Поиск, фильтры и действия
 ui_menu: Меню
 ui_rank: Место

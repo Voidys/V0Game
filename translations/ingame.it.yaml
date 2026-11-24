@@ -1616,8 +1616,11 @@ fl_cargo_needed: necessarie
 fl_cargo_select: seleziona
 fl_cargo_current_planet: Pianeta attuale
 ui_skip_to_content: Vai al contenuto
-ui_watch: Segui
+ui_watch: 'Segui: mostra le risorse mancanti e inviale qui'
 ui_unwatch: Smetti di seguire
+ui_watch_missing: 'Mancano:'
+ui_watch_transport: Trasporta qui
+ui_watch_ready: Pronto per costruire
 ui_message_tools: Ricerca, filtri e azioni
 ui_menu: Menu
 ui_rank: Rango

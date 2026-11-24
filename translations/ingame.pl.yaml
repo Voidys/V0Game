@@ -1581,8 +1581,11 @@ fl_cargo_needed: potrzeba
 fl_cargo_select: wybierz
 fl_cargo_current_planet: Aktualna planeta
 ui_skip_to_content: Przejdź do treści
-ui_watch: Obserwuj
+ui_watch: 'Obserwuj: pokaż brakujące surowce i wyślij je tutaj'
 ui_unwatch: Przestań obserwować
+ui_watch_missing: 'Brakuje:'
+ui_watch_transport: Transportuj tutaj
+ui_watch_ready: Gotowe do budowy
 ui_message_tools: Wyszukiwanie, filtry i akcje
 ui_menu: Menu
 ui_rank: Ranga

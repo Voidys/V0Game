@@ -837,6 +837,7 @@ kbd {
  * defense, defender resources), sticky action bar. Layout only: tables, inputs and buttons keep the theme's look.
  */
 .sim { display: grid; gap: var(--space-3); --cell-pad-y: 0.25rem; --control-h: 1.75rem; }
+@media (pointer: coarse) { .sim { --control-h: 2.5rem; } }
 .sim table { margin: 0; }
 .sim .sim-toolbar td { vertical-align: middle; }
 .sim-toolbar__group,
@@ -922,6 +923,7 @@ kbd {
 input.fleet-amount::placeholder { opacity: 1; }
 .card__watch, .tt-info { opacity: 1; color: var(--c-muted); }
 .card__watch:hover, .tt-info:is(:hover, :focus-visible) { color: var(--c-text); }
+.card__watch.is-on { color: var(--c-warning); }
 
 /* phones: nothing under 12 px */
 @media (max-width: 40rem) {

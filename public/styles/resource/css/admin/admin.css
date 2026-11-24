@@ -508,7 +508,9 @@ body.admin {
 .field-control > input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"]),
 .field-control > select,
 .field-control > textarea { flex: 1 1 14rem; max-width: 36rem; }
-.field-control > select { min-width: 0; }
+.field-control > :is(input, select, textarea) { min-width: 0; }
+.field-control > input[type="file"] { max-width: 100%; }
+.field-row > * { min-width: 0; }
 .field-help { grid-column: 2; color: var(--c-muted); font-size: var(--fs-sm); }
 .field-help:empty { display: none; }
 .field { display: grid; gap: var(--space-1); min-width: 0; }
@@ -599,6 +601,7 @@ body.admin {
   gap: var(--space-2) var(--space-3);
 }
 .admin-main > .toolbar { margin: 0; }
+.admin .toolbar :is(.btn--small, .btn-sm) { block-size: var(--control-h); min-block-size: var(--control-h); }
 .toolbar .field { flex: 1 1 10rem; }
 .toolbar .toolbar__spacer { flex: 1; }
 
@@ -910,3 +913,6 @@ details.disclosure[open] > summary::after { content: "–"; }
   .info-kv { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .info-kv dd { margin-bottom: var(--space-2); }
 }
+
+/* preformatted blocks scroll inside their card instead of widening the page */
+.admin pre { max-width: 100%; overflow-x: auto; }

@@ -1550,8 +1550,11 @@ fl_cargo_needed: gerekli
 fl_cargo_select: seçme
 fl_cargo_current_planet: Mevcut gezegen
 ui_skip_to_content: İçeriğe geç
-ui_watch: İzle
+ui_watch: 'İzle: eksik kaynakları göster ve buraya gönder'
 ui_unwatch: İzlemeyi bırak
+ui_watch_missing: 'Eksik:'
+ui_watch_transport: Buraya taşı
+ui_watch_ready: İnşa etmeye hazır
 ui_message_tools: Arama, filtreler ve işlemler
 ui_menu: Menü
 ui_rank: Sıra

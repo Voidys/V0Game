@@ -18,6 +18,7 @@
 namespace App\Controller\Game;
 
 use App\Routing\GameRoute;
+use App\Controller\Shared\CargoShortfall;
 use Symfony\Component\HttpFoundation\Response;
 use App\Game\Core\StoredData;
 
@@ -25,6 +26,8 @@ use App\Game\Core\StoredData;
 #[\App\Controller\RequireModule('MODULE_RESEARCH')]
 class ResearchController extends AbstractGameController
 {
+    use CargoShortfall;
+
     /** @var string|null language key of the reason why the last insert command was refused */
     private ?string $rejection = null;
 
@@ -514,6 +517,7 @@ class ResearchController extends AbstractGameController
             'catchUp'       => $LNG->format('sys_catchup', round((1 - $catchupFactor) * 100, 2)),
             'hide_useless'  => $this->state->USER['hide_useless'],
             'watch'         => $this->state->PLANET['watch_id'],
+            'watchTarget' => $this->watchTarget(),
         ]);
     }
 
@@ -657,6 +661,7 @@ class ResearchController extends AbstractGameController
                 'maxLevel'          => $this->elements()->get($elementId)->maxLevel,
                 'costResources'     => $costResources,
                 'costOverflow'      => $costOverflow,
+                'shortfall'         => $elementId == $this->state->PLANET['watch_id'] ? $this->watchedShortfall($costOverflow) : null,
                 'elementTime'       => $elementTime,
                 'buyable'           => $buyable,
                 'levelToBuild'      => $levelToBuild,

@@ -265,13 +265,18 @@ function selectNumberInputs() {
 }
 
 /**
- * Forms marked `.build_form` / `[data-keep-scroll]` (build, cancel, dismantle, order) remember the scroll position
+ * Forms marked `.build_form` / `[data-keep-scroll]` (build, cancel, dismantle, order) and links marked `[data-keep-scroll]` (watch star) remember the scroll position
  * in sessionStorage; the page the server redirects back to restores it, so a second build is one click away.
  */
 function keepScroll() {
   const KEY = 'keep-scroll';
   document.addEventListener('submit', (event) => {
     if (event.target instanceof HTMLFormElement && event.target.matches('.build_form, [data-keep-scroll]')) {
+      sessionStorage.setItem(KEY, JSON.stringify({ path: location.pathname, y: window.scrollY, at: Date.now() }));
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (event.target instanceof Element && event.target.closest('a[data-keep-scroll]')) {
       sessionStorage.setItem(KEY, JSON.stringify({ path: location.pathname, y: window.scrollY, at: Date.now() }));
     }
   });

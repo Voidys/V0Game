@@ -1619,8 +1619,11 @@ user_level_3: Administrator
 whenbuildable: Möglich in
 write_message: Nachricht schreiben
 ui_skip_to_content: Zum Inhalt springen
-ui_watch: Beobachten
-ui_unwatch: Nicht mehr beobachten
+ui_watch: 'Merken: fehlende Rohstoffe anzeigen und herschicken'
+ui_unwatch: Nicht mehr merken
+ui_watch_missing: 'Es fehlen:'
+ui_watch_transport: Hierher transportieren
+ui_watch_ready: Bereit zum Bauen
 ui_message_tools: Suche, Filter und Aktionen
 ui_menu: Menü
 ui_rank: Platz

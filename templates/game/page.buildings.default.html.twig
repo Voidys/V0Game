@@ -22,9 +22,9 @@
 
       {% set watch_toggle %}
         {% if ID == watch %}
-          <a class="card__watch is-on" href="{{ path('game_buildings_show', {watch: 0}) }}" aria-label="{{ LNG.ui_unwatch }}" data-tip="{{ LNG.ui_unwatch }}">{{ icon('star') }}</a>
+          <a class="card__watch is-on" data-keep-scroll href="{{ path('game_buildings_show', {watch: 0}) }}" aria-label="{{ LNG.ui_unwatch }}" data-tip="{{ LNG.ui_unwatch }}">{{ icon('star') }}</a>
         {% else %}
-          <a class="card__watch" href="{{ path('game_buildings_show', {watch: ID}) }}" aria-label="{{ LNG.ui_watch }}" data-tip="{{ LNG.ui_watch }}">{{ icon('star') }}</a>
+          <a class="card__watch" data-keep-scroll href="{{ path('game_buildings_show', {watch: ID}) }}" aria-label="{{ LNG.ui_watch }}" data-tip="{{ LNG.ui_watch }}">{{ icon('star') }}</a>
         {% endif %}
       {% endset %}
 
@@ -113,6 +113,8 @@
         levelTo: Element.levelToBuild,
         maxLevel: Element.maxLevel,
         watch: watch_toggle,
+        watched: ID == watch,
+        target: watchTarget,
         extra: extra,
         costs: not atMax,
         note: note,

@@ -1581,8 +1581,11 @@ fl_cargo_needed: kailangan
 fl_cargo_select: piliin
 fl_cargo_current_planet: Kasalukuyang planeta
 ui_skip_to_content: Lumaktaw sa nilalaman
-ui_watch: Bantayan
+ui_watch: 'Bantayan: ipakita ang kulang na resources at ipadala rito'
 ui_unwatch: Itigil ang pagbabantay
+ui_watch_missing: 'Kulang:'
+ui_watch_transport: Ihatid dito
+ui_watch_ready: Handa nang itayo
 ui_message_tools: Paghahanap, mga filter at aksyon
 ui_menu: Menu
 ui_rank: Rank

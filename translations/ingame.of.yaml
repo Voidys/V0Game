@@ -1581,8 +1581,11 @@ fl_cargo_needed: benötigt
 fl_cargo_select: wählen
 fl_cargo_current_planet: Aktueller Planet
 ui_skip_to_content: Zum Inhalt springen
-ui_watch: Beobachdn
-ui_unwatch: Nimmer beobachdn
+ui_watch: 'Merkn: fehlade Rohstoffe anzeign und herschicka'
+ui_unwatch: Nimmer merkn
+ui_watch_missing: 'Es fehlt:'
+ui_watch_transport: Do her transportiern
+ui_watch_ready: Bereit zum Baun
 ui_message_tools: Suche, Filder und Aggdsjonen
 ui_menu: Menü
 ui_rank: Platz

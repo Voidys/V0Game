@@ -152,17 +152,35 @@
 
   h1, h2, h3 { line-height: 1.2; margin: 0 0 var(--space-3); }
 
-  /* form controls */
+  /* form controls: one exact height (--control-h) for single-line inputs, selects and buttons, so rows line up */
   input:not([type="checkbox"], [type="radio"], [type="range"], [type="image"]),
   select,
   textarea {
-    background: var(--c-bg-2);
+    box-sizing: border-box;
+    background-color: var(--c-bg-2);
     border: 0.0625rem solid var(--theme-field-line, var(--c-border-strong));
     border-radius: var(--radius-sm);
     padding: 0 var(--space-3);
-    min-height: var(--control-h, 2.125rem);
+    line-height: 1.25;
     max-width: 100%;
   }
+  input:not([type="checkbox"], [type="radio"], [type="range"], [type="image"], [type="file"], [type="hidden"]),
+  select:not([multiple], [size]) {
+    block-size: var(--control-h, 2.125rem);
+  }
+  textarea { min-block-size: var(--control-h, 2.125rem); }
+  /* selects: no UA arrow, one chevron in every theme (two gradients, so it follows the muted text token) */
+  select:not([multiple], [size]) {
+    appearance: none;
+    padding-inline-end: 2rem;
+    background-image: linear-gradient(45deg, transparent 50%, var(--c-muted) 50%), linear-gradient(135deg, var(--c-muted) 50%, transparent 50%);
+    background-position: calc(100% - 1.05rem) 50%, calc(100% - 0.75rem) 50%;
+    background-size: 0.3rem 0.3rem;
+    background-repeat: no-repeat;
+    text-overflow: ellipsis;
+  }
+  select:is([multiple], [size]) { padding-block: var(--space-1); }
+  select option { padding-block: var(--space-1); }
   textarea { padding-block: var(--space-2); }
   /* focus: accent border + the global 2px ring (offset 2px, :focus-visible) */
   input:focus:not([type="checkbox"], [type="radio"]), select:focus, textarea:focus { border-color: var(--focus-color); }
@@ -199,7 +217,8 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    min-block-size: var(--control-h, 2.125rem);
+    block-size: var(--control-h, 2.125rem);
+    box-sizing: border-box;
     padding: 0 var(--space-3);
     border: 0.0625rem solid var(--btn-border);
     border-radius: var(--btn-radius);
@@ -278,7 +297,7 @@
     &:hover { background: var(--c-negative); border-color: var(--c-negative); color: var(--c-bg, #000); }
   }
   :where(.build_submit) { white-space: normal; } /* long element names in build lists wrap */
-  :where(.btn--small, .btn-sm) { min-block-size: var(--control-h-sm, 1.75rem); padding: 0 var(--space-2); font-size: var(--fs-sm); }
+  :where(.btn--small, .btn-sm) { block-size: var(--control-h-sm, 1.75rem); min-block-size: var(--control-h-sm, 1.75rem); padding: 0 var(--space-2); font-size: var(--fs-sm); }
 
   /* ---------------------------------------------------------------- build / research queue
      Rows like the demo's queue: hairline-separated, one row height, a 2px progress bar on the bottom edge,

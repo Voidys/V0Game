@@ -25,6 +25,18 @@
 {% endmacro %}
 
 {# Cost tiles: one per resource; a missing amount is shown in the negative colour under the value, with the details as tip. #}
+{# line of the watched card: what the planet still lacks for the next level (shortfall null = nothing) and a transport link to this planet #}
+{% macro watchline(shortfall, target) %}
+  <div class="card__watchline">
+    {% if shortfall %}
+      <span>{{ LNG.ui_watch_missing }} <b class="colorNegative">{{ pretty_number(shortfall.metal) }}</b> / <b class="colorNegative">{{ pretty_number(shortfall.crystal) }}</b> / <b class="colorNegative">{{ pretty_number(shortfall.deuterium) }}</b></span>
+      {% if shortfall.source %}<a class="button" href="{{ path('game_fleet_step1_show') }}?cp={{ shortfall.source.id }}&amp;galaxy={{ target.galaxy }}&amp;system={{ target.system }}&amp;planet={{ target.planet }}&amp;planettype={{ target.planet_type }}&amp;target_mission=3&amp;ships={{ shortfall.source.ships }}">{{ icon('truck') }} {{ LNG.ui_watch_transport }}</a>{% endif %}
+    {% else %}
+      <span class="colorPositive">{{ LNG.ui_watch_ready }}</span>
+    {% endif %}
+  </div>
+{% endmacro %}
+
 {% macro costs(Element) %}
   {% set resNames = {901: 'metal', 902: 'crystal', 903: 'deuterium', 911: 'energy', 921: 'darkmatter'} %}
   <dl class="cost-grid">
@@ -77,7 +89,7 @@
 {#
   The card. o: domId, cls (extra classes, e.g. the filter class), index (entrance stagger), locked (greyed),
   queued (level chip shows the queued target), level / levelTo / maxLevel (chip; omit for units), chip (Markup that replaces
-  the chip), watch (Markup, favourite toggle), desc / costs / time / foot (bool, default true), sub, extra, note, tools, time, done (timestamp), action.
+  the chip), watch (Markup, favourite toggle), watched (bool, shows the missing-resources line) with target (galaxy/system/planet/planet_type), desc / costs / time / foot (bool, default true), sub, extra, note, tools, time, done (timestamp), action.
 #}
 {% macro card(ID, Element, o) %}
   {% import _self as b %}
@@ -98,6 +110,7 @@
       </div>
       <div class="card__mid">{% if Element.requirements %}{{ b.reqs(Element.requirements) }}{% endif %}{% if o.extra is defined %}{{ o.extra }}{% endif %}</div>
       <div class="card__costs">{% if (o.costs is not defined or o.costs) %}{{ b.costs(Element) }}{% endif %}{% if o.note is defined %}{{ o.note }}{% endif %}</div>
+      {% if o.watched|default(false) %}{{ b.watchline(Element.shortfall, o.target) }}{% endif %}
       <div class="card__tools">{% if o.tools is defined %}{{ o.tools }}{% endif %}</div>
     </div>
     {% if (o.foot is not defined or o.foot) %}<footer class="card__foot">

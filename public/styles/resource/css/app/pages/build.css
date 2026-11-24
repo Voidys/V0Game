@@ -116,8 +116,10 @@
   .card__watch:hover { opacity: 1; }
   .card__watch { color: var(--c-muted); }
   .card__watch .icon { inline-size: 1.125rem; block-size: 1.125rem; }
-  .card__watch.is-on { color: var(--c-warning); opacity: 1; }
-  .card__watch.is-on .icon { fill: currentColor; }
+  .content .card__watch.is-on { color: var(--c-warning); opacity: 1; }
+  .content .card__watch.is-on .icon { fill: currentColor; }
+  .card:has(.card__watch.is-on) { border-color: var(--c-warning); box-shadow: 0 0 0 1px var(--c-warning); }
+  .card__watchline { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius, 0.375rem); background: var(--c-accent-soft); font-size: var(--fs-sm); }
   .card__desc { font-size: var(--fs-sm); color: var(--c-muted); }
   .card__reqs { display: flex; flex-wrap: wrap; gap: var(--space-1); margin: 0; padding: 0; list-style: none; }
   .card__reqs > li { min-inline-size: 0; max-inline-size: 100%; }

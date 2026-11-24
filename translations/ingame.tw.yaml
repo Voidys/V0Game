@@ -1595,8 +1595,11 @@ fl_cargo_needed: 需要
 fl_cargo_select: 選擇
 fl_cargo_current_planet: 目前行星
 ui_skip_to_content: 跳到內容
-ui_watch: 關注
+ui_watch: 關注：顯示缺少的資源並運送到此處
 ui_unwatch: 取消關注
+ui_watch_missing: 缺少：
+ui_watch_transport: 運送到此處
+ui_watch_ready: 可以建造
 ui_message_tools: 搜尋、篩選和操作
 ui_menu: 選單
 ui_rank: 排名

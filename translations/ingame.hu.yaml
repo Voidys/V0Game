@@ -1617,8 +1617,11 @@ fl_cargo_needed: szükséges
 fl_cargo_select: kiválaszt
 fl_cargo_current_planet: Jelenlegi bolygó
 ui_skip_to_content: Ugrás a tartalomra
-ui_watch: Figyelés
+ui_watch: 'Figyelés: hiányzó nyersanyagok megjelenítése és ide küldése'
 ui_unwatch: Figyelés leállítása
+ui_watch_missing: 'Hiányzik:'
+ui_watch_transport: Szállítás ide
+ui_watch_ready: Építésre kész
 ui_message_tools: Keresés, szűrők és műveletek
 ui_menu: Menü
 ui_rank: Rang

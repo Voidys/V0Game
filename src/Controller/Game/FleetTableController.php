@@ -25,6 +25,7 @@ use Doctrine\DBAL\ArrayParameterType;
 use Symfony\Component\HttpFoundation\Response;
 use App\Game\Core\Universe;
 use App\Routing\GameRoute;
+use App\Controller\Shared\CargoShortfall;
 
 /**
  * Fleet movements: flying fleets, fleet selection for dispatch, recall and alliance combat groups (modes: show,
@@ -33,6 +34,8 @@ use App\Routing\GameRoute;
 #[\App\Controller\RequireModule('MODULE_FLEET_TABLE')]
 class FleetTableController extends AbstractGameController
 {
+    use CargoShortfall;
+
     /**
      * Creates an alliance combat group (AKS) led by the player's outgoing attack fleet $fleetID: inserts the group with a random name (`AG<number>`), a
      * public id, the fleet's arrival time and target, adds the player as first participant and sets `group` on the fleet and its LOG_FLEETS row.
@@ -652,8 +655,7 @@ class FleetTableController extends AbstractGameController
             ],
         ];
 
-        $watchList[0]['needed202'] = ceil($watchList[0]['total'] / $shipinfos[202]['capacity']);
-        $watchList[0]['needed203'] = ceil($watchList[0]['total'] / $shipinfos[203]['capacity']);
+        $watchList[0] = $this->cargoNeeds($PLANET['metal'], $PLANET['crystal'], $PLANET['deuterium']) + $watchList[0];
 
         if (!empty($keys) && !empty($ids)) {
 
@@ -683,10 +685,7 @@ class FleetTableController extends AbstractGameController
                     'deuterium' => ceil(max(0, $cost[903] - $levelRow['deuterium']) / 10) * 10,
                 ];
 
-                $restCost['total'] = $restCost['metal'] + $restCost['crystal'] + $restCost['deuterium'] + 1000;
-
-                $restCost['needed202'] = ceil($restCost['total'] / $shipinfos[202]['capacity']);
-                $restCost['needed203'] = ceil($restCost['total'] / $shipinfos[203]['capacity']);
+                $restCost = $this->cargoNeeds($restCost['metal'], $restCost['crystal'], $restCost['deuterium']) + $restCost;
 
                 $watchList[$levelRow['id']] = $restCost;
             }
