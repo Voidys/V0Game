@@ -164,7 +164,7 @@ class AllianceToolsController extends AbstractGameController
     public function acs(): Response
     {
         $now = $this->state->runtime->timestamp;
-        $groups = (new AcsService($this->db, $this->configs, $this->state))->groupsForAlliance($this->allianceId());
+        $groups = (new AcsService($this->db, $this->configs, $this->state))->groupsForAlliance($this->allianceId(), (int) $this->state->USER['id']);
         foreach ($groups as &$group) {
             $group['remaining'] = max(0, (int) $group['ankunft'] - $now);
         }

@@ -1488,6 +1488,7 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 - Web push actually sends: `nyholm/psr7` added, explicit `Psr18Client` (timeout 5 s, no redirects); the old third constructor argument was a TypeError in web-push v11. Send failures are logged.
 - SSRF: push endpoints must be on a known push service (`PushEndpoint::isAllowed`, no IP literals/ports/userinfo), stored rows are re-validated before sending; Discord webhooks match a strict pattern, 5 s timeout.
 - `CoordinateLinker` leaves text with a stray `<` alone; `QueueOverview` guards malformed queue data.
+- Follow-ups (after the 1.26.12 tag): push subscription takeover needs the same browser keys (`PushEndpoint::mayStore`), alliance targets ignore destroyed planets, API combat reports clamp `since` to 30 days with an extra `api_combat` limiter (10/min), chat sends serialize per player (`GET_LOCK`), ACS overview shows only groups led by alliance members or with the viewer invited, public combat reports cached 1 h; achievement 2 clock restarts on a fresh dispatch, `market_sales` counted after the purchase commits (`MarketPurchase::afterCommit`), held achievements cached per instance, Overachiever granted on completion, low-energy clock starts when the deficit is first seen.
 
 ## 186. Release 1.26.12
 

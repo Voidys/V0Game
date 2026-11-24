@@ -20,6 +20,15 @@ class MiscAchievement
 {
     use \App\Game\Core\GameUtilities;
 
+    /** @var array<int, array<int, true>> counter achievements read as held, per user */
+    private array $statHeld = [];
+
+    /** @var list<AdvancedStatsEnum>|null */
+    private static ?array $firstExpoKeys = null;
+
+    /** @var list<AdvancedStatsEnum>|null */
+    private static ?array $repairedKeys = null;
+
     public function __construct(
         protected \App\Game\Core\Database $db,
         protected \App\Game\Core\ConfigRegistry $configs,
@@ -113,6 +122,27 @@ class MiscAchievement
     }
 
     /**
+     * Whether the player holds a counter achievement. The held set of the player is loaded once per instance (one
+     * query); only what was read from the database is remembered, never our own grants (a rollback would leave a
+     * wrong entry), so a not yet held achievement keeps being checked in the sum query below.
+     */
+    private function holdsStat(int $userId, int $achievementId): bool
+    {
+        if (!isset($this->statHeld[$userId])) {
+            $this->statHeld[$userId] = [];
+            $rows = $this->db->select(
+                'SELECT `achievementID` FROM %%USERS_TO_ACHIEVEMENTS%% WHERE `userID` = :user AND `achievementID` IN (74, 75, 76, 77, 78, 80, 81, 83);',
+                [':user' => $userId],
+            );
+            foreach ($rows as $row) {
+                $this->statHeld[$userId][(int) $row['achievementID']] = true;
+            }
+        }
+
+        return isset($this->statHeld[$userId][$achievementId]);
+    }
+
+    /**
      * Achievement rule of a counter: [achievement id, counters summed, threshold], null when no achievement uses it.
      *
      * @return array{0: int, 1: list<AdvancedStatsEnum>, 2: int}|null
@@ -123,7 +153,7 @@ class MiscAchievement
         return match (true) {
             str_starts_with($name, 'RAIDED_') => [74, [AdvancedStatsEnum::RAIDED_METAL, AdvancedStatsEnum::RAIDED_CRYSTAL, AdvancedStatsEnum::RAIDED_DEUTERIUM], 1000000000],
             str_starts_with($name, 'RECYCLED_') => [75, [AdvancedStatsEnum::RECYCLED_METAL, AdvancedStatsEnum::RECYCLED_CRYSTAL], 1000000000],
-            str_starts_with($name, 'REPAIRED_2') => [76, array_values(array_filter(AdvancedStatsEnum::cases(), static fn(AdvancedStatsEnum $case): bool => str_starts_with($case->name, 'REPAIRED_2'))), 1000],
+            str_starts_with($name, 'REPAIRED_2') => [76, self::repairedKeys(), 1000],
             $key === AdvancedStatsEnum::HONORPOINTS => [77, [AdvancedStatsEnum::HONORPOINTS], 1000],
             $key === AdvancedStatsEnum::OUTLAW_ACTIVATIONS => [78, [AdvancedStatsEnum::OUTLAW_ACTIVATIONS], 1],
             str_starts_with($name, 'FIRST_EXPO_') => [80, self::firstExpoKeys(), count(self::firstExpoKeys())],
@@ -140,7 +170,17 @@ class MiscAchievement
      */
     private static function firstExpoKeys(): array
     {
-        return array_values(array_filter(AdvancedStatsEnum::cases(), static fn(AdvancedStatsEnum $case): bool => str_starts_with($case->name, 'FIRST_EXPO_')));
+        return self::$firstExpoKeys ??= array_values(array_filter(AdvancedStatsEnum::cases(), static fn(AdvancedStatsEnum $case): bool => str_starts_with($case->name, 'FIRST_EXPO_')));
+    }
+
+    /**
+     * The repaired-ships counters of the ships (REPAIRED_2xx).
+     *
+     * @return list<AdvancedStatsEnum>
+     */
+    private static function repairedKeys(): array
+    {
+        return self::$repairedKeys ??= array_values(array_filter(AdvancedStatsEnum::cases(), static fn(AdvancedStatsEnum $case): bool => str_starts_with($case->name, 'REPAIRED_2')));
     }
 
     /**
@@ -160,7 +200,7 @@ class MiscAchievement
     public function checkStatAchievements(int $userId, AdvancedStatsEnum $key): void
     {
         $rule = self::statRule($key);
-        if ($rule === null || $this->achievement()->checkAchievement($userId, $rule[0])) {
+        if ($rule === null || $this->holdsStat($userId, $rule[0])) {
             return;
         }
 

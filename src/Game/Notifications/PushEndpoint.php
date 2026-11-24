@@ -45,4 +45,17 @@ final class PushEndpoint
 
         return false;
     }
+
+    /**
+     * Whether a user may store a subscription for an endpoint: the endpoint is new, already his, or held by someone
+     * else with the same p256dh and auth keys (the same browser, now signed in as another player).
+     *
+     * @param array{user_id: int|string, p256dh: string, auth: string}|null $existing the stored row of the endpoint
+     */
+    public static function mayStore(?array $existing, int $userId, string $p256dh, string $auth): bool
+    {
+        return $existing === null
+            || (int) $existing['user_id'] === $userId
+            || (hash_equals((string) $existing['p256dh'], $p256dh) && hash_equals((string) $existing['auth'], $auth));
+    }
 }

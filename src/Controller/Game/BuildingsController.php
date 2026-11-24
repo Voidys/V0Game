@@ -259,7 +259,6 @@ class BuildingsController extends AbstractGameController
 
         $elementTime                = $this->buildFunctions()->getBuildingTime($USER, $this->state->PLANET, $Element, $costResources, !$AddMode);
         $BuildEndTime               = $this->state->runtime->timestamp + $elementTime;
-        $this->achievementGuard()->run(fn() => $this->planetRessAchievements()->checkBuildTime((int) $USER['id'], $elementTime));
 
         $this->state->PLANET['b_building_id']    = StoredData::encode([[$Element, $BuildLevel, $elementTime, $BuildEndTime, $BuildMode, $costResources]]);
         $this->state->PLANET['b_building']       = $BuildEndTime;
@@ -304,7 +303,6 @@ class BuildingsController extends AbstractGameController
 
         $elementTime = $this->buildFunctions()->getBuildingTime($USER, $this->state->PLANET, $Element, null, !$AddMode, $BuildLevel, $ActualCount);
         $BuildEndTime = $CurrentQueue[$ActualCount - 1][self::QUEUE_BUILD_END_TIME] + $elementTime;
-        $this->achievementGuard()->run(fn() => $this->planetRessAchievements()->checkBuildTime((int) $USER['id'], $elementTime));
         $CurrentQueue[] = [$Element, $BuildLevel, $elementTime, $BuildEndTime, $BuildMode];
         $this->state->PLANET['b_building_id'] = StoredData::encode($CurrentQueue);
     }

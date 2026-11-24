@@ -46,4 +46,14 @@ final class PushEndpointTest extends TestCase
     {
         self::assertSame($allowed, PushEndpoint::isAllowed($url), $url);
     }
+
+    public function testStoringAnEndpointOfAnotherUserNeedsTheSameKeys(): void
+    {
+        $row = ['user_id' => 5, 'p256dh' => 'k', 'auth' => 'a'];
+        self::assertTrue(PushEndpoint::mayStore(null, 7, 'x', 'y'), 'new endpoint');
+        self::assertTrue(PushEndpoint::mayStore($row, 5, 'x', 'y'), 'own endpoint, new keys');
+        self::assertTrue(PushEndpoint::mayStore($row, 7, 'k', 'a'), 'same browser, other player');
+        self::assertFalse(PushEndpoint::mayStore($row, 7, 'k', 'b'), 'wrong auth');
+        self::assertFalse(PushEndpoint::mayStore($row, 7, 'x', 'a'), 'wrong p256dh');
+    }
 }

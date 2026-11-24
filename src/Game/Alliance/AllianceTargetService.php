@@ -56,7 +56,7 @@ class AllianceTargetService
             LEFT JOIN %%USERS%% a ON a.id = t.added_by
             LEFT JOIN %%USERS%% c ON c.id = t.claimed_by
             LEFT JOIN %%PLANETS%% p ON p.universe = :universe AND p.galaxy = t.galaxy AND p.`system` = t.`system`
-                AND p.planet = t.planet AND p.planet_type = t.planet_type
+                AND p.planet = t.planet AND p.planet_type = t.planet_type AND p.destruyed = 0
             LEFT JOIN %%USERS%% u ON u.id = p.id_owner
             WHERE t.alliance_id = :allianceId
             ORDER BY t.galaxy, t.`system`, t.planet, t.planet_type;';

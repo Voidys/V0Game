@@ -23,6 +23,9 @@ class MarketPurchase
 {
     use GameUtilities;
 
+    /** Seller whose sale is counted for Market maker after the commit (see afterCommit()). */
+    private ?int $soldTo = null;
+
     public function __construct(
         protected Database $db,
         protected ConfigRegistry $configs,
@@ -528,7 +531,22 @@ class MarketPurchase
             ':fleetId'  => $FleetID,
             ':buyerFleetId' => $buyerfleet,
         ]);
-        $this->achievementGuard()->run(fn() => $this->fleetAchievements()->onOfferBought($fleetResult, (int) $this->state->USER['id']));
+        $this->achievementGuard()->run(function () use ($fleetResult): void {
+            $this->soldTo = $this->fleetAchievements()->onOfferBought($fleetResult, (int) $this->state->USER['id']);
+        });
+    }
+
+    /**
+     * Counts the sale for the seller's Market maker achievement; call once after the purchase transaction committed
+     * (the counter update locks the seller's users row, which must not happen inside the buyer's transaction).
+     */
+    public function afterCommit(): void
+    {
+        $sellerId = $this->soldTo;
+        $this->soldTo = null;
+        if ($sellerId !== null) {
+            $this->achievementGuard()->run(fn() => $this->fleetAchievements()->countSale($sellerId));
+        }
     }
 
     /**

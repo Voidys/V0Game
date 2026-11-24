@@ -38,23 +38,24 @@ class AcsService
     }
 
     /**
-     * Running ACS groups (arrival still ahead) in which a member of the alliance is the leader or invited, with the
-     * target coordinates and the participants (invited players and whether they already committed a fleet).
+     * Running ACS groups (arrival still ahead) led by a member of the alliance (the owner of the group's oldest fleet)
+     * or in which the viewer is invited himself, with the target coordinates and the participants (invited players and whether they already committed a fleet).
      *
      * @return list<array<string, mixed>> id, name, ankunft, galaxy, system, planet, planet_type, participants
      *         (list of username, ally_id, fleet: 1 = fleet in the group)
      */
-    public function groupsForAlliance(int $allianceId): array
+    public function groupsForAlliance(int $allianceId, int $viewerId): array
     {
         $groups = $this->db->select(
             'SELECT DISTINCT acs.`id`, acs.`name`, acs.`ankunft`, planet.`galaxy`, planet.`system`, planet.`planet`, planet.`planet_type`
             FROM %%AKS%% acs
-            INNER JOIN %%USERS_TO_ACS%% invited ON invited.`acsID` = acs.`id`
-            INNER JOIN %%USERS%% member ON member.`id` = invited.`userID` AND member.`ally_id` = :allianceId
             LEFT JOIN %%PLANETS%% planet ON planet.`id` = acs.`target`
             WHERE acs.`ankunft` >= :now
+                AND (EXISTS (SELECT 1 FROM %%USERS_TO_ACS%% me WHERE me.`acsID` = acs.`id` AND me.`userID` = :viewer)
+                    OR EXISTS (SELECT 1 FROM %%USERS%% leader WHERE leader.`ally_id` = :allianceId AND leader.`id` =
+                        (SELECT lf.`owner` FROM %%FLEETS%% lf WHERE lf.`group` = acs.`id` ORDER BY lf.`id` ASC LIMIT 1)))
             ORDER BY acs.`ankunft` ASC;',
-            [':allianceId' => $allianceId, ':now' => $this->state->runtime->timestamp],
+            [':allianceId' => $allianceId, ':viewer' => $viewerId, ':now' => $this->state->runtime->timestamp],
         );
 
         foreach ($groups as &$group) {

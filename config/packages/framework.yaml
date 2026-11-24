@@ -81,6 +81,11 @@ framework:
             policy: sliding_window
             limit: 60
             interval: '1 minute'
+        # combat report list of the API (full scan of the reports table): additionally 10 per minute and token
+        api_combat:
+            policy: sliding_window
+            limit: 10
+            interval: '1 minute'
         # CSP violation reports (App\Controller\CspReportController): per client IP
         csp_report:
             policy: sliding_window

@@ -219,15 +219,15 @@ class PlanetRessAchievement
 
     /**
      * New value of planets.low_energy_since: 0 without deficit, the old start while the deficit continues, otherwise
-     * the start of the interval that was just produced under the deficit.
+     * the time the deficit was first observed (the state before is unknown, so a long gap is not counted).
      */
-    public static function nextLowEnergySince(int $since, bool $deficit, int $intervalStart): int
+    public static function nextLowEnergySince(int $since, bool $deficit, int $observedAt): int
     {
         if (!$deficit) {
             return 0;
         }
 
-        return $since > 0 ? $since : $intervalStart;
+        return $since > 0 ? $since : $observedAt;
     }
 
     /**
@@ -244,11 +244,10 @@ class PlanetRessAchievement
      * once the deficit lasted long enough.
      *
      * @param array<string, mixed> $PLANET planet row after the update (with low_energy_since)
-     * @param int $intervalStart last_update before this update
      */
-    public function trackLowEnergy(array $PLANET, int $userId, int $now, int $intervalStart): int
+    public function trackLowEnergy(array $PLANET, int $userId, int $now): int
     {
-        $since = self::nextLowEnergySince((int) ($PLANET['low_energy_since'] ?? 0), self::hasEnergyDeficit($PLANET), $intervalStart);
+        $since = self::nextLowEnergySince((int) ($PLANET['low_energy_since'] ?? 0), self::hasEnergyDeficit($PLANET), $now);
         if (self::lowEnergyLongEnough($since, $now)) {
             $this->grant($userId, 44);
         }

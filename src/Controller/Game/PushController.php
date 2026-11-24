@@ -43,6 +43,10 @@ class PushController extends AbstractGameController
 
         $userId = (int) $this->state->USER['id'];
         $now = $this->state->runtime->timestamp;
+        $existing = $this->db->selectSingle('SELECT `user_id`, `p256dh`, `auth` FROM %%PUSH_SUBSCRIPTIONS%% WHERE `endpoint` = :endpoint;', [':endpoint' => $endpoint]);
+        if (!PushEndpoint::mayStore(is_array($existing) ? $existing : null, $userId, $p256dh, $auth)) {
+            return $this->jsonResponse(['ok' => false, 'error' => 'endpoint_taken']);
+        }
         $this->db->insert('INSERT INTO %%PUSH_SUBSCRIPTIONS%% (`user_id`, `endpoint`, `p256dh`, `auth`, `created_at`, `last_used_at`)
             VALUES (:user, :endpoint, :p256dh, :auth, :now, 0)
             ON DUPLICATE KEY UPDATE `user_id` = VALUES(`user_id`), `p256dh` = VALUES(`p256dh`), `auth` = VALUES(`auth`);', [

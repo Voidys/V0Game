@@ -38,6 +38,8 @@ class BuildingQueueProcessor
         $BuildLevel = $CurrentQueue[0][1];
         $BuildEndTime = $CurrentQueue[0][3];
         $BuildMode = $CurrentQueue[0][4];
+        // Overachiever(65): granted when the entry completes, not when it is queued (queue-and-cancel)
+        $this->achievementGuard()->run(fn() => $this->planetRessAchievements()->checkBuildTime((int) $st->user['id'], $CurrentQueue[0][2]));
 
         if (!isset($st->builded[$Element])) {
             $st->builded[$Element] = 0;

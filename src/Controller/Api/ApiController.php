@@ -24,6 +24,9 @@ use Symfony\Component\Routing\Attribute\Route;
  */
 final class ApiController
 {
+    /** the combat report list reaches back at most this far (30 days, seconds) */
+    private const COMBAT_MAX_AGE = 2592000;
+
     public function __construct(
         private readonly ApiTokens $tokens,
         private readonly PlayerApi $api,
@@ -31,6 +34,8 @@ final class ApiController
         private readonly Singleton $state,
         #[Autowire(service: 'limiter.api_token')]
         private readonly RateLimiterFactoryInterface $limiter,
+        #[Autowire(service: 'limiter.api_combat')]
+        private readonly RateLimiterFactoryInterface $combatLimiter,
     ) {}
 
     /** GET /api/v1/me: id, name, universe, points and rank (any token). */
@@ -67,16 +72,17 @@ final class ApiController
     public function combatReports(Request $request): JsonResponse
     {
         return $this->handle($request, ApiTokens::SCOPE_REPORTS, fn(array $token): array => [
-            'reports' => $this->api->combatReports($token['user_id'], $this->since($request), $this->limit($request)),
-        ]);
+            'reports' => $this->api->combatReports($token['user_id'], max($this->since($request), time() - self::COMBAT_MAX_AGE), $this->limit($request)),
+        ], $this->combatLimiter);
     }
 
     /**
      * Authenticates the request (bearer token, universe, rate limit, ban, scope), runs the endpoint and wraps the result as JSON.
      *
+     * @param RateLimiterFactoryInterface|null $extraLimiter additional per-token limit of the endpoint
      * @param callable(array{id: int, user_id: int, universe: int, scopes: list<string>}): array<string, mixed> $endpoint
      */
-    private function handle(Request $request, ?string $scope, callable $endpoint): JsonResponse
+    private function handle(Request $request, ?string $scope, callable $endpoint, ?RateLimiterFactoryInterface $extraLimiter = null): JsonResponse
     {
         // not a game page, so the game is not booted: the database layer only needs its timing bag
         $this->state->time = ['start' => microtime(true), 'db' => 0.0];
@@ -90,6 +96,15 @@ final class ApiController
         }
         if ($scope !== null && !in_array($scope, $token['scopes'], true)) {
             return $this->error('missing_scope', 403, ['scope' => $scope]);
+        }
+        if ($extraLimiter !== null) {
+            $limit = $extraLimiter->create('token:' . $token['id'])->consume();
+            if (!$limit->isAccepted()) {
+                $response = $this->error('rate_limited', 429);
+                $response->headers->set('Retry-After', (string) max(1, $limit->getRetryAfter()->getTimestamp() - time()));
+
+                return $response;
+            }
         }
         $this->tokens->touch($token['id'], time(), $token['last_used_at'] ?? null);
 

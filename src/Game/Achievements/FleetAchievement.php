@@ -90,7 +90,11 @@ class FleetAchievement
             ':missile' => Mission::Missile->value,
         ], 'x');
         if ($other === false) {
-            $this->db->update('UPDATE %%USERS%% SET `fleets_moving_since` = 0 WHERE `id` = :id AND `fleets_moving_since` != 0;', [':id' => $ownerId]);
+            // plain read first: the UPDATE would lock the users row inside the event transaction
+            $running = $this->db->selectSingle('SELECT `fleets_moving_since` AS s FROM %%USERS%% WHERE `id` = :id;', [':id' => $ownerId], 's');
+            if ((int) $running !== 0) {
+                $this->db->update('UPDATE %%USERS%% SET `fleets_moving_since` = 0 WHERE `id` = :id AND `fleets_moving_since` != 0;', [':id' => $ownerId]);
+            }
 
             return;
         }
@@ -113,10 +117,21 @@ class FleetAchievement
 
     /**
      * Starts the continuous flight clock when it is not running (one UPDATE); when it already runs and the
-     * achievement is still missing the 90 day condition is evaluated instead.
+     * achievement is still missing the 90 day condition is evaluated instead. When the owner has no other fleet in
+     * flight the clock is restarted unconditionally (a fleet removed by someone else's event never reset it).
      */
     private function markMoving(int $ownerId, int $now, bool $missing): void
     {
+        // the new fleet is already inserted: it is alone when at most one row (itself) exists
+        $fleets = $this->db->select('SELECT 1 AS x FROM %%FLEETS%% WHERE `owner` = :owner AND `mission` != :missile LIMIT 2;', [
+            ':owner' => $ownerId,
+            ':missile' => Mission::Missile->value,
+        ]);
+        if (count($fleets) <= 1) {
+            $this->db->update('UPDATE %%USERS%% SET `fleets_moving_since` = :now WHERE `id` = :id;', [':now' => $now, ':id' => $ownerId]);
+
+            return;
+        }
         $this->db->update('UPDATE %%USERS%% SET `fleets_moving_since` = :now WHERE `id` = :id AND `fleets_moving_since` = 0;', [
             ':now' => $now,
             ':id' => $ownerId,
@@ -202,23 +217,25 @@ class FleetAchievement
      * A market offer was bought (called with the seller's fleet row as it was before the purchase).
      * Market maker(66): 50 of the player's offers bought by other players; Fleetslot patron(41) via offerEnded().
      *
-     * A purchase between linked accounts (multi group, same IP or device) does not count for Market maker.
+     * A purchase between linked accounts (multi group, same IP or device) does not count for Market maker. The sale
+     * itself is not counted here (that locks the seller's users row, which deadlocks inside the buyer's transaction):
+     * the seller id is returned and the caller passes it to countSale() after the commit.
      *
      * @param array<string, mixed> $sellerFleet seller fleet row of the offer
+     * @return int|null seller whose sale is to be counted after the commit, null when it does not count
      */
-    public function onOfferBought(array $sellerFleet, int $buyerId): void
+    public function onOfferBought(array $sellerFleet, int $buyerId): ?int
     {
         $sellerId = (int) $sellerFleet['owner'];
-        if (!(new \App\Game\Core\AccountLinks($this->db))->linked($buyerId, $sellerId, false)) {
-            $this->countSale($sellerId);
-        }
         $this->offerEnded($sellerId, (int) $sellerFleet['arrival_time']);
+
+        return (new \App\Game\Core\AccountLinks($this->db))->linked($buyerId, $sellerId, false) ? null : $sellerId;
     }
 
     /**
      * Counts one sale of the seller and grants Market maker(66) at 50.
      */
-    private function countSale(int $sellerId): void
+    public function countSale(int $sellerId): void
     {
         $this->db->update('UPDATE %%USERS%% SET `market_sales` = `market_sales` + 1 WHERE `id` = :id;', [':id' => $sellerId]);
         $sales = $this->db->selectSingle('SELECT `market_sales` FROM %%USERS%% WHERE `id` = :id;', [':id' => $sellerId], 'market_sales');

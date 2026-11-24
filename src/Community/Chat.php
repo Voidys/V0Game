@@ -106,6 +106,26 @@ final class Chat
      */
     public function send(array $user, string $channelName, string $text, int $now, ?ChatSettings $settings = null): array
     {
+        // serialises one player's parallel sends, so the slow mode and duplicate checks see the previous insert
+        $lock = 'v0chat:' . (int) $user['universe'] . ':' . (int) $user['id'];
+        if ((int) $this->db->selectSingle('SELECT GET_LOCK(:lock, 2) AS l;', [':lock' => $lock], 'l') !== 1) {
+            return ['error' => self::ERR_RATE];
+        }
+        try {
+            return $this->sendChecked($user, $channelName, $text, $now, $settings);
+        } finally {
+            $this->db->selectSingle('SELECT RELEASE_LOCK(:lock) AS l;', [':lock' => $lock], 'l');
+        }
+    }
+
+    /**
+     * The checks and the insert of send(); runs under the player's chat lock.
+     *
+     * @param array<string, mixed> $user
+     * @return array<string, mixed> see send()
+     */
+    private function sendChecked(array $user, string $channelName, string $text, int $now, ?ChatSettings $settings): array
+    {
         $settings ??= new ChatSettings();
         $text = $this->clean($text);
         if ($text === '' || !mb_check_encoding($text, 'UTF-8')) {

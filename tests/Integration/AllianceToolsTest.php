@@ -161,7 +161,7 @@ final class AllianceToolsTest extends GameTestCase
     public function testAcsOverviewListsGroupsOfMembers(): void
     {
         [$owner, $alliance] = $this->found('TLI');
-        [, $foreign] = $this->found('TLJ');
+        [$foreignOwner, $foreign] = $this->found('TLJ');
         $planetId = (int) $this->db->selectSingle('SELECT id FROM %%PLANETS%% WHERE id_owner = :u LIMIT 1;', [':u' => $owner['id']], 'id');
         $now = $this->state->runtime->timestamp;
         $this->db->insert('INSERT INTO %%AKS%% SET public_id = :p, name = :n, target = :t, ankunft = :a;', [':p' => str_repeat('a', 32), ':n' => 'Raid', ':t' => $planetId, ':a' => $now + 600]);
@@ -171,10 +171,10 @@ final class AllianceToolsTest extends GameTestCase
         $this->db->insert('INSERT INTO %%USERS_TO_ACS%% SET userID = :u, acsID = :a;', [':u' => $owner['id'], ':a' => $this->db->lastInsertId()]);
 
         $acs = new AcsService($this->db, $this->configs, $this->state);
-        $groups = $acs->groupsForAlliance((int) $alliance['id']);
+        $groups = $acs->groupsForAlliance((int) $alliance['id'], (int) $owner['id']);
         self::assertSame(['Raid'], array_column($groups, 'name'), 'only running groups');
         self::assertSame([$owner['username']], array_column($groups[0]['participants'], 'username'));
-        self::assertSame([], $acs->groupsForAlliance((int) $foreign['id']));
+        self::assertSame([], $acs->groupsForAlliance((int) $foreign['id'], (int) $foreignOwner['id']));
     }
 
     public function testExpiredTreatiesAreEndedAndBothSidesInformed(): void

@@ -51,8 +51,10 @@ class MarketPlaceController extends AbstractGameController
         // waits and then no longer finds it with fleet_mess = 2.
         $db->startTransaction();
         try {
-            $message = (new MarketPurchase($this->db, $this->configs, $this->state, $rules))->buy($this->input()->int('fleetID'), $this->input()->string('shipType'));
+            $purchase = new MarketPurchase($this->db, $this->configs, $this->state, $rules);
+            $message = $purchase->buy($this->input()->int('fleetID'), $this->input()->string('shipType'));
             $db->commit();
+            $purchase->afterCommit();
         } catch (\Throwable $e) {
             $db->rollback();
             $this->state->PLANET = $planetBackup;
