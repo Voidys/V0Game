@@ -1489,6 +1489,7 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 - SSRF: push endpoints must be on a known push service (`PushEndpoint::isAllowed`, no IP literals/ports/userinfo), stored rows are re-validated before sending; Discord webhooks match a strict pattern, 5 s timeout.
 - `CoordinateLinker` leaves text with a stray `<` alone; `QueueOverview` guards malformed queue data.
 
-## 186. Release 1.26.11
+## 186. Release 1.26.12
 
-- `install/VERSION` 1.26.11 (tag `v1.26.11`): QoL review 2 (fleet step 2 on phones, send again, mission colours, flight times, galaxy phone fold, planet status markers, all-planet queues page, message coordinate links, alliance members panel, tutorial links; step 182), chat slow mode (183), every achievement earnable plus 41 new ones with SVG artwork and an admin grant tab (184), audit round 5 fixes (185). Migrations 1795502400–1795502550 run on the first request after the update.
+- Tag `v1.26.11` has no release: its ZIP build failed because `tools/release/build.sh` still pruned the local-only `docs/` (fixed in 00b86fa1).
+- `install/VERSION` 1.26.12 (tag `v1.26.12`): QoL review 2 (fleet step 2 on phones, send again, mission colours, flight times, galaxy phone fold, planet status markers, all-planet queues page, message coordinate links, alliance members panel, tutorial links; step 182), chat slow mode (183), every achievement earnable plus 41 new ones with SVG artwork and an admin grant tab (184), audit round 5 fixes (185). Migrations 1795502400–1795502550 run on the first request after the update.
