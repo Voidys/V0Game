@@ -162,7 +162,7 @@ final class Bounties extends EngagementFeature
         if ($ids === [] || $outcome->attackers === [] || $outcome->defenders === []) {
             return;
         }
-        $bounties = $this->db->select('SELECT * FROM %%ENG_BOUNTIES%% WHERE `universe` = :universe AND `status` = \'open\' AND `expires_at` > :now
+        $bounties = $this->db->select('SELECT * FROM %%ENG_BOUNTIES%% WHERE `universe` = :universe AND `status` = \'open\' AND `expires_at` > :now AND `created_at` <= :now
             AND `target_id` IN (' . implode(',', array_map('intval', $ids)) . ');', [':universe' => $outcome->universe, ':now' => $outcome->time]);
         foreach ($bounties as $bounty) {
             $target = (int) $bounty['target_id'];
@@ -188,7 +188,7 @@ final class Bounties extends EngagementFeature
     {
         $links = new \App\Game\Engagement\Seasons\FightNeutrality($this->db, $now);
         foreach ($shares as $hunter => $share) {
-            if ($hunter === (int) $bounty['placer_id'] || $hunter === (int) $bounty['target_id'] || $this->isBot($hunter)
+            if ($hunter === (int) $bounty['placer_id'] || $hunter === (int) $bounty['target_id'] || $this->hunterBlocked($hunter, $now)
                 || $links->pairIsNeutral($hunter, (int) $bounty['target_id']) || $links->pairIsNeutral($hunter, (int) $bounty['placer_id'])) {
                 continue;
             }
@@ -323,8 +323,21 @@ final class Bounties extends EngagementFeature
             }
             if ($this->db->transactional(fn(): bool => $this->settle($bounty, self::EXPIRED, (int) $bounty['placer_id'], null, $now))) {
                 $payout->notifyExpired($bounty, $now);
+            } elseif ((int) $bounty['expires_at'] <= $now - 86400) {
+                // still not refundable a day after the end (no valid main planet): give up so it cannot clog the queue
+                $this->db->update('UPDATE %%ENG_BOUNTIES%% SET `status` = \'void\', `closed_at` = :now WHERE `id` = :id AND `status` = \'open\';', [':now' => $now, ':id' => (int) $bounty['id']]);
+                error_log('bounty ' . $bounty['id'] . ' closed without refund: placer ' . $bounty['placer_id'] . ' has no valid main planet');
             }
         }
+        $this->purge($now);
+    }
+
+    /** Deletes closed bounties (paid, expired, cancelled, void) older than 30 days with their progress rows. */
+    private function purge(int $now): void
+    {
+        $old = ' WHERE b.`status` <> \'open\' AND b.`closed_at` < :old';
+        $this->db->delete('DELETE p FROM %%ENG_BOUNTY_PROGRESS%% p INNER JOIN %%ENG_BOUNTIES%% b ON b.`id` = p.`bounty_id`' . $old . ';', [':old' => $now - 30 * 86400]);
+        $this->db->delete('DELETE b FROM %%ENG_BOUNTIES%% b' . $old . ';', [':old' => $now - 30 * 86400]);
     }
 
     /** Expires the open bounties past their end (see refundExpired(); the cronjob also calls that directly while the feature is off). */
@@ -376,9 +389,14 @@ final class Bounties extends EngagementFeature
         $this->db->delete('DELETE FROM %%ENG_BOUNTIES%% WHERE `placer_id` = :id;', [':id' => $userId]);
     }
 
-    /** Bots never collect bounties. */
-    private function isBot(int $userId): bool
+    /** Bots, banned players and players in vacation mode never collect bounties. */
+    private function hunterBlocked(int $userId, int $now): bool
     {
+        $user = $this->db->selectSingle('SELECT `bana`, `banaday`, `urlaubs_modus` FROM %%USERS%% WHERE `id` = :id;', [':id' => $userId]);
+        if (!$user || (int) $user['bana'] === 1 || (int) $user['banaday'] > $now || (int) $user['urlaubs_modus'] === 1) {
+            return true;
+        }
+
         return (int) $this->db->selectSingle('SELECT COUNT(*) AS c FROM %%BOT_PLAYERS%% WHERE `user_id` = :id;', [':id' => $userId], 'c') > 0;
     }
 }

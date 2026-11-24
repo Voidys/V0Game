@@ -45,6 +45,26 @@
 	<p class="empty">{{ LNG.eng_ct_none }}</p>
 	{% endif %}
 </section>
+{% if previous %}
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.eng_ct_last_week) }}
+	<table class="data">
+		<tbody>
+		{% for old in previous %}
+			<tr>
+				<td>{{ old.label }}<br><small>{{ LNG.format('eng_ct_claim_until', old.until) }}</small></td>
+				<td class="act">
+					<form action="{{ path('game_contracts_claim') }}" method="post">
+						<input type="hidden" name="id" value="{{ old.id }}">
+						<button type="submit" class="btn--primary">{{ LNG.eng_ct_claim }}</button>
+					</form>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</section>
+{% endif %}
 <p class="hint">{{ LNG.format('eng_ct_done_line', done, contracts|length) }} · {{ LNG.format('eng_ct_rerolls_left', rerollsLeft) }}<br>
 	{{ resourceMode ? LNG.eng_ct_reward_resources : LNG.eng_ct_reward_cosmetic }}</p>
 {% endblock %}

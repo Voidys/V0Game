@@ -246,13 +246,30 @@ class MissionFunctions
      */
     protected function fireBattleOutcome(array $userAttack, array $userDefend, \App\Game\BattleEngine\BattleResult $combatResult, string $reportID, array $loot, array $debris, string $kind): void
     {
+        $hooks = new \App\Game\Engagement\EngagementHooks($this->db, $this->configs, $this->state);
+        if (!$hooks->anyEnabled((int) $this->_fleet['universe'])) {
+            return;
+        }
+        $this->achievementGuard()->run(fn() => $this->dispatchBattleOutcome($hooks, $userAttack, $userDefend, $combatResult, $reportID, $loot, $debris, $kind));
+    }
+
+    /**
+     * Builds the BattleOutcome of the fight and hands it to the engagement hooks (see fireBattleOutcome()).
+     *
+     * @param array<int|string, string> $userAttack
+     * @param array<int|string, string> $userDefend
+     * @param array<int, int|float> $loot
+     * @param array<int, int|float> $debris
+     */
+    private function dispatchBattleOutcome(\App\Game\Engagement\EngagementHooks $hooks, array $userAttack, array $userDefend, \App\Game\BattleEngine\BattleResult $combatResult, string $reportID, array $loot, array $debris, string $kind): void
+    {
         $outcome = new \App\Game\Engagement\BattleOutcome(
             (int) $this->_fleet['universe'],
             $reportID,
             (int) $this->_fleet['arrival_time'],
             array_filter(array_map('strval', $userAttack), fn($name, $id) => (int) $id > 0, ARRAY_FILTER_USE_BOTH),
             $kind === 'pirate' ? [] : array_filter(array_map('strval', $userDefend), fn($name, $id) => (int) $id > 0, ARRAY_FILTER_USE_BOTH),
-            $combatResult->losses,
+            $this->netLosses($combatResult),
             (string) $combatResult->won,
             $loot,
             $debris,
@@ -264,7 +281,34 @@ class MissionFunctions
             $kind,
             $this->startValuePerUser($combatResult),
         );
-        (new \App\Game\Engagement\EngagementHooks($this->db, $this->configs, $this->state))->onBattle($outcome);
+        $hooks->onBattle($outcome);
+    }
+
+    /**
+     * The fight losses for the engagement features: the defense the planet rebuilds for free after the fight
+     * (BattleResult::$repaired) is not a real loss, so its metal+crystal value is taken off the planet owner's and the
+     * defending side's loss (otherwise a defense-heavy alt makes staged fights look far bigger than they cost).
+     */
+    private function netLosses(\App\Game\BattleEngine\BattleResult $combatResult): \App\Game\BattleEngine\BattleLosses
+    {
+        $losses = $combatResult->losses;
+        $owner = (int) ($this->_fleet['target_owner'] ?? 0);
+        $repaired = 0;
+        foreach ($combatResult->repaired as $unitId => $row) {
+            $repaired += (float) ($row['units'] ?? 0) * $this->elements()->cost((int) $unitId)->metalCrystal();
+        }
+        if ($repaired <= 0) {
+            return $losses;
+        }
+        // the side total includes the defense; the per-user values count ships only (the engines leave defense out), so
+        // the planet owner's entry is only lowered when it holds more than its ships would (never below 0)
+        $taken = min($repaired, (float) $losses->defenderValue);
+        $perUser = $losses->valuePerUser;
+        if ($owner > 0 && isset($perUser['defender'][$owner])) {
+            $perUser['defender'][$owner] = max(0, $perUser['defender'][$owner] - max(0, $taken - ($losses->defenderValue - array_sum($perUser['defender']))));
+        }
+
+        return new \App\Game\BattleEngine\BattleLosses($losses->attackerValue, max(0, $losses->defenderValue - $taken), $perUser, $losses->capacityPerUser);
     }
 
     /**

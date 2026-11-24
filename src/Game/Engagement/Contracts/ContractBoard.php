@@ -16,6 +16,9 @@ final class ContractBoard
     /** Consecutive fully claimed weeks that earn a badge: weeks => badge code. */
     private const STREAK_BADGES = [4 => 'contract_streak_4', 12 => 'contract_streak_12'];
 
+    /** Seconds after the end of a week during which its finished contracts can still be claimed. */
+    public const CLAIM_GRACE = 48 * 3600;
+
     private const RESOURCE_COLUMNS = ['metal', 'crystal', 'deuterium'];
 
     public function __construct(
@@ -27,7 +30,7 @@ final class ContractBoard
     /**
      * The contracts of the player this week (slot order), with the reroll state of the week.
      *
-     * @return array{contracts: list<array<string, mixed>>, done: int, rerollsLeft: int, endsAt: int}
+     * @return array{previous: list<array<string, mixed>>, contracts: list<array<string, mixed>>, done: int, rerollsLeft: int, endsAt: int}
      */
     public function summary(int $userId, int $universe, int $now): array
     {
@@ -54,11 +57,31 @@ final class ContractBoard
         $rerolls = (int) ($this->configs->get($universe)->contracts_rerolls ?? 1);
 
         return [
+            'previous' => $this->claimableLastWeek($userId, $now),
             'contracts' => $contracts,
             'done' => $done,
             'rerollsLeft' => max(0, min(3, $rerolls) - $rerolled),
             'endsAt' => Week::end($now),
         ];
+    }
+
+    /**
+     * Finished, unclaimed contracts of last week while the grace period after the rollover lasts.
+     *
+     * @return list<array{id: int, kind: string, target: int, claimUntil: int}>
+     */
+    private function claimableLastWeek(int $userId, int $now): array
+    {
+        $weekStart = Week::start($now);
+        if ($now >= $weekStart + self::CLAIM_GRACE) {
+            return [];
+        }
+        $rows = $this->db->select(
+            'SELECT `id`, `kind`, `target` FROM %%ENG_CONTRACTS%% WHERE `user_id` = :user AND `week` = :week AND `completed_at` IS NOT NULL AND `claimed_at` IS NULL ORDER BY `slot`;',
+            [':user' => $userId, ':week' => Week::key($weekStart - 86400)],
+        );
+
+        return array_map(static fn(array $row): array => ['id' => (int) $row['id'], 'kind' => (string) $row['kind'], 'target' => (int) $row['target'], 'claimUntil' => $weekStart + self::CLAIM_GRACE], $rows);
     }
 
     /**
@@ -76,17 +99,20 @@ final class ContractBoard
                 if (empty($player) || (int) $player['urlaubs_modus'] === 1 || (int) $player['bana'] === 1) {
                     return $failed;
                 }
+                // this week's contracts, and last week's during the grace period after the rollover
+                $weekStart = Week::start($now);
+                $weeks = [Week::key($now), $now < $weekStart + self::CLAIM_GRACE ? Week::key($weekStart - 86400) : 0];
                 $this->db->update(
                     'UPDATE %%ENG_CONTRACTS%% SET `claimed_at` = :now
-                    WHERE `id` = :id AND `user_id` = :user AND `week` = :week AND `claimed_at` IS NULL AND `completed_at` IS NOT NULL;',
-                    [':now' => $now, ':id' => $contractId, ':user' => $userId, ':week' => Week::key($now)],
+                    WHERE `id` = :id AND `user_id` = :user AND `week` IN (:week, :previous) AND `claimed_at` IS NULL AND `completed_at` IS NOT NULL;',
+                    [':now' => $now, ':id' => $contractId, ':user' => $userId, ':week' => $weeks[0], ':previous' => $weeks[1]],
                 );
                 if ($this->db->rowCount() !== 1) {
                     return $failed;
                 }
                 $resources = $this->creditReward($userId, $universe, $planetId);
 
-                return ['ok' => true, 'resources' => $resources, 'badges' => $this->grantStreakBadges($userId, $now)];
+                return ['ok' => true, 'resources' => $resources, 'badges' => $this->grantStreakBadges($userId, $contractId)];
             });
         } catch (NothingToPay) {
             // the transaction was rolled back: the contract stays unclaimed
@@ -138,23 +164,24 @@ final class ContractBoard
     }
 
     /**
-     * After a claim: when every contract of this week is claimed, counts the consecutive fully claimed weeks up to this one
+     * After a claim: when every contract of the claimed contract's week is claimed, counts the consecutive fully claimed weeks up to that one
      * and grants the streak badges whose length was reached.
      *
      * @return list<string> codes of the newly granted badges
      */
-    private function grantStreakBadges(int $userId, int $now): array
+    private function grantStreakBadges(int $userId, int $contractId): array
     {
+        $created = (int) $this->db->selectSingle('SELECT `created_at` FROM %%ENG_CONTRACTS%% WHERE `id` = :id;', [':id' => $contractId], 'created_at');
+        $weekStart = Week::start($created);
         $open = (int) $this->db->selectSingle(
             'SELECT COUNT(*) AS anz FROM %%ENG_CONTRACTS%% WHERE `user_id` = :user AND `week` = :week AND `claimed_at` IS NULL;',
-            [':user' => $userId, ':week' => Week::key($now)],
+            [':user' => $userId, ':week' => Week::key($weekStart)],
             'anz',
         );
         if ($open > 0) {
             return [];
         }
         $streak = 0;
-        $weekStart = Week::start($now);
         $complete = $this->completeWeeks($userId);
         while (isset($complete[Week::key($weekStart)]) && $streak < 12) {
             ++$streak;

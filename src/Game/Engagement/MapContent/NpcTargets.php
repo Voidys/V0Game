@@ -45,6 +45,9 @@ final class NpcTargets
      */
     public function atSlot(int $universe, int $galaxy, int $system, int $planet): ?array
     {
+        if (!$this->kindEnabled($universe, self::KIND_DERELICT) && !$this->kindEnabled($universe, self::KIND_MOTHERSHIP)) {
+            return null;
+        }
         $row = $this->db->selectSingle(
             'SELECT * FROM %%PIRATE_BASES%% WHERE `universe` = :universe AND `kind` > 0 AND `galaxy` = :galaxy AND `system` = :system AND `planet` = :planet LIMIT 1;',
             [':universe' => $universe, ':galaxy' => $galaxy, ':system' => $system, ':planet' => $planet],

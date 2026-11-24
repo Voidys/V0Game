@@ -321,18 +321,7 @@ class MissionCaseExpedition extends MissionFunctions implements MissionInterface
         if (isset($fleetArray[SHIP_PROBE]) && $story === null) {
             $Message .= $this->frequencyHint();
         }
-        if ($story === null && $eventType !== 'BlackHole') {
-            $this->achievementGuard()->run(function () use ($stories, &$Message): void {
-                $Message .= $stories->maybeStart($this->ctx, $this->_fleet);
-            });
-        }
-
-        // relics: one drop roll per finished expedition, none when the fleet was lost (black hole, destroyed in the fight); guarded
-        if ($this->kill == 0) {
-            $this->achievementGuard()->run(function () use (&$Message): void {
-                $Message .= (new RelicDrops($this->db, $this->configs, $this->state))->onExpedition($this->LNG, $this->_fleet);
-            });
-        }
+        $Message .= $this->optionalReportLines($stories, $story === null && $eventType !== 'BlackHole');
 
         $this->playerMessenger()->sendMessage(
             $this->_fleet['owner'],
@@ -347,8 +336,49 @@ class MissionCaseExpedition extends MissionFunctions implements MissionInterface
         );
         $this->statsHandler->increment($this->_fleet['owner'], AdvancedStatsEnum::EXPO_COUNT, 1);
         $this->statsHandler->setTimestamp($this->_fleet['owner'], AdvancedStatsEnum::FIRST_EXPEDITION, $this->_fleet['stay_time']);
+        if ($this->kill == 0) {
+            $this->achievementGuard()->run(fn() => $this->fireExpeditionHook());
+        }
         $this->setState(FLEET_RETURN);
         $this->SaveFleet();
+    }
+
+    /**
+     * Report lines of the optional features: a new expedition story (when no story step ran and the fleet survived the
+     * black hole) and the relic drop roll (none when the fleet was lost). Each call is guarded.
+     */
+    private function optionalReportLines(ExpeditionStories $stories, bool $mayStartStory): string
+    {
+        $lines = '';
+        if ($mayStartStory) {
+            $this->achievementGuard()->run(function () use ($stories, &$lines): void {
+                $lines .= $stories->maybeStart($this->ctx, $this->_fleet);
+            });
+        }
+        if ($this->kill == 0) {
+            $this->achievementGuard()->run(function () use (&$lines): void {
+                $lines .= (new RelicDrops($this->db, $this->configs, $this->state))->rollForExpedition($this->LNG, $this->_fleet);
+            });
+        }
+
+        return $lines;
+    }
+
+    /**
+     * Tells the engagement features (contracts, seasons, alliance goals) that the expedition ended; token expeditions
+     * (fleet value under EngagementHooks::EXPEDITION_MIN_SHARE of the reference value) are flagged as not qualifying.
+     */
+    private function fireExpeditionHook(): void
+    {
+        $universe = (int) $this->_fleet['universe'];
+        $hooks = new \App\Game\Engagement\EngagementHooks($this->db, $this->configs, $this->state);
+        if (!$hooks->anyEnabled($universe)) {
+            return;
+        }
+        $points = (float) (new \App\Game\Missions\Expedition\ExpeditionFleetValue($this->db, $this->configs, $this->state))->pointsAndCapacity($this->_fleet)[0];
+        $reference = (float) $this->fleetFunctions()->calculateMaxFactor($universe);
+        $qualifies = $reference <= 0 || $points >= $reference * \App\Game\Engagement\EngagementHooks::EXPEDITION_MIN_SHARE;
+        $hooks->onExpedition($universe, (int) $this->_fleet['owner'], $qualifies, (int) $this->_fleet['stay_time']);
     }
 
     /**

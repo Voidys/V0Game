@@ -11,7 +11,7 @@
     <header class="card__head">
       <h2 class="card__title">{{ icon('orbit') }}{{ LNG.map_content_live_derelicts }}</h2>
       <div class="card__actions">
-        <form method="POST" action="{{ path('admin_map_content_derelicts', {uniID: universe}) }}">
+        <form method="POST" action="{{ path('admin_map_content_derelicts') }}">
           <button type="submit" class="btn--primary"{% if not derelictsEnabled %} disabled{% endif %}>{{ icon('plus') }}{{ LNG.map_content_spawn_derelicts }}</button>
         </form>
       </div>
@@ -36,7 +36,7 @@
     <header class="card__head">
       <h2 class="card__title">{{ icon('skull') }}{{ LNG.map_content_live_mothership }}</h2>
       <div class="card__actions">
-        <form method="POST" action="{{ path('admin_map_content_mothership', {uniID: universe}) }}">
+        <form method="POST" action="{{ path('admin_map_content_mothership') }}">
           <button type="submit" class="btn--primary"{% if not mothershipEnabled %} disabled{% endif %}>{{ icon('plus') }}{{ LNG.map_content_spawn_mothership }}</button>
         </form>
       </div>

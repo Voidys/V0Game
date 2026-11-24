@@ -80,7 +80,7 @@ final class CatchUpBoost
             [':id' => $userId],
             'total_points',
         );
-        $limit = $this->averagePoints($universe, $now) * max(1, min(100, (int) ($config->catchup_threshold_percent ?? 25))) / 100;
+        $limit = $this->cachedAverage($universe) * max(1, min(100, (int) ($config->catchup_threshold_percent ?? 25))) / 100;
         if ($limit <= 0) {
             return null;
         }
@@ -136,16 +136,19 @@ final class CatchUpBoost
      */
     private function sharesIdentity(int $userId, int $universe): bool
     {
-        $shared = $this->db->selectSingle(
-            "SELECT o.id FROM %%USERS%% me
-            INNER JOIN %%USERS%% o ON o.universe = me.universe AND o.id <> me.id
-                AND ((me.ip_at_reg <> '' AND (o.ip_at_reg = me.ip_at_reg OR o.user_lastip = me.ip_at_reg))
-                  OR (me.user_lastip <> '' AND (o.ip_at_reg = me.user_lastip OR o.user_lastip = me.user_lastip)))
-            LEFT JOIN %%BOT_PLAYERS%% b ON b.user_id = o.id
-            WHERE me.id = :id AND b.user_id IS NULL LIMIT 1;",
-            [':id' => $userId],
-            'id',
-        );
+        $me = $this->db->selectSingle('SELECT ip_at_reg, user_lastip FROM %%USERS%% WHERE id = :id;', [':id' => $userId]);
+        $shared = false;
+        // plain equality probes on (universe, ip) so the indexes on ip_at_reg / user_lastip are used
+        foreach (is_array($me) ? array_unique(array_filter([(string) $me['ip_at_reg'], (string) $me['user_lastip']])) : [] as $ip) {
+            foreach (['ip_at_reg', 'user_lastip'] as $column) {
+                $shared = $shared || (bool) $this->db->selectSingle(
+                    "SELECT o.id FROM %%USERS%% o LEFT JOIN %%BOT_PLAYERS%% b ON b.user_id = o.id
+                    WHERE o.universe = :uni AND o.$column = :ip AND o.id <> :id AND b.user_id IS NULL LIMIT 1;",
+                    [':uni' => $universe, ':ip' => $ip, ':id' => $userId],
+                    'id',
+                );
+            }
+        }
         if ($shared) {
             return true;
         }
@@ -158,7 +161,13 @@ final class CatchUpBoost
         );
     }
 
-    /** Average total points of the players active in the last 7 days (no bots, no admins, not banned), cached for a day. */
+    /** Cached daily average (0 until the engagement tick has filled the row: no boost meanwhile). Never computed in a request. */
+    private function cachedAverage(int $universe): float
+    {
+        return (float) $this->db->selectSingle('SELECT avg_points FROM %%ENG_CATCHUP_AVG%% WHERE universe = :uni;', [':uni' => $universe], 'avg_points');
+    }
+
+    /** Average total points of the players active in the last 7 days (no bots, no admins, not banned), recomputed at most daily; called by the engagement tick. */
     public function averagePoints(int $universe, int $now): float
     {
         $row = $this->db->selectSingle(

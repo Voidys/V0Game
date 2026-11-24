@@ -35,6 +35,14 @@ final class Contracts extends EngagementFeature
         }
     }
 
+    /** A qualifying expedition (fleet value of at least a quarter of the reference, see EngagementHooks) counts for the expedition contract. */
+    public function onExpedition(int $universe, int $userId, bool $qualifies, int $time): void
+    {
+        if ($qualifies) {
+            $this->advance($universe, $userId, ContractKinds::EXPEDITIONS, 1);
+        }
+    }
+
     /**
      * Credits every valid participant of a fight (see FightValidity) with destroyed enemy value and loot (shared equally by the
      * users of the side) and, for the winning side, one fight won. Only players with an open fight contract are judged at all.

@@ -54,7 +54,8 @@ class Cronjob
     public function execute(int $cronjobID, bool $force = false): void
     {
 
-        $lockToken = md5($this->state->runtime->timestamp);
+        // "<start time>:<random>": the start time lets releaseStaleLocks() free the lock of a run that died (kill, OOM, restart)
+        $lockToken = $this->state->runtime->timestamp . ':' . bin2hex(random_bytes(8));
 
         $db = $this->db;
 
@@ -114,12 +115,28 @@ class Cronjob
         }
     }
 
+    /** a lock older than this belongs to a run that died without its finally block (SIGKILL, OOM, container restart) */
+    public const STALE_LOCK_SECONDS = 7200;
+
+    /**
+     * Frees locks of runs that started more than STALE_LOCK_SECONDS ago (only tokens with a start time; old md5 tokens
+     * stay for the admin "unlock" button), so a crashed run cannot block its job forever.
+     */
+    private function releaseStaleLocks(): void
+    {
+        $this->db->update(
+            "UPDATE %%CRONJOBS%% SET `lock` = NULL WHERE `lock` LIKE '%:%' AND CAST(SUBSTRING_INDEX(`lock`, ':', 1) AS UNSIGNED) < :stale;",
+            [':stale' => $this->state->runtime->timestamp - self::STALE_LOCK_SECONDS],
+        );
+    }
+
     /**
      * Ids of the active, unlocked jobs whose nextTime lies in the past.
      * @return int[]
      */
     public function getNeedTodoExecutedJobs(): array
     {
+        $this->releaseStaleLocks();
         $sql = 'SELECT cronjobID
 		FROM %%CRONJOBS%%
 		WHERE isActive = :isActive AND nextTime < :time AND `lock` IS NULL;';

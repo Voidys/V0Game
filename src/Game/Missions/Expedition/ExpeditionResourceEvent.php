@@ -69,7 +69,9 @@ class ExpeditionResourceEvent extends ExpeditionEvent
         // universe event (expedition finds +x %): scales the drawn factor, the cargo room limit below still holds
         $factor *= $this->eventModifiers()->factor((int) $this->fleet['universe'], EventModifiers::EXPEDITION_FIND) * $this->relicFindFactor(); // + relics of the start planet
 
-        $foundResources = $factor * max(min($fleetPoints, $this->fleetFunctions()->calculateMaxFactorRes($this->fleet['universe'])), 200);
+        $maxRes = $this->fleetFunctions()->calculateMaxFactorRes($this->fleet['universe']);
+        $foundResources = $factor * max(min($fleetPoints, $maxRes), 200);
+        $foundResources = min($foundResources, max(200 * $maxRes, 200)); // final cap after the event and relic factors (also bounded by cargo room below)
 
         if ($fleetCapacity < $foundResources) {
             $foundResources = $fleetCapacity;

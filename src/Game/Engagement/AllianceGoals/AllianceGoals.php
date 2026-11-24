@@ -47,11 +47,18 @@ final class AllianceGoals extends EngagementFeature
         return (bool) $this->setting($universe, 'alliance_goals_enabled', false);
     }
 
-    /** Member expeditions and recycled resources feed the alliance goal of the week. */
+    /** A qualifying expedition of a member counts for an expedition goal (token expeditions do not). */
+    public function onExpedition(int $universe, int $userId, bool $qualifies, int $time): void
+    {
+        if ($qualifies) {
+            $this->advance($universe, $userId, self::KIND_EXPEDITIONS, 1);
+        }
+    }
+
+    /** Recycled resources of the members feed the alliance goal of the week. */
     public function onStat(int $universe, int $userId, AdvancedStatsEnum $key, int $value): void
     {
         $kind = match ($key->name) {
-            'EXPO_COUNT' => self::KIND_EXPEDITIONS,
             'RECYCLED_METAL', 'RECYCLED_CRYSTAL' => self::KIND_RECYCLED,
             default => null,
         };

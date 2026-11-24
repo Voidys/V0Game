@@ -39,7 +39,7 @@ final class UniMapContentFields
                     'transform' => 'int',
                     'min' => 0,
                     'max' => 50,
-                    'default' => 2,
+                    'default' => 1,
                 ],
                 'derelicts_interval_hours' => [
                     'type' => ConfigFieldSchema::TYPE_NUMBER,
@@ -53,13 +53,19 @@ final class UniMapContentFields
                     'type' => ConfigFieldSchema::TYPE_NUMBER,
                     'transform' => 'int',
                     'min' => 0,
-                    'default' => 200000,
+                    'default' => 100000,
                 ],
                 'derelicts_max' => [
                     'type' => ConfigFieldSchema::TYPE_NUMBER,
                     'transform' => 'int',
                     'min' => 0,
-                    'default' => 2000000,
+                    'default' => 600000,
+                ],
+                'derelicts_player_daily_cap' => [
+                    'type' => ConfigFieldSchema::TYPE_NUMBER,
+                    'transform' => 'int',
+                    'min' => 0,
+                    'default' => 1000000,
                 ],
                 'derelicts_lifetime_hours' => [
                     'type' => ConfigFieldSchema::TYPE_NUMBER,

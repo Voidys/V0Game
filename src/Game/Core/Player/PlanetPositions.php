@@ -55,7 +55,8 @@ class PlanetPositions
             ':type'     => $type,
         ], 'record');
 
-        if ($count == 0 && $type == PlanetType::Planet->value) {
+        $npcConfig = $this->configs->get($universe);
+        if ($count == 0 && $type == PlanetType::Planet->value && (!empty($npcConfig->derelicts_enabled) || !empty($npcConfig->mothership_enabled))) {
             // a live derelict field / pirate mothership (map content) occupies the slot
             $count = $db->selectSingle(
                 'SELECT COUNT(*) AS record FROM %%PIRATE_BASES%% WHERE `universe` = :universe AND `kind` > 0 AND `galaxy` = :galaxy AND `system` = :system AND `planet` = :planet;',

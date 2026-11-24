@@ -52,6 +52,13 @@ final class UniSeasonsFields
             'max' => 50,
             'default' => 5,
         ];
+        $seasons['season_daily_full_fights'] = [
+            'type' => ConfigFieldSchema::TYPE_NUMBER,
+            'transform' => 'int',
+            'min' => 0,
+            'max' => 500,
+            'default' => 15,
+        ];
         $seasons['season_bot_factor_percent'] = [
             'type' => ConfigFieldSchema::TYPE_NUMBER,
             'transform' => 'int',

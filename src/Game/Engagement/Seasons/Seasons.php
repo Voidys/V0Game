@@ -39,22 +39,34 @@ final class Seasons extends EngagementFeature
         ));
     }
 
-    /** Explorer (expedition count) and recycler (recycled metal + crystal) points of real players. */
+    /** Recycler (recycled metal + crystal) points of real players. */
     public function onStat(int $universe, int $userId, AdvancedStatsEnum $key, int $value): void
     {
-        $category = match ($key) {
-            AdvancedStatsEnum::EXPO_COUNT => 'explorer',
-            AdvancedStatsEnum::RECYCLED_METAL, AdvancedStatsEnum::RECYCLED_CRYSTAL => 'recycler',
-            default => null,
-        };
-        if ($category === null || !$this->enabled($universe) || !in_array($category, $this->categories($universe), true)) {
+        if (!in_array($key, [AdvancedStatsEnum::RECYCLED_METAL, AdvancedStatsEnum::RECYCLED_CRYSTAL], true)) {
+            return;
+        }
+        $this->scoreOne($universe, $userId, 'recycler', (float) $value, $this->state->runtime->timestamp);
+    }
+
+    /** Explorer: one point per qualifying expedition (token expeditions do not count). */
+    public function onExpedition(int $universe, int $userId, bool $qualifies, int $time): void
+    {
+        if ($qualifies) {
+            $this->scoreOne($universe, $userId, 'explorer', 1.0, $time);
+        }
+    }
+
+    /** Adds points of a non-fight category to a credited player while the season is running at $time. */
+    private function scoreOne(int $universe, int $userId, string $category, float $score, int $time): void
+    {
+        if (!$this->enabled($universe) || !in_array($category, $this->categories($universe), true)) {
             return;
         }
         $season = $this->openSeason($universe);
-        if ($season === null || (int) $season['ends_at'] <= $this->state->runtime->timestamp || !$this->credited($userId)) {
+        if ($season === null || (int) $season['ends_at'] <= $time || !$this->credited($userId)) {
             return;
         }
-        $this->addScore((int) $season['id'], $userId, $category, (float) $value);
+        $this->addScore((int) $season['id'], $userId, $category, $score);
     }
 
     /**
@@ -72,7 +84,7 @@ final class Seasons extends EngagementFeature
         }
         $season = $this->openSeason($universe);
         $loot = $outcome->lootTotal();
-        if ($season === null || (int) $season['ends_at'] <= $this->state->runtime->timestamp || max($outcome->totalLost(), $loot) < (int) $this->setting($universe, 'season_min_fight_value', 50000)) {
+        if ($season === null || (int) $season['ends_at'] <= $outcome->time || max($outcome->totalLost(), $loot) < (int) $this->setting($universe, 'season_min_fight_value', 50000)) {
             return;
         }
 
@@ -88,7 +100,7 @@ final class Seasons extends EngagementFeature
             [$defending, ['defender' => (float) $outcome->losses->value(BattleSide::Attacker)]],
         ];
         foreach ($sides as [$credited, $values]) {
-            $weights = $this->weighted($universe, $seasonId, $credited);
+            $weights = $this->weighted($universe, $seasonId, $credited, $outcome->time);
             $shares = $this->startShares($outcome, array_keys($weights));
             foreach ($values as $category => $value) {
                 if (in_array($category, $categories, true)) {
@@ -123,11 +135,16 @@ final class Seasons extends EngagementFeature
         );
         foreach ($pending as $closed) {
             $this->reward($universe, $closed);
+            $this->archiveSeason($universe, (int) $closed['id']);
             $this->db->update(
                 'UPDATE %%ENG_SEASONS%% SET `rewarded_at` = :now WHERE `id` = :id AND `rewarded_at` IS NULL;',
                 [':now' => $now, ':id' => $closed['id']],
             );
+            foreach (['ENG_SEASON_PAIRS', 'ENG_SEASON_DAILY'] as $table) {
+                $this->db->delete('DELETE FROM %%' . $table . '%% WHERE `season_id` = :id;', [':id' => $closed['id']]);
+            }
         }
+        $this->pruneScores($universe, $now);
     }
 
     /**
@@ -210,22 +227,41 @@ final class Seasons extends EngagementFeature
         foreach ($seasons as $season) {
             $tops = is_string($season['archive']) ? json_decode($season['archive'], true) : null;
             if (!is_array($tops)) {
-                $tops = [];
-                foreach (self::CATEGORIES as $category) {
-                    $top = $this->ladder($universe, (int) $season['id'], $category, 3);
-                    if ($top !== []) {
-                        $tops[$category] = $top;
-                    }
-                }
-                $this->db->update(
-                    'UPDATE %%ENG_SEASONS%% SET `archive` = :archive WHERE `id` = :id;',
-                    [':archive' => json_encode($tops), ':id' => $season['id']],
-                );
+                $tops = $this->archiveSeason($universe, (int) $season['id']);
             }
             $result[] = ['number' => (int) $season['number'], 'ends_at' => (int) $season['ends_at'], 'tops' => $tops];
         }
 
         return $result;
+    }
+
+    /**
+     * Computes the podium (top 3 per scored category) of a closed season and stores it in `archive`.
+     *
+     * @return array<string, list<array{user_id: int, username: string, score: float, rank: int}>>
+     */
+    private function archiveSeason(int $universe, int $seasonId): array
+    {
+        $tops = [];
+        foreach (self::CATEGORIES as $category) {
+            $top = $this->ladder($universe, $seasonId, $category, 3);
+            if ($top !== []) {
+                $tops[$category] = $top;
+            }
+        }
+        $this->db->update('UPDATE %%ENG_SEASONS%% SET `archive` = :archive WHERE `id` = :id;', [':archive' => json_encode($tops), ':id' => $seasonId]);
+
+        return $tops;
+    }
+
+    /** Scores of seasons closed more than 90 days ago go (their podium is kept in the archive). */
+    private function pruneScores(int $universe, int $now): void
+    {
+        $this->db->delete(
+            'DELETE sc FROM %%ENG_SEASON_SCORES%% sc INNER JOIN %%ENG_SEASONS%% s ON s.`id` = sc.`season_id`
+            WHERE s.`universe` = :universe AND s.`closed_at` < :limit AND s.`archive` IS NOT NULL;',
+            [':universe' => $universe, ':limit' => $now - 90 * 86400],
+        );
     }
 
     /** Users that count for ladders: this universe, not banned, no staff, no bot (needs :universe and the alias u). */
@@ -275,15 +311,17 @@ final class Seasons extends EngagementFeature
     /**
      * Weight of every credited player of a fight: bot opponents only (all counted opponents are bots) count at
      * season_bot_factor_percent; after season_pair_full_fights fights against the same opponent (the highest count of his
-     * opponents) a fight counts 10%. Records the fight for the pairs.
+     * opponents) a fight counts 10%; so does every fight beyond season_daily_full_fights per day (the lower weight wins). Records the fight for the pairs.
      *
      * @param array<int, list<int>> $opponentsByUser
      * @return array<int, float> user id => weight 0..1
      */
-    private function weighted(int $universe, int $seasonId, array $opponentsByUser): array
+    private function weighted(int $universe, int $seasonId, array $opponentsByUser, int $time): array
     {
         $full = max(1, min(50, (int) $this->setting($universe, 'season_pair_full_fights', 5)));
         $botFactor = max(0, min(100, (int) $this->setting($universe, 'season_bot_factor_percent', 50))) / 100;
+        $dailyCap = max(0, min(500, (int) $this->setting($universe, 'season_daily_full_fights', 15)));
+        $day = intdiv($time, 86400);
         $weights = [];
         foreach ($opponentsByUser as $userId => $opponents) {
             $onlyBots = true;
@@ -295,7 +333,19 @@ final class Seasons extends EngagementFeature
                 [':season' => $seasonId, ':user' => $userId],
                 'f',
             );
-            $weights[$userId] = ($fights >= $full ? 0.1 : 1.0) * ($onlyBots ? $botFactor : 1.0);
+            $today = (int) $this->db->selectSingle(
+                'SELECT `fights` FROM %%ENG_SEASON_DAILY%% WHERE `season_id` = :season AND `user_id` = :user AND `day` = :day;',
+                [':season' => $seasonId, ':user' => $userId, ':day' => $day],
+                'fights',
+            );
+            $repeat = min($fights >= $full ? 0.1 : 1.0, $dailyCap > 0 && $today >= $dailyCap ? 0.1 : 1.0);
+            $weights[$userId] = $repeat * ($onlyBots ? $botFactor : 1.0);
+            $this->db->insert(
+                'INSERT INTO %%ENG_SEASON_DAILY%% (`season_id`, `user_id`, `day`, `fights`)
+                SELECT `id`, :user, :day, 1 FROM %%ENG_SEASONS%% WHERE `id` = :season AND `closed_at` IS NULL
+                ON DUPLICATE KEY UPDATE `fights` = `fights` + 1;',
+                [':season' => $seasonId, ':user' => $userId, ':day' => $day],
+            );
             foreach ($opponents as $opponent) {
                 $this->db->insert(
                     'INSERT INTO %%ENG_SEASON_PAIRS%% (`season_id`, `user_id`, `opponent_id`, `fights`)

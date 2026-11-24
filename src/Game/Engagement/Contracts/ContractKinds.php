@@ -61,13 +61,10 @@ final class ContractKinds
         return max($min, min($max, (int) round($raw)));
     }
 
-    /** Kind a stat counter feeds, null when no contract listens to it. */
+    /** Kind a stat counter feeds, null when no contract listens to it (expeditions arrive through the onExpedition hook, not as a stat). */
     public static function forStat(AdvancedStatsEnum $key): ?string
     {
         $name = $key->name;
-        if ($name === 'EXPO_COUNT') {
-            return self::EXPEDITIONS;
-        }
         if ($name === 'RECYCLED_METAL' || $name === 'RECYCLED_CRYSTAL') {
             return self::RECYCLED;
         }

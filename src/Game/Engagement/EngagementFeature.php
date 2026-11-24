@@ -31,6 +31,12 @@ abstract class EngagementFeature
     /** A real fight finished (report stored). */
     public function onBattle(BattleOutcome $outcome): void {}
 
+    /**
+     * An expedition of $userId ended (not lost). $qualifies is false for token expeditions (fleet value below
+     * EngagementHooks::EXPEDITION_MIN_SHARE of the expedition reference value): count only qualifying ones.
+     */
+    public function onExpedition(int $universe, int $userId, bool $qualifies, int $time): void {}
+
     /** Engagement cronjob, every 5 minutes per universe. */
     public function tick(int $universe, int $now): void {}
 

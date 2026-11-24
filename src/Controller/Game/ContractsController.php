@@ -44,6 +44,11 @@ class ContractsController extends AbstractGameController
             $contract['progressText'] = $this->viewHelpers()->prettyNumber($contract['progress']) . ' / ' . $this->viewHelpers()->prettyNumber($contract['target']);
         }
         unset($contract);
+        foreach ($board['previous'] as &$old) {
+            $old['label'] = $LNG->format('eng_ct_kind_' . $old['kind'], $this->viewHelpers()->prettyNumber($old['target']));
+            $old['until'] = $this->viewHelpers()->formatDate($LNG['php_tdformat'], $old['claimUntil'], $USER['timezone']);
+        }
+        unset($old);
         $left = max(0, $board['endsAt'] - $now);
         $notice = $this->input()->string('notice');
 

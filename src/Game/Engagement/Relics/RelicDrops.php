@@ -48,7 +48,7 @@ final class RelicDrops extends EngagementFeature
      * @param array<string, mixed> $fleet the expedition fleet row (owner, universe, ships, resources, stay_time)
      * @return string report line, '' when nothing was found or the feature is off
      */
-    public function onExpedition(Language $LNG, array $fleet): string
+    public function rollForExpedition(Language $LNG, array $fleet): string
     {
         $universe = (int) $fleet['universe'];
         $userId = (int) $fleet['owner'];

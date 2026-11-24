@@ -91,6 +91,15 @@ final class FightNeutrality
         return self::$rows[$id] ?? null;
     }
 
+    /** Whether two accounts look like the same person (same connection or registered multi group); alliance, buddies and pacts do not count. */
+    public function sameOwner(int $a, int $b): bool
+    {
+        $x = $this->user($a);
+        $y = $this->user($b);
+
+        return $x !== null && $y !== null && ($this->sameConnection($x, $y) || $this->sameMulti($a, $b));
+    }
+
     /** Neutral when one of the rules matches; a deleted player counts as neutral (nothing to score against). */
     private function compute(int $a, int $b): bool
     {

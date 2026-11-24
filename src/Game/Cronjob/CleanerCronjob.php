@@ -94,6 +94,8 @@ class CleanerCronjob extends AbstractCronjobTask
         $db->delete('DELETE FROM %%STATPOINTS%% WHERE `stat_type` = 2 AND `id_owner` IN ' . $emptyAlliances . ';');
         $db->delete('DELETE FROM %%STATPOINTS_HISTORY%% WHERE `stat_type` = 2 AND `id_owner` IN ' . $emptyAlliances . ';');
 
+        $db->delete('DELETE FROM %%ENG_ALLIANCE_GOALS%% WHERE `alliance_id` IN ' . $emptyAlliances . ';');
+
         $sql = 'DELETE FROM %%ALLIANCE%% WHERE `ally_members` = 0;';
         $db->delete($sql);
 

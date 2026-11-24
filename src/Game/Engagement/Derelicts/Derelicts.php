@@ -44,9 +44,10 @@ final class Derelicts extends EngagementFeature
      */
     public function spawn(int $universe, int $now): int
     {
-        $perGalaxy = max(0, (int) $this->setting($universe, 'derelicts_per_galaxy', 2));
-        $min = max(0, (int) $this->setting($universe, 'derelicts_min', 200000));
-        $max = max($min, (int) $this->setting($universe, 'derelicts_max', 2000000));
+        $perGalaxy = max(0, (int) $this->setting($universe, 'derelicts_per_galaxy', 1));
+        $scale = $this->economyScale($universe);
+        $min = max(0, (int) round((int) $this->setting($universe, 'derelicts_min', 100000) * $scale));
+        $max = max($min, (int) round((int) $this->setting($universe, 'derelicts_max', 600000) * $scale));
         $lifetime = max(1, (int) $this->setting($universe, 'derelicts_lifetime_hours', 24)) * 3600;
 
         return (int) (new NpcTargets($this->db, $this->configs, $this->state))->withSlotLock($universe, fn(): int => $this->spawnLocked($universe, $now, $perGalaxy, $min, $max, $lifetime));
@@ -71,6 +72,42 @@ final class Derelicts extends EngagementFeature
         return $created;
     }
 
+    /** Economy speed relative to the base 2500 (resource_multiplier), so a field is worth the same share of a day's production at any speed. */
+    public function economyScale(int $universe): float
+    {
+        return max(0.1, (float) $this->setting($universe, 'resource_multiplier', 2500) / 2500);
+    }
+
+    /**
+     * How much metal + crystal the player may still collect from derelict fields today (server time day); null = no cap.
+     */
+    public function allowance(int $universe, int $userId, int $now): ?float
+    {
+        $cap = (float) $this->setting($universe, 'derelicts_player_daily_cap', 1000000) * $this->economyScale($universe);
+        if ($cap <= 0) {
+            return null;
+        }
+        $used = (float) $this->db->selectSingle(
+            'SELECT `amount` FROM %%ENG_DERELICT_COLLECT%% WHERE `user_id` = :u AND `day` = :d FOR UPDATE;',
+            [':u' => $userId, ':d' => date('Y-m-d', $now)],
+            'amount',
+        );
+
+        return max(0.0, $cap - $used);
+    }
+
+    /** Books collected metal + crystal against the player's daily allowance. */
+    public function recordCollected(int $userId, float $amount, int $now): void
+    {
+        if ($amount <= 0) {
+            return;
+        }
+        $this->db->insert(
+            'INSERT INTO %%ENG_DERELICT_COLLECT%% SET `user_id` = :u, `day` = :d, `amount` = :a ON DUPLICATE KEY UPDATE `amount` = `amount` + VALUES(`amount`);',
+            [':u' => $userId, ':d' => date('Y-m-d', $now), ':a' => $amount],
+        );
+    }
+
     /**
      * The live fields of the universe for the admin list.
      *
@@ -89,6 +126,8 @@ final class Derelicts extends EngagementFeature
     /** Deletes the rows of expired fields and of fields that were collected completely. */
     public function cleanup(int $universe, int $now): void
     {
+        $this->db->delete('DELETE FROM %%ENG_DERELICTS%% WHERE `universe` = :universe AND `removed_at` IS NOT NULL AND `removed_at` < :old;', [':universe' => $universe, ':old' => $now - 7 * 86400]);
+        $this->db->delete('DELETE FROM %%ENG_DERELICT_COLLECT%% WHERE `day` < :day;', [':day' => date('Y-m-d', $now - 3 * 86400)]);
         $gone = $this->db->select(
             'SELECT d.`id`, d.`base_id` FROM %%ENG_DERELICTS%% d
             LEFT JOIN %%PIRATE_BASES%% b ON b.`id` = d.`base_id`

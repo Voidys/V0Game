@@ -2447,3 +2447,26 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%eng_relic_fleet` (
   `factor` double NOT NULL DEFAULT 1,
   PRIMARY KEY (`fleet_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- engagement audit 2 indexes (migration 1795600700)
+ALTER TABLE `%PREFIX%eng_season_scores` ADD KEY `user` (`user_id`);
+ALTER TABLE `%PREFIX%eng_season_pairs` ADD KEY `user` (`user_id`);
+ALTER TABLE `%PREFIX%eng_mothership_damage` ADD KEY `user` (`user_id`);
+ALTER TABLE `%PREFIX%eng_bounty_progress` ADD KEY `hunter` (`hunter_id`);
+ALTER TABLE `%PREFIX%users` ADD KEY `universe_ip_reg` (`universe`, `ip_at_reg`), ADD KEY `universe_ip_last` (`universe`, `user_lastip`);
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_derelict_collect` (
+  `user_id` int(11) unsigned NOT NULL,
+  `day` date NOT NULL,
+  `amount` double NOT NULL DEFAULT 0,
+  PRIMARY KEY (`user_id`, `day`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_season_daily` (
+  `season_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `day` int(11) unsigned NOT NULL,
+  `fights` int(11) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`season_id`, `user_id`, `day`),
+  KEY `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

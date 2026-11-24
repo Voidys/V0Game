@@ -18,6 +18,8 @@
 namespace App\Game\Missions;
 
 use App\Game\Enum\MessageType;
+use App\Game\Engagement\Derelicts\Derelicts;
+use App\Game\Engagement\MapContent\NpcTargets;
 
 /**
  * Mission "pirate base recycling" (22): recyclers collect the debris field of a pirate base (stored in
@@ -53,7 +55,24 @@ class MissionCasePiratebaseRecycling extends MissionFunctions implements Mission
         }
 
         if (!empty($targetData['total'])) {
-            [$collectedGoods, $remainingGoods] = $this->collectDebris('PIRATE_BASES', $targetData);
+            // derelict fields (map content) have a daily collection cap per player: the fleet only sees what it may still take
+            $derelicts = $this->isDerelict() ? new Derelicts($this->db, $this->configs, $this->state) : null;
+            $now = (int) $this->_fleet['arrival_time'];
+            $allowance = $derelicts?->allowance((int) $this->_fleet['universe'], (int) $this->_fleet['owner'], $now);
+            if ($allowance !== null && $allowance < $targetData['total']) {
+                // a virtual field of the size the player may still take today; collectDebris() takes from the real one
+                $factor = $allowance / $targetData['total'];
+                foreach (['der_metal', 'der_crystal'] as $column) {
+                    $targetData[$column] = floor($targetData[$column] * $factor);
+                }
+                $targetData['total'] = $targetData['der_metal'] + $targetData['der_crystal'];
+            }
+            if (!empty($targetData['total'])) {
+                [$collectedGoods, $remainingGoods] = $this->collectDebris('PIRATE_BASES', $targetData);
+                $derelicts?->recordCollected((int) $this->_fleet['owner'], (float) array_sum($collectedGoods), $now);
+            } else {
+                $this->checkEmptyRecycling($collectedGoods);
+            }
         } else {
             $this->checkEmptyRecycling($collectedGoods);
         }
@@ -62,6 +81,12 @@ class MissionCasePiratebaseRecycling extends MissionFunctions implements Mission
 
         $this->setState(FLEET_RETURN);
         $this->SaveFleet();
+    }
+
+    /** Whether the target is a derelict field (pirate_bases kind 1) of the map content feature. */
+    private function isDerelict(): bool
+    {
+        return (int) $this->db->selectSingle('SELECT `kind` AS k FROM %%PIRATE_BASES%% WHERE `id` = :id;', [':id' => $this->_fleet['end_id']], 'k') === NpcTargets::KIND_DERELICT;
     }
 
     /**

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 /** Spawn buttons and the live list of the map content features: derelict fields and the pirate mothership. */
 class MapContentController extends AbstractAdminController
 {
-    /** The page of the universe `uniID` (default: the emulated one). */
+    /** The page of the emulated universe (admins switch it with ?uni=, like every admin page). */
     #[GameRoute('admin', 'admin/map-content', 'mapContent')]
     public function show(): Response
     {
@@ -47,7 +47,7 @@ class MapContentController extends AbstractAdminController
 
     private function universeId(): int
     {
-        return $this->input()->int('uniID', (int) $this->universe()->getEmulated());
+        return (int) $this->universe()->getEmulated();
     }
 
     /**

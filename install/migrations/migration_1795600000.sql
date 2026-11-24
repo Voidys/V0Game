@@ -1,6 +1,7 @@
 -- engagement features: one cronjob ticks events, contracts, seasons, bounties, wars, goals, derelicts and the mothership
-INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`, `dom`, `month`, `dow`, `class`, `nextTime`, `lock`) VALUES
-(NULL, 'engagement', 1, '*/5', '*', '*', '*', '*', 'EngagementCronjob', 0, NULL);
+INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`, `dom`, `month`, `dow`, `class`, `nextTime`, `lock`)
+SELECT NULL, 'engagement', 1, '*/5', '*', '*', '*', '*', 'EngagementCronjob', 0, NULL FROM DUAL
+WHERE NOT EXISTS (SELECT 1 FROM `%PREFIX%cronjobs` WHERE `class` = 'EngagementCronjob');
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%eng_cosmetics` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,

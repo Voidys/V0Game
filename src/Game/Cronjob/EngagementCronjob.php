@@ -25,6 +25,13 @@ class EngagementCronjob extends AbstractCronjobTask
             // expired derelicts / a mothership that ran out leave even when the feature was switched off meanwhile
             $this->guarded(fn() => (new \App\Game\Engagement\Derelicts\Derelicts($this->db, $this->configs, $this->state))->cleanup($universe, $now));
             $this->guarded(fn() => (new \App\Game\Engagement\Mothership\Mothership($this->db, $this->configs, $this->state))->expire($universe, $now));
+            // the catch-up average (daily cache) is refreshed here, never in a player request, also while events are off
+            $this->guarded(function () use ($universe, $now): void {
+                $catchUp = $this->catchUpBoost();
+                if ($catchUp->enabled($universe)) {
+                    $catchUp->averagePoints($universe, $now);
+                }
+            });
             // old relic log lines and the finds snapshots of fleets that are gone
             $this->guarded(fn() => (new \App\Game\Engagement\Relics\RelicInventory($this->db, $this->configs, $this->state))->cleanup($universe, $now));
         }

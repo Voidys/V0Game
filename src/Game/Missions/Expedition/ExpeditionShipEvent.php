@@ -132,6 +132,7 @@ class ExpeditionShipEvent extends ExpeditionEvent
         $NewFleetArray = "";
         $CountTotal = 0;
         $foundPoints = max(round($Size * min($fleetPoints, $MaxPoints)), 10000);
+        $foundPoints = (int) min($foundPoints, 200 * $MaxPoints); // final cap after the event and relic factors
         $findableShips = $this->determineFindableShips($fleetArray);
         $Found = $this->determineFoundShips($foundPoints, $findableShips);
 

@@ -127,13 +127,14 @@ final class AllianceWars extends EngagementFeature
      */
     private function end(array $war, int $now, bool $relationStillThere): void
     {
-        $a = (float) $war['score_a'];
-        $b = (float) $war['score_b'];
-        $result = $a > $b ? 'a' : ($b > $a ? 'b' : 'draw');
-        $this->db->update('UPDATE %%ENG_WARS%% SET `ended_at` = :now, `result` = :r, `open_pair` = NULL WHERE `id` = :id AND `ended_at` IS NULL;', [':now' => $now, ':r' => $result, ':id' => (int) $war['id']]);
+        // the result is computed by the UPDATE itself from the locked row, so a fight scored in between cannot change the winner
+        $this->db->update('UPDATE %%ENG_WARS%% SET `ended_at` = :now, `result` = IF(`score_a` > `score_b`, \'a\', IF(`score_b` > `score_a`, \'b\', \'draw\')), `open_pair` = NULL
+            WHERE `id` = :id AND `ended_at` IS NULL;', [':now' => $now, ':id' => (int) $war['id']]);
         if ($this->db->rowCount() !== 1) {
             return;
         }
+        $war = $this->db->selectSingle('SELECT * FROM %%ENG_WARS%% WHERE `id` = :id;', [':id' => (int) $war['id']]) ?: $war;
+        $result = (string) $war['result'];
         if ($relationStillThere) {
             $this->db->delete('DELETE FROM %%DIPLO%% WHERE `level` IN (:war, :peace) AND `owner_1` IN (:a, :b) AND `owner_2` IN (:a, :b);', [
                 ':war' => DiploType::War->value, ':peace' => DiploType::Peace->value, ':a' => (int) $war['ally_a'], ':b' => (int) $war['ally_b'],

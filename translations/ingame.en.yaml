@@ -2421,3 +2421,6 @@ rl_msg_dust: "You do not have enough relic dust."
 rl_msg_resources: "This planet does not have enough resources."
 rl_msg_slot: "This slot is disabled, the relic cannot be equipped."
 rl_ui_inactive: "disabled by the server"
+# engagement: contracts grace period
+eng_ct_last_week: "Last week: still claimable"
+eng_ct_claim_until: "claim until %s"

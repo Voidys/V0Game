@@ -2,6 +2,8 @@
 
 namespace App\Game\Core;
 
+use App\Game\Engagement\Events\EventModifiers;
+
 /**
  * Shipyard queue of a planet: turns the elapsed build time into finished ships.
  *
@@ -46,7 +48,7 @@ class HangarQueueProcessor
 
         $userModel = $this->models()->user($st->user);
         $planetModel = $this->models()->planet($st->planet);
-        $available = $st->planet['b_hangar'] + ($st->time - $st->planet['last_update']);
+        $available = $st->planet['b_hangar'] + $this->creditedSeconds($st, $st->planet['last_update']);
         $spent = 0;
         $times = [];
         foreach ($queue as $item) {
@@ -96,7 +98,7 @@ class HangarQueueProcessor
             return false;
         }
 
-        $st->planet['b_hangar']   += ($st->time - ($since ?? $st->planet['last_update']));
+        $st->planet['b_hangar']   += $this->creditedSeconds($st, $since ?? $st->planet['last_update']);
         $BuildArray = [];
         $userModel = $this->models()->user($st->user);
         $planetModel = $this->models()->planet($st->planet);
@@ -158,5 +160,24 @@ class HangarQueueProcessor
         }
 
         return true;
+    }
+
+    /**
+     * Build seconds earned between $from and the update time. Unit times already include today's BUILD_SPEED event factor,
+     * so the elapsed seconds are scaled by (average factor over the window / today's factor): idle time before or after an
+     * event is not boosted. Unchanged (plain elapsed seconds) when no event ran.
+     */
+    private function creditedSeconds(QueueState $st, int|float $from): int|float
+    {
+        $elapsed = $st->time - $from;
+        if ($elapsed <= 0) {
+            return $elapsed;
+        }
+        $universe = (int) $st->user['universe'];
+        $events = $this->eventModifiers();
+        $now = $events->factor($universe, EventModifiers::BUILD_SPEED);
+        $average = $events->factorOver($universe, EventModifiers::BUILD_SPEED, (int) $from, (int) $st->time);
+
+        return abs($average - $now) < 0.0001 ? $elapsed : $elapsed * $average / $now;
     }
 }

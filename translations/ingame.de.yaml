@@ -2416,3 +2416,6 @@ rl_msg_dust: "Du hast nicht genug Reliktstaub."
 rl_msg_resources: "Dieser Planet hat nicht genug Rohstoffe."
 rl_msg_slot: "Dieser Platz ist deaktiviert, das Relikt kann nicht angelegt werden."
 rl_ui_inactive: "vom Server deaktiviert"
+# engagement: contracts grace period
+eng_ct_last_week: "Letzte Woche: noch abholbar"
+eng_ct_claim_until: "abholbar bis %s"

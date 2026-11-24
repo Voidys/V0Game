@@ -1,5 +1,5 @@
 -- map content: derelict fields, pirate mothership (world boss) and expedition story chains.
--- derelicts and the mothership are rows of pirate_bases (owner 0) so the pirate base missions (spy, attack, recycling) work unchanged;
+-- derelicts and the mothership are rows of pirate_bases (owner 0) so the pirate base missions (spy, attack, recycling) work unchanged
 -- kind 0 = personal pirate base (weekly spawner), 1 = derelict field, 2 = mothership. planet = the galaxy slot (1..max_planets) of kinds 1 and 2.
 ALTER TABLE `%PREFIX%pirate_bases`
   ADD COLUMN `kind` tinyint(3) unsigned NOT NULL DEFAULT 0 AFTER `universe`,

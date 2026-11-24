@@ -95,9 +95,9 @@ final class MothershipBattle
             if ($total <= 0 || $userPower / $total < self::MIN_SHARE) {
                 continue;
             }
-            // alts and allies (neutral to each other) count as one player: only the strongest of them qualifies
+            // accounts of the same person (same connection or multi group) count as one player: only the strongest qualifies
             foreach ($users as $kept) {
-                if ($neutrality->pairIsNeutral((int) $userId, $kept)) {
+                if ($neutrality->sameOwner((int) $userId, $kept)) {
                     continue 2;
                 }
             }
@@ -171,9 +171,13 @@ final class MothershipBattle
             ]);
             $this->tell((int) $row['user_id'], 'ms_msg_title', 'ms_msg_dead', $paid, $now, (int) $mothership['universe'], round(100 * $share), 'mothership');
         }
-        $this->discord()->sendLog('Pirate mothership destroyed', [
-            'universe' => $mothership['universe'], 'participants' => count($rows), 'loot' => round((float) $mothership['loot_metal'] + (float) $mothership['loot_crystal'] + (float) $mothership['loot_deuterium']),
-        ]);
+        // best effort (there is no after-commit queue): the webhook of the mothership's own universe, never fails the fight
+        try {
+            $this->discord()->sendMessage((string) ($this->configs->get((int) $mothership['universe'])->discord_logs_hook ?? ''), 'Pirate mothership destroyed', [
+                'universe' => $mothership['universe'], 'participants' => count($rows), 'loot' => round((float) $mothership['loot_metal'] + (float) $mothership['loot_crystal'] + (float) $mothership['loot_deuterium']),
+            ]);
+        } catch (\Throwable) {
+        }
     }
 
     /**

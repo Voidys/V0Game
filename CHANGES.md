@@ -1540,3 +1540,19 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 ## 192. Release 1.26.14
 
 - `install/VERSION` 1.26.14 (tag `v1.26.14`): 13 optional engagement features with audits and live tests (step 190, migrations 1795600000–1795600500), relics (191, migration 1795600600), README feature list.
+
+## 193. Engagement audit round 2 (interactions, fair play, regressions, security, glitches)
+
+- Core: engagement work is skipped entirely when no feature of the universe is on (`EngagementHooks::anyEnabled`, also guards `fireBattleOutcome`, stat hook, NPC slot lookups and the colonisation slot check); each feature's fight hook runs in its own savepoint (no partial writes when one throws); fight losses for the features are net of the free defense rebuild; new `onExpedition` hook counts only expeditions with at least 25 % of the reference fleet value (contracts, seasons explorer, alliance goals).
+- Cron: lock tokens carry the start time, locks older than 2 h (crashed runs) are released; the engagement cron row migration is idempotent; a comment line no longer breaks migration 1795600500.
+- Indexes for player deletion and the catch-up identity check (migration 1795600700).
+- Events: shipyard queue credits idle time with the time-weighted build-speed factor; expedition ship and resource finds capped at 200 × the max factor after event and relic factors; catch-up average refreshed by the tick only.
+- Contracts: last week's completed contracts claimable for 48 h; streak from the contract's own week; empty-alliance cleanup removes goals.
+- Seasons: daily full-value fight cap (`season_daily_full_fights`, migration 1795600720), pairs/daily rows purged after reward, old scores pruned after 90 days, explorer counts qualifying expeditions, season end judged by fight time.
+- Bounties/wars/feed: only bounties placed before the fight are credited, unsettleable refunds void after 24 h, closed bounties purged after 30 days, no credit for banned/vacation/bot hunters, returning-protected targets refused, war result computed atomically, feed cap counts only feed lines.
+- Map content: derelict sizes scale with the economy speed, smaller defaults (1 per galaxy, 100k–600k; stored old defaults migrated), per-player daily collection cap (`derelicts_player_daily_cap`, migration 1795600710), old rows purged; mothership counts alliance mates as separate players but same-connection alts once; Discord post best-effort for the mothership's universe; admin map content limited to the emulated universe.
+- Verification follow-ups: relic drop method renamed (`RelicDrops::rollForExpedition`, it clashed with the new `onExpedition` hook and was a fatal on every expedition); defense rebuild taken off the defender side total (the per-user values hold ships only); catch-up average refreshed by the engagement cron also while events are off; `eng_season_daily` user index; new `EngagementClassesLoadTest` loads every engagement class so such clashes fail the suite.
+
+## 194. Release 1.26.15
+
+- `install/VERSION` 1.26.15 (tag `v1.26.15`): engagement audit round 2 and its verification fixes (step 193, migrations 1795600700–1795600720).

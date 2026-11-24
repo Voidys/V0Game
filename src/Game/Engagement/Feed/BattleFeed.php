@@ -53,8 +53,8 @@ final class BattleFeed extends EngagementFeature
     private function postedLastHour(int $universe, int $now): int
     {
         return (int) $this->db->selectSingle(
-            'SELECT COUNT(*) AS c FROM %%CHAT_MESSAGES%% WHERE `universe` = :u AND `channel` = \'global\' AND `user_id` = 0 AND `created_at` > :since;',
-            [':u' => $universe, ':since' => $now - 3600],
+            'SELECT COUNT(*) AS c FROM %%CHAT_MESSAGES%% WHERE `universe` = :u AND `channel` = \'global\' AND `user_id` = 0 AND `message` LIKE :mark AND `created_at` > :since;',
+            [':u' => $universe, ':since' => $now - 3600, ':mark' => '%' . Chat::SYSTEM_REPORT_MARK . '%'],
             'c',
         );
     }

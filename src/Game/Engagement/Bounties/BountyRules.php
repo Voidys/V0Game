@@ -53,7 +53,7 @@ final class BountyRules
     }
 
     /**
-     * Whether the target is excluded: vacation, ban, staff protected from attacks, bots, too few points, noob protection against the
+     * Whether the target is excluded: vacation, ban, staff protected from attacks, bots, too few points, returning-player or noob protection against the
      * placer, or friendly to him (alliance, buddy, pact, linked accounts).
      *
      * @param array<string, mixed> $placer
@@ -69,6 +69,7 @@ final class BountyRules
             || ((int) $config->adm_attack === 1 && (int) $target['authattack'] > (int) $self['authlevel'])
             || $isBot
             || (float) $target['total_points'] < (int) $this->bounties->option($universe, 'bounty_min_target_points')
+            || (new \App\Game\Engagement\Returning\ReturningPlayers($this->db, $this->configs, $this->state))->protectedUntil($universe, (int) $target['id']) > 0
             || $this->protectionRules()->checkNoobProtection($self, $target)['NoobPlayer']
             || (new \App\Game\Engagement\Seasons\FightNeutrality($this->db, $now))->pairIsNeutral((int) $placer['id'], (int) $target['id']);
     }
