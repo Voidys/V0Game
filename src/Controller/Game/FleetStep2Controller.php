@@ -18,6 +18,7 @@
 namespace App\Controller\Game;
 
 use App\Game\Enum\Mission;
+use App\Game\Engagement\MapContent\NpcTargets;
 use Symfony\Component\HttpFoundation\Response;
 use App\Routing\GameRoute;
 use App\Game\Core\FleetFunctions;
@@ -98,7 +99,7 @@ class FleetStep2Controller extends AbstractGameController
 
         $targetMission = $this->resolveMission($targetMission, $MissionOutput['MissionSelector'], $targetPlanetData, $fleetArray, $fleetGroup);
 
-        $questionList = $this->confirmationQuestions($targetPlanetData, $targetGalaxy, $targetSystem);
+        $questionList = empty($targetPlanetData['npc_kind']) ? $this->confirmationQuestions($targetPlanetData, $targetGalaxy, $targetSystem) : [];
         $fleetData  = [
             'fleetroom'     => floatToString($fleet[$token]['fleetRoom']),
             'consumption'   => floatToString($consumption),
@@ -138,7 +139,7 @@ class FleetStep2Controller extends AbstractGameController
         $plan = [];
         foreach (array_keys(FleetFunctions::$allowedSpeed) as $step) {
             $duration = $functions->missionDurationFor($step, $maxFleetSpeed, $distance, $gameSpeed, $userModel);
-            $fuel = $functions->fleetConsumptionFor($fleetArray, $duration, $distance, $userModel, $gameSpeed);
+            $fuel = $functions->fleetConsumptionFor($fleetArray, $duration, $distance, $userModel, $gameSpeed, startPlanetId: (int) $this->state->PLANET['id']);
             $plan[$step] = ['duration' => $duration, 'fuel' => (int) round($fuel), 'affordable' => $fuel <= $this->state->PLANET['deuterium']];
         }
         ksort($plan);
@@ -250,7 +251,7 @@ class FleetStep2Controller extends AbstractGameController
             [$targetGalaxy, $targetSystem, $targetPlanet],
         );
         $duration = $this->fleetFunctions()->missionDurationFor($fleetSpeed, $MaxFleetSpeed, $distance, $GameSpeedFactor, $userModel);
-        $consumption = $this->fleetFunctions()->fleetConsumptionFor($fleetArray, $duration, $distance, $userModel, $GameSpeedFactor);
+        $consumption = $this->fleetFunctions()->fleetConsumptionFor($fleetArray, $duration, $distance, $userModel, $GameSpeedFactor, startPlanetId: (int) $this->state->PLANET['id']);
 
         return [$MaxFleetSpeed, $distance, $duration, $consumption];
     }
@@ -354,6 +355,11 @@ class FleetStep2Controller extends AbstractGameController
                 ':targetSystem' => $targetSystem,
                 ':targetPlanet' => $targetPlanet,
             ]);
+        }
+        if (empty($targetPlanetData) && $targetPlanet >= 1 && $targetPlanet <= $config->max_planets) {
+            // derelict field or pirate mothership (map content features) on an otherwise empty slot
+            $targetPlanetData = (new NpcTargets($this->db, $this->configs, $this->state))
+                ->atSlot($this->universe()->current(), (int) $targetGalaxy, (int) $targetSystem, (int) $targetPlanet);
         }
         if (empty($targetPlanetData)) {
             $targetPlanetData = [];
@@ -638,7 +644,7 @@ class FleetStep2Controller extends AbstractGameController
         $userModel = $this->models()->user($USER);
         $MaxFleetSpeed = $this->fleetFunctions()->fleetMaxSpeedFor($fleetArray, $userModel);
         $duration = $this->fleetFunctions()->missionDurationFor($fleetSpeed, $MaxFleetSpeed, $distance, $GameSpeedFactor, $userModel);
-        $consumption = $this->fleetFunctions()->fleetConsumptionFor($fleetArray, $duration, $distance, $userModel, $GameSpeedFactor);
+        $consumption = $this->fleetFunctions()->fleetConsumptionFor($fleetArray, $duration, $distance, $userModel, $GameSpeedFactor, startPlanetId: (int) $this->state->PLANET['id']);
 
         if ($PLANET['deuterium'] < $TransportDeuterium + $consumption) {
             return $this->jsonResponse($LNG->format('fl_not_enough', $LNG['tech'][RESOURCE_DEUT]));

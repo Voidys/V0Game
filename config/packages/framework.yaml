@@ -66,6 +66,11 @@ framework:
             policy: sliding_window
             limit: 60
             interval: '1 minute'
+        # placing a bounty (App\Security\GameRateLimits): per player, stops probing target names
+        bounty_place:
+            policy: sliding_window
+            limit: 10
+            interval: '1 minute'
         # reports of chat messages: per player
         chat_report:
             policy: sliding_window

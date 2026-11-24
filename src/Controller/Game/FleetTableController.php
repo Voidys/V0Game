@@ -20,6 +20,7 @@ namespace App\Controller\Game;
 use App\Game\Enum\PlanetType;
 use App\Game\Enum\MessageType;
 use App\Game\Enum\Mission;
+use App\Game\Engagement\MapContent\NpcTargets;
 use App\Fleet\ShipPreset;
 use Doctrine\DBAL\ArrayParameterType;
 use Symfony\Component\HttpFoundation\Response;
@@ -59,7 +60,8 @@ class FleetTableController extends AbstractGameController
             ':publicID' => $publicId,
             ':acsName' => $acsName,
             ':time' => $fleetData['arrival_time'],
-            ':target' => $fleetData['end_id'],
+            // a group on the pirate mothership (map content) is marked by the offset, so no planet row matches it
+            ':target' => $fleetData['end_id'] + (($fleetData['mission'] ?? 0) == Mission::PiratebaseAttack->value ? NpcTargets::ACS_OFFSET : 0),
         ]);
 
         $acsID = $db->lastInsertId();
@@ -94,6 +96,23 @@ class FleetTableController extends AbstractGameController
     /**
      * The combat group of $fleetData['group'] (id, public_id, name) if the player takes part in it, otherwise empty.
      */
+    /**
+     * Whether an outgoing fleet may open a combat group: attack fleets, and the pirate base attack of a pirate mothership (the
+     * group is the only way to attack it).
+     *
+     * @param array<string, mixed> $fleetData fleet row with mission and end_id
+     */
+    private function mayLeadAcs(array $fleetData): bool
+    {
+        if ($fleetData['mission'] == Mission::Attack->value) {
+            return true;
+        }
+
+        $target = (new NpcTargets($this->db, $this->configs, $this->state))->byId($this->universe()->current(), (int) $fleetData['end_id']);
+
+        return $fleetData['mission'] == Mission::PiratebaseAttack->value && ($target['npc_kind'] ?? 0) === NpcTargets::KIND_MOTHERSHIP;
+    }
+
     /**
      * Whether the user created the ACS group: the group's first (lowest id) fleet is the one that opened it, joiners fly later.
      */
@@ -162,7 +181,7 @@ class FleetTableController extends AbstractGameController
         }
 
         // Only outgoing attack fleets can lead an ACS
-        if ($fleetData['group'] == 0 && ($fleetData['mission'] != Mission::Attack->value || $fleetData['status'] != FLEET_OUTWARD)) {
+        if ($fleetData['group'] == 0 && (!$this->mayLeadAcs($fleetData) || $fleetData['status'] != FLEET_OUTWARD)) {
             return [];
         }
 

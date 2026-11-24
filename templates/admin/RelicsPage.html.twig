@@ -1,0 +1,178 @@
+{% include 'admin/overall_header.html.twig' %}
+<div class="stack">
+  {% if relicNotice %}<div class="notice notice--success">{{ icon('circle-check') }}<div>{{ relicNotice }}</div></div>{% endif %}
+  {% for error in relicErrors %}<div class="notice notice--danger" role="alert">{{ icon('circle-alert') }}<div>{{ error }}</div></div>{% endfor %}
+  {% if not relicsOn %}<div class="notice notice--warning" role="alert">{{ icon('circle-alert') }}<div>{{ LNG.rl_adm_feature_off }} <a href="{{ path('admin_config_uni_show') }}">{{ LNG.adm_tab_universe }}</a></div></div>{% endif %}
+  <div class="notice notice--info">{{ icon('info') }}<div>{{ LNG.rl_adm_intro }}</div></div>
+
+  <form method="POST" action="{{ path('admin_relics_save') }}" class="stack" data-track-dirty>
+    <section class="card card--flush">
+      <header class="card__head"><h2 class="card__title">{{ icon('layers') }}{{ LNG.rl_adm_slots }}</h2></header>
+      <div class="card__body"><p class="field-help">{{ LNG.rl_adm_slots_help }}</p></div>
+      <div class="table-wrap">
+        <table class="data data--compact">
+          <thead><tr><th>{{ LNG.rl_adm_stat }}</th>{% for slot in relicSlots %}<th class="num">{{ slot.label }}</th>{% endfor %}</tr></thead>
+          <tbody>
+            {% for stat, label in relicStats %}
+            <tr>
+              <td>{{ label }}</td>
+              {% for slot in relicSlots %}
+              <td class="num"><input type="number" name="slots[{{ slot.slot }}][{{ stat }}]" min="0" max="100" step="0.01" value="{{ relicMatrix[stat][slot.slot] }}" aria-label="{{ label }} / {{ slot.label }}"></td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card card--flush">
+      <header class="card__head"><h2 class="card__title">{{ icon('sliders-horizontal') }}{{ LNG.rl_adm_subs }}</h2></header>
+      <div class="card__body"><p class="field-help">{{ LNG.rl_adm_subs_help }}</p></div>
+      <div class="table-wrap">
+        <table class="data data--compact">
+          <thead><tr><th>{{ LNG.rl_adm_stat }}</th><th class="num">{{ LNG.rl_adm_max }}</th>{% for slot in relicSlots %}<th class="num">{{ slot.label }}</th>{% endfor %}</tr></thead>
+          <tbody>
+            {% for row in relicSubs %}
+            <tr>
+              <td>{{ row.label }}</td>
+              <td class="num"><input type="number" name="subs[{{ row.stat }}][max]" min="0" max="100" step="0.01" value="{{ row.max }}" aria-label="{{ row.label }}"></td>
+              {% for slot in relicSlots %}
+              <td class="num"><input type="checkbox" name="subs[{{ row.stat }}][slots][]" value="{{ slot.slot }}"{% if row.slots[slot.slot] %} checked{% endif %} aria-label="{{ row.label }} / {{ slot.label }}"></td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card card--flush">
+      <header class="card__head"><h2 class="card__title">{{ icon('star') }}{{ LNG.rl_adm_rarities }}</h2></header>
+      <div class="card__body"><p class="field-help">{{ LNG.rl_adm_rarities_help }}</p></div>
+      <div class="table-wrap">
+        <table class="data data--compact data--wrap-head">
+          <thead>
+            <tr>
+              <th>{{ LNG.rl_adm_rarity }}</th><th class="num">{{ LNG.rl_adm_weight }}</th><th class="num">{{ LNG.rl_adm_subcount }}</th>
+              <th class="num">{{ LNG.rl_adm_band_min }}</th><th class="num">{{ LNG.rl_adm_band_max }}</th><th class="num">{{ LNG.rl_adm_dust }}</th>
+              <th class="num">{{ LNG.rl_adm_reforge_dust }}</th><th class="num">{{ LNG.rl_adm_reforge_factor }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in relicRarities %}
+            <tr>
+              <td>{{ row.label }}</td>
+              <td class="num"><input type="number" name="rarities[{{ row.id }}][weight]" min="0" max="10000" step="1" value="{{ row.weight }}" aria-label="{{ row.label }}: {{ LNG.rl_adm_weight }}"></td>
+              <td class="num"><input type="number" name="rarities[{{ row.id }}][subs]" min="0" max="6" step="1" value="{{ row.subs }}" aria-label="{{ row.label }}: {{ LNG.rl_adm_subcount }}"></td>
+              <td class="num"><input type="number" name="rarities[{{ row.id }}][min]" min="0" max="100" step="1" value="{{ row.min }}" aria-label="{{ row.label }}: {{ LNG.rl_adm_band_min }}"></td>
+              <td class="num"><input type="number" name="rarities[{{ row.id }}][max]" min="0" max="100" step="1" value="{{ row.max }}" aria-label="{{ row.label }}: {{ LNG.rl_adm_band_max }}"></td>
+              <td class="num"><input type="number" name="rarities[{{ row.id }}][dust]" min="0" max="100000" step="1" value="{{ row.dust }}" aria-label="{{ row.label }}: {{ LNG.rl_adm_dust }}"></td>
+              <td class="num"><input type="number" name="rarities[{{ row.id }}][reforge_dust]" min="0" max="100000" step="1" value="{{ row.reforge_dust }}" aria-label="{{ row.label }}: {{ LNG.rl_adm_reforge_dust }}"></td>
+              <td class="num"><input type="number" name="rarities[{{ row.id }}][reforge_factor]" min="0" max="1000" step="0.01" value="{{ row.reforge_factor }}" aria-label="{{ row.label }}: {{ LNG.rl_adm_reforge_factor }}"></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="card__body">
+        <div class="form-grid">
+          <div class="field-row">
+            <label for="rl-base-metal">{{ LNG.rl_adm_reforge_base }}</label>
+            <div class="field-control">
+              {% for res in ['metal', 'crystal', 'deuterium'] %}
+              <input type="number" id="rl-base-{{ res }}" name="reforge_base[{{ res }}]" min="0" max="1000000000" step="1" value="{{ relicReforgeBase[res] }}" aria-label="{{ LNG['tech'][res == 'metal' ? 901 : (res == 'crystal' ? 902 : 903)] }}" title="{{ LNG['tech'][res == 'metal' ? 901 : (res == 'crystal' ? 902 : 903)] }}">
+              {% endfor %}
+              <p class="field-help">{{ LNG.rl_adm_reforge_base_help }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card--flush">
+      <header class="card__head"><h2 class="card__title">{{ icon('orbit') }}{{ LNG.rl_adm_sets }}</h2></header>
+      <div class="card__body"><p class="field-help">{{ LNG.rl_adm_sets_help }}</p></div>
+      <div class="table-wrap">
+        <table class="data data--compact">
+          <thead><tr><th>{{ LNG.rl_adm_set }}</th><th class="num">{{ LNG.rl_adm_enabled }}</th><th>{{ LNG.rl_adm_name_key }}</th><th>{{ LNG.rl_adm_bonus2 }}</th><th>{{ LNG.rl_adm_bonus4 }}</th></tr></thead>
+          <tbody>
+            {% for set in relicSets %}
+            <tr>
+              <td><strong>{{ set.label }}</strong><br><span class="muted mono small">{{ set.code }}</span></td>
+              <td class="num"><input type="checkbox" name="sets[{{ set.code }}][enabled]" value="1"{% if set.enabled %} checked{% endif %} aria-label="{{ set.label }}: {{ LNG.rl_adm_enabled }}"></td>
+              <td><input type="text" name="sets[{{ set.code }}][name]" maxlength="48" value="{{ set.name }}" aria-label="{{ set.label }}: {{ LNG.rl_adm_name_key }}"></td>
+              {% for bonus in ['b2', 'b4'] %}
+              <td>
+                {% for line in attribute(set, bonus) %}
+                <div class="toolbar">
+                  <select name="sets[{{ set.code }}][{{ bonus }}][{{ loop.index0 }}][stat]" aria-label="{{ set.label }}: {{ LNG['rl_adm_bonus' ~ bonus[1:]] }}">
+                    <option value="">-</option>
+                    {% for stat, label in relicStats %}<option value="{{ stat }}"{% if line.stat == stat %} selected{% endif %}>{{ label }}</option>{% endfor %}
+                  </select>
+                  <input type="number" name="sets[{{ set.code }}][{{ bonus }}][{{ loop.index0 }}][value]" min="0" max="100" step="0.01" value="{{ line.value }}" aria-label="{{ set.label }}: {{ LNG.rl_adm_value }}">
+                </div>
+                {% endfor %}
+              </td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card card--flush">
+      <header class="card__head"><h2 class="card__title">{{ icon('shield') }}{{ LNG.rl_adm_caps }}</h2></header>
+      <div class="card__body"><p class="field-help">{{ LNG.rl_adm_caps_help }}</p></div>
+      <div class="table-wrap">
+        <table class="data data--compact">
+          <thead><tr><th>{{ LNG.rl_adm_stat }}</th><th class="num">{{ LNG.rl_adm_cap }}</th></tr></thead>
+          <tbody>
+            {% for row in relicCaps %}
+            <tr><td>{{ row.label }}</td><td class="num"><input type="number" name="caps[{{ row.stat }}]" min="0" max="100" step="0.01" value="{{ row.value }}" aria-label="{{ row.label }}"></td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <div class="form-actions"><button type="submit" class="btn--primary">{{ icon('save') }}{{ LNG.button_submit }}</button></div>
+  </form>
+
+  <form method="POST" action="{{ path('admin_relics_reset') }}" class="card">
+    <header class="card__head"><h2 class="card__title">{{ icon('undo-2') }}{{ LNG.rl_adm_reset }}</h2></header>
+    <div class="card__body">
+      <p class="field-help">{{ LNG.rl_adm_reset_help }}</p>
+      <button type="submit" class="btn--danger" data-confirm-danger data-confirm="{{ LNG.rl_adm_reset_confirm|e('html_attr') }}">{{ icon('undo-2') }}{{ LNG.rl_adm_reset }}</button>
+    </div>
+  </form>
+
+  <form method="POST" action="{{ path('admin_relics_save') }}" class="card" data-track-dirty>
+    <input type="hidden" name="mode" value="json">
+    <header class="card__head"><h2 class="card__title">{{ icon('file-text') }}{{ LNG.rl_adm_json }}</h2></header>
+    <div class="card__body stack">
+      <p class="field-help">{{ LNG.rl_adm_json_help }}</p>
+      <textarea name="json" class="mono" style="width:100%;max-width:none" rows="18" spellcheck="false">{{ relicJson }}</textarea>
+    </div>
+    <div class="form-actions"><button type="submit">{{ icon('save') }}{{ LNG.rl_adm_json_save }}</button></div>
+  </form>
+
+  <section class="card card--flush">
+    <header class="card__head"><h2 class="card__title">{{ icon('scroll-text') }}{{ LNG.rl_adm_log }}</h2></header>
+    {% if relicLog is empty %}
+    <div class="card__body muted">{{ LNG.rl_adm_log_empty }}</div>
+    {% else %}
+    <div class="table-wrap">
+      <table class="data data--compact">
+        <thead><tr><th>{{ LNG.rl_adm_log_time }}</th><th>{{ LNG.rl_adm_log_player }}</th><th>{{ LNG.rl_adm_log_action }}</th><th>{{ LNG.rl_adm_log_detail }}</th></tr></thead>
+        <tbody>
+          {% for row in relicLog %}
+          <tr><td class="nowrap">{{ row.time }}</td><td>{{ row.username }}</td><td>{{ row.action }} {% if row.relic_id > 0 %}<span class="muted">#{{ row.relic_id }}</span>{% endif %}</td><td>{{ row.detail }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </section>
+</div>
+{% include 'admin/overall_footer.html.twig' %}

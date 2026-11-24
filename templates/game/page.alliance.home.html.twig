@@ -24,6 +24,7 @@
 	[LNG.pl_dermetal, show ? dermetal : '-'],
 	[LNG.pl_dercrystal, show ? dercrystal : '-'],
 ] %}
+{% include 'game/engagement/_alliance_goal.html.twig' %}
 <div class="grid-2">
 	<div class="stack">
 		<section class="panel">
@@ -116,5 +117,6 @@
 	<div class="panel__body"><a data-method="post" href="{{ path('game_alliance_close') }}" data-confirm-danger data-confirm="{{ LNG.al_leave_ally|e('html_attr') }}"><button type="button" class="btn--danger">{{ LNG.al_leave_alliance }}</button></a></div>
 </section>
 {% endif %}
+{% include 'game/engagement/_alliance_wars.html.twig' %}
 {% include 'game/shared.alliance.chart.html.twig' %}
 {% endblock %}

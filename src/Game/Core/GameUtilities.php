@@ -235,6 +235,11 @@ trait GameUtilities
         return $this->gameUtility(\App\Game\Achievements\AchievementGuard::class);
     }
 
+    protected function returningPlayers(): \App\Game\Engagement\Returning\ReturningPlayers
+    {
+        return $this->gameUtility(\App\Game\Engagement\Returning\ReturningPlayers::class);
+    }
+
     protected function battleAchievements(): \App\Game\Achievements\BattleAchievement
     {
         return $this->gameUtility(\App\Game\Achievements\BattleAchievement::class);
@@ -258,5 +263,35 @@ trait GameUtilities
     protected function playerUtilAchievements(): \App\Game\Achievements\PlayerUtilAchievement
     {
         return $this->gameUtility(\App\Game\Achievements\PlayerUtilAchievement::class);
+    }
+
+    /** admin-planned universe event factors (`factor($universe, EventModifiers::FLEET_SPEED)`, 1.0 when off) */
+    protected function eventModifiers(): \App\Game\Engagement\Events\EventModifiers
+    {
+        return $this->gameUtility(\App\Game\Engagement\Events\EventModifiers::class);
+    }
+
+    /** late-joiner production boost */
+    protected function catchUpBoost(): \App\Game\Engagement\Events\CatchUpBoost
+    {
+        return $this->gameUtility(\App\Game\Engagement\Events\CatchUpBoost::class);
+    }
+
+    /** admin-planned universe events: presets, storage, banner data and the start/end announcements */
+    protected function universeEvents(): \App\Game\Engagement\Events\UniverseEvents
+    {
+        return $this->gameUtility(\App\Game\Engagement\Events\UniverseEvents::class);
+    }
+
+    /** relic bonuses of a planet (factors are 1.0 and no query runs while the relics are off) */
+    protected function relicBonus(): \App\Game\Engagement\Relics\RelicBonus
+    {
+        return $this->gameUtility(\App\Game\Engagement\Relics\RelicBonus::class);
+    }
+
+    /** relic inventory actions (equip, dismantle, reforge, drops) */
+    protected function relicInventory(): \App\Game\Engagement\Relics\RelicInventory
+    {
+        return $this->gameUtility(\App\Game\Engagement\Relics\RelicInventory::class);
     }
 }

@@ -73,6 +73,8 @@ class AlliancesTab extends AccountEditorTab
             ':AllianceID' => $id,
         ]);
 
+        $db->delete("DELETE FROM %%ENG_ALLIANCE_GOALS%% WHERE `alliance_id` = :AllianceID;", [':AllianceID' => $id]);
+
         $sql = "DELETE FROM %%ALLIANCE_RANK%% WHERE `allianceID` = :AllianceID;";
         $db->delete($sql, [
             ':AllianceID' => $id,

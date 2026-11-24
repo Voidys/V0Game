@@ -63,6 +63,18 @@
   {% if voteNav %}
     {{ nav.link(path('game_vote_show'), 'gift', LNG.lm_vote, currentPage == 'vote') }}
   {% endif %}
+  {% if contractsNav %}
+    {{ nav.link(path('game_contracts_show'), 'scroll-text', LNG.eng_ct_nav, currentPage == 'contracts') }}
+  {% endif %}
+  {% if bountyNav %}
+    {{ nav.link(path('game_bounties_show'), 'crosshair', LNG.lm_bounties, currentPage == 'bounties') }}
+  {% endif %}
+  {% if seasonNav %}
+    {{ nav.link(path('game_season_show'), 'trophy', LNG.lm_season, currentPage == 'season') }}
+  {% endif %}
+  {% if cosmeticsNav %}
+    {{ nav.link(path('game_cosmetics_show'), 'award', LNG.lm_cosmetics, currentPage == 'cosmetics') }}
+  {% endif %}
   {% if isModuleAvailable(constant('MODULE_SEARCH')) %}
     {{ nav.link(path('game_search_show'), 'search', LNG.lm_search, currentPage == 'search') }}
   {% endif %}

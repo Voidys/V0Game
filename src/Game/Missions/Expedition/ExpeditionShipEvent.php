@@ -3,6 +3,7 @@
 namespace App\Game\Missions\Expedition;
 
 use App\Game\AdvancedStats\AdvancedStatsEnum;
+use App\Game\Engagement\Events\EventModifiers;
 
 /**
  * Expedition event "found abandoned ships": by card size a point budget is drawn, ships the fleet can find (see
@@ -117,6 +118,9 @@ class ExpeditionShipEvent extends ExpeditionEvent
                 $this->ctx->stats->setTimestamp($this->fleet['owner'], AdvancedStatsEnum::FIRST_EXPO_SHIPS_LARGE, $this->fleet['stay_time']);
                 break;
         }
+
+        // universe event (expedition finds +x %): scales the drawn size, the MaxPoints cap below still holds
+        $Size *= $this->eventModifiers()->factor((int) $this->fleet['universe'], EventModifiers::EXPEDITION_FIND) * $this->relicFindFactor(); // + relics of the start planet
 
         $MaxPoints = $this->fleetFunctions()->calculateMaxFactor($this->fleet['universe']);
 

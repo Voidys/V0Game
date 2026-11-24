@@ -46,7 +46,9 @@
       <tbody>
         {% for planet in planetDataNew %}
           {% set currentPlanet = GalaxyRows[planet.planet_position] %}
-          {% if currentPlanet is not defined or currentPlanet is null %}
+          {% if (mapContent[planet.planet_position] ?? null) and (currentPlanet is not defined or currentPlanet is null) %}
+            {% include 'game/engagement/_galaxy_npc.html.twig' with {npc: mapContent[planet.planet_position]} %}
+          {% elseif currentPlanet is not defined or currentPlanet is null %}
             <tr class="is-empty" data-info="p_{{ planet.planet_position }}">
               <td class="ctr galaxy-pos galaxy-pos--{{ colonizable[planet.planet_position] == 'colorPositive' ? 'free' : 'blocked' }} {{ colonizable[planet.planet_position] }} tooltip_sticky" tabindex="-1" {{ tooltip(include('game/tooltip.galaxy.colonizable.html.twig')) }}>{{ planet.planet_position }}</td>
               <td colspan="6" class="galaxy-free-note">{{ colonizable[planet.planet_position] == 'colorPositive' ? LNG.gl_colonizable : LNG.gl_not_colonizable }}</td>

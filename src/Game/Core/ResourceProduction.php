@@ -2,6 +2,8 @@
 
 namespace App\Game\Core;
 
+use App\Game\Engagement\Events\EventModifiers;
+use App\Game\Engagement\Relics\RelicCatalog;
 use App\Game\Enum\PlanetType;
 use App\Game\Model\Planet;
 use App\Game\Model\ProductionResult;
@@ -18,6 +20,9 @@ use App\Game\Model\User;
 class ResourceProduction
 {
     use GameUtilities;
+
+    /** solar factor to rebuild with instead of the current one (the average over the window that is being integrated) */
+    public ?float $solarOverride = null;
 
     public function __construct(
         protected Database $db,
@@ -69,6 +74,20 @@ class ResourceProduction
         $hash[] = $user->level(CRYSTAL_PROC_TECH);
         $hash[] = $user->level(DEUTERIUM_PROC_TECH);
 
+        // engagement boosts change the stored figures; they join the hash only while active (hash unchanged when off)
+        $solar = $this->eventModifiers()->factor($user->universe, EventModifiers::SOLAR);
+        if ($solar !== 1.0) {
+            $hash[] = 'solar' . $solar;
+        }
+        $catchUp = $this->catchUpBoost()->percentFor($user->id, $user->universe, $user->registerTime);
+        if ($catchUp > 0) {
+            $hash[] = 'catchup' . round($catchUp);
+        }
+        $relics = $this->relicBonus()->signature($user->id, $user->universe, $planet->id);
+        if ($relics !== '') {
+            $hash[] = $relics;
+        }
+
         return md5(implode('::', $hash));
     }
 
@@ -110,13 +129,18 @@ class ResourceProduction
         $temp = $this->sumBuildings($user, $planet);
 
         $out = [];
-        $out['metal_max'] = $temp[901]['max'] * $config->storage_multiplier;
-        $out['crystal_max'] = $temp[902]['max'] * $config->storage_multiplier;
-        $out['deuterium_max'] = $temp[903]['max'] * $config->storage_multiplier;
+        // relic bonuses of the planet (empty without relics or with the feature off: nothing below changes then)
+        $relicBonus = $this->relicBonus()->forPlanet($user->id, $user->universe, $planet->id);
+        $relics = $relicBonus['values'];
+        $storageFactor = 1 + ($relics[RelicCatalog::STORAGE] ?? 0) / 100;
+
+        $out['metal_max'] = $temp[901]['max'] * $config->storage_multiplier * $storageFactor;
+        $out['crystal_max'] = $temp[902]['max'] * $config->storage_multiplier * $storageFactor;
+        $out['deuterium_max'] = $temp[903]['max'] * $config->storage_multiplier * $storageFactor;
 
         // the configured base energy production is added on planets only (moons get no basic income)
         $energyBasic = $planet->isMoon() ? 0 : $config->energy_basic_income * $config->energy_multiplier;
-        $out['energy'] = round($temp[911]['plus'] * $config->energy_multiplier + $energyBasic);
+        $out['energy'] = round($temp[911]['plus'] * $config->energy_multiplier * (1 + ($relics[RelicCatalog::ENERGY] ?? 0) / 100) + $energyBasic);
         // both figures are stored rounded (double(50,0)), so the throttle must use the rounded values too
         $out['energy_used'] = round($temp[911]['minus'] * $config->energy_multiplier);
         // Without energy consumers (all mines off) there is nothing to throttle, but the fusion plant still burns its
@@ -127,24 +151,32 @@ class ResourceProduction
         $metalBonus = 1;
         $crystalBonus = 1;
         $deuteriumBonus = 1;
+        // late-joiner boost: mines only (metal/crystal/deuterium), never energy
+        $catchUp = 1 + round($this->catchUpBoost()->percentFor($user->id, $user->universe, $user->registerTime)) / 100;
         if ($config->planet_ressource_bonus) {
             $metalBonus = 1 + $planet->metalBonusPercent / 100;
             $crystalBonus = 1 + $planet->crystalBonusPercent / 100;
             $deuteriumBonus = 1 + $planet->deuteriumBonusPercent / 100;
         }
 
+        // relics: mine bonus per resource (+ all resources) on the plus part, fusion deuterium use on the consumption
+        $metalBonus *= 1 + ($relicBonus['production'][RelicCatalog::METAL] ?? 0) / 100;
+        $crystalBonus *= 1 + ($relicBonus['production'][RelicCatalog::CRYSTAL] ?? 0) / 100;
+        $deuteriumBonus *= 1 + ($relicBonus['production'][RelicCatalog::DEUTERIUM] ?? 0) / 100;
+        $deuteriumUse = $temp[903]['minus'] * (1 - ($relics[RelicCatalog::FUSION] ?? 0) / 100);
+
         // $temp[x]['plus'] regular growth, (1 + 0.02 * tech) maximiser, $prodLevel energy factor on deficit,
         // $temp[x]['minus'] consumption (deuterium), resource_multiplier economy speed
         $out['metal_perhour'] = (
-            ($temp[901]['plus'] * $metalBonus) * (1 + 0.02 * $user->level(METAL_PROC_TECH)) * $prodLevel + $temp[901]['minus']
+            ($temp[901]['plus'] * $metalBonus) * (1 + 0.02 * $user->level(METAL_PROC_TECH)) * $prodLevel * $catchUp + $temp[901]['minus']
         ) * ($config->resource_multiplier / 2500);
 
         $out['crystal_perhour'] = (
-            ($temp[902]['plus'] * $crystalBonus) * (1 + 0.02 * $user->level(CRYSTAL_PROC_TECH)) * $prodLevel + $temp[902]['minus']
+            ($temp[902]['plus'] * $crystalBonus) * (1 + 0.02 * $user->level(CRYSTAL_PROC_TECH)) * $prodLevel * $catchUp + $temp[902]['minus']
         ) * ($config->resource_multiplier / 2500);
 
         $out['deuterium_perhour'] = (
-            ($temp[903]['plus'] * $deuteriumBonus) * (1 + 0.02 * $user->level(DEUTERIUM_PROC_TECH)) * $prodLevel + $temp[903]['minus']
+            ($temp[903]['plus'] * $deuteriumBonus) * (1 + 0.02 * $user->level(DEUTERIUM_PROC_TECH)) * $prodLevel * $catchUp + $deuteriumUse
         ) * ($config->resource_multiplier / 2500);
 
         return $out;
@@ -320,6 +352,7 @@ class ResourceProduction
         }
 
         $ressIDs = array_merge([], $elements->resourceIds(1), $elements->resourceIds(2));
+        $solar = $this->solarOverride ?? $this->eventModifiers()->factor($user->universe, EventModifiers::SOLAR);
 
         foreach ($elements->ids('prod') as $ProdID) {
             $BuildLevelFactor = $planet->productionRate($ProdID);
@@ -340,6 +373,9 @@ class ResourceProduction
                 );
 
                 if ($Production > 0) {
+                    if ($ID == RESOURCE_ENERGY && in_array((int) $ProdID, [solar_plant, SHIP_SOLSAT], true)) {
+                        $Production *= $solar; // solar plant / satellite, universe event
+                    }
                     $temp[$ID]['plus'] += $Production;
                 } else {
                     // Consumption (fusion plant deuterium) is always counted, even at a stock of 0: the stock is not part

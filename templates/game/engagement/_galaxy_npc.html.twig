@@ -1,0 +1,40 @@
+{# a derelict field (npc.kind 1) or the pirate mothership (npc.kind 2) on an empty slot of the galaxy view; map content features #}
+{% set npcTip %}
+<table class='tt-galaxy'>
+  <tr><th colspan='2'>{% if npc.kind == 1 %}{{ LNG.der_name }}{% else %}{{ LNG.ms_name }}{% endif %} [{{ galaxy }}:{{ system }}:{{ planet.planet_position }}]</th></tr>
+  {% if npc.kind == 1 %}
+  <tr><td colspan='2'>{{ LNG.format('der_tooltip', shortly_number(npc.der_metal), shortly_number(npc.der_crystal), npc.hours_left) }}</td></tr>
+  {% else %}
+  <tr><td>{{ LNG.ms_hp }}</td><td>{{ npc.hp_percent }}%</td></tr>
+  <tr><td colspan='2'>{{ LNG.format('ms_need_group', npc.min_players) }}</td></tr>
+  <tr><td colspan='2'>{{ LNG.format('ms_expires_in', npc.hours_left) }}</td></tr>
+  {% endif %}
+</table>
+{% endset %}
+<tr class="galaxy-pirate galaxy-npc galaxy-npc--{{ npc.kind == 1 ? 'derelict' : 'mothership' }}" data-info="p_{{ planet.planet_position }}">
+  <td class="ctr galaxy-pos">{{ planet.planet_position }}</td>
+  <td colspan="2" class="galaxy-planet">
+    <a class="tooltip_sticky" {{ tooltip(npcTip) }}>
+      <img src="{{ npc.image }}" height="28" width="28" alt=""><span>{% if npc.kind == 1 %}{{ LNG.der_name }}{% else %}{{ LNG.ms_name }}{% endif %}</span>
+    </a>
+  </td>
+  <td colspan="3" class="galaxy-debris">
+    {% if npc.kind == 1 %}
+      <a class="tooltip_sticky" {{ tooltip(include('game/tooltip.galaxy.debris.html.twig', {'id': npc.id, 'missions': {22: true}, 'debris': {metal: npc.der_metal, crystal: npc.der_crystal}})) }}>
+        <img src="{{ theme_asset('planeten/debris.jpg') }}" height="22" width="22" alt="">
+        <span>{{ shortly_number(npc.der_metal) }} / {{ shortly_number(npc.der_crystal) }}</span>
+      </a>
+      <span class="tag tag--muted">{{ LNG.format('der_expires_short', npc.hours_left) }}</span>
+    {% else %}
+      <span class="galaxy-npc__hp">{{ LNG.ms_hp }} <progress max="100" value="{{ npc.hp_percent }}">{{ npc.hp_percent }}%</progress> {{ npc.hp_percent }}%</span>
+    {% endif %}
+  </td>
+  <td class="act galaxy-actions">
+    {% if npc.kind == 2 %}
+      <span class="galaxy-actions__list">
+        {% if npc.missions[21] %}<a href="#" class="galaxy-action" data-action="galaxy-mission" data-mission="21" data-planet="{{ npc.id }}" aria-label="{{ LNG.gl_spy }}" data-tip="{{ LNG.gl_spy }}">{{ icon('scan-eye') }}</a>{% endif %}
+        {% if npc.missions[20] %}<a class="galaxy-action galaxy-action--attack" href="{{ path('game_fleet_table_show', {galaxy: galaxy, system: system, planet: planet.planet_position, planettype: 1, target_mission: 20}) }}" aria-label="{{ LNG.type_mission_20 }}" data-tip="{{ LNG.type_mission_20 }}">{{ icon('swords') }}</a>{% endif %}
+      </span>
+    {% endif %}
+  </td>
+</tr>

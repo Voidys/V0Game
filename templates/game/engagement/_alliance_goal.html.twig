@@ -1,0 +1,30 @@
+{# Alliance goal of the alliance page (one include line there): progress bar and, for the leader, the set-goal form. Renders nothing while the feature is off. #}
+{% import '_macros/ui.html.twig' as ui %}
+{% set engGoal = eng_alliance_goal() %}
+{% if engGoal %}
+<section class="panel">
+	{{ ui.panel_head(LNG.eng_ag_title, LNG.format('eng_ag_completed', engGoal.completedCount)) }}
+	<div class="panel__body stack">
+		{% if engGoal.goal %}
+			<p>{{ attribute(LNG, 'eng_ag_kind_' ~ engGoal.goal.kind) }}: {{ pretty_number(engGoal.goal.progress) }} / {{ pretty_number(engGoal.goal.target) }}</p>
+			<div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ engGoal.goal.percent }}" aria-label="{{ LNG.eng_ag_title }}" style="--fill: {{ (engGoal.goal.percent / 100)|round(3) }}"></div>
+			{% if engGoal.goal.completed %}<p class="colorPositive">{{ LNG.eng_ag_reached }}</p>{% endif %}
+		{% elseif not engGoal.enoughMembers %}
+			<p class="hint">{{ LNG.format('eng_ag_need_members', engGoal.minMembers) }}</p>
+		{% else %}
+			<p class="hint">{{ LNG.eng_ag_none }}</p>
+		{% endif %}
+		{% if engGoal.canSet %}
+		<form action="{{ path('game_alliance_goal_set') }}" method="post" class="stack">
+			<label>{{ LNG.eng_ag_kind }}
+				<select name="kind">
+					{% for kind, minimum in engGoal.minimums %}<option value="{{ kind }}"{% if engGoal.goal and engGoal.goal.kind == kind %} selected{% endif %}>{{ attribute(LNG, 'eng_ag_kind_' ~ kind) }} ({{ LNG.format('eng_ag_min', pretty_number(minimum)) }})</option>{% endfor %}
+				</select>
+			</label>
+			<label>{{ LNG.eng_ag_target }} <input type="number" name="target" min="1" step="1" value="{{ engGoal.goal ? engGoal.goal.target : '' }}" required></label>
+			<button type="submit" class="btn--primary">{{ LNG.eng_ag_set }}</button>
+		</form>
+		{% endif %}
+	</div>
+</section>
+{% endif %}

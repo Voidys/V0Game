@@ -21,6 +21,9 @@ final class Chat
     public const GLOBAL = 'global';
     public const ALLIANCE = 'alliance';
 
+    /** system lines (user 0, e.g. the battle feed) end with this mark and a public combat report id; the client turns it into a link */
+    public const SYSTEM_REPORT_MARK = ' |kb:';
+
     public const MAX_LENGTH = 300;
     /** messages per poll response */
     public const PAGE = 50;
@@ -270,7 +273,7 @@ final class Chat
      * Messages of a channel for a reader, without deleted ones and without those of players the reader blocked.
      * `$after` = 0 gives the newest page, otherwise the next page after that id (oldest first).
      *
-     * @return list<array{id: int, uid: int, user: string, ally: ?string, text: string, time: int, own: bool}>
+     * @return list<array{id: int, uid: int, user: string, ally: ?string, text: string, time: int, own: bool, report: ?string}>
      */
     public function messages(int $universe, string $channel, int $readerId, int $after): array
     {
@@ -285,15 +288,25 @@ final class Chat
             $rows = array_reverse($rows);
         }
 
-        return array_map(static fn(array $row): array => [
-            'id' => (int) $row['id'],
-            'uid' => (int) $row['user_id'],
-            'user' => (string) $row['username'],
-            'ally' => $row['ally_tag'] === null ? null : (string) $row['ally_tag'],
-            'text' => (string) $row['message'],
-            'time' => (int) $row['created_at'],
-            'own' => (int) $row['user_id'] === $readerId,
-        ], $rows);
+        return array_map(static function (array $row) use ($readerId): array {
+            $text = (string) $row['message'];
+            $report = null;
+            // only system lines (user 0) may carry a report mark; the id is whitelisted before it reaches the client
+            if ((int) $row['user_id'] === 0 && preg_match('/^(.*)' . preg_quote(self::SYSTEM_REPORT_MARK, '/') . '([A-Za-z0-9]{1,32})$/su', $text, $match)) {
+                [, $text, $report] = $match;
+            }
+
+            return [
+                'id' => (int) $row['id'],
+                'uid' => (int) $row['user_id'],
+                'user' => (string) $row['username'],
+                'ally' => $row['ally_tag'] === null ? null : (string) $row['ally_tag'],
+                'text' => $text,
+                'time' => (int) $row['created_at'],
+                'own' => (int) $row['user_id'] === $readerId,
+                'report' => $report,
+            ];
+        }, $rows);
     }
 
     /**
@@ -394,7 +407,8 @@ final class Chat
     private function visibleMessage(array $user, int $messageId, bool $globalEnabled): ?array
     {
         $row = $this->db->selectSingle('SELECT `id`, `universe`, `channel`, `user_id` FROM %%CHAT_MESSAGES%% WHERE `id` = :id AND `deleted` = 0;', [':id' => $messageId]);
-        if (!$row || (int) $row['universe'] !== (int) $user['universe']) {
+        // user 0 = system lines (battle feed): nothing to report or block
+        if (!$row || (int) $row['user_id'] === 0 || (int) $row['universe'] !== (int) $user['universe']) {
             return null;
         }
         $allowed = $row['channel'] === self::GLOBAL

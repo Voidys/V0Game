@@ -1,0 +1,80 @@
+{% import '_macros/ui.html.twig' as ui -%}
+{% extends layout_template %}
+{% block title %}{{ LNG.lm_bounties }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.bo_head, 'crosshair', LNG.format('bo_intro', feePercent, pretty_number(minTotal))) }}{% endblock %}
+{% block content %}
+{% if notice %}<p class="panel panel__body {{ notice.error ? 'colorNegative' : 'colorPositive' }}">{{ notice.text }}</p>{% endif %}
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.bo_open) }}
+	{% if open %}
+	<table class="data">
+		<thead>
+			<tr>
+				<th>{{ LNG.bo_target }}</th>
+				<th class="num">{{ LNG.bo_reward }}</th>
+				<th class="num">{{ LNG.bo_required }}</th>
+				<th class="num">{{ LNG.bo_progress }}</th>
+				<th>{{ LNG.bo_expires }}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bounty in open %}
+			<tr>
+				<td>{{ bounty.target }}</td>
+				<td class="num">{{ pretty_number(bounty.total) }}</td>
+				<td class="num">{{ pretty_number(bounty.required) }}</td>
+				<td class="num">{{ pretty_number(bounty.progress) }}</td>
+				<td>{{ bounty.expires }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<p class="empty">{{ LNG.bo_none }}</p>
+	{% endif %}
+</section>
+<section class="panel">
+	{{ ui.panel_head(LNG.bo_place) }}
+	<form class="panel__body" action="{{ path('game_bounties_place') }}" method="post">
+		<p class="hint">{{ LNG.format('bo_place_hint', planetName) }}</p>
+		<div class="field"><label for="bo-target">{{ LNG.bo_target }}</label><input type="text" id="bo-target" name="target" maxlength="32" required></div>
+		<div class="field"><label for="bo-metal">{{ LNG.tech[901] }}</label><input type="number" id="bo-metal" name="metal" min="0" step="1" value="0"></div>
+		<div class="field"><label for="bo-crystal">{{ LNG.tech[902] }}</label><input type="number" id="bo-crystal" name="crystal" min="0" step="1" value="0"></div>
+		<div class="field"><label for="bo-deuterium">{{ LNG.tech[903] }}</label><input type="number" id="bo-deuterium" name="deuterium" min="0" step="1" value="0"></div>
+		<button type="submit" class="btn--primary">{{ LNG.bo_place_button }}</button>
+	</form>
+</section>
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.bo_mine) }}
+	{% if mine %}
+	<table class="data">
+		<thead>
+			<tr>
+				<th>{{ LNG.bo_target }}</th>
+				<th class="num">{{ LNG.bo_reward }}</th>
+				<th class="num">{{ LNG.bo_required }}</th>
+				<th>{{ LNG.bo_expires }}</th>
+				<th>{{ LNG.bo_status }}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for bounty in mine %}
+			<tr>
+				<td>{{ bounty.target }}</td>
+				<td class="num">{{ pretty_number(bounty.total) }}</td>
+				<td class="num">{{ pretty_number(bounty.required) }}</td>
+				<td>{{ bounty.expires }}</td>
+				<td>{{ attribute(LNG, 'bo_status_' ~ bounty.status) }}
+					{% if bounty.status == 'open' %}
+					<form action="{{ path('game_bounties_cancel') }}" method="post"><input type="hidden" name="id" value="{{ bounty.id }}"><button type="submit">{{ LNG.bo_cancel }}</button></form>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<p class="empty">{{ LNG.bo_none_mine }}</p>
+	{% endif %}
+</section>
+{% endblock %}

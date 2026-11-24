@@ -1,0 +1,50 @@
+{% import '_macros/ui.html.twig' as ui -%}
+{% extends layout_template %}
+{% block title %}{{ LNG.eng_ct_nav }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.eng_ct_head, 'scroll-text', LNG.format('eng_ct_week_ends', daysLeft, hoursLeft)) }}{% endblock %}
+{% block content %}
+{% if notice %}<p class="panel panel__body">{{ notice }}</p>{% endif %}
+<section class="panel panel--flush">
+	{% if contracts %}
+	<table class="data">
+		<thead>
+			<tr>
+				<th>{{ LNG.eng_ct_contract }}</th>
+				<th>{{ LNG.eng_ct_progress }}</th>
+				<th class="act"></th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for contract in contracts %}
+			<tr>
+				<td>{{ contract.label }}</td>
+				<td>
+					<div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ contract.percent }}" aria-label="{{ contract.label }}" style="--fill: {{ (contract.percent / 100)|round(3) }}"></div>
+					<small>{{ contract.progressText }}</small>
+				</td>
+				<td class="act">
+					{% if contract.claimed %}
+						<span class="tag tag--pos">{{ LNG.eng_ct_claimed }}</span>
+					{% elseif contract.completed %}
+						<form action="{{ path('game_contracts_claim') }}" method="post">
+							<input type="hidden" name="id" value="{{ contract.id }}">
+							<button type="submit" class="btn--primary">{{ LNG.eng_ct_claim }}</button>
+						</form>
+					{% elseif rerollsLeft > 0 %}
+						<form action="{{ path('game_contracts_reroll') }}" method="post">
+							<input type="hidden" name="id" value="{{ contract.id }}">
+							<button type="submit">{{ LNG.eng_ct_reroll }}</button>
+						</form>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<p class="empty">{{ LNG.eng_ct_none }}</p>
+	{% endif %}
+</section>
+<p class="hint">{{ LNG.format('eng_ct_done_line', done, contracts|length) }} · {{ LNG.format('eng_ct_rerolls_left', rerollsLeft) }}<br>
+	{{ resourceMode ? LNG.eng_ct_reward_resources : LNG.eng_ct_reward_cosmetic }}</p>
+{% endblock %}

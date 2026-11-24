@@ -70,7 +70,7 @@ final class InstallChatSettingsTest extends GameTestCase
         $html = self::container()->get('twig')->render('install/ins_options.html.twig', [
             'currentStep' => 4,
             'lang' => 'en',
-            'options' => ['chat' => true, 'chat_global' => false, 'chat_block_links' => true, 'bots' => 3],
+            'options' => ['chat' => true, 'chat_global' => false, 'chat_block_links' => true, 'bots' => 3, 'features' => ['events' => false, 'relics' => true]],
             'mail' => ['active' => true, 'method' => 2, 'from' => 'a@example.com', 'host' => 'smtp.example.com', 'port' => '587', 'encryption' => 'tls', 'user' => 'bob', 'password' => '', 'user_valid' => false],
             'legal' => ['privacy_region' => 'other', 'rules_default' => 'blank', 'cookie_consent' => false, 'disclamer_mail' => '', 'disclamer_address' => ''],
             'errors' => ['mail' => 'Boom'],
@@ -84,6 +84,8 @@ final class InstallChatSettingsTest extends GameTestCase
         $this->assertDoesNotMatchRegularExpression('/name="chat_global" value="1"[^>]*checked/', $html);
         $this->assertMatchesRegularExpression('/name="chat_block_links" value="1"[^>]*checked/', $html);
         $this->assertStringContainsString('name="bots" value="3"', $html);
+        $this->assertMatchesRegularExpression('/name="feature_relics" value="1"[^>]*checked/', $html);
+        $this->assertDoesNotMatchRegularExpression('/name="feature_events" value="1"[^>]*checked/', $html);
         $this->assertMatchesRegularExpression('/<option value="tls" selected/', $html);
         $this->assertMatchesRegularExpression('/value="other" checked/', $html);
         $this->assertStringContainsString('name="test"', $html);

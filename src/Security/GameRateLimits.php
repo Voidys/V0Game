@@ -34,6 +34,9 @@ final class GameRateLimits
     /** the chat poll (a read in the background): its own generous bucket, 60 per minute (an open chat polls 15 per minute per tab) */
     private const CHAT_POLL_ROUTE = 'game_chat_poll';
 
+    /** placing a bounty (target names must not be probed): its own bucket, 10 per minute */
+    private const BOUNTY_PLACE_ROUTE = 'game_bounties_place';
+
     /** route names that can be opened without a login */
     private const ANONYMOUS_ROUTES = ['game_raport_show', 'account_board_show', 'account_board_post'];
 
@@ -51,6 +54,8 @@ final class GameRateLimits
         private readonly bool $enabled,
         #[Autowire(service: 'limiter.chat_poll', lazy: true)]
         private readonly ?RateLimiterFactoryInterface $chatPoll = null,
+        #[Autowire(service: 'limiter.bounty_place', lazy: true)]
+        private readonly ?RateLimiterFactoryInterface $bountyPlace = null,
     ) {}
 
     /**
@@ -71,6 +76,8 @@ final class GameRateLimits
 
         if ($area === 'game' && $request->attributes->get('_route') === self::CHAT_POLL_ROUTE && $this->chatPoll !== null) {
             $factory = $this->chatPoll;
+        } elseif ($area === 'game' && $request->attributes->get('_route') === self::BOUNTY_PLACE_ROUTE && $this->bountyPlace !== null) {
+            $factory = $this->bountyPlace;
         } elseif ($area === 'game' && in_array($request->attributes->get('_route'), self::EXPENSIVE_ROUTES, true)) {
             $factory = $this->reads;
         } elseif ($this->policy->requiresToken($request)) {

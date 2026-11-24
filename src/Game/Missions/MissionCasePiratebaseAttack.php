@@ -22,6 +22,8 @@ use OutOfRangeException;
 use App\Game\Core\BattleReportStore;
 use App\Game\BattleEngine\BattleFleet;
 use App\Game\BattleEngine\BattleHandler;
+use App\Game\Engagement\MapContent\NpcTargets;
+use App\Game\Engagement\Mothership\MothershipBattle;
 
 /**
  * Mission "pirate base attack" (20): attack on an NPC pirate base (table `pirate_bases`, spawned by
@@ -47,7 +49,6 @@ class MissionCasePiratebaseAttack extends MissionFunctions implements MissionInt
      */
     public function TargetEvent()
     {
-        $e = $this->elements();
         $db = $this->db;
         $LNG = $this->getLanguage(null, $this->_fleet['owner']);
 
@@ -64,6 +65,15 @@ class MissionCasePiratebaseAttack extends MissionFunctions implements MissionInt
         }
 
         [$fleetAttack, $userAttack] = $this->buildAttackers();
+
+        // the pirate mothership (map content) only fights a combat group of enough different players
+        $battle = new MothershipBattle($this->db, $this->configs, $this->state);
+        $mothership = $targetBase['kind'] == NpcTargets::KIND_MOTHERSHIP ? $battle->alive((int) $targetBase['id']) : null;
+        $power = $mothership === null ? [] : $battle->attackPower($fleetAttack);
+        if ($targetBase['kind'] == NpcTargets::KIND_MOTHERSHIP && ($mothership === null || count($battle->qualifying($power)) < $battle->minPlayers($mothership))) {
+            $this->refuseMothershipFight($userAttack);
+            return;
+        }
 
         [$fleetDefend, $userDefend] = $this->buildPirateDefenders($fleetAttack, $targetBase, $LNG);
 
@@ -85,17 +95,44 @@ class MissionCasePiratebaseAttack extends MissionFunctions implements MissionInt
             ':baseId'       => $this->_fleet['end_id'],
         ]);
 
+        $this->resolveFight($battleHandler, $combatResult, $targetBase, $fleetAttack, $fleetDefend, $userAttack, $userDefend, $reportID);
+
+        if ($mothership !== null) {
+            (new MothershipBattle($this->db, $this->configs, $this->state))->afterFight($mothership, $power, (float) $combatResult->losses->defenderValue, $fleetDefend[0]->units, (int) $this->_fleet['arrival_time']);
+        }
+
+        $this->setState(FLEET_RETURN);
+        $this->SaveFleet();
+    }
+
+    /**
+     * After the fight: loot of a win (not from the mothership, whose loot is paid when it dies), debris (none at the
+     * mothership), report, messages, base update and the engagement hook.
+     *
+     * @param array<int|string, BattleFleet> $fleetAttack surviving attackers
+     * @param array<int|string, BattleFleet> $fleetDefend
+     * @param array<string, mixed> $targetBase pirate base row before the fight
+     * @param array<int|string, string> $userAttack
+     * @param array<int|string, string> $userDefend
+     */
+    private function resolveFight(BattleHandler $battleHandler, \App\Game\BattleEngine\BattleResult $combatResult, array $targetBase, array $fleetAttack, array $fleetDefend, array $userAttack, array $userDefend, string $reportID): void
+    {
         $stealResource = [
             RESOURCE_METAL      => 0,
             RESOURCE_CRYSTAL    => 0,
             RESOURCE_DEUT       => 0,
         ];
 
-        if ($combatResult->won == ATTACKER) {
+        $mothership = $targetBase['kind'] == NpcTargets::KIND_MOTHERSHIP;
+        if ($combatResult->won == ATTACKER && !$mothership) {
             $stealResource = $battleHandler->calculateSteal($fleetAttack, $targetBase, $this->_fleet['universe']);
         }
 
         [$debris, $planetDebris] = $this->debrisOf($targetBase, $combatResult);
+        if ($mothership) {
+            $debris = [RESOURCE_METAL => 0, RESOURCE_CRYSTAL => 0];
+            $planetDebris = [RESOURCE_METAL => $targetBase['der_metal'], RESOURCE_CRYSTAL => $targetBase['der_crystal']];
+        }
 
         $reportInfo = [
             'thisFleet'             => $this->_fleet,
@@ -117,9 +154,35 @@ class MissionCasePiratebaseAttack extends MissionFunctions implements MissionInt
         $this->sendReports($userAttack, $combatResult, $reportID, $stealResource, $debris);
 
         $this->updateBase($stealResource, $planetDebris);
+        $this->fireBattleOutcome($userAttack, $userDefend, $combatResult, $reportID, $stealResource, $debris, 'pirate');
+    }
 
-        $this->setState(FLEET_RETURN);
-        $this->SaveFleet();
+    /**
+     * The combat group of a mothership attack is too small (or the mothership is already gone): tells the attackers, the fleets
+     * turn around unharmed (nothing was fought, no losses).
+     *
+     * @param array<int|string, string> $userAttack user id => name
+     */
+    private function refuseMothershipFight(array $userAttack): void
+    {
+        if ($this->_fleet['group'] != 0) {
+            $this->db->delete('DELETE FROM %%USERS_TO_ACS%% WHERE `acsID` = :acsId;', [':acsId' => $this->_fleet['group']]);
+        }
+        foreach ($userAttack as $userID => $userName) {
+            $LNG = $this->playerLookup()->getLanguage(null, $userID);
+            $this->playerMessenger()->sendMessage(
+                $userID,
+                0,
+                $LNG['ms_sender'],
+                MessageType::BattleReport->value,
+                $LNG['ms_msg_title'],
+                $LNG->format('ms_msg_group_too_small', GetTargetAddressLink($this->_fleet)),
+                $this->_fleet['arrival_time'],
+                1,
+                $this->_fleet['universe'],
+            );
+        }
+        $this->returnFleets();
     }
 
     /**
@@ -165,12 +228,17 @@ class MissionCasePiratebaseAttack extends MissionFunctions implements MissionInt
         $fleetDefend = [];
         $userDefend = [];
         $ownTechs = $fleetAttack[$this->_fleet['id']]->techs->withBonus(-3);
+        $bossTech = null;
+        if ($targetBase['kind'] == NpcTargets::KIND_MOTHERSHIP) {
+            // fixed tech level, not derived from whoever leads the group
+            $bossTech = (int) ($this->configs->get((int) $this->_fleet['universe'])->mothership_tech_level ?? 20);
+        }
         $pirates = [
             'id'            => 0,
             'username'      => $LNG['type_planet_4'],
-            'military_tech' => $ownTechs->weapons,
-            'shield_tech'   => $ownTechs->shields,
-            'defence_tech'  => $ownTechs->armor,
+            'military_tech' => $bossTech ?? $ownTechs->weapons,
+            'shield_tech'   => $bossTech ?? $ownTechs->shields,
+            'defence_tech'  => $bossTech ?? $ownTechs->armor,
         ];
         $fleetDefend[0] = new BattleFleet(
             0,

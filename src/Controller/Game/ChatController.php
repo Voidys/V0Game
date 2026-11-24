@@ -44,6 +44,29 @@ class ChatController extends AbstractGameController
         return new JsonResponse($data, 200, ['X-Content-Type-Options' => 'nosniff']);
     }
 
+    /**
+     * Optional cosmetics (universe setting cosmetics_enabled): adds `cls`, a CSS class from the fixed name colour whitelist, to the
+     * messages of players with an active name colour. Titles and raw values never reach the chat.
+     *
+     * @param list<array<string, mixed>> $messages
+     * @return list<array<string, mixed>>
+     */
+    private function withCosmetics(array $messages, int $universe): array
+    {
+        if ($messages === [] || !(bool) ($this->configs->get($universe)->cosmetics_enabled ?? false)) {
+            return $messages;
+        }
+        $active = (new \App\Game\Engagement\Cosmetics\Cosmetics($this->db))->activeFor(array_column($messages, 'uid'));
+        foreach ($messages as &$message) {
+            $class = \App\Game\Engagement\Cosmetics\CosmeticCatalog::colorClass($active[$message['uid']]['color'] ?? null);
+            if ($class !== null) {
+                $message['cls'] = $class;
+            }
+        }
+
+        return $messages;
+    }
+
     /** Moderator of the chat: staff with the same admin right as the chat page of the admin panel (`ShowAbuseReportPage`). */
     private function isModerator(): bool
     {
@@ -110,7 +133,7 @@ class ChatController extends AbstractGameController
             $after = max(0, $input->int('after'));
             $newest = $latest[$activeChannel] ?? 0;
             if ($after <= 0 || $newest > $after) {
-                $response['messages'] = $this->chat->messages($universe, $activeChannel, $userId, $after);
+                $response['messages'] = $this->withCosmetics($this->chat->messages($universe, $activeChannel, $userId, $after), $universe);
             }
             $from = max(0, $input->int('from'));
             if ($from > 0 && $newest >= $from) {

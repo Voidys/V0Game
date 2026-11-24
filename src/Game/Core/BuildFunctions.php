@@ -17,6 +17,8 @@
 
 namespace App\Game\Core;
 
+use App\Game\Engagement\Events\EventModifiers;
+use App\Game\Engagement\Relics\RelicCatalog;
 use App\Game\Model\FieldProjection;
 use App\Game\Model\Planet;
 use App\Game\Model\User;
@@ -316,6 +318,19 @@ class BuildFunctions
         } elseif ($elements->isResearch($element)) {
             $time = $this->researchSeconds($planet, $element, $elementCost, $config);
         }
+
+        $time /= $this->eventModifiers()->factor(
+            $user->universe,
+            $elements->isResearch($element) ? EventModifiers::RESEARCH_SPEED : EventModifiers::BUILD_SPEED,
+        );
+
+        // relics on the planet where it is built: building, shipyard and research time reduction (exactly 1.0 without relics)
+        $time *= $this->relicBonus()->reductionFactor(
+            $user->id,
+            $user->universe,
+            $planet->id,
+            $elements->isResearch($element) ? RelicCatalog::RESEARCH_TIME : ($elements->isHangarUnit($element) ? RelicCatalog::SHIPYARD_TIME : RelicCatalog::BUILD_TIME),
+        );
 
         if ($forDestroy) {
             $time = floor($time * 1300);

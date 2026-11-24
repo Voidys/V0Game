@@ -29,6 +29,11 @@ everything around them is new. Developed by **Abraxis**.
 | <a href="public/styles/resource/images/login/screens/01-overview.webp"><img src="public/styles/resource/images/login/screens/01-overview-720w.webp" alt="Planet overview" width="280"></a> | <a href="public/styles/resource/images/login/screens/08-galaxy.webp"><img src="public/styles/resource/images/login/screens/08-galaxy-720w.webp" alt="Galaxy view" width="280"></a> | <a href="public/styles/resource/images/login/screens/11-admin-overview.webp"><img src="public/styles/resource/images/login/screens/11-admin-overview-720w.webp" alt="Admin panel home" width="280"></a> |
 | Planet overview | Galaxy | Admin panel |
 
+| | |
+| :---: | :---: |
+| <a href="public/styles/resource/images/login/screens/12-admin-configUni.webp"><img src="public/styles/resource/images/login/screens/12-admin-configUni-720w.webp" alt="Universe settings in the admin panel" width="280"></a> | <a href="public/styles/resource/images/login/screens/15-installer-options.webp"><img src="public/styles/resource/images/login/screens/15-installer-options-720w.webp" alt="Installer: optional settings and game features" width="280"></a> |
+| Universe settings | Installer: optional sections and game features |
+
 | | | | |
 | :---: | :---: | :---: | :---: |
 | <a href="public/styles/resource/images/login/screens/20-mobile-overview.webp"><img src="public/styles/resource/images/login/screens/20-mobile-overview-720w.webp" alt="Planet overview on a phone" width="160"></a> | <a href="public/styles/resource/images/login/screens/21-mobile-buildings.webp"><img src="public/styles/resource/images/login/screens/21-mobile-buildings-720w.webp" alt="Buildings on a phone" width="160"></a> | <a href="public/styles/resource/images/login/screens/23-mobile-fleet.webp"><img src="public/styles/resource/images/login/screens/23-mobile-fleet-720w.webp" alt="Fleet dispatch on a phone" width="160"></a> | <a href="public/styles/resource/images/login/screens/24-mobile-drawer.webp"><img src="public/styles/resource/images/login/screens/24-mobile-drawer-720w.webp" alt="Menu sheet on a phone" width="160"></a> |
@@ -45,7 +50,19 @@ More in [`public/styles/resource/images/login/screens/`](public/styles/resource/
   news with scheduling, optional toplist voting.
 - **Admin panel:** a dashboard that flags problems (e.g. a missing cron job), health checks, a mini CMS for rules and
   legal texts, social login (Discord, Google, GitHub, Facebook).
-- **Optional bots** with five personalities to fill a young universe, optionally voiced by an AI service.
+- **Optional bots** with five personalities and difficulty presets to fill a young universe, optionally voiced by an AI
+  service.
+- **Optional engagement features**, each switched on and tuned in the admin panel (all off by default):
+  - *Universe events:* scheduled ion storms, trade fairs, solar maxima, pirate surges or speed weekends.
+  - *Relics:* found on expeditions, common to epic with substats and 2/4-piece set bonuses, slotted per planet
+    (4 slots) for small production, energy, build-time, fuel or expedition boosts; dust and reforging; the whole
+    catalog is editable.
+  - *Weekly contracts, seasons and cosmetics:* rotating goals, a monthly ladder without resets, badges, titles and
+    name colours.
+  - *Rivalry:* bounties on players, alliance war score boards, a battle feed in the global chat.
+  - *Map content:* derelict salvage fields, a pirate mothership that needs an ACS, rare expedition story chains.
+  - *Alliance goals, a catch-up boost for late joiners and a welcome back (with short protection) for returning
+    players.*
 - **20 languages**, all complete, plus two fun variants.
 - **Privacy and security:** no Google services, self-hosted proof-of-work bot check, CSRF protection, rate limits,
   over 80 old bugs fixed (3 critical, see the [changelog](CHANGES.md)).

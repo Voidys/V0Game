@@ -26,6 +26,7 @@
 {% endblock %}
 {% block content %}
     {% include 'game/shared.missionColors.html.twig' %}
+    {% include 'game/engagement/_event_banner.html.twig' %}
     {% set hostileCount = 0 %}
     {% set nextRest = null %}
     {% for fleet in fleets %}
@@ -34,6 +35,7 @@
     {% endfor %}
     {% set fieldFill = planet_field_max > 0 ? min(planet_field_current / planet_field_max, 1) : 0 %}
 
+    {% include 'game/engagement/_overview.html.twig' %}
     <section class="panel hero" data-coords="{{ galaxy }}:{{ system }}:{{ planet }}">
         <div class="hero-orbit">
             {% if Moon %}<span class="orbit-ring" aria-hidden="true"></span>{% endif %}

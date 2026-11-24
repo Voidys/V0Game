@@ -497,6 +497,9 @@ class InformationController extends AbstractGameController
 
                 if (in_array($ID, $e->resourceIds(2))) {
                     $Production *= $this->configs->get()->energy_multiplier;
+                    if ($Production > 0 && in_array((int) $elementID, [solar_plant, SHIP_SOLSAT], true)) {
+                        $Production *= $this->eventModifiers()->factor($this->player()->universe, \App\Game\Engagement\Events\EventModifiers::SOLAR); // universe event
+                    }
                 } else {
                     $Production *= ($this->configs->get()->resource_multiplier / 2500);
                 }

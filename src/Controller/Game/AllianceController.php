@@ -327,7 +327,9 @@ class AllianceController extends AbstractGameController
             ? $this->alliance()->memberLists()->activitySummary($this->allianceData)
             : null;
 
-        return $this->render('game/page.alliance.home.html.twig', $this->alliance()->pages()->home($this->allianceData) + ['activity' => $activity]);
+        $wars = (new \App\Game\Engagement\Wars\AllianceWars($this->db, $this->configs, $this->state))->summaryFor((int) $this->allianceData['id'], (int) $this->state->USER['universe']);
+
+        return $this->render('game/page.alliance.home.html.twig', $this->alliance()->pages()->home($this->allianceData) + ['activity' => $activity, 'allianceWars' => $wars]);
     }
 
     /**

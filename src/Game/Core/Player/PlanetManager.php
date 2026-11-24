@@ -515,6 +515,8 @@ class PlanetManager
             ]);
         } else {
             $this->achievementGuard()->run(fn() => $this->playerUtilAchievements()->checkPlayerUtilAchievementsDeletion($planetData, $planetId));
+            // relics on the planet go back to the owner's storage
+            $this->relicInventory()->releasePlanet($planetId);
             $sql = 'UPDATE %%PLANETS%% SET `destruyed` = :time WHERE `id` = :planetID;';
             $db->update($sql, [
                 ':time'   => $this->state->runtime->timestamp + 86400,

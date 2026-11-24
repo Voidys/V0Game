@@ -1,0 +1,13 @@
+{# player card: name in the active colour, the active title and the badge row (context: cosmCard from CosmeticCatalog::card(), null while the feature is off) #}
+{% if cosmCard %}
+	{% if cosmCard.title or cosmCard.colorClass %}
+	<p class="cosm-title">{% if cosmCard.colorClass %}<span class="{{ cosmCard.colorClass }}">{{ name }}</span>{% endif %}{% if cosmCard.title %} &middot; {{ cosmCard.title }}{% endif %}</p>
+	{% endif %}
+	{% if cosmCard.badges %}
+	<ul class="cosm-badges">
+		{% for badge in cosmCard.badges %}
+		<li class="cosm-badge" title="{{ badge.tooltip }}">{{ icon(badge.icon, null, 'cosm-tint--' ~ badge.tint) }}<span>{{ badge.label }}</span></li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+{% endif %}

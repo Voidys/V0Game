@@ -21,6 +21,9 @@ use App\Game\Enum\PlanetType;
 use App\Routing\GameRoute;
 use Symfony\Component\HttpFoundation\Response;
 use App\Game\Core\FormulaEvaluator;
+use App\Game\Engagement\Events\EventModifiers;
+use App\Game\Engagement\Relics\RelicCatalog;
+use App\Game\Engagement\Relics\RelicPageData;
 use App\Game\Core\Universe;
 
 /** Resource settings: production table of the current planet and production levels (actions: show, send). */
@@ -91,9 +94,7 @@ class ResourcesController extends AbstractGameController
     {
         $LNG = $this->state->LNG;
         $e = $this->elements();
-
         $config = $this->configs->get();
-
         $basicIncome = $this->basicIncome($config);
         [$productionList, $temp, $prodSelector] = $this->buildingProduction($config);
 
@@ -119,7 +120,7 @@ class ResourcesController extends AbstractGameController
         if (isset($productionList[fusion_plant]['production'][RESOURCE_DEUT])) {
             $fusion_planet_deut = $productionList[fusion_plant]['production'][RESOURCE_DEUT];
         }
-        [$bonusProduction, $totalProduction] = $this->productionTotals(
+        [$bonusProduction, $totalProduction, $relicProduction] = $this->productionTotals(
             $temp,
             $basicProduction,
             $bonusProductionPositionBased,
@@ -166,6 +167,9 @@ class ResourcesController extends AbstractGameController
             'metalBonusPercent'                 => $metal_bonus_percent * 100,
             'crystalBonusPercent'               => $crystal_bonus_percent * 100,
             'deuteriumBonusPercent'             => $deuterium_bonus_percent * 100,
+            'catchUpLine'                       => $this->catchUpLine(),
+            'relicProduction'                   => $relicProduction,
+            'relics'                            => $this->relicsContext(),
         ]);
     }
 
@@ -346,7 +350,15 @@ class ResourcesController extends AbstractGameController
 
             if (in_array($ID, $e->resourceIds(2))) {
                 $Production *= $config->energy_multiplier;
+                if ($Production > 0 && in_array($ProdID, [solar_plant, SHIP_SOLSAT], true)) {
+                    // universe event (solar maximum), same as ResourceProduction
+                    $Production *= $this->eventModifiers()->factor($this->player()->universe, EventModifiers::SOLAR);
+                }
             } else {
+                if ($Production > 0) {
+                    // late-joiner boost on mine production, same as ResourceProduction
+                    $Production *= $this->catchUpFactor();
+                }
                 // the energy factor throttles production only; consumption (fusion deuterium) is never throttled
                 $Production *= ($Production > 0 ? $prodLevel : 1) * ($config->resource_multiplier / 2500);
             }
@@ -385,6 +397,9 @@ class ResourcesController extends AbstractGameController
         $BuildLevel = $this->state->PLANET[$e->column($ProdID)];
 
         $energyBaseProduction = FormulaEvaluator::evaluate($e->productionFormula($ProdID, RESOURCE_ENERGY), compact('BuildLevel', 'BuildLevelFactor', 'BuildEnergy', 'BuildTemp')) * $config->energy_multiplier / 100 ;
+        if (in_array($ProdID, [solar_plant, SHIP_SOLSAT], true)) {
+            $energyBaseProduction *= $this->eventModifiers()->factor($this->player()->universe, EventModifiers::SOLAR);
+        }
 
         $options = [];
         foreach (range(10, 0) as $percent) {
@@ -414,7 +429,7 @@ class ResourcesController extends AbstractGameController
      * @param array<int, array<string, int|float>> $temp plus/minus sums from buildingProduction()
      * @param array<int, int|float> $basicProduction basic income per resource
      * @param array<int, int|float> $bonusProductionPositionBased position based bonus per resource (empty when off)
-     * @return array{0: array<int, int|float>, 1: array<int, int|float>} bonusProduction, totalProduction (resource id => value)
+     * @return array{0: array<int, int|float>, 1: array<int, int|float>, 2: array<string, array<int, float>>|null} bonusProduction, totalProduction (resource id => value), the relic row (see relicProduction())
      */
     private function productionTotals(array $temp, array $basicProduction, array $bonusProductionPositionBased, mixed $positionBasedRessourceBonus, int|float $fusion_planet_deut): array
     {
@@ -449,6 +464,89 @@ class ResourcesController extends AbstractGameController
             ];
         }
 
-        return [$bonusProduction, $totalProduction];
+        // relics (the row and the sums follow the stored production: see ResourceProduction::rebuildFor)
+        $relicProduction = $this->relicProduction($temp, $bonusProduction, $bonusProductionPositionBased);
+        foreach ($relicProduction['rows'] ?? [] as $resourceId => $extra) {
+            if ($resourceId !== RESOURCE_ENERGY) {
+                $totalProduction[$resourceId] += $extra;
+            }
+        }
+
+        return [$bonusProduction, $totalProduction, $relicProduction];
+    }
+
+    /**
+     * The extra hourly production the relics of the planet give (row "Relics" of the production table) and the bonus in percent per
+     * column: mine bonus on the plus part plus the research bonus and the position bonus, the saved fusion deuterium, the energy output.
+     * Null when the feature is off or the planet has no relic bonus.
+     *
+     * @param array<int, array<string, int|float>> $temp plus/minus sums from buildingProduction()
+     * @param array<int, int|float> $bonusProduction research bonus per resource
+     * @param array<int, int|float> $positionBonus position based bonus per resource (empty when off)
+     * @return array{rows: array<int, float>, pct: array<int, float>}|null resource id (energy 911) => hourly amount / percent
+     */
+    private function relicProduction(array $temp, array $bonusProduction, array $positionBonus): ?array
+    {
+        $player = $this->player();
+        $bonus = $this->relicBonus()->forPlanet($player->id, $player->universe, (int) $this->state->PLANET['id']);
+        $values = $bonus['values'];
+        if ($values === []) {
+            return null;
+        }
+        $pct = [
+            RESOURCE_METAL => $bonus['production'][RelicCatalog::METAL] ?? 0.0,
+            RESOURCE_CRYSTAL => $bonus['production'][RelicCatalog::CRYSTAL] ?? 0.0,
+            RESOURCE_DEUT => $bonus['production'][RelicCatalog::DEUTERIUM] ?? 0.0,
+            RESOURCE_ENERGY => $values[RelicCatalog::ENERGY] ?? 0.0,
+        ];
+        $rows = [];
+        foreach ([RESOURCE_METAL, RESOURCE_CRYSTAL, RESOURCE_DEUT] as $resourceId) {
+            $base = $temp[$resourceId]['plus'] + ($positionBonus[$resourceId] ?? 0) + $bonusProduction[$resourceId];
+            $rows[$resourceId] = $base * $pct[$resourceId] / 100;
+        }
+        $rows[RESOURCE_DEUT] += -$temp[RESOURCE_DEUT]['minus'] * ($values[RelicCatalog::FUSION] ?? 0.0) / 100;
+        $rows[RESOURCE_ENERGY] = $temp[RESOURCE_ENERGY]['plus'] * $pct[RESOURCE_ENERGY] / 100;
+
+        return ['rows' => $rows, 'pct' => $pct];
+    }
+
+    /** The `relics` template context (see RelicPageData); the result notice of the last relic action is shown once. Null when the feature is off. */
+    private function relicsContext(): ?array
+    {
+        if (!$this->relicBonus()->enabled((int) $this->state->USER['universe'])) {
+            return null;
+        }
+        $session = $this->sessions()->symfonySession();
+        $notice = $session->get(RelicsController::NOTICE_KEY);
+        $session->remove(RelicsController::NOTICE_KEY);
+
+        return (new RelicPageData($this->db, $this->configs, $this->state))->build(
+            $this->state->USER,
+            $this->state->PLANET,
+            $this->state->LNG,
+            $this->state->runtime->timestamp,
+            is_array($notice) ? ['text' => (string) ($notice['text'] ?? ''), 'error' => !empty($notice['error'])] : null,
+        );
+    }
+
+    /** Multiplier of the late-joiner boost for the player (1.0 when off or not eligible), rounded to whole percent like ResourceProduction. */
+    private function catchUpFactor(): float
+    {
+        $player = $this->player();
+
+        return 1 + round($this->catchUpBoost()->percentFor($player->id, $player->universe, $player->registerTime)) / 100;
+    }
+
+    /** One line for the page ("Late-joiner boost +32 % (ends in 5 days)"), empty when the player has no boost. */
+    private function catchUpLine(): string
+    {
+        $player = $this->player();
+        $status = $this->catchUpBoost()->statusFor($player->id, $player->universe, $player->registerTime);
+        if ($status['percent'] <= 0) {
+            return '';
+        }
+        $days = max(1, (int) ceil(($status['endsAt'] - $this->state->runtime->timestamp) / 86400));
+
+        return $this->state->LNG->format('cu_line', round($status['percent']), $days);
     }
 }

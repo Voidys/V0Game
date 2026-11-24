@@ -64,7 +64,7 @@ class FleetDealerController extends AbstractGameController
             return $this->backToDealer($LNG['tr_exchange_error']);
         }
 
-        $tradeCharge = 1 - (min(max((float) $this->configs->get()->trade_charge, 0), 90) / 100);
+        $tradeCharge = 1 - (min(max($this->tradeFee(), 0), 90) / 100);
         $resources = [
             RESOURCE_METAL => $Count * $e->cost($shipID)->metal * $tradeCharge,
             RESOURCE_CRYSTAL => $Count * $e->cost($shipID)->crystal * $tradeCharge,
@@ -143,7 +143,16 @@ class FleetDealerController extends AbstractGameController
             'shipIDs'   => $allowedShipIDs,
             'shipImg'   => $shipImg,
             'CostInfos' => $Cost,
-            'Charge'    => $this->configs->get()->trade_charge,
+            'Charge'    => round($this->tradeFee(), 2),
         ]);
+    }
+
+    /** Merchant fee in percent: the universe's trade_charge times the trader event factor (cheaper during a trade fair). */
+    private function tradeFee(): float
+    {
+        $config = $this->configs->get();
+
+        return (float) $config->trade_charge
+            * $this->eventModifiers()->factor((int) $config->uni, \App\Game\Engagement\Events\EventModifiers::TRADER_COST);
     }
 }

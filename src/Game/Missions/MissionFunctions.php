@@ -236,6 +236,58 @@ class MissionFunctions
     }
 
     /**
+     * Tells the engagement features (contracts, seasons, bounties, wars, battle feed, ...) about a finished real fight.
+     * Guarded per feature, so it never breaks the fight.
+     *
+     * @param array<int|string, string> $userAttack attacking user id => name
+     * @param array<int|string, string> $userDefend defending user id => name (left out for pirate bases)
+     * @param array<int, int|float> $loot resource id => stolen amount
+     * @param array<int, int|float> $debris resource id => new debris
+     */
+    protected function fireBattleOutcome(array $userAttack, array $userDefend, \App\Game\BattleEngine\BattleResult $combatResult, string $reportID, array $loot, array $debris, string $kind): void
+    {
+        $outcome = new \App\Game\Engagement\BattleOutcome(
+            (int) $this->_fleet['universe'],
+            $reportID,
+            (int) $this->_fleet['arrival_time'],
+            array_filter(array_map('strval', $userAttack), fn($name, $id) => (int) $id > 0, ARRAY_FILTER_USE_BOTH),
+            $kind === 'pirate' ? [] : array_filter(array_map('strval', $userDefend), fn($name, $id) => (int) $id > 0, ARRAY_FILTER_USE_BOTH),
+            $combatResult->losses,
+            (string) $combatResult->won,
+            $loot,
+            $debris,
+            (int) $this->_fleet['end_galaxy'],
+            (int) $this->_fleet['end_system'],
+            (int) $this->_fleet['end_planet'],
+            (int) $this->_fleet['end_type'],
+            (int) $this->_fleet['end_id'],
+            $kind,
+            $this->startValuePerUser($combatResult),
+        );
+        (new \App\Game\Engagement\EngagementHooks($this->db, $this->configs, $this->state))->onBattle($outcome);
+    }
+
+    /**
+     * Value (metal + crystal + deuterium) of the units every user brought into the fight, from the start state of the round log.
+     *
+     * @return array<int, int|float> user id => value
+     */
+    private function startValuePerUser(\App\Game\BattleEngine\BattleResult $combatResult): array
+    {
+        $values = [];
+        foreach ([$combatResult->startAttackers(), $combatResult->startDefenders()] as $fleets) {
+            foreach ($fleets as $fleet) {
+                $userId = (int) $fleet->userId();
+                foreach ($fleet->units as $unitId => $amount) {
+                    $values[$userId] = ($values[$userId] ?? 0) + $amount * $this->elements()->cost((int) $unitId)->metalCrystalDeuterium();
+                }
+            }
+        }
+
+        return $values;
+    }
+
+    /**
      * Checks the recycling achievements for a fleet that found an empty debris field (nothing collected).
      *
      * @param array<mixed> $collectedGoods
@@ -404,7 +456,7 @@ class MissionFunctions
             ':userId' => $targetOwnerId,
         ], 'urlaubs_modus');
 
-        if (empty($vacation)) {
+        if (empty($vacation) && !$this->targetIsReturning((int) $targetOwnerId)) {
             return false;
         }
 
@@ -422,6 +474,19 @@ class MissionFunctions
         $this->SaveFleet();
 
         return true;
+    }
+
+    /**
+     * Whether an aggressive mission (attack, ACS, spy, destruction, missile) arrives at a player who is under the
+     * returning-player protection (it started after the fleet was sent): the fleet turns around like at a vacation player.
+     */
+    private function targetIsReturning(int $targetOwnerId): bool
+    {
+        if (!in_array((int) $this->_fleet['mission'], \App\Game\Engagement\Returning\ReturningPlayers::AGGRESSIVE, true)) {
+            return false;
+        }
+
+        return $this->returningPlayers()->protectedUntil((int) $this->_fleet['universe'], $targetOwnerId) > 0;
     }
 
     /**

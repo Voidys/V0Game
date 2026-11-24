@@ -1,0 +1,29 @@
+{# Alliance wars (engagement feature alliance_wars_enabled): active wars with the live score and the last 5 finished ones; allianceWars is null while the feature is off. #}
+{% import '_macros/ui.html.twig' as ui %}
+{% if allianceWars and (allianceWars.active or allianceWars.past) %}
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.wr_head) }}
+	<table class="data">
+		<thead>
+			<tr>
+				<th>{{ LNG.wr_enemy }}</th>
+				<th class="num">{{ LNG.wr_score }}</th>
+				<th class="num">{{ LNG.wr_loot }}</th>
+				<th class="num">{{ LNG.wr_fights }}</th>
+				<th>{{ LNG.wr_status }}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for war in allianceWars.active|merge(allianceWars.past) %}
+			<tr>
+				<td>{{ war.enemy }}</td>
+				<td class="num">{{ pretty_number(war.own_score) }} : {{ pretty_number(war.enemy_score) }}</td>
+				<td class="num">{{ pretty_number(war.own_loot) }} : {{ pretty_number(war.enemy_loot) }}</td>
+				<td class="num">{{ war.fights }}</td>
+				<td>{% if war.ended is null %}{{ LNG.wr_active }}{% else %}{{ attribute(LNG, 'wr_' ~ war.outcome) }}{% endif %}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</section>
+{% endif %}

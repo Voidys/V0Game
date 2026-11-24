@@ -567,6 +567,9 @@ class BuildingsController extends AbstractGameController
         $Prod       = FormulaEvaluator::evaluate($this->elements()->productionFormula($Element, RESOURCE_ENERGY), compact('BuildLevel', 'BuildLevelFactor', 'BuildEnergy', 'BuildTemp'));
 
         $requireEnergy  = $Prod - $Need;
+        if (in_array($Element, [solar_plant, SHIP_SOLSAT], true)) {
+            $requireEnergy *= $this->eventModifiers()->factor($this->player()->universe, \App\Game\Engagement\Events\EventModifiers::SOLAR); // universe event
+        }
         $requireEnergy  = round($requireEnergy * $config->energy_multiplier);
 
         return [

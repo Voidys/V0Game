@@ -38,7 +38,7 @@ trait FleetDispatchMissionRules
         }
 
         if ($this->targetMission == Mission::Attack->value || $this->targetMission == Mission::Acs->value || $this->targetMission == Mission::Destruction->value) {
-            if (count($this->fleetArray) != 1 || !array_key_exists(210, $this->fleetArray)) {
+            if (empty($this->targetPlanetData['npc_kind']) && (count($this->fleetArray) != 1 || !array_key_exists(210, $this->fleetArray))) {
                 if ($this->fleetFunctions()->checkBash($this->targetPlanetData['id'], $this->fleetGroup)) {
                     $this->refuse($LNG['fl_bash_protection'], 'game_fleet_table_show');
                 }
@@ -168,6 +168,9 @@ trait FleetDispatchMissionRules
     /** Hostile missions (attack, ACS, hold, spy, destruction): admin protection, noob protection and the outlaw status for attacking stronger players. */
     private function checkHostileRules(): void
     {
+        if (!empty($this->targetPlanetData['npc_kind'])) {
+            return; // derelict fields and the mothership belong to no player
+        }
         $LNG = $this->state->LNG;
         $db = $this->db;
         $statsHandler = new AdvancedStatsHandler($this->db, $this->configs, $this->state);
@@ -195,6 +198,11 @@ trait FleetDispatchMissionRules
 
             if ($IsNoobProtec['NoobPlayer']) {
                 $this->refuse($LNG['fl_player_is_noob'], 'game_fleet_table_show');
+            }
+
+            if (in_array($this->targetMission, \App\Game\Engagement\Returning\ReturningPlayers::AGGRESSIVE, true)
+                && $this->returningPlayers()->protectedUntil((int) $this->state->USER['universe'], (int) $this->targetPlayerData['id']) > 0) {
+                $this->refuse($LNG['fl_player_is_returning'], 'game_fleet_table_show');
             }
 
             if ($IsNoobProtec['StrongPlayer']) {

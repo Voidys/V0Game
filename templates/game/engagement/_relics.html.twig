@@ -1,0 +1,161 @@
+{# Relics section of the resources page (relic system). Context: `relics` (null/undefined = feature off, renders nothing);
+   structure in engage-work/relics/CONTRACT.md. Works without JS (plain POST forms in every tile); public/scripts/game/relics.js
+   adds filter/sort, the slot picker dialog and the compare card. #}
+{% macro ico(kind, code) %}<span class="rl-ico rl-ico--{{ kind }}" style="-webkit-mask-image: url('{{ theme_asset('relics/' ~ kind ~ '-' ~ code ~ '.svg') }}'); mask-image: url('{{ theme_asset('relics/' ~ kind ~ '-' ~ code ~ '.svg') }}')" aria-hidden="true"></span>{% endmacro %}
+{% macro stats(relic) %}
+	<p class="rl-main{% if relic.main.inactive|default(false) %} is-inactive{% endif %}"{% if relic.main.inactive|default(false) %} data-inactive="1" data-tip="{{ LNG.rl_ui_inactive|e('html_attr') }}"{% endif %} data-stat="{{ relic.main.stat }}" data-label="{{ relic.main.label }}" data-text="{{ relic.main.text }}" data-value="{{ relic.main.value|abs }}" data-neg="{{ relic.main.value < 0 or relic.main.text starts with '-' or relic.main.text starts with '−' ? 1 : 0 }}"><strong>{{ relic.main.text }}</strong> {{ relic.main.label }}</p>
+	{% if relic.subs %}<ul class="rl-subs">
+		{% for sub in relic.subs %}<li{% if sub.inactive|default(false) %} class="is-inactive" data-inactive="1" data-tip="{{ LNG.rl_ui_inactive|e('html_attr') }}"{% endif %} data-stat="{{ sub.stat }}" data-label="{{ sub.label }}" data-text="{{ sub.text }}" data-value="{{ sub.value|abs }}" data-neg="{{ sub.value < 0 or sub.text starts with '-' or sub.text starts with '−' ? 1 : 0 }}"><span class="rl-subs__v">{{ sub.text }}</span> {{ sub.label }}</li>{% endfor %}
+	</ul>{% endif %}
+{% endmacro %}
+{% import _self as rl %}
+{% if relics is defined and relics is not null %}
+<section class="panel rl" id="relics" data-relics data-planet="{{ relics.planetId }}"
+	data-l-choose-title="{{ LNG.rl_ui_picker_title|e('html_attr') }}" data-l-none="{{ LNG.rl_ui_picker_none|e('html_attr') }}"
+	data-l-select="{{ LNG.rl_ui_select|e('html_attr') }}" data-l-here="{{ LNG.rl_ui_compare_here|e('html_attr') }}"
+	data-l-empty="{{ LNG.rl_ui_slot_empty|e('html_attr') }}" data-l-selected="{{ LNG.rl_ui_compare_selected|e('html_attr') }}" data-l-same="{{ LNG.rl_ui_compare_same|e('html_attr') }}">
+	<header class="panel__head">
+		<h2>{{ LNG.rl_ui_title }}</h2>
+		<span class="rl-head-meta">{{ relics.planetName }}</span>
+	</header>
+	<div class="panel__body">
+		{% if relics.notice %}<p class="rl-notice{% if relics.notice.error %} reason reason--bad{% endif %}" role="status">{{ icon(relics.notice.error ? 'triangle-alert' : 'check') }} {{ relics.notice.text }}</p>{% endif %}
+
+		<ul class="rl-slots">
+			{% for s in relics.slots %}
+				{% set r = s.relic %}
+				<li class="rl-slot {{ r ? 'rl-r-' ~ r.rarityKey : 'is-empty' }}" data-slot="{{ s.slot }}">
+					<div class="rl-slot__top">
+						<span class="rl-frame">{{ rl.ico('slot', s.code) }}{% if r %}<span class="rl-frame__set">{{ rl.ico('set', r.set) }}</span>{% endif %}</span>
+						<div class="rl-slot__title">
+							<h3>{{ s.label }}</h3>
+							{% if r %}<span class="rl-slot__meta">{{ r.setLabel }} · {{ r.rarityLabel }}{% if r.locked %} {{ icon('lock') }}{% endif %}</span>
+							{% else %}<span class="rl-slot__meta">{{ LNG.rl_ui_slot_empty }}</span>{% endif %}
+						</div>
+					</div>
+					{% if r %}
+						<div class="rl-slot__stats">{{ rl.stats(r) }}</div>
+						{% if r.movableIn > 0 %}<p class="rl-cooldown hint">{{ icon('clock') }} {{ LNG.format('rl_ui_movable_in', getRestTimeFormat(r.movableIn, true)) }}</p>{% endif %}
+					{% endif %}
+					<div class="rl-slot__actions">
+						<a href="#rl-storage" class="btn btn-sm" data-rl-choose="{{ s.slot }}">{{ r ? LNG.rl_ui_change : LNG.rl_ui_choose }}</a>
+						{% if r %}
+							<form method="post" action="{{ path('game_relics_unequip') }}"><input type="hidden" name="id" value="{{ r.id }}"><button type="submit" class="btn-sm">{{ LNG.rl_ui_unequip }}</button></form>
+						{% endif %}
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+
+		<div class="rl-sets">
+			<h3 class="rl-h">{{ LNG.rl_ui_sets }}</h3>
+			{% if relics.sets %}
+				<ul class="rl-setlist">
+					{% for set in relics.sets %}
+						<li class="rl-set{% if set.pieces >= 2 %} is-on{% endif %}">
+							<span class="rl-set__head">{{ rl.ico('set', set.code) }}<strong>{{ set.label }}</strong><span class="tag">{{ set.pieces }}/4</span></span>
+							<span class="rl-bonus{% if not set.bonus2.active %} is-off{% endif %}"><span class="tag">2</span> {{ set.bonus2.text }}</span>
+							<span class="rl-bonus{% if not set.bonus4.active %} is-off{% endif %}"><span class="tag">4</span> {{ set.bonus4.text }}</span>
+						</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<p class="hint">{{ LNG.rl_ui_no_sets }}</p>
+			{% endif %}
+		</div>
+
+		<div class="rl-totals">
+			<h3 class="rl-h">{{ LNG.rl_ui_totals }}</h3>
+			{% if relics.totals %}
+				<ul class="rl-chips">
+					{% for t in relics.totals %}<li class="rl-chip{% if t.capped %} is-capped{% endif %}"><strong>{{ t.text }}</strong> {{ t.label }}{% if t.capped %} <span class="tag tag--warn" data-tip="{{ LNG.rl_ui_capped_tip|e('html_attr') }}">{{ LNG.rl_ui_capped }}</span>{% endif %}</li>{% endfor %}
+				</ul>
+			{% else %}
+				<p class="hint">{{ LNG.rl_ui_no_totals }}</p>
+			{% endif %}
+		</div>
+	</div>
+
+	<details class="rl-storage" id="rl-storage" data-rl-storage>
+		<summary>
+			<span class="rl-storage__title">{{ LNG.rl_ui_storage }}</span>
+			<span class="rl-storage__count">{{ relics.count }} / {{ relics.capacity }}</span>
+			<span class="rl-storage__dust">{{ LNG.rl_ui_dust }} {{ pretty_number(relics.dust) }}</span>
+		</summary>
+		<div class="rl-storage__body">
+			<div class="rl-filters toolbar" data-rl-filters hidden>
+				<select data-rl-filter="slot" aria-label="{{ LNG.rl_ui_filter_slot|e('html_attr') }}">
+					<option value="">{{ LNG.rl_ui_all_slots }}</option>
+					{% for f in relics.filters.slots %}<option value="{{ f.code }}">{{ f.label }}</option>{% endfor %}
+				</select>
+				<select data-rl-filter="set" aria-label="{{ LNG.rl_ui_filter_set|e('html_attr') }}">
+					<option value="">{{ LNG.rl_ui_all_sets }}</option>
+					{% for f in relics.filters.sets %}<option value="{{ f.code }}">{{ f.label }}</option>{% endfor %}
+				</select>
+				<select data-rl-filter="rarity" aria-label="{{ LNG.rl_ui_filter_rarity|e('html_attr') }}">
+					<option value="">{{ LNG.rl_ui_all_rarities }}</option>
+					{% for f in relics.filters.rarities %}<option value="{{ f.key }}">{{ f.label }}</option>{% endfor %}
+				</select>
+				<select data-rl-sort aria-label="{{ LNG.rl_ui_sort|e('html_attr') }}">
+					<option value="rarity">{{ LNG.rl_ui_sort_rarity }}</option>
+					<option value="newest">{{ LNG.rl_ui_sort_newest }}</option>
+				</select>
+			</div>
+
+			{% if relics.storage %}
+				<div class="rl-split">
+					<ul class="rl-grid" data-rl-grid>
+						{% for r in relics.storage %}
+							<li class="rl-tile rl-r-{{ r.rarityKey }}{% if r.equippedHere %} is-here{% endif %}" data-relic="{{ r.id }}" data-slot="{{ r.slotCode }}" data-slotno="{{ r.slot }}" data-set="{{ r.set }}" data-rarity="{{ r.rarityKey }}" data-rank="{{ r.rarity }}" data-here="{{ r.equippedHere ? 1 : 0 }}">
+								<button type="button" class="rl-tile__pick" aria-label="{{ LNG.rl_ui_select|e('html_attr') }}: {{ r.slotLabel }} {{ r.setLabel }}" hidden></button>
+								<div class="rl-tile__head">
+									<span class="rl-frame rl-frame--sm">{{ rl.ico('slot', r.slotCode) }}<span class="rl-frame__set">{{ rl.ico('set', r.set) }}</span></span>
+									<div class="rl-tile__title">
+										<strong>{{ r.slotLabel }}</strong>
+										<span>{{ r.setLabel }} · {{ r.rarityLabel }}</span>
+									</div>
+									{% if r.locked %}<span class="rl-lock" data-tip="{{ LNG.rl_ui_locked|e('html_attr') }}">{{ icon('lock') }}</span>{% endif %}
+								</div>
+								{{ rl.stats(r) }}
+								{% if r.planetId %}<p class="rl-planet"><span class="tag{% if r.equippedHere %} tag--pos{% else %} tag--info{% endif %}">{% if r.equippedHere %}{{ LNG.rl_ui_here }}{% else %}{{ r.planetName }}{% if r.planetCoords %} [{{ r.planetCoords }}]{% endif %}{% endif %}</span></p>{% endif %}
+								<details class="rl-more">
+									<summary>{{ LNG.rl_ui_actions }}</summary>
+									<div class="rl-acts">
+										{% if not r.equippedHere %}
+											<form method="post" action="{{ path('game_relics_equip') }}" class="rl-act rl-act--equip"><input type="hidden" name="id" value="{{ r.id }}"><button type="submit" class="btn--primary btn-sm">{{ LNG.rl_ui_equip_here }}</button>{% if r.movableIn > 0 %} <span class="hint">{{ LNG.format('rl_ui_movable_in', getRestTimeFormat(r.movableIn, true)) }}</span>{% endif %}</form>
+										{% else %}
+											<form method="post" action="{{ path('game_relics_unequip') }}" class="rl-act"><input type="hidden" name="id" value="{{ r.id }}"><button type="submit" class="btn-sm">{{ LNG.rl_ui_unequip }}</button></form>
+										{% endif %}
+										<form method="post" action="{{ path('game_relics_lock') }}" class="rl-act"><input type="hidden" name="id" value="{{ r.id }}"><button type="submit" class="btn-sm">{{ icon(r.locked ? 'lock-open' : 'lock') }} {{ r.locked ? LNG.rl_ui_unlock : LNG.rl_ui_lock }}</button></form>
+										<form method="post" action="{{ path('game_relics_dismantle') }}" class="rl-act"><input type="hidden" name="id" value="{{ r.id }}"><button type="submit" class="btn-sm" data-confirm="{{ LNG.format('rl_ui_dismantle_confirm', r.dismantleDust)|e('html_attr') }}" data-confirm-danger{% if r.locked %} disabled{% endif %}>{{ LNG.rl_ui_dismantle }} <span class="tag">+{{ r.dismantleDust }}</span></button>{% if r.locked %} <span class="hint">{{ LNG.rl_ui_locked_hint }}</span>{% endif %}</form>
+										{% if r.subs %}
+										<form method="post" action="{{ path('game_relics_reforge') }}" class="rl-act rl-act--reforge">
+											<input type="hidden" name="id" value="{{ r.id }}">
+											<select name="sub" aria-label="{{ LNG.rl_ui_reforge_pick|e('html_attr') }}">
+												{% for sub in r.subs %}<option value="{{ sub.index }}">{{ sub.label }} {{ sub.text }}</option>{% endfor %}
+											</select>
+											<button type="submit" class="btn-sm" data-confirm="{{ LNG.format('rl_ui_reforge_confirm', pretty_number(r.reforgeCost.dust))|e('html_attr') }}">{{ LNG.rl_ui_reforge }}</button>
+											<span class="hint rl-cost">{{ LNG.format('rl_ui_reforge_cost', pretty_number(r.reforgeCost.dust), pretty_number(r.reforgeCost.metal), pretty_number(r.reforgeCost.crystal), pretty_number(r.reforgeCost.deuterium)) }}</span>
+										</form>
+										{% endif %}
+									</div>
+								</details>
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="rl-detail" data-rl-detail hidden aria-live="polite"></div>
+				</div>
+				<p class="empty" data-rl-nomatch hidden>{{ LNG.rl_ui_no_match }}</p>
+			{% else %}
+				<p class="empty">{{ LNG.rl_ui_storage_empty }}</p>
+			{% endif %}
+		</div>
+	</details>
+
+	<dialog class="overlay-dialog rl-picker" data-rl-picker aria-labelledby="rl-picker-title">
+		<header class="panel__head"><h2 id="rl-picker-title">{{ LNG.rl_ui_picker_title }}</h2><form method="dialog"><button type="submit" class="btn-sm">{{ LNG.rl_ui_close }}</button></form></header>
+		<ul class="rl-picker__list" data-rl-picker-list></ul>
+	</dialog>
+</section>
+<script type="module" src="./scripts/game/relics.js?v={{ asset_version }}"></script>
+{% endif %}

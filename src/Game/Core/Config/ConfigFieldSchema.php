@@ -159,6 +159,12 @@ class ConfigFieldSchema
             (new Schema\UniNewsFields())->fields($LNG),
             (new Schema\UniRefFields())->fields($LNG),
             (new Schema\UniBotsFields())->fields($LNG),
+            (new Schema\UniEventsFields())->fields($LNG),
+            (new Schema\UniContractsFields())->fields($LNG),
+            (new Schema\UniSeasonsFields())->fields($LNG),
+            (new Schema\UniRivalryFields())->fields($LNG),
+            (new Schema\UniMapContentFields())->fields($LNG),
+            (new Schema\UniRelicsFields())->fields($LNG),
         );
     }
 

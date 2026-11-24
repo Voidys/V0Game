@@ -260,6 +260,9 @@ class RaidDispatcher
         if (IsVacationMode($targetUser)) {
             return 'target in vacation mode';
         }
+        if (in_array($mission, \App\Game\Engagement\Returning\ReturningPlayers::AGGRESSIVE, true) && $this->returningPlayers()->protectedUntil((int) $targetUser['universe'], (int) $targetUser['id']) > 0) {
+            return 'target is a returning player under protection';
+        }
         if ((int) $targetUser['authlevel'] > AuthLevel::User->value || ($this->configs->get()->adm_attack == 1 && $targetUser['authattack'] > $user['authlevel'])) {
             return 'target is protected staff';
         }

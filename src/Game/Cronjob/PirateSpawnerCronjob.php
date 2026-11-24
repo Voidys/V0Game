@@ -4,9 +4,10 @@ namespace App\Game\Cronjob;
 
 use App\Game\Core\Discord;
 use App\Game\Core\Universe;
+use App\Game\Engagement\Events\EventModifiers;
 
 /**
- * Weekly pirate base generation (cronjob "pirates", off by default; Sunday 02:00): archives and replaces all
+ * Weekly pirate base generation (cronjob "pirates", off by default; Sunday 02:00): archives and replaces all personal (kind 0)
  * pirate bases (table pirate_bases) for universes with MODULE_PIRATE_BASES.
  */
 class PirateSpawnerCronjob extends AbstractCronjobTask
@@ -31,10 +32,14 @@ class PirateSpawnerCronjob extends AbstractCronjobTask
     public function run(): void
     {
         try {
-            $this->db->insert("INSERT INTO %%PIRATE_BASES_HISTORY%% SELECT *, :timestamp FROM %%PIRATE_BASES%%;", [
+            // only the personal bases (kind 0); derelicts and the mothership of the map content features live in the same table
+            $this->db->insert("INSERT INTO %%PIRATE_BASES_HISTORY%%
+                (`id`, `id_owner`, `universe`, `galaxy`, `system`, `planet_type`, `metal`, `crystal`, `deuterium`, `ships`, `der_metal`, `der_crystal`, `timestamp`)
+                SELECT `id`, `id_owner`, `universe`, `galaxy`, `system`, `planet_type`, `metal`, `crystal`, `deuterium`, `ships`, `der_metal`, `der_crystal`, :timestamp
+                FROM %%PIRATE_BASES%% WHERE `kind` = 0;", [
                 ':timestamp' => $this->state->runtime->timestamp,
             ]);
-            $this->db->nativeQuery("DELETE FROM %%PIRATE_BASES%%;");
+            $this->db->nativeQuery("DELETE FROM %%PIRATE_BASES%% WHERE `kind` = 0;");
 
             $excludedShips = [
                 SHIP_PROBE, // Spy Probe
@@ -50,6 +55,11 @@ class PirateSpawnerCronjob extends AbstractCronjobTask
                 $config = $this->configs->get($universe);
 
                 $users = $this->getUsers($universe, $config->piratebase_min_points);
+                // universe events (pirate surge): stronger bases (share of the player's ships, at most 100 %) with more loot
+                $strength = $this->eventModifiers()->factor($universe, EventModifiers::PIRATE_STRENGTH);
+                $loot = $this->eventModifiers()->factor($universe, EventModifiers::PIRATE_LOOT);
+                $percentMin = min(100, (int) round($config->piratebase_fleet_percentage_min * $strength));
+                $percentMax = min(100, max($percentMin, (int) round($config->piratebase_fleet_percentage_max * $strength)));
 
                 foreach ($users as $user) {
                     // one failing player must not abort the run (the bases written so far stay valid)
@@ -60,12 +70,15 @@ class PirateSpawnerCronjob extends AbstractCronjobTask
                         }
                         $userShips = $this->getUserShips($user['id'], $planets);
 
-                        $pirateFleet = $this->getPirateFleet($userShips, $excludedShips, $config->piratebase_fleet_percentage_min, $config->piratebase_fleet_percentage_max);
+                        $pirateFleet = $this->getPirateFleet($userShips, $excludedShips, $percentMin, $percentMax);
                         if ($pirateFleet === []) {
                             continue; // no ships: an empty base would only hand out free resources
                         }
                         $targetPlanet = $planets[random_int(0, count($planets) - 1)];
                         $ress = $this->getPirateRess($planets, $user['id_planet'], $config->piratebase_mainplanet_only, $config->piratebase_ress_hours);
+                        foreach ($ress as $resourceId => $amount) {
+                            $ress[$resourceId] = $amount * $loot;
+                        }
 
                         $this->createPirateBase($targetPlanet, $pirateFleet, $ress, $user);
                     } catch (\Throwable $e) {

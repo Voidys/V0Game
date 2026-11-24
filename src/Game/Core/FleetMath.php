@@ -2,6 +2,7 @@
 
 namespace App\Game\Core;
 
+use App\Game\Engagement\Events\EventModifiers;
 use App\Game\Model\User;
 
 /**
@@ -206,7 +207,7 @@ class FleetMath
      *
      * @param array<string, mixed> $USER
      */
-    public function getMissionDuration(int $SpeedFactor, int $MaxFleetSpeed, int $Distance, int $GameSpeed, array $USER): int
+    public function getMissionDuration(int $SpeedFactor, int $MaxFleetSpeed, int $Distance, int|float $GameSpeed, array $USER): int
     {
         return $this->missionDurationFor($SpeedFactor, $MaxFleetSpeed, $Distance, $GameSpeed, $this->models()->user($USER));
     }
@@ -217,7 +218,7 @@ class FleetMath
      *
      * @throws \DomainException when the chosen speed setting or the fleet's top speed is not positive (the formula divides by both)
      */
-    public function missionDurationFor(int $SpeedFactor, int $MaxFleetSpeed, int $Distance, int $GameSpeed, User $user): int
+    public function missionDurationFor(int $SpeedFactor, int $MaxFleetSpeed, int $Distance, int|float $GameSpeed, User $user): int
     {
         if ($SpeedFactor <= 0 || $MaxFleetSpeed <= 0) {
             throw new \DomainException(sprintf('Flight duration needs a positive speed setting and fleet speed, got %d and %d.', $SpeedFactor, $MaxFleetSpeed));
@@ -263,11 +264,16 @@ class FleetMath
     }
 
     /**
-     * Fleet speed multiplier of the universe: config fleet_speed / 2500 (2500 = normal speed).
+     * Fleet speed multiplier of the universe: config fleet_speed / 2500 (2500 = normal speed), times the factor of the
+     * running universe events (EventModifiers::FLEET_SPEED, 1.0 when none). Fleets already flying keep their times.
      */
-    public function getGameSpeedFactor(): int
+    public function getGameSpeedFactor(): int|float
     {
-        return $this->configs->get()->fleet_speed / 2500;
+        $config = $this->configs->get();
+        $factor = $config->fleet_speed / 2500;
+        $event = $this->eventModifiers()->factor((int) $config->uni, EventModifiers::FLEET_SPEED);
+
+        return $event === 1.0 ? $factor : $factor * $event;
     }
 
     /**
@@ -339,9 +345,9 @@ class FleetMath
      * @param array<mixed> $FleetArray
      * @param array<string, mixed> $Player
      */
-    public function getFleetConsumption(array $FleetArray, int $MissionDuration, int $MissionDistance, array $Player, int $GameSpeed): float
+    public function getFleetConsumption(array $FleetArray, int $MissionDuration, int $MissionDistance, array $Player, int|float $GameSpeed, ?int $startPlanetId = null): float
     {
-        return $this->fleetConsumptionFor($FleetArray, $MissionDuration, $MissionDistance, $this->models()->user($Player), $GameSpeed);
+        return $this->fleetConsumptionFor($FleetArray, $MissionDuration, $MissionDistance, $this->models()->user($Player), $GameSpeed, null, $startPlanetId);
     }
 
     /**
@@ -349,8 +355,9 @@ class FleetMath
      *
      * @param array<int, mixed> $FleetArray ship id => count
      * @param float|null $honorBoost the player's honor fuel factor when the caller already knows it (saves the DB reads)
+     * @param int|null $startPlanetId planet the fleet starts from: its relic fuel bonus reduces the consumption (null = none)
      */
-    public function fleetConsumptionFor(array $FleetArray, int $MissionDuration, int $MissionDistance, User $Player, int $GameSpeed, ?float $honorBoost = null): float
+    public function fleetConsumptionFor(array $FleetArray, int $MissionDuration, int $MissionDistance, User $Player, int|float $GameSpeed, ?float $honorBoost = null, ?int $startPlanetId = null): float
     {
         $consumption = 0;
 
@@ -362,7 +369,9 @@ class FleetMath
             $basicConsumption = $ShipConsumption * $Count;
             $consumption += $basicConsumption * $MissionDistance / 35000 * (($spd / 10) + 1) * (($spd / 10) + 1);
         }
-        return (round($consumption * ($honorBoost ?? $this->honorPoints()->calculate_honorpoints_boost($Player->id))) + 1);
+        $relicFuel = $startPlanetId === null ? 1.0 : $this->relicBonus()->reductionFactor($Player->id, $Player->universe, $startPlanetId, \App\Game\Engagement\Relics\RelicCatalog::FUEL);
+
+        return (round($consumption * ($honorBoost ?? $this->honorPoints()->calculate_honorpoints_boost($Player->id)) * $relicFuel) + 1);
     }
 
     /**

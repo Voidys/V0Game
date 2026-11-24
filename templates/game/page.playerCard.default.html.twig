@@ -26,6 +26,7 @@
 	<a class="button btn-sm" href="{{ path('game_notes_new') }}">{{ icon('sticky-note') }}{{ LNG.pl_note }}</a>
 {% endif %}{% endset %}
 {{ ui.page_head(name, 'user', cardMeta, cardActions) }}
+{% include 'game/engagement/_cosmetics_card.html.twig' %}
 
 <div class="stats">
 	<div class="stat"><span class="stat__label">{{ LNG.pl_homeplanet }}</span><span class="stat__value">{{ homeplanet }} <a href="{{ path('game_galaxy_show', {galaxy: galaxy, system: system}) }}">[{{ galaxy }}:{{ system }}:{{ planet }}]</a></span></div>

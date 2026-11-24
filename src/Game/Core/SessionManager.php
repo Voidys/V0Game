@@ -18,6 +18,12 @@ class SessionManager
         protected Singleton $state,
     ) {}
 
+    /** The universe settings of the request (for the engagement login hook of the session). */
+    public function configs(): ConfigRegistry
+    {
+        return $this->configs;
+    }
+
     /** idle time in seconds after which a game session expires (admin setting session_lifetime) */
     public function idleLifetime(): int
     {

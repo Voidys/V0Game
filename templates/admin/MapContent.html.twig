@@ -1,0 +1,68 @@
+{% include 'admin/overall_header.html.twig' %}
+<div class="stack">
+  {% if message %}
+    <div class="notice notice--{% if messageType == 'success' %}success{% else %}danger{% endif %}" role="alert">
+      {{ icon(messageType == 'success' ? 'circle-check' : 'circle-alert') }}<div>{{ message }}</div>
+    </div>
+  {% endif %}
+  <div class="notice notice--info">{{ icon('info') }}<div>{{ LNG.map_content_disclaimer }}</div></div>
+
+  <section class="card card--flush">
+    <header class="card__head">
+      <h2 class="card__title">{{ icon('orbit') }}{{ LNG.map_content_live_derelicts }}</h2>
+      <div class="card__actions">
+        <form method="POST" action="{{ path('admin_map_content_derelicts', {uniID: universe}) }}">
+          <button type="submit" class="btn--primary"{% if not derelictsEnabled %} disabled{% endif %}>{{ icon('plus') }}{{ LNG.map_content_spawn_derelicts }}</button>
+        </form>
+      </div>
+    </header>
+    <div class="table-wrap">
+      {% if derelicts %}
+      <table class="data">
+        <thead><tr><th>{{ LNG.map_content_position }}</th><th>{{ LNG.map_content_metal }}</th><th>{{ LNG.map_content_crystal }}</th><th>{{ LNG.map_content_expires }}</th></tr></thead>
+        <tbody>
+        {% for d in derelicts %}
+          <tr><td>[{{ d.galaxy }}:{{ d.system }}:{{ d.planet }}]</td><td>{{ pretty_number(d.der_metal) }}</td><td>{{ pretty_number(d.der_crystal) }}</td><td>{{ d.hours_left }}h</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p class="card__body">{{ LNG.map_content_none }}</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="card card--flush">
+    <header class="card__head">
+      <h2 class="card__title">{{ icon('skull') }}{{ LNG.map_content_live_mothership }}</h2>
+      <div class="card__actions">
+        <form method="POST" action="{{ path('admin_map_content_mothership', {uniID: universe}) }}">
+          <button type="submit" class="btn--primary"{% if not mothershipEnabled %} disabled{% endif %}>{{ icon('plus') }}{{ LNG.map_content_spawn_mothership }}</button>
+        </form>
+      </div>
+    </header>
+    <div class="table-wrap">
+      {% if mothership %}
+      <table class="data">
+        <thead><tr><th>{{ LNG.map_content_position }}</th><th>{{ LNG.map_content_hp }}</th><th>{{ LNG.map_content_expires }}</th></tr></thead>
+        <tbody>
+          <tr><td>[{{ mothership.galaxy }}:{{ mothership.system }}:{{ mothership.planet }}]</td><td>{{ mothership.hp_percent }}%</td><td>{{ mothership.hours_left }}h</td></tr>
+        </tbody>
+      </table>
+      {% if mothership.damage %}
+      <table class="data">
+        <thead><tr><th>{{ LNG.map_content_damage }}</th><th></th></tr></thead>
+        <tbody>
+        {% for row in mothership.damage %}
+          <tr><td>{{ row.username }}</td><td>{{ pretty_number(row.damage) }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+      {% else %}
+      <p class="card__body">{{ LNG.map_content_none }}</p>
+      {% endif %}
+    </div>
+  </section>
+</div>
+{% include 'admin/overall_footer.html.twig' %}

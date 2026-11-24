@@ -257,7 +257,6 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
             $tutorialDetails = $tutorialUtil->getTutorialStepDetails();
         }
 
-
         return [
             'PlanetSelect' => $PlanetSelect,
             'planetList' => $this->planetList(),
@@ -292,6 +291,22 @@ abstract class AbstractGameController implements GameControllerInterface, \App\C
             'noobInterface' => $this->state->USER['noob_interface'],
             ...$this->chatNavigation($config),
             'voteNav' => $this->viewHelpers()->isModuleAvailable(MODULE_VOTING) && (new \App\Community\VoteSites($this->db))->hasActive((int) $this->state->USER['universe']),
+            ...$this->engagementNav($config),
+        ];
+    }
+
+    /**
+     * Nav flags of the optional engagement pages (each switched on in the universe settings).
+     *
+     * @return array<string, bool>
+     */
+    private function engagementNav(\App\Game\Core\Config $config): array
+    {
+        return [
+            'contractsNav' => (bool) ($config->contracts_enabled ?? false),
+            'seasonNav' => (bool) ($config->seasons_enabled ?? false),
+            'bountyNav' => (bool) ($config->bounties_enabled ?? false),
+            'cosmeticsNav' => (bool) ($config->cosmetics_enabled ?? false),
         ];
     }
 

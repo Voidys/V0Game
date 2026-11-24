@@ -23,6 +23,8 @@ use App\Game\Enum\MessageType;
 use App\Game\AdvancedStats\AdvancedStatsEnum;
 use App\Game\Core\ExpeditionDeckHandler;
 use App\Game\Core\Language;
+use App\Game\Engagement\Relics\RelicDrops;
+use App\Game\Engagement\Stories\ExpeditionStories;
 use App\Game\Missions\Expedition\ExpeditionCombatEvent;
 use App\Game\Missions\Expedition\ExpeditionContext;
 use App\Game\Missions\Expedition\ExpeditionResourceEvent;
@@ -282,13 +284,25 @@ class MissionCaseExpedition extends MissionFunctions implements MissionInterface
             GetTargetAddressLink($this->_fleet),
         ) . '<br><br>';
 
-        // Draw expedition event from deck
-        $card = $this->drawExpeditionEvent();
-        $eventType = $card['type'];
-        $eventSize = $card['size'];
-        $this->ctx->eventsize = $eventSize;
+        // an active expedition story (map content) that ends here replaces the card draw
+        $stories = new ExpeditionStories($this->db, $this->configs, $this->state);
+        $story = null;
+        // guarded: a story bug must never break the expedition
+        $this->achievementGuard()->run(function () use ($stories, &$story): void {
+            $story = $stories->advance($this->ctx, $this->_fleet);
+        });
+        if ($story !== null) {
+            $eventType = 'Story';
+            $event = $story;
+        } else {
+            // Draw expedition event from deck
+            $card = $this->drawExpeditionEvent();
+            $eventType = $card['type'];
+            $eventSize = $card['size'];
+            $this->ctx->eventsize = $eventSize;
 
-        $event = $this->applyEvent($eventType, $eventSize, $fleetArray);
+            $event = $this->applyEvent($eventType, $eventSize, $fleetArray);
+        }
         $Message .= $event['message'];
         $ExpoColor = $event['color'];
         $ExpoEventAndSize = $event['label'];
@@ -304,8 +318,20 @@ class MissionCaseExpedition extends MissionFunctions implements MissionInterface
             $Message .= '<span class="expo-event expo-event--' . $ExpoColor . '"><br><br>' . $ExpoEventAndSize . '</span>';
         }
 
-        if (isset($fleetArray[SHIP_PROBE])) {
+        if (isset($fleetArray[SHIP_PROBE]) && $story === null) {
             $Message .= $this->frequencyHint();
+        }
+        if ($story === null && $eventType !== 'BlackHole') {
+            $this->achievementGuard()->run(function () use ($stories, &$Message): void {
+                $Message .= $stories->maybeStart($this->ctx, $this->_fleet);
+            });
+        }
+
+        // relics: one drop roll per finished expedition, none when the fleet was lost (black hole, destroyed in the fight); guarded
+        if ($this->kill == 0) {
+            $this->achievementGuard()->run(function () use (&$Message): void {
+                $Message .= (new RelicDrops($this->db, $this->configs, $this->state))->onExpedition($this->LNG, $this->_fleet);
+            });
         }
 
         $this->playerMessenger()->sendMessage(

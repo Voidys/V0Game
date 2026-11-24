@@ -88,6 +88,8 @@ class PlanetReshuffle
             $db->delete($sql, [
                 ':userId'   => $userId['id'],
             ]);
+            // relics return to storage (the planets are deleted)
+            (new \App\Game\Engagement\Relics\RelicInventory($this->db, $this->configs, $this->state))->releaseUser((int) $userId['id']);
             $sql = 'DELETE FROM %%PLANETS%% WHERE `id_owner` = :userId;';
             $db->delete($sql, [
                 ':userId'   => $userId['id'],

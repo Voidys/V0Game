@@ -532,7 +532,8 @@ final class Installer
     }
 
     /**
-     * Step 5: optional settings in one form: chat (module, global channel, link blocking), bots, e-mail (folded; with a
+     * Step 5: optional settings in one form: chat (module, global channel, link blocking), bots, the optional engagement
+     * features (all off by default), e-mail (folded; with a
      * test mail button that re-shows the page) and legal/privacy (folded). Saving applies everything, spawns the bots,
      * locks the tool and shows the summary with the cron line and the generated migration password.
      */
@@ -547,7 +548,11 @@ final class Installer
             'chat_global' => $flag('chat_global', InstallService::CHAT_DEFAULTS['chat_global']),
             'chat_block_links' => $flag('chat_block_links', InstallService::CHAT_DEFAULTS['chat_block_links']),
             'bots' => (int) ($post['bots'] ?? 0),
+            'features' => array_map(static fn(string $key): bool => false, InstallService::ENGAGEMENT_FEATURES),
         ];
+        foreach (array_keys($options['features']) as $code) {
+            $options['features'][$code] = $flag('feature_' . $code, false);
+        }
         $mail = $this->installer->validateMailSettings([
             'active' => $flag('active', false),
             'method' => $post['method'] ?? 2,
@@ -601,7 +606,7 @@ final class Installer
     /**
      * Applies the options, spawns the bots (a failure only sets a flag), locks the installer and shows the summary.
      *
-     * @param array{chat: bool, chat_global: bool, chat_block_links: bool, bots: int} $options
+     * @param array{chat: bool, chat_global: bool, chat_block_links: bool, bots: int, features: array<string, bool>} $options
      * @param array<string, mixed> $mail validated mail values
      * @param array<string, mixed> $legal validated legal values
      */
@@ -613,6 +618,7 @@ final class Installer
         $this->installer->applyMailSettings($mail);
         $this->installer->applyLegalSettings($legal);
         $this->installer->applyBotsEnabled($options['bots']);
+        $this->installer->applyEngagementSettings($options['features']);
 
         $botsCreated = 0;
         $botError = false;

@@ -16,6 +16,15 @@ abstract class ExpeditionEvent
 {
     use GameUtilities;
 
+    /**
+     * Factor of the relics of the start planet for the expedition finds, as it was when the fleet was dispatched (1.0 without
+     * relics, with the feature off or for fleets launched before relics).
+     */
+    protected function relicFindFactor(): float
+    {
+        return $this->relicInventory()->fleetFactor((int) $this->fleet['id'], (int) $this->fleet['universe']);
+    }
+
     /** @var array<string, mixed> the fleet row when the event started */
     protected array $fleet;
     protected Language $LNG;

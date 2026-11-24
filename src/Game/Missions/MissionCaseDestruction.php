@@ -101,6 +101,7 @@ class MissionCaseDestruction extends AbstractBattleMission
         if ($topkb) {
             $this->insertTopKb($combatResult, $reportID, $units);
         }
+        $this->fireBattleOutcome($setup->userAttack, $setup->userDefend, $combatResult, $reportID, $stealResource, $debris, 'destruction');
 
         $this->setState(FLEET_RETURN);
         $this->SaveFleet();

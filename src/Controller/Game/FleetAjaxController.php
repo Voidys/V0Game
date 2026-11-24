@@ -18,6 +18,7 @@
 namespace App\Controller\Game;
 
 use App\Game\Enum\Mission;
+use App\Game\Engagement\MapContent\NpcTargets;
 use App\Routing\GameRoute;
 use Symfony\Component\HttpFoundation\Response;
 use Exception;
@@ -138,7 +139,7 @@ class FleetAjaxController extends AbstractGameController
         );
         $SpeedAllMin = $this->fleetFunctions()->getFleetMaxSpeed($fleetArray, $this->state->USER);
         $Duration = $this->fleetFunctions()->getMissionDuration(Mission::Missile->value, $SpeedAllMin, $Distance, $SpeedFactor, $this->state->USER);
-        $consumption = $this->fleetFunctions()->getFleetConsumption($fleetArray, $Duration, $Distance, $this->state->USER, $SpeedFactor);
+        $consumption = $this->fleetFunctions()->getFleetConsumption($fleetArray, $Duration, $Distance, $this->state->USER, $SpeedFactor, (int) $this->state->PLANET['id']);
 
         $UserDeuterium -= $consumption;
 
@@ -291,6 +292,12 @@ class FleetAjaxController extends AbstractGameController
         if (IsVacationMode($targetData)) {
             $this->sendData(605, $LNG['fa_vacation_mode']);
         }
+        if (
+            in_array((int) $targetMission, \App\Game\Engagement\Returning\ReturningPlayers::AGGRESSIVE, true)
+            && $this->returningPlayers()->protectedUntil((int) $this->state->USER['universe'], (int) $targetData['id_owner']) > 0
+        ) {
+            $this->sendData(605, $LNG['fl_player_is_returning']);
+        }
         $sql = 'SELECT total_points
             FROM %%STATPOINTS%%
             WHERE id_owner = :userId AND stat_type = :statType';
@@ -408,6 +415,8 @@ class FleetAjaxController extends AbstractGameController
             0,
             $consumption,
         );
+        // spying (or any aggressive shortcut) ends the returning-player protection of the sender
+        $this->returningPlayers()->endProtection((int) $this->state->USER['universe'], (int) $this->state->USER['id']);
 
         $this->sendData(
             600,
@@ -433,6 +442,13 @@ class FleetAjaxController extends AbstractGameController
     {
         $db = $this->db;
         if ($mission == Mission::PiratebaseSpy->value || $mission == Mission::PiratebaseRecycling->value) {
+            // derelict field (recycling) or pirate mothership (spying) of the map content features
+            $npc = (new NpcTargets($db, $this->configs, $this->state))->byId($this->universe()->current(), $planetID);
+            if ($npc !== null) {
+                $fits = $npc['npc_kind'] === NpcTargets::KIND_DERELICT ? $mission == Mission::PiratebaseRecycling->value : $mission == Mission::PiratebaseSpy->value;
+
+                return $fits ? ['id_owner' => 0, 'galaxy' => $npc['galaxy'], 'system' => $npc['system'], 'planet' => $npc['planet'], 'planet_type' => $npc['planet_type']] : [];
+            }
             $config = $this->configs->get();
             $planet = $config->max_planets + 3;
             $sql = "SELECT `id_owner`, `galaxy`, `system`, $planet as planet, `planet_type`

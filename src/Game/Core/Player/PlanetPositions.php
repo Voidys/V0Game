@@ -55,6 +55,15 @@ class PlanetPositions
             ':type'     => $type,
         ], 'record');
 
+        if ($count == 0 && $type == PlanetType::Planet->value) {
+            // a live derelict field / pirate mothership (map content) occupies the slot
+            $count = $db->selectSingle(
+                'SELECT COUNT(*) AS record FROM %%PIRATE_BASES%% WHERE `universe` = :universe AND `kind` > 0 AND `galaxy` = :galaxy AND `system` = :system AND `planet` = :planet;',
+                [':universe' => $universe, ':galaxy' => $galaxy, ':system' => $system, ':planet' => $planet],
+                'record',
+            );
+        }
+
         return $count == 0 && $planet > 0 && $system > 0 && $galaxy > 0;
     }
 

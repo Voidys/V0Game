@@ -17,6 +17,7 @@
 
 namespace App\Game\Core;
 
+use App\Game\Engagement\Events\EventModifiers;
 use App\Game\Enum\PlanetType;
 
 /**
@@ -294,12 +295,28 @@ class ResourceUpdate
                     $this->ReBuildCache();
                 }
             }
-            if ($this->st->planet['planet_type'] != PlanetType::Moon->value) { // moons produce nothing
-                $produced = $this->production()->produceFor($this->models()->planet($this->st->planet), $ProductionTime, $this->config);
-                $elements = $this->elements();
-                foreach ([RESOURCE_METAL, RESOURCE_CRYSTAL, RESOURCE_DEUT] as $resourceId) {
-                    $this->st->builded[$resourceId] += $produced->delta($resourceId);
-                    $this->st->planet[$elements->column($resourceId)] += $produced->delta($resourceId);
+            // universe events: integrate with the solar factor averaged over the window, not today's, then rebuild for now
+            $uni = (int) $this->st->user['universe'];
+            $from = $TIME - $ProductionTime;
+            $avg = $this->eventModifiers()->factorOver($uni, EventModifiers::SOLAR, $from, $TIME);
+            $override = abs($avg - $this->eventModifiers()->factor($uni, EventModifiers::SOLAR)) > 0.0001;
+            try {
+                if ($override) {
+                    $this->production()->solarOverride = $avg;
+                    $this->ReBuildCache();
+                }
+                if ($this->st->planet['planet_type'] != PlanetType::Moon->value) { // moons produce nothing
+                    $produced = $this->production()->produceFor($this->models()->planet($this->st->planet), $ProductionTime, $this->config);
+                    $elements = $this->elements();
+                    foreach ([RESOURCE_METAL, RESOURCE_CRYSTAL, RESOURCE_DEUT] as $resourceId) {
+                        $this->st->builded[$resourceId] += $produced->delta($resourceId);
+                        $this->st->planet[$elements->column($resourceId)] += $produced->delta($resourceId);
+                    }
+                }
+            } finally {
+                if ($override) {
+                    $this->production()->solarOverride = null;
+                    $this->ReBuildCache();
                 }
             }
         }

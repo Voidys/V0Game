@@ -1,0 +1,92 @@
+{% include 'admin/overall_header.html.twig' %}
+<div class="stack">
+<nav class="tabs" aria-label="{{ LNG.ad_editor_title }}">
+  <a href="{{ path('admin_account_editor_show') }}">{{ icon('layout-dashboard') }}{{ LNG.ad_editor_title }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'buildings'}) }}">{{ icon('building-2') }}{{ LNG.ad_editor_buildings }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'ships'}) }}">{{ icon('rocket') }}{{ LNG.ad_editor_ships }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'defenses'}) }}">{{ icon('shield') }}{{ LNG.ad_editor_defenses }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'researchs'}) }}">{{ icon('flask-conical') }}{{ LNG.ad_editor_researchs }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'resources'}) }}">{{ icon('database') }}{{ LNG.ad_editor_resources }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'planets'}) }}">{{ icon('orbit') }}{{ LNG.ad_editor_planets }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'personal'}) }}">{{ icon('user') }}{{ LNG.ad_editor_personal }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'alliances'}) }}">{{ icon('handshake') }}{{ LNG.ad_editor_alliances }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'achievements'}) }}">{{ icon('award') }}{{ LNG.ad_editor_achievements }}</a>
+  <a href="{{ path('admin_account_editor_tab', {tab: 'relics'}) }}" aria-current="page">{{ icon('star') }}{{ LNG.ad_editor_relics }}</a>
+</nav>
+  {% if not relicsOn %}<div class="notice notice--warning" role="alert">{{ icon('circle-alert') }}<div>{{ LNG.rl_adm_feature_off }}</div></div>{% endif %}
+  <form action="" method="get" class="card">
+    <header class="card__head"><h2 class="card__title">{{ icon('star') }}{{ LNG.ad_rel_title }}</h2></header>
+    <div class="card__body">
+      <div class="notice notice--info">{{ icon('info') }}<div>{{ LNG.ad_rel_hint }}</div></div>
+      <div class="form-grid">
+        <div class="field-row">
+          <label for="ae-id">{{ LNG.input_id_user }}</label>
+          <div class="field-control"><input id="ae-id" name="id" type="text" inputmode="numeric" value="{{ playerId }}" required></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions"><button type="submit" class="btn--primary">{{ icon('search') }}{{ LNG.ad_rel_show }}</button></div>
+  </form>
+
+  {% if playerId > 0 %}
+  <form action="" method="post" class="card">
+    <input type="hidden" name="id" value="{{ playerId }}">
+    <input type="hidden" name="action" value="grant">
+    <header class="card__head"><h2 class="card__title">{{ icon('plus') }}{{ LNG.ad_rel_grant }}</h2></header>
+    <div class="card__body">
+      <div class="form-grid">
+        <div class="field-row"><label for="rl-slot">{{ LNG.rl_adm_slot }}</label><div class="field-control"><select id="rl-slot" name="slot">{% for key, label in relicSlotOptions %}<option value="{{ key }}">{{ label }}</option>{% endfor %}</select></div></div>
+        <div class="field-row"><label for="rl-set">{{ LNG.rl_adm_set }}</label><div class="field-control"><select id="rl-set" name="set">{% for key, label in relicSetOptions %}<option value="{{ key }}">{{ label }}</option>{% endfor %}</select></div></div>
+        <div class="field-row"><label for="rl-rarity">{{ LNG.rl_adm_rarity }}</label><div class="field-control"><select id="rl-rarity" name="rarity">{% for key, label in relicRarityOptions %}<option value="{{ key }}">{{ label }}</option>{% endfor %}</select><p class="field-help">{{ LNG.ad_rel_grant_help }}</p></div></div>
+      </div>
+    </div>
+    <div class="form-actions"><button type="submit" class="btn--primary">{{ icon('plus') }}{{ LNG.ad_rel_grant }}</button></div>
+  </form>
+
+  <form action="" method="post" class="card">
+    <input type="hidden" name="id" value="{{ playerId }}">
+    <input type="hidden" name="action" value="dust">
+    <header class="card__head"><h2 class="card__title">{{ icon('database') }}{{ LNG.ad_rel_dust }}</h2></header>
+    <div class="card__body">
+      <div class="form-grid">
+        <div class="field-row"><label for="rl-dust">{{ LNG.ad_rel_dust_label }}</label><div class="field-control"><input id="rl-dust" name="dust" type="number" min="0" max="2000000000" step="1" value="{{ relicDust }}"></div></div>
+      </div>
+    </div>
+    <div class="form-actions"><button type="submit">{{ icon('save') }}{{ LNG.button_submit }}</button></div>
+  </form>
+
+  <section class="card card--flush">
+    <header class="card__head"><h2 class="card__title">{{ LNG.ad_rel_list }} <span class="badge badge--muted">{{ relicRows|length }}</span></h2></header>
+    {% if relicRows is empty %}
+      <div class="card__body muted">{{ LNG.ad_rel_none }}</div>
+    {% else %}
+    <div class="table-wrap">
+      <table class="data data--compact">
+        <thead><tr><th class="num">{{ LNG.ad_number }}</th><th>{{ LNG.rl_adm_slot }}</th><th>{{ LNG.rl_adm_set }}</th><th>{{ LNG.rl_adm_rarity }}</th><th>{{ LNG.ad_rel_stats }}</th><th>{{ LNG.ad_rel_planet }}</th><th class="actions"></th></tr></thead>
+        <tbody>
+          {% for relic in relicRows %}
+          <tr>
+            <td class="num muted">{{ relic.id }}</td>
+            <td>{{ relic.slot }}</td>
+            <td>{{ relic.set }}</td>
+            <td>{{ relic.rarityLabel }}</td>
+            <td>{{ relic.main }}{% for sub in relic.subs %}<br><span class="muted">{{ sub }}</span>{% endfor %}</td>
+            <td>{{ relic.planet }}{% if relic.locked %} <span class="badge badge--muted">{{ LNG.ad_rel_locked }}</span>{% endif %}</td>
+            <td class="actions nowrap">
+              <form action="" method="post" class="inline-form">
+                <input type="hidden" name="id" value="{{ playerId }}">
+                <input type="hidden" name="action" value="remove">
+                <input type="hidden" name="relic" value="{{ relic.id }}">
+                <button type="submit" class="btn--small btn--danger" data-confirm-danger data-confirm="{{ LNG.format('ad_rel_confirm_remove', relic.id)|e('html_attr') }}" title="{{ LNG.ad_rel_remove }}" aria-label="{{ LNG.ad_rel_remove }}">{{ icon('trash-2') }}</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+</div>
+{% include 'admin/overall_footer.html.twig' %}

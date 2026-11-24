@@ -1,0 +1,44 @@
+{% import '_macros/ui.html.twig' as ui -%}
+{% extends layout_template %}
+{% block title %}{{ LNG.cosm_title }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.cosm_title, 'award', LNG.cosm_intro) }}{% endblock %}
+{% block content %}
+{% if cosmNotice %}<p class="panel panel__body {{ cosmNoticeOk ? 'colorPositive' : 'colorNegative' }}">{{ cosmNotice }}</p>{% endif %}
+
+<section class="panel">
+	{{ ui.panel_head(LNG.cosm_badges) }}
+	<div class="panel__body">
+	{% if cosmBadges %}
+		<ul class="cosm-badges">
+		{% for badge in cosmBadges %}
+			<li class="cosm-badge" title="{{ badge.tooltip }}">{{ icon(badge.icon, null, 'cosm-tint--' ~ badge.tint) }}<span>{{ badge.label }}</span></li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p class="empty">{{ LNG.cosm_none }}</p>
+	{% endif %}
+	</div>
+</section>
+
+{% for kind, options in {title: cosmTitles, color: cosmColors} %}
+<section class="panel">
+	{{ ui.panel_head(kind == 'title' ? LNG.cosm_titles : LNG.cosm_colors) }}
+	<div class="panel__body">
+	{% if options %}
+		<form action="{{ path('game_cosmetics_choose') }}" method="post" class="toolbar">
+			<input type="hidden" name="kind" value="{{ kind }}">
+			<select name="code" aria-label="{{ kind == 'title' ? LNG.cosm_titles : LNG.cosm_colors }}">
+				<option value="">{{ LNG.cosm_choose_none }}</option>
+				{% for option in options %}
+				<option value="{{ option.code }}"{% if option.active %} selected{% endif %}>{{ option.label }}</option>
+				{% endfor %}
+			</select>
+			<button type="submit" class="btn--primary">{{ LNG.cosm_save }}</button>
+		</form>
+	{% else %}
+		<p class="empty">{{ LNG.cosm_none }}</p>
+	{% endif %}
+	</div>
+</section>
+{% endfor %}
+{% endblock %}

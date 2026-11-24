@@ -97,6 +97,7 @@
   .chat__time { grid-area: time; color: var(--theme-muted); font-size: var(--fs-xs); }
   .chat__user { grid-area: user; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
   .chat__msg.is-own .chat__user { color: var(--theme-accent); }
+  .chat__msg.is-system .chat__text { color: var(--theme-muted); font-style: italic; }
   .chat__text { grid-area: text; overflow-wrap: anywhere; white-space: pre-wrap; }
   .chat__empty { padding-block: var(--space-4); text-align: center; }
   /* "more" button: occupies its cell all the time (no layout shift), shows on row hover / focus */

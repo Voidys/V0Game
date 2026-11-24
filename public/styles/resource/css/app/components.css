@@ -689,3 +689,19 @@ input.fleet-radio { width: 3.75rem; }
 .cr-value__sum th, .cr-value__sum td { border-block-start: 1px solid var(--cr-line, currentColor); }
 .cr-value__profit { margin-block-start: var(--space-3); }
 .cr-value th .icon { margin-inline-end: var(--space-1); }
+
+@layer components {
+	/* label + control rows of the small game forms (bounties, alliance goal, ...): one column of labels, controls aligned */
+	.field {
+		display: grid;
+		grid-template-columns: minmax(6rem, 10rem) minmax(0, 18rem);
+		align-items: center;
+		gap: var(--space-3);
+		margin-block: var(--space-2);
+	}
+	.field > input, .field > input[type="number"], .field > select { inline-size: 100%; max-inline-size: none; }
+	.field + button, .field + [type="submit"] { margin-block-start: var(--space-3); }
+	@media (max-width: 40rem) {
+		.field { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
+	}
+}

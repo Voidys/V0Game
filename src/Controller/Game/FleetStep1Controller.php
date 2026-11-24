@@ -20,6 +20,7 @@ use App\Routing\GameRoute;
 use App\Fleet\FleetTemplateStore;
 use App\Fleet\ShipPreset;
 use App\Game\Core\FleetFunctions;
+use App\Game\Engagement\MapContent\NpcTargets;
 use App\Game\Core\Session;
 use App\Game\Core\Universe;
 
@@ -115,7 +116,7 @@ class FleetStep1Controller extends AbstractGameController
             'system'        => $targetSystem,
             'planet'        => $targetPlanet,
             'type'          => $targetType,
-            'honorboost'    => $this->honorPoints()->calculate_honorpoints_boost($USER['id']),
+            'honorboost'    => $this->honorPoints()->calculate_honorpoints_boost($USER['id']) * $this->relicFuelFactor(),
             'speedSelect'   => FleetFunctions::$allowedSpeed,
             'typeSelect'    => [1 => $LNG['type_planet_1'], 2 => $LNG['type_planet_2'], 3 => $LNG['type_planet_3']],
             'fleetdata'     => $FleetData,
@@ -487,11 +488,14 @@ class FleetStep1Controller extends AbstractGameController
 
         $ACSList = [];
 
-        $sql = "SELECT acs.`id`, acs.`public_id`, acs.`name`, planet.`galaxy`, planet.`system`, planet.`planet`, planet.`planet_type`
+        // a group aimed at the pirate mothership (map content) stores its pirate base id plus NpcTargets::ACS_OFFSET as target
+        $sql = "SELECT acs.`id`, acs.`public_id`, acs.`name`, COALESCE(planet.`galaxy`, npc.`galaxy`) AS `galaxy`, COALESCE(planet.`system`, npc.`system`) AS `system`,
+                COALESCE(planet.`planet`, npc.`planet`) AS `planet`, COALESCE(planet.`planet_type`, npc.`planet_type`) AS `planet_type`
             FROM %%USERS_TO_ACS%%
             INNER JOIN %%AKS%% acs ON `acsID` = acs.`id`
-            INNER JOIN %%PLANETS%% planet ON planet.`id` = acs.`target`
-            WHERE `userID` = :userID AND :maxFleets > (SELECT COUNT(*) FROM %%FLEETS%% WHERE `group` = acsID);";
+            LEFT JOIN %%PLANETS%% planet ON planet.`id` = acs.`target`
+            LEFT JOIN %%PIRATE_BASES%% npc ON acs.`target` >= " . NpcTargets::ACS_OFFSET . " AND npc.`id` + " . NpcTargets::ACS_OFFSET . " = acs.`target` AND npc.`kind` > 0
+            WHERE `userID` = :userID AND (planet.`id` IS NOT NULL OR npc.`id` IS NOT NULL) AND :maxFleets > (SELECT COUNT(*) FROM %%FLEETS%% WHERE `group` = acsID);";
         $ACSResult = $db->select($sql, [
             ':userID' => $USER['id'],
             ':maxFleets' => $this->configs->get()->max_fleets_per_acs,
@@ -554,7 +558,7 @@ class FleetStep1Controller extends AbstractGameController
         }
 
         if ($error === null && in_array($this->input()->int('mission'), self::PROTECTED_MISSIONS, true)) {
-            $error = $this->protectionNotice($this->targetOwnerId($targetGalaxy, $targetSystem, $targetPlanet)) ?: null;
+            $error = $this->protectionNotice($this->targetOwnerId($targetGalaxy, $targetSystem, $targetPlanet), $this->input()->int('mission')) ?: null;
         }
 
         return $this->jsonResponse($error ?? 'OK');
@@ -625,6 +629,13 @@ class FleetStep1Controller extends AbstractGameController
             ':targetType' => (($targetPlanetType == 2) ? 1 : $targetPlanetType),
         ]);
 
+        if (empty($planetData) && $targetPlanet >= 1 && $targetPlanet <= $this->configs->get()->max_planets) {
+            $npc = (new NpcTargets($this->db, $this->configs, $this->state))->atSlot($this->universe()->current(), (int) $targetGalaxy, (int) $targetSystem, (int) $targetPlanet);
+            if ($npc !== null) {
+                return $this->checkNpcTarget($npc, (int) $targetPlanetType);
+            }
+        }
+
         if ($targetPlanetType == 3 && empty($planetData)) {
             return $LNG['fl_error_no_moon'];
         }
@@ -661,6 +672,26 @@ class FleetStep1Controller extends AbstractGameController
     }
 
     /**
+     * Target check for a derelict field (debris target, needs salvage) or the pirate mothership (planet target) of the map content
+     * features: any other target type is not available.
+     *
+     * @param array<string, mixed> $npc row from NpcTargets
+     */
+    private function checkNpcTarget(array $npc, int $targetPlanetType): ?string
+    {
+        $LNG = $this->state->LNG;
+        if ($npc['npc_kind'] === NpcTargets::KIND_DERELICT) {
+            if ($targetPlanetType != 2) {
+                return $LNG['fl_error_not_avalible'];
+            }
+
+            return ($npc['der_metal'] + $npc['der_crystal']) > 0 ? null : $LNG['fl_error_empty_derbis'];
+        }
+
+        return $targetPlanetType == 1 ? null : $LNG['fl_error_not_avalible'];
+    }
+
+    /**
      * Target check for the expedition position: the player needs expedition tech and a free expedition slot.
      * Returns the error text, null when the target is fine.
      */
@@ -679,5 +710,14 @@ class FleetStep1Controller extends AbstractGameController
         }
 
         return null;
+    }
+
+    /**
+     * Relic fuel bonus of the start planet (1.0 without relics): the page's fuel formula multiplies by it together with
+     * the honor boost, so the fuel shown matches the fuel charged (FleetMath::fleetConsumptionFor).
+     */
+    private function relicFuelFactor(): float
+    {
+        return $this->relicBonus()->reductionFactor((int) $this->state->USER['id'], (int) $this->state->USER['universe'], (int) $this->state->PLANET['id'], \App\Game\Engagement\Relics\RelicCatalog::FUEL);
     }
 }

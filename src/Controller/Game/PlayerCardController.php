@@ -106,7 +106,24 @@ class PlayerCardController extends AbstractGameController
             }
         }
 
+        $context['cosmCard'] = $this->cosmeticsCard($PlayerID);
+
         return $this->render('game/page.playerCard.default.html.twig', $context);
+    }
+
+    /**
+     * Badges, active title and name colour of the viewed player (optional feature cosmetics_enabled), null while it is off.
+     *
+     * @return array{badges: list<array<string, mixed>>, title: ?string, colorClass: ?string}|null
+     */
+    private function cosmeticsCard(int $playerId): ?array
+    {
+        if (!(bool) ($this->configs->get((int) $this->state->USER['universe'])->cosmetics_enabled ?? false)) {
+            return null;
+        }
+
+        return (new \App\Game\Engagement\Cosmetics\CosmeticCatalog($this->state->LNG))
+            ->card((new \App\Game\Engagement\Cosmetics\Cosmetics($this->db))->owned($playerId));
     }
 
     /**

@@ -7,6 +7,7 @@
 {% import '_macros/ui.html.twig' as ui %}
 {% block pagehead %}{{ ui.page_head(LNG.lm_resources, 'database') }}{% endblock %}
 {% block content %}
+	{% if catchUpLine %}<p class="hint">{{ icon('rocket') }} {{ catchUpLine }}</p>{% endif %}
 	<form action="{{ path('game_resources_send') }}" method="post" class="prod-form">
 		<section class="panel panel--flush">
 		<header class="panel__head">
@@ -70,6 +71,16 @@
 						<td class="act"></td>
 					</tr>
 				{% endif %}
+				{% if relicProduction %}
+					<tr class="prod-bonus prod-relics">
+						<td>{{ LNG.rl_prod_row }}</td>
+						<td class="num res-metal">{{ _self.val(relicProduction.rows[901]) }}<br><span class="prod-pct">({{ relicProduction.pct[901]|number_format(2) }}%)</span></td>
+						<td class="num res-crystal">{{ _self.val(relicProduction.rows[902]) }}<br><span class="prod-pct">({{ relicProduction.pct[902]|number_format(2) }}%)</span></td>
+						<td class="num res-deuterium">{{ _self.val(relicProduction.rows[903]) }}<br><span class="prod-pct">({{ relicProduction.pct[903]|number_format(2) }}%)</span></td>
+						<td class="num res-energy">{{ _self.val(relicProduction.rows[911]) }}<br><span class="prod-pct">({{ relicProduction.pct[911]|number_format(2) }}%)</span></td>
+						<td class="act"></td>
+					</tr>
+				{% endif %}
 				<tr class="prod-storage prod-sep">
 					<td>{{ LNG.rs_storage_capacity }}</td>
 					<td class="num res-metal"><span class="colorPositive">{{ storage[901] }}</span></td>
@@ -118,5 +129,6 @@
 		{% if totalProduction[911] < 0 %}<p class="panel__foot reason reason--bad colorNegative">{{ icon('triangle-alert') }} {{ LNG.rs_energy_deficit }}</p>{% endif %}
 		</section>
 	</form>
+	{% include 'game/engagement/_relics.html.twig' %}
 	<script type="module" src="./scripts/game/resources.js?v={{ asset_version }}"></script>
 {% endblock %}

@@ -15,6 +15,8 @@ class AdvancedStatsHandler
 {
     use \App\Game\Core\GameUtilities;
 
+    private ?\App\Game\Engagement\EngagementHooks $engagement = null;
+
     /** @var array<int, int> user id => universe, a player never changes universe (saves one query per increment) */
     private array $universeOfUser = [];
 
@@ -37,6 +39,7 @@ class AdvancedStatsHandler
             return;
         }
         $value = (int) $value;
+        $universe ??= ($this->universeOfUser[$userId] ??= $this->playerLookup()->getUniverse($userId));
 
         $sql = "INSERT INTO %%ADVANCED_STATS%% 
                 (userId, universe, statkey, statvalue) 
@@ -45,11 +48,13 @@ class AdvancedStatsHandler
 
         $this->db->insert($sql, [
             ':userId'       => $userId,
-            ':universe'     => $universe ?? ($this->universeOfUser[$userId] ??= $this->playerLookup()->getUniverse($userId)),
+            ':universe'     => $universe,
             ':statkey'      => $statKey->name,
             ':statvalue'    => $value,
         ]);
         $this->checkAchievements($userId, $statKey);
+        $this->engagement ??= new \App\Game\Engagement\EngagementHooks($this->db, $this->configs, $this->state);
+        $this->engagement->onStat((int) $universe, $userId, $statKey, $value);
     }
 
     /**

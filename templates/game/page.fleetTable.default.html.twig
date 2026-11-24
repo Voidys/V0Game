@@ -84,7 +84,7 @@
                   <input value="{{ LNG.fl_send_back }}" type="submit" data-confirm="{{ LNG.fl_recall_confirm|replace({'%s': FlyingFleetRow.recallTime})|e('html') }}" data-confirm-tpl="{{ LNG.fl_recall_confirm|e('html') }}">
                 </form>
                 <span class="aborttime" title="{{ LNG.fl_recall_return }}" starttime="{{ FlyingFleetRow.startTimestamp }}"></span>
-                  {% if FlyingFleetRow.mission == 1 %}
+                  {% if FlyingFleetRow.mission == 1 or FlyingFleetRow.mission == 20 %}
                     <form action="{{ path('game_fleet_table_acs') }}" method="post">
                       <input name="fleetID" value="{{ FlyingFleetRow.id }}" type="hidden">
                       <input value="{{ LNG.fl_acs }}" type="submit">

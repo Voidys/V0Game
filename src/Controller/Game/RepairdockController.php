@@ -109,7 +109,7 @@ class RepairdockController extends AbstractGameController
         }
 
         $elementList = $this->repairableShips($ships);
-        $SolarEnergy = round((($PLANET['temp_max'] + 160) / 6) * $this->configs->get()->energy_multiplier, 1);
+        $SolarEnergy = round((($PLANET['temp_max'] + 160) / 6) * $this->configs->get()->energy_multiplier * $this->eventModifiers()->factor($this->player()->universe, \App\Game\Engagement\Events\EventModifiers::SOLAR), 1);
 
         $busy = !empty($ElementQueue);
 

@@ -564,7 +564,7 @@ class EmpireController extends AbstractGameController
         $duration = function (array $fleet) use ($distance, $speedFactor, $userModel): int {
             return $this->fleetFunctions()->missionDurationFor(100, $this->fleetFunctions()->fleetMaxSpeedFor($fleet, $userModel), $distance, $speedFactor, $userModel);
         };
-        $fuelFor = fn(array $fleet): float => $this->fleetFunctions()->fleetConsumptionFor($fleet, $duration($fleet), $distance, $userModel, $speedFactor);
+        $fuelFor = fn(array $fleet): float => $this->fleetFunctions()->fleetConsumptionFor($fleet, $duration($fleet), $distance, $userModel, $speedFactor, startPlanetId: (int) $planet['id']);
 
         if (array_sum($ships) < 1) {
             return 'no_ships';

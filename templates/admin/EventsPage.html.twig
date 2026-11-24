@@ -1,0 +1,99 @@
+{% include 'admin/overall_header.html.twig' %}
+<div class="stack">
+  {% if editor %}
+  {% for error in eventErrors %}<div class="notice notice--danger" role="alert">{{ icon('circle-alert') }}<div>{{ error }}</div></div>{% endfor %}
+
+  <form method="POST" action="{{ path('admin_events_save') }}" class="card" data-track-dirty>
+    <input name="id" type="hidden" value="{{ event.id }}">
+    <header class="card__head">
+      <h2 class="card__title">{{ icon(event.id ? 'pencil' : 'plus') }}{{ event.id ? LNG.ev_edit_head : LNG.ev_create_head }}</h2>
+      <div class="card__actions"><a class="button btn--small" href="{{ path('admin_events_show') }}">{{ icon('arrow-left') }}{{ LNG.ev_back }}</a></div>
+    </header>
+    <div class="card__body">
+      <div class="form-grid">
+        <div class="field-row">
+          <label for="ev-preset">{{ LNG.ev_preset }}</label>
+          <div class="field-control">
+            <input type="hidden" name="preset" value="{{ event.preset }}"><strong id="ev-preset">{{ eventPresets[event.preset].label|default(event.preset) }}</strong>
+            <p class="field-help">{{ LNG.ev_preset_help }}</p>
+          </div>
+        </div>
+        <div class="field-row">
+          <label for="ev-title">{{ LNG.ev_title }}</label>
+          <div class="field-control">
+            <input type="text" id="ev-title" name="title" maxlength="80" required value="{{ event.title }}">
+            <p class="field-help">{{ LNG.ev_title_help }}</p>
+          </div>
+        </div>
+        <div class="field-row">
+          <label for="ev-start">{{ LNG.ev_starts }}</label>
+          <div class="field-control"><input type="datetime-local" id="ev-start" name="starts_at" required value="{{ event.starts_value }}"></div>
+        </div>
+        <div class="field-row">
+          <label for="ev-end">{{ LNG.ev_ends }}</label>
+          <div class="field-control"><input type="datetime-local" id="ev-end" name="ends_at" required value="{{ event.ends_value }}"><p class="field-help">{{ LNG.ev_ends_help }}</p></div>
+        </div>
+        {% for factor in eventFactors %}
+        <div class="field-row">
+          <label for="ev-fx-{{ factor.key }}">{{ factor.label }}</label>
+          <div class="field-control"><input type="number" id="ev-fx-{{ factor.key }}" name="factor[{{ factor.key }}]" min="{{ eventMin }}" max="{{ eventMax }}" step="0.05" value="{{ factor.value }}"></div>
+        </div>
+        {% endfor %}
+        <p class="field-help">{{ LNG.ev_factor_help }}</p>
+      </div>
+    </div>
+    <div class="form-actions"><button type="submit" class="btn--primary">{{ icon('save') }}{{ LNG.button_submit }}</button></div>
+  </form>
+  {% else %}
+  {% if eventNotice %}<div class="notice notice--success">{{ icon('circle-check') }}<div>{{ eventNotice }}</div></div>{% endif %}
+  {% if not eventsOn %}<div class="notice notice--warning" role="alert">{{ icon('circle-alert') }}<div>{{ LNG.ev_feature_off }} <a href="{{ path('admin_config_uni_show') }}">{{ LNG.adm_tab_universe }}</a></div></div>{% endif %}
+
+  <section class="card">
+    <header class="card__head"><h2 class="card__title">{{ icon('plus') }}{{ LNG.ev_new }}</h2></header>
+    <div class="card__body">
+      {% for key in eventPresetKeys %}<a class="button btn--small" href="{{ path('admin_events_create', {preset: key}) }}">{{ LNG['ev_preset_' ~ key] }}</a> {% endfor %}
+    </div>
+  </section>
+
+  {% for group, rows in eventGroups %}
+  <section class="card card--flush">
+    <header class="card__head"><h2 class="card__title">{{ icon('clock') }}{{ LNG['ev_group_' ~ group] }} <span class="badge badge--muted">{{ rows|length }}</span></h2></header>
+    {% if rows|length > 0 %}
+    <div class="card__body">
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>{{ LNG.ev_title }}</th><th>{{ LNG.ev_effects }}</th><th>{{ LNG.ev_starts }}</th><th>{{ LNG.ev_ends }}</th><th class="actions"></th></tr></thead>
+          <tbody>
+            {% for row in rows %}
+            <tr>
+              <td><a href="{{ path('admin_events_edit', {id: row.id}) }}">{{ row.name }}</a></td>
+              <td>{% for effect in row.effects %}{{ effect }}<br>{% endfor %}</td>
+              <td class="nowrap">{{ row.start }}</td>
+              <td class="nowrap">{{ row.end }}</td>
+              <td class="actions nowrap">
+                <a class="button btn--small" href="{{ path('admin_events_edit', {id: row.id}) }}" title="{{ LNG.adm_edit }}" aria-label="{{ LNG.adm_edit }}">{{ icon('pencil') }}</a>
+                {% if group == 'running' %}
+                <form method="POST" action="{{ path('admin_events_end') }}" class="inline-form">
+                  <input type="hidden" name="id" value="{{ row.id }}">
+                  <button type="submit" class="btn--small" data-confirm="{{ LNG.format('ev_confirm_end', row.name)|e('html_attr') }}">{{ LNG.ev_end_now }}</button>
+                </form>
+                {% endif %}
+                <form method="POST" action="{{ path('admin_events_delete') }}" class="inline-form">
+                  <input type="hidden" name="id" value="{{ row.id }}">
+                  <button type="submit" class="btn--small btn--danger" title="{{ LNG.ev_delete }}" data-confirm-danger data-confirm="{{ LNG.format('ev_confirm_delete', row.name)|e('html_attr') }}" aria-label="{{ LNG.ev_delete }}">{{ icon('trash-2') }}</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% else %}
+    <div class="card__body"><div class="empty">{{ icon('clock') }}<p>{{ LNG.ev_empty }}</p></div></div>
+    {% endif %}
+  </section>
+  {% endfor %}
+  {% endif %}
+</div>
+{% include 'admin/overall_footer.html.twig' %}

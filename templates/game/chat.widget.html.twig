@@ -59,6 +59,7 @@
   global: chatGlobal,
   report: path('game_chat_report'),
   block: path('game_chat_block'),
+  battle: path('game_raport_show', {raport: 'RID'}),
   texts: {
     empty: LNG.chat_empty,
     errEmpty: LNG.chat_err_empty,
@@ -86,6 +87,7 @@
     errReportLimit: LNG.chat_err_report_limit,
     errSession: LNG.chat_err_session,
     errSlow: LNG.chat_err_slow,
-    slowHint: LNG.chat_slow_hint
+    slowHint: LNG.chat_slow_hint,
+    report: LNG.bf_report
   }
 }) }}

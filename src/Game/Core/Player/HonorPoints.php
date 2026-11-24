@@ -298,28 +298,7 @@ class HonorPoints
     /** Same neutrality rules as calculate_honorpoints_single(): inactive defender, same alliance, buddies. */
     private function pairIsNeutral(int $attacker, int $defender): bool
     {
-        $sql = 'SELECT `ally_id`, `onlinetime` FROM %%USERS%% WHERE `id` = :id;';
-        $attackerUser = $this->db->selectSingle($sql, [':id' => $attacker]);
-        $defenderUser = $this->db->selectSingle($sql, [':id' => $defender]);
-        if (empty($attackerUser) || empty($defenderUser)) {
-            return true;
-        }
-
-        if (
-            $this->state->runtime->timestamp - INACTIVE > $defenderUser['onlinetime']
-            || ($attackerUser['ally_id'] == $defenderUser['ally_id'] && $attackerUser['ally_id'] != 0)
-        ) {
-            return true;
-        }
-
-        $buddy = $this->db->selectSingle(
-            'SELECT count(*) as anz FROM %%BUDDY%%
-            WHERE (`sender` = :attacker AND `owner` = :defender) OR (`sender` = :defender AND `owner` = :attacker);',
-            [':attacker' => $attacker, ':defender' => $defender],
-            'anz',
-        );
-
-        return $buddy > 0;
+        return (new PairNeutrality($this->db, $this->configs, $this->state))->isNeutral($attacker, $defender);
     }
 
     /**

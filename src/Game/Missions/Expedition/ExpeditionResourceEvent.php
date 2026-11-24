@@ -3,6 +3,7 @@
 namespace App\Game\Missions\Expedition;
 
 use App\Game\AdvancedStats\AdvancedStatsEnum;
+use App\Game\Engagement\Events\EventModifiers;
 
 /**
  * Expedition event "found resources": by card size picks a flavour text and a factor, draws which resource (by the
@@ -64,6 +65,9 @@ class ExpeditionResourceEvent extends ExpeditionEvent
             $resourceId = RESOURCE_DEUT;
             $factor = $factor / 3;
         }
+
+        // universe event (expedition finds +x %): scales the drawn factor, the cargo room limit below still holds
+        $factor *= $this->eventModifiers()->factor((int) $this->fleet['universe'], EventModifiers::EXPEDITION_FIND) * $this->relicFindFactor(); // + relics of the start planet
 
         $foundResources = $factor * max(min($fleetPoints, $this->fleetFunctions()->calculateMaxFactorRes($this->fleet['universe'])), 200);
 

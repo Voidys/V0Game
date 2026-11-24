@@ -107,6 +107,7 @@ class OverviewController extends AbstractGameController
             'isCatchUp'                 => $config->catch_up,
             'catchUp'                   => $LNG->format('sys_catchup', round((1 - $this->protectionRules()->catchUpFactorFor($this->player())) * 100, 2)),
             'outlawTime'                => $outlawTime,
+            'eventBanner'               => $this->universeEvents()->banner((int) $config->uni, $this->state->runtime->timestamp, $LNG),
         ]);
     }
 

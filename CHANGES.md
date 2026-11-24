@@ -1510,3 +1510,33 @@ Technical changes per step, newest last (started with the migration to PHP 8.4, 
 ## 189. Release 1.26.13
 
 - `install/VERSION` 1.26.13 (tag `v1.26.13`): bot difficulty presets, fair-play envelope and switchable behaviours (step 187, migration 1795502610), watch star and even form controls (188).
+
+## 190. Engagement features (all optional, off by default, universe settings)
+
+- Core: `src/Game/Engagement/` with `EngagementHooks` (fans out stat increments from `AdvancedStatsHandler::increment`, finished fights via `MissionFunctions::fireBattleOutcome` → `BattleOutcome` incl. start value per user, and a 5-minute tick from cronjob `EngagementCronjob`), `EngagementFeature` base (each feature checks its own `<feature>_enabled`), guarded like achievements. Shared fight neutrality (`Seasons/FightNeutrality`, static per-pair cache) and `FightValidity` (min. 10 % share of the side, no neutral pairs); `Core/Player/PairNeutrality` extracted from honor points (unchanged behaviour). Migrations 1795600000–1795600500, 17 `eng_*` tables, `pirate_bases.kind`/`planet`.
+- Universe events (`Events/`): admin scheduler `/admin/events` with presets (ion storm, trade fair, solar maximum, pirate surge, speed weekend, custom), factors clamped 0.5–3 (product 0.25–4), `EventModifiers::factor()`/`factorOver()` (time-weighted for lazily integrated production) wired into flight speed, build/research time, solar energy, trader fee, expedition finds (before caps), pirate spawner; overview banner, news + Discord announce once.
+- Catch-up boost (`Events/CatchUpBoost`): shrinking mine bonus for young accounts under X % of the active average, ends for good above the threshold, none for bots or accounts sharing an IP/multi group.
+- Weekly contracts (`/game/contracts`): lazily generated per ISO week from stat/battle kinds, rerolls counted, claim once (current week, from the most productive planet, rollback when nothing to pay), streak badges.
+- Alliance goals (alliance page): weekly goal by the lead, minimum per member, locked once progress starts, badges for members of at least 7 days.
+- Returning players: welcome summary after N days away (not in vacation), optional short protection against attack/spy/missile (also galaxy shortcut and in-flight fleets) that ends with the first own aggressive mission, cooldown.
+- Seasons (`/game/season`): monthly ladder (raider, warrior, defender, explorer, recycler) without reset, per-pair diminishing returns, bot opponents weighted, staff/bots excluded, idempotent close + reward (`rewarded_at`), cached archive.
+- Cosmetics (`/game/cosmetics`): badges, titles, whitelisted name colours on the player card and chat.
+- Bounties (`/game/bounties`): fee burnt, required destroyed value ≥ stake × ratio (≥ 1), credit by start-value share for non-neutral hunters, atomic settle in a savepoint, refunds and cancel even while disabled, generic target errors + rate limit, cleanup on player deletion.
+- Alliance wars: score board on top of the diplomacy war (destroyed value, loot, neutral pairs ignored), optional max length ends the war like a peace, past wars on the alliance page.
+- Battle feed: system line in the global chat for fights above a threshold (report link, coordinates optional, hourly cap); system lines cannot be reported/blocked or faked.
+- Map content: derelict salvage fields and a pirate mothership (ACS only, ≥ 5 % attack share per participant, fixed boss techs, persistent HP, loot split by damage, paid once) as `pirate_bases` rows `kind` 1/2 on real empty slots (slot lock, colonisation blocked while live); expedition story chains (3 steps, per player, reward within the normal expedition caps); admin `/admin/map-content`.
+- Shared `.field` label/control rows (components layer); new keys in all locales.
+
+## 191. Relics (optional, off by default)
+
+- Relics drop on expeditions (`relics_drop_permille`, default 2 %, scaled by fleet value vs. the expedition reference value; none on black hole or lost fleets; bots never), optionally also from the mothership kill, the story finale and season #1 (own switches). Rarity common → epic with weighted draw and bad-luck protection (respects weight 0).
+- Four slots per planet (Core Resonator, Fusion Lattice, Nano-Assembler, Gravitic Vault), one global account storage; main stat from the slot's pool, 1–4 unique substats, values rolled with 2 decimals inside the rarity band; six sets with 2/4-piece bonuses.
+- Stats: per-resource or all-resource mine production, energy, fusion deuterium use, storage, building/shipyard/research time, fuel (start planet, shown = charged) and expedition finds (snapshot at launch, `eng_relic_fleet`). Power percent, hard caps per stat; `all` + resource never exceeds the resource cap.
+- Fully configurable: scalars in the universe settings (`relics`), the whole catalog (slots, stats, maxima, rarities, sets, caps, dust and reforge costs) on `/admin/relics` (JSON per universe, defaults in code, reset); lowering a maximum or disabling a stat/slot governs existing relics (clamped/inactive). Account editor tab to grant/remove relics and dust.
+- Storage limit (full → dust), dismantle into dust (locked relics protected), reforge one substat value for dust + resources, move cooldown per relic, production of both planets settled before every change, relics return to storage when a planet is lost. Migration 1795600600 (`eng_relics`, `eng_relic_wallet`, `eng_relic_log`, `eng_relic_config`, `eng_relic_fleet`), log cleanup after `relics_log_days`.
+- UI below the production table on `/game/resources`: slot cards with sci-fi SVG icons and rarity frames, set bonuses, planet totals, a "Relics" production row, collapsible storage with filters, compare and actions (works without JS).
+- Tests: `tests/Unit/Game/Relics/*`.
+
+## 192. Release 1.26.14
+
+- `install/VERSION` 1.26.14 (tag `v1.26.14`): 13 optional engagement features with audits and live tests (step 190, migrations 1795600000–1795600500), relics (191, migration 1795600600), README feature list.

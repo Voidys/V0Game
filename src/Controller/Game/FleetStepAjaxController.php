@@ -109,7 +109,7 @@ class FleetStepAjaxController extends AbstractGameController
             }
             $distance = $functions->getTargetDistance([$PLANET['galaxy'], $PLANET['system'], $PLANET['planet']], [$target['galaxy'], $target['system'], $target['planet']]);
             $duration = $functions->missionDurationFor(1, $maxSpeed, $distance, $gameSpeed, $userModel);
-            $fuel = $functions->fleetConsumptionFor($fleet, $duration, $distance, $userModel, $gameSpeed);
+            $fuel = $functions->fleetConsumptionFor($fleet, $duration, $distance, $userModel, $gameSpeed, startPlanetId: (int) $this->state->PLANET['id']);
             if ($fuel > $PLANET['deuterium']) {
                 continue;
             }

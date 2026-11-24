@@ -1,0 +1,22 @@
+{# Engagement blocks of the overview (one include line there): returning-player welcome and the weekly contracts line. Renders nothing while the features are off. #}
+{% import '_macros/ui.html.twig' as ui %}
+{% set engReturning = eng_returning_summary() %}
+{% if engReturning %}
+<section class="panel">
+	{{ ui.panel_head(LNG.eng_rt_title) }}
+	<div class="panel__body stack">
+		<p>{{ LNG.format('eng_rt_text', engReturning.days) }}</p>
+		<ul>
+			<li>{{ LNG.format('eng_rt_fights', engReturning.fights, engReturning.lost) }}</li>
+			{% if engReturning.rankBefore and engReturning.rankNow %}<li>{{ LNG.format('eng_rt_rank', engReturning.rankBefore, engReturning.rankNow) }}</li>{% endif %}
+			{% if engReturning.events %}<li>{{ LNG.eng_rt_events }} {{ engReturning.events|join(', ') }}</li>{% endif %}
+			{% if engReturning.protectedHours > 0 %}<li>{{ LNG.format('eng_rt_protected', engReturning.protectedHours) }}</li>{% endif %}
+		</ul>
+		<form action="{{ path('game_returning_dismiss') }}" method="post"><button type="submit">{{ LNG.eng_rt_dismiss }}</button></form>
+	</div>
+</section>
+{% endif %}
+{% set engContracts = eng_contracts_line() %}
+{% if engContracts %}
+<p class="hint"><a href="{{ path('game_contracts_show') }}">{{ icon('scroll-text') }} {{ LNG.format('eng_ct_overview_line', engContracts.done, engContracts.total) }}</a></p>
+{% endif %}

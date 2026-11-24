@@ -251,6 +251,9 @@ class FleetMissileController extends AbstractGameController
                 return $LNG['fl_strong_player'];
             }
         }
+        if ($this->returningPlayers()->protectedUntil((int) $this->state->USER['universe'], (int) $target['id']) > 0) {
+            return $LNG['fl_player_is_returning'];
+        }
 
         return null;
     }
@@ -301,6 +304,8 @@ class FleetMissileController extends AbstractGameController
             $primaryTarget,
             1, // missiles cannot be recalled
         );
+        // firing missiles ends the returning-player protection of the sender
+        $this->returningPlayers()->endProtection((int) $this->state->USER['universe'], (int) $this->state->USER['id']);
     }
 
     /**

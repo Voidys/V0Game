@@ -1,0 +1,69 @@
+{% import '_macros/ui.html.twig' as ui -%}
+{% extends layout_template %}
+{% block title %}{{ LNG.season_title }}{{ parent() }}{% endblock %}
+{% block pagehead %}{{ ui.page_head(LNG.season_title, 'trophy', LNG.season_intro) }}{% endblock %}
+{% block content %}
+{% if seasonNumber > 0 %}
+<section class="panel">
+	{{ ui.panel_head(LNG.format('season_current', seasonNumber)) }}
+	<div class="panel__body">
+		<p>{{ LNG.season_ends }}: {{ php_date('d.m.Y H:i', seasonEndsAt) }} &middot; <span class="season-countdown">{{ LNG.format('season_remaining', seasonRemaining // 86400, (seasonRemaining % 86400) // 3600, (seasonRemaining % 3600) // 60) }}</span></p>
+	</div>
+</section>
+
+{% if seasonTabs %}
+<nav class="segmented" aria-label="{{ LNG.season_title }}">
+	{% for tab in seasonTabs %}
+	<a class="tabs__tab" href="{{ path('game_season_show', {cat: tab.key}) }}"{% if tab.active %} aria-current="page"{% endif %}>{{ tab.label }}</a>
+	{% endfor %}
+</nav>
+<section class="panel panel--flush">
+	{% if seasonRows %}
+	<table class="data">
+		<thead>
+			<tr><th class="num">#</th><th>{{ LNG.season_player }}</th><th class="num">{{ LNG.season_score }}</th></tr>
+		</thead>
+		<tbody>
+		{% for row in seasonRows %}
+			<tr{% if row.own %} class="season-own"{% endif %}><td class="num">{{ row.rank }}</td><td>{{ row.username }}</td><td class="num">{{ pretty_number(row.score) }}</td></tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<p class="empty">{{ LNG.season_empty }}</p>
+	{% endif %}
+	<div class="panel__body">
+		{% if seasonOwn %}<p>{{ LNG.format('season_own', seasonOwn.rank, pretty_number(seasonOwn.score)) }}</p>{% else %}<p class="hint">{{ LNG.season_own_none }}</p>{% endif %}
+	</div>
+</section>
+{% else %}
+<p class="panel panel__body">{{ LNG.season_empty }}</p>
+{% endif %}
+{% else %}
+<p class="panel panel__body">{{ LNG.season_none }}</p>
+{% endif %}
+
+{% if seasonArchive %}
+<section class="panel panel--flush">
+	{{ ui.panel_head(LNG.season_archive) }}
+	<table class="data">
+		<thead>
+			<tr><th>{{ LNG.season_title }}</th><th>{{ LNG.season_podium }}</th></tr>
+		</thead>
+		<tbody>
+		{% for past in seasonArchive %}
+			<tr>
+				<td>#{{ past.number }}<br><small>{{ php_date('d.m.Y', past.endsAt) }}</small></td>
+				<td>
+				{% for group in past.tops %}
+					<div><strong>{{ group.label }}:</strong>
+					{% for entry in group.top %}{{ entry.rank }}. {{ entry.username }}{% if not loop.last %} &middot; {% endif %}{% endfor %}</div>
+				{% else %}-{% endfor %}
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</section>
+{% endif %}
+{% endblock %}

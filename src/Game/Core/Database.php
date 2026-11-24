@@ -470,12 +470,22 @@ class Database
         return (empty($field) || (empty($res))) ? $res : $res[$field];
     }
 
+    /** whether startTransaction() opened a transaction that is not committed or rolled back yet */
+    private bool $inTransaction = false;
+
     /**
      * Starts a transaction (nested transactions are not supported).
      */
     public function startTransaction(): void
     {
         $this->query("START TRANSACTION;");
+        $this->inTransaction = true;
+    }
+
+    /** True between startTransaction() and commit()/rollback() (transactions started with raw SQL are not tracked). */
+    public function inTransaction(): bool
+    {
+        return $this->inTransaction;
     }
 
     /**
@@ -484,6 +494,7 @@ class Database
     public function commit(): void
     {
         $this->query("COMMIT;");
+        $this->inTransaction = false;
     }
 
     /**
@@ -492,6 +503,7 @@ class Database
     public function rollback(): void
     {
         $this->query("ROLLBACK");
+        $this->inTransaction = false;
     }
 
     /**

@@ -1741,7 +1741,8 @@ INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`,
 (NULL, 'bots', 1, '*', '*', '*', '*', '*', 'BotCronjob', 0, NULL),
 (NULL, 'fleets', 1, '*', '*', '*', '*', '*', 'FleetEventCronjob', 0, NULL),
 (NULL, 'notifications', 1, '*', '*', '*', '*', '*', 'NotificationCronjob', 0, NULL),
-(NULL, 'abusereview', 1, '10', '*', '*', '*', '*', 'AbuseReviewCronjob', 0, NULL);
+(NULL, 'abusereview', 1, '10', '*', '*', '*', '*', 'AbuseReviewCronjob', 0, NULL),
+(NULL, 'engagement', 1, '*/5', '*', '*', '*', '*', 'EngagementCronjob', 0, NULL);
 
 INSERT INTO `%PREFIX%ticket_category` (`categoryID`, `name`) VALUES
 (1, 'Support'),
@@ -2146,3 +2147,303 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%board_votes` (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_cosmetics` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `kind` varchar(8) NOT NULL,
+  `code` varchar(48) NOT NULL,
+  `source` varchar(64) NOT NULL DEFAULT '',
+  `granted_at` int(11) unsigned NOT NULL,
+  `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_kind_code` (`user_id`, `kind`, `code`),
+  KEY `user_active` (`user_id`, `active`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_events` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `preset` varchar(24) NOT NULL DEFAULT 'custom',
+  `title` varchar(80) NOT NULL DEFAULT '',
+  `modifiers` longtext NOT NULL,
+  `starts_at` int(11) unsigned NOT NULL,
+  `ends_at` int(11) unsigned NOT NULL,
+  `announced_start` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `announced_end` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `created_at` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `uni_time` (`universe`, `starts_at`, `ends_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_catchup` (
+  `user_id` int(11) unsigned NOT NULL,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `ended_at` int(11) unsigned NOT NULL DEFAULT 0,
+  `blocked` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `check_until` int(11) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_seasons` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `number` int(11) unsigned NOT NULL,
+  `starts_at` int(11) unsigned NOT NULL,
+  `ends_at` int(11) unsigned NOT NULL,
+  `closed_at` int(11) unsigned DEFAULT NULL,
+  `rewarded_at` int(11) unsigned DEFAULT NULL,
+  `archive` mediumtext DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `universe_number` (`universe`, `number`),
+  KEY `universe_closed` (`universe`, `closed_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_season_scores` (
+  `season_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `category` varchar(16) NOT NULL,
+  `score` double NOT NULL DEFAULT 0,
+  PRIMARY KEY (`season_id`, `user_id`, `category`),
+  KEY `season_category_score` (`season_id`, `category`, `score`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_bounties` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `placer_id` int(11) unsigned NOT NULL,
+  `target_id` int(11) unsigned NOT NULL,
+  `metal` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `crystal` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `deuterium` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `fee` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `required_value` double NOT NULL DEFAULT 0,
+  `created_at` int(11) unsigned NOT NULL,
+  `expires_at` int(11) unsigned NOT NULL,
+  `status` varchar(12) NOT NULL DEFAULT 'open',
+  `hunter_id` int(11) unsigned DEFAULT NULL,
+  `closed_at` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `open_list` (`universe`, `status`, `expires_at`),
+  KEY `target_status` (`target_id`, `status`),
+  KEY `placer_status` (`placer_id`, `status`),
+  KEY `pair` (`placer_id`, `target_id`, `created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_bounty_progress` (
+  `bounty_id` int(11) unsigned NOT NULL,
+  `hunter_id` int(11) unsigned NOT NULL,
+  `credit` double NOT NULL DEFAULT 0,
+  `updated_at` int(11) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`bounty_id`, `hunter_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_wars` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `ally_a` int(11) unsigned NOT NULL,
+  `ally_b` int(11) unsigned NOT NULL,
+  `name_a` varchar(96) NOT NULL DEFAULT '',
+  `name_b` varchar(96) NOT NULL DEFAULT '',
+  `started_at` int(11) unsigned NOT NULL,
+  `ends_at` int(11) unsigned DEFAULT NULL,
+  `score_a` double NOT NULL DEFAULT 0,
+  `score_b` double NOT NULL DEFAULT 0,
+  `loot_a` double NOT NULL DEFAULT 0,
+  `loot_b` double NOT NULL DEFAULT 0,
+  `fights` int(11) unsigned NOT NULL DEFAULT 0,
+  `ended_at` int(11) unsigned DEFAULT NULL,
+  `result` varchar(8) DEFAULT NULL,
+  `open_pair` varchar(24) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `open_pair` (`open_pair`),
+  KEY `universe_ended` (`universe`, `ended_at`),
+  KEY `ally_a` (`ally_a`),
+  KEY `ally_b` (`ally_b`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- map content (derelicts, mothership, stories): pirate_bases rows with kind > 0 are NPC targets of the map content features
+ALTER TABLE `%PREFIX%pirate_bases`
+  ADD COLUMN `kind` tinyint(3) unsigned NOT NULL DEFAULT 0 AFTER `universe`,
+  ADD COLUMN `planet` tinyint(3) unsigned NOT NULL DEFAULT 0 AFTER `system`,
+  ADD KEY `kind_pos` (`universe`, `kind`, `galaxy`, `system`);
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_derelicts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `base_id` int(11) unsigned NOT NULL,
+  `galaxy` tinyint(3) unsigned NOT NULL,
+  `system` smallint(5) unsigned NOT NULL,
+  `planet` tinyint(3) unsigned NOT NULL,
+  `metal` double NOT NULL DEFAULT 0,
+  `crystal` double NOT NULL DEFAULT 0,
+  `created_at` int(11) unsigned NOT NULL,
+  `expires_at` int(11) unsigned NOT NULL,
+  `removed_at` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `universe_created` (`universe`, `created_at`),
+  KEY `live` (`removed_at`, `expires_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_motherships` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `base_id` int(11) unsigned NOT NULL,
+  `galaxy` tinyint(3) unsigned NOT NULL,
+  `system` smallint(5) unsigned NOT NULL,
+  `planet` tinyint(3) unsigned NOT NULL,
+  `start_value` double NOT NULL DEFAULT 0,
+  `loot_metal` double NOT NULL DEFAULT 0,
+  `loot_crystal` double NOT NULL DEFAULT 0,
+  `loot_deuterium` double NOT NULL DEFAULT 0,
+  `min_players` tinyint(3) unsigned NOT NULL DEFAULT 2,
+  `spawned_at` int(11) unsigned NOT NULL,
+  `expires_at` int(11) unsigned NOT NULL,
+  `status` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `ended_at` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `universe_status` (`universe`, `status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_mothership_damage` (
+  `mothership_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `damage` double NOT NULL DEFAULT 0,
+  `fights` int(11) unsigned NOT NULL DEFAULT 0,
+  `paid_metal` double NOT NULL DEFAULT 0,
+  `paid_crystal` double NOT NULL DEFAULT 0,
+  `paid_deuterium` double NOT NULL DEFAULT 0,
+  PRIMARY KEY (`mothership_id`, `user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_stories` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `step` tinyint(3) unsigned NOT NULL DEFAULT 1,
+  `galaxy` tinyint(3) unsigned NOT NULL,
+  `system` smallint(5) unsigned NOT NULL,
+  `planet` tinyint(3) unsigned NOT NULL,
+  `created_at` int(11) unsigned NOT NULL,
+  `expires_at` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  KEY `expires_at` (`expires_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_contracts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `week` int(11) unsigned NOT NULL,
+  `slot` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `kind` varchar(32) NOT NULL,
+  `target` bigint(20) unsigned NOT NULL,
+  `progress` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `rerolled` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `created_at` int(11) unsigned NOT NULL,
+  `completed_at` int(11) unsigned DEFAULT NULL,
+  `claimed_at` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_week_slot` (`user_id`, `week`, `slot`),
+  UNIQUE KEY `user_week_kind` (`user_id`, `week`, `kind`),
+  KEY `week` (`week`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_alliance_goals` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `alliance_id` int(11) unsigned NOT NULL,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `week` int(11) unsigned NOT NULL,
+  `kind` varchar(32) NOT NULL,
+  `target` bigint(20) unsigned NOT NULL,
+  `progress` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `created_by` int(11) unsigned NOT NULL,
+  `created_at` int(11) unsigned NOT NULL,
+  `completed_at` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `alliance_week` (`alliance_id`, `week`),
+  KEY `alliance_done` (`alliance_id`, `completed_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_returns` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `away_since` int(11) unsigned NOT NULL,
+  `returned_at` int(11) unsigned NOT NULL,
+  `protected_until` int(11) unsigned NOT NULL DEFAULT 0,
+  `seen` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_away` (`user_id`, `away_since`),
+  KEY `user_returned` (`user_id`, `returned_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_catchup_avg` (
+  `universe` tinyint(3) unsigned NOT NULL,
+  `avg_points` double NOT NULL DEFAULT 0,
+  `computed_at` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`universe`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_season_pairs` (
+  `season_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `opponent_id` int(11) unsigned NOT NULL,
+  `fights` int(11) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`season_id`, `user_id`, `opponent_id`),
+  KEY `opponent` (`opponent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_relics` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `set_code` varchar(24) NOT NULL,
+  `slot` tinyint(3) unsigned NOT NULL,
+  `rarity` tinyint(3) unsigned NOT NULL,
+  `main_stat` varchar(24) NOT NULL,
+  `main_value` decimal(6,2) NOT NULL,
+  `subs` text NOT NULL,
+  `planet_id` int(11) unsigned DEFAULT NULL,
+  `locked` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `moved_at` int(11) unsigned NOT NULL DEFAULT 0,
+  `found_at` int(11) unsigned NOT NULL DEFAULT 0,
+  `source` varchar(24) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `planet_slot` (`planet_id`, `slot`),
+  KEY `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_relic_wallet` (
+  `user_id` int(11) unsigned NOT NULL,
+  `dust` int(11) unsigned NOT NULL DEFAULT 0,
+  `since_rare` int(11) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_relic_log` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `universe` tinyint(3) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `relic_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `action` varchar(16) NOT NULL,
+  `detail` varchar(255) NOT NULL DEFAULT '',
+  `created_at` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_time` (`user_id`, `created_at`),
+  KEY `uni_time` (`universe`, `created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_relic_config` (
+  `universe` tinyint(3) unsigned NOT NULL,
+  `json` longtext NOT NULL,
+  `updated_at` int(11) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`universe`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%eng_relic_fleet` (
+  `fleet_id` bigint(20) unsigned NOT NULL,
+  `factor` double NOT NULL DEFAULT 1,
+  PRIMARY KEY (`fleet_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

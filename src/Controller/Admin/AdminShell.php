@@ -44,6 +44,7 @@ final class AdminShell
                 ['expeditionDeck', '', 'adm_tab_card_deck', 'ShowExpeditionDeckPage', 'admin_expedition_deck_show'],
                 ['expeditionShips', '', 'adm_tab_findable_ships', 'ShowExpeditionShipsPage', 'admin_expedition_ships_show'],
             ]],
+            ['adm_nav_map_content', 'orbit', [['mapContent', '', 'adm_nav_map_content', 'ShowMapContentPage', 'admin_map_content_show']]],
             ['adm_nav_bots', 'user-cog', [
                 ['bots', 'mode=providers', 'adm_tab_bot_providers', 'ShowBotsPage', 'admin_bots_providers'],
                 ['bots', 'mode=profiles', 'adm_tab_bot_profiles', 'ShowBotsPage', 'admin_bots_profiles'],
@@ -88,6 +89,8 @@ final class AdminShell
                 ['team', '', 'adm_tab_team', 'ShowTeamPage', 'admin_team_show'],
             ]],
             ['adm_nav_voting', 'gift', [['votes', '', 'adm_nav_voting', 'ShowVotesPage', 'admin_votes_show']]],
+            ['adm_nav_events', 'timer', [['events', '', 'adm_nav_events', 'ShowEventsPage', 'admin_events_show']]],
+            ['adm_nav_relics', 'star', [['relics', '', 'adm_nav_relics', 'ShowRelicsPage', 'admin_relics_show']]],
             ['mu_flying_fleets', 'send', [['flyingFleet', '', 'mu_flying_fleets', 'ShowFlyingFleetPage', 'admin_flying_fleet_show']]],
         ],
         'mu_tools' => [

@@ -77,6 +77,9 @@ class FleetMissionRules
     public function getAvailableMissions(array $USER, array $MissionInfo, array $GetInfoPlanet): array
     {
         $view = $this->viewHelpers();
+        if (!empty($GetInfoPlanet['npc_kind'])) {
+            return $this->npcMissions($GetInfoPlanet, $MissionInfo);
+        }
         $YourPlanet = (!empty($GetInfoPlanet['id_owner']) && $GetInfoPlanet['id_owner'] == $USER['id']) ? true : false;
         $UsedPlanet = (!empty($GetInfoPlanet['id_owner'])) ? true : false;
         $ExpeditionPosition = ($MissionInfo['planet'] == ($this->configs->get($USER['universe'])->max_planets + 1)) ? true : false;
@@ -110,6 +113,56 @@ class FleetMissionRules
         }
 
         return $availableMissions;
+    }
+
+    /**
+     * Missions to an NPC target of the map content features: recycling on a derelict field (debris, recyclers needed), on the
+     * pirate mothership (a planet-like target) spying, the attack mission, or the ACS mission of a joining fleet (the lead flies the
+     * attack mission and opens the combat group; the group size is checked when it arrives).
+     *
+     * @param array<mixed> $target NPC row from NpcTargets (npc_kind 1 = derelict, 2 = mothership)
+     * @param array<mixed> $MissionInfo
+     * @return list<int>
+     */
+    private function npcMissions(array $target, array $MissionInfo): array
+    {
+        $view = $this->viewHelpers();
+        $missions = [];
+        if ((int) $target['npc_kind'] === \App\Game\Engagement\MapContent\NpcTargets::KIND_DERELICT) {
+            if ($MissionInfo['planettype'] == 2 && $view->isModuleAvailable(MODULE_MISSION_RECYCLE) && $this->hasRecycler($MissionInfo['Ship'])) {
+                $missions[] = Mission::PiratebaseRecycling->value;
+            }
+
+            return $missions;
+        }
+        if ($MissionInfo['planettype'] != 1) {
+            return $missions;
+        }
+        if (!empty($MissionInfo['IsAKS'])) {
+            return $view->isModuleAvailable(MODULE_MISSION_ACS) ? [Mission::Acs->value] : [];
+        }
+        if ($view->isModuleAvailable(MODULE_MISSION_ATTACK)) {
+            $missions[] = Mission::PiratebaseAttack->value;
+        }
+        if ($this->onlyShipByID($MissionInfo['Ship'], 210) && $view->isModuleAvailable(MODULE_MISSION_SPY)) {
+            $missions[] = Mission::PiratebaseSpy->value;
+        }
+
+        return $missions;
+    }
+
+    /**
+     * @param array<mixed> $ships ship id => count
+     */
+    private function hasRecycler(array $ships): bool
+    {
+        foreach ($ships as $shipId => $count) {
+            if ($count > 0 && $this->elements()->isShipType((int) $shipId, SHIP_TYPE_RECYCLER)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

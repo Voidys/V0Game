@@ -22,6 +22,7 @@ use App\Routing\GameRoute;
 use App\Game\AdvancedStats\AdvancedStatsEnum;
 use App\Game\AdvancedStats\AdvancedStatsHandler;
 use App\Game\Core\GalaxyRows;
+use App\Game\Engagement\MapContent\NpcTargets;
 use App\Game\Core\GalaxyRowFlags;
 
 /** Galaxy view: planets, debris and players of one solar system. */
@@ -104,6 +105,7 @@ class GalaxyController extends AbstractGameController
         return [
             'GalaxyRows'				=> $Result,
             'pirateBase'                => $this->pirateBaseIn($galaxy, $system),
+            'mapContent'                => $this->mapContentIn($galaxy, $system),
             'colonizable'               => $this->colonizablePositions($Result, $config),
             'planetcount'				=> $LNG->format('gl_populed_planets', count($Result)),
             'galaxy'					=> $galaxy,
@@ -263,6 +265,39 @@ class GalaxyController extends AbstractGameController
         }
 
         return $colonizable;
+    }
+
+    /**
+     * Derelict fields and the pirate mothership of this system (map content features) by slot, with their image, the hours left
+     * and the available missions; empty when both features are off.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    private function mapContentIn(int $galaxy, int $system): array
+    {
+        $targets = new NpcTargets($this->db, $this->configs, $this->state);
+        $view = $this->viewHelpers();
+        $THEME = $this->state->THEME;
+        $content = [];
+        foreach ($targets->inSystem($this->universe()->current(), $galaxy, $system) as $slot => $row) {
+            $derelict = (int) $row['kind'] === NpcTargets::KIND_DERELICT;
+            $content[$slot] = [
+                'id' => (int) $row['id'],
+                'kind' => (int) $row['kind'],
+                'der_metal' => (float) $row['der_metal'],
+                'der_crystal' => (float) $row['der_crystal'],
+                'hp_percent' => $row['hp_percent'],
+                'min_players' => (int) ($row['min_players'] ?? 0),
+                'hours_left' => max(0, (int) ceil(($row['expires_at'] - $this->state->runtime->timestamp) / 3600)),
+                'image' => $THEME->asset($derelict ? 'planeten/debris.jpg' : 'planeten/pirate_base.jpg'),
+                'missions' => [
+                    20 => !$derelict && $view->isModuleAvailable(MODULE_MISSION_ATTACK),
+                    21 => !$derelict && $view->isModuleAvailable(MODULE_MISSION_SPY),
+                ],
+            ];
+        }
+
+        return $content;
     }
 
     /**

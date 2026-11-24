@@ -227,6 +227,7 @@ class Session
         $db = $this->db;
 
         if ($this->data['userId'] != 0) {
+            $this->noteReturn((int) $this->data['userId']);
             $sql = 'UPDATE %%USERS%% SET
             onlinetime	= :lastActivity,
             user_lastip = :userAddress
@@ -266,6 +267,24 @@ class Session
                     ':sessionId'    => $this->manager->id(),
                 ]);
             }
+        }
+    }
+
+    /**
+     * Once per session and player, before onlinetime is refreshed: lets the returning-player welcome see how long the player
+     * was away (a failure of the optional feature never breaks the login).
+     */
+    private function noteReturn(int $userId): void
+    {
+        if (($this->data['returnChecked'] ?? 0) === $userId) {
+            return;
+        }
+        $this->data['returnChecked'] = $userId;
+        try {
+            $state = $this->manager->gameState();
+            (new \App\Game\Engagement\Returning\ReturningPlayers($this->db, $this->manager->configs(), $state))->onLogin((int) ($this->data['universe'] ?? 0), $userId, $state->runtime->timestamp);
+        } catch (\Throwable $e) {
+            \error_log('returning-player hook: ' . $e->getMessage());
         }
     }
 

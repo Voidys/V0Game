@@ -133,13 +133,13 @@ class FleetFunctions
      * @see FleetMath::getMissionDuration()
      * @deprecated use the typed missionDurationFor() variant
      */
-    public function getMissionDuration(int $SpeedFactor, int $MaxFleetSpeed, int $Distance, int $GameSpeed, array $USER): int
+    public function getMissionDuration(int $SpeedFactor, int $MaxFleetSpeed, int $Distance, int|float $GameSpeed, array $USER): int
     {
         return $this->math()->getMissionDuration($SpeedFactor, $MaxFleetSpeed, $Distance, $GameSpeed, $USER);
     }
 
     /** @see FleetMath::missionDurationFor() */
-    public function missionDurationFor(int $SpeedFactor, int $MaxFleetSpeed, int $Distance, int $GameSpeed, \App\Game\Model\User $user): int
+    public function missionDurationFor(int $SpeedFactor, int $MaxFleetSpeed, int $Distance, int|float $GameSpeed, \App\Game\Model\User $user): int
     {
         return $this->math()->missionDurationFor($SpeedFactor, $MaxFleetSpeed, $Distance, $GameSpeed, $user);
     }
@@ -151,7 +151,7 @@ class FleetFunctions
     }
 
     /** @see FleetMath::getGameSpeedFactor() */
-    public function getGameSpeedFactor(): int
+    public function getGameSpeedFactor(): int|float
     {
         return $this->math()->getGameSpeedFactor();
     }
@@ -207,18 +207,20 @@ class FleetFunctions
      * @see FleetMath::getFleetConsumption()
      * @deprecated use the typed fleetConsumptionFor() variant
      */
-    public function getFleetConsumption(array $FleetArray, int $MissionDuration, int $MissionDistance, array $Player, int $GameSpeed): float
+    public function getFleetConsumption(array $FleetArray, int $MissionDuration, int $MissionDistance, array $Player, int|float $GameSpeed, ?int $startPlanetId = null): float
     {
-        return $this->math()->getFleetConsumption($FleetArray, $MissionDuration, $MissionDistance, $Player, $GameSpeed);
+        return $this->math()->getFleetConsumption($FleetArray, $MissionDuration, $MissionDistance, $Player, $GameSpeed, $startPlanetId);
     }
 
     /**
      * @param array<mixed> $FleetArray
+     * @param float|null $honorBoost the player's honor fuel factor when the caller already knows it (null = read it)
+     * @param int|null $startPlanetId planet the fleet starts from (its relic fuel bonus applies), null = none
      * @see FleetMath::fleetConsumptionFor()
      */
-    public function fleetConsumptionFor(array $FleetArray, int $MissionDuration, int $MissionDistance, \App\Game\Model\User $Player, int $GameSpeed): float
+    public function fleetConsumptionFor(array $FleetArray, int $MissionDuration, int $MissionDistance, \App\Game\Model\User $Player, int|float $GameSpeed, ?float $honorBoost = null, ?int $startPlanetId = null): float
     {
-        return $this->math()->fleetConsumptionFor($FleetArray, $MissionDuration, $MissionDistance, $Player, $GameSpeed);
+        return $this->math()->fleetConsumptionFor($FleetArray, $MissionDuration, $MissionDistance, $Player, $GameSpeed, $honorBoost, $startPlanetId);
     }
 
     /**

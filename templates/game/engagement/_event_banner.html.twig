@@ -1,0 +1,17 @@
+{# universe events: running events with their effects and a countdown, upcoming ones within the announce window; nothing when empty #}
+{% if eventBanner|default([]) %}
+<section class="panel event-banner" aria-label="{{ LNG.ev_banner_head }}">
+  <header class="panel__head"><h2>{{ icon('timer') }} {{ LNG.ev_banner_head }}</h2></header>
+  <div class="panel__body">
+    {% for event in eventBanner %}
+    <p>
+      <strong>{{ event.title }}</strong>{% if event.effects %}: {{ event.effects|join(' · ') }}{% endif %}
+      <span class="hint">
+        {% if event.running %}{{ LNG.ev_banner_ends_in }} <span class="countdown" data-time="{{ event.endsIn }}"></span>
+        {% else %}{{ LNG.ev_banner_starts_in }} <span class="countdown" data-time="{{ event.startsIn }}"></span>{% endif %}
+      </span>
+    </p>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

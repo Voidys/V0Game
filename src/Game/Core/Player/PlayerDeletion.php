@@ -153,6 +153,8 @@ class PlayerDeletion
             ':allianceId'   => $allianceId,
         ]);
 
+        $db->delete('DELETE FROM %%ENG_ALLIANCE_GOALS%% WHERE `alliance_id` = :allianceId;', [':allianceId' => $allianceId]);
+
         $sql = 'DELETE FROM %%ALLIANCE_RANK%% WHERE `allianceID` = :allianceId;';
         $db->delete($sql, [
             ':allianceId'   => $allianceId,
@@ -232,6 +234,8 @@ class PlayerDeletion
 
         $this->removeFromBuddy($userId);
 
+        $this->settleBounties($userId);
+
         $this->deleteMarketOffersAndFleets($userId);
 
         $this->deleteMessageCopies($userId);
@@ -239,6 +243,9 @@ class PlayerDeletion
         $this->deleteSecondaryPlayerData($userId);
 
         $this->deletePlanets($userId);
+
+        // relics, dust and log of the player go with him
+        (new \App\Game\Engagement\Relics\RelicInventory($this->db, $this->configs, $this->state))->deleteUser($userId);
 
         $this->deleteUserRows($userId);
 
@@ -258,6 +265,22 @@ class PlayerDeletion
         */
 
         return true;
+    }
+
+    /**
+     * Engagement bounties of the player: open ones on him go back to their placers, the ones he placed vanish (no refund). A failure
+     * here (e.g. the tables do not exist yet) must not stop the deletion; only deadlocks are passed on for the retry.
+     */
+    private function settleBounties(int $userId): void
+    {
+        try {
+            (new \App\Game\Engagement\Bounties\Bounties($this->db, $this->configs, $this->state))->onPlayerDeleted($userId, $this->state->runtime->timestamp);
+        } catch (\Throwable $e) {
+            if (Database::isRetryable($e)) {
+                throw $e;
+            }
+            error_log('bounties of deleted player ' . $userId . ' not settled: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -386,6 +409,14 @@ class PlayerDeletion
             'RECORDS'               => ['userID'],
             'ADVANCED_STATS_UNIVERSE' => ['userId'],
             'PHALANX_LOG'           => ['owner', 'target'],
+            'ENG_COSMETICS'         => ['user_id'],
+            'ENG_SEASON_SCORES'     => ['user_id'],
+            'ENG_SEASON_PAIRS'      => ['user_id', 'opponent_id'],
+            'ENG_MOTHERSHIP_DAMAGE' => ['user_id'],
+            'ENG_STORIES'           => ['user_id'],
+            'ENG_CONTRACTS'         => ['user_id'],
+            'ENG_RETURNS'           => ['user_id'],
+            'ENG_CATCHUP'           => ['user_id'],
         ];
         foreach ($perUserTables as $table => $columns) {
             $delete = $db->qb()->delete($db->table($table))->setParameter('userId', $userId);

@@ -3,6 +3,7 @@
 namespace App\Game\Fleet;
 
 use App\Game\Enum\Mission;
+use App\Game\Engagement\MapContent\NpcTargets;
 use App\Game\Core\ConfigRegistry;
 use App\Game\Core\Database;
 use App\Game\Core\GameUtilities;
@@ -354,7 +355,7 @@ class FleetDispatch
             $acsTarget = $db->selectSingle('SELECT `target` FROM %%AKS%% WHERE `id` = :acsID;', [
                 ':acsID' => $this->fleetGroup,
             ], 'target');
-            if ((int) $acsTarget !== (int) ($this->targetPlanetData['id'] ?? 0)) {
+            if ((int) $acsTarget !== (int) ($this->targetPlanetData['acs_target'] ?? $this->targetPlanetData['id'] ?? 0)) {
                 $this->refuse($LNG['fl_invalid_mission'], 'game_fleet_step2_show');
             }
         }
@@ -385,13 +386,20 @@ class FleetDispatch
                 FROM %%PLANETS%%
                 WHERE `universe` = :universe AND `galaxy` = :targetGalaxy
                   AND `system` = :targetSystem AND `planet` = :targetPlanet AND `planet_type` = :targetType;";
-            return $db->selectSingle($sql, [
+            $row = $db->selectSingle($sql, [
                 ':universe' => $this->universe()->current(),
                 ':targetGalaxy' => $this->targetGalaxy,
                 ':targetSystem' => $this->targetSystem,
                 ':targetPlanet' => $this->targetPlanet,
                 ':targetType' => ($this->targetType == 2 ? 1 : $this->targetType),
             ]);
+            if (empty($row) && $this->targetPlanet <= $this->config->max_planets) {
+                // derelict field or pirate mothership (map content features) on an otherwise empty slot
+                $row = (new NpcTargets($db, $this->configs, $this->state))
+                    ->atSlot($this->universe()->current(), (int) $this->targetGalaxy, (int) $this->targetSystem, (int) $this->targetPlanet) ?? false;
+            }
+
+            return $row;
         }
     }
 
@@ -435,6 +443,17 @@ class FleetDispatch
                 'total_points'          => 0,
                 'rebuild_protection'    => 0,
             ];
+        } elseif (!empty($this->targetPlanetData['npc_kind'])) {
+            // derelict field / pirate mothership: no owner, nothing to protect (not a player)
+            $this->targetPlayerData = [
+                'id'                    => 0,
+                'onlinetime'            => $this->state->runtime->timestamp,
+                'ally_id'               => 0,
+                'urlaubs_modus'         => 0,
+                'authattack'            => 0,
+                'total_points'          => 0,
+                'rebuild_protection'    => 0,
+            ];
         } elseif ($myPlanet) {
             $this->targetPlayerData = $USER;
         } elseif (!empty($this->targetPlanetData['id_owner'])) {
@@ -464,7 +483,7 @@ class FleetDispatch
         $this->fleetMaxSpeed = $this->fleetFunctions()->fleetMaxSpeedFor($this->fleetArray, $userModel);
         $SpeedFactor = $this->fleetFunctions()->getGameSpeedFactor();
         $this->duration = $this->fleetFunctions()->missionDurationFor($this->fleetSpeed, $this->fleetMaxSpeed, $this->distance, $SpeedFactor, $userModel);
-        $this->consumption = $this->fleetFunctions()->fleetConsumptionFor($this->fleetArray, $this->duration, $this->distance, $userModel, $SpeedFactor);
+        $this->consumption = $this->fleetFunctions()->fleetConsumptionFor($this->fleetArray, $this->duration, $this->distance, $userModel, $SpeedFactor, startPlanetId: (int) $this->state->PLANET['id']);
 
         if ($this->state->PLANET[$elements->column(903)] < $this->consumption) {
             $this->refuse($LNG['fl_not_enough_deuterium'], 'game_fleet_table_show');
@@ -569,6 +588,10 @@ class FleetDispatch
             $this->consumption,
         );
 
+        if (in_array($this->targetMission, \App\Game\Engagement\Returning\ReturningPlayers::AGGRESSIVE, true)) {
+            // sending an aggressive mission ends the returning-player protection of the sender
+            $this->returningPlayers()->endProtection((int) $USER['universe'], (int) $USER['id']);
+        }
         $this->recordTradeOffer($id);
     }
 

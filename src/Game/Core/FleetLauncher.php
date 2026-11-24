@@ -94,7 +94,7 @@ class FleetLauncher
 
         // Group rule: only an attack fleet that belongs to a group (the creator's lead fleet, joiners fly as Mission::Acs->value)
         // recalls the whole group. A joiner's recall turns that joiner's own fleet only.
-        $groupId = ($fleetResult['mission'] == Mission::Attack->value) ? (int) $fleetResult['group'] : 0;
+        $groupId = ($fleetResult['mission'] == Mission::Attack->value || $fleetResult['mission'] == Mission::PiratebaseAttack->value) ? (int) $fleetResult['group'] : 0;
         if ($groupId !== 0 && $this->groupHasParticipants($groupId)) {
             return $this->recallGroup($groupId);
         }
@@ -320,6 +320,10 @@ class FleetLauncher
         ];
 
         $fleetId = $this->insertFlight($flight);
+        if ($fleetMission === Mission::Expedition->value) {
+            // relics: the expedition finds bonus of the start planet is fixed at launch
+            $this->achievementGuard()->run(fn() => $this->relicInventory()->snapshotFleet($fleetId, $fleetStartOwner, $this->universe()->current(), $fleetStartPlanetID));
+        }
 
         $sql = 'INSERT INTO %%FLEETS_EVENT%% SET fleetID	= :fleetId, `time` = :endTime, `universe` = :universe;';
         $this->db->insert($sql, [

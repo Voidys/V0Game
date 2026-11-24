@@ -708,6 +708,45 @@ final class InstallService
         }
     }
 
+    /**
+     * Optional engagement features the installer offers (all off by default): universe setting key => short code used
+     * for the form field (`feature_<code>`) and the label keys `ins_feat_<code>` / `ins_feat_<code>_info`.
+     */
+    public const ENGAGEMENT_FEATURES = [
+        'events' => 'events_enabled',
+        'catchup' => 'catchup_enabled',
+        'contracts' => 'contracts_enabled',
+        'alliance_goals' => 'alliance_goals_enabled',
+        'returning' => 'returning_enabled',
+        'seasons' => 'seasons_enabled',
+        'cosmetics' => 'cosmetics_enabled',
+        'bounties' => 'bounties_enabled',
+        'alliance_wars' => 'alliance_wars_enabled',
+        'battle_feed' => 'battle_feed_enabled',
+        'derelicts' => 'derelicts_enabled',
+        'mothership' => 'mothership_enabled',
+        'expedition_stories' => 'expedition_stories_enabled',
+        'relics' => 'relics_enabled',
+    ];
+
+    /**
+     * Writes the chosen engagement features to universe 1 (`<feature>_enabled` = 1 or 0); their other settings keep
+     * the schema defaults and are tuned in the administration.
+     *
+     * @param array<string, bool> $features feature code (key of ENGAGEMENT_FEATURES) => on
+     */
+    public function applyEngagementSettings(array $features): void
+    {
+        $sql = 'INSERT INTO %%CONFIG_UNIVERSE%% (`uni`, `key`, `value`) VALUES (1, :key, :value) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`);';
+        foreach (self::ENGAGEMENT_FEATURES as $code => $key) {
+            $this->db->insert($sql, [':key' => $key, ':value' => !empty($features[$code]) ? '1' : '0']);
+        }
+        $this->configs->invalidateCache();
+        if ($this->configs->isLoaded()) {
+            $this->configs->reload();
+        }
+    }
+
     /** Switches the bots of universe 1 on or off (applyGameSettings() sets it from its own `bots` value). */
     public function applyBotsEnabled(int $count): void
     {

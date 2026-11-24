@@ -328,6 +328,7 @@ class AllianceMembershipService
         $db->delete("DELETE FROM %%ALLIANCE%% WHERE id = :AllianceID;", $params);
         $db->delete("DELETE FROM %%ALLIANCE_REQUEST%% WHERE allianceId = :AllianceID;", $params);
         $db->delete("DELETE FROM %%ALLIANCE_RANK%% WHERE allianceID = :AllianceID;", $params);
+        $db->delete("DELETE FROM %%ENG_ALLIANCE_GOALS%% WHERE alliance_id = :AllianceID;", $params);
         $db->delete("DELETE FROM %%DIPLO%% WHERE owner_1 = :AllianceID OR owner_2 = :AllianceID;", $params);
 
         return true;

@@ -16,8 +16,9 @@ trait FleetTargetProtection
     /**
      * Refusal text for hostile missions against the owner of the target, '' when the dispatch is allowed. A too strong target
      * only blocks when the universe has no outlaw rule (otherwise the dispatch makes the player an outlaw and step 2 asks first).
+     * With a $mission the returning-player protection of the target is checked as well (only aggressive missions are refused).
      */
-    private function protectionNotice(int $targetOwnerId): string
+    private function protectionNotice(int $targetOwnerId, int $mission = 0): string
     {
         $USER = $this->state->USER;
         if ($targetOwnerId <= 0 || $targetOwnerId == $USER['id']) {
@@ -35,6 +36,10 @@ trait FleetTargetProtection
         }
         if ($protection['StrongPlayer'] && !$this->configs->get()->noob_protection_outlaw) {
             return (string) $LNG['fl_player_is_strong'];
+        }
+        if (in_array($mission, \App\Game\Engagement\Returning\ReturningPlayers::AGGRESSIVE, true)
+            && (new \App\Game\Engagement\Returning\ReturningPlayers($this->db, $this->configs, $this->state))->protectedUntil((int) $target['universe'], $targetOwnerId) > 0) {
+            return (string) $LNG['fl_player_is_returning'];
         }
 
         return '';

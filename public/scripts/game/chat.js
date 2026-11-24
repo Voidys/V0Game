@@ -95,13 +95,26 @@ if (panel && config.poll) {
     time.dateTime = new Date(message.time * 1000).toISOString();
     time.textContent = timeText(message.time);
     const user = document.createElement('b');
-    user.className = 'chat__user';
+    user.className = message.cls ? `chat__user ${message.cls}` : 'chat__user'; // cls: whitelisted name colour class from the server
     user.textContent = message.ally ? `[${message.ally}] ${message.user}` : message.user;
     const text = document.createElement('span');
     text.className = 'chat__text';
     text.textContent = message.text;
+    if (message.uid === 0) {
+      // system line (battle feed): the report link is built from the whitelisted id and the route template of the island
+      li.classList.add('is-system');
+      user.textContent = '\u2694';
+      if (message.report && config.battle) {
+        const link = document.createElement('a');
+        link.href = config.battle.replace('RID', encodeURIComponent(message.report));
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = config.texts.report;
+        text.append(' ', link);
+      }
+    }
     li.append(time, user, text);
-    if (!message.own || state.mod) li.append(kebab(message));
+    if (message.uid !== 0 ? !message.own || state.mod : state.mod) li.append(kebab(message));
     return li;
   };
 
