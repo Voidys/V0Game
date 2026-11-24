@@ -3,6 +3,7 @@
 namespace App\Game\Bots;
 
 use App\Game\Bots\Raid\BotRaids;
+use App\Game\Bots\Raid\BotRecycling;
 use App\Game\Bots\Raid\RaidMemory;
 use App\Game\Core\ConfigRegistry;
 use App\Game\Core\Database;
@@ -39,6 +40,7 @@ class BotEngine
         private readonly BotRaids $raids,
         private readonly BotLogistics $logistics,
         private readonly BotExpeditions $expeditions,
+        private readonly BotRecycling $recycling,
     ) {}
 
     /** Writes an entry to the bot activity log (see BotLog). */
@@ -212,12 +214,16 @@ class BotEngine
             $personality = [];
         }
 
-        $daysOld = max(0, ($now - (int) $bot['created_at']) / 86400);
-        $skill = min((float) $s['skill_max'], (float) $s['skill_start'] + $daysOld * (float) $s['skill_gain_per_day']);
+        // the universe's bot knobs (with this bot's own preset / aggression) laid over the profile
+        $knobs = BotSettings::fromConfig($this->configs->get($universe))->forBot((array) ($personality['_cfg'] ?? []));
+        $s = $knobs->applyToProfile($s, $userId, $this->points($knobs, $userId));
+        $tz = $this->timezone($knobs, $personality, $userId);
+
+        $skill = min((float) $s['skill_max'], (float) $s['skill_start'] + max(0, ($now - (int) $bot['created_at']) / 86400) * (float) $s['skill_gain_per_day']);
 
         $session = $personality['_s'] ?? ['left' => 0];
-        $inSession = (int) $bot['session_until'] > $now;
         $sessionUntil = (int) $bot['session_until'];
+        $inSession = $sessionUntil > $now;
         $raidsOn = $this->raids->enabled($universe);
 
         // a raid task (re-spy, hit to settle) woke the bot before its regular next check: do only that, unless it starts a raid streak
@@ -239,7 +245,7 @@ class BotEngine
         }
 
         if (!$inSession) {
-            if (!$this->rollActive($s, $now, (int) $bot['created_at'])) {
+            if (!$this->rollActive($s, $now, (int) $bot['created_at'], $tz)) {
                 $this->save($bot, $skill, $personality, $this->scheduleNext($personality, $now + $this->roll($s['check_interval']) * 60, $now), $sessionUntil);
 
                 return;
@@ -254,13 +260,12 @@ class BotEngine
         }
 
         $user = $this->playSession($bot, $s, $personality, $skill, $session, $userId, $universe, $raidsOn);
-        $botRow = $bot;
         $sessionUntil = $this->applyRaidSession($session, $personality, $sessionUntil, $now);
 
         // --- social behaviour, isolated from gameplay errors ---
         if ($user !== null) {
             try {
-                $this->social->act($botRow, $user, $profile['settings']);
+                $this->social->act($bot, $user, $profile['settings']);
             } catch (Throwable $e) {
                 $this->log($userId, $universe, 'social_error', get_class($e) . ': ' . $e->getMessage());
             }
@@ -272,12 +277,37 @@ class BotEngine
         if ($session['left'] <= 0 || $next >= $sessionUntil) {
             $personality['_s']['left'] = 0;
             $offline = $this->roll($s['check_interval']) * 60;
-            $this->fleetSaveAtLogout($bot, $s, $personality, $offline);
+            // the fleet is saved for the time the bot really expects to stay away (checks fail at night), not for one check interval
+            $this->fleetSaveAtLogout($bot, $s, $personality, BotSchedule::expectedOffline($s, $now, (int) $bot['created_at'], $offline, $tz));
             $this->save($bot, $skill, $personality, $this->scheduleNext($personality, $now + $offline, $now), $now);
             $this->log($userId, $universe, 'logout', 'session finished');
         } else {
             $this->save($bot, $skill, $personality, $wake !== null ? min($next, max($now, $wake)) : $next, $sessionUntil);
         }
+    }
+
+    /** Total points of a bot, only looked up when the warmonger trait is on (it is what decides it), else 0. */
+    private function points(BotSettings $knobs, int $userId): float
+    {
+        if (!$knobs->warmonger) {
+            return 0.0;
+        }
+
+        return (float) $this->db->selectSingle('SELECT total_points FROM %%STATPOINTS%% WHERE id_owner = :id AND stat_type = 1;', [':id' => $userId], 'total_points');
+    }
+
+    /**
+     * The game context of one bot with the knobs of its universe, overlaid with the preset and aggression the admin set for this bot
+     * (personality `_cfg`).
+     *
+     * @param array<string, mixed> $personality bot personality
+     */
+    private function context(int $universe, array $personality): BotActions
+    {
+        $ctx = new BotActions($universe, $this->db, $this->configs, $this->state, $this->persona);
+        $ctx->bot = $ctx->bot->forBot((array) ($personality['_cfg'] ?? []));
+
+        return $ctx;
     }
 
     /**
@@ -339,7 +369,7 @@ class BotEngine
         $userId = (int) $bot['user_id'];
         $db->startTransaction();
         try {
-            $ctx = new BotActions((int) $bot['universe'], $this->db, $this->configs, $this->state, $this->persona);
+            $ctx = $this->context((int) $bot['universe'], $personality);
             if (!$ctx->load($userId)) {
                 $db->rollback();
 
@@ -393,7 +423,7 @@ class BotEngine
         $db->update('UPDATE %%USERS%% SET onlinetime = :t WHERE id = :id;', [':t' => $now, ':id' => $userId]);
         $db->startTransaction();
         try {
-            $ctx = new BotActions((int) $bot['universe'], $this->db, $this->configs, $this->state, $this->persona);
+            $ctx = $this->context((int) $bot['universe'], $personality);
             if (!$ctx->load($userId)) {
                 $db->rollback();
                 throw new \Exception('user row missing');
@@ -440,7 +470,7 @@ class BotEngine
         $user = null;
         $db->startTransaction();
         try {
-            $ctx = new BotActions($universe, $this->db, $this->configs, $this->state, $this->persona);
+            $ctx = $this->context($universe, $personality);
             if (!$ctx->load($userId)) {
                 $db->rollback();
                 throw new \Exception('user row missing');
@@ -462,6 +492,7 @@ class BotEngine
             }
             $raidActions = $raidsOn ? $this->raids->play($ctx, $bot, $s, $personality, $session, time()) : 0;
             $raidActions += $this->logistics->threats($ctx, $s, $personality, time());
+            $raidActions += $this->recycling->play($ctx, $s, $personality, time());
             $user = $ctx->user;
             $db->commit();
             $this->countActions($userId, $raidActions);
@@ -546,23 +577,31 @@ class BotEngine
     }
 
     /**
-     * Whether the bot comes online now: `activity` holds 24 probabilities (0-1) by hour of day; after
-     * `pattern_shift_days` the daily rhythm moves by `pattern_shift_hours`, so bots do not keep the same schedule forever.
+     * The bot's personal hour offset against the server clock (its own time zone): kept in the personality (`_tz`), derived from the
+     * bot id when missing (BotSettings::timezoneOffset()).
+     *
+     * @param array<string, mixed> $personality `_tz` is set when the spread knob allows an offset
+     */
+    private function timezone(BotSettings $knobs, array &$personality, int $userId): int
+    {
+        $stored = isset($personality['_tz']) ? (int) $personality['_tz'] : null;
+        $tz = $knobs->timezoneOffset($userId, $stored);
+        if ($knobs->timezoneSpreadHours > 0) {
+            $personality['_tz'] = $tz;
+        }
+
+        return $tz;
+    }
+
+    /**
+     * Whether the bot comes online now: `activity` holds 24 probabilities (0-1) by hour of day of the bot's own time; after
+     * `pattern_shift_days` the daily rhythm moves by `pattern_shift_hours`, so bots do not keep the same schedule forever (BotSchedule).
      *
      * @param array<mixed> $s
      */
-    private function rollActive(array $s, int $now, int $createdAt): bool
+    private function rollActive(array $s, int $now, int $createdAt, int $tzOffset = 0): bool
     {
-        $activity = array_values((array) $s['activity']);
-        $hour = (int) date('G', $now);
-        $shiftDays = (int) $s['pattern_shift_days'];
-        $shift = 0;
-        if ($shiftDays > 0) {
-            $shift = (int) $s['pattern_shift_hours'] * (int) floor(max(0, $now - $createdAt) / 86400 / $shiftDays);
-        }
-        $index = (($hour - $shift) % 24 + 24) % 24;
-
-        return mt_rand(1, 10000) <= (float) $activity[$index] * 10000;
+        return mt_rand(1, 10000) <= BotSchedule::probability($s, $now, $createdAt, $tzOffset) * 10000;
     }
 
     /**

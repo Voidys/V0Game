@@ -19,7 +19,7 @@ use App\Game\Core\Singleton;
  *
  * Fleet choice: enough cargo ships for the loot, plus the smallest share (0, 15, 30, 50, 75, 100 %) of the planet's warships that
  * wins every simulated fight; among the fleets that pass, the one with the best profit (loot minus fuel and losses) wins.
- * An attack is worth it when loot >= MIN_LOOT and loot / (fuel + losses) >= the profile's `min_profit_ratio`.
+ * An attack is worth it when loot >= the bot knob min_loot (default MIN_LOOT) and loot / (fuel + losses) >= the profile's `min_profit_ratio`.
  */
 class RaidPlanner
 {
@@ -28,14 +28,8 @@ class RaidPlanner
     /** Value of one unit of metal, crystal, deuterium when loot, fuel and losses are compared. */
     public const VALUE = [RESOURCE_METAL => 1.0, RESOURCE_CRYSTAL => 1.5, RESOURCE_DEUT => 2.0];
 
-    /** Smallest loot (in value units) that is worth the effort at all. */
+    /** Smallest loot (in value units) that is worth the effort at all (default of the bot knob `bots_min_loot`). */
     public const MIN_LOOT = 3000;
-
-    /** Escort shares of the planet's warships that are tried, smallest first. */
-    private const ESCORT = [0.0, 0.15, 0.3, 0.5, 0.75, 1.0];
-
-    /** Fights per fleet candidate (the engine rolls dice; two runs catch the coin-flip cases). */
-    private const RUNS = 2;
 
     /** Ships that never go raiding: colony ship, recycler, probe, solar satellite. */
     private const NOT_RAIDERS = [SHIP_COLOSHIP, SHIP_RECYCLER, SHIP_PROBE, SHIP_SOLSAT];
@@ -65,8 +59,12 @@ class RaidPlanner
 
         $best = null;
         $reason = 'no ships at hand';
+        // a revenge raid is allowed a thinner profit: the grudge is worth something to the bot
+        $revenge = !empty($target['revenge']);
+        $minRatio = (float) $settings['min_profit_ratio'] * ($revenge ? 0.7 : 1.0);
+        $minLoot = (int) round($ctx->bot->minLoot * ($revenge ? 0.5 : 1.0));
         foreach ($this->origins($ctx, $target) as $planetId) {
-            $plan = $this->planFrom($ctx, $ctx->planets[$planetId], $report, $target, (float) $settings['min_profit_ratio']);
+            $plan = $this->planFrom($ctx, $ctx->originRef($planetId), $report, $target, $minRatio, $minLoot);
             if ($plan['ok'] && ($best === null || $plan['loot'] - $plan['cost'] > $best['loot'] - $best['cost'])) {
                 $best = $plan;
             } elseif (!$plan['ok'] && $best === null) {
@@ -75,6 +73,59 @@ class RaidPlanner
         }
 
         return $best ?? ['ok' => false, 'reason' => $reason];
+    }
+
+    /**
+     * The raid with helpers (ACS): the leader's best base sends all its warships and the cargo for the loot, allied bots add warships. The
+     * fight is simulated for the combined fleet (with the leader's techs: the helpers' own techs are not known to the leader, the
+     * helpers are bots of the leader's alliance and coordinate through the group). Fuel is the leader's; the losses are the whole
+     * group's. Only wins count.
+     *
+     * @param array<string, mixed> $report parsed spy report
+     * @param array<string, mixed> $target scouted target
+     * @param array<int, int> $helperShips warships the helpers bring together (id => count)
+     * @return array<string, mixed> see plan(), plus `joint` => true and `helper_ships`
+     */
+    public function planJoint(BotActions $ctx, array $report, array $target, array $helperShips, float $minRatio): array
+    {
+        if ($report['fleet'] === null || $report['defense'] === null || $helperShips === []) {
+            return ['ok' => false, 'reason' => 'no joint plan'];
+        }
+        $origins = $this->origins($ctx, $target);
+        if ($origins === []) {
+            return ['ok' => false, 'reason' => 'no ships at hand'];
+        }
+        $e = $this->elements();
+        $planet = $ctx->originRef($origins[0]);
+        $fleet = $this->compose($planet, $this->warships($planet), $this->capacityNeeded($report['resources']), 1.0);
+        if ($fleet === []) {
+            return ['ok' => false, 'reason' => 'no ships at hand'];
+        }
+        $flight = $this->flight($ctx, $planet, $fleet, (int) $target['galaxy'], (int) $target['system'], (int) $target['planet']);
+        if ((float) $planet[$e->column(RESOURCE_DEUT)] < $flight['consumption']) {
+            return ['ok' => false, 'reason' => 'not enough deuterium for the flight'];
+        }
+        $combined = $fleet;
+        foreach ($helperShips as $id => $count) {
+            $combined[$id] = ($combined[$id] ?? 0) + $count;
+        }
+        $outcome = $this->simulate($ctx, $combined, $report, $target['activity_minutes'] ?? null);
+        if (!$outcome['win']) {
+            return ['ok' => false, 'reason' => 'not winnable even together'];
+        }
+        $fuel = $flight['consumption'] * self::VALUE[RESOURCE_DEUT];
+        $losses = $outcome['losses'] * $ctx->lossMultiplier;
+        $cost = max(1.0, $fuel + $losses);
+        $ratio = $outcome['loot'] / $cost;
+        $ok = $outcome['loot'] >= $ctx->bot->minLoot && $ratio >= $minRatio;
+
+        return [
+            'ok' => $ok, 'reason' => $ok ? '' : 'joint raid not worth it (ratio ' . round($ratio, 1) . ')',
+            'origin' => (int) $planet['id'], 'fleet' => $fleet, 'loot' => $outcome['loot'], 'loot_res' => $outcome['loot_res'],
+            'fuel' => $fuel, 'losses' => $losses, 'losses_sim' => $outcome['losses'], 'cost' => $cost, 'ratio' => $ratio,
+            'duration' => $flight['duration'], 'consumption' => $flight['consumption'], 'techs_assumed' => $outcome['techs_assumed'],
+            'activity_minutes' => $target['activity_minutes'] ?? null, 'joint' => true, 'helper_ships' => $helperShips,
+        ];
     }
 
     /**
@@ -91,9 +142,10 @@ class RaidPlanner
             return null;
         }
         $outcome = $this->simulate($ctx, $fleet, $report, isset($plan['activity_minutes']) ? (int) $plan['activity_minutes'] : null);
-        $cost = max(1.0, (float) ($plan['fuel'] ?? 0) + $outcome['losses']);
+        $losses = $outcome['losses'] * $ctx->lossMultiplier;
+        $cost = max(1.0, (float) ($plan['fuel'] ?? 0) + $losses);
 
-        return ['win' => $outcome['win'], 'loot' => $outcome['loot'], 'losses' => $outcome['losses'], 'ratio' => $outcome['loot'] / $cost];
+        return ['win' => $outcome['win'], 'loot' => $outcome['loot'], 'losses' => $losses, 'ratio' => $outcome['loot'] / $cost];
     }
 
     /**
@@ -120,16 +172,17 @@ class RaidPlanner
     }
 
     /**
-     * Own planets that hold ships, nearest to the target first, at most two.
+     * Own planets (and, with the knob `moons`, moons) that hold ships, nearest to the target first, at most three: a raid leaves from the
+     * base next to the target that has the fleet, the plan with the best profit among them wins.
      *
      * @param array<string, mixed> $target scouted target
      * @return list<int> planet ids
      */
-    private function origins(BotActions $ctx, array $target): array
+    public function origins(BotActions $ctx, array $target): array
     {
         $e = $this->elements();
         $list = [];
-        foreach ($ctx->planets as $id => $planet) {
+        foreach ($ctx->planets + $ctx->moons as $id => $planet) {
             $ships = (int) $planet[$e->column(SHIP_SMALL_CARGO)] + (int) $planet[$e->column(SHIP_LARGE_CARGO)];
             if ($ships + array_sum($this->warships($planet)) > 0) {
                 $list[$id] = $this->fleetFunctions()->getTargetDistance([$planet['galaxy'], $planet['system'], $planet['planet']], [$target['galaxy'], $target['system'], $target['planet']]);
@@ -137,7 +190,7 @@ class RaidPlanner
         }
         asort($list);
 
-        return array_slice(array_keys($list), 0, 2);
+        return array_slice(array_keys($list), 0, 3);
     }
 
     /**
@@ -146,7 +199,7 @@ class RaidPlanner
      * @param array<string, mixed> $planet
      * @return array<int, int> ship id => count
      */
-    private function warships(array $planet): array
+    public function warships(array $planet): array
     {
         $e = $this->elements();
         $out = [];
@@ -168,7 +221,7 @@ class RaidPlanner
      * @param array<string, mixed> $target
      * @return array<string, mixed> see plan()
      */
-    private function planFrom(BotActions $ctx, array $planet, array $report, array $target, float $minRatio): array
+    private function planFrom(BotActions $ctx, array $planet, array $report, array $target, float $minRatio, int $minLoot): array
     {
         $e = $this->elements();
         $warships = $this->warships($planet);
@@ -176,7 +229,7 @@ class RaidPlanner
         $best = null;
         $seen = [];
         $reason = 'no fleet that wins';
-        foreach (self::ESCORT as $share) {
+        foreach ($ctx->bot->escortShares as $share) {
             $fleet = $this->compose($planet, $warships, $needed, $share);
             $key = json_encode($fleet);
             if ($fleet === [] || isset($seen[$key])) {
@@ -193,13 +246,14 @@ class RaidPlanner
                 continue;
             }
             $fuel = $flight['consumption'] * self::VALUE[RESOURCE_DEUT];
-            $cost = max(1.0, $fuel + $outcome['losses']);
+            $losses = $outcome['losses'] * $ctx->lossMultiplier;
+            $cost = max(1.0, $fuel + $losses);
             $ratio = $outcome['loot'] / $cost;
             $candidate = [
-                'ok' => $outcome['loot'] >= self::MIN_LOOT && $ratio >= $minRatio,
-                'reason' => $outcome['loot'] < self::MIN_LOOT ? 'loot too small (' . round($outcome['loot']) . ')' : 'not worth it (ratio ' . round($ratio, 1) . ' < ' . $minRatio . ')',
+                'ok' => $outcome['loot'] >= $minLoot && $ratio >= $minRatio,
+                'reason' => $outcome['loot'] < $minLoot ? 'loot too small (' . round($outcome['loot']) . ')' : 'not worth it (ratio ' . round($ratio, 1) . ' < ' . $minRatio . ')',
                 'origin' => (int) $planet['id'], 'fleet' => $fleet, 'loot' => $outcome['loot'], 'loot_res' => $outcome['loot_res'],
-                'fuel' => $fuel, 'losses' => $outcome['losses'], 'cost' => $cost, 'ratio' => $ratio,
+                'fuel' => $fuel, 'losses' => $losses, 'losses_sim' => $outcome['losses'], 'cost' => $cost, 'ratio' => $ratio,
                 'duration' => $flight['duration'], 'consumption' => $flight['consumption'], 'techs_assumed' => $outcome['techs_assumed'],
                 'activity_minutes' => $target['activity_minutes'] ?? null,
             ];
@@ -207,7 +261,7 @@ class RaidPlanner
                 $best = $candidate;
             }
             $reason = $candidate['reason'];
-            if ($candidate['ok'] && $outcome['losses'] <= 0.01 * $outcome['loot']) {
+            if ($candidate['ok'] && $losses <= 0.01 * $outcome['loot']) {
                 break; // wins without noticeable losses: more escort only adds fuel
             }
         }
@@ -258,7 +312,7 @@ class RaidPlanner
     }
 
     /**
-     * Fights of the fleet against the reported planet (RUNS times, virtual fleets, nothing is written) and the plunder after them.
+     * Fights of the fleet against the reported planet (simulation_runs times, virtual fleets, nothing is written) and the plunder after them.
      *
      * @param array<int, int> $fleet attacking ships
      * @param int|null $activityMinutes minutes since the target was last active when under 60 (an active target may react: loot is discounted)
@@ -268,7 +322,7 @@ class RaidPlanner
     private function simulate(BotActions $ctx, array $fleet, array $report, ?int $activityMinutes): array
     {
         // the same fleet against the same units and techs gives the same fights: bounded work when several origins or ticks ask again
-        $key = md5(json_encode([$fleet, $report['fleet'], $report['defense'], $report['resources'], $report['techs'], $activityMinutes, $ctx->user['id']]));
+        $key = md5(json_encode([$fleet, $report['fleet'], $report['defense'], $report['resources'], $report['techs'], $activityMinutes, $ctx->user['id'], $ctx->bot->simulationRuns]));
         if (isset($this->outcomes[$key])) {
             return $this->outcomes[$key];
         }
@@ -291,10 +345,11 @@ class RaidPlanner
         $handler = $this->handler();
         $universe = (int) $this->universe()->current();
         $techs = $this->defenderTechs($ctx, $report);
+        $runs = $ctx->bot->simulationRuns;
         $wins = 0;
         $losses = 0.0;
         $lootRes = [RESOURCE_METAL => 0.0, RESOURCE_CRYSTAL => 0.0, RESOURCE_DEUT => 0.0];
-        for ($run = 0; $run < self::RUNS; $run++) {
+        for ($run = 0; $run < $runs; $run++) {
             $attack = $this->attackerFleet($ctx, $fleet);
             $defend = $this->defenderFleet($report, $techs);
             $result = $handler->engine->fight([$attack], [$defend], $universe, true);
@@ -320,10 +375,10 @@ class RaidPlanner
         unset($amount);
 
         return [
-            'win' => $wins === self::RUNS,
+            'win' => $wins === $runs,
             'loot' => $loot,
             'loot_res' => $lootRes,
-            'losses' => $losses / self::RUNS,
+            'losses' => $losses / $runs,
             'techs_assumed' => $report['techs'] === null,
         ];
     }
@@ -421,7 +476,7 @@ class RaidPlanner
      *
      * @param array<int, int|float> $units unit id => count
      */
-    private function fleetValue(array $units): float
+    public function fleetValue(array $units): float
     {
         $e = $this->elements();
         $sum = 0.0;

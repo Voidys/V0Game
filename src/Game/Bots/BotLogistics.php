@@ -9,6 +9,7 @@ use App\Game\Core\ConfigRegistry;
 use App\Game\Core\Database;
 use App\Game\Core\GameUtilities;
 use App\Game\Core\Singleton;
+use App\Game\Core\StoredData;
 
 /**
  * Fleet movements of a bot that are neither raids nor expeditions: consolidation (cargo ships bring resources to the planet where the
@@ -25,12 +26,6 @@ class BotLogistics
 
     /** Ships that never go on a fleetsave: solar satellites (they cannot fly), colony ships (kept for the colony plan). */
     private const STAY = [SHIP_SOLSAT, SHIP_COLOSHIP];
-
-    /** Share of every stock a fleetsave leaves on the planet (local building keeps working). */
-    private const KEEP = 0.2;
-
-    /** Shortest offline time (seconds) a fleetsave is worth the trouble at the end of a session. */
-    private const MIN_OFFLINE = 1200;
 
     public function __construct(
         private readonly Database $db,
@@ -163,8 +158,8 @@ class BotLogistics
 
     /**
      * Fleetsave of the planets in `$only` (all planets with ships when null): per planet one slow transport to the nearest other own planet
-     * carrying the ships (not STAY) and 80 % of the resources, back after about `$offline` seconds. Rolled with the profile's
-     * `fleetsave_chance`; a session end under MIN_OFFLINE is not worth it. Returns the number of fleets sent.
+     * carrying the ships (not STAY) and 80 % of the resources, back after about `$offline` seconds (a bot with one planet sends the ships
+     * on a slow expedition instead, expeditionSave()). Rolled with the profile's `fleetsave_chance`; a session end under the minimum offline time (`bots_fleetsave_min_offline_minutes`) is not worth it. Returns the number of fleets sent.
      *
      * @param array<string, mixed> $s profile settings
      * @param array<int, int>|null $only planet ids
@@ -173,18 +168,16 @@ class BotLogistics
     public function fleetSave(BotActions $ctx, array $s, int $offline, string $reason, ?array $only = null, bool $force = false): int
     {
         $botId = (int) $ctx->user['id'];
-        if (!$force && (mt_rand(1, 100) > (int) $s['fleetsave_chance'] || $offline < self::MIN_OFFLINE)) {
+        if (!$force && (mt_rand(1, 100) > (int) $s['fleetsave_chance'] || $offline < $ctx->bot->fleetsaveMinOfflineMinutes * 60)) {
             return 0;
         }
+        $sent = $ctx->bot->moons ? $this->stationOnMoons($ctx, $only, $reason) : 0;
         if (!$this->hasFleet($ctx)) {
-            return 0;
+            return $sent;
         }
         if (count($ctx->planets) < 2) {
-            $this->botLog->log($botId, $ctx->universe, 'fleetsave_skip', 'no second planet to hide the fleet on (' . $reason . ')');
-
-            return 0;
+            return $sent + $this->expeditionSave($ctx, $offline, $reason);
         }
-        $sent = 0;
         foreach ($only ?? array_keys($ctx->planets) as $id) {
             if (isset($ctx->planets[$id]) && $ctx->freeFleetSlots(true) > 0 && $this->saveFrom($ctx, $id, $offline, $reason)) {
                 $sent++;
@@ -192,6 +185,129 @@ class BotLogistics
         }
 
         return $sent;
+    }
+
+    /**
+     * With the knob `moons`: the ships (not probes, satellites, colony ships) of every planet that has a moon are deployed on that moon
+     * (deploy mission, the fleet stays there). An attack on the planet then finds no fleet; the raids start from the moon later
+     * (RaidPlanner::origins()). The deploy takes no resources along.
+     *
+     * @param array<int, int>|null $only planet ids (all with a moon when null)
+     * @return int fleets sent
+     */
+    private function stationOnMoons(BotActions $ctx, ?array $only, string $reason): int
+    {
+        $e = $this->elements();
+        $sent = 0;
+        foreach ($only ?? array_keys($ctx->planets) as $id) {
+            $moon = isset($ctx->planets[$id]) ? $ctx->moonOf($ctx->planets[$id]) : null;
+            if ($moon === null || $ctx->freeFleetSlots(true) < 1) {
+                continue;
+            }
+            $fleet = [];
+            foreach ($this->elements()->ids('fleet') as $ship) {
+                if (!in_array($ship, [...self::STAY, SHIP_PROBE], true) && (int) $ctx->planets[$id][$e->column($ship)] > 0) {
+                    $fleet[$ship] = (int) $ctx->planets[$id][$e->column($ship)];
+                }
+            }
+            if ($fleet === []) {
+                continue;
+            }
+            $result = $this->dispatcher->send($ctx, $ctx->planets[$id], $fleet, Mission::Station->value, (int) $moon['id'], (int) $ctx->user['id']);
+            $label = $ctx->planetLabel($ctx->planets[$id]);
+            $this->botLog->log((int) $ctx->user['id'], $ctx->universe, $result['ok'] ? 'fleetsave' : 'fleetsave_skip', $result['ok']
+                ? array_sum($fleet) . ' ships from ' . $label . ' deployed on its moon (' . $reason . ')'
+                : $label . ': moon deploy refused (' . $result['reason'] . ', ' . $reason . ')');
+            $sent += $result['ok'] ? 1 : 0;
+        }
+
+        return $sent;
+    }
+
+    /**
+     * Fleetsave of a bot with a single planet: the ships fly a slow expedition to a far, empty position (the only mission a player with
+     * one planet has for it), long enough to be away for `$offline` seconds. No resources travel (an expedition carries none). Needs the
+     * expedition rules of the game (module, free slot, expedition limit); fewer ships (70 / 50 / 30 / 15 %) when the fuel does not suffice.
+     *
+     * @return int fleets sent (0 or 1)
+     */
+    private function expeditionSave(BotActions $ctx, int $offline, string $reason): int
+    {
+        $botId = (int) $ctx->user['id'];
+        if (!$ctx->canSendExpedition()) {
+            $this->botLog->log($botId, $ctx->universe, 'fleetsave_skip', 'no second planet and no expedition possible to hide the fleet (' . $reason . ')');
+
+            return 0;
+        }
+        $e = $this->elements();
+        $id = (int) array_key_first($ctx->planets);
+        $planet = &$ctx->planets[$id];
+        $fleet = [];
+        foreach ($e->ids('fleet') as $ship) {
+            if (!in_array($ship, self::STAY, true) && (int) $planet[$e->column($ship)] > 0) {
+                $fleet[$ship] = (int) $planet[$e->column($ship)];
+            }
+        }
+        foreach ([1.0, 0.7, 0.5, 0.3, 0.15] as $share) {
+            $part = $share === 1.0 ? $fleet : array_filter(array_map(static fn(int $n): int => (int) floor($n * $share), $fleet));
+            $plan = $part === [] ? null : $this->expeditionPlan($ctx, $planet, $part, $offline);
+            if ($plan === null) {
+                continue;
+            }
+            $fleetId = $ctx->dispatch($planet, $part, Mission::Expedition->value, (int) $planet['galaxy'], $plan['system'], (int) $ctx->config->max_planets + 1, $plan['hours'], $plan['speed']);
+            if ($fleetId !== null) {
+                $this->botLog->log($botId, $ctx->universe, 'fleetsave', array_sum($part) . ' ships from ' . $ctx->planetLabel($planet) . ' on a slow expedition to system ' . $plan['system'] . ' at ' . ($plan['speed'] * 10) . ' % speed, ' . $plan['hours'] . ' h hold, home again in about ' . round($plan['total'] / 60) . ' min (offline about ' . round($offline / 60) . ' min; ' . $reason . ')');
+
+                return 1;
+            }
+        }
+        $this->botLog->log($botId, $ctx->universe, 'fleetsave_skip', $ctx->planetLabel($planet) . ': the expedition for the fleetsave was refused (fuel or rules, ' . $reason . ')');
+
+        return 0;
+    }
+
+    /**
+     * Where, how slowly and how long an expedition has to fly to keep the fleet away for `$offline` seconds: the longest hold the game
+     * offers that fits, in the own system first, then systems 25 and 60 away (the first whose round trip at the fastest fitting speed
+     * is long enough; the slowest speed of the farthest one when none is).
+     *
+     * @param array<string, mixed> $planet start planet
+     * @param array<int, int> $fleet ships
+     * @return array{system: int, speed: int, hours: int, total: int}|null null when the game offers no expedition for the fleet
+     */
+    private function expeditionPlan(BotActions $ctx, array $planet, array $fleet, int $offline): ?array
+    {
+        $position = (int) $ctx->config->max_planets + 1;
+        $available = $this->fleetFunctions()->getFleetMissions($ctx->user, ['galaxy' => $planet['galaxy'], 'system' => $planet['system'], 'planet' => $position, 'planettype' => 1, 'IsAKS' => 0, 'Ship' => $fleet], ['id' => 0, 'id_owner' => 0]);
+        if (!in_array(Mission::Expedition->value, $available['MissionSelector'], true) || empty($available['StayBlock'])) {
+            return null;
+        }
+        $holds = array_keys($available['StayBlock']);
+        sort($holds);
+        $hours = (int) $holds[0];
+        foreach ($holds as $h) {
+            if ($available['StayBlock'][$h] * 3600 <= $offline) {
+                $hours = (int) $h;
+            }
+        }
+        $stay = (int) round($available['StayBlock'][$hours] * 3600);
+        $maxSystem = max(1, (int) $ctx->config->max_system);
+        $best = null;
+        foreach ([0, 25, -25, 60, -60] as $delta) {
+            $system = (int) $planet['system'] + $delta;
+            if ($system < 1 || $system > $maxSystem) {
+                continue;
+            }
+            for ($speed = 10; $speed >= 1; $speed--) {
+                $flight = $this->planner->flight($ctx, $planet, $fleet, (int) $planet['galaxy'], $system, $position, $speed);
+                $best = ['system' => $system, 'speed' => $speed, 'hours' => $hours, 'total' => 2 * $flight['duration'] + $stay];
+                if ($best['total'] >= $offline) {
+                    return $best;
+                }
+            }
+        }
+
+        return $best;
     }
 
     /** Whether any planet has ships that could be saved. */
@@ -234,7 +350,7 @@ class BotLogistics
         $target = $ctx->planets[$to];
         [$fleet, $speed, $flight] = $this->affordable($ctx, $planet, $fleet, $target, $offline);
         $room = $this->fleetFunctions()->getFleetRoom($fleet) - $flight['consumption'];
-        $cargo = $this->cargoOf($planet, max(0.0, $room), $flight['consumption']);
+        $cargo = $this->cargoOf($ctx, $planet, max(0.0, $room), $flight['consumption']);
         $sent = $this->dispatcher->send($ctx, $planet, $fleet, Mission::Transport->value, (int) $target['id'], (int) $ctx->user['id'], $cargo, $speed);
         if (!$sent['ok']) {
             $this->botLog->log((int) $ctx->user['id'], $ctx->universe, 'fleetsave_skip', $ctx->planetLabel($planet) . ': ' . $sent['reason'] . ' (' . $reason . ')');
@@ -323,12 +439,12 @@ class BotLogistics
      * @param array<string, mixed> $planet start planet
      * @return array<int, float>
      */
-    private function cargoOf(array $planet, float $room, float $fuel): array
+    private function cargoOf(BotActions $ctx, array $planet, float $room, float $fuel): array
     {
         $e = $this->elements();
         $cargo = [];
         foreach ([RESOURCE_METAL, RESOURCE_CRYSTAL, RESOURCE_DEUT] as $id) {
-            $have = (float) $planet[$e->column($id)] * (1 - self::KEEP) - ($id === RESOURCE_DEUT ? $fuel : 0);
+            $have = (float) $planet[$e->column($id)] * (1 - $ctx->bot->fleetsaveKeep()) - ($id === RESOURCE_DEUT ? $fuel : 0);
             $take = floor(max(0.0, min($have, $room)));
             $cargo[$id] = $take;
             $room -= $take;
@@ -338,10 +454,13 @@ class BotLogistics
     }
 
     /**
-     * Looks at the hostile fleets heading for the bot's planets within three hours, as the overview shows them: the number of ships
-     * with spy technology 2, the types with 4, exact numbers with 8. Each fleet is judged once (memory `_fs.seen`): fleets whose attack the
-     * planet would not survive (fight against what is visible; an unseen fleet counts as dangerous) trigger a fleetsave of that planet,
-     * timed to return after the impact; harmless ones get defense units queued on that planet.
+     * Looks at the hostile fleets heading for the bot's planets within the threat window (three hours by default), as the overview shows
+     * them to a player: fleets of others aimed at the bot's own planets on an attack, ACS or destroy mission (an ACS group is one
+     * entry), the number of ships with spy technology 2, the types with 4, exact numbers with 8. Only called while the bot is online:
+     * like a human it reacts when it looks (the fleetsave at logout covers the time away). Each fleet is judged once (memory
+     * `_fs.seen`): fleets whose attack the planet would not survive (fight against what is visible; an unseen fleet counts as dangerous)
+     * trigger a fleetsave of that planet, timed to return after the impact; harmless ones get defense units queued on that planet that
+     * finish before the impact. Planets that were hit lately get defense afterwards (afterHits()).
      *
      * @param array<string, mixed> $s profile settings
      * @param array<string, mixed> $personality changed in place (`_fs`)
@@ -349,13 +468,8 @@ class BotLogistics
      */
     public function threats(BotActions $ctx, array $s, array &$personality, int $now): int
     {
-        $botId = (int) $ctx->user['id'];
-        $rows = $this->db->select(
-            'SELECT * FROM %%FLEETS%% WHERE target_owner = :u AND owner <> :u2 AND mission IN (:a, :b, :c) AND status = :s AND arrival_time > :now AND arrival_time < :soon;',
-            [':u' => $botId, ':u2' => $botId, ':a' => Mission::Attack->value, ':b' => Mission::Acs->value, ':c' => Mission::Destruction->value, ':s' => FLEET_OUTWARD, ':now' => $now, ':soon' => $now + 10800],
-        );
         $acted = 0;
-        foreach ($rows as $row) {
+        foreach ($this->overviewThreats($ctx, $now) as $row) {
             $seen = $personality['_fs']['seen'] ?? [];
             if (isset($seen[$row['id']]) || !isset($ctx->planets[(int) $row['end_id']])) {
                 continue;
@@ -364,42 +478,81 @@ class BotLogistics
             $acted += $this->react($ctx, $s, $row, $now);
         }
 
-        return $acted;
+        return $acted + $this->afterHits($ctx, $personality, $now);
     }
 
     /**
-     * The reaction to one incoming fleet.
+     * The hostile movements the overview would list for the bot within the threat window: foreign fleets on an attack, ACS or destroy
+     * mission still on their way to one of the bot's planets, one entry per ACS group (ships and ship count of the group added up).
+     *
+     * @return list<array<string, mixed>> fleet rows, `fleet_array` = ship id => count
+     */
+    private function overviewThreats(BotActions $ctx, int $now): array
+    {
+        $botId = (int) $ctx->user['id'];
+        $rows = $this->db->select(
+            'SELECT * FROM %%FLEETS%% WHERE target_owner = :u AND owner <> :u2 AND mission IN (:a, :b, :c) AND status = :s AND arrival_time > :now AND arrival_time < :soon ORDER BY arrival_time, id;',
+            [':u' => $botId, ':u2' => $botId, ':a' => Mission::Attack->value, ':b' => Mission::Acs->value, ':c' => Mission::Destruction->value, ':s' => FLEET_OUTWARD, ':now' => $now, ':soon' => $now + $ctx->bot->threatWindowSeconds()],
+        );
+        $out = [];
+        foreach ($rows as $row) {
+            $row['fleet_array'] = $this->fleetFunctions()->unserialize((string) $row['ships']);
+            $key = (int) $row['group'] > 0 ? 'g' . $row['group'] : 'f' . $row['id'];
+            if (!isset($out[$key])) {
+                $out[$key] = $row;
+
+                continue;
+            }
+            $out[$key]['ship_amount'] = (int) $out[$key]['ship_amount'] + (int) $row['ship_amount'];
+            foreach ($row['fleet_array'] as $ship => $count) {
+                $out[$key]['fleet_array'][$ship] = (int) ($out[$key]['fleet_array'][$ship] ?? 0) + (int) $count;
+            }
+        }
+
+        return array_values($out);
+    }
+
+    /**
+     * The reaction to one incoming fleet. A fleet the bot cannot identify (spy technology below 2) on an attack mission counts as
+     * dangerous: the fleet is saved, and defense is queued too as far as the time to the impact allows.
      *
      * @param array<string, mixed> $s profile settings
-     * @param array<string, mixed> $row fleet row
+     * @param array<string, mixed> $row fleet row (see overviewThreats())
      */
     private function react(BotActions $ctx, array $s, array $row, int $now): int
     {
         $botId = (int) $ctx->user['id'];
         $planet = $ctx->planets[(int) $row['end_id']];
         $visible = $this->visibleFleet($ctx, $row);
-        $holds = $visible === null ? mt_rand(0, 1) === 1 : $this->planner->planetHolds($ctx, $planet, $visible);
-        $label = 'fleet of #' . $row['owner'] . ' (' . $row['ship_amount'] . ' ships' . ($visible === null ? ', not identifiable' : '') . ') heading for ' . $ctx->planetLabel($planet) . ', impact ' . date('H:i:s', (int) $row['arrival_time']);
+        $holds = $visible !== null && $this->planner->planetHolds($ctx, $planet, $visible);
+        $left = (int) $row['arrival_time'] - $now;
+        $size = (int) $ctx->user[$this->elements()->column(SPY_TECH)] >= 2 ? $row['ship_amount'] . ' ships' : 'size unknown';
+        $label = 'fleet of #' . $row['owner'] . ' (' . $size . ($visible === null ? ', not identifiable' : '') . ') heading for ' . $ctx->planetLabel($planet) . ', impact ' . date('H:i:s', (int) $row['arrival_time']);
         if ($holds) {
-            $detail = $this->defend($ctx, $planet);
+            $detail = $this->defend($ctx, $planet, $left, 0.5);
             $this->botLog->log($botId, $ctx->universe, 'threat', $label . ': the planet should hold' . ($detail === null ? '' : ', ' . $detail));
 
             return $detail === null ? 0 : 1;
         }
-        $this->botLog->log($botId, $ctx->universe, 'threat', $label . ': likely stronger than the defense');
+        $this->botLog->log($botId, $ctx->universe, 'threat', $label . ($visible === null ? ': unknown, treated as hostile' : ': likely stronger than the defense'));
+        $acted = 0;
+        if ($visible === null && ($detail = $this->defend($ctx, $planet, $left, 0.5)) !== null) {
+            $this->botLog->log($botId, $ctx->universe, 'threat', $detail);
+            $acted++;
+        }
         if (mt_rand(1, 100) > (int) $s['fleetsave_chance']) {
             $this->botLog->log($botId, $ctx->universe, 'threat', 'does not react (forgot, or too sure)');
 
-            return 0;
+            return $acted;
         }
 
-        return $this->fleetSave($ctx, $s, (int) $row['arrival_time'] - $now + 900, 'attack incoming', [(int) $planet['id']], true);
+        return $acted + $this->fleetSave($ctx, $s, $left + 900, 'attack incoming', [(int) $planet['id']], true);
     }
 
     /**
      * The attacking ships as far as the overview shows them to this bot (null when nothing identifiable: spy technology below 2).
      *
-     * @param array<string, mixed> $row fleet row
+     * @param array<string, mixed> $row fleet row (see overviewThreats())
      * @return array<int, int>|null
      */
     private function visibleFleet(BotActions $ctx, array $row): ?array
@@ -408,7 +561,7 @@ class BotLogistics
         if ($spy < 2) {
             return null;
         }
-        $ships = $this->fleetFunctions()->unserialize((string) $row['ships']);
+        $ships = $row['fleet_array'] ?? $this->fleetFunctions()->unserialize((string) $row['ships']);
         if ($spy >= 8) {
             return $ships;
         }
@@ -422,20 +575,79 @@ class BotLogistics
     }
 
     /**
-     * Queues defense on a planet that is going to be attacked by something it can hold off: the best affordable of the cheap defenses.
+     * Queues defense on a planet that is going to be attacked by something it can hold off: the best affordable of the cheap defenses, a
+     * batch that is finished before the impact (the planet's shipyard queue counted) and at most `$share` of what the planet can pay.
      *
      * @param array<string, mixed> $planet planet row
+     * @param int $secondsLeft seconds until the impact (0 or less = no deadline, defense after a hit)
+     * @param float $share share of the affordable amount to build
      * @return string|null log text
      */
-    private function defend(BotActions $ctx, array $planet): ?string
+    private function defend(BotActions $ctx, array $planet, int $secondsLeft, float $share): ?string
     {
+        $queued = $this->queueSeconds($ctx, $planet);
         foreach ([MISSILE_LAUNCHER, 402, 403] as $id) {
-            $detail = $ctx->units((int) $planet['id'], $id, max(1, (int) ($this->buildFunctions()->getMaxConstructibleElements($ctx->user, $planet, $id) / 2)));
+            $count = max(1, (int) ($this->buildFunctions()->getMaxConstructibleElements($ctx->user, $planet, $id) * $share));
+            if ($secondsLeft > 0) {
+                $unit = max(1.0, $this->buildFunctions()->getBuildingTime($ctx->user, $planet, $id));
+                $count = min($count, (int) floor(($secondsLeft - $queued - 30) / $unit));
+                if ($count < 1) {
+                    continue;
+                }
+            }
+            $detail = $ctx->units((int) $planet['id'], $id, $count);
             if ($detail !== null) {
                 return 'queued ' . $detail;
             }
         }
 
         return null;
+    }
+
+    /**
+     * Seconds the planet's shipyard queue still needs.
+     *
+     * @param array<string, mixed> $planet planet row
+     */
+    private function queueSeconds(BotActions $ctx, array $planet): int
+    {
+        $queue = !empty($planet['b_hangar_id']) ? StoredData::decode($planet['b_hangar_id']) : [];
+        $sum = 0.0;
+        foreach (is_array($queue) ? $queue : [] as $item) {
+            $sum += (int) $item[1] * $this->buildFunctions()->getBuildingTime($ctx->user, $planet, (int) $item[0]);
+        }
+
+        return (int) max(0, $sum - (float) ($planet['b_hangar'] ?? 0));
+    }
+
+    /**
+     * Defense after a hit: attacks that landed on the bot's planets within the last day (the battle reports a player reads) that were
+     * not answered yet get defense queued on the planet that was hit, at most the share of the affordable amount the defense weight
+     * allows (`bots_defense_weight_percent`, half at 100 %). One answer per hit (`_fs.hit` = newest answered arrival time).
+     *
+     * @param array<string, mixed> $personality changed in place (`_fs.hit`)
+     * @return int defense batches queued
+     */
+    private function afterHits(BotActions $ctx, array &$personality, int $now): int
+    {
+        $botId = (int) $ctx->user['id'];
+        $since = max($now - 86400, (int) ($personality['_fs']['hit'] ?? 0));
+        $rows = $this->db->select(
+            'SELECT end_id, MAX(arrival_time) AS hit_at FROM %%LOG_FLEETS%% WHERE target_owner = :u AND owner <> :u2 AND mission IN (:a, :b, :c) AND arrival_time > :since AND arrival_time <= :now AND hasCanceled = 0 GROUP BY end_id ORDER BY hit_at;',
+            [':u' => $botId, ':u2' => $botId, ':a' => Mission::Attack->value, ':b' => Mission::Acs->value, ':c' => Mission::Destruction->value, ':since' => $since, ':now' => $now],
+        );
+        $share = max(0.1, min(1.0, 0.5 * $ctx->bot->defenseWeightPercent / 100));
+        $acted = 0;
+        foreach ($rows as $row) {
+            $personality['_fs']['hit'] = max((int) ($personality['_fs']['hit'] ?? 0), (int) $row['hit_at']);
+            $planet = $ctx->planets[(int) $row['end_id']] ?? null;
+            $detail = $planet === null || $ctx->bot->defenseWeightPercent < 1 ? null : $this->defend($ctx, $planet, 0, $share);
+            if ($detail !== null) {
+                $this->botLog->log($botId, $ctx->universe, 'threat', 'hit on ' . $ctx->planetLabel($planet) . ' at ' . date('H:i', (int) $row['hit_at']) . ', ' . $detail);
+                $acted++;
+            }
+        }
+
+        return $acted;
     }
 }

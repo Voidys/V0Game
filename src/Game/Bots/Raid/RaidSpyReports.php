@@ -55,7 +55,7 @@ class RaidSpyReports
      * likewise; `techs` (weapons, shields, armor, spy tech of the target) only with the research section. Missiles are no defense
      * in a fight and dropped; zero entries are dropped.
      *
-     * @return array{planet_id: int, time: int, resources: array<int, float>, fleet: array<int, int>|null, defense: array<int, int>|null,
+     * @return array{planet_id: int, time: int, resources: array<int, float>, fleet: array<int, int>|null, defense: array<int, int>|null, interceptors: int,
      *     buildings: array<int, int>|null, techs: array<int, int>|null, name: string, coords: string}|null null for text that is no report
      */
     public function parse(string $json, int $planetId): ?array
@@ -78,6 +78,7 @@ class RaidSpyReports
             'resources' => $res,
             'fleet' => isset($spy[200]) ? $this->counts((array) $spy[200], $e->ids('fleet')) : null,
             'defense' => isset($spy[400]) ? $this->counts((array) $spy[400], $e->ids('defense')) : null,
+            'interceptors' => (int) floor((float) ($spy[400][INTERCEPTOR_MISSILE] ?? 0)),
             'buildings' => isset($spy[0]) ? $this->counts((array) $spy[0], $e->ids('build')) : null,
             'techs' => isset($spy[100]) ? $this->counts((array) $spy[100], $e->ids('tech')) : null,
             'name' => (string) ($target['name'] ?? ''),

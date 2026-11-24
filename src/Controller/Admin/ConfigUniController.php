@@ -17,6 +17,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Game\Bots\BotPresets;
 use App\Game\Core\Config;
 use App\Game\Core\Config\ConfigFieldProcessor;
 use App\Game\Core\Log;
@@ -84,6 +85,8 @@ class ConfigUniController extends AbstractAdminController
         $config_before = ConfigFieldProcessor::createSnapshot($config, $schema);
 
         $config_after = ConfigFieldProcessor::processPostData($schema->getAllFields(), $this->input());
+        // a newly chosen bot difficulty preset fills its knobs; editing a preset knob without changing the preset makes it "custom"
+        $config_after = BotPresets::resolveOnSave(['bots_preset' => $config->bots_preset ?? null], $config_after);
 
         $uni_status = $config_after['uni_status'] ?? $config->uni_status;
         $this->applyStatusChange($uni_status, $config);

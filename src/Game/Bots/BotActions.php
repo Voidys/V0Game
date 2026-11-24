@@ -25,11 +25,17 @@ class BotActions
     public array $user = [];
     /** @var array<int,array<string,mixed>> planets (planet_type 1) keyed by id */
     public array $planets = [];
+    /** @var array<int,array<string,mixed>> moons (planet_type 3) keyed by id, only loaded when the bot knob `moons` is on */
+    public array $moons = [];
+    /** Factor (1 or more) on the expected losses of a raid, learned from earlier raids that cost more than simulated (RaidLearning). */
+    public float $lossMultiplier = 1.0;
     public Config $config;
     public ResourceUpdate $eco;
     public int $universe;
     /** Fleet slots kept free for expeditions (profile `expedition_slots`), applied by freeFleetSlots() for every other flight. */
     public int $reservedSlots = 0;
+    /** Bot knobs of the universe, overlaid with the bot's own preset and aggression (see BotEngine). */
+    public BotSettings $bot;
 
     public function __construct(
         int $universe,
@@ -40,6 +46,7 @@ class BotActions
     ) {
         $this->universe = $universe;
         $this->config = $configs->get($universe);
+        $this->bot = BotSettings::fromConfig($this->config);
         $this->eco = $this->resourceUpdate();
     }
 
@@ -76,8 +83,58 @@ class BotActions
             $this->planets[(int) $planet['id']] = $planet;
         }
         $this->user = $user;
+        $this->loadMoons($userId);
 
         return true;
+    }
+
+    /**
+     * Locks and loads the bot's moons (only with the knob `moons`), brought up to date like the planets.
+     */
+    private function loadMoons(int $userId): void
+    {
+        $this->moons = [];
+        if (!$this->bot->moons) {
+            return;
+        }
+        $moons = $this->db->select(
+            'SELECT * FROM %%PLANETS%% WHERE id_owner = :id AND destruyed = 0 AND planet_type = \'3\' ORDER BY id FOR UPDATE;',
+            [':id' => $userId],
+        );
+        foreach ($moons as $moon) {
+            [$this->user, $moon] = $this->eco->CalcResource($this->user, $moon, true);
+            $this->moons[(int) $moon['id']] = $moon;
+        }
+    }
+
+    /**
+     * Reference to the row of a planet or moon of the bot (a start planet of a flight; the dispatcher keeps it in sync).
+     *
+     * @return array<string, mixed>
+     */
+    public function &originRef(int $id): array
+    {
+        if (isset($this->planets[$id])) {
+            return $this->planets[$id];
+        }
+
+        return $this->moons[$id];
+    }
+
+    /**
+     * The moon at the coordinates of a planet of the bot, null when there is none (or the knob `moons` is off).
+     *
+     * @param array<string, mixed> $planet
+     */
+    public function moonOf(array $planet): ?array
+    {
+        foreach ($this->moons as $moon) {
+            if ((int) $moon['galaxy'] === (int) $planet['galaxy'] && (int) $moon['system'] === (int) $planet['system'] && (int) $moon['planet'] === (int) $planet['planet']) {
+                return $moon;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -425,9 +482,10 @@ class BotActions
      *
      * @param array<int, int> $fleetArray ship id => count
      * @param int $stayHours expedition hold time in hours (0 = none)
+     * @param int $speedSetting 1-10, 10 = full speed (a slow expedition is how a single-planet bot fleetsaves)
      * @param array<string, mixed> $planet
      */
-    public function dispatch(array &$planet, array $fleetArray, int $mission, int $galaxy, int $system, int $pos, int $stayHours = 0): ?int
+    public function dispatch(array &$planet, array $fleetArray, int $mission, int $galaxy, int $system, int $pos, int $stayHours = 0, int $speedSetting = 10): ?int
     {
         $e = $this->elements();
 
@@ -460,7 +518,7 @@ class BotActions
         );
         $maxSpeed = $this->fleetFunctions()->getFleetMaxSpeed($fleetArray, $this->user);
         $speedFactor = $this->fleetFunctions()->getGameSpeedFactor();
-        $duration = $this->fleetFunctions()->getMissionDuration(10, $maxSpeed, $distance, $speedFactor, $this->user);
+        $duration = $this->fleetFunctions()->getMissionDuration(max(1, min(10, $speedSetting)), $maxSpeed, $distance, $speedFactor, $this->user);
         $consumption = $this->fleetFunctions()->getFleetConsumption($fleetArray, $duration, $distance, $this->user, $speedFactor);
         if ($planet[$e->column(903)] < $consumption) {
             return null;
@@ -517,6 +575,10 @@ class BotActions
     public function canColonize(): bool
     {
         if (!$this->viewHelpers()->isModuleAvailable(MODULE_MISSION_COLONY, $this->universe) || $this->freeFleetSlots() < 1) {
+            return false;
+        }
+
+        if ($this->bot->maxPlanets > 0 && count($this->planets) >= $this->bot->maxPlanets) {
             return false;
         }
 

@@ -27,7 +27,7 @@ class RaidTargetFinder
 {
     use GameUtilities;
 
-    /** Seconds a skipped (unprofitable / unknown / failed) target is left alone. */
+    /** Seconds a skipped (unprofitable / unknown / failed) target is left alone (default of the bot knob `bots_target_cooldown_hours`). */
     public const COOLDOWN = 7200;
 
     public function __construct(
@@ -41,20 +41,22 @@ class RaidTargetFinder
      *
      * @param array<string, mixed> $settings profile settings (`scout_range`, `attack_bots`, `attack_humans`, `prefer_inactive`, `max_attacks_per_target_per_day`)
      * @param array<int, array<string, mixed>> $targets raid memory of known targets by planet id (`skip_until`, `last_loot`, `last_hit`)
+     * @param array<int, float> $grudges the bot's grudges by player id (revenge): such players rank first and are wanted even when active
      * @return array{candidates: list<array<string, mixed>>, skipped: array<string, list<string>>, seen: int, systems: int}
      *         candidates best first; skipped = reason => planet labels; seen = planets looked at
      */
-    public function scout(BotActions $ctx, array $settings, array $targets): array
+    public function scout(BotActions $ctx, array $settings, array $targets, array $grudges = []): array
     {
         $now = $this->state->runtime->timestamp;
-        $rows = $this->galaxyRows($ctx, (int) $settings['scout_range']);
+        $range = $this->range($ctx, $settings);
+        $rows = $this->galaxyRows($ctx, $range);
         $attacks = $this->recentAttacks((int) $ctx->user['id']);
         $maxPerDay = $this->attackLimit($settings);
 
         $candidates = [];
         $skipped = [];
         foreach ($rows as $row) {
-            $reason = $this->excludeReason($ctx, $row, $settings);
+            $reason = $this->excludeReason($ctx, $row, $settings, ($grudges[(int) $row['id']] ?? 0.0) > 0);
             $planetId = (int) $row['planet_id'];
             if ($reason === null && ($attacks[(int) $row['id']] ?? 0) >= $maxPerDay) {
                 $reason = 'bash limit';
@@ -66,7 +68,7 @@ class RaidTargetFinder
                 $skipped[$reason][] = $row['username'] . ' [' . $row['p_galaxy'] . ':' . $row['p_system'] . ':' . $row['p_planet'] . ']';
                 continue;
             }
-            $candidates[] = $this->candidate($ctx, $row, $settings, $targets[$planetId] ?? []);
+            $candidates[] = $this->candidate($ctx, $row, $settings, $targets[$planetId] ?? [], $grudges[(int) $row['id']] ?? 0.0);
         }
         usort($candidates, static fn(array $a, array $b): int => $b['score'] <=> $a['score']);
 
@@ -74,8 +76,19 @@ class RaidTargetFinder
             'candidates' => $candidates,
             'skipped' => $skipped,
             'seen' => count($rows),
-            'systems' => (int) $settings['scout_range'] * 2 + 1,
+            'systems' => $range * 2 + 1,
         ];
+    }
+
+    /**
+     * Systems the bot looks around each of its planets: the profile's `scout_range`, never more than a player browsing the galaxy view
+     * would cover (`bots_scout_range_max`).
+     *
+     * @param array<string, mixed> $settings profile settings
+     */
+    public function range(BotActions $ctx, array $settings): int
+    {
+        return max(1, min((int) $settings['scout_range'], $ctx->bot->scoutRangeMax));
     }
 
     /**
@@ -167,8 +180,9 @@ class RaidTargetFinder
      *
      * @param array<string, mixed> $row see galaxyRows()
      * @param array<string, mixed> $settings profile settings
+     * @param bool $grudge the bot holds a grudge against the owner (revenge: size and activity rules are lifted)
      */
-    private function excludeReason(BotActions $ctx, array $row, array $settings): ?string
+    private function excludeReason(BotActions $ctx, array $row, array $settings, bool $grudge = false): ?string
     {
         $now = $this->state->runtime->timestamp;
         $me = $ctx->user;
@@ -181,7 +195,7 @@ class RaidTargetFinder
             $row['diplo_level'] !== null && (int) $row['diplo_level'] !== 5 => 'pact partner',
             (bool) $row['is_bot'] && empty($settings['attack_bots']) => 'bot (not wanted)',
             !(bool) $row['is_bot'] && empty($settings['attack_humans']) => 'human (not wanted)',
-            default => null,
+            default => $this->sizeReason($ctx, $row, $grudge),
         };
         if ($reason !== null) {
             return $reason;
@@ -196,6 +210,34 @@ class RaidTargetFinder
     }
 
     /**
+     * The bot knobs on whom to attack: players active within the hour only when `attack_actives` is on, and the target's points
+     * against the minimum points and the minimum share of the bot's own points.
+     *
+     * @param array<string, mixed> $row see galaxyRows()
+     * @param bool $grudge revenge on this player: the size and activity rules do not apply
+     */
+    private function sizeReason(BotActions $ctx, array $row, bool $grudge = false): ?string
+    {
+        $bot = $ctx->bot;
+        $points = (float) ($row['total_points'] ?? 0);
+        if ($grudge) {
+            return null;
+        }
+        $warmonger = $bot->warmongerActive((float) ($ctx->user['total_points'] ?? 0));
+        if (!$bot->attackActives && !$warmonger && ($this->state->runtime->timestamp - max((int) $row['p_last_update'], (int) $row['m_last_update'])) < 3600) {
+            return 'active player (not wanted)';
+        }
+        if ($bot->minTargetPoints > 0 && $points < $bot->minTargetPoints) {
+            return 'too few points';
+        }
+        if ($bot->minTargetRatioPercent > 0 && $points * 100 < max(1.0, (float) ($ctx->user['total_points'] ?? 1)) * $bot->minTargetRatioPercent) {
+            return 'too small against the bot';
+        }
+
+        return null;
+    }
+
+    /**
      * A target as the bot rates it from the galaxy view. Score: base 100, plus the profile's weight for inactive players (7 days
      * `i`, 28 days `I`), minus for players active within 15 / 60 minutes, plus for weaker players (fewer points), minus
      * for distance, plus for farm-list targets (hit before with loot).
@@ -203,9 +245,10 @@ class RaidTargetFinder
      * @param array<string, mixed> $row see galaxyRows()
      * @param array<string, mixed> $settings profile settings
      * @param array<string, mixed> $known raid memory of this planet
+     * @param float $grudge the bot's grudge against the owner (0 = none): raises the score, marks the target `revenge`
      * @return array<string, mixed>
      */
-    private function candidate(BotActions $ctx, array $row, array $settings, array $known): array
+    private function candidate(BotActions $ctx, array $row, array $settings, array $known, float $grudge = 0.0): array
     {
         $now = $this->state->runtime->timestamp;
         $minutes = (int) floor(($now - max((int) $row['p_last_update'], (int) $row['m_last_update'])) / 60);
@@ -217,9 +260,12 @@ class RaidTargetFinder
         $score = 100.0;
         $prefer = (int) $settings['prefer_inactive'];
         $score += in_array('longinactive', $status, true) ? $prefer * 1.0 : (in_array('inactive', $status, true) ? $prefer * 0.7 : 0);
-        $score -= $minutes < 15 ? 45 : ($minutes < 60 ? 20 : 0);
+        $warmonger = !(bool) $row['is_bot'] && $ctx->bot->warmongerActive($myPoints);
+        $score -= $warmonger ? 0 : ($minutes < 15 ? 45 : ($minutes < 60 ? 20 : 0));
+        $score += $warmonger && $minutes < 60 ? 20 : 0;
+        $score += min(150.0, $grudge * 6);
         $score += 30 * (1 - min(2.0, $points / $myPoints)) / 1.0;
-        $score -= 35 * $distance / max(1, (int) $settings['scout_range']);
+        $score -= 35 * $distance / $this->range($ctx, $settings);
         $score += !empty($known['last_loot']) ? 35 : 0;
         $score += mt_rand(-150, 150) / 10; // players differ in taste: several bots do not all pick the same victim
 
@@ -237,6 +283,7 @@ class RaidTargetFinder
             'is_bot' => (bool) $row['is_bot'],
             'activity_minutes' => $minutes < 60 ? $minutes : null,
             'status' => $status,
+            'revenge' => $grudge > 0,
             'distance' => $distance,
             'score' => round($score, 2),
         ];

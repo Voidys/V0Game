@@ -356,6 +356,10 @@ class BotBrain
                 $score = $free <= 3 ? 75 : 0;
                 $cat = 'facilities';
                 break;
+            case SILO:
+                $score = $level <= 4 ? 28 : 0; // only offered with the knob `missiles`: level 4 is what the launch needs
+                $cat = 'facilities';
+                break;
             default:
                 return null;
         }
@@ -386,7 +390,7 @@ class BotBrain
             $ref = max($metal, $crystal + 2, $deut + 4);
             $free = (int) $this->planetQueries()->calculateMaxPlanetFields($planet) - (int) $planet['field_current'];
 
-            foreach (self::BUILDINGS as $el) {
+            foreach (array_merge(self::BUILDINGS, $ctx->bot->missiles ? [SILO] : []) as $el) {
                 $level = $ctx->buildableLevel($planet, $el);
                 if ($level === null) {
                     continue;
@@ -487,16 +491,26 @@ class BotBrain
 
         if ($ctx->canQueueUnits($planet)) {
             $cargo = $this->cargoNeed($ctx);
+            $war = $this->warFactor($ctx);
             $ships = [
                 202 => 52 * 6 / (6 + $lv(202) + $lv(203)) * $cargo,
                 203 => 42 * 4 / (4 + $lv(203)) * $cargo,
-                204 => (14 + 14 * $skill) * 10 / (10 + $lv(204)),
-                205 => (14 + 14 * $skill) * 10 / (10 + $lv(205)),
-                206 => (16 + 14 * $skill) * 10 / (10 + $lv(206)),
-                207 => (16 + 14 * $skill) * 10 / (10 + $lv(207)),
+                204 => (14 + 14 * $skill) * 10 / (10 + $lv(204)) * $war,
+                205 => (14 + 14 * $skill) * 10 / (10 + $lv(205)) * $war,
+                206 => (16 + 14 * $skill) * 10 / (10 + $lv(206)) * $war,
+                207 => (16 + 14 * $skill) * 10 / (10 + $lv(207)) * $war,
                 209 => $lv(209) < 3 ? 14 : 3,
                 210 => $lv(210) < 1 ? 36 : ($lv(210) < 5 ? 12 : 3),
             ];
+            if ($war > 1.0) {
+                // a bot that wants a war fleet also builds the heavier hulls as soon as its techs allow them
+                foreach ([SHIP_BOMBER => 12, SHIP_DESTROYER => 16, SHIP_BATTLECRUISER => 18] as $id => $base) {
+                    $ships[$id] = $base * (1 + $skill) * 10 / (10 + $lv($id)) * $war;
+                }
+            }
+            if ($ctx->bot->missiles && $lv(SILO) >= 4 && (int) $ctx->user[$e->column(117)] > 0) {
+                $ships[INTERPLANETARY_MISSILE] = 16 * 10 / (10 + $lv(INTERPLANETARY_MISSILE));
+            }
             if ($colonyOk && $lv(208) == 0) {
                 $ships[208] = 86; // expand early: a colony is worth more than most single steps
             }
@@ -513,6 +527,22 @@ class BotBrain
                 $this->addUnits($out, $ctx, $planet, $pid, $el, $score, 'defense', 'defense', $wf('defense'), $penalty, $name);
             }
         }
+    }
+
+    /**
+     * Multiplier on the scores of warships: 1 unless raids are on and the bot's aggression is above 50; then it grows with the aggression
+     * (up to 3 more at 100) and with the game phase (the bot's points: a quarter of it for a newcomer, all of it from 150000 points).
+     * The category weight of the ships (the ship weight knob) comes on top; a ship weight of 0 means no war fleet.
+     */
+    public function warFactor(BotActions $ctx): float
+    {
+        $aggression = $ctx->bot->aggression;
+        if ($aggression <= 50 || empty($ctx->config->bots_raids_enabled) || $ctx->bot->shipWeightPercent < 1) {
+            return 1.0;
+        }
+        $phase = min(1.0, max(0.25, (float) ($ctx->user['total_points'] ?? 0) / 150000));
+
+        return 1.0 + ($aggression - 50) / 50 * 3 * $phase;
     }
 
     /**

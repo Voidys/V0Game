@@ -19,7 +19,9 @@ use App\Game\Core\Singleton;
  *
  * Re-spy timing (a task is up to CRON_GAP late): the report is meant to be read 150-240 s before impact. The probe is sent
  * early enough that, even with a late send and a late reading, the decision still falls before that point; `recheck_at` = impact -
- * margin - SLACK - probe flight time. A flight too short for that is not re-spied.
+ * margin - SLACK - probe flight time - a random jitter (`bots_respy_jitter_seconds`). A flight too short for that is not re-spied.
+ * Before the re-spy (and before reading its report) the relations are checked again: an attack on a player who became a buddy or
+ * pact partner of the bot in the meantime is recalled.
  */
 class RaidFollowUp
 {
@@ -31,9 +33,6 @@ class RaidFollowUp
     /** Seconds of safety between the planned report reading and the impact: a late send plus a late reading (two cron gaps) and the probe's arrival. */
     private const SLACK = 2 * self::CRON_GAP + 10;
 
-    /** A hit worth a raid streak is at least this share of RaidPlanner::MIN_LOOT. */
-    private const STREAK_LOOT = 0.5;
-
     public function __construct(
         private readonly Database $db,
         private readonly ConfigRegistry $configs,
@@ -44,6 +43,7 @@ class RaidFollowUp
         private readonly BotLog $botLog,
         private readonly BotSocialMessaging $messaging,
         private readonly BotRelations $relations,
+        private readonly BotAcs $acs,
     ) {}
 
     /**
@@ -58,14 +58,15 @@ class RaidFollowUp
         $attack['state'] = 'none';
         $attack['n'] = max(2, $probes);
         $attack['settle_at'] = (int) $attack['impact'] + 15;
-        if (mt_rand(1, 100) > (int) $s['recall_check_chance']) {
+        if (empty($attack['acs']) && mt_rand(1, 100) > (int) $s['recall_check_chance']) { // a group attack is always checked: the helpers may not have made it
             return 'no re-spy';
         }
-        $planet = $ctx->planets[$attack['origin']];
+        $planet = $ctx->originRef((int) $attack['origin']);
         $t = $attack['target'];
         $flight = $this->planner->flight($ctx, $planet, [SHIP_PROBE => $attack['n']], (int) $t['galaxy'], (int) $t['system'], (int) $t['planet']);
+        $jitter = mt_rand(0, $ctx->bot->respyJitterSeconds); // not on the dot: a human looks when he looks
         for ($margin = mt_rand(150, 240); $margin >= 150; $margin -= 30) {
-            $at = (int) $attack['impact'] - $margin - self::SLACK - $flight['duration'];
+            $at = (int) $attack['impact'] - $margin - self::SLACK - $flight['duration'] - $jitter;
             if ($at >= $now + 30) {
                 $attack['state'] = 'scheduled';
                 $attack['recheck_at'] = $at;
@@ -90,6 +91,12 @@ class RaidFollowUp
         $actions = 0;
         foreach ($mem['attacks'] as $fleetId => &$attack) {
             $state = $attack['state'] ?? 'none';
+            if (in_array($state, ['scheduled', 'probing'], true) && $this->dueNow($attack, $state, $now) && $this->relationBroken($ctx, $attack)) {
+                $attack['state'] = 'done';
+                $actions += $this->recall($ctx, (int) $bot['user_id'], (int) $bot['universe'], (int) $fleetId, $attack, $mem, 'the target is a buddy or pact partner now', $now);
+
+                continue;
+            }
             if ($state === 'scheduled' && $now >= (int) $attack['recheck_at']) {
                 $actions += $this->sendProbe($ctx, $bot, $attack, $now);
             } elseif ($state === 'probing' && $now >= (int) $attack['read_at']) {
@@ -99,6 +106,26 @@ class RaidFollowUp
         unset($attack);
 
         return $actions;
+    }
+
+    /**
+     * Whether the re-spy task of an attack is due.
+     *
+     * @param array<string, mixed> $attack memory entry
+     */
+    private function dueNow(array $attack, string $state, int $now): bool
+    {
+        return $now >= (int) ($state === 'scheduled' ? $attack['recheck_at'] : $attack['read_at']);
+    }
+
+    /**
+     * Whether the attack's target stands in a relation the bot respects (own alliance, buddy, pact) by now.
+     *
+     * @param array<string, mixed> $attack memory entry (`user`)
+     */
+    private function relationBroken(BotActions $ctx, array $attack): bool
+    {
+        return $this->dispatcher->relationRefusalFor($ctx->user, (int) $attack['user']) !== null;
     }
 
     /**
@@ -204,7 +231,8 @@ class RaidFollowUp
         if (empty($fleet) || (int) $fleet['status'] !== FLEET_OUTWARD) {
             return 0;
         }
-        $verdict = $this->planner->assess($ctx, $this->fleetFunctions()->unserialize((string) $fleet['ships']), $report, $attack['plan']);
+        $ships = !empty($attack['acs']) ? $this->acs->groupShips((int) $attack['acs']) : $this->fleetFunctions()->unserialize((string) $fleet['ships']);
+        $verdict = $this->planner->assess($ctx, $ships, $report, $attack['plan']);
         $why = $this->recallReason($verdict, $attack['plan']);
         $numbers = $verdict === null
             ? 'report shows no fleet/defense'
@@ -233,7 +261,8 @@ class RaidFollowUp
         if (!$verdict['win']) {
             return 'target got stronger, the fight is not safe';
         }
-        if ($verdict['loot'] < RaidPlanner::MIN_LOOT * 0.5 || $verdict['ratio'] < max(1.0, (float) ($plan['min_ratio'] ?? 1.0) * 0.5)) {
+        $recallLoot = (float) ($plan['recall_loot'] ?? RaidPlanner::MIN_LOOT * 0.5);
+        if ($verdict['loot'] < $recallLoot || $verdict['ratio'] < max(1.0, (float) ($plan['min_ratio'] ?? 1.0) * (float) ($plan['recall_ratio'] ?? 0.5))) {
             return 'resources dropped, not worth it any more';
         }
 
@@ -252,7 +281,7 @@ class RaidFollowUp
         $ok = $this->dispatcher->recall($ctx, $fleetId);
         $this->botLog->log($botId, $uni, 'raid_recall', ($ok ? 'recalled ' : 'recall refused for ') . 'attack on ' . $attack['name'] . ' [' . $attack['coords'] . ']: ' . $reason);
         $mem['attacks'][$fleetId]['state'] = 'settled';
-        $mem['targets'][(int) $attack['planet']]['skip_until'] = $now + RaidTargetFinder::COOLDOWN;
+        $mem['targets'][(int) $attack['planet']]['skip_until'] = $now + $ctx->bot->targetCooldownSeconds();
 
         return $ok ? 1 : 0;
     }
@@ -279,7 +308,7 @@ class RaidFollowUp
                 continue;
             }
             $mem['attacks'][$fleetId]['state'] = 'settled';
-            $log = $this->db->selectSingle('SELECT hasCanceled, gained_metal, gained_crystal, gained_deuterium FROM %%LOG_FLEETS%% WHERE id = :id;', [':id' => $fleetId]);
+            $log = $this->db->selectSingle('SELECT hasCanceled, status, ships, start_ships, gained_metal, gained_crystal, gained_deuterium FROM %%LOG_FLEETS%% WHERE id = :id;', [':id' => $fleetId]);
             if (empty($log) || !empty($log['hasCanceled'])) {
                 continue;
             }
@@ -308,15 +337,16 @@ class RaidFollowUp
         }
         $label = $attack['name'] . ' [' . $attack['coords'] . ']';
         $mem['targets'][(int) $attack['planet']]['last_hit'] = $now;
+        $this->learn($ctx, $botId, $uni, $personality, $attack, $log, $now);
         if ($value <= 0) {
             $this->botLog->log($botId, $uni, 'raid_result', 'no loot from ' . $label . ' (fleet lost or target empty)');
-            $mem['targets'][(int) $attack['planet']]['skip_until'] = $now + RaidTargetFinder::COOLDOWN;
+            $mem['targets'][(int) $attack['planet']]['skip_until'] = $now + $ctx->bot->targetCooldownSeconds();
 
             return;
         }
         $this->botLog->log($botId, $uni, 'raid_result', 'hit ' . $label . ': +' . round($gained[RESOURCE_METAL]) . ' metal, +' . round($gained[RESOURCE_CRYSTAL]) . ' crystal, +' . round($gained[RESOURCE_DEUT]) . ' deuterium (value ' . round($value) . ', planned ' . round((float) $attack['plan']['loot']) . ')');
         RaidMemory::farm($personality, (int) $attack['planet'], (int) $attack['user'], (string) $attack['name'], $value, $now);
-        if ($value >= RaidPlanner::MIN_LOOT * self::STREAK_LOOT) {
+        if ($value >= $ctx->bot->minLoot * $ctx->bot->streakLootPercent / 100) {
             $this->streak($ctx, $botId, $uni, $s, $mem, $label, $now);
         }
         if (!$attack['is_bot']) {
@@ -324,6 +354,31 @@ class RaidFollowUp
         }
         if (!$attack['is_bot'] && mt_rand(1, 100) <= 15) {
             $this->taunt($bot, $s, $attack, $botId, $uni);
+        }
+    }
+
+    /**
+     * Compares the losses the fight really cost with the plan's simulated estimate; a clearly worse result raises the bot's loss
+     * multiplier (RaidLearning), which the planner applies to later raids.
+     *
+     * @param array<string, mixed> $personality changed in place
+     * @param array<string, mixed> $attack memory entry (`plan`)
+     * @param array<string, mixed> $log fleet log row (`status`, `ships`, `start_ships`)
+     */
+    private function learn(BotActions $ctx, int $botId, int $uni, array &$personality, array $attack, array $log, int $now): void
+    {
+        $start = $this->fleetFunctions()->unserialize((string) ($log['start_ships'] ?? ''));
+        if ($start === []) {
+            return;
+        }
+        $left = (int) ($log['status'] ?? 0) === FLEET_DESTROYED ? [] : $this->fleetFunctions()->unserialize((string) ($log['ships'] ?? ''));
+        $actual = max(0.0, $this->planner->fleetValue($start) - $this->planner->fleetValue($left));
+        $estimated = (float) ($attack['plan']['losses_sim'] ?? $attack['plan']['losses'] ?? 0);
+        $before = RaidLearning::multiplier($personality, $now);
+        $after = RaidLearning::learn($personality, $estimated, $actual, $now);
+        $ctx->lossMultiplier = $after;
+        if ($after > $before) {
+            $this->botLog->log($botId, $uni, 'raid_learn', 'losses ' . round($actual) . ' against ' . round($estimated) . ' expected: loss multiplier now ' . round($after, 2));
         }
     }
 

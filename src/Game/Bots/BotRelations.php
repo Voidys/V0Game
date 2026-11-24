@@ -34,6 +34,15 @@ class BotRelations
     /** Events that mean the player got in touch with the bot (sets `player_contacted`). */
     public const CONTACT_EVENTS = [self::EVENT_MESSAGE, self::EVENT_PLAYER_SPIED, self::EVENT_PLAYER_ATTACKED];
 
+    /** Grudge points an event adds (the grudge decays 10 % per day, see grudge()). */
+    public const GRUDGE_EVENTS = [
+        self::EVENT_PLAYER_SPIED => 2.0,
+        self::EVENT_PLAYER_ATTACKED => 10.0,
+    ];
+
+    /** Daily decay factor of a grudge. */
+    public const GRUDGE_DECAY = 0.9;
+
     public const MIN_BALANCE = -100;
     public const MAX_BALANCE = 100;
     /** Balance at or below this is hostile, at or above FRIENDLY a friendly stance. */
@@ -51,20 +60,65 @@ class BotRelations
     {
         $delta = self::EVENTS[$event] ?? 0;
         $contact = in_array($event, self::CONTACT_EVENTS, true) ? 1 : 0;
+        $grudge = self::GRUDGE_EVENTS[$event] ?? 0.0;
         $now = time();
+        // grudge first, then its time: MySQL evaluates the assignments left to right, the decay needs the old time
+        $grudgeSql = $grudge > 0
+            ? 'grudge = LEAST(100, grudge * POW(' . self::GRUDGE_DECAY . ', GREATEST(0, :now3 - grudge_at) / 86400) + :g2), grudge_at = :now4,'
+            : '';
+        $params = [
+            ':bot' => $bot, ':bot2' => $bot, ':player' => $player, ':uni' => $uni, ':delta' => $delta,
+            ':delta2' => $delta, ':contact' => $contact, ':contact2' => $contact, ':now' => $now, ':now2' => $now, ':now6' => $now, ':g' => $grudge,
+        ];
+        if ($grudge > 0) {
+            $params += [':now3' => $now, ':now4' => $now, ':g2' => $grudge];
+        }
         $this->db->insert(
-            'INSERT INTO %%BOT_RELATIONS%% (bot_id, player_id, universe, balance, interactions, player_contacted, last_interaction, last_handled_message_id)
-             VALUES (:bot, :player, :uni, :delta, 1, :contact, :now, COALESCE((SELECT last_message_id FROM %%BOT_PLAYERS%% WHERE user_id = :bot2), 0))
+            'INSERT INTO %%BOT_RELATIONS%% (bot_id, player_id, universe, balance, grudge, grudge_at, interactions, player_contacted, last_interaction, last_handled_message_id)
+             VALUES (:bot, :player, :uni, :delta, :g, :now, 1, :contact, :now6, COALESCE((SELECT last_message_id FROM %%BOT_PLAYERS%% WHERE user_id = :bot2), 0))
              ON DUPLICATE KEY UPDATE
                balance = LEAST(' . self::MAX_BALANCE . ', GREATEST(' . self::MIN_BALANCE . ', balance + CAST(:delta2 AS SIGNED))),
+               ' . $grudgeSql . '
                interactions = interactions + 1,
                player_contacted = IF(CAST(:contact2 AS UNSIGNED) = 1, 1, player_contacted),
                last_interaction = :now2;',
-            [
-                ':bot' => $bot, ':bot2' => $bot, ':player' => $player, ':uni' => $uni, ':delta' => $delta,
-                ':delta2' => $delta, ':contact' => $contact, ':contact2' => $contact, ':now' => $now, ':now2' => $now,
-            ],
+            $params,
         );
+    }
+
+    /**
+     * The grudge of a relation row now: the stored value decayed by 10 % per day since it was last raised.
+     *
+     * @param array<mixed> $relation row with `grudge` and `grudge_at`
+     */
+    public function grudge(array $relation, int $now): float
+    {
+        $value = (float) ($relation['grudge'] ?? 0);
+        if ($value <= 0) {
+            return 0.0;
+        }
+
+        return $value * self::GRUDGE_DECAY ** (max(0, $now - (int) ($relation['grudge_at'] ?? 0)) / 86400);
+    }
+
+    /**
+     * All grudges of a bot that are still above `$min` after the decay, by player id, strongest first.
+     *
+     * @return array<int, float>
+     */
+    public function grudges(int $bot, int $now, float $min = 1.0): array
+    {
+        $out = [];
+        $rows = $this->db->select('SELECT player_id, grudge, grudge_at FROM %%BOT_RELATIONS%% WHERE bot_id = :bot AND grudge > 0;', [':bot' => $bot]);
+        foreach ($rows as $row) {
+            $value = $this->grudge($row, $now);
+            if ($value >= $min) {
+                $out[(int) $row['player_id']] = $value;
+            }
+        }
+        arsort($out);
+
+        return $out;
     }
 
     /**

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
+use App\Game\Bots\BotPresets;
 use App\Game\Bots\BotProfiles;
 use App\Game\Bots\BotRegistry;
 use App\Game\Bots\BotSpawner;
@@ -118,6 +119,13 @@ class BotsController extends AbstractAdminController
     public function removeBot(): Response
     {
         return $this->runAction('bots', fn(): string => $this->doRemoveBot());
+    }
+
+    /** POST: sets or resets the preset and aggression of one bot. */
+    #[GameRoute('admin', 'admin/bots/bots/override', 'bots', 'setOverride', ['POST'])]
+    public function setOverride(): Response
+    {
+        return $this->runAction('bots', fn(): string => $this->doSetOverride());
     }
 
     /**
@@ -354,6 +362,21 @@ class BotsController extends AbstractAdminController
     }
 
     /**
+     * Action set_override: stores the bot's own preset and aggression (the "reset" button, or an empty preset with an empty aggression,
+     * removes them); returns the URL of the bots tab.
+     */
+    private function doSetOverride(): string
+    {
+        $post = $this->state->requestPost;
+        $reset = !empty($post['reset']);
+        $aggression = ($post['aggression'] ?? '') === '' || $reset ? null : (int) $post['aggression'];
+        $found = $this->registry->setOverride((int) ($post['user_id'] ?? 0), $reset ? '' : (string) ($post['preset'] ?? ''), $aggression);
+        $this->flash($this->state->LNG[$found ? 'bot_override_saved' : 'bot_profile_missing'], $found);
+
+        return $this->tabUrl('bots');
+    }
+
+    /**
      * Action remove_bot: removes a bot player (only real bots); returns the URL of the bots tab.
      */
     private function doRemoveBot(): string
@@ -566,6 +589,7 @@ class BotsController extends AbstractAdminController
         $log = $this->registry->recentLog($universe, 50);
         $vars += [
             'botsEnabled' => (bool) $this->configs->get($universe)->bots_enabled,
+            'botPresets' => array_values(array_filter(BotPresets::NAMES, static fn(string $n): bool => BotPresets::isPreset($n))),
             'profiles' => $profiles,
             'bots' => $bots,
             'botLog' => $log,

@@ -408,7 +408,7 @@ final class BotRaidTest extends GameTestCase
             $this->assertSame('scheduled', $attack['state'], $text);
             $reportAt = $attack['recheck_at'] + $flight['duration'];
             $this->assertLessThanOrEqual($attack['impact'] - 150 - 190, $reportAt, 'the report arrives at least 2 minutes before the impact, with late cron runs counted');
-            $this->assertGreaterThanOrEqual($attack['impact'] - 240 - 190 - 1, $reportAt);
+            $this->assertGreaterThanOrEqual($attack['impact'] - 240 - 190 - $ctx->bot->respyJitterSeconds - 1, $reportAt, 'at most the jitter earlier');
             $this->assertSame($attack['impact'] + 15, $attack['settle_at']);
         }
 

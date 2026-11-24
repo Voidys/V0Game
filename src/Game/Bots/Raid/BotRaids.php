@@ -5,6 +5,7 @@ namespace App\Game\Bots\Raid;
 use App\Game\Enum\Mission;
 use App\Game\Bots\BotActions;
 use App\Game\Bots\BotLog;
+use App\Game\Bots\BotRelations;
 use App\Game\Core\ConfigRegistry;
 use App\Game\Core\Database;
 use App\Game\Core\GameUtilities;
@@ -24,20 +25,11 @@ class BotRaids
 {
     use GameUtilities;
 
-    /** Probes a raiding bot wants at home before it spies. */
-    private const PROBES_WANTED = 4;
-
     /** Seconds a candidate list from scouting is reused. */
     private const SCOUT_CACHE = 600;
 
     /** Seconds after which a report of a target is too old to attack on. */
     private const REPORT_MAX_AGE = 1800;
-
-    /** Seconds before a target is spied on again (it gets a counter-espionage message each time). */
-    private const SPY_COOLDOWN = 7200;
-
-    /** The same inside a raid streak, where fresh reports matter. */
-    private const SPY_COOLDOWN_STREAK = 900;
 
     /** Probe flights in the air at once (scouting). */
     private const MAX_PENDING_SPIES = 3;
@@ -54,7 +46,11 @@ class BotRaids
         private readonly RaidPlanner $planner,
         private readonly RaidDispatcher $dispatcher,
         private readonly RaidFollowUp $followUp,
+        private readonly BotEnvelope $envelope,
         private readonly BotLog $botLog,
+        private readonly BotAcs $acs,
+        private readonly BotMissiles $missiles,
+        private readonly BotRelations $relations,
     ) {}
 
     /** Whether raids are on in the universe (`bots_raids_enabled`). */
@@ -84,7 +80,9 @@ class BotRaids
     public function maintain(BotActions $ctx, array $bot, array $s, array &$personality, int $now): int
     {
         $mem = RaidMemory::of($personality);
+        $ctx->lossMultiplier = RaidLearning::multiplier($personality, $now);
         $actions = $this->followUp->recheck($ctx, $bot, $s, $mem, $now);
+        $actions += $this->acs->join($ctx, $bot, $now);
         $this->followUp->settle($ctx, $bot, $s, $mem, $personality, $now);
         RaidMemory::prune($mem, $now);
         $personality['_raid'] = $mem;
@@ -162,7 +160,7 @@ class BotRaids
     private function hasRaiders(BotActions $ctx): bool
     {
         $e = $this->elements();
-        foreach ($ctx->planets as $planet) {
+        foreach ($ctx->planets + $ctx->moons as $planet) {
             foreach ($this->elements()->ids('fleet') as $id) {
                 $fighter = $e->combat($id)->attack > 0 && !in_array($id, [SHIP_COLOSHIP, SHIP_RECYCLER, SHIP_PROBE, SHIP_SOLSAT], true);
                 if ($fighter && (int) ($planet[$e->column($id)] ?? 0) > 0) {
@@ -193,7 +191,7 @@ class BotRaids
      */
     private function prepareProbes(BotActions $ctx, int $botId, int $uni): int
     {
-        $missing = self::PROBES_WANTED - $this->probesAtHome($ctx);
+        $missing = $ctx->bot->probesWanted - $this->probesAtHome($ctx);
         $queued = $this->queuedProbes($ctx);
         if ($missing - $queued < 1) {
             return 0;
@@ -300,8 +298,15 @@ class BotRaids
         $label = $target['name'] . ' [' . $target['coords'] . ']';
         $pid = (int) $target['planet_id'];
         $plan = $this->planner->plan($ctx, $report, $target, $s);
+        if (!$plan['ok'] && str_starts_with((string) $plan['reason'], 'no fleet that wins')) {
+            $help = $this->beyondSolo($ctx, $s, $mem, $target, $report, $botId, $uni, $label, $now);
+            if ($help === true) {
+                return 1;
+            }
+            $plan = $help ?? $plan;
+        }
         if (!$plan['ok']) {
-            $this->noGo($mem, $pid, $botId, $uni, $label, $plan['reason'], $report, $now);
+            $this->noGo($mem, $pid, $botId, $uni, $label, $plan['reason'], $report, $now, $ctx->bot->targetCooldownSeconds());
 
             return 0;
         }
@@ -310,12 +315,28 @@ class BotRaids
 
             return 0;
         }
+        if ($this->fleetCapReached($ctx)) {
+            $this->botLog->log($botId, $uni, 'raid_skip', $label . ': too many bot fleets in the air (limit ' . $ctx->bot->maxFleets . ')');
+
+            return 0;
+        }
+        $envelope = !empty($target['is_bot']) ? null : $this->envelope->refusal($ctx, (int) $target['user_id'], Mission::Attack->value);
+        if ($envelope !== null) {
+            $this->botLog->log($botId, $uni, 'raid_skip', $label . ': ' . $envelope);
+            $mem['targets'][$pid]['skip_until'] = $now + $ctx->bot->targetCooldownSeconds();
+
+            return 0;
+        }
         $plan['min_ratio'] = (float) $s['min_profit_ratio'];
+        $plan['min_loot'] = $ctx->bot->minLoot;
+        $plan['recall_loot'] = $ctx->bot->minLoot * $ctx->bot->recallLootPercent / 100;
+        $plan['recall_ratio'] = $ctx->bot->recallRatioPercent / 100;
         $origin = $plan['origin'];
-        $sent = $this->dispatcher->send($ctx, $ctx->planets[$origin], $plan['fleet'], Mission::Attack->value, $pid, (int) $target['user_id']);
+        $revenge = !empty($target['revenge']);
+        $sent = $this->dispatcher->send($ctx, $ctx->originRef($origin), $plan['fleet'], Mission::Attack->value, $pid, (int) $target['user_id']);
         if (!$sent['ok']) {
             $this->botLog->log($botId, $uni, 'raid_skip', $label . ': game rules refuse the attack (' . $sent['reason'] . ')');
-            $mem['targets'][$pid]['skip_until'] = $now + RaidTargetFinder::COOLDOWN;
+            $mem['targets'][$pid]['skip_until'] = $now + $ctx->bot->targetCooldownSeconds();
 
             return 0;
         }
@@ -324,11 +345,40 @@ class BotRaids
             'is_bot' => (bool) $target['is_bot'], 'impact' => $sent['arrival'], 'origin' => $origin, 'plan' => $plan,
             'target' => ['galaxy' => $target['galaxy'], 'system' => $target['system'], 'planet' => $target['planet']],
         ];
+        if (!empty($plan['joint'])) {
+            $attack['acs'] = $this->acs->open($ctx, (int) $sent['id'], $pid, (int) $sent['arrival'], $plan['helpers']);
+        }
         $schedule = $this->followUp->schedule($ctx, $attack, $s, $probes, $now);
         $mem['attacks'][$sent['id']] = $attack;
-        $this->botLog->log($botId, $uni, 'raid_attack', $this->attackText($label, $plan, $sent['arrival']) . '; ' . $schedule);
+        $kind = !empty($plan['joint']) ? ' (ACS group #' . $attack['acs'] . ', ' . count($plan['helpers']) . ' helper(s))' : ($revenge ? ' (revenge)' : '');
+        $this->botLog->log($botId, $uni, 'raid_attack', $this->attackText($label, $plan, $sent['arrival']) . $kind . '; ' . $schedule);
 
         return 1;
+    }
+
+    /**
+     * What a bot tries when the target is too strong for its own fleet: a group attack with allied bots (BotAcs), else missiles at the
+     * defense (BotMissiles; the target is then spied on again after the impact).
+     *
+     * @param array<string, mixed> $s profile settings
+     * @param array<string, mixed> $mem raid memory
+     * @param array<string, mixed> $target scouted target
+     * @param array<string, mixed> $report parsed report
+     * @return array<string, mixed>|true|null a joint plan, true when missiles were launched, null when nothing helps
+     */
+    private function beyondSolo(BotActions $ctx, array $s, array &$mem, array $target, array $report, int $botId, int $uni, string $label, int $now): array|bool|null
+    {
+        $joint = $this->acs->plan($ctx, $report, $target, (float) $s['min_profit_ratio'], $now);
+        if ($joint['ok']) {
+            return $joint;
+        }
+        $volley = $this->missiles->strike($ctx, $report, $target, $s, $mem, $now);
+        if ($volley === null) {
+            return null;
+        }
+        $this->botLog->log($botId, $uni, 'raid_missiles', $label . ': ' . $volley);
+
+        return true;
     }
 
     /**
@@ -355,7 +405,7 @@ class BotRaids
      * @param array<string, mixed> $mem raid memory
      * @param array<string, mixed> $report parsed report
      */
-    private function noGo(array &$mem, int $pid, int $botId, int $uni, string $label, string $reason, array $report, int $now): void
+    private function noGo(array &$mem, int $pid, int $botId, int $uni, string $label, string $reason, array $report, int $now, int $cooldown = RaidTargetFinder::COOLDOWN): void
     {
         if ($report['fleet'] === null || $report['defense'] === null) {
             $tries = (int) ($mem['targets'][$pid]['spy_try'] ?? 0) + 1;
@@ -366,7 +416,7 @@ class BotRaids
                 return;
             }
         }
-        $mem['targets'][$pid]['skip_until'] = $now + RaidTargetFinder::COOLDOWN / (str_starts_with($reason, 'not worth') ? 2 : 1);
+        $mem['targets'][$pid]['skip_until'] = $now + $cooldown / (str_starts_with($reason, 'not worth') ? 2 : 1);
         $this->botLog->log($botId, $uni, 'raid_skip', $label . ': ' . $reason);
     }
 
@@ -392,13 +442,20 @@ class BotRaids
 
         $busy = array_merge(array_column($mem['spies'], 'planet'), array_column($mem['attacks'], 'planet'));
         $sent = 0;
-        // a target is looked at again after SPY_COOLDOWN, in a running raid streak after SPY_COOLDOWN_STREAK
-        $cooldown = !empty($mem['streak']) && (int) $mem['streak']['until'] > $now ? self::SPY_COOLDOWN_STREAK : self::SPY_COOLDOWN;
-        foreach ($mem['cand'] as $target) {
+        $struck = $this->dueStrikes($mem, $now);
+        // a target is looked at again after the spy cooldown, in a running raid streak after the (shorter) streak cooldown
+        $cooldown = !empty($mem['streak']) && (int) $mem['streak']['until'] > $now ? $ctx->bot->spyCooldownStreakSeconds() : $ctx->bot->spyCooldownSeconds();
+        foreach (array_merge($struck, $mem['cand']) as $target) {
             $pid = (int) $target['planet_id'];
             $known = $mem['targets'][$pid] ?? [];
-            $recent = ($known['spy_at'] ?? 0) > $now - $cooldown && (int) ($known['spy_try'] ?? 0) === 0;
+            $recent = !in_array($target, $struck, true) && ($known['spy_at'] ?? 0) > $now - $cooldown && (int) ($known['spy_try'] ?? 0) === 0;
             if ($sent >= 2 || count($mem['spies']) >= self::MAX_PENDING_SPIES || in_array($pid, $busy, true) || $recent || ($known['skip_until'] ?? 0) > $now) {
+                continue;
+            }
+            if ($this->probeLimitReached($ctx, $known, $now) || $this->fleetCapReached($ctx)) {
+                continue;
+            }
+            if (empty($target['is_bot']) && $this->envelope->refusal($ctx, (int) $target['user_id'], Mission::Spy->value) !== null) {
                 continue;
             }
             if ($this->spy($ctx, $botId, $uni, $mem, $target, $now)) {
@@ -411,6 +468,60 @@ class BotRaids
     }
 
     /**
+     * Targets whose missile volley has landed: they are looked at again right away (the spy cooldown does not apply), once.
+     *
+     * @param array<string, mixed> $mem raid memory (`strikes`), the returned ones are removed
+     * @return list<array<string, mixed>> scouted targets
+     */
+    private function dueStrikes(array &$mem, int $now): array
+    {
+        $due = [];
+        foreach ((array) ($mem['strikes'] ?? []) as $pid => $strike) {
+            if ($now >= (int) $strike['at']) {
+                $due[] = $strike['target'];
+                unset($mem['strikes'][$pid]);
+            }
+        }
+
+        return $due;
+    }
+
+    /**
+     * Whether the bot already sent its probes-per-target-and-day quota of probe flights to this target (0 = no quota).
+     *
+     * @param array<string, mixed> $known memory of the target (`spy_times`)
+     */
+    private function probeLimitReached(BotActions $ctx, array $known, int $now): bool
+    {
+        $limit = $ctx->bot->probesPerTargetDay;
+        if ($limit < 1) {
+            return false;
+        }
+        $recent = array_filter((array) ($known['spy_times'] ?? []), static fn($t): bool => (int) $t > $now - 86400);
+
+        return count($recent) >= $limit;
+    }
+
+    /**
+     * Whether the universe-wide limit of bot raid fleets in the air (spying or attacking, `bots_max_fleets`, 0 = none) is reached.
+     */
+    private function fleetCapReached(BotActions $ctx): bool
+    {
+        $max = $ctx->bot->maxFleets;
+        if ($max < 1) {
+            return false;
+        }
+        $count = (int) $this->db->selectSingle(
+            'SELECT COUNT(*) AS c FROM %%FLEETS%% f INNER JOIN %%BOT_PLAYERS%% bp ON bp.user_id = f.owner
+            WHERE bp.universe = :uni AND f.mission IN (:att, :acs, :spy);',
+            [':uni' => $ctx->universe, ':att' => Mission::Attack->value, ':acs' => Mission::Acs->value, ':spy' => Mission::Spy->value],
+            'c',
+        );
+
+        return $count >= $max;
+    }
+
+    /**
      * Looks at the galaxy around the bot's planets and logs what it saw and why some planets are no targets.
      *
      * @param array<string, mixed> $s profile settings
@@ -419,7 +530,8 @@ class BotRaids
      */
     private function scout(BotActions $ctx, int $botId, int $uni, array $s, array &$mem, array $personality, int $now): void
     {
-        $found = $this->finder->scout($ctx, $s, RaidMemory::withFarm($mem['targets'], $personality));
+        $grudges = $ctx->bot->revenge ? $this->relations->grudges($botId, $now) : [];
+        $found = $this->finder->scout($ctx, $s, RaidMemory::withFarm($mem['targets'], $personality), $grudges);
         $mem['cand'] = array_slice($found['candidates'], 0, 8);
         $mem['scouted_at'] = $now;
         $names = array_map(static fn(array $c): string => $c['name'] . ' ' . $c['coords'] . ($c['activity_minutes'] === null ? '' : ' (active ' . $c['activity_minutes'] . ' min ago)') . ' ' . $c['score'], array_slice($mem['cand'], 0, 3));
@@ -461,10 +573,13 @@ class BotRaids
         $sent = $this->dispatcher->send($ctx, $ctx->planets[$origin], [SHIP_PROBE => $n], Mission::Spy->value, $pid, (int) $target['user_id']);
         if (!$sent['ok']) {
             $this->botLog->log($botId, $uni, 'raid_skip', $target['name'] . ' [' . $target['coords'] . ']: spying refused (' . $sent['reason'] . ')');
-            $mem['targets'][$pid]['skip_until'] = $now + RaidTargetFinder::COOLDOWN;
+            $mem['targets'][$pid]['skip_until'] = $now + $ctx->bot->targetCooldownSeconds();
 
             return false;
         }
+        $times = array_values(array_filter((array) ($mem['targets'][$pid]['spy_times'] ?? []), static fn($t): bool => (int) $t > $now - 86400));
+        $times[] = $now;
+        $mem['targets'][$pid]['spy_times'] = $times;
         $mem['spies'][$sent['id']] = ['planet' => $pid, 'sent' => $now, 'arrive' => $sent['arrival'], 'target' => $target, 'n' => $n];
         $this->botLog->log($botId, $uni, 'raid_spy', $n . ' probes to ' . $target['name'] . ' [' . $target['coords'] . '], report at ' . date('H:i:s', $sent['arrival']));
 

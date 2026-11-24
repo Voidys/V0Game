@@ -21,7 +21,7 @@ class BotRegistry
      * first 160 characters of the persona bio.
      *
      * @return list<array{user_id: int, username: string, profile_id: int, profile_name: string, skill: int|float,
-     *     points: string, last_action: string, next_tick: string, online: bool, actions_total: int, bio: string}>
+     *     preset: string, aggression: int|null, points: string, last_action: string, next_tick: string, online: bool, actions_total: int, bio: string}>
      */
     public function listBots(int $universe): array
     {
@@ -38,7 +38,10 @@ class BotRegistry
         );
         foreach ($rows as $b) {
             $persona = json_decode((string) $b['persona'], true);
+            $cfg = (array) (json_decode((string) $b['personality'], true)['_cfg'] ?? []);
             $bots[] = [
+                'preset' => (string) ($cfg['preset'] ?? ''),
+                'aggression' => isset($cfg['aggression']) && $cfg['aggression'] !== '' ? (int) $cfg['aggression'] : null,
                 'user_id' => (int) $b['user_id'],
                 'username' => (string) $b['username'],
                 'profile_id' => (int) $b['profile_id'],
@@ -55,6 +58,41 @@ class BotRegistry
         }
 
         return $bots;
+    }
+
+    /**
+     * Sets or clears the bot's own difficulty preset and aggression (personality `_cfg`, read by BotEngine every tick). An empty preset
+     * and a null aggression remove the override ("reset to the universe's preset"). Only real bots of the table are touched.
+     *
+     * @return bool whether the bot exists
+     */
+    public function setOverride(int $userId, string $preset, ?int $aggression): bool
+    {
+        $this->db->startTransaction();
+        $row = $this->db->selectSingle('SELECT personality FROM %%BOT_PLAYERS%% WHERE user_id = :u FOR UPDATE;', [':u' => $userId]);
+        if (empty($row)) {
+            $this->db->rollback();
+
+            return false;
+        }
+        $personality = json_decode((string) $row['personality'], true);
+        $personality = is_array($personality) ? $personality : [];
+        $cfg = [];
+        if (BotPresets::isPreset($preset)) {
+            $cfg['preset'] = $preset;
+        }
+        if ($aggression !== null) {
+            $cfg['aggression'] = max(0, min(100, $aggression));
+        }
+        if ($cfg === []) {
+            unset($personality['_cfg']);
+        } else {
+            $personality['_cfg'] = $cfg;
+        }
+        $this->db->update('UPDATE %%BOT_PLAYERS%% SET personality = :p WHERE user_id = :u;', [':p' => json_encode($personality), ':u' => $userId]);
+        $this->db->commit();
+
+        return true;
     }
 
     /**

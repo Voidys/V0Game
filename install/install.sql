@@ -1691,6 +1691,8 @@ CREATE TABLE `%PREFIX%bot_relations` (
   `player_id` INT UNSIGNED NOT NULL,
   `universe` TINYINT UNSIGNED NOT NULL,
   `balance` INT NOT NULL DEFAULT 0,
+  `grudge` DOUBLE NOT NULL DEFAULT 0,
+  `grudge_at` INT UNSIGNED NOT NULL DEFAULT 0,
   `interactions` INT UNSIGNED NOT NULL DEFAULT 0,
   `player_contacted` TINYINT(1) NOT NULL DEFAULT 0,
   `last_interaction` INT UNSIGNED NOT NULL DEFAULT 0,

@@ -199,7 +199,7 @@ class BotPersona
             if ($client === null) {
                 return null;
             }
-            if ($userId > 0 && !$this->takeBudget($universe, $userId)) {
+            if ($userId > 0 && (!$this->profileAllowsLlm($userId) || !$this->takeBudget($universe, $userId))) {
                 return null;
             }
 
@@ -209,6 +209,22 @@ class BotPersona
 
             return null;
         }
+    }
+
+    /**
+     * Whether the bot's profile lets it use the LLM (profile setting `llm_advice`, "Allow LLM (names and chat)", on unless switched off).
+     * A bot without a profile row counts as allowed.
+     */
+    private function profileAllowsLlm(int $userId): bool
+    {
+        $json = $this->db->selectSingle(
+            'SELECT p.settings FROM %%BOT_PLAYERS%% bp INNER JOIN %%BOT_PROFILES%% p ON p.id = bp.profile_id WHERE bp.user_id = :id;',
+            [':id' => $userId],
+            'settings',
+        );
+        $settings = is_string($json) ? json_decode($json, true) : null;
+
+        return !is_array($settings) || ($settings['llm_advice'] ?? true) !== false;
     }
 
     /**

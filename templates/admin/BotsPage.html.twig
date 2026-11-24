@@ -207,7 +207,7 @@
       <table class="data">
         <thead>
           <tr>
-            <th>{{ LNG.bot_player }}</th><th>{{ LNG.bot_profile }}</th><th class="num">{{ LNG.bot_skill }}</th><th class="num">{{ LNG.bot_points }}</th>
+            <th>{{ LNG.bot_player }}</th><th>{{ LNG.bot_profile }}</th><th>{{ LNG.bot_difficulty }}</th><th class="num">{{ LNG.bot_skill }}</th><th class="num">{{ LNG.bot_points }}</th>
             <th>{{ LNG.bot_last_action }}</th><th>{{ LNG.bot_next_tick }}</th><th>{{ LNG.bot_session }}</th><th></th>
           </tr>
         </thead>
@@ -216,6 +216,18 @@
           <tr>
             <td>{{ b.username }} <span class="small muted">(#{{ b.user_id }})</span>{% if b.bio %}<div class="small muted">{{ b.bio }}</div>{% endif %}</td>
             <td>{{ b.profile_name }}</td>
+            <td>
+              <form method="POST" action="{{ path('admin_bots_set_override') }}" class="toolbar">
+                <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="user_id" value="{{ b.user_id }}">
+                <select name="preset" aria-label="{{ LNG.bot_override_preset }}">
+                  <option value="">{{ LNG.bot_override_universe }}</option>
+                  {% for p in botPresets %}<option value="{{ p }}"{% if b.preset == p %} selected{% endif %}>{{ LNG[('se_bots_preset_' ~ p)] }}</option>{% endfor %}
+                </select>
+                <input type="number" name="aggression" value="{{ b.aggression }}" min="0" max="100" placeholder="{{ LNG.bot_override_aggression }}" aria-label="{{ LNG.bot_override_aggression }}" class="narrow">
+                <button type="submit" class="btn--small">{{ icon('save') }}{{ LNG.bot_override_save }}</button>
+                <button type="submit" name="reset" value="1" class="btn--small">{{ icon('undo-2') }}{{ LNG.bot_override_reset }}</button>
+              </form>
+            </td>
             <td class="num">{{ b.skill }}%</td>
             <td class="num">{{ b.points }}</td>
             <td>{{ b.last_action }} <span class="small muted">({{ b.actions_total }})</span></td>
@@ -229,7 +241,7 @@
             </td>
           </tr>
           {% else %}
-          <tr><td colspan="8" class="empty">{{ LNG.bot_none }}</td></tr>
+          <tr><td colspan="9" class="empty">{{ LNG.bot_none }}</td></tr>
           {% endfor %}
         </tbody>
       </table>
